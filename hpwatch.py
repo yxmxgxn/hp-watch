@@ -18,6 +18,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.request
 
 UA = "Mozilla/5.0 (hp-watch; personal schedule diff)"
@@ -263,28 +265,64 @@ def build_messages(prev, cur):
     return msgs
 
 
+# 埋め込みの左端の色。新規・開始＝緑、変更＝黄、削除・終了・中止＝赤
+GREEN, YELLOW, RED = 0x2ECC71, 0xF1C40F, 0xE74C3C
+KIND_COLOR = {
+    "新規": GREEN, "レギュラー開始": GREEN, "イベント発表": GREEN,
+    "変更": YELLOW, "レギュラー変更": YELLOW, "イベント変更": YELLOW,
+    "削除": RED, "レギュラー終了": RED, "イベント削除": RED,
+}
+
+
+def to_embed(kind, body, site):
+    head, *rest = body.split("\n")
+    color = KIND_COLOR.get(kind, YELLOW)
+    if "[中止]" in head:
+        color = RED
+    embed = {
+        "title": f"【{kind}】{head}"[:256],
+        "description": "\n".join(s.strip() for s in rest)[:4000],
+        "color": color,
+        "footer": {"text": site},
+    }
+    link = next((s.strip() for s in rest if s.strip().startswith("http")), None)
+    if link:
+        embed["url"] = link
+    return embed
+
+
 def notify(msgs, site):
     hook = os.environ.get("DISCORD_WEBHOOK_URL")
-    blocks = [f"【{site}】【{kind}】{body}" for kind, body in msgs]
     if not hook:
         print(f"=== {site}: {len(msgs)}件 ===")
-        print("\n\n".join(blocks))
+        print("\n\n".join(f"【{site}】【{kind}】{body}" for kind, body in msgs))
         return
-    # Discord は1メッセージ2000文字まで
-    buf = ""
-    for b in blocks:
-        if len(buf) + len(b) + 2 > 1900:
-            post(hook, buf)
-            buf = ""
-        buf += b + "\n\n"
-    if buf:
-        post(hook, buf)
+    # Discord は1メッセージに埋め込み10個・合計6000文字まで
+    embeds = [to_embed(kind, body, site) for kind, body in msgs]
+    batch, size = [], 0
+    for e in embeds:
+        n = len(e["title"]) + len(e["description"]) + len(site)
+        if batch and (len(batch) == 10 or size + n > 5500):
+            post(hook, batch, site)
+            batch, size = [], 0
+        batch.append(e)
+        size += n
+    if batch:
+        post(hook, batch, site)
 
 
-def post(hook, content):
-    data = json.dumps({"content": content}).encode()
+def post(hook, embeds, site):
+    data = json.dumps({"username": f"{site}予定", "embeds": embeds}).encode()
     req = urllib.request.Request(hook, data=data, headers={"Content-Type": "application/json", "User-Agent": UA})
-    urllib.request.urlopen(req, timeout=30).read()
+    for attempt in range(5):
+        try:
+            urllib.request.urlopen(req, timeout=30).read()
+            break
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == 4:  # 429 は連投の制限。待って再送
+                raise
+            time.sleep(float(e.headers.get("Retry-After") or 2))
+    time.sleep(0.5)
 
 
 # ---------- main ----------
