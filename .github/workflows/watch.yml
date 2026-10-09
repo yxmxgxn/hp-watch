@@ -1,0 +1,49 @@
+name: watch
+
+on:
+  schedule:
+    # 毎日15:00 JST（cron は UTC）。GitHub 側の混雑で数分〜数十分遅れることがある
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: ハロプロ
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python hpwatch.py --base https://helloproject.com --state state/helloproject.json --name ハロプロ
+
+      - name: JPROOM
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python hpwatch.py --base https://www.jp-r.co.jp --state state/jproom.json --name JPROOM
+
+      - name: 状態をコミット
+        if: always()
+        run: |
+          git add state
+          if git diff --cached --quiet; then
+            echo "no state change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "state: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
