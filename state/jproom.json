@@ -1503,6 +1503,22 @@
 "status": null,
 "title": "今日は佐藤優樹の誕生日です！"
 },
+"h135ce87459299e7f": {
+"artists": [
+41
+],
+"category": "TV",
+"date": "2026-10-09",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
+"members": [],
+"note": "※再放送",
+"start": "23:30",
+"status": null,
+"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#1＞」"
+},
 "h160c484551f5f2a3": {
 "artists": [
 10
@@ -1943,6 +1959,22 @@
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
 },
+"h27054949e288631a": {
+"artists": [
+41
+],
+"category": "TV",
+"date": "2026-10-09",
+"end": "25:00",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
+"members": [],
+"note": "※再放送",
+"start": "24:30",
+"status": null,
+"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#2＞」"
+},
 "h27f8c3277633d071": {
 "artists": [
 40
@@ -2022,6 +2054,22 @@
 "start": "10:55",
 "status": null,
 "title": "tbc東北放送「ひるまでウォッチン！第2部」"
+},
+"h2d83e98c266d634a": {
+"artists": [
+41
+],
+"category": "TV",
+"date": "2026-10-09",
+"end": "26:00",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
+"members": [],
+"note": "※再放送",
+"start": "25:00",
+"status": null,
+"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#3＞」"
 },
 "h2e0bc2d27734365e": {
 "artists": [
@@ -4368,6 +4416,22 @@
 "status": null,
 "title": "5thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"h9f6228f1cfcfd626": {
+"artists": [
+41
+],
+"category": "TV",
+"date": "2026-10-09",
+"end": "28:00",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/mon-special-juicejuice-2405/",
+"members": [],
+"note": "※再放送",
+"start": "27:00",
+"status": null,
+"title": "MUSIC ON! TV「M-ON! SPECIAL 『Juice=Juice』 ～We are Juice=Juice! UEMULOVE～」"
+},
 "h9f740a671c336de0": {
 "artists": [
 40
@@ -6283,6 +6347,22 @@
 "status": null,
 "title": "東海テレビ「スイッチ！」"
 },
+"hff4997badc9db2ca": {
+"artists": [
+41
+],
+"category": "TV",
+"date": "2026-10-09",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/juicejuice-10thanniversary-2310/",
+"members": [],
+"note": "※再放送",
+"start": "26:00",
+"status": null,
+"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#4＞」"
+},
 "hffa248e0d6b11489": {
 "artists": [
 5,
@@ -6828,86 +6908,6 @@
 "status": null,
 "title": "ねことも12月号"
 },
-"s1731": {
-"artists": [
-41
-],
-"category": "TV",
-"date": "2026-10-09",
-"end": "24:30",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
-"members": [],
-"note": "※再放送",
-"start": "23:30",
-"status": null,
-"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#1＞」"
-},
-"s1732": {
-"artists": [
-41
-],
-"category": "TV",
-"date": "2026-10-09",
-"end": "25:00",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
-"members": [],
-"note": "※再放送",
-"start": "24:30",
-"status": null,
-"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#2＞」"
-},
-"s1733": {
-"artists": [
-41
-],
-"category": "TV",
-"date": "2026-10-09",
-"end": "26:00",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/juicejuice-2307/",
-"members": [],
-"note": "※再放送",
-"start": "25:00",
-"status": null,
-"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#3＞」"
-},
-"s1734": {
-"artists": [
-41
-],
-"category": "TV",
-"date": "2026-10-09",
-"end": "27:00",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/juicejuice-10thanniversary-2310/",
-"members": [],
-"note": "※再放送",
-"start": "26:00",
-"status": null,
-"title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#4＞」"
-},
-"s1735": {
-"artists": [
-41
-],
-"category": "TV",
-"date": "2026-10-09",
-"end": "28:00",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/mon-special-juicejuice-2405/",
-"members": [],
-"note": "※再放送",
-"start": "27:00",
-"status": null,
-"title": "MUSIC ON! TV「M-ON! SPECIAL 『Juice=Juice』 ～We are Juice=Juice! UEMULOVE～」"
-},
 "s1743": {
 "artists": [
 11
@@ -7405,6 +7405,214 @@
 "status": null,
 "title": "長崎放送「新・流行音楽堂」"
 },
+"s1847": {
+"artists": [
+5
+],
+"category": "CONCERT",
+"date": "2027-01-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"members": [],
+"note": "Entertainment Dining BERONICA（大阪）",
+"start": null,
+"status": null,
+"title": "譜久村聖 コンサート 2027"
+},
+"s1848": {
+"artists": [
+5
+],
+"category": "CONCERT",
+"date": "2027-01-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"members": [],
+"note": "Entertainment Dining BERONICA（大阪）",
+"start": null,
+"status": null,
+"title": "譜久村聖 コンサート 2027"
+},
+"s1849": {
+"artists": [
+5
+],
+"category": "CONCERT",
+"date": "2027-01-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"members": [],
+"note": "COTTON CLUB（東京）",
+"start": null,
+"status": null,
+"title": "譜久村聖 コンサート 2027"
+},
+"s1850": {
+"artists": [
+5
+],
+"category": "CONCERT",
+"date": "2027-01-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"members": [],
+"note": "COTTON CLUB（東京）",
+"start": null,
+"status": null,
+"title": "譜久村聖 コンサート 2027"
+},
+"s1851": {
+"artists": [
+5
+],
+"category": "CONCERT",
+"date": "2027-02-01",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"members": [],
+"note": "COTTON CLUB（東京）",
+"start": null,
+"status": null,
+"title": "譜久村聖 コンサート 2027"
+},
+"s1852": {
+"artists": [
+59
+],
+"category": "CONCERT",
+"date": "2027-02-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/",
+"members": [],
+"note": "KT Zepp YOKOHAMA（神奈川）",
+"start": null,
+"status": null,
+"title": "稲場愛香 Live Tour 2027"
+},
+"s1853": {
+"artists": [
+59
+],
+"category": "CONCERT",
+"date": "2027-02-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/",
+"members": [],
+"note": "NAGOYA ReNY limited（愛知）",
+"start": null,
+"status": null,
+"title": "稲場愛香 Live Tour 2027"
+},
+"s1854": {
+"artists": [
+59
+],
+"category": "CONCERT",
+"date": "2027-02-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/",
+"members": [],
+"note": "小樽 GOLDSTONE（北海道）",
+"start": null,
+"status": null,
+"title": "稲場愛香 Live Tour 2027"
+},
+"s1855": {
+"artists": [
+59
+],
+"category": "CONCERT",
+"date": "2027-02-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/",
+"members": [],
+"note": "OSAKA MUSE（大阪）",
+"start": null,
+"status": null,
+"title": "稲場愛香 Live Tour 2027"
+},
+"s1856": {
+"artists": [
+11
+],
+"category": "CONCERT",
+"date": "2027-02-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/",
+"members": [],
+"note": "OSAKA MUSE（大阪）",
+"start": null,
+"status": null,
+"title": "佐藤優樹 LIVE TOUR 2027"
+},
+"s1857": {
+"artists": [
+11
+],
+"category": "CONCERT",
+"date": "2027-02-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/",
+"members": [],
+"note": "PENNY LANE 24（北海道）",
+"start": null,
+"status": null,
+"title": "佐藤優樹 LIVE TOUR 2027"
+},
+"s1858": {
+"artists": [
+11
+],
+"category": "CONCERT",
+"date": "2027-02-28",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/",
+"members": [],
+"note": "Drum Be-1（福岡）",
+"start": null,
+"status": null,
+"title": "佐藤優樹 LIVE TOUR 2027"
+},
+"s1859": {
+"artists": [
+11
+],
+"category": "CONCERT",
+"date": "2027-03-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/",
+"members": [],
+"note": "新宿ReNY（東京）",
+"start": null,
+"status": null,
+"title": "佐藤優樹 LIVE TOUR 2027"
+},
 "s697": {
 "artists": [
 5,
@@ -7846,5 +8054,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610092230-aIOHxOGrwaoFwiY2"
+"versionDir": "2610102100-2cJbBSTUfk0LlnbP"
 }
