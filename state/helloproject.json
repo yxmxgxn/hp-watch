@@ -1,14 +1,5 @@
 {
 "events": {
-"/angerme/event/094f6fb9350b58ec68d1fb089af779e7f876ef7c8e526eba632757cf8ff4f72b/": {
-"artists": [
-29
-],
-"end": "2026-10-10",
-"link": "/angerme/event/094f6fb9350b58ec68d1fb089af779e7f876ef7c8e526eba632757cf8ff4f72b/",
-"start": "2026-10-10",
-"title": "10/10(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
-},
 "/angerme/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/": {
 "artists": [
 29
@@ -2519,6 +2510,34 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
+"h042e8018d6575bd2": {
+"artists": [
+477
+],
+"category": "TICKET",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/",
+"members": [
+481,
+517,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "10/26(月) 日本武道館（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜つばきファクトリー CONCERT 2026 AUTUMN Bloomy Groovy Story 秋山眞緒 Final「花音 -はなおと-」"
+},
 "h044021508ed73a08": {
 "artists": [
 676
@@ -4259,6 +4278,25 @@
 "start": "15:45",
 "status": null,
 "title": "Hello! Project 研修生発表会 2026 12月 ～光星～"
+},
+"h0e74c1fc0f32303d": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-10",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/ittoko/",
+"members": [
+13,
+516
+],
+"note": "※コメント",
+"start": "10:25",
+"status": null,
+"title": "UHB北海道文化放送「いっとこ！みんテレ」"
 },
 "h0eb9593caa816cf5": {
 "artists": [
@@ -17583,6 +17621,58 @@
 "status": null,
 "title": "今日は筒井澪心（OCHA NORMA）の20歳の誕生日です！"
 },
+"h5f979d78c32f6b94": {
+"artists": [
+676
+],
+"category": "TICKET",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/sf/word/0000165846",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "11/21(土) 福岡 DRUM LOGOS（福岡）公演",
+"start": null,
+"status": null,
+"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
+"h5f979d78c32f6b94#2": {
+"artists": [
+676
+],
+"category": "TICKET",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/sf/word/0000165846",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "11/23(月) 広島LIVE VANQUISH（広島）公演",
+"start": null,
+"status": null,
+"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
 "h5fc5876aa619484a": {
 "artists": [
 36
@@ -21381,6 +21471,31 @@
 "status": null,
 "title": "モーニング娘。'26 山﨑愛生バースデーイベント in 名古屋"
 },
+"h7a5f5d588953853f": {
+"artists": [
+634
+],
+"category": "TICKET",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/ochanorma/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "11/7(土) 柏PALOOZA（千葉）公演",
+"start": null,
+"status": null,
+"title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
+},
 "h7a869ce062a3bb68": {
 "artists": [
 477
@@ -22411,6 +22526,34 @@
 "start": "16:30",
 "status": null,
 "title": "FM岩手「夕刊ラジオ」"
+},
+"h811bedbdfa50c2e6": {
+"artists": [
+477
+],
+"category": "WEB",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.youtube.com/live/oQpayPfZO9M?si=5cKbdo-ux9eIOYOA",
+"members": [
+481,
+517,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "※生配信",
+"start": "18:30",
+"status": null,
+"title": "YouTube「行くぜ！つばきファクトリー〜日本武道館！絶対来てね生配信〜」"
 },
 "h81343c815b640031": {
 "artists": [
@@ -23615,6 +23758,24 @@
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
 },
+"h897a6bf3b0bd3fde": {
+"artists": [
+634
+],
+"category": "RADIO",
+"date": "2026-10-10",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+568
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
 "h898a7e9026d169db": {
 "artists": [
 29
@@ -23936,6 +24097,25 @@
 "start": "16:45",
 "status": null,
 "title": "OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
+},
+"h8cd89a96f139cba6": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-10",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ybs.jp/mutrek/",
+"members": [
+13,
+655
+],
+"note": "※コメント",
+"start": "09:00",
+"status": null,
+"title": "YBSラジオ「ミュートレック～MuTrek～」"
 },
 "h8ce3ed2d4823b20d": {
 "artists": [
@@ -26515,6 +26695,25 @@
 "start": "18:00",
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
+},
+"h9dbc4b5cfef3e77c": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-10",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ybs.jp/hits/",
+"members": [
+13,
+655
+],
+"note": "※コメント",
+"start": "16:45",
+"status": null,
+"title": "YBSラジオ「909Weekly Tune」"
 },
 "h9dc144872a3068af": {
 "artists": [
@@ -32100,6 +32299,25 @@
 "start": null,
 "status": null,
 "title": "37thシングル発売記念PCSCイベント"
+},
+"hc861d9fd91ef831a": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-10",
+"end": "08:58",
+"isFc": false,
+"label": null,
+"link": "https://www.ybs.jp/hits/",
+"members": [
+13,
+655
+],
+"note": "※コメント",
+"start": "08:54",
+"status": null,
+"title": "YBSラジオ「909Weekly Tune」"
 },
 "hc8b9d30246d5b63b": {
 "artists": [
@@ -40294,6 +40512,25 @@
 "status": null,
 "title": "NHK WORLD-JAPAN「J-MELO」"
 },
+"hfdf2cac51133b20c": {
+"artists": [
+29
+],
+"category": "EVENT",
+"date": "2026-10-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/094f6fb9350b58ec68d1fb089af779e7f876ef7c8e526eba632757cf8ff4f72b/",
+"members": [
+525,
+677
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
+},
 "hfe026be3c1959b79": {
 "artists": [
 634
@@ -40675,31 +40912,6 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
-},
-"s1004": {
-"artists": [
-634
-],
-"category": "TICKET",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/ochanorma/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "11/7(土) 柏PALOOZA（千葉）公演",
-"start": null,
-"status": null,
-"title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
 "s1005": {
 "artists": [
@@ -41178,58 +41390,6 @@
 "status": null,
 "title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
 },
-"s1210": {
-"artists": [
-676
-],
-"category": "TICKET",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/sf/word/0000165846",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "11/21(土) 福岡 DRUM LOGOS（福岡）公演",
-"start": null,
-"status": null,
-"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
-},
-"s1211": {
-"artists": [
-676
-],
-"category": "TICKET",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/sf/word/0000165846",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "11/23(月) 広島LIVE VANQUISH（広島）公演",
-"start": null,
-"status": null,
-"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
-},
 "s1212": {
 "artists": [
 676
@@ -41476,34 +41636,6 @@
 "start": null,
 "status": null,
 "title": "IDOL BATTLE ALIVE 2026"
-},
-"s1342": {
-"artists": [
-477
-],
-"category": "TICKET",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/",
-"members": [
-481,
-517,
-518,
-519,
-610,
-626,
-628,
-663,
-669,
-670,
-671
-],
-"note": "10/26(月) 日本武道館（東京）公演",
-"start": null,
-"status": null,
-"title": "発売日｜つばきファクトリー CONCERT 2026 AUTUMN Bloomy Groovy Story 秋山眞緒 Final「花音 -はなおと-」"
 },
 "s1348": {
 "artists": [
@@ -42318,25 +42450,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice Room Tour 2026「5ROOMS-TAIPEI ANNEX-」"
-},
-"s1476": {
-"artists": [
-29
-],
-"category": "EVENT",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/094f6fb9350b58ec68d1fb089af779e7f876ef7c8e526eba632757cf8ff4f72b/",
-"members": [
-525,
-677
-],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
 },
 "s1478": {
 "artists": [
@@ -43280,63 +43393,6 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
-"s1751": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-10",
-"end": "12:00",
-"isFc": false,
-"label": null,
-"link": "https://www.ybs.jp/mutrek/",
-"members": [
-13,
-655
-],
-"note": "※コメント",
-"start": "09:00",
-"status": null,
-"title": "YBSラジオ「ミュートレック～MuTrek～」"
-},
-"s1752": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-10",
-"end": "08:58",
-"isFc": false,
-"label": null,
-"link": "https://www.ybs.jp/hits/",
-"members": [
-13,
-655
-],
-"note": "※コメント",
-"start": "08:54",
-"status": null,
-"title": "YBSラジオ「909Weekly Tune」"
-},
-"s1753": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-10",
-"end": "16:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ybs.jp/hits/",
-"members": [
-13,
-655
-],
-"note": "※コメント",
-"start": "16:45",
-"status": null,
-"title": "YBSラジオ「909Weekly Tune」"
-},
 "s1754": {
 "artists": [
 3
@@ -43400,25 +43456,6 @@
 "status": null,
 "title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
 },
-"s1764": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-10-10",
-"end": "11:30",
-"isFc": false,
-"label": null,
-"link": "https://www.uhb.jp/program/ittoko/",
-"members": [
-13,
-516
-],
-"note": "※コメント",
-"start": "10:25",
-"status": null,
-"title": "UHB北海道文化放送「いっとこ！みんテレ」"
-},
 "s1765": {
 "artists": [
 3
@@ -43437,24 +43474,6 @@
 "start": "14:20",
 "status": null,
 "title": "HTB「イチ盛り！」"
-},
-"s1766": {
-"artists": [
-634
-],
-"category": "RADIO",
-"date": "2026-10-10",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/yando/",
-"members": [
-568
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
 },
 "s1768": {
 "artists": [
@@ -44330,34 +44349,6 @@
 "status": null,
 "title": "YouTube「【ハロプロ】杉原明紗・長野桃羽・西村乙輝・相馬優芽の「ハロ通GAMES」【リズム天国 ミラクルスターズ】」"
 },
-"s1862": {
-"artists": [
-477
-],
-"category": "WEB",
-"date": "2026-10-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.youtube.com/live/oQpayPfZO9M?si=5cKbdo-ux9eIOYOA",
-"members": [
-481,
-517,
-518,
-519,
-610,
-626,
-628,
-663,
-669,
-670,
-671
-],
-"note": "※生配信",
-"start": "18:30",
-"status": null,
-"title": "YouTube「行くぜ！つばきファクトリー〜日本武道館！絶対来てね生配信〜」"
-},
 "s861": {
 "artists": [
 3
@@ -44561,5 +44552,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610102100-2cJbBSTUfk0LlnbP"
+"versionDir": "2610112110-lcV3dweP5IAzTcr1"
 }
