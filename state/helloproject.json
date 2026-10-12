@@ -124,15 +124,6 @@
 "start": "2026-11-27",
 "title": "モーニング娘。'26・Juice=Juice・OCHA NORMA「GIFT～Girls Idol Festival Tokyo～」出演！"
 },
-"/juicejuice/event/993aa0f24c4085088415f09c2f09b202bd1622373e1fdf5b56b934daa7b34c84/": {
-"artists": [
-36
-],
-"end": "2026-10-11",
-"link": "/juicejuice/event/993aa0f24c4085088415f09c2f09b202bd1622373e1fdf5b56b934daa7b34c84/",
-"start": "2026-10-11",
-"title": "Juice=Juice「GFEST.」出演決定！！"
-},
 "/juicejuice/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/": {
 "artists": [
 36
@@ -4002,6 +3993,34 @@
 "start": null,
 "status": null,
 "title": "テレビ朝日・六本木ヒルズ SUMMER FES"
+},
+"h0c8ae39a3e33e1a2": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-10-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/993aa0f24c4085088415f09c2f09b202bd1622373e1fdf5b56b934daa7b34c84/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "Gメッセ群馬 （群馬）",
+"start": null,
+"status": null,
+"title": "GFEST."
 },
 "h0cc0c2bb4ec3c4d8": {
 "artists": [
@@ -9056,6 +9075,34 @@
 "status": null,
 "title": "ニッポン放送「サマースペシャル たくろうの金の音色」"
 },
+"h2bcd649786d45e21": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-10-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/716eb52be355d435074f2a84fae9312e99b86e92a26969be49a6bcc8b907d702/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "ATC ITM棟4F 特設会場 （大阪）",
+"start": null,
+"status": null,
+"title": "77thシングル発売記念 チェキ・サイン・トーク会"
+},
 "h2bd9590de762c9e4": {
 "artists": [
 634
@@ -13571,6 +13618,25 @@
 "start": null,
 "status": null,
 "title": "『MORE! MORE! EP』発売記念 ミニライブ＆お見送り会"
+},
+"h47def43923cebc1c": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-11",
+"end": "17:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ybs.jp/hits/",
+"members": [
+13,
+655
+],
+"note": "※コメント",
+"start": "17:45",
+"status": null,
+"title": "YBSラジオ「909Weekly Tune」"
 },
 "h481962021c604f09": {
 "artists": [
@@ -24763,6 +24829,32 @@
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
 },
+"h909b3f873295af6d": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/8bd28ad5bcc582fb895644fb55bf1adac917698f2a33d57525059326000d3b30/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "セブンパーク天美 AMAMI STUDIUM（大阪）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
+},
 "h90a69de9302c6882": {
 "artists": [
 36
@@ -31378,6 +31470,25 @@
 "start": "17:15",
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
+},
+"hc0b62592038145c9": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-11",
+"end": "15:58",
+"isFc": false,
+"label": null,
+"link": "https://www.ybs.jp/hits/",
+"members": [
+13,
+655
+],
+"note": "※コメント",
+"start": "15:55",
+"status": null,
+"title": "YBSラジオ「909Weekly Tune」"
 },
 "hc11e9088b8b0f04c": {
 "artists": [
@@ -41243,34 +41354,6 @@
 "status": null,
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
-"s1162": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-10-11",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/716eb52be355d435074f2a84fae9312e99b86e92a26969be49a6bcc8b907d702/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "ATC ITM棟4F 特設会場 （大阪）",
-"start": null,
-"status": null,
-"title": "77thシングル発売記念 チェキ・サイン・トーク会"
-},
 "s1163": {
 "artists": [
 3
@@ -41993,32 +42076,6 @@
 "start": null,
 "status": null,
 "title": "OCHA NORMA FCイベント2026 メリクリティーパーティー 〜 聖なる鐘がCHA CHA CHA CHA〜N！〜"
-},
-"s1430": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-11",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/8bd28ad5bcc582fb895644fb55bf1adac917698f2a33d57525059326000d3b30/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "セブンパーク天美 AMAMI STUDIUM（大阪）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
 },
 "s1431": {
 "artists": [
@@ -42822,34 +42879,6 @@
 "status": null,
 "title": "つばきファクトリー 谷本安美バースデーイベント2026"
 },
-"s1568": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-10-11",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/993aa0f24c4085088415f09c2f09b202bd1622373e1fdf5b56b934daa7b34c84/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "Gメッセ群馬 （群馬）",
-"start": null,
-"status": null,
-"title": "GFEST."
-},
 "s1607": {
 "artists": [
 477
@@ -43392,44 +43421,6 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
-},
-"s1754": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-11",
-"end": "15:58",
-"isFc": false,
-"label": null,
-"link": "https://www.ybs.jp/hits/",
-"members": [
-13,
-655
-],
-"note": "※コメント",
-"start": "15:55",
-"status": null,
-"title": "YBSラジオ「909Weekly Tune」"
-},
-"s1755": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-11",
-"end": "17:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ybs.jp/hits/",
-"members": [
-13,
-655
-],
-"note": "※コメント",
-"start": "17:45",
-"status": null,
-"title": "YBSラジオ「909Weekly Tune」"
 },
 "s1762": {
 "artists": [
@@ -44552,5 +44543,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610112110-lcV3dweP5IAzTcr1"
+"versionDir": "2610122330-wLnONPBJQjCVnGhP"
 }

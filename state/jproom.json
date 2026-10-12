@@ -32,15 +32,6 @@
 "start": "2026-10-25",
 "title": "『植村あかりフォトブック(仮)』発売決定！"
 },
-"/ayumi_ishida/event/a72109ffe8296856847c901fa1cbe5393443face44b2293d67110fc6cd545785/": {
-"artists": [
-10
-],
-"end": "2026-10-11",
-"link": "/ayumi_ishida/event/a72109ffe8296856847c901fa1cbe5393443face44b2293d67110fc6cd545785/",
-"start": "2026-09-30",
-"title": "舞台「ネズミ狩り」石田亜佑美 主演決定！"
-},
 "/ayumi_ishida/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/": {
 "artists": [
 10
@@ -86,15 +77,6 @@
 "link": "/chisaki_morito/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
-"/karin_miyamoto/event/2389b024c63853e65c4719febb4174d188dea5a2b4e8e2788a35f7e81d847899/": {
-"artists": [
-40
-],
-"end": "2026-10-11",
-"link": "/karin_miyamoto/event/2389b024c63853e65c4719febb4174d188dea5a2b4e8e2788a35f7e81d847899/",
-"start": "2026-10-10",
-"title": "LoveLive! Series 15th Anniversaryラブライブ！フェス 前夜祭 FILM LIVE ～未来へ届けるタイムカプセル～"
 },
 "/karin_miyamoto/event/5a2855892e371ce82cf63283aaa9324a611cbb706bf9e367b2f05fef54c33df2/": {
 "artists": [
@@ -2551,6 +2533,22 @@
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"h4d8d1070301cc21d": {
+"artists": [
+40
+],
+"category": "EVENT",
+"date": "2026-10-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/2389b024c63853e65c4719febb4174d188dea5a2b4e8e2788a35f7e81d847899/",
+"members": [],
+"note": "Shibuya LOVEZ（東京）",
+"start": null,
+"status": null,
+"title": "LoveLive! Series 15th Anniversaryラブライブ！フェス 前夜祭 FILM LIVE ～未来へ届けるタイムカプセル～"
+},
 "h4dca5100bda1c175": {
 "artists": [
 10
@@ -4482,6 +4480,22 @@
 "status": null,
 "title": "フジテレビ「Tune」"
 },
+"ha50d000e73196ec1": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-11",
+"end": "07:30",
+"isFc": false,
+"label": null,
+"link": "https://www.joeufm.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "07:00",
+"status": null,
+"title": "FM愛媛「新・流行音楽堂」"
+},
 "ha532556ff005703f": {
 "artists": [
 40
@@ -5868,6 +5882,22 @@
 "status": null,
 "title": "LoveLive! Series 15th Anniversaryラブライブ！フェス 前夜祭 FILM LIVE ～未来へ届けるタイムカプセル～"
 },
+"hec7b6592c155b7d0": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-11",
+"end": "14:55",
+"isFc": false,
+"label": null,
+"link": "https://www.at-s.com/sbsradio/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "14:00",
+"status": null,
+"title": "静岡放送「新・流行音楽堂」"
+},
 "hec97d63ad84af9a1": {
 "artists": [
 5,
@@ -7164,38 +7194,6 @@
 "status": null,
 "title": "3rdシングル発売記念 リミスタ インターネットサイン会"
 },
-"s1811": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-11",
-"end": "07:30",
-"isFc": false,
-"label": null,
-"link": "https://www.joeufm.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "07:00",
-"status": null,
-"title": "FM愛媛「新・流行音楽堂」"
-},
-"s1812": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-11",
-"end": "14:55",
-"isFc": false,
-"label": null,
-"link": "https://www.at-s.com/sbsradio/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "14:00",
-"status": null,
-"title": "静岡放送「新・流行音楽堂」"
-},
 "s1813": {
 "artists": [
 59
@@ -7612,22 +7610,6 @@
 "status": null,
 "title": "タクフェス第14弾「北の島から」"
 },
-"s723": {
-"artists": [
-40
-],
-"category": "EVENT",
-"date": "2026-10-11",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/2389b024c63853e65c4719febb4174d188dea5a2b4e8e2788a35f7e81d847899/",
-"members": [],
-"note": "Shibuya LOVEZ（東京）",
-"start": null,
-"status": null,
-"title": "LoveLive! Series 15th Anniversaryラブライブ！フェス 前夜祭 FILM LIVE ～未来へ届けるタイムカプセル～"
-},
 "s781": {
 "artists": [
 10
@@ -7949,5 +7931,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610112110-lcV3dweP5IAzTcr1"
+"versionDir": "2610122330-wLnONPBJQjCVnGhP"
 }
