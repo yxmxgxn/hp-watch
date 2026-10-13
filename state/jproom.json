@@ -202,15 +202,6 @@
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
-"/manaka_inaba/event/0af9cab67e9788f0f4b76746bfed4db04831ac9654ac4271b317a380c54bbfdd/": {
-"artists": [
-59
-],
-"end": "2026-10-12",
-"link": "/manaka_inaba/event/0af9cab67e9788f0f4b76746bfed4db04831ac9654ac4271b317a380c54bbfdd/",
-"start": "2026-10-12",
-"title": "「HERO GATE」出演決定！"
-},
 "/manaka_inaba/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
 "artists": [
 5,
@@ -3325,6 +3316,22 @@
 "status": null,
 "title": "FM香川「JOY-U CLUB」"
 },
+"h704231ac0814f001": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-10-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/d085a45413dced01f899603c4063e5c1177a61f6992b3d25cdf30dc424b28ecf/",
+"members": [],
+"note": "タワーレコード錦糸町パルコ店 （東京）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h7087e625baae1208": {
 "artists": [
 59
@@ -4608,6 +4615,22 @@
 "status": null,
 "title": "5thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"haaeb82c9afd53bd5": {
+"artists": [
+59
+],
+"category": "EVENT",
+"date": "2026-10-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/0af9cab67e9788f0f4b76746bfed4db04831ac9654ac4271b317a380c54bbfdd/",
+"members": [],
+"note": "代々木公園（東京）",
+"start": null,
+"status": null,
+"title": "HERO GATE"
+},
 "haafcb86e4392ab84": {
 "artists": [
 40
@@ -4719,6 +4742,22 @@
 "start": "19:30",
 "status": null,
 "title": "ラジオ関西「ホームランドーム presents 浅倉樹々ラストサマースペシャル」"
+},
+"hb1c2213377c8a0a4": {
+"artists": [
+59
+],
+"category": "TV",
+"date": "2026-10-12",
+"end": "08:00",
+"isFc": false,
+"label": null,
+"link": "https://www.htb.co.jp/ichimoni/",
+"members": [],
+"note": "※コメント",
+"start": "06:00",
+"status": null,
+"title": "HTB「イチモニ！」"
 },
 "hb1ee726902e9991e": {
 "artists": [
@@ -6196,7 +6235,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6216,7 +6255,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6396,22 +6435,6 @@
 "status": null,
 "title": "植村あかりフォトブック発売記念オンラインイベント"
 },
-"s1295": {
-"artists": [
-59
-],
-"category": "EVENT",
-"date": "2026-10-12",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/0af9cab67e9788f0f4b76746bfed4db04831ac9654ac4271b317a380c54bbfdd/",
-"members": [],
-"note": "代々木公園（東京）",
-"start": null,
-"status": null,
-"title": "HERO GATE"
-},
 "s1312": {
 "artists": [
 59
@@ -6571,22 +6594,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
-},
-"s1525": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-10-12",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/d085a45413dced01f899603c4063e5c1177a61f6992b3d25cdf30dc424b28ecf/",
-"members": [],
-"note": "タワーレコード錦糸町パルコ店 （東京）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1561": {
 "artists": [
@@ -7546,21 +7553,21 @@
 "status": null,
 "title": "佐藤優樹 LIVE TOUR 2027"
 },
-"s1863": {
+"s1866": {
 "artists": [
-59
+41
 ],
-"category": "TV",
-"date": "2026-10-12",
-"end": "08:00",
+"category": "EVENT",
+"date": "2026-12-22",
+"end": null,
 "isFc": false,
 "label": null,
-"link": "https://www.htb.co.jp/ichimoni/",
+"link": "/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/",
 "members": [],
-"note": "※コメント",
-"start": "06:00",
+"note": "COOL JAPAN PARK OSAKA TTホール （大阪）",
+"start": null,
 "status": null,
-"title": "HTB「イチモニ！」"
+"title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
 "s714": {
 "artists": [
@@ -7931,5 +7938,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610122330-wLnONPBJQjCVnGhP"
+"versionDir": "2610132240-Xz5uz9qAoh5sUPzx"
 }

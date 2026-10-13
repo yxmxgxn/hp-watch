@@ -10754,6 +10754,24 @@
 "status": null,
 "title": "今日は小野瑞歩（つばきファクトリー）の28歳の誕生日です！"
 },
+"h35b1d0d6c448257e": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-12",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+610
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
+},
 "h35ea0f217d0cc392": {
 "artists": [
 477
@@ -21636,6 +21654,25 @@
 "start": null,
 "status": null,
 "title": "今日は杉原明紗（モーニング娘。'26）の16歳の誕生日です！"
+},
+"h7b1f3ac07520a6be": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-12",
+"end": "21:30",
+"isFc": false,
+"label": null,
+"link": "https://www.air-g.co.jp/abe/",
+"members": [
+588,
+611
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "AIR-G'「阿部葉菜とおはなし」"
 },
 "h7b8c54e94d87ccf9": {
 "artists": [
@@ -38131,6 +38168,25 @@
 "status": null,
 "title": "アンジュルム 2026秋 風林火山・弐"
 },
+"hed4c57032b77dc47": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-12",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nack5.co.jp/program/allthefeels/",
+"members": [
+300,
+516
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "NACK5「ALL The Feels」"
+},
 "hed6f685412d0970f": {
 "artists": [
 634
@@ -43404,12 +43460,12 @@
 "status": null,
 "title": "MUSIC ON! TV「Juice=Juice特集」"
 },
-"s1739": {
+"s1740": {
 "artists": [
 477
 ],
 "category": "TV",
-"date": "2026-10-12",
+"date": "2026-10-19",
 "end": "25:29",
 "isFc": false,
 "label": null,
@@ -43527,25 +43583,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 川名凜バースデーイベント2026"
-},
-"s1779": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-12",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nack5.co.jp/program/allthefeels/",
-"members": [
-300,
-516
-],
-"note": "",
-"start": "23:00",
-"status": null,
-"title": "NACK5「ALL The Feels」"
 },
 "s1780": {
 "artists": [
@@ -44273,25 +44310,6 @@
 "status": null,
 "title": "HBCラジオ「気分上昇ワイド ナルミッツ！！！」"
 },
-"s1844": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-12",
-"end": "21:30",
-"isFc": false,
-"label": null,
-"link": "https://www.air-g.co.jp/abe/",
-"members": [
-588,
-611
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "AIR-G'「阿部葉菜とおはなし」"
-},
 "s1860": {
 "artists": [
 3,
@@ -44339,6 +44357,177 @@
 "start": "21:00",
 "status": null,
 "title": "YouTube「【ハロプロ】杉原明紗・長野桃羽・西村乙輝・相馬優芽の「ハロ通GAMES」【リズム天国 ミラクルスターズ】」"
+},
+"s1865": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/ch/contents/variety/0912/",
+"members": [
+481,
+517,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "※スカパー！番組配信にて同時配信。",
+"start": "17:30",
+"status": null,
+"title": "CSテレ朝チャンネル1「＜独占生中継＞つばきファクトリー CONCERT 2026 AUTUMN Bloomy Groovy Story 秋山眞緒 Final「花音 -はなおと-」」"
+},
+"s1866": {
+"artists": [
+585,
+634
+],
+"category": "EVENT",
+"date": "2026-12-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/",
+"members": [
+524,
+540,
+604,
+606,
+708
+],
+"note": "COOL JAPAN PARK OSAKA TTホール （大阪）",
+"start": null,
+"status": null,
+"title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
+},
+"s1867": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "17:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/ch/",
+"members": [
+481,
+517,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "CSテレ朝チャンネル1「行くぜ！つばきファクトリー〜秋山眞緒卒業スペシャル〜」"
+},
+"s1868": {
+"artists": [
+585,
+634
+],
+"category": "EVENT",
+"date": "2026-12-05",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/24c9eaf13547cf3c0c887ab4903e32bf9fc1782f4990f7db132af9cc430bb0b8/",
+"members": [
+462,
+496,
+497,
+524,
+540,
+541,
+544,
+568,
+586,
+591,
+592,
+593,
+604,
+606,
+608,
+635,
+665,
+708,
+709
+],
+"note": "近江八幡市文化会館 大ホール （滋賀）",
+"start": null,
+"status": null,
+"title": "SHIGA IDOL COLLECTION “PREMIUM” 2026"
+},
+"s1869": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-10-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+631
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "anan"
+},
+"s1870": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-17",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+588
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
+"s1871": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-14",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.myufm.jp/program/something-%ce%bc/archive/",
+"members": [
+605,
+646
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "μFMエフエム鹿児島「Something μ」"
 },
 "s861": {
 "artists": [
@@ -44543,5 +44732,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610122330-wLnONPBJQjCVnGhP"
+"versionDir": "2610132240-Xz5uz9qAoh5sUPzx"
 }
