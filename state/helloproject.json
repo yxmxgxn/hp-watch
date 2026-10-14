@@ -2332,6 +2332,24 @@
 "status": null,
 "title": "FM愛媛「カモ☆れでぃ★Night！」"
 },
+"h0315fd294f0fa5ec": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+540
+],
+"note": "※スペシャルパーソナリティとして生出演。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
 "h03208688399ba66d": {
 "artists": [
 585
@@ -8962,6 +8980,32 @@
 "start": null,
 "status": null,
 "title": "CanCam.jp"
+},
+"h2b0f1eea1c00768c": {
+"artists": [
+29
+],
+"category": "RELEASE",
+"date": "2026-12-02",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7711/",
+"members": [
+525,
+567,
+590,
+607,
+618,
+619,
+639,
+647,
+677
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ブルーレイディスク｜「ANGERME 2026 Spring final 陰と陽 DUALITY」"
 },
 "h2b34827da09c68c6": {
 "artists": [
@@ -20758,6 +20802,34 @@
 "start": null,
 "status": null,
 "title": "6thシングル発売記念 ミニライブ＆お見送り会"
+},
+"h74217acd03935d03": {
+"artists": [
+585
+],
+"category": "RELEASE",
+"date": "2026-11-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7710/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ブルーレイディスク｜「BEYOOOOONDS CONCERT 2026 SPRING [HIGH! TENSION BEYOSCOOOOOPE]」"
 },
 "h7455e0697a496850": {
 "artists": [
@@ -37187,6 +37259,25 @@
 "status": null,
 "title": "6thシングル発売記念 全国同時トーク&一言お話し会(ZDO)イベント"
 },
+"he6797da26a4d0ebe": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nack5.co.jp/program/allthefeels/",
+"members": [
+300,
+516
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "NACK5「ALL The Feels」"
+},
 "he6b844aef669926a": {
 "artists": [
 477
@@ -43584,25 +43675,6 @@
 "status": null,
 "title": "アンジュルム 川名凜バースデーイベント2026"
 },
-"s1780": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nack5.co.jp/program/allthefeels/",
-"members": [
-300,
-516
-],
-"note": "",
-"start": "23:00",
-"status": null,
-"title": "NACK5「ALL The Feels」"
-},
 "s1781": {
 "artists": [
 3
@@ -43640,24 +43712,6 @@
 "start": "23:00",
 "status": null,
 "title": "NACK5「ALL The Feels」"
-},
-"s1783": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.jorf.co.jp/?program=60trybu",
-"members": [
-540
-],
-"note": "※スペシャルパーソナリティとして生出演。",
-"start": "18:00",
-"status": null,
-"title": "ラジオ日本「60TRY部」"
 },
 "s1792": {
 "artists": [
@@ -44529,6 +44583,124 @@
 "status": null,
 "title": "μFMエフエム鹿児島「Something μ」"
 },
+"s1872": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-12-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ce123fb7f804fd6d77fbd0ae03385c6967acfeb8187ea2e11dc119b94387122b/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "幕張メッセ国際展示場1～11ホール・イベントホール （千葉）",
+"start": null,
+"status": null,
+"title": "COUNTDOWN JAPAN 26/27"
+},
+"s1874": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-07",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "http://www.fmnagano.co.jp/whatfmn/satd/index.html",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "FM長野「SATURDAY D」"
+},
+"s1875": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
+"members": [
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
+"s1876": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
+"members": [
+571,
+588,
+605,
+611
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
+"s1886": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※表紙・誌面(通常盤・集英社スペシャル増刊)",
+"start": null,
+"status": null,
+"title": "MAQUIA 2027年1月号"
+},
 "s861": {
 "artists": [
 3
@@ -44732,5 +44904,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610132240-Xz5uz9qAoh5sUPzx"
+"versionDir": "2610142020-vhNQm7erjEIZR0zV"
 }

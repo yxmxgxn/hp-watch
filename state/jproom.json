@@ -1943,6 +1943,22 @@
 "status": null,
 "title": "発売日｜舞台「ネズミ狩り」"
 },
+"h30b2529c249968aa": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "18:45",
+"isFc": false,
+"label": null,
+"link": "https://www.fbc.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "17:45",
+"status": null,
+"title": "福井放送「新・流行音楽堂」"
+},
 "h30cd694d067fbdba": {
 "artists": [
 10
@@ -2815,6 +2831,22 @@
 "start": "18:20",
 "status": null,
 "title": "FM徳島「T-Joint」"
+},
+"h5ae28b06643551dc": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "07:10",
+"isFc": false,
+"label": null,
+"link": "https://www.nbc-nagasaki.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "07:00",
+"status": null,
+"title": "長崎放送「新・流行音楽堂」"
 },
 "h5b47e429bb0eb35b": {
 "artists": [
@@ -3916,6 +3948,22 @@
 "status": null,
 "title": "今日は宮崎由加の誕生日です！"
 },
+"h88334382ca6b250d": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "16:35",
+"isFc": false,
+"label": null,
+"link": "https://www.wbs.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "16:05",
+"status": null,
+"title": "和歌山放送「新・流行音楽堂」"
+},
 "h8a081f6766bfb1d4": {
 "artists": [
 5
@@ -4072,6 +4120,22 @@
 "start": "18:00",
 "status": null,
 "title": "舞台『横浜グラフィティ・フォーエバー』出演決定！"
+},
+"h8f1b935cc3a683ac": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-13",
+"end": "12:19",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "12:10",
+"status": null,
+"title": "秋田放送「新・流行音楽堂」"
 },
 "h8f91b820ff5c176b": {
 "artists": [
@@ -7201,38 +7265,6 @@
 "status": null,
 "title": "3rdシングル発売記念 リミスタ インターネットサイン会"
 },
-"s1813": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "16:35",
-"isFc": false,
-"label": null,
-"link": "https://www.wbs.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "16:05",
-"status": null,
-"title": "和歌山放送「新・流行音楽堂」"
-},
-"s1814": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "18:45",
-"isFc": false,
-"label": null,
-"link": "https://www.fbc.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "17:45",
-"status": null,
-"title": "福井放送「新・流行音楽堂」"
-},
 "s1815": {
 "artists": [
 59
@@ -7281,22 +7313,6 @@
 "status": null,
 "title": "ラジオ福島「新・流行音楽堂」"
 },
-"s1818": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "12:19",
-"isFc": false,
-"label": null,
-"link": "https://www.akita-abs.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "12:10",
-"status": null,
-"title": "秋田放送「新・流行音楽堂」"
-},
 "s1819": {
 "artists": [
 59
@@ -7312,22 +7328,6 @@
 "start": "12:10",
 "status": null,
 "title": "秋田放送「新・流行音楽堂」"
-},
-"s1820": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-13",
-"end": "07:10",
-"isFc": false,
-"label": null,
-"link": "https://www.nbc-nagasaki.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "07:00",
-"status": null,
-"title": "長崎放送「新・流行音楽堂」"
 },
 "s1821": {
 "artists": [
@@ -7568,6 +7568,22 @@
 "start": null,
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
+},
+"s1881": {
+"artists": [
+10
+],
+"category": "MAGAZINE",
+"date": "2026-10-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "BRUTUS"
 },
 "s714": {
 "artists": [
@@ -7938,5 +7954,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610132240-Xz5uz9qAoh5sUPzx"
+"versionDir": "2610142020-vhNQm7erjEIZR0zV"
 }
