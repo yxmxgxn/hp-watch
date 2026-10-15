@@ -23,6 +23,15 @@
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
+"/akari_uemura/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/": {
+"artists": [
+41
+],
+"end": "2026-12-22",
+"link": "/akari_uemura/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/",
+"start": "2026-12-22",
+"title": "​「西乃風ブラン堂」公開収録のお知らせ"
+},
 "/akari_uemura/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/": {
 "artists": [
 41
@@ -202,6 +211,15 @@
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
+"/manaka_inaba/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/": {
+"artists": [
+59
+],
+"end": "2027-02-23",
+"link": "/manaka_inaba/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/",
+"start": "2027-02-07",
+"title": "稲場愛香 Live Tour 2027"
+},
 "/manaka_inaba/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
 "artists": [
 5,
@@ -249,6 +267,24 @@
 "link": "/masaki_satou/event/006feb74b8da455d4d8e8d30b5f54904965d113acebc5cffe84c79f8d2b7cc76/",
 "start": "2026-11-02",
 "title": "佐藤優樹 2026年12月16日発売3rdシングル『Dominant Life!/紅い花』発売記念イベント【一覧】"
+},
+"/masaki_satou/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/": {
+"artists": [
+11
+],
+"end": "2027-03-06",
+"link": "/masaki_satou/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/",
+"start": "2027-02-06",
+"title": "佐藤優樹 LIVE TOUR 2027"
+},
+"/mizuki_fukumura/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/": {
+"artists": [
+5
+],
+"end": "2027-02-01",
+"link": "/mizuki_fukumura/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
+"start": "2027-01-09",
+"title": "譜久村聖 コンサート 2027"
 },
 "/mizuki_fukumura/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
 "artists": [
@@ -1005,6 +1041,22 @@
 "status": null,
 "title": "長崎放送「MUSIC WOLF TV」"
 },
+"h06661abab985f6ac": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-14",
+"end": "07:10",
+"isFc": false,
+"label": null,
+"link": "https://www.nbc-nagasaki.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "07:00",
+"status": null,
+"title": "長崎放送「新・流行音楽堂」"
+},
 "h06a055d474e211f3": {
 "artists": [
 40
@@ -1666,6 +1718,22 @@
 "start": "14:30",
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
+},
+"h21ec0ab57440c01c": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-14",
+"end": "12:19",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "12:10",
+"status": null,
+"title": "秋田放送「新・流行音楽堂」"
 },
 "h2269a60b6e5da037": {
 "artists": [
@@ -7313,38 +7381,6 @@
 "status": null,
 "title": "ラジオ福島「新・流行音楽堂」"
 },
-"s1819": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-14",
-"end": "12:19",
-"isFc": false,
-"label": null,
-"link": "https://www.akita-abs.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "12:10",
-"status": null,
-"title": "秋田放送「新・流行音楽堂」"
-},
-"s1821": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-14",
-"end": "07:10",
-"isFc": false,
-"label": null,
-"link": "https://www.nbc-nagasaki.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "07:00",
-"status": null,
-"title": "長崎放送「新・流行音楽堂」"
-},
 "s1847": {
 "artists": [
 5
@@ -7584,6 +7620,134 @@
 "start": null,
 "status": null,
 "title": "BRUTUS"
+},
+"s1898": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-19",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1899": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1900": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1901": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1902": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1903": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1904": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-25",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1905": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
 },
 "s714": {
 "artists": [
@@ -7954,5 +8118,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610142020-vhNQm7erjEIZR0zV"
+"versionDir": "2610151950-p8bGBDsuiC7kDLGi"
 }
