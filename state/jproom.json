@@ -3224,6 +3224,22 @@
 "status": null,
 "title": "NBCラジオ「MUSIC WOLF」"
 },
+"h6545f73e4fed5e3d": {
+"artists": [
+10
+],
+"category": "MAGAZINE",
+"date": "2026-10-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "BRUTUS"
+},
 "h67ab1a2879340b76": {
 "artists": [
 40
@@ -3875,6 +3891,22 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十六席＞～石田亜佑美～トークイベント"
+},
+"h8114baba12dd1531": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-15",
+"end": "18:45",
+"isFc": false,
+"label": null,
+"link": "https://www.rkc-kochi.co.jp/",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "18:20",
+"status": null,
+"title": "高知放送「新・流行音楽堂」"
 },
 "h81fd79da24582625": {
 "artists": [
@@ -7333,22 +7365,6 @@
 "status": null,
 "title": "3rdシングル発売記念 リミスタ インターネットサイン会"
 },
-"s1815": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-15",
-"end": "18:45",
-"isFc": false,
-"label": null,
-"link": "https://www.rkc-kochi.co.jp/",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "18:20",
-"status": null,
-"title": "高知放送「新・流行音楽堂」"
-},
 "s1816": {
 "artists": [
 59
@@ -7605,22 +7621,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1881": {
-"artists": [
-10
-],
-"category": "MAGAZINE",
-"date": "2026-10-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "BRUTUS"
-},
 "s1898": {
 "artists": [
 33
@@ -7748,6 +7748,38 @@
 "start": null,
 "status": null,
 "title": "竹内朱莉書道展 煌々舞踊 光"
+},
+"s1933": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-12-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/fb9d6f0f5305eb87fe0755c6a8dfca265898d1f647b465cdd37a74465fe6f5a5/",
+"members": [],
+"note": "キャナルシティ博多（福岡）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s1934": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-12-19",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b64b698882963db7ae293d44220c05d033cf9cf9e0ef3ccfd461003f6d23d764/",
+"members": [],
+"note": "神戸ハーバーランド（兵庫）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s714": {
 "artists": [
@@ -8062,7 +8094,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"link": "https://w.pia.jp/t/miyamotokarin/",
 "members": [],
 "note": "10/31(土) 柏PALOOZA （千葉）公演",
 "start": null,
@@ -8078,7 +8110,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"link": "https://eplus.jp/sf/word/0000136289",
 "members": [],
 "note": "11/1(日) 福岡BEAT STATION （福岡）公演",
 "start": null,
@@ -8118,5 +8150,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610151950-p8bGBDsuiC7kDLGi"
+"versionDir": "2610161950-cK1A35LRzp91qkCV"
 }

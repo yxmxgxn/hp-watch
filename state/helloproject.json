@@ -49,15 +49,6 @@
 "start": "2026-12-05",
 "title": "BEYOOOOONDS・OCHA NORMA「SHIGA IDOL COLLECTION “PREMIUM” 2026」出演！"
 },
-"/beyooooonds/event/3fcee29d0c622f492781b1ca0deaec9428afb6acae9f3e8cede4f9c2b90f1f44/": {
-"artists": [
-585
-],
-"end": "2027-02-06",
-"link": "/beyooooonds/event/3fcee29d0c622f492781b1ca0deaec9428afb6acae9f3e8cede4f9c2b90f1f44/",
-"start": "2026-10-27",
-"title": "BEYOOOOONDS 2026年11月25日発売7thシングル『笑止千万/勝利のセンタク』発売記念イベント【一覧】"
-},
 "/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/": {
 "artists": [
 585
@@ -86,15 +77,6 @@
 "link": "/beyooooonds/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
 "start": "2026-10-31",
 "title": "Juice=Juice・BEYOOOOONDS「Livejack 2026 SMASH BEAT SP」出演！"
-},
-"/beyooooonds/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/": {
-"artists": [
-585
-],
-"end": "2026-10-25",
-"link": "/beyooooonds/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"start": "2026-10-16",
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "/beyooooonds/event/a18324f0a44bff40490b436d7d32a9aa97acd36199c4576fc9cbec69b2bbe9ac/": {
 "artists": [
@@ -3500,6 +3482,34 @@
 "status": null,
 "title": "今日は有澤一華（Juice=Juice）の24歳の誕生日です！"
 },
+"h09a67ad09e5a459d": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-10-15",
+"end": "24:00",
+"isFc": false,
+"label": null,
+"link": "https://www.m-on.jp/program/detail/juicejuice-sp-2610/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※再放送",
+"start": "23:30",
+"status": null,
+"title": "MUSIC ON! TV「Juice=Juice特集」"
+},
 "h09fdd67163b857c8": {
 "artists": [
 3
@@ -6271,6 +6281,25 @@
 "start": "17:30",
 "status": null,
 "title": "つばきファクトリー CONCERT TOUR 2026 AUTUMN ～Bloomy Groovy Story～"
+},
+"h195037a8c1004e85": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-15",
+"end": "13:55",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/musictune/post.html",
+"members": [
+588,
+660
+],
+"note": "※11時台～生出演予定。\n※スタジオ観覧可能",
+"start": "10:00",
+"status": null,
+"title": "ぎふチャン「Music Tune」"
 },
 "h197c889f09a6d33d": {
 "artists": [
@@ -26079,6 +26108,25 @@
 "status": null,
 "title": "YBSラジオ「Too Much！！」"
 },
+"h96cb5a54290d71b1": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-15",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nack5.co.jp/program/allthefeels/",
+"members": [
+300,
+516
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "NACK5「ALL The Feels」"
+},
 "h970fc7e9609b5c0d": {
 "artists": [
 634
@@ -30386,6 +30434,28 @@
 "status": null,
 "title": "関西テレビ「よ～いドン！」"
 },
+"hb7d690b3977475aa": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/35c78aa1e3c87eb1c76fb9b8056c91cab28402ee1cff566a3788d2ece8087375/",
+"members": [
+571,
+605,
+612,
+646,
+664
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
 "hb80d65eb43939b36": {
 "artists": [
 676
@@ -32594,6 +32664,34 @@
 "start": "10:25",
 "status": null,
 "title": "鹿児島テレビ「かごしまDO!」"
+},
+"hc73eecf4db40f625": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-10-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.hulu.jp/juicejuice-summer-camp-in-korea",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "Hulu「Juice=Juice Summer Camp in Korea Episode2」"
 },
 "hc75f596088471d14": {
 "artists": [
@@ -37681,6 +37779,25 @@
 "status": null,
 "title": "bayfm「78musi-curate」"
 },
+"he7d51e22a95f21cb": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-15",
+"end": "14:48",
+"isFc": false,
+"label": null,
+"link": "https://www.htb.co.jp/ichimori/",
+"members": [
+13,
+516
+],
+"note": "※エンタメコーナー出演予定。\n※放送内容は予告なく変更されることがあります。",
+"start": "14:20",
+"status": null,
+"title": "HTB「イチ盛り！」"
+},
 "he7f581455e992f53": {
 "artists": [
 42
@@ -41432,7 +41549,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/",
+"link": "https://eplus.jp/ochanorma/",
 "members": [
 497,
 544,
@@ -41498,7 +41615,7 @@
 ],
 "note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
 "start": null,
-"status": null,
+"status": "中止",
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "s1149": {
@@ -41526,7 +41643,7 @@
 ],
 "note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
 "start": null,
-"status": null,
+"status": "中止",
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "s1150": {
@@ -41554,7 +41671,7 @@
 ],
 "note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
 "start": null,
-"status": null,
+"status": "中止",
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "s1151": {
@@ -41582,7 +41699,7 @@
 ],
 "note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
 "start": null,
-"status": null,
+"status": "中止",
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "s1152": {
@@ -41881,7 +41998,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/90e7f623f2d92bf7a432cfe3af45caa5a87ab69fb319b123a33fd3acc84477ba/",
+"link": "https://l-tike.com/search/?keyword=21757",
 "members": [
 571,
 588,
@@ -42238,7 +42355,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
+"link": "https://t.pia.jp/pia/artist/artists.do?artistsCd=D3050043",
 "members": [
 67,
 450,
@@ -43258,6 +43375,24 @@
 "status": null,
 "title": "つばきファクトリー 谷本安美バースデーイベント2026"
 },
+"s1563": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-22",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/kenmin_show/",
+"members": [
+300
+],
+"note": "",
+"start": "20:54",
+"status": null,
+"title": "読売テレビ「秘密のケンミンSHOW極」"
+},
 "s1607": {
 "artists": [
 477
@@ -43275,28 +43410,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 福田真琳バースデーイベント2026 in 名古屋"
-},
-"s1615": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/35c78aa1e3c87eb1c76fb9b8056c91cab28402ee1cff566a3788d2ece8087375/",
-"members": [
-571,
-605,
-612,
-646,
-664
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
 "s1628": {
 "artists": [
@@ -43734,34 +43847,6 @@
 "status": null,
 "title": "モーニング娘。小田さくら ラスト写真集『さくら』発売記念イベント"
 },
-"s1737": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-10-15",
-"end": "24:00",
-"isFc": false,
-"label": null,
-"link": "https://www.m-on.jp/program/detail/juicejuice-sp-2610/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "※再放送",
-"start": "23:30",
-"status": null,
-"title": "MUSIC ON! TV「Juice=Juice特集」"
-},
 "s1740": {
 "artists": [
 477
@@ -43804,25 +43889,6 @@
 "start": null,
 "status": null,
 "title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
-},
-"s1765": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-10-15",
-"end": "14:48",
-"isFc": false,
-"label": null,
-"link": "https://www.htb.co.jp/ichimori/",
-"members": [
-13,
-516
-],
-"note": "※エンタメコーナー出演予定。\n※放送内容は予告なく変更されることがあります。",
-"start": "14:20",
-"status": null,
-"title": "HTB「イチ盛り！」"
 },
 "s1768": {
 "artists": [
@@ -43885,25 +43951,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 川名凜バースデーイベント2026"
-},
-"s1782": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-15",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nack5.co.jp/program/allthefeels/",
-"members": [
-300,
-516
-],
-"note": "",
-"start": "23:00",
-"status": null,
-"title": "NACK5「ALL The Feels」"
 },
 "s1792": {
 "artists": [
@@ -43984,24 +44031,24 @@
 "status": null,
 "title": "ニッポン放送「日向坂46・正源司陽子のオールナイトニッポンX(クロス)」"
 },
-"s1799": {
+"s1800": {
 "artists": [
 676
 ],
 "category": "RADIO",
-"date": "2026-10-15",
-"end": "13:55",
+"date": "2026-10-22",
+"end": "23:30",
 "isFc": false,
 "label": null,
-"link": "https://www.zf-web.com/radio/regular/musictune/post.html",
+"link": "https://hicbc.com/radio/oshimashi/",
 "members": [
 588,
 660
 ],
-"note": "※11時台～生出演予定。\n※スタジオ観覧可能",
-"start": "10:00",
+"note": "",
+"start": "22:00",
 "status": null,
-"title": "ぎふチャン「Music Tune」"
+"title": "CBCラジオ「推しマシ」"
 },
 "s1802": {
 "artists": [
@@ -44039,34 +44086,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 豫風瑠乃バースデーイベント2026"
-},
-"s1823": {
-"artists": [
-36
-],
-"category": "WEB",
-"date": "2026-10-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.hulu.jp/juicejuice-summer-camp-in-korea",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "",
-"start": "18:00",
-"status": null,
-"title": "Hulu「Juice=Juice Summer Camp in Korea Episode2」"
 },
 "s1824": {
 "artists": [
@@ -44943,6 +44962,101 @@
 "status": null,
 "title": "NBCラジオ「MUSIC WOLF」"
 },
+"s1909": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2027-01-13",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=ruEZ1pfYveED7AeX",
+"members": [
+631
+],
+"note": "ヒューリックホール東京 （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juice 川嶋美楓バースデーイベント2027"
+},
+"s1910": {
+"artists": [
+36,
+477
+],
+"category": "EVENT",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"members": [
+515,
+610
+],
+"note": "岸和田旧港地区緑地 （大阪）",
+"start": null,
+"status": null,
+"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
+},
+"s1911": {
+"artists": [
+3,
+477
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"members": [
+610,
+643
+],
+"note": "岸和田旧港地区緑地 （大阪）",
+"start": null,
+"status": null,
+"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
+},
+"s1919": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-11-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/",
+"members": [
+606
+],
+"note": "書泉ブックタワー （東京）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント"
+},
+"s1929": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-12",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://datefm.jp/pgm/genic/",
+"members": [
+588,
+611
+],
+"note": "※コメント",
+"start": "16:00",
+"status": null,
+"title": "Date fm「SOUND GENIC」"
+},
 "s861": {
 "artists": [
 3
@@ -44952,7 +45066,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/9ef219df9409c04f059e39b331add3e7dd4a71477cad8af9f44e72900e315189/",
+"link": "https://w.pia.jp/t/morningmusume-o/",
 "members": [
 13,
 300,
@@ -45146,5 +45260,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610151950-p8bGBDsuiC7kDLGi"
+"versionDir": "2610161950-cK1A35LRzp91qkCV"
 }
