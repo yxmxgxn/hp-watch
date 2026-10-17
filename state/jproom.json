@@ -23,6 +23,15 @@
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
+"/akari_takeuchi/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/": {
+"artists": [
+33
+],
+"end": "2026-10-26",
+"link": "/akari_takeuchi/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"start": "2026-10-19",
+"title": "『竹内朱莉書道展 煌々舞踊 光』開催決定！"
+},
 "/akari_uemura/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/": {
 "artists": [
 41
@@ -2739,6 +2748,38 @@
 "start": null,
 "status": null,
 "title": "TIF ASIA TOUR 2026 in Bangkok presented by maidreamin and Patlush"
+},
+"h519da2bfe5437ae2": {
+"artists": [
+40
+],
+"category": "MAGAZINE",
+"date": "2026-10-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "ねことも12月号"
+},
+"h5201b7489d406a58": {
+"artists": [
+59
+],
+"category": "STREAM",
+"date": "2026-10-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第十七席＞～稲場愛香～トークイベント"
 },
 "h5266793cdb2282f4": {
 "artists": [
@@ -6037,6 +6078,22 @@
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"he8da966aac55c148": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-16",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://rkk.jp/index.php",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "18:10",
+"status": null,
+"title": "熊本放送「新・流行音楽堂」"
+},
 "he99a49b2589133cc": {
 "artists": [
 40
@@ -6303,6 +6360,22 @@
 "start": "16:00",
 "status": null,
 "title": "FM長崎「Colors」"
+},
+"hf34bff5f3edf9a6f": {
+"artists": [
+59
+],
+"category": "RADIO",
+"date": "2026-10-16",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rfc.jp/index.php",
+"members": [],
+"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
+"start": "20:00",
+"status": null,
+"title": "ラジオ福島「新・流行音楽堂」"
 },
 "hf55fe2afad99c111": {
 "artists": [
@@ -6598,22 +6671,6 @@
 "start": null,
 "status": null,
 "title": "植村あかりフォトブック発売記念オンラインイベント"
-},
-"s1312": {
-"artists": [
-59
-],
-"category": "STREAM",
-"date": "2026-10-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [],
-"note": "※配信終了日",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪独演会 第十七席＞～稲場愛香～トークイベント"
 },
 "s1371": {
 "artists": [
@@ -7044,22 +7101,6 @@
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1729": {
-"artists": [
-40
-],
-"category": "MAGAZINE",
-"date": "2026-10-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "ねことも12月号"
-},
 "s1743": {
 "artists": [
 11
@@ -7364,38 +7405,6 @@
 "start": null,
 "status": null,
 "title": "3rdシングル発売記念 リミスタ インターネットサイン会"
-},
-"s1816": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-16",
-"end": "18:30",
-"isFc": false,
-"label": null,
-"link": "https://rkk.jp/index.php",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "18:10",
-"status": null,
-"title": "熊本放送「新・流行音楽堂」"
-},
-"s1817": {
-"artists": [
-59
-],
-"category": "RADIO",
-"date": "2026-10-16",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rfc.jp/index.php",
-"members": [],
-"note": "※都合により、放送内容や日時が変更・休止となる場合がございます。",
-"start": "20:00",
-"status": null,
-"title": "ラジオ福島「新・流行音楽堂」"
 },
 "s1847": {
 "artists": [
@@ -8150,5 +8159,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610161950-cK1A35LRzp91qkCV"
+"versionDir": "2610171910-WKiGoDxQpskbwJjq"
 }

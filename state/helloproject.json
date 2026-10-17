@@ -116,6 +116,17 @@
 "start": "2026-12-05",
 "title": "ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
 },
+"/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
+"artists": [
+3,
+36,
+477
+],
+"end": "2026-11-15",
+"link": "/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"start": "2026-11-14",
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
+},
 "/juicejuice/event/49b8859206a5ab6e953c6dbe064d6a8e8e32faca5f50dbbbe6a814d1cb929b12/": {
 "artists": [
 36
@@ -172,6 +183,17 @@
 "link": "/juicejuice/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/",
 "start": "2026-11-15",
 "title": "Juice=Juice「昭和女子大学 秋桜祭」出演決定！！"
+},
+"/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
+"artists": [
+3,
+36,
+477
+],
+"end": "2026-11-15",
+"link": "/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"start": "2026-11-14",
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
 },
 "/morningmusume/event/57f5f6309ba8fc283f7a87a46b6b3afc4f889b30973fb5789e340397780b9ed7/": {
 "artists": [
@@ -269,6 +291,15 @@
 "link": "/ochanorma/event/24c9eaf13547cf3c0c887ab4903e32bf9fc1782f4990f7db132af9cc430bb0b8/",
 "start": "2026-12-05",
 "title": "BEYOOOOONDS・OCHA NORMA「SHIGA IDOL COLLECTION “PREMIUM” 2026」出演！"
+},
+"/ochanorma/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/": {
+"artists": [
+634
+],
+"end": "2026-11-13",
+"link": "/ochanorma/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/",
+"start": "2026-11-13",
+"title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント【11/13(金)書泉ブックタワー】開催決定"
 },
 "/ochanorma/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/": {
 "artists": [
@@ -418,6 +449,17 @@
 "link": "/rosychronicle/event/ea17b123f8ec10b3eff76392cb11b5a1212d771fe8a7dd21b9d876abb8582a98/",
 "start": "2026-12-05",
 "title": "ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
+},
+"/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
+"artists": [
+3,
+36,
+477
+],
+"end": "2026-11-15",
+"link": "/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"start": "2026-11-14",
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
 },
 "/tsubakifactory/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/": {
 "artists": [
@@ -5732,6 +5774,24 @@
 "start": "13:45",
 "status": null,
 "title": "ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
+"h16101a79257cee7b": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-10-16",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=mI1tA2xPju9dGUtR",
+"members": [
+300
+],
+"note": "有楽町朝日ホール （東京）",
+"start": null,
+"status": null,
+"title": "Morning Musume。'26 Miki Nonaka Birthday Event"
 },
 "h161d5b29a90aeeec": {
 "artists": [
@@ -12661,6 +12721,24 @@
 "start": null,
 "status": null,
 "title": "郡山駅西口リニューアル25周年記念 福テレ『MUSIC TIME』公開収録イベント『MUSIC TIME LIVE』"
+},
+"h3f3ed7524229d66d": {
+"artists": [
+676
+],
+"category": "BIRTHDAY",
+"date": "2028-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/rosychronicle/honoka_hashida/",
+"members": [
+605
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は橋田歩果（ロージークロニクル）の23歳の誕生日です！"
 },
 "h3f5dd7d8080caa81": {
 "artists": [
@@ -28250,6 +28328,34 @@
 "status": null,
 "title": "ANGERME 2026 Spring Tour ～陰と陽～"
 },
+"ha696c018a6b38804": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": "中止",
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
+},
 "ha6c238f5fd31c3d3": {
 "artists": [
 676
@@ -34510,6 +34616,25 @@
 "status": null,
 "title": "FM山陰「髙田りおんのGO-! EVENING!」"
 },
+"hd25647347836ec40": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-16",
+"end": "21:55",
+"isFc": false,
+"label": null,
+"link": "https://www.kbs-kyoto.co.jp/",
+"members": [
+13,
+655
+],
+"note": "",
+"start": "21:30",
+"status": null,
+"title": "KBS京都「M10+」"
+},
 "hd27cd57866a63fc6": {
 "artists": [
 676
@@ -40658,6 +40783,26 @@
 "status": null,
 "title": "アンジュルム 松本わかなバースデーイベント2026"
 },
+"hfb0743c579a1a753": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-10-16",
+"end": "23:00",
+"isFc": false,
+"label": null,
+"link": "https://www.bs-asahi.co.jp/ongakumeshi/",
+"members": [
+496,
+524,
+708
+],
+"note": "",
+"start": "22:30",
+"status": null,
+"title": "BS朝日「高見沢俊彦の美味しい音楽 美しいメシ」"
+},
 "hfb6b3640e97c2a88": {
 "artists": [
 585
@@ -41590,34 +41735,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1148": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": "中止",
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1149": {
 "artists": [
 585
@@ -42182,24 +42299,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十五席＞～モーニング娘。'26野中美希＆杉原明紗～トークイベント"
-},
-"s1336": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-10-16",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=mI1tA2xPju9dGUtR",
-"members": [
-300
-],
-"note": "有楽町朝日ホール （東京）",
-"start": null,
-"status": null,
-"title": "Morning Musume。'26 Miki Nonaka Birthday Event"
 },
 "s1341": {
 "artists": [
@@ -43206,25 +43305,6 @@
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
 },
-"s1522": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-16",
-"end": "21:55",
-"isFc": false,
-"label": null,
-"link": "https://www.kbs-kyoto.co.jp/",
-"members": [
-13,
-655
-],
-"note": "",
-"start": "21:30",
-"status": null,
-"title": "KBS京都「M10+」"
-},
 "s1523": {
 "artists": [
 3
@@ -43494,26 +43574,6 @@
 "start": null,
 "status": null,
 "title": "IWA ROCK presented by e-Broad"
-},
-"s1664": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-10-16",
-"end": "23:00",
-"isFc": false,
-"label": null,
-"link": "https://www.bs-asahi.co.jp/ongakumeshi/",
-"members": [
-496,
-524,
-708
-],
-"note": "",
-"start": "22:30",
-"status": null,
-"title": "BS朝日「高見沢俊彦の美味しい音楽 美しいメシ」"
 },
 "s1684": {
 "artists": [
@@ -45260,5 +45320,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610161950-cK1A35LRzp91qkCV"
+"versionDir": "2610171910-WKiGoDxQpskbwJjq"
 }
