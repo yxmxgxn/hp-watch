@@ -320,15 +320,6 @@
 "start": "2026-10-22",
 "title": "OCHA NORMA「サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM」出演！"
 },
-"/ochanorma/event/9447ff8096bbebdd5f115d79d5154990fb54c4c462a71b551389e016ba41bf24/": {
-"artists": [
-634
-],
-"end": "2026-10-17",
-"link": "/ochanorma/event/9447ff8096bbebdd5f115d79d5154990fb54c4c462a71b551389e016ba41bf24/",
-"start": "2026-10-17",
-"title": "OCHA NORMA「FM大阪『Live or Treat 2026』in Zepp Namba」出演！"
-},
 "/ochanorma/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/": {
 "artists": [
 3,
@@ -360,15 +351,6 @@
 "link": "/ochanorma/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
 "start": "2026-11-07",
 "title": "「GTFグリーンチャレンジデー2026 in 新宿御苑」出演決定！"
-},
-"/ochanorma/event/b9f872e8375e49a4d5d7f16a2b02faf5426742dabda16f9e96fe9cd9be3285a6/": {
-"artists": [
-634
-],
-"end": "2026-10-17",
-"link": "/ochanorma/event/b9f872e8375e49a4d5d7f16a2b02faf5426742dabda16f9e96fe9cd9be3285a6/",
-"start": "2026-10-17",
-"title": "ハロー！プロジェクトオフィシャルショップ大阪店にてOCHA NORMA北原もも写真集『もももてぃーん。』発売記念イベント開催決定！！"
 },
 "/ochanorma/event/c8aaeccce15eb5209994f81ff109c855e8f0637e1f9c175ba04b2129396235d0/": {
 "artists": [
@@ -2262,6 +2244,34 @@
 "start": null,
 "status": null,
 "title": "今日は山﨑愛生（モーニング娘。'26）の22歳の誕生日です！"
+},
+"h0258b5ad162f3c40": {
+"artists": [
+3
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://w.pia.jp/t/morningmusume-o/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "11/14(土) NHK大阪ホール（大阪）公演",
+"start": null,
+"status": null,
+"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
 },
 "h027e707706d8ca5f": {
 "artists": [
@@ -10512,6 +10522,25 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
+"h323ae2fa7f7e1f40": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-17",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/ittoko/",
+"members": [
+588,
+611
+],
+"note": "※コメント",
+"start": "10:25",
+"status": null,
+"title": "UHB北海道文化放送「いっとこ！みんテレ」"
+},
 "h32973d2ea933f20a": {
 "artists": [
 676
@@ -13418,6 +13447,34 @@
 "start": "14:15",
 "status": null,
 "title": "Juice=Juice LIVE TOUR 2026 UP TO 11"
+},
+"h43900add96aa416b": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": "中止",
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "h4392e7194e97a883": {
 "artists": [
@@ -20055,6 +20112,31 @@
 "status": null,
 "title": "OCHA NORMA 中山夏月姫バースデーイベント2026"
 },
+"h6d151588433b136e": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9447ff8096bbebdd5f115d79d5154990fb54c4c462a71b551389e016ba41bf24/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "Zepp Namba （大阪）",
+"start": null,
+"status": null,
+"title": "FM大阪『Live or Treat 2026』in Zepp Namba"
+},
 "h6d24ab5486de014f": {
 "artists": [
 36
@@ -21284,6 +21366,32 @@
 "status": null,
 "title": "「テレ東 ウェルビーイングってなんだ？パーク」ステージイベント"
 },
+"h74eb4e8af06d2c4f": {
+"artists": [
+676
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://l-tike.com/search/?keyword=21757",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "11/29(日) 仙台darwin（宮城）公演",
+"start": null,
+"status": null,
+"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
 "h751411326cca623a": {
 "artists": [
 3
@@ -21442,6 +21550,31 @@
 "start": null,
 "status": null,
 "title": "今日は石川華望（モーニング娘。'26）の13歳の誕生日です！"
+},
+"h77a39bc2a7032d09": {
+"artists": [
+634
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/ochanorma/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "11/15(日) HEAVEN'S ROCK 熊谷VJ-1（埼玉）公演",
+"start": null,
+"status": null,
+"title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
 "h77bc63ab6199c286": {
 "artists": [
@@ -26376,6 +26509,25 @@
 "status": null,
 "title": "CSテレ朝チャンネル1「Juice=Juice Concert 2025 Queen of Hearts Special Flush」"
 },
+"h981f7db7cefcc65d": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-17",
+"end": "22:00",
+"isFc": false,
+"label": null,
+"link": "https://s.mxtv.jp/music/otobokepops/",
+"members": [
+13,
+656
+],
+"note": "",
+"start": "21:30",
+"status": null,
+"title": "TOKYO MX「音ボケPOPS」"
+},
 "h98626aef37f1f915": {
 "artists": [
 3
@@ -29365,6 +29517,34 @@
 "start": "20:00",
 "status": null,
 "title": "NACK5「FAV FOUR」"
+},
+"hadaf2963a2d5d3fa": {
+"artists": [
+36
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://t.pia.jp/pia/artist/artists.do?artistsCd=D3050043",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "11/6(金) 日本武道館（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS -SUITE-」"
 },
 "hadc9584d2f28aff5": {
 "artists": [
@@ -33596,6 +33776,24 @@
 "status": null,
 "title": "今日は井上春華（モーニング娘。'26）の22歳の誕生日です！"
 },
+"hcc1c3407e6e49db5": {
+"artists": [
+36
+],
+"category": "BIRTHDAY",
+"date": "2028-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/juicejuice/risa_irie/",
+"members": [
+625
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は入江里咲（Juice=Juice）の23歳の誕生日です！"
+},
 "hcc45ba3025703c50": {
 "artists": [
 36
@@ -35193,6 +35391,24 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十四席＞～ロージークロニクル吉田姫杷＆相馬優芽～トークイベント"
 },
+"hd560d67920d7237b": {
+"artists": [
+477
+],
+"category": "BIRTHDAY",
+"date": "2028-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/tsubakifactory/marine_fukuda/",
+"members": [
+628
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は福田真琳（つばきファクトリー）の24歳の誕生日です！"
+},
 "hd5c58a63186fa4fb": {
 "artists": [
 585
@@ -35307,6 +35523,24 @@
 "start": null,
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
+"hd6cc6d24b3e96077": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b9f872e8375e49a4d5d7f16a2b02faf5426742dabda16f9e96fe9cd9be3285a6/",
+"members": [
+608
+],
+"note": "ハロー！プロジェクトオフィシャルショップ大阪店 （大阪）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA北原もも写真集『もももてぃーん。』発売記念イベント"
 },
 "hd6e77376b274519c": {
 "artists": [
@@ -39809,6 +40043,24 @@
 "status": null,
 "title": "AIR-G'「アーティストフラッシュ」"
 },
+"hf444e478348d93b5": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-17",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+588
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
 "hf45005c9bcbb4826": {
 "artists": [
 585
@@ -40056,6 +40308,26 @@
 "start": null,
 "status": null,
 "title": "発売日｜​佐藤優樹 Live Tour 2026 〜Vesper〜"
+},
+"hf54910766befc314": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-17",
+"end": "22:30",
+"isFc": false,
+"label": null,
+"link": "https://www.bss.jp/radio/escape/",
+"members": [
+601,
+679,
+681
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "BSS山陰放送「エイスケとEscape！」"
 },
 "hf56fb4bb763d61c4": {
 "artists": [
@@ -41685,31 +41957,6 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
-"s1005": {
-"artists": [
-634
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/ochanorma/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "11/15(日) HEAVEN'S ROCK 熊谷VJ-1（埼玉）公演",
-"start": null,
-"status": null,
-"title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
-},
 "s1006": {
 "artists": [
 634
@@ -41734,34 +41981,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
-},
-"s1149": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": "中止",
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "s1150": {
 "artists": [
@@ -42106,32 +42325,6 @@
 "status": null,
 "title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
 },
-"s1212": {
-"artists": [
-676
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://l-tike.com/search/?keyword=21757",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "11/29(日) 仙台darwin（宮城）公演",
-"start": null,
-"status": null,
-"title": "発売日｜ロージークロニクル ライブツアー2026秋 ～Blueprint～"
-},
 "s1272": {
 "artists": [
 36
@@ -42444,34 +42637,6 @@
 "start": null,
 "status": null,
 "title": "ロージークロニクルFCイベント2026 〜Rosy Christmas!〜"
-},
-"s1380": {
-"artists": [
-36
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://t.pia.jp/pia/artist/artists.do?artistsCd=D3050043",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "11/6(金) 日本武道館（東京）公演",
-"start": null,
-"status": null,
-"title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS -SUITE-」"
 },
 "s1381": {
 "artists": [
@@ -42978,31 +43143,6 @@
 "status": null,
 "title": "4thシングル発売記念 forTUNE musicイベント"
 },
-"s1458": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9447ff8096bbebdd5f115d79d5154990fb54c4c462a71b551389e016ba41bf24/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "Zepp Namba （大阪）",
-"start": null,
-"status": null,
-"title": "FM大阪『Live or Treat 2026』in Zepp Namba"
-},
 "s1464": {
 "artists": [
 585
@@ -43269,24 +43409,6 @@
 "status": null,
 "title": "アンジュルムFCイベント2026 ～Angermerry Xmas～"
 },
-"s1494": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b9f872e8375e49a4d5d7f16a2b02faf5426742dabda16f9e96fe9cd9be3285a6/",
-"members": [
-608
-],
-"note": "ハロー！プロジェクトオフィシャルショップ大阪店 （大阪）",
-"start": null,
-"status": null,
-"title": "OCHA NORMA北原もも写真集『もももてぃーん。』発売記念イベント"
-},
 "s1499": {
 "artists": [
 29
@@ -43304,26 +43426,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
-},
-"s1523": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-17",
-"end": "22:30",
-"isFc": false,
-"label": null,
-"link": "https://www.bss.jp/radio/escape/",
-"members": [
-601,
-679,
-681
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "BSS山陰放送「エイスケとEscape！」"
 },
 "s1540": {
 "artists": [
@@ -44110,6 +44212,25 @@
 "status": null,
 "title": "CBCラジオ「推しマシ」"
 },
+"s1801": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-24",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://fma.co.jp/",
+"members": [
+588,
+660
+],
+"note": "※コメント",
+"start": "20:30",
+"status": null,
+"title": "FM AICHI「IN OUR NIGHT」"
+},
 "s1802": {
 "artists": [
 676
@@ -44578,25 +44699,6 @@
 "status": null,
 "title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
 },
-"s1840": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-17",
-"end": "11:30",
-"isFc": false,
-"label": null,
-"link": "https://www.uhb.jp/program/ittoko/",
-"members": [
-588,
-611
-],
-"note": "※コメント",
-"start": "10:25",
-"status": null,
-"title": "UHB北海道文化放送「いっとこ！みんテレ」"
-},
 "s1841": {
 "artists": [
 676
@@ -44751,24 +44853,6 @@
 "status": null,
 "title": "SHIGA IDOL COLLECTION “PREMIUM” 2026"
 },
-"s1870": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-17",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/yando/",
-"members": [
-588
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
-},
 "s1872": {
 "artists": [
 36
@@ -44906,25 +44990,6 @@
 "start": null,
 "status": null,
 "title": "MAQUIA 2027年1月号"
-},
-"s1893": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-10-17",
-"end": "22:00",
-"isFc": false,
-"label": null,
-"link": "https://s.mxtv.jp/music/otobokepops/",
-"members": [
-13,
-656
-],
-"note": "",
-"start": "21:30",
-"status": null,
-"title": "TOKYO MX「音ボケPOPS」"
 },
 "s1896": {
 "artists": [
@@ -45117,34 +45182,6 @@
 "status": null,
 "title": "Date fm「SOUND GENIC」"
 },
-"s861": {
-"artists": [
-3
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://w.pia.jp/t/morningmusume-o/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "11/14(土) NHK大阪ホール（大阪）公演",
-"start": null,
-"status": null,
-"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
-},
 "s862": {
 "artists": [
 3
@@ -45320,5 +45357,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610171910-WKiGoDxQpskbwJjq"
+"versionDir": "2610181930-C7LB6tKvI7pwXVYW"
 }

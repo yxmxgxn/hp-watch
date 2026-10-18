@@ -2717,6 +2717,22 @@
 "status": null,
 "title": "MBSラジオ「Mラジ Music Treasures」"
 },
+"h4f5191e0f3d6f313": {
+"artists": [
+59
+],
+"category": "TV",
+"date": "2026-10-17",
+"end": "06:15",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [],
+"note": "※再放送",
+"start": "05:45",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
+},
 "h51720e2db6a64be6": {
 "artists": [
 10
@@ -4417,6 +4433,22 @@
 "status": null,
 "title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
 },
+"h9900c3c150f1d9ab": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/sf/word/0000136289",
+"members": [],
+"note": "11/1(日) 福岡BEAT STATION （福岡）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
 "h999341fd411f5994": {
 "artists": [
 40
@@ -5052,6 +5084,22 @@
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
+"hb60d3ceec73a6f90": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://w.pia.jp/t/miyamotokarin/",
+"members": [],
+"note": "10/31(土) 柏PALOOZA （千葉）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
 "hb702d1fa5e3d987f": {
 "artists": [
 59
@@ -5115,6 +5163,22 @@
 "start": "24:45",
 "status": null,
 "title": "石川テレビ「N-18 凸」"
+},
+"hbae3e76a3f48f880": {
+"artists": [
+59
+],
+"category": "TV",
+"date": "2026-10-17",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [],
+"note": "",
+"start": "24:28",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
 },
 "hbb5354836b7e76bb": {
 "artists": [
@@ -6497,6 +6561,66 @@
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
+"hfac64d3279b89ef5": {
+"artists": [
+5,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
+"members": [],
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
+"hfac64d3279b89ef5#2": {
+"artists": [
+5,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
+"members": [],
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
+"hfac64d3279b89ef5#3": {
+"artists": [
+5,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-10-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
+"members": [],
+"note": "11/3(火) 仙台darwin（宮城）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
 "hfb41c61c2a70e8b1": {
 "artists": [
 5,
@@ -6848,12 +6972,12 @@
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1633": {
+"s1634": {
 "artists": [
 59
 ],
 "category": "TV",
-"date": "2026-10-17",
+"date": "2026-10-24",
 "end": "24:58",
 "isFc": false,
 "label": null,
@@ -6864,12 +6988,12 @@
 "status": null,
 "title": "HBCテレビ「キタコイ」"
 },
-"s1636": {
+"s1637": {
 "artists": [
 59
 ],
 "category": "TV",
-"date": "2026-10-17",
+"date": "2026-10-24",
 "end": "06:15",
 "isFc": false,
 "label": null,
@@ -6900,66 +7024,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1649": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
-"s1650": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
-"s1651": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
 "s1652": {
 "artists": [
@@ -8094,38 +8158,6 @@
 "status": null,
 "title": "タクフェス第14弾「北の島から」"
 },
-"s905": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://w.pia.jp/t/miyamotokarin/",
-"members": [],
-"note": "10/31(土) 柏PALOOZA （千葉）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
-},
-"s906": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-10-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/sf/word/0000136289",
-"members": [],
-"note": "11/1(日) 福岡BEAT STATION （福岡）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
-},
 "s909": {
 "artists": [
 40
@@ -8159,5 +8191,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610171910-WKiGoDxQpskbwJjq"
+"versionDir": "2610181930-C7LB6tKvI7pwXVYW"
 }
