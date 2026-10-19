@@ -362,15 +362,6 @@
 "start": "2026-11-03",
 "title": "OCHA NORMA・ロージークロニクル「ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～」出演！"
 },
-"/rosychronicle/event/02096bc968556971a8eea190f22ba523a9e9b518573a6d2282fcb37187f5fab0/": {
-"artists": [
-676
-],
-"end": "2026-10-18",
-"link": "/rosychronicle/event/02096bc968556971a8eea190f22ba523a9e9b518573a6d2282fcb37187f5fab0/",
-"start": "2026-10-18",
-"title": "ロージークロニクル「きゅあかわ！えぼりゅーしょん！！inアニメイトシアター」出演！"
-},
 "/rosychronicle/event/05305b6807c16d8d5fb9f39e4e724a5197d367a6a989609405019489ee05b82c/": {
 "artists": [
 634,
@@ -442,6 +433,15 @@
 "link": "/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
 "start": "2026-11-14",
 "title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
+},
+"/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/": {
+"artists": [
+477
+],
+"end": "2026-11-22",
+"link": "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
+"start": "2026-11-22",
+"title": "つばきファクトリー「カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合」出演！"
 },
 "/tsubakifactory/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/": {
 "artists": [
@@ -2208,6 +2208,32 @@
 "start": "14:30",
 "status": null,
 "title": "ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
+"h02054407cf748155": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/02096bc968556971a8eea190f22ba523a9e9b518573a6d2282fcb37187f5fab0/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "アニメイトシアター （東京）",
+"start": null,
+"status": null,
+"title": "きゅあかわ！えぼりゅーしょん！！inアニメイトシアター"
 },
 "h022d4b7fe180dfd6": {
 "artists": [
@@ -21419,6 +21445,34 @@
 "start": null,
 "status": null,
 "title": "モーニング娘。牧野真莉愛ラスト写真集 『モーニング娘。牧野真莉愛』発売記念 お話し会"
+},
+"h75342357890f6f6d": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": "中止",
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "h75f9ec6457a1efd7": {
 "artists": [
@@ -41982,34 +42036,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1150": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-18",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": "中止",
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1151": {
 "artists": [
 585
@@ -42721,32 +42747,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
-},
-"s1406": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-18",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/02096bc968556971a8eea190f22ba523a9e9b518573a6d2282fcb37187f5fab0/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "アニメイトシアター （東京）",
-"start": null,
-"status": null,
-"title": "きゅあかわ！えぼりゅーしょん！！inアニメイトシアター"
 },
 "s1409": {
 "artists": [
@@ -44737,6 +44737,25 @@
 "status": null,
 "title": "HBCラジオ「気分上昇ワイド ナルミッツ！！！」"
 },
+"s1846": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-12-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+481,
+669
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー 谷本安美・石井泉羽バースデーイベント2026 in 名古屋"
+},
 "s1865": {
 "artists": [
 477
@@ -45182,6 +45201,251 @@
 "status": null,
 "title": "Date fm「SOUND GENIC」"
 },
+"s1935": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
+"members": [
+481,
+517,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "扇町公園 （大阪）",
+"start": null,
+"status": null,
+"title": "カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合"
+},
+"s1937": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-24",
+"end": "13:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ebc.co.jp/bangumi/iyo/",
+"members": [
+481,
+628,
+670
+],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "テレビ愛媛「ふるさと絶賛バラエティ いーよ！」"
+},
+"s1938": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-28",
+"end": "25:55",
+"isFc": false,
+"label": null,
+"link": "https://www.ebc.co.jp/bangumi/iyo/",
+"members": [
+481,
+628,
+670
+],
+"note": "※再放送",
+"start": "24:55",
+"status": null,
+"title": "テレビ愛媛「ふるさと絶賛バラエティ いーよ！」"
+},
+"s1939": {
+"artists": [
+29
+],
+"category": "EVENT",
+"date": "2027-01-19",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=KEteW3LMI7hg4my9",
+"members": [
+590
+],
+"note": "ヒューリックホール東京 （東京）",
+"start": null,
+"status": null,
+"title": "アンジュルム 伊勢鈴蘭バースデーイベント2027"
+},
+"s1940": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.chiba-tv.com/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": "25:30",
+"status": null,
+"title": "チバテレ「LIVE&PEACE!」"
+},
+"s1941": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-02",
+"end": "27:26",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-tokyo.co.jp/melodix_premium/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": "26:56",
+"status": null,
+"title": "テレビ東京「プレミアMelodiX!」"
+},
+"s1942": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-10-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "日経エンタテインメント！アイドル Special GIRL POP VELOCITY"
+},
+"s1944": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-22",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://x.com/ClipRadioKansai",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "13:00",
+"status": null,
+"title": "ラジオ関西「Clip」"
+},
+"s1945": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-23",
+"end": "18:20",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/flight_park",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "16:30",
+"status": null,
+"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
+},
+"s1946": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-26",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.rokinawa.co.jp/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "ラジオ沖縄「今週のライブラリー情報」"
+},
+"s1948": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-20",
+"end": "27:54",
+"isFc": false,
+"label": null,
+"link": "https://program.bayfm.co.jp/curate/",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "26:00",
+"status": null,
+"title": "bayfm「78musi-curate」"
+},
 "s862": {
 "artists": [
 3
@@ -45357,5 +45621,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610181930-C7LB6tKvI7pwXVYW"
+"versionDir": "2610192120-j9ngftSq0UJhdp9h"
 }

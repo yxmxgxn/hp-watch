@@ -1,14 +1,5 @@
 {
 "events": {
-"/akari_takeuchi/event/00414003ff6a61ddfb1a2af1aeb2e5cb3b0a4f596e00531839a9ca70738198b0/": {
-"artists": [
-33
-],
-"end": "2026-10-18",
-"link": "/akari_takeuchi/event/00414003ff6a61ddfb1a2af1aeb2e5cb3b0a4f596e00531839a9ca70738198b0/",
-"start": "2026-10-18",
-"title": "『タケリナイベントvol.3』チケット一般販売情報！"
-},
 "/akari_takeuchi/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
 5,
@@ -1855,6 +1846,22 @@
 "start": "15:00",
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
+},
+"h263e14906122da44": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b0a946f92909d63c03c3fb53b4f261d4efd731a191fe92197b0006b28344a491/",
+"members": [],
+"note": "神戸ハーバーランド スペースシアター（兵庫）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "h27054949e288631a": {
 "artists": [
@@ -5963,6 +5970,22 @@
 "status": null,
 "title": "梅棒21st STAGE『ラヴ・オール!!』石田亜佑美出演！"
 },
+"he26e19455eea928f": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/00414003ff6a61ddfb1a2af1aeb2e5cb3b0a4f596e00531839a9ca70738198b0/",
+"members": [],
+"note": "J-SQUARE SHINAGAWA（東京）",
+"start": null,
+"status": null,
+"title": "タケリナイベントvol.3"
+},
 "he277c2672169c014": {
 "artists": [
 5,
@@ -6796,22 +6819,6 @@
 "status": null,
 "title": "植村あかりフォトブック発売記念オンラインイベント"
 },
-"s1371": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-18",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/00414003ff6a61ddfb1a2af1aeb2e5cb3b0a4f596e00531839a9ca70738198b0/",
-"members": [],
-"note": "J-SQUARE SHINAGAWA（東京）",
-"start": null,
-"status": null,
-"title": "タケリナイベントvol.3"
-},
 "s1420": {
 "artists": [
 483
@@ -6859,22 +6866,6 @@
 "start": null,
 "status": null,
 "title": "浅倉樹々2027壁掛けカレンダー発売記念オンラインイベント"
-},
-"s1454": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-10-18",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b0a946f92909d63c03c3fb53b4f261d4efd731a191fe92197b0006b28344a491/",
-"members": [],
-"note": "神戸ハーバーランド スペースシアター（兵庫）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1455": {
 "artists": [
@@ -8191,5 +8182,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610181930-C7LB6tKvI7pwXVYW"
+"versionDir": "2610192120-j9ngftSq0UJhdp9h"
 }
