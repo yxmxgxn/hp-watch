@@ -255,15 +255,6 @@
 "start": "2026-11-02",
 "title": "OCHA NORMA・ロージークロニクル「IDOL BATTLE ALIVE 2026」出演！"
 },
-"/ochanorma/event/06f43ae2130ce2b731120f8f6c3c9d17f259f85e7868eabc4f5ecaab2a7fcc45/": {
-"artists": [
-634
-],
-"end": "2026-10-19",
-"link": "/ochanorma/event/06f43ae2130ce2b731120f8f6c3c9d17f259f85e7868eabc4f5ecaab2a7fcc45/",
-"start": "2026-10-19",
-"title": "10/19(月)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
-},
 "/ochanorma/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/": {
 "artists": [
 634
@@ -442,6 +433,15 @@
 "link": "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
 "start": "2026-11-22",
 "title": "つばきファクトリー「カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合」出演！"
+},
+"/tsubakifactory/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/": {
+"artists": [
+477
+],
+"end": "2026-11-21",
+"link": "/tsubakifactory/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
+"start": "2026-11-21",
+"title": "11/21(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
 },
 "/tsubakifactory/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/": {
 "artists": [
@@ -21253,6 +21253,25 @@
 "status": null,
 "title": "HBCテレビ「もんすけインフォメーション」"
 },
+"h747127e4e7c70dd9": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-10-19",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/06f43ae2130ce2b731120f8f6c3c9d17f259f85e7868eabc4f5ecaab2a7fcc45/",
+"members": [
+497,
+604
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
+},
 "h748df81b908ce0e9": {
 "artists": [
 29
@@ -21473,6 +21492,24 @@
 "start": null,
 "status": "中止",
 "title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
+},
+"h75762642c56c3f8f": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-19",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+610
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
 },
 "h75f9ec6457a1efd7": {
 "artists": [
@@ -22000,6 +22037,24 @@
 "start": null,
 "status": null,
 "title": "今日は小島はな（BEYOOOOONDS）の24歳の誕生日です！"
+},
+"h78faa5b957cf3d9c": {
+"artists": [
+585
+],
+"category": "BIRTHDAY",
+"date": "2028-10-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/beyooooonds/minami_okamura/",
+"members": [
+540
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は岡村美波（BEYOOOOONDS）の24歳の誕生日です！"
 },
 "h78fe37362ef526b1": {
 "artists": [
@@ -22615,7 +22670,7 @@
 704,
 710
 ],
-"note": "",
+"note": "COMTEC PORTBASE（愛知）",
 "start": "18:30",
 "status": null,
 "title": "ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
@@ -24792,6 +24847,24 @@
 "start": "12:00",
 "status": null,
 "title": "FM熊本「FMK BIG MONSTER」"
+},
+"h8d09f8d35e243021": {
+"artists": [
+477
+],
+"category": "BIRTHDAY",
+"date": "2028-10-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/tsubakifactory/mihane_ishii/",
+"members": [
+669
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は石井泉羽（つばきファクトリー）の20歳の誕生日です！"
 },
 "h8d2357a7d7fedc04": {
 "artists": [
@@ -31914,6 +31987,34 @@
 "start": null,
 "status": null,
 "title": "BEYOOOOONDS/CHICA#TETSU 江口紗耶バースデーイベント2026"
+},
+"hbf16c48b91839bbd": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-19",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": "中止",
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "hbf19934fd8f03de6": {
 "artists": [
@@ -42036,34 +42137,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1151": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-19",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": "中止",
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1152": {
 "artists": [
 585
@@ -43427,25 +43500,6 @@
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
 },
-"s1540": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-10-19",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/06f43ae2130ce2b731120f8f6c3c9d17f259f85e7868eabc4f5ecaab2a7fcc45/",
-"members": [
-497,
-604
-],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
-},
 "s1541": {
 "artists": [
 634
@@ -44008,24 +44062,6 @@
 "start": null,
 "status": null,
 "title": "モーニング娘。小田さくら ラスト写真集『さくら』発売記念イベント"
-},
-"s1740": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-10-19",
-"end": "25:29",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs.jp/nishinokazebrand/",
-"members": [
-610
-],
-"note": "",
-"start": "24:59",
-"status": null,
-"title": "MBS「西乃風ブラン堂」"
 },
 "s1762": {
 "artists": [
@@ -45050,7 +45086,8 @@
 },
 "s1906": {
 "artists": [
-3
+3,
+585
 ],
 "category": "TV",
 "date": "2026-10-21",
@@ -45060,7 +45097,18 @@
 "link": "https://www.ktv.jp/pi-ticke/",
 "members": [
 13,
-655
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+655,
+665,
+708,
+709
 ],
 "note": "",
 "start": "25:15",
@@ -45069,7 +45117,8 @@
 },
 "s1907": {
 "artists": [
-3
+3,
+585
 ],
 "category": "TV",
 "date": "2026-10-24",
@@ -45079,7 +45128,18 @@
 "link": "https://www.ktv.jp/pi-ticke/",
 "members": [
 13,
-655
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+655,
+665,
+708,
+709
 ],
 "note": "※再放送",
 "start": "05:25",
@@ -45200,6 +45260,63 @@
 "start": "16:00",
 "status": null,
 "title": "Date fm「SOUND GENIC」"
+},
+"s1930": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
+"members": [
+663,
+671
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
+},
+"s1931": {
+"artists": [
+477
+],
+"category": "STREAM",
+"date": "2026-12-04",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+663,
+671
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
+},
+"s1932": {
+"artists": [
+477
+],
+"category": "STREAM",
+"date": "2026-12-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+663,
+671
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
 },
 "s1935": {
 "artists": [
@@ -45446,6 +45563,71 @@
 "status": null,
 "title": "bayfm「78musi-curate」"
 },
+"s1949": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2027-01-20",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Sktf3YFFgmZ6eHb0",
+"members": [
+620
+],
+"note": "有楽町朝日ホール （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juice 有澤一華バースデーイベント2027"
+},
+"s1950": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-10-24",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ktv.jp/otonoasobiba/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※コメント",
+"start": "25:45",
+"status": null,
+"title": "関西テレビ「オトノアソビバ」"
+},
+"s1955": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-20",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://www.web.nhk/tv/an/kagoshimawave/",
+"members": [
+605,
+646
+],
+"note": "※ニュースの状況によっては、内容が変更になる場合がございます。",
+"start": "18:10",
+"status": null,
+"title": "NHK鹿児島「情報WAVEかごしま」"
+},
 "s862": {
 "artists": [
 3
@@ -45621,5 +45803,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610192120-j9ngftSq0UJhdp9h"
+"versionDir": "2610202000-KcM4TSayjVD5crXa"
 }
