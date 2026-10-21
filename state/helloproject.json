@@ -49,6 +49,15 @@
 "start": "2026-12-05",
 "title": "BEYOOOOONDS・OCHA NORMA「SHIGA IDOL COLLECTION “PREMIUM” 2026」出演！"
 },
+"/beyooooonds/event/3fcee29d0c622f492781b1ca0deaec9428afb6acae9f3e8cede4f9c2b90f1f44/": {
+"artists": [
+585
+],
+"end": "2027-02-06",
+"link": "/beyooooonds/event/3fcee29d0c622f492781b1ca0deaec9428afb6acae9f3e8cede4f9c2b90f1f44/",
+"start": "2026-10-27",
+"title": "BEYOOOOONDS 2026年11月25日発売7thシングル『笑止千万/勝利のセンタク』発売記念イベント【一覧】"
+},
 "/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/": {
 "artists": [
 585
@@ -7972,6 +7981,26 @@
 "start": "23:30",
 "status": null,
 "title": "とちぎテレビ「SOUND30」"
+},
+"h225a6cbe7325a8a9": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-20",
+"end": "21:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nbc-radio.jp/radio/music-wolf/",
+"members": [
+516,
+667,
+711
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "NBCラジオ「MUSIC WOLF」"
 },
 "h226bc2e27bbb256b": {
 "artists": [
@@ -17303,6 +17332,25 @@
 "status": null,
 "title": "ANGERME 2026 Spring Tour ～陰と陽～"
 },
+"h5bf98fcb8ae1ae0b": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-20",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://www.web.nhk/tv/an/kagoshimawave/",
+"members": [
+605,
+646
+],
+"note": "※ニュースの状況によっては、内容が変更になる場合がございます。",
+"start": "18:10",
+"status": null,
+"title": "NHK鹿児島「情報WAVEかごしま」"
+},
 "h5c21ca0f5dfc4732": {
 "artists": [
 477
@@ -18549,6 +18597,34 @@
 "start": "22:55",
 "status": null,
 "title": "広島FM「MUSIC VOICE」"
+},
+"h625813e3687a171a": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-10-20",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dAKwK2tpEEskpyWs",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "かつしかシンフォニーヒルズ モーツァルトホール （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juiceスペシャルライブ2026 〜10月10日はJuice=Juiceの日〜"
 },
 "h62b2acba5fac5c39": {
 "artists": [
@@ -24710,6 +24786,26 @@
 "status": null,
 "title": "UHB北海道文化放送「TANTO MUSIK」"
 },
+"h8b83fa8a363df43d": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-20",
+"end": "27:54",
+"isFc": false,
+"label": null,
+"link": "https://program.bayfm.co.jp/curate/",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "26:00",
+"status": null,
+"title": "bayfm「78musi-curate」"
+},
 "h8c0ad83f7cdb9d69": {
 "artists": [
 477
@@ -30043,6 +30139,34 @@
 "start": null,
 "status": null,
 "title": "今日は川嶋美楓（Juice=Juice）の19歳の誕生日です！"
+},
+"hafc6beb7cef97007": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": null,
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "hafd47d744fa70630": {
 "artists": [
@@ -42137,34 +42261,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1152": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": null,
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1153": {
 "artists": [
 585
@@ -42423,34 +42519,6 @@
 "start": null,
 "status": null,
 "title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
-},
-"s1272": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-10-20",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dAKwK2tpEEskpyWs",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "かつしかシンフォニーヒルズ モーツァルトホール （東京）",
-"start": null,
-"status": null,
-"title": "Juice=Juiceスペシャルライブ2026 〜10月10日はJuice=Juiceの日〜"
 },
 "s1273": {
 "artists": [
@@ -44998,6 +45066,44 @@
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
+"s1877": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-27",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+630,
+660
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
+"s1878": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-28",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+630,
+660
+],
+"note": "※コメント\n※再放送",
+"start": "25:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
 "s1882": {
 "artists": [
 676
@@ -45145,26 +45251,6 @@
 "start": "05:25",
 "status": null,
 "title": "関西テレビ「ピーチケパーチケ」"
-},
-"s1908": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-20",
-"end": "21:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nbc-radio.jp/radio/music-wolf/",
-"members": [
-516,
-667,
-711
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "NBCラジオ「MUSIC WOLF」"
 },
 "s1909": {
 "artists": [
@@ -45543,26 +45629,6 @@
 "status": null,
 "title": "ラジオ沖縄「今週のライブラリー情報」"
 },
-"s1948": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-20",
-"end": "27:54",
-"isFc": false,
-"label": null,
-"link": "https://program.bayfm.co.jp/curate/",
-"members": [
-611,
-612,
-646
-],
-"note": "※コメント",
-"start": "26:00",
-"status": null,
-"title": "bayfm「78musi-curate」"
-},
 "s1949": {
 "artists": [
 36
@@ -45609,24 +45675,62 @@
 "status": null,
 "title": "関西テレビ「オトノアソビバ」"
 },
-"s1955": {
+"s1960": {
 "artists": [
-676
+36
 ],
-"category": "TV",
-"date": "2026-10-20",
-"end": "19:00",
+"category": "EVENT",
+"date": "2026-11-14",
+"end": null,
 "isFc": false,
 "label": null,
-"link": "https://www.web.nhk/tv/an/kagoshimawave/",
+"link": "/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/",
 "members": [
-605,
-646
+450,
+543
 ],
-"note": "※ニュースの状況によっては、内容が変更になる場合がございます。",
-"start": "18:10",
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
 "status": null,
-"title": "NHK鹿児島「情報WAVEかごしま」"
+"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
+},
+"s1961": {
+"artists": [
+36
+],
+"category": "STREAM",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+450,
+543
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
+},
+"s1962": {
+"artists": [
+36
+],
+"category": "STREAM",
+"date": "2026-12-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+450,
+543
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
 },
 "s862": {
 "artists": [
@@ -45803,5 +45907,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610202000-KcM4TSayjVD5crXa"
+"versionDir": "2610212010-XRAhdKoGV9QaXYgw"
 }

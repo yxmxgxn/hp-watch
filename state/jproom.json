@@ -5434,6 +5434,22 @@
 "status": null,
 "title": "FM山形「レコメンド！」"
 },
+"hc2fa8f5c879e2fb0": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
 "hc3bd8c199475cb70": {
 "artists": [
 5,
@@ -7749,22 +7765,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1899": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"members": [],
-"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "竹内朱莉書道展 煌々舞踊 光"
-},
 "s1900": {
 "artists": [
 33
@@ -8230,5 +8230,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610202000-KcM4TSayjVD5crXa"
+"versionDir": "2610212010-XRAhdKoGV9QaXYgw"
 }
