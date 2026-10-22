@@ -17,3 +17,7 @@
 - うるさい番組は `mute.txt` にタイトルの一部（正規表現可）を1行ずつ足す。GitHubのWeb画面から編集してよい
 - 判定方法を変えたら `state/` のファイルを消して作り直す（消さないと大量の誤通知が出る）
 - 手元で試すとき: `python hpwatch.py --state state/helloproject.json --force`（Webhook未設定なら画面に出る）
+
+## radio/
+
+NAS で radiko のタイムフリーを自動で回収するラジオ録音。GitHub Actions は使わない。→ [radio/README.md](radio/README.md)

@@ -1,0 +1,16 @@
+services:
+  radio:
+    build: .
+    container_name: radio-recorder
+    # NAS の再起動後も勝手に立ち上がり、起動直後に1回 → 以降6時間おきに回る
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NAS_ROOT: /nas
+      DATA_DIR: /data
+      RCLONE_CONFIG: /config/rclone.conf
+    volumes:
+      - /volume1/Yuta:/nas                 # \\DS220j\Yuta
+      - ./data:/data                       # 状態と作業用ファイル
+      - ./rclone.conf:/config/rclone.conf  # BOX の認証（rclone が更新するので書き込み可のまま）
+    mem_limit: 256m

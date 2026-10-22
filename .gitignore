@@ -1,0 +1,3 @@
+radio/nas/.env
+radio/nas/rclone.conf
+radio/nas/data/
