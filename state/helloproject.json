@@ -11756,6 +11756,37 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十二席＞～BEYOOOOONDS江口紗耶＆里吉うたの～トークイベント"
 },
+"h3ab227ccaaaa1e43": {
+"artists": [
+3,
+585
+],
+"category": "TV",
+"date": "2026-10-21",
+"end": "25:44",
+"isFc": false,
+"label": null,
+"link": "https://www.ktv.jp/pi-ticke/",
+"members": [
+13,
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+655,
+665,
+708,
+709
+],
+"note": "",
+"start": "25:15",
+"status": null,
+"title": "関西テレビ「ピーチケパーチケ」"
+},
 "h3ab3a596ecfa9e12": {
 "artists": [
 3
@@ -26392,6 +26423,25 @@
 "status": null,
 "title": "発売日｜​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"h95857ad215b7db25": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-21",
+"end": "24:49",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/",
+"members": [
+588,
+611
+],
+"note": "※コメント",
+"start": "24:34",
+"status": null,
+"title": "HBCテレビ「もんすけインフォメーション」"
+},
 "h959ff0bffcc60d12": {
 "artists": [
 634
@@ -31267,6 +31317,34 @@
 "start": "23:00",
 "status": null,
 "title": "BS日テレ「アイ、語らせてください！」"
+},
+"hb98485106765698d": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": null,
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "hba0496f68f67c3da": {
 "artists": [
@@ -38266,6 +38344,34 @@
 "status": null,
 "title": "NACK5「ALL The Feels」"
 },
+"he6a9a9cfbe8a8d91": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-10-21",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dAKwK2tpEEskpyWs",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "かつしかシンフォニーヒルズ モーツァルトホール （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juiceスペシャルライブ2026 〜10月10日はJuice=Juiceの日〜"
+},
 "he6b844aef669926a": {
 "artists": [
 477
@@ -42261,34 +42367,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1153": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": null,
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1154": {
 "artists": [
 585
@@ -42519,34 +42597,6 @@
 "start": null,
 "status": null,
 "title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
-},
-"s1273": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-10-21",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dAKwK2tpEEskpyWs",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "かつしかシンフォニーヒルズ モーツァルトホール （東京）",
-"start": null,
-"status": null,
-"title": "Juice=Juiceスペシャルライブ2026 〜10月10日はJuice=Juiceの日〜"
 },
 "s1314": {
 "artists": [
@@ -44803,25 +44853,6 @@
 "status": null,
 "title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
 },
-"s1841": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-21",
-"end": "24:49",
-"isFc": false,
-"label": null,
-"link": "https://www.hbc.co.jp/",
-"members": [
-588,
-611
-],
-"note": "※コメント",
-"start": "24:34",
-"status": null,
-"title": "HBCテレビ「もんすけインフォメーション」"
-},
 "s1843": {
 "artists": [
 676
@@ -45189,37 +45220,6 @@
 "start": "19:00",
 "status": null,
 "title": "SBSテレビ「静岡発そこ知り」"
-},
-"s1906": {
-"artists": [
-3,
-585
-],
-"category": "TV",
-"date": "2026-10-21",
-"end": "25:44",
-"isFc": false,
-"label": null,
-"link": "https://www.ktv.jp/pi-ticke/",
-"members": [
-13,
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-655,
-665,
-708,
-709
-],
-"note": "",
-"start": "25:15",
-"status": null,
-"title": "関西テレビ「ピーチケパーチケ」"
 },
 "s1907": {
 "artists": [
@@ -45629,6 +45629,25 @@
 "status": null,
 "title": "ラジオ沖縄「今週のライブラリー情報」"
 },
+"s1947": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-24",
+"end": "10:25",
+"isFc": false,
+"label": null,
+"link": "https://www.kyt-tv.com/kagopita/",
+"members": [
+605,
+646
+],
+"note": "",
+"start": "09:25",
+"status": null,
+"title": "鹿児島讀賣テレビ「かごピタFAMILIAR」"
+},
 "s1949": {
 "artists": [
 36
@@ -45674,6 +45693,62 @@
 "start": "25:45",
 "status": null,
 "title": "関西テレビ「オトノアソビバ」"
+},
+"s1953": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-10-27",
+"end": "27:23",
+"isFc": false,
+"label": null,
+"link": "https://www.ktv.jp/nmb-music/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※コメント",
+"start": "26:54",
+"status": null,
+"title": "関西テレビ「音いたち」"
+},
+"s1957": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-10-29",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.amazon.co.jp/gp/video/detail/B0HKH4Q2K2?ref_=atv_sr_fle_c_sr78dced_pvsearchresults_1_1",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "Amazon Music presents「オトバズ #2」"
 },
 "s1960": {
 "artists": [
@@ -45731,6 +45806,44 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
+},
+"s1965": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-24",
+"end": "26:05",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/peachcafe/",
+"members": [
+516,
+643
+],
+"note": "※コメント",
+"start": "25:35",
+"status": null,
+"title": "読売テレビ「すもももももも！ピーチCAFE」"
+},
+"s1966": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-24",
+"end": "26:05",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/peachcafe/",
+"members": [
+605,
+612
+],
+"note": "",
+"start": "25:35",
+"status": null,
+"title": "読売テレビ「すもももももも！ピーチCAFE」"
 },
 "s862": {
 "artists": [
@@ -45907,5 +46020,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610212010-XRAhdKoGV9QaXYgw"
+"versionDir": "2610222010-rEtgjbq6XgTexfVF"
 }

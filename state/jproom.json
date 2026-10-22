@@ -1751,6 +1751,22 @@
 "status": null,
 "title": "今日は宮崎由加の誕生日です！"
 },
+"h20dd0be3071b6d52": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
 "h21410a06b9958622": {
 "artists": [
 40
@@ -6639,7 +6655,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6659,7 +6675,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6679,7 +6695,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6699,7 +6715,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7765,22 +7781,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1900": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"members": [],
-"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "竹内朱莉書道展 煌々舞踊 光"
-},
 "s1901": {
 "artists": [
 33
@@ -7892,6 +7892,22 @@
 "start": null,
 "status": null,
 "title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s1964": {
+"artists": [
+483
+],
+"category": "RADIO",
+"date": "2026-10-24",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
 },
 "s714": {
 "artists": [
@@ -8230,5 +8246,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610212010-XRAhdKoGV9QaXYgw"
+"versionDir": "2610222010-rEtgjbq6XgTexfVF"
 }
