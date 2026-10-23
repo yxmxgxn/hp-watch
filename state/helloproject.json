@@ -2926,6 +2926,24 @@
 "status": null,
 "title": "つばきファクトリー CONCERT 2026 AUTUMN Bloomy Groovy Story 秋山眞緒 Final「花音 -はなおと-」"
 },
+"h05bd87381b20f755": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-10-23",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=AyvWrrB87V9RWrND",
+"members": [
+625
+],
+"note": "有楽町朝日ホール （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juice 入江里咲バースデーイベント2026"
+},
 "h05d82674bbcf5605": {
 "artists": [
 477
@@ -19058,6 +19076,25 @@
 "status": null,
 "title": "ABSラジオ「タマリバ」"
 },
+"h646f958f96c87646": {
+"artists": [
+676
+],
+"category": "WEB",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://kansai.pia.co.jp/interview/music/2026-10/rosychronicle.html",
+"members": [
+605,
+612
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ぴあ関西版Web"
+},
 "h6472b47741d36ed5": {
 "artists": [
 477
@@ -25636,6 +25673,25 @@
 "status": null,
 "title": "＠ JAM EXPO 2026 supported by UP-T"
 },
+"h8fe25ec874f0e2f5": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-23",
+"end": "18:20",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/flight_park",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "16:30",
+"status": null,
+"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
+},
 "h8ff1f52a6000b488": {
 "artists": [
 29
@@ -26539,6 +26595,24 @@
 "status": null,
 "title": "モーニング娘。'26 コンサートツアー春 - Rays Of Light -"
 },
+"h945daa447dd2d755": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/799c560698db163d907a0f4200ff49e94468ab6f9a0b5611066b398521f64251/",
+"members": [
+517
+],
+"note": "書泉グランデ （東京）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー秋山眞緒写真集「MAO」発売記念イベント"
+},
 "h94b97445459403ca": {
 "artists": [
 3
@@ -26877,6 +26951,25 @@
 "start": null,
 "status": null,
 "title": "37thシングル発売記念 ミニライブ＆お見送り会"
+},
+"h9770325f48b25b98": {
+"artists": [
+3
+],
+"category": "STREAM",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+300,
+667
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十五席＞～モーニング娘。'26野中美希＆杉原明紗～トークイベント"
 },
 "h977c99e52b39dc03": {
 "artists": [
@@ -30799,6 +30892,25 @@
 "status": null,
 "title": "今日は根本花凛（ハロプロ研修生）の13歳の誕生日です！"
 },
+"hb46ab02ed37c6929": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-23",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmyokohama.co.jp/program/tresenfriday",
+"members": [
+13,
+601
+],
+"note": "※16:15頃～生出演予定。",
+"start": "15:00",
+"status": null,
+"title": "FMヨコハマ「Tresen Friday」"
+},
 "hb47cf5f710efa9f2": {
 "artists": [
 676
@@ -32187,6 +32299,25 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
+},
+"hbe25eac8490b1a83": {
+"artists": [
+585
+],
+"category": "MAGAZINE",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+462,
+708
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "IDOL AND READ 047"
 },
 "hbe3054d924d89859": {
 "artists": [
@@ -34366,6 +34497,34 @@
 "start": null,
 "status": null,
 "title": "今日は入江里咲（Juice=Juice）の23歳の誕生日です！"
+},
+"hcc3cf673f36f24b1": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": null,
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
 },
 "hcc45ba3025703c50": {
 "artists": [
@@ -38549,6 +38708,25 @@
 "status": null,
 "title": "6thシングル発売記念 全国同時トーク&一言お話し会(ZDO)イベント"
 },
+"he612350952d9dcf0": {
+"artists": [
+29
+],
+"category": "STREAM",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+525,
+677
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
+},
 "he64d0ef6fb542518": {
 "artists": [
 634
@@ -42629,34 +42807,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1155": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": null,
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1156": {
 "artists": [
 585
@@ -42924,25 +43074,6 @@
 "start": null,
 "status": null,
 "title": "GIFT～Girls Idol Festival Tokyo～"
-},
-"s1327": {
-"artists": [
-3
-],
-"category": "STREAM",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-300,
-667
-],
-"note": "※配信終了日",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十五席＞～モーニング娘。'26野中美希＆杉原明紗～トークイベント"
 },
 "s1341": {
 "artists": [
@@ -43606,24 +43737,6 @@
 "status": null,
 "title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
 },
-"s1470": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-10-23",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=AyvWrrB87V9RWrND",
-"members": [
-625
-],
-"note": "有楽町朝日ホール （東京）",
-"start": null,
-"status": null,
-"title": "Juice=Juice 入江里咲バースデーイベント2026"
-},
 "s1471": {
 "artists": [
 634
@@ -43669,25 +43782,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice Room Tour 2026「5ROOMS-TAIPEI ANNEX-」"
-},
-"s1478": {
-"artists": [
-29
-],
-"category": "STREAM",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-525,
-677
-],
-"note": "※配信開始",
-"start": "18:00",
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
 },
 "s1479": {
 "artists": [
@@ -44466,24 +44560,6 @@
 "status": null,
 "title": "BEYOOOOONDS/SeasoningS 平井美葉バースデーイベント2026"
 },
-"s1797": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/799c560698db163d907a0f4200ff49e94468ab6f9a0b5611066b398521f64251/",
-"members": [
-517
-],
-"note": "書泉グランデ （東京）",
-"start": null,
-"status": null,
-"title": "つばきファクトリー秋山眞緒写真集「MAO」発売記念イベント"
-},
 "s1801": {
 "artists": [
 676
@@ -45253,25 +45329,6 @@
 "status": null,
 "title": "MAQUIA 2027年1月号"
 },
-"s1896": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-23",
-"end": "19:00",
-"isFc": false,
-"label": null,
-"link": "https://www.fmyokohama.co.jp/program/tresenfriday",
-"members": [
-13,
-601
-],
-"note": "※16:15頃～生出演予定。",
-"start": "15:00",
-"status": null,
-"title": "FMヨコハマ「Tresen Friday」"
-},
 "s1897": {
 "artists": [
 3
@@ -45640,25 +45697,6 @@
 "status": null,
 "title": "日経エンタテインメント！アイドル Special GIRL POP VELOCITY"
 },
-"s1945": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-23",
-"end": "18:20",
-"isFc": false,
-"label": null,
-"link": "https://obs-oita.co.jp/radio/program/flight_park",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "16:30",
-"status": null,
-"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
-},
 "s1946": {
 "artists": [
 676
@@ -45895,44 +45933,6 @@
 "status": null,
 "title": "読売テレビ「すもももももも！ピーチCAFE」"
 },
-"s1967": {
-"artists": [
-585
-],
-"category": "MAGAZINE",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [
-462,
-708
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "IDOL AND READ 047"
-},
-"s1975": {
-"artists": [
-676
-],
-"category": "WEB",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://kansai.pia.co.jp/interview/music/2026-10/rosychronicle.html",
-"members": [
-605,
-612
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "ぴあ関西版Web"
-},
 "s862": {
 "artists": [
 3
@@ -46108,5 +46108,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610232000-PR1uXNs4zTlEPwiZ"
+"versionDir": "2610240020-K2ZXCKpFEXcv11WG"
 }

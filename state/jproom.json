@@ -976,6 +976,22 @@
 "status": null,
 "title": "5thシングル発売記念 ミニライブ＆一言お話し会"
 },
+"h01cb40ced560cb42": {
+"artists": [
+5
+],
+"category": "MAGAZINE",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "IDOL AND READ 047"
+},
 "h02ca6c80701fcf02": {
 "artists": [
 40
@@ -1718,6 +1734,22 @@
 "start": "16:00",
 "status": null,
 "title": "群馬テレビ「うたなびMAX!!」"
+},
+"h1cfcccf1eedd6e83": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
 },
 "h1dff237ef995e377": {
 "artists": [
@@ -7797,22 +7829,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1902": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"members": [],
-"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "竹内朱莉書道展 煌々舞踊 光"
-},
 "s1903": {
 "artists": [
 33
@@ -7908,22 +7924,6 @@
 "start": "22:00",
 "status": null,
 "title": "MBSラジオ「ヤングタウン土曜日」"
-},
-"s1967": {
-"artists": [
-5
-],
-"category": "MAGAZINE",
-"date": "2026-10-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "IDOL AND READ 047"
 },
 "s1976": {
 "artists": [
@@ -8278,5 +8278,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610232000-PR1uXNs4zTlEPwiZ"
+"versionDir": "2610240020-K2ZXCKpFEXcv11WG"
 }
