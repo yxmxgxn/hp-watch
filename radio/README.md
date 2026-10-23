@@ -90,7 +90,8 @@ cd /volume1/docker
 git clone https://github.com/yxmxgxn/hp-watch.git   # git が無ければ zip を置く
 cd hp-watch/radio/nas
 cp .env.example .env        # GITHUB_TOKEN / DISCORD_WEBHOOK / HEALTHCHECK_URL を書く
-# rclone.conf をここに置く
+# rclone.conf をここに置く（BOX をまだ使わないなら touch rclone.conf で空のファイルを作り、.env の BOX_REMOTE を空に）
+mkdir -p data               # Synology では先に作っておかないと起動に失敗する
 sudo docker compose up -d --build     # 古い DSM なら docker-compose up -d --build
 sudo docker logs -f radio-recorder     # 動きを見る（Ctrl+C で抜ける。コンテナは止まらない）
 ```

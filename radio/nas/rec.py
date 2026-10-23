@@ -246,8 +246,23 @@ def run_program(rk, prog, state, now, report):
     folder = nas_dir(prog)
     max_no, dates, latest = scan(folder, name)
     fails = state.setdefault("fails", {})
+    if not folder.is_dir():
+        log(f"{name}: 保存先フォルダがありません（保存するときに作ります）: {folder}")
+    else:
+        log(f"{name}: 保存先の最新 " + (f"第{max_no}回 {latest}" if max_no else "なし（番号付きのファイルが無い）"))
 
-    for ep in find_episodes(rk, prog, now):
+    episodes = find_episodes(rk, prog, now)
+    log(f"  番組表で見つかった回: " + (", ".join(ts(ep["ft"]).strftime("%m/%d %H:%M") for ep in episodes) or "なし"))
+    # 1週間ずっと見つからないのは、休止か、番組名(match)が番組表のタイトルと違うか。見つかるまで1回だけ知らせる
+    notfound = state.setdefault("notfound", {})
+    if episodes:
+        notfound.pop(name, None)
+    elif name not in notfound:
+        notfound[name] = now.isoformat()
+        report["alerts"].append(f"{name}: radiko の番組表（{prog['station']}、過去1週間）に見つかりません。"
+                                "休止中でなければ、programs.json の name か match を番組表のタイトルに合わせてください")
+
+    for ep in episodes:
         date = ep["ft"][:8]
         key = f"{prog['station']}:{ep['ft']}"
         if date in dates:
