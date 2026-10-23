@@ -1,0 +1,25 @@
+{
+  "programs": [
+    {
+      "name": "Juice=Juice ジューシー・トーク",
+      "station": "LFR",
+      "dir": "Movie/Music/Juice=Juice/Juice=Juice ジューシー・トーク",
+      "box": "RADIO/ニッポン放送/Juice=Juice ジューシー・トーク",
+      "first_no": 1
+    },
+    {
+      "name": "宮本佳林の雑談ラジオ",
+      "station": "JORF",
+      "dir": "Movie/Music/宮本佳林/宮本佳林の雑談ラジオ",
+      "box": "RADIO/ラジオ日本/宮本佳林の雑談ラジオ",
+      "first_no": 242
+    },
+    {
+      "name": "Music Palette♪",
+      "station": "TBS",
+      "dir": "Movie/Music/宮本佳林/Music Palette",
+      "box": "RADIO/TBSラジオ/MusicPalette♪",
+      "first_no": 312
+    }
+  ]
+}
