@@ -245,15 +245,6 @@
 "start": "2026-10-20",
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
-"/morningmusume/event/e146fb91298ff667acd81b3b66a6a6d79ff65bb777347420c982d4b507f61fcd/": {
-"artists": [
-3
-],
-"end": "2026-10-22",
-"link": "/morningmusume/event/e146fb91298ff667acd81b3b66a6a6d79ff65bb777347420c982d4b507f61fcd/",
-"start": "2026-10-22",
-"title": "モーニング娘。小田さくら ラスト写真集『さくら』発売記念イベント開催！"
-},
 "/ochanorma/event/05305b6807c16d8d5fb9f39e4e724a5197d367a6a989609405019489ee05b82c/": {
 "artists": [
 634,
@@ -310,15 +301,6 @@
 "link": "/ochanorma/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/",
 "start": "2026-12-22",
 "title": "​「西乃風ブラン堂」公開収録のお知らせ"
-},
-"/ochanorma/event/938e675e9f8994a24dd2ef47411be2438ea606d8fce3593a396bf01e9b24f14a/": {
-"artists": [
-634
-],
-"end": "2026-10-22",
-"link": "/ochanorma/event/938e675e9f8994a24dd2ef47411be2438ea606d8fce3593a396bf01e9b24f14a/",
-"start": "2026-10-22",
-"title": "OCHA NORMA「サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM」出演！"
 },
 "/ochanorma/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/": {
 "artists": [
@@ -3996,6 +3978,34 @@
 "status": null,
 "title": "ロージークロニクル ライブツアー2026春 ～Turn the Leaf!～"
 },
+"h0aa9a885260460f2": {
+"artists": [
+585
+],
+"category": "STAGE",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
+"start": null,
+"status": null,
+"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
+},
 "h0ab42495d0f92cfc": {
 "artists": [
 36
@@ -4285,6 +4295,31 @@
 "start": null,
 "status": null,
 "title": "GFEST."
+},
+"h0cb27e0a29d54a8c": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/938e675e9f8994a24dd2ef47411be2438ea606d8fce3593a396bf01e9b24f14a/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "Shibuya LOVEZ （東京）",
+"start": null,
+"status": null,
+"title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
 },
 "h0cc0c2bb4ec3c4d8": {
 "artists": [
@@ -5691,6 +5726,26 @@
 "start": "16:45",
 "status": null,
 "title": "YBSラジオ「909 weekly tune」"
+},
+"h159364af60b316ce": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-22",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://x.com/ClipRadioKansai",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "13:00",
+"status": null,
+"title": "ラジオ関西「Clip」"
 },
 "h15a9dc8a57e22d73": {
 "artists": [
@@ -9151,6 +9206,34 @@
 "start": "21:00",
 "status": null,
 "title": "テレビ朝日「MUSIC STATION」"
+},
+"h29f2f62441590bae": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.hulu.jp/juicejuice-summer-camp-in-korea",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "Hulu「Juice=Juice Summer Camp in Korea Episode3」"
 },
 "h2a1af7c4d9622451": {
 "artists": [
@@ -13056,6 +13139,46 @@
 "status": null,
 "title": "FM愛媛「Groovy Radio Caravan」"
 },
+"h40a211529953f880": {
+"artists": [
+3,
+477,
+585,
+634
+],
+"category": "MAGAZINE",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+13,
+300,
+462,
+481,
+497,
+516,
+524,
+568,
+586,
+591,
+592,
+593,
+601,
+606,
+608,
+610,
+626,
+628,
+643,
+671
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "VOCE 12月号"
+},
 "h40a5100add8b4f0b": {
 "artists": [
 36
@@ -14146,6 +14269,24 @@
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
 },
+"h483bf89e4a2f7611": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-10-22",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/kenmin_show/",
+"members": [
+300
+],
+"note": "",
+"start": "20:54",
+"status": null,
+"title": "読売テレビ「秘密のケンミンSHOW極」"
+},
 "h484ccd5348e13f06": {
 "artists": [
 3
@@ -14624,6 +14765,24 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 西村乙輝バースデーイベント2026"
+},
+"h4b4c037542093721": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-22",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=HKIuTipsztXYkM87",
+"members": [
+605
+],
+"note": "有楽町朝日ホール (東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 橋田歩果バースデーイベント2026"
 },
 "h4b7078d7b06906fe": {
 "artists": [
@@ -16707,6 +16866,24 @@
 "start": null,
 "status": null,
 "title": "今日は鈴木琴美（ハロプロ研修生）の16歳の誕生日です！"
+},
+"h58b114a473fcbccb": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-10-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/e146fb91298ff667acd81b3b66a6a6d79ff65bb777347420c982d4b507f61fcd/",
+"members": [
+13
+],
+"note": "六本木 蔦屋書店 （東京）",
+"start": null,
+"status": null,
+"title": "モーニング娘。小田さくら ラスト写真集『さくら』発売記念イベント"
 },
 "h5906db02a3127c11": {
 "artists": [
@@ -22672,6 +22849,26 @@
 "status": null,
 "title": "ぎふチャン「Music Tune」"
 },
+"h7e14b09015cddbfc": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-22",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.mietv.com/program/mielive/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "17:40",
+"status": null,
+"title": "三重テレビ「Mieライブ」"
+},
 "h7e490bfe38cb723c": {
 "artists": [
 477
@@ -25698,6 +25895,25 @@
 "start": null,
 "status": null,
 "title": "写真集｜アンジュルム平山遊季写真集 「YUKI」"
+},
+"h915cb360735b44f7": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-22",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/radio/oshimashi/",
+"members": [
+588,
+660
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "CBCラジオ「推しマシ」"
 },
 "h915f38d9fd39b877": {
 "artists": [
@@ -37672,6 +37888,24 @@
 "status": null,
 "title": "FM大阪「OTOSHIMONO」"
 },
+"he0e2ce5acd992b8b": {
+"artists": [
+36
+],
+"category": "RADIO",
+"date": "2026-10-22",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.allnightnippon.com/yoko/",
+"members": [
+609
+],
+"note": "",
+"start": "24:00",
+"status": null,
+"title": "ニッポン放送「日向坂46・正源司陽子のオールナイトニッポンX(クロス)」"
+},
 "he11246e24e917c21": {
 "artists": [
 36
@@ -37784,6 +38018,34 @@
 "start": "05:25",
 "status": null,
 "title": "関西テレビ「ピーチケパーチケ」"
+},
+"he22b98543022fa0b": {
+"artists": [
+3
+],
+"category": "RELEASE",
+"date": "2026-12-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7712/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ブルーレイディスク｜「モーニング娘。'26 コンサートツアー春 - Rays Of Light - Final ～牧野真莉愛 卒業スペシャル～」"
 },
 "he2816ef9fbef9fd2": {
 "artists": [
@@ -42367,34 +42629,6 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"s1154": {
-"artists": [
-585
-],
-"category": "STAGE",
-"date": "2026-10-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/987db5faba006a4dffde90f4db45ac4bed5a31a2b5a2aadef5f2600e5cc36542/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "こくみん共済 coop ホール/スペース・ゼロ （東京）",
-"start": null,
-"status": null,
-"title": "こくみん共済 coop ホール/スペース・ゼロ 提携公演 演劇女子部「TIME REPEAT」"
-},
 "s1155": {
 "artists": [
 585
@@ -42938,24 +43172,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
-},
-"s1409": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-22",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=HKIuTipsztXYkM87",
-"members": [
-605
-],
-"note": "有楽町朝日ホール (東京）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル 橋田歩果バースデーイベント2026"
 },
 "s1412": {
 "artists": [
@@ -43729,24 +43945,6 @@
 "status": null,
 "title": "つばきファクトリー 谷本安美バースデーイベント2026"
 },
-"s1563": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-10-22",
-"end": "21:54",
-"isFc": false,
-"label": null,
-"link": "https://www.ytv.co.jp/kenmin_show/",
-"members": [
-300
-],
-"note": "",
-"start": "20:54",
-"status": null,
-"title": "読売テレビ「秘密のケンミンSHOW極」"
-},
 "s1607": {
 "artists": [
 477
@@ -44163,49 +44361,6 @@
 "status": null,
 "title": "昭和女子大学 秋桜祭"
 },
-"s1723": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-10-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/e146fb91298ff667acd81b3b66a6a6d79ff65bb777347420c982d4b507f61fcd/",
-"members": [
-13
-],
-"note": "六本木 蔦屋書店 （東京）",
-"start": null,
-"status": null,
-"title": "モーニング娘。小田さくら ラスト写真集『さくら』発売記念イベント"
-},
-"s1762": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-10-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/938e675e9f8994a24dd2ef47411be2438ea606d8fce3593a396bf01e9b24f14a/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "Shibuya LOVEZ （東京）",
-"start": null,
-"status": null,
-"title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
-},
 "s1768": {
 "artists": [
 36
@@ -44329,43 +44484,6 @@
 "status": null,
 "title": "つばきファクトリー秋山眞緒写真集「MAO」発売記念イベント"
 },
-"s1798": {
-"artists": [
-36
-],
-"category": "RADIO",
-"date": "2026-10-22",
-"end": "24:58",
-"isFc": false,
-"label": null,
-"link": "https://www.allnightnippon.com/yoko/",
-"members": [
-609
-],
-"note": "",
-"start": "24:00",
-"status": null,
-"title": "ニッポン放送「日向坂46・正源司陽子のオールナイトニッポンX(クロス)」"
-},
-"s1800": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-22",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://hicbc.com/radio/oshimashi/",
-"members": [
-588,
-660
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "CBCラジオ「推しマシ」"
-},
 "s1801": {
 "artists": [
 676
@@ -44421,34 +44539,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 豫風瑠乃バースデーイベント2026"
-},
-"s1824": {
-"artists": [
-36
-],
-"category": "WEB",
-"date": "2026-10-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.hulu.jp/juicejuice-summer-camp-in-korea",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "",
-"start": "18:00",
-"status": null,
-"title": "Hulu「Juice=Juice Summer Camp in Korea Episode3」"
 },
 "s1825": {
 "artists": [
@@ -45135,26 +45225,6 @@
 "status": null,
 "title": "仙台放送「杜の都musicSPACE」"
 },
-"s1882": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-22",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.mietv.com/program/mielive/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "17:40",
-"status": null,
-"title": "三重テレビ「Mieライブ」"
-},
 "s1886": {
 "artists": [
 36
@@ -45570,26 +45640,6 @@
 "status": null,
 "title": "日経エンタテインメント！アイドル Special GIRL POP VELOCITY"
 },
-"s1944": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-22",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://x.com/ClipRadioKansai",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "13:00",
-"status": null,
-"title": "ラジオ関西「Clip」"
-},
 "s1945": {
 "artists": [
 676
@@ -45845,6 +45895,44 @@
 "status": null,
 "title": "読売テレビ「すもももももも！ピーチCAFE」"
 },
+"s1967": {
+"artists": [
+585
+],
+"category": "MAGAZINE",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+462,
+708
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "IDOL AND READ 047"
+},
+"s1975": {
+"artists": [
+676
+],
+"category": "WEB",
+"date": "2026-10-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://kansai.pia.co.jp/interview/music/2026-10/rosychronicle.html",
+"members": [
+605,
+612
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ぴあ関西版Web"
+},
 "s862": {
 "artists": [
 3
@@ -46020,5 +46108,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610222010-rEtgjbq6XgTexfVF"
+"versionDir": "2610232000-PR1uXNs4zTlEPwiZ"
 }
