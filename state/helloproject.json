@@ -45437,6 +45437,45 @@
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
+"s1912": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-30",
+"end": "25:13",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/tv/yutanpo/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "24:43",
+"status": null,
+"title": "RSK山陽放送「ユタンポ」"
+},
+"s1913": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.webtsc.com/program/pirisat/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "11:00",
+"status": null,
+"title": "テレビせとうち「ピリッとサタデー」"
+},
 "s1919": {
 "artists": [
 634
@@ -45933,6 +45972,82 @@
 "status": null,
 "title": "読売テレビ「すもももももも！ピーチCAFE」"
 },
+"s1970": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rkb.jp/radio/anta/",
+"members": [
+646,
+664
+],
+"note": "※12時台～生出演予定。\n※RKB毎日放送1階サテライトスタジオにて観覧可能です。",
+"start": "10:00",
+"status": null,
+"title": "RKBラジオ「Weekend Live あんたっちゃぶる」"
+},
+"s1971": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/pao-n/",
+"members": [
+646,
+664
+],
+"note": "※14時台～生出演予定。",
+"start": "13:00",
+"status": null,
+"title": "KBCラジオ「PAO～N」"
+},
+"s1972": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://lovefm.co.jp/music_serendipity/programs/more",
+"members": [
+646,
+664
+],
+"note": "※18時台～出演予定。\n※ソラリアプラザ1Fサテライトスタジオにて観覧可能です。",
+"start": "15:00",
+"status": null,
+"title": "ラブエフエム「music×serendipity」"
+},
+"s1973": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "19:55",
+"isFc": false,
+"label": null,
+"link": "https://fmfukuoka.co.jp/program/hapieku/",
+"members": [
+646,
+664
+],
+"note": "※JR HAKATA CITY3階サテライトスタジオにて観覧可能です。",
+"start": "19:00",
+"status": null,
+"title": "エフエム福岡「Friday Happy Express in JR博多シティ」"
+},
 "s862": {
 "artists": [
 3
@@ -46108,5 +46223,5 @@
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 }
 },
-"versionDir": "2610240020-K2ZXCKpFEXcv11WG"
+"versionDir": "2610241920-BkeJhNf7iukyko0P"
 }
