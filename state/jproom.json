@@ -3092,6 +3092,22 @@
 "status": null,
 "title": "FM徳島「T-Joint」"
 },
+"h59eb572562881d0a": {
+"artists": [
+41
+],
+"category": "EVENT",
+"date": "2026-10-25",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
+"members": [],
+"note": "HMV&BOOKS SHIBUYA（東京）",
+"start": null,
+"status": null,
+"title": "植村あかりフォトブック発売記念イベント"
+},
 "h5ae28b06643551dc": {
 "artists": [
 59
@@ -6676,6 +6692,22 @@
 "status": null,
 "title": "ラジオ福島「新・流行音楽堂」"
 },
+"hf35c6e476c7144c9": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-25",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
 "hf45ece052a156f4f": {
 "artists": [
 59
@@ -7014,22 +7046,6 @@
 "start": "15:45",
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
-"s1268": {
-"artists": [
-41
-],
-"category": "EVENT",
-"date": "2026-10-25",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
-"members": [],
-"note": "HMV&BOOKS SHIBUYA（東京）",
-"start": null,
-"status": null,
-"title": "植村あかりフォトブック発売記念イベント"
 },
 "s1269": {
 "artists": [
@@ -7877,22 +7893,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1904": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-25",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"members": [],
-"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "竹内朱莉書道展 煌々舞踊 光"
-},
 "s1905": {
 "artists": [
 33
@@ -8294,5 +8294,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610251950-NTSWy5r4MEFBqKx8"
+"versionDir": "2610262120-G7WwU39QbqNxXZ9o"
 }
