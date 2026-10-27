@@ -1735,6 +1735,22 @@
 "status": null,
 "title": "群馬テレビ「うたなびMAX!!」"
 },
+"h1bea72f4bcc412be": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-10-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
+"members": [],
+"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "竹内朱莉書道展 煌々舞踊 光"
+},
 "h1cfcccf1eedd6e83": {
 "artists": [
 33
@@ -7893,22 +7909,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1905": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-10-26",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"members": [],
-"note": "明治安田ヴィレッジ1F 明治安田ギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "竹内朱莉書道展 煌々舞踊 光"
-},
 "s1933": {
 "artists": [
 11
@@ -8294,5 +8294,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610262120-G7WwU39QbqNxXZ9o"
+"versionDir": "2610272040-v55VYfb3dU2MBz4P"
 }
