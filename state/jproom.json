@@ -4035,6 +4035,22 @@
 "status": null,
 "title": "IBCラジオ「音楽のハコ」"
 },
+"h7c6f994dff0fe3ce": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-10-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/84e43da3417387032f879fe1cce097632b38ac5d7c4fdec45e9fc1beef651f58/",
+"members": [],
+"note": "サンシャインシティ 噴水広場 （東京）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h7d2f0330bf0acb2e": {
 "artists": [
 10
@@ -6835,7 +6851,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6855,7 +6871,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7126,22 +7142,6 @@
 "start": null,
 "status": null,
 "title": "浅倉樹々2027壁掛けカレンダー発売記念オンラインイベント"
-},
-"s1455": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-10-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/84e43da3417387032f879fe1cce097632b38ac5d7c4fdec45e9fc1beef651f58/",
-"members": [],
-"note": "サンシャインシティ 噴水広場 （東京）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1456": {
 "artists": [
@@ -8294,5 +8294,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610272040-v55VYfb3dU2MBz4P"
+"versionDir": "2610282110-0OaNTvmtPSMh9S49"
 }

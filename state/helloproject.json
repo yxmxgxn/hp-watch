@@ -847,8 +847,8 @@
 },
 "MBSラジオ「西乃風ブラン堂ラジオ」|https://www.mbs1179.com/burandou/|毎週日曜日|16:30": {
 "artists": [
-477,
-585
+585,
+634
 ],
 "category": "RADIO",
 "date": null,
@@ -4610,6 +4610,24 @@
 "start": "10:25",
 "status": null,
 "title": "UHB北海道文化放送「いっとこ！みんテレ」"
+},
+"h0e76529de3b9b455": {
+"artists": [
+634
+],
+"category": "BIRTHDAY",
+"date": "2028-10-28",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/ochanorma/madoka_saito/",
+"members": [
+586
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は斉藤円香（OCHA NORMA）の26歳の誕生日です！"
 },
 "h0eb9593caa816cf5": {
 "artists": [
@@ -24152,6 +24170,25 @@
 "status": null,
 "title": "三重テレビ「Mieライブ」"
 },
+"h7e1f034ded8976fd": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-27",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+630,
+660
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
 "h7e596715383a96a4": {
 "artists": [
 29
@@ -26647,6 +26684,34 @@
 "status": null,
 "title": "モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
 },
+"h8dadd5e55f2f5933": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-10-27",
+"end": "27:23",
+"isFc": false,
+"label": null,
+"link": "https://www.ktv.jp/nmb-music/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※コメント",
+"start": "26:54",
+"status": null,
+"title": "関西テレビ「音いたち」"
+},
 "h8dfa786184276b2c": {
 "artists": [
 29
@@ -28819,6 +28884,24 @@
 "start": null,
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
+},
+"h9a43cb982739a50d": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-10-27",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=rahNbIJI3AfqHyrI",
+"members": [
+586
+],
+"note": "有楽町朝日ホール （東京）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA斉藤円香バースデーイベント2026"
 },
 "h9a4bc42695c7db64": {
 "artists": [
@@ -31936,6 +32019,32 @@
 "start": "17:30",
 "status": null,
 "title": "ANGERME 2026 Spring Tour ～陰と陽～"
+},
+"hacaa487f9d8f99cb": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1ed03de1eed9196e2665396953005479e1c03c3658550be30977a5f8e9cf9749/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "CLUB CITTA'（神奈川）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
 },
 "hacba376e20a1bb6b": {
 "artists": [
@@ -37169,6 +37278,25 @@
 "start": "13:15",
 "status": null,
 "title": "Juice=Juice LIVE TOUR 2026 UP TO 11"
+},
+"hccfbc8f535fb148c": {
+"artists": [
+676
+],
+"category": "WEB",
+"date": "2026-10-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://tjkagoshima.com/special/rosy_chronicle/",
+"members": [
+605,
+646
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "TJカゴシマweb"
 },
 "hcd03fbc46d5659e6": {
 "artists": [
@@ -44885,6 +45013,26 @@
 "status": null,
 "title": "今日は野中美希（モーニング娘。'26）の27歳の誕生日です！"
 },
+"hf7e83cbb771051d8": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-10-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/04177d2eb8000861a740167c1e2d90e392f94f00628739c897b14c01dd5ae884/",
+"members": [
+540,
+541,
+709
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
+},
 "hf81bfc95208fac4a": {
 "artists": [
 29
@@ -46687,32 +46835,6 @@
 "status": null,
 "title": "OCHA NORMA FCイベント2026 メリクリティーパーティー 〜 聖なる鐘がCHA CHA CHA CHA〜N！〜"
 },
-"s1432": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/1ed03de1eed9196e2665396953005479e1c03c3658550be30977a5f8e9cf9749/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "CLUB CITTA'（神奈川）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
-},
 "s1433": {
 "artists": [
 676
@@ -47002,24 +47124,6 @@
 "start": null,
 "status": null,
 "title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
-},
-"s1471": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-10-27",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=rahNbIJI3AfqHyrI",
-"members": [
-586
-],
-"note": "有楽町朝日ホール （東京）",
-"start": null,
-"status": null,
-"title": "OCHA NORMA斉藤円香バースデーイベント2026"
 },
 "s1474": {
 "artists": [
@@ -47491,26 +47595,6 @@
 "status": null,
 "title": "7thシングル発売記念 ミニライブ＆お見送り会"
 },
-"s1687": {
-"artists": [
-585
-],
-"category": "EVENT",
-"date": "2026-10-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/04177d2eb8000861a740167c1e2d90e392f94f00628739c897b14c01dd5ae884/",
-"members": [
-540,
-541,
-709
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
-},
 "s1688": {
 "artists": [
 585
@@ -47844,6 +47928,25 @@
 "start": "08:00",
 "status": null,
 "title": "ぎふチャン「ラジオ土曜便」"
+},
+"s1804": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-04",
+"end": "18:25",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/tv/news/hidamino/post.html",
+"members": [
+588,
+660
+],
+"note": "※コメント",
+"start": "18:00",
+"status": null,
+"title": "ぎふチャン「ヒダミノ」"
 },
 "s1809": {
 "artists": [
@@ -48500,25 +48603,6 @@
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
-"s1877": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-27",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [
-630,
-660
-],
-"note": "※コメント",
-"start": "24:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
-},
 "s1878": {
 "artists": [
 676
@@ -48739,6 +48823,64 @@
 "start": "21:00",
 "status": null,
 "title": "RCCラジオ「ヨルノバ」"
+},
+"s1915": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://kry.co.jp/radio/asa/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "07:00",
+"status": null,
+"title": "山口放送「KRY Morning Up」"
+},
+"s1916": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://www.e-radio.co.jp",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "14:00",
+"status": null,
+"title": "FM滋賀「キャッチ！」"
+},
+"s1917": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-okayama.co.jp/passage/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "FM岡山「PASSAGE」"
 },
 "s1919": {
 "artists": [
@@ -48970,34 +49112,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 有澤一華バースデーイベント2027"
-},
-"s1953": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-10-27",
-"end": "27:23",
-"isFc": false,
-"label": null,
-"link": "https://www.ktv.jp/nmb-music/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "※コメント",
-"start": "26:54",
-"status": null,
-"title": "関西テレビ「音いたち」"
 },
 "s1956": {
 "artists": [
@@ -49681,25 +49795,6 @@
 "status": null,
 "title": "大分朝日放送「SOLD OUT」"
 },
-"s2038": {
-"artists": [
-676
-],
-"category": "WEB",
-"date": "2026-10-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://tjkagoshima.com/special/rosy_chronicle/",
-"members": [
-605,
-646
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "TJカゴシマweb"
-},
 "s2040": {
 "artists": [
 676
@@ -49738,6 +49833,172 @@
 "start": "24:55",
 "status": null,
 "title": "福島中央テレビ「二畳半レコード」"
+},
+"s2042": {
+"artists": [
+676
+],
+"category": "MAGAZINE",
+"date": "2026-12-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+605,
+646
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ミニモちゃん ミニモニ。テレフォンポーチBOOK"
+},
+"s2043": {
+"artists": [
+29
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "19:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fmnagasaki.co.jp/program/GGJETTRADIO/",
+"members": [
+590
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "FM長崎「go!go!vanillasジェットセイヤのGO!GO! JETT RADIO」"
+},
+"s2044": {
+"artists": [
+29
+],
+"category": "RADIO",
+"date": "2026-11-28",
+"end": "19:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fmnagasaki.co.jp/program/GGJETTRADIO/",
+"members": [
+590
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "FM長崎「go!go!vanillasジェットセイヤのGO!GO! JETT RADIO」"
+},
+"s2045": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-11",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/besthits/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※生放送",
+"start": "19:00",
+"status": null,
+"title": "読売テレビ/日本テレビ系全国ネット「ベストヒット歌謡祭2026」"
+},
+"s2046": {
+"artists": [
+3,
+634
+],
+"category": "WEB",
+"date": "2026-11-28",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://abema.go.link/dNytq",
+"members": [
+13,
+300,
+497,
+516,
+544,
+568,
+586,
+601,
+604,
+606,
+608,
+635,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "ABEMA「GIFT ～Girls Idol Festival Tokyo～」"
+},
+"s2047": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-11-29",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://abema.go.link/kWQg5",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "ABEMA「GIFT ～Girls Idol Festival Tokyo～」"
+},
+"s2048": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2027-01-26",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=zS6SQnxThnZjPKAW",
+"members": [
+588
+],
+"note": "TOKYO FM HALL （東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 小野田華凜バースデーイベント2027"
 },
 "s863": {
 "artists": [
@@ -49832,5 +50093,5 @@
 "title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
 }
 },
-"versionDir": "2610272040-v55VYfb3dU2MBz4P"
+"versionDir": "2610282110-0OaNTvmtPSMh9S49"
 }
