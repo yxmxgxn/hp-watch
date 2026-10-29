@@ -14,15 +14,6 @@
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
-"/akari_takeuchi/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/": {
-"artists": [
-33
-],
-"end": "2026-10-26",
-"link": "/akari_takeuchi/event/cd106cb87e8b0367a046799cc3d72e501622e354745d2434fb1532a2f6c48cc1/",
-"start": "2026-10-19",
-"title": "『竹内朱莉書道展 煌々舞踊 光』開催決定！"
-},
 "/akari_uemura/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/": {
 "artists": [
 41
@@ -40,6 +31,15 @@
 "link": "/akari_uemura/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
 "start": "2026-10-25",
 "title": "『植村あかりフォトブック(仮)』発売決定！"
+},
+"/ayumi_ishida/event/45924b5042f2d355d37bec9fd8d357bb05c4b98f7553359df53ed9641dfb6f73/": {
+"artists": [
+10
+],
+"end": "2026-12-24",
+"link": "/ayumi_ishida/event/45924b5042f2d355d37bec9fd8d357bb05c4b98f7553359df53ed9641dfb6f73/",
+"start": "2026-12-24",
+"title": "「HARUKA KUDO LIVE 2026 REW:NEW」出演！"
 },
 "/ayumi_ishida/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/": {
 "artists": [
@@ -6851,7 +6851,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6871,7 +6871,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7957,6 +7957,22 @@
 "status": null,
 "title": "FM長野「SATURDAY D」"
 },
+"s2039": {
+"artists": [
+10
+],
+"category": "EVENT",
+"date": "2026-12-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/45924b5042f2d355d37bec9fd8d357bb05c4b98f7553359df53ed9641dfb6f73/",
+"members": [],
+"note": "代官山UNIT（東京）",
+"start": null,
+"status": null,
+"title": "HARUKA KUDO LIVE 2026 REW:NEW"
+},
 "s714": {
 "artists": [
 40
@@ -8294,5 +8310,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610282110-0OaNTvmtPSMh9S49"
+"versionDir": "2610292120-6tiCARTbCuufj0Mq"
 }

@@ -1,5 +1,22 @@
 {
 "events": {
+"/angerme/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/angerme/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
+},
 "/angerme/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/": {
 "artists": [
 29
@@ -29,6 +46,32 @@
 "link": "/angerme/event/eea32ca83d6d9dfe389e097519cca28e46fdf1a07e83372663ef7376a2c2ec36/",
 "start": "2026-09-12",
 "title": "アンジュルム 2026秋 風林火山・弐"
+},
+"/beyooooonds/event/069a5ee813b618cd97118749c5bb075b37473af75b0a4fcbd091807b0ac93fee/": {
+"artists": [
+585
+],
+"end": "2027-01-11",
+"link": "/beyooooonds/event/069a5ee813b618cd97118749c5bb075b37473af75b0a4fcbd091807b0ac93fee/",
+"start": "2027-01-11",
+"title": "BEYOOOOONDS「LIVE SDD BICYCLE 2027」出演！"
+},
+"/beyooooonds/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/beyooooonds/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
 },
 "/beyooooonds/event/22fb08b4cbabbb7af59fd5e5cd85d07debb8c3f91f362faaa44a5f2a357fc162/": {
 "artists": [
@@ -96,6 +139,23 @@
 "start": "2026-12-19",
 "title": "BEYOOOOONDS「IWA ROCK presented by e-Broad」出演！"
 },
+"/helloprokenshusei/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/helloprokenshusei/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
+},
 "/helloprokenshusei/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/": {
 "artists": [
 42
@@ -124,6 +184,40 @@
 "link": "/helloprokenshusei/event/ea17b123f8ec10b3eff76392cb11b5a1212d771fe8a7dd21b9d876abb8582a98/",
 "start": "2026-12-05",
 "title": "ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
+},
+"/helloprokenshuseihokkaido/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/helloprokenshuseihokkaido/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
+},
+"/juicejuice/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/juicejuice/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
 },
 "/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
 "artists": [
@@ -154,6 +248,15 @@
 "link": "/juicejuice/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
 "start": "2026-10-31",
 "title": "Juice=Juice・BEYOOOOONDS「Livejack 2026 SMASH BEAT SP」出演！"
+},
+"/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/": {
+"artists": [
+36
+],
+"end": "2026-11-14",
+"link": "/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/",
+"start": "2026-11-14",
+"title": "11/14(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
 },
 "/juicejuice/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/": {
 "artists": [
@@ -192,6 +295,23 @@
 "link": "/juicejuice/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/",
 "start": "2026-11-15",
 "title": "Juice=Juice「昭和女子大学 秋桜祭」出演決定！！"
+},
+"/morningmusume/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/morningmusume/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
 },
 "/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
 "artists": [
@@ -254,6 +374,23 @@
 "link": "/ochanorma/event/05305b6807c16d8d5fb9f39e4e724a5197d367a6a989609405019489ee05b82c/",
 "start": "2026-11-02",
 "title": "OCHA NORMA・ロージークロニクル「IDOL BATTLE ALIVE 2026」出演！"
+},
+"/ochanorma/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/ochanorma/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
 },
 "/ochanorma/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/": {
 "artists": [
@@ -354,6 +491,23 @@
 "start": "2026-11-02",
 "title": "OCHA NORMA・ロージークロニクル「IDOL BATTLE ALIVE 2026」出演！"
 },
+"/rosychronicle/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/rosychronicle/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
+},
 "/rosychronicle/event/90e7f623f2d92bf7a432cfe3af45caa5a87ab69fb319b123a33fd3acc84477ba/": {
 "artists": [
 676
@@ -405,6 +559,23 @@
 "start": "2026-12-05",
 "title": "ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
 },
+"/tsubakifactory/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"end": "2027-02-27",
+"link": "/tsubakifactory/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
+"start": "2027-01-02",
+"title": "Hello! Project 2027 Winter「Crossroads」"
+},
 "/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
 "artists": [
 3,
@@ -433,15 +604,6 @@
 "link": "/tsubakifactory/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
 "start": "2026-11-21",
 "title": "11/21(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
-},
-"/tsubakifactory/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/": {
-"artists": [
-477
-],
-"end": "2026-10-26",
-"link": "/tsubakifactory/event/483a105eacb46c7e71549ab36ca17464115fc3d386db8a6f966d589333474a9e/",
-"start": "2026-10-26",
-"title": "つばきファクトリー CONCERT 2026 AUTUMN Bloomy Groovy Story 秋山眞緒 Final「花音 -はなおと-」"
 },
 "/tsubakifactory/event/ee36ca0f29bbb56e0ab89c8bbdf5c3ecf974d74f932303ae4fe928de0d2b1960/": {
 "artists": [
@@ -15402,6 +15564,25 @@
 "start": "19:00",
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
+},
+"h4a658992418feaf6": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-28",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+630,
+660
+],
+"note": "※コメント\n※再放送",
+"start": "25:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
 },
 "h4a6e493e14ca0ecd": {
 "artists": [
@@ -45728,6 +45909,26 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
+"hfc87a34075e4c9f0": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-10-28",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ebc.co.jp/bangumi/iyo/",
+"members": [
+481,
+628,
+670
+],
+"note": "※再放送",
+"start": "24:15",
+"status": null,
+"title": "テレビ愛媛「ふるさと絶賛バラエティ いーよ！」"
+},
 "hfc8e9d71f7774b7f": {
 "artists": [
 3
@@ -48603,25 +48804,6 @@
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
-"s1878": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-28",
-"end": "26:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [
-630,
-660
-],
-"note": "※コメント\n※再放送",
-"start": "25:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
-},
 "s1883": {
 "artists": [
 676
@@ -48882,6 +49064,26 @@
 "status": null,
 "title": "FM岡山「PASSAGE」"
 },
+"s1918": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-05",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-sanin.co.jp/program/go",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "17:20",
+"status": null,
+"title": "エフエム山陰「髙田りおんのGO-!EVENING!」"
+},
 "s1919": {
 "artists": [
 634
@@ -49002,26 +49204,6 @@
 "start": null,
 "status": null,
 "title": "カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合"
-},
-"s1938": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-10-28",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ebc.co.jp/bangumi/iyo/",
-"members": [
-481,
-628,
-670
-],
-"note": "※再放送",
-"start": "24:15",
-"status": null,
-"title": "テレビ愛媛「ふるさと絶賛バラエティ いーよ！」"
 },
 "s1939": {
 "artists": [
@@ -49776,6 +49958,118 @@
 "status": null,
 "title": "BEYOOOOONDS DVD MAGAZINE Vol.17～島倉りか卒業メモリアル～"
 },
+"s2022": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-05",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
+"s2023": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-12",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
+"s2024": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-19",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
+"s2025": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
 "s2030": {
 "artists": [
 676
@@ -49794,6 +50088,25 @@
 "start": "25:05",
 "status": null,
 "title": "大分朝日放送「SOLD OUT」"
+},
+"s2035": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "14:30",
+"isFc": false,
+"label": null,
+"link": "http://www.rokinawa.co.jp/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "14:20",
+"status": null,
+"title": "ラジオ沖縄「気ままにウィークリー」"
 },
 "s2040": {
 "artists": [
@@ -50000,6 +50313,52 @@
 "status": null,
 "title": "ロージークロニクル 小野田華凜バースデーイベント2027"
 },
+"s2052": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tbs.co.jp/tbs-ch/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "CS TBSチャンネル1「CDTVライブ！ライブ！秋の大感謝祭2026」"
+},
+"s2053": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2027-01-28",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=4XWyXvN54RrWW9dW",
+"members": [
+609
+],
+"note": "ヒューリックホール東京 （東京）",
+"start": null,
+"status": null,
+"title": "Juice=Juice 江端妃咲バースデーイベント2027"
+},
 "s863": {
 "artists": [
 3
@@ -50093,5 +50452,5 @@
 "title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
 }
 },
-"versionDir": "2610282110-0OaNTvmtPSMh9S49"
+"versionDir": "2610292120-6tiCARTbCuufj0Mq"
 }
