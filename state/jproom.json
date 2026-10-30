@@ -2704,6 +2704,22 @@
 "status": null,
 "title": "発売日｜ロージークロニクル 夏イベント 2026～ハロプロクロニクル～"
 },
+"h48210ec6fe6e2d28": {
+"artists": [
+5
+],
+"category": "BIRTHDAY",
+"date": "2028-10-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/mizuki_fukumura/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は譜久村聖の誕生日です！"
+},
 "h49ea670ecafe03cc": {
 "artists": [
 40
@@ -6851,7 +6867,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6871,7 +6887,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6891,7 +6907,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6911,7 +6927,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6931,7 +6947,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7973,6 +7989,22 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
+"s2063": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.webtsc.com/program/pirisat/",
+"members": [],
+"note": "",
+"start": "11:00",
+"status": null,
+"title": "テレビせとうち「ピリッとサタデー」"
+},
 "s714": {
 "artists": [
 40
@@ -8310,5 +8342,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610292120-6tiCARTbCuufj0Mq"
+"versionDir": "2610302110-A6pw0mbMpFVY1W8o"
 }
