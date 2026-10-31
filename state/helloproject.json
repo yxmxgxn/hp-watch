@@ -4871,6 +4871,27 @@
 "status": null,
 "title": "アンジュルム 2026秋 風林火山・弐"
 },
+"h0ef1cbee089e0d94": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-10-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/04177d2eb8000861a740167c1e2d90e392f94f00628739c897b14c01dd5ae884/",
+"members": [
+462,
+496,
+592,
+665
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
+},
 "h0ef288a2129f0b74": {
 "artists": [
 3
@@ -9399,6 +9420,25 @@
 "status": null,
 "title": "ラジオ日本「60TRY部」"
 },
+"h25dd1466ef6710c0": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-30",
+"end": "20:58",
+"isFc": false,
+"label": null,
+"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "20:54",
+"status": null,
+"title": "福島テレビ「MUSIC TIME」"
+},
 "h25e31e6eabf6cd6b": {
 "artists": [
 29
@@ -11446,6 +11486,25 @@
 "status": null,
 "title": "ハロー！プロジェクトモバイル ハロー！ラジオ「ろこの部屋」"
 },
+"h3110be4267b913b3": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://lovefm.co.jp/music_serendipity/programs/more",
+"members": [
+646,
+664
+],
+"note": "※18時台～出演予定。\n※ソラリアプラザ1Fサテライトスタジオにて観覧可能です。",
+"start": "15:00",
+"status": null,
+"title": "ラブエフエム「music×serendipity」"
+},
 "h313e43a8c49c1685": {
 "artists": [
 36
@@ -12748,6 +12807,34 @@
 "start": null,
 "status": null,
 "title": "今日は橋迫鈴（アンジュルム）の22歳の誕生日です！"
+},
+"h3918eb0b32a2909f": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-10-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "日経エンタテインメント！アイドル Special GIRL POP VELOCITY"
 },
 "h3923f4dd12c9dd37": {
 "artists": [
@@ -16675,6 +16762,25 @@
 "status": null,
 "title": "YBSラジオ「はみだし しゃべくりラジオ キックス」"
 },
+"h5059c694ece608dd": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rkb.jp/radio/anta/",
+"members": [
+646,
+664
+],
+"note": "※12時台～生出演予定。\n※RKB毎日放送1階サテライトスタジオにて観覧可能です。",
+"start": "10:00",
+"status": null,
+"title": "RKBラジオ「Weekend Live あんたっちゃぶる」"
+},
 "h50bb12ed1a35d322": {
 "artists": [
 585,
@@ -20280,6 +20386,24 @@
 "status": null,
 "title": "BS日テレ「アイ、語らせてください！」"
 },
+"h65d7552678e1676f": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-30",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+605
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 橋田歩果バースデーイベント2026 in 名古屋"
+},
 "h65ea654ccc268f08": {
 "artists": [
 29
@@ -20524,6 +20648,25 @@
 "status": null,
 "title": "大分朝日放送「SOLD OUT」"
 },
+"h67727367e6558cd6": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "19:55",
+"isFc": false,
+"label": null,
+"link": "https://fmfukuoka.co.jp/program/hapieku/",
+"members": [
+646,
+664
+],
+"note": "※JR HAKATA CITY3階サテライトスタジオにて観覧可能です。",
+"start": "19:00",
+"status": null,
+"title": "エフエム福岡「Friday Happy Express in JR博多シティ」"
+},
 "h677c703c900b0635": {
 "artists": [
 477
@@ -20749,6 +20892,25 @@
 "start": null,
 "status": null,
 "title": "今日は岡村美波（BEYOOOOONDS）の22歳の誕生日です！"
+},
+"h6894db6399ee0587": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-30",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/pao-n/",
+"members": [
+646,
+664
+],
+"note": "※14時台～生出演予定。",
+"start": "13:00",
+"status": null,
+"title": "KBCラジオ「PAO～N」"
 },
 "h68de9a61bb3ea2be": {
 "artists": [
@@ -22541,6 +22703,25 @@
 "start": null,
 "status": null,
 "title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
+},
+"h73aa88792d53ae57": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-30",
+"end": "25:13",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/tv/yutanpo/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "24:43",
+"status": null,
+"title": "RSK山陽放送「ユタンポ」"
 },
 "h73d0374c0880d99f": {
 "artists": [
@@ -36944,6 +37125,25 @@
 "status": null,
 "title": "ロージークロニクル ライブツアー2026春 ～Turn the Leaf!～"
 },
+"hc9baf901906de165": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-30",
+"end": "14:50",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/wish_plus/",
+"members": [
+646,
+664
+],
+"note": "",
+"start": "13:50",
+"status": null,
+"title": "KBCテレビ「地元応援live Wish＋」"
+},
 "hc9c10f78888267f0": {
 "artists": [
 3
@@ -47468,24 +47668,6 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
 },
-"s1484": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-30",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
-"members": [
-605
-],
-"note": "ミッドランドスクエア シネマ2 （愛知）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル 橋田歩果バースデーイベント2026 in 名古屋"
-},
 "s1488": {
 "artists": [
 477
@@ -47873,27 +48055,6 @@
 "status": null,
 "title": "7thシングル発売記念 ミニライブ＆お見送り会"
 },
-"s1689": {
-"artists": [
-585
-],
-"category": "EVENT",
-"date": "2026-10-30",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/04177d2eb8000861a740167c1e2d90e392f94f00628739c897b14c01dd5ae884/",
-"members": [
-462,
-496,
-592,
-665
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
-},
 "s1690": {
 "artists": [
 585
@@ -48185,6 +48346,25 @@
 "start": "08:00",
 "status": null,
 "title": "ぎふチャン「ラジオ土曜便」"
+},
+"s1803": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-07",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/wgc/post.html",
+"members": [
+588,
+660
+],
+"note": "※コメント",
+"start": "12:00",
+"status": null,
+"title": "ぎふチャン「ときめきステーション ダブジェネカウントダウン」"
 },
 "s1804": {
 "artists": [
@@ -48976,25 +49156,6 @@
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
-"s1912": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-30",
-"end": "25:13",
-"isFc": false,
-"label": null,
-"link": "https://www.rsk.co.jp/tv/yutanpo/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "24:43",
-"status": null,
-"title": "RSK山陽放送「ユタンポ」"
-},
 "s1913": {
 "artists": [
 676
@@ -49316,34 +49477,6 @@
 "status": null,
 "title": "テレビ東京「プレミアMelodiX!」"
 },
-"s1942": {
-"artists": [
-36
-],
-"category": "MAGAZINE",
-"date": "2026-10-30",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "日経エンタテインメント！アイドル Special GIRL POP VELOCITY"
-},
 "s1949": {
 "artists": [
 36
@@ -49437,101 +49570,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
-},
-"s1969": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-30",
-"end": "14:50",
-"isFc": false,
-"label": null,
-"link": "https://kbc.co.jp/wish_plus/",
-"members": [
-646,
-664
-],
-"note": "",
-"start": "13:50",
-"status": null,
-"title": "KBCテレビ「地元応援live Wish＋」"
-},
-"s1970": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-30",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://rkb.jp/radio/anta/",
-"members": [
-646,
-664
-],
-"note": "※12時台～生出演予定。\n※RKB毎日放送1階サテライトスタジオにて観覧可能です。",
-"start": "10:00",
-"status": null,
-"title": "RKBラジオ「Weekend Live あんたっちゃぶる」"
-},
-"s1971": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-30",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://kbc.co.jp/pao-n/",
-"members": [
-646,
-664
-],
-"note": "※14時台～生出演予定。",
-"start": "13:00",
-"status": null,
-"title": "KBCラジオ「PAO～N」"
-},
-"s1972": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-30",
-"end": "19:00",
-"isFc": false,
-"label": null,
-"link": "https://lovefm.co.jp/music_serendipity/programs/more",
-"members": [
-646,
-664
-],
-"note": "※18時台～出演予定。\n※ソラリアプラザ1Fサテライトスタジオにて観覧可能です。",
-"start": "15:00",
-"status": null,
-"title": "ラブエフエム「music×serendipity」"
-},
-"s1973": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-30",
-"end": "19:55",
-"isFc": false,
-"label": null,
-"link": "https://fmfukuoka.co.jp/program/hapieku/",
-"members": [
-646,
-664
-],
-"note": "※JR HAKATA CITY3階サテライトスタジオにて観覧可能です。",
-"start": "19:00",
-"status": null,
-"title": "エフエム福岡「Friday Happy Express in JR博多シティ」"
 },
 "s1991": {
 "artists": [
@@ -50303,24 +50341,24 @@
 "status": null,
 "title": "MBSラジオ「DJ KO-TAROの+musicレディオ」"
 },
-"s2040": {
+"s2037": {
 "artists": [
 676
 ],
-"category": "TV",
-"date": "2026-10-30",
-"end": "20:58",
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "16:50",
 "isFc": false,
 "label": null,
-"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"link": "https://rkk.jp/raditen/",
 "members": [
 588,
 605
 ],
-"note": "※コメント",
-"start": "20:54",
+"note": "",
+"start": "12:10",
 "status": null,
-"title": "福島テレビ「MUSIC TIME」"
+"title": "熊本放送「ラジてん」"
 },
 "s2041": {
 "artists": [
@@ -50647,5 +50685,5 @@
 "title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
 }
 },
-"versionDir": "2610302110-A6pw0mbMpFVY1W8o"
+"versionDir": "2610312040-yliHgDIW124WWvqO"
 }
