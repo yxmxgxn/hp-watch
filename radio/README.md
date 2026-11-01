@@ -80,8 +80,10 @@ Integrations で Discord（か メール）をつなぐ。Discord の Webhook �
 
 1. https://rclone.org/downloads/ から Windows 版を落として展開
 2. `rclone config` → `n`（新規）→ 名前 `box` → 種類 `box` → あとは Enter で既定のまま → ブラウザで BOX にログイン
-3. `rclone config file` で出る場所の `rclone.conf` を NAS の `radio/nas/` にコピー
-4. 確かめるなら `rclone lsd box:RADIO`
+3. 確かめるなら `rclone lsd box:RADIO`
+4. `rclone config file` で出る場所の `rclone.conf` を NAS の `radio/nas/rclone/` にコピー
+5. **コピーしたら PC の rclone では box を使わない**。BOX の鍵は使うたびに新しくなり、古い鍵は使えなくなる。
+   PC で使うと NAS 側の鍵が古くなる（使ってしまったら下の「BOX に送れない」の手順でやり直す）
 
 ### 4. NAS
 
@@ -90,7 +92,7 @@ cd /volume1/docker
 git clone https://github.com/yxmxgxn/hp-watch.git   # git が無ければ zip を置く
 cd hp-watch/radio/nas
 cp .env.example .env        # GITHUB_TOKEN / DISCORD_WEBHOOK / HEALTHCHECK_URL を書く
-# rclone.conf をここに置く（BOX をまだ使わないなら touch rclone.conf で空のファイルを作り、.env の BOX_REMOTE を空に）
+mkdir -p rclone            # ここに rclone.conf を置く（BOX をまだ使わないなら空のままで、.env の BOX_REMOTE を空に）
 mkdir -p data               # Synology では先に作っておかないと起動に失敗する
 sudo docker compose up -d --build     # 古い DSM なら docker-compose up -d --build
 sudo docker logs -f radio-recorder     # 動きを見る（Ctrl+C で抜ける。コンテナは止まらない）
@@ -106,5 +108,10 @@ rfriend は止めてよい。
   `sudo docker compose up -d --build`
 - **局IDが無いと言われる** → `station` を radiko の局IDで
 - **他の地域の局を録りたい** → radiko プレミアムに入って `.env` の `RADIKO_MAIL` / `RADIKO_PASS` を書く
+- **BOX に送れない（Discord に「BOX へ送れていません」）** → 鍵が古くなっている。NAS のコンテナの中でログインし直す:
+  `sudo docker exec -it radio-recorder rclone config reconnect box:` → 「Use web browser」は `n` →
+  表示された `rclone authorize "box" "…"` を PC の PowerShell で `.\rclone.exe authorize "box" "…"` として実行 →
+  ブラウザで BOX にログイン → PC に出た長い文字列（`{"access_token":…}`）を NAS 側に貼る。
+  送れなかったファイルは NAS に残っていて、次の実行でまとめて送られる
 - **すぐ回したい** → `sudo docker restart radio-recorder`
 - **コードを更新した** → NAS で `git pull && sudo docker compose up -d --build`
