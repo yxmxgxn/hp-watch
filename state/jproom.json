@@ -23,15 +23,6 @@
 "start": "2026-12-22",
 "title": "​「西乃風ブラン堂」公開収録のお知らせ"
 },
-"/akari_uemura/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/": {
-"artists": [
-41
-],
-"end": "2026-10-31",
-"link": "/akari_uemura/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
-"start": "2026-10-25",
-"title": "『植村あかりフォトブック(仮)』発売決定！"
-},
 "/ayumi_ishida/event/45924b5042f2d355d37bec9fd8d357bb05c4b98f7553359df53ed9641dfb6f73/": {
 "artists": [
 10
@@ -2646,6 +2637,38 @@
 "status": null,
 "title": "「横浜防災フェア」ラジオ番組公開収録"
 },
+"h45616937eea82aa3": {
+"artists": [
+41
+],
+"category": "EVENT",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "植村あかりフォトブック発売記念オンラインイベント"
+},
+"h45d59f0ff5cef872": {
+"artists": [
+59
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "06:15",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [],
+"note": "※再放送",
+"start": "05:45",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
+},
 "h463943b91f491cab": {
 "artists": [
 5,
@@ -4164,6 +4187,26 @@
 "status": null,
 "title": "高知放送「新・流行音楽堂」"
 },
+"h815515d4aa6625c3": {
+"artists": [
+5,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
+"members": [],
+"note": "11/14(土) 福岡DRUM LOGOS（福岡）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
 "h81fd79da24582625": {
 "artists": [
 40
@@ -4566,6 +4609,22 @@
 "start": "19:30",
 "status": null,
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
+},
+"h92aa6ab132686ce1": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.webtsc.com/program/pirisat/",
+"members": [],
+"note": "",
+"start": "11:00",
+"status": null,
+"title": "テレビせとうち「ピリッとサタデー」"
 },
 "h93d279e23b16a31c": {
 "artists": [
@@ -7095,22 +7154,6 @@
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
-"s1269": {
-"artists": [
-41
-],
-"category": "EVENT",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/6a27b12c5b5c7587f13612e3ac2c571061e186ecc4a5df2ad3ef0b651a83b92b/",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "植村あかりフォトブック発売記念オンラインイベント"
-},
 "s1420": {
 "artists": [
 483
@@ -7239,22 +7282,6 @@
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1638": {
-"artists": [
-59
-],
-"category": "TV",
-"date": "2026-10-31",
-"end": "06:15",
-"isFc": false,
-"label": null,
-"link": "https://www.hbc.co.jp/tv/kitakoi/",
-"members": [],
-"note": "※再放送",
-"start": "05:45",
-"status": null,
-"title": "HBCテレビ「キタコイ」"
-},
 "s1639": {
 "artists": [
 5,
@@ -7275,26 +7302,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1653": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"members": [],
-"note": "11/14(土) 福岡DRUM LOGOS（福岡）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
 "s1654": {
 "artists": [
@@ -7989,22 +7996,6 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
-"s2063": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-10-31",
-"end": "11:30",
-"isFc": false,
-"label": null,
-"link": "https://www.webtsc.com/program/pirisat/",
-"members": [],
-"note": "",
-"start": "11:00",
-"status": null,
-"title": "テレビせとうち「ピリッとサタデー」"
-},
 "s714": {
 "artists": [
 40
@@ -8342,5 +8333,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2610302110-A6pw0mbMpFVY1W8o"
+"versionDir": "2611012140-esQclVgEf907uOZc"
 }

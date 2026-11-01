@@ -120,16 +120,6 @@
 "start": "2026-12-22",
 "title": "​「西乃風ブラン堂」公開収録のお知らせ"
 },
-"/beyooooonds/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/": {
-"artists": [
-36,
-585
-],
-"end": "2026-10-31",
-"link": "/beyooooonds/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
-"start": "2026-10-31",
-"title": "Juice=Juice・BEYOOOOONDS「Livejack 2026 SMASH BEAT SP」出演！"
-},
 "/beyooooonds/event/a18324f0a44bff40490b436d7d32a9aa97acd36199c4576fc9cbec69b2bbe9ac/": {
 "artists": [
 585
@@ -238,16 +228,6 @@
 "link": "/juicejuice/event/49b8859206a5ab6e953c6dbe064d6a8e8e32faca5f50dbbbe6a814d1cb929b12/",
 "start": "2026-12-06",
 "title": "Juice=Juice台北公演 Juice=Juice Room Tour 2026「5ROOMS-TAIPEI ANNEX-」詳細決定！"
-},
-"/juicejuice/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/": {
-"artists": [
-36,
-585
-],
-"end": "2026-10-31",
-"link": "/juicejuice/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
-"start": "2026-10-31",
-"title": "Juice=Juice・BEYOOOOONDS「Livejack 2026 SMASH BEAT SP」出演！"
 },
 "/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/": {
 "artists": [
@@ -7651,6 +7631,32 @@
 "status": null,
 "title": "『MORE! MORE! EP』発売記念 ミニライブ＆お見送り会"
 },
+"h1bf2022e56ea376c": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/f1ef568bd86bb4edf31d9509a0089f0dcc6437296735ecfa67ae2d13acfbb7f0/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "エアポートウォーク名古屋（愛知）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
+},
 "h1c04ab6f845bae50": {
 "artists": [
 676
@@ -8346,6 +8352,26 @@
 "start": "23:30",
 "status": null,
 "title": "とちぎテレビ「SOUND30」"
+},
+"h1f942089549a04e8": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.webtsc.com/program/pirisat/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "11:00",
+"status": null,
+"title": "テレビせとうち「ピリッとサタデー」"
 },
 "h1fa0de0f2135be12": {
 "artists": [
@@ -9957,6 +9983,46 @@
 "status": null,
 "title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
 },
+"h2855f34489675f48": {
+"artists": [
+36,
+585
+],
+"category": "EVENT",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
+"members": [
+67,
+450,
+462,
+496,
+515,
+524,
+540,
+541,
+543,
+591,
+592,
+593,
+609,
+620,
+621,
+625,
+631,
+644,
+654,
+665,
+708,
+709
+],
+"note": "大阪城ホール （大阪）",
+"start": null,
+"status": null,
+"title": "Livejack 2026 SMASH BEAT SP"
+},
 "h287134a797407185": {
 "artists": [
 3
@@ -10714,6 +10780,34 @@
 "start": "22:55",
 "status": null,
 "title": "FM沖縄「インフォミュージック」"
+},
+"h2cd0d5fe37f32025": {
+"artists": [
+3
+],
+"category": "TICKET",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9ef219df9409c04f059e39b331add3e7dd4a71477cad8af9f44e72900e315189/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "11/30(月) ハーモニーホール座間 大ホール（神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
 },
 "h2cfb46ea330d3dc1": {
 "artists": [
@@ -16965,6 +17059,24 @@
 "status": null,
 "title": "RCC中国放送「ザ★横山雄二ショー」"
 },
+"h51dbd34061a54647": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-10-31",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+655
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
 "h520aa271d4513c5a": {
 "artists": [
 634
@@ -21245,6 +21357,34 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
+},
+"h6a4b44a3c2ef2700": {
+"artists": [
+36
+],
+"category": "TICKET",
+"date": "2026-10-31",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "11/16(月)・17(火) Kanadevia Hall（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
 },
 "h6a4dd1d9404459db": {
 "artists": [
@@ -27271,6 +27411,25 @@
 "start": "05:00",
 "status": null,
 "title": "ABC朝日放送「おはよう朝日です」"
+},
+"h8ef3bab6d63fa127": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-10-31",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.kts-tv.co.jp/program/midnight/",
+"members": [
+605,
+646
+],
+"note": "",
+"start": "24:45",
+"status": null,
+"title": "鹿児島テレビ「Kagoshima見っどナイト」"
 },
 "h8f277e08f1e64ac3": {
 "artists": [
@@ -37484,6 +37643,25 @@
 "status": null,
 "title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"hcb749f93ba7aae69": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-10-31",
+"end": "11:10",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/doyoubin/post.html",
+"members": [
+588,
+660
+],
+"note": "※コメント",
+"start": "08:00",
+"status": null,
+"title": "ぎふチャン「ラジオ土曜便」"
+},
 "hcb7dc205172622de": {
 "artists": [
 477
@@ -47292,46 +47470,6 @@
 "status": null,
 "title": "エアトリ presents 毎日がクリスマス 2026"
 },
-"s1413": {
-"artists": [
-36,
-585
-],
-"category": "EVENT",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/77c8f531d495ecbf427776654a9aa65e08e4a47520497a66a761b79bd3dd817a/",
-"members": [
-67,
-450,
-462,
-496,
-515,
-524,
-540,
-541,
-543,
-591,
-592,
-593,
-609,
-620,
-621,
-625,
-631,
-644,
-654,
-665,
-708,
-709
-],
-"note": "大阪城ホール （大阪）",
-"start": null,
-"status": null,
-"title": "Livejack 2026 SMASH BEAT SP"
-},
 "s1415": {
 "artists": [
 634
@@ -47356,32 +47494,6 @@
 "start": null,
 "status": null,
 "title": "OCHA NORMA FCイベント2026 メリクリティーパーティー 〜 聖なる鐘がCHA CHA CHA CHA〜N！〜"
-},
-"s1434": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/f1ef568bd86bb4edf31d9509a0089f0dcc6437296735ecfa67ae2d13acfbb7f0/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "エアポートウォーク名古屋（愛知）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
 },
 "s1435": {
 "artists": [
@@ -48328,25 +48440,6 @@
 "status": null,
 "title": "BEYOOOOONDS/SeasoningS 平井美葉バースデーイベント2026"
 },
-"s1802": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-10-31",
-"end": "11:10",
-"isFc": false,
-"label": null,
-"link": "https://www.zf-web.com/radio/regular/doyoubin/post.html",
-"members": [
-588,
-660
-],
-"note": "※コメント",
-"start": "08:00",
-"status": null,
-"title": "ぎふチャン「ラジオ土曜便」"
-},
 "s1803": {
 "artists": [
 676
@@ -49156,26 +49249,6 @@
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
-"s1913": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-31",
-"end": "11:30",
-"isFc": false,
-"label": null,
-"link": "https://www.webtsc.com/program/pirisat/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "11:00",
-"status": null,
-"title": "テレビせとうち「ピリッとサタデー」"
-},
 "s1914": {
 "artists": [
 676
@@ -49329,6 +49402,46 @@
 "start": "12:00",
 "status": null,
 "title": "山口放送「お昼はZETTAIラジオTIME」"
+},
+"s1923": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-07",
+"end": "22:55",
+"isFc": false,
+"label": null,
+"link": "http://radio.rcc.jp/yujishow/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "RCC中国放送「ザ★横山雄二ショー」"
+},
+"s1924": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-07",
+"end": "26:00",
+"isFc": false,
+"label": null,
+"link": "https://abcradio.asahi.co.jp/program/rikky/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "25:00",
+"status": null,
+"title": "ABC朝日放送「小西陸斗 #よどオシ！」"
 },
 "s1929": {
 "artists": [
@@ -49495,25 +49608,6 @@
 "status": null,
 "title": "Juice=Juice 有澤一華バースデーイベント2027"
 },
-"s1956": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-10-31",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.kts-tv.co.jp/program/midnight/",
-"members": [
-605,
-646
-],
-"note": "",
-"start": "24:45",
-"status": null,
-"title": "鹿児島テレビ「Kagoshima見っどナイト」"
-},
 "s1960": {
 "artists": [
 36
@@ -49618,24 +49712,6 @@
 "start": null,
 "status": null,
 "title": "LIVE SDD BICYCLE 2027"
-},
-"s1997": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-10-31",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/yando/",
-"members": [
-655
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
 },
 "s1999": {
 "artists": [
@@ -50231,6 +50307,42 @@
 "status": null,
 "title": "FM大阪「FM大阪 SUNDAY SPECIAL『Live or Treat2026 in Zepp Namba』」"
 },
+"s2028": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-08",
+"end": "08:30",
+"isFc": false,
+"label": null,
+"link": "https://www.interfm.co.jp/asamimi",
+"members": [
+13
+],
+"note": "",
+"start": "08:00",
+"status": null,
+"title": "interfm「朝みみ！Precious Family」"
+},
+"s2029": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-15",
+"end": "08:30",
+"isFc": false,
+"label": null,
+"link": "https://www.interfm.co.jp/asamimi",
+"members": [
+13
+],
+"note": "",
+"start": "08:00",
+"status": null,
+"title": "interfm「朝みみ！Precious Family」"
+},
 "s2030": {
 "artists": [
 676
@@ -50301,6 +50413,25 @@
 "start": "24:28",
 "status": null,
 "title": "MBC南日本放送「てゲてゲ」"
+},
+"s2033": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-06",
+"end": "25:45",
+"isFc": false,
+"label": null,
+"link": "https://www.ncctv.co.jp/5ch/musiclove/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "25:25",
+"status": null,
+"title": "長崎文化放送「みゅーじっくら部」"
 },
 "s2035": {
 "artists": [
@@ -50592,34 +50723,6 @@
 "status": null,
 "title": "Juice=Juice 江端妃咲バースデーイベント2027"
 },
-"s863": {
-"artists": [
-3
-],
-"category": "TICKET",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9ef219df9409c04f059e39b331add3e7dd4a71477cad8af9f44e72900e315189/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "11/30(月) ハーモニーホール座間 大ホール（神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
-},
 "s910": {
 "artists": [
 42
@@ -50655,35 +50758,7 @@
 "start": null,
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
-},
-"s924": {
-"artists": [
-36
-],
-"category": "TICKET",
-"date": "2026-10-31",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "11/16(月)・17(火) Kanadevia Hall（東京）公演",
-"start": null,
-"status": null,
-"title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
 }
 },
-"versionDir": "2610312040-yliHgDIW124WWvqO"
+"versionDir": "2611012140-esQclVgEf907uOZc"
 }
