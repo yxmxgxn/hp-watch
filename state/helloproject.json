@@ -209,6 +209,15 @@
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
 },
+"/juicejuice/event/139304fcae7baa78a1683d6246b0a7882935f314e093abb3e53631ced5b86dea/": {
+"artists": [
+36
+],
+"end": "2026-12-05",
+"link": "/juicejuice/event/139304fcae7baa78a1683d6246b0a7882935f314e093abb3e53631ced5b86dea/",
+"start": "2026-12-05",
+"title": "「Juice=Juice Fan Meeting 2026 in Taipei \"Nice to meet Juice\"」開催決定！"
+},
 "/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
 "artists": [
 3,
@@ -27346,6 +27355,31 @@
 "status": null,
 "title": "LuckyFes'26"
 },
+"h8e527bb5ea7d8122": {
+"artists": [
+634
+],
+"category": "RADIO",
+"date": "2026-11-01",
+"end": "19:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmosaka.net/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "FM大阪「FM大阪 SUNDAY SPECIAL『Live or Treat2026 in Zepp Namba』」"
+},
 "h8eabfe3c6abea857": {
 "artists": [
 3
@@ -30583,6 +30617,25 @@
 "status": null,
 "title": "読売テレビ「秘密のケンミンSHOW極」"
 },
+"h9fdfead0b57449c1": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-01",
+"end": "24:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmosaka.net/",
+"members": [
+605,
+612
+],
+"note": "",
+"start": "23:55",
+"status": null,
+"title": "FM大阪「Girls Street」"
+},
 "h9fe93608315eca2a": {
 "artists": [
 42,
@@ -33253,6 +33306,25 @@
 "start": "26:30",
 "status": null,
 "title": "文化放送「DXTEENのNICO-NICO K-ROOM」"
+},
+"hb0035a394a138087": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-01",
+"end": "25:10",
+"isFc": false,
+"label": null,
+"link": "https://www.oab.co.jp/programguide/oab_soldout/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "25:05",
+"status": null,
+"title": "大分朝日放送「SOLD OUT」"
 },
 "hb047c4b424dcd1ec": {
 "artists": [
@@ -45713,6 +45785,24 @@
 "status": null,
 "title": "7thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"hf802e5ae6bc14a3b": {
+"artists": [
+42
+],
+"category": "BIRTHDAY",
+"date": "2028-11-02",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/helloprokenshusei/hana_yamamoto/",
+"members": [
+710
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は山本はな（ハロプロ研修生）の16歳の誕生日です！"
+},
 "hf81bfc95208fac4a": {
 "artists": [
 29
@@ -49110,7 +49200,7 @@
 676
 ],
 "category": "RADIO",
-"date": "2026-11-01",
+"date": "2026-11-08",
 "end": "23:00",
 "isFc": false,
 "label": null,
@@ -49124,25 +49214,6 @@
 "start": "22:30",
 "status": null,
 "title": "和歌山放送「なーさんち。」"
-},
-"s1884": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-01",
-"end": "24:00",
-"isFc": false,
-"label": null,
-"link": "https://www.fmosaka.net/",
-"members": [
-605,
-612
-],
-"note": "",
-"start": "23:55",
-"status": null,
-"title": "FM大阪「Girls Street」"
 },
 "s1886": {
 "artists": [
@@ -49443,6 +49514,26 @@
 "status": null,
 "title": "ABC朝日放送「小西陸斗 #よどオシ！」"
 },
+"s1925": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.e-radio.co.jp/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "19:55",
+"status": null,
+"title": "FM滋賀「MUSIC BREAK」"
+},
 "s1929": {
 "artists": [
 676
@@ -49684,6 +49775,25 @@
 "start": "25:20",
 "status": null,
 "title": "富山テレビ放送「bms BBT MUSIC SELECTION」"
+},
+"s1992": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "15:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fbc.jp/radio/raditas",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "08:15",
+"status": null,
+"title": "FBCラジオ「ラジ＋」"
 },
 "s1996": {
 "artists": [
@@ -50282,31 +50392,6 @@
 "status": null,
 "title": "tbc東北放送「ひるまでウォッチン！」"
 },
-"s2027": {
-"artists": [
-634
-],
-"category": "RADIO",
-"date": "2026-11-01",
-"end": "19:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fmosaka.net/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "FM大阪「FM大阪 SUNDAY SPECIAL『Live or Treat2026 in Zepp Namba』」"
-},
 "s2028": {
 "artists": [
 3
@@ -50342,25 +50427,6 @@
 "start": "08:00",
 "status": null,
 "title": "interfm「朝みみ！Precious Family」"
-},
-"s2030": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-01",
-"end": "25:10",
-"isFc": false,
-"label": null,
-"link": "https://www.oab.co.jp/programguide/oab_soldout/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "25:05",
-"status": null,
-"title": "大分朝日放送「SOLD OUT」"
 },
 "s2031": {
 "artists": [
@@ -50723,6 +50789,429 @@
 "status": null,
 "title": "Juice=Juice 江端妃咲バースデーイベント2027"
 },
+"s2060": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"category": "EVENT",
+"date": "2027-03-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/",
+"members": [
+13,
+67,
+300,
+450,
+462,
+481,
+496,
+497,
+515,
+516,
+518,
+519,
+524,
+525,
+540,
+541,
+543,
+544,
+567,
+568,
+571,
+586,
+588,
+590,
+591,
+592,
+593,
+601,
+604,
+605,
+606,
+607,
+608,
+609,
+610,
+611,
+612,
+618,
+619,
+620,
+621,
+625,
+626,
+628,
+630,
+631,
+635,
+639,
+643,
+644,
+646,
+647,
+654,
+655,
+656,
+660,
+663,
+664,
+665,
+666,
+667,
+668,
+669,
+670,
+671,
+677,
+678,
+679,
+681,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+708,
+709,
+710,
+711
+],
+"note": "幕張メッセ 国際展示場 ホール6 （千葉）",
+"start": null,
+"status": null,
+"title": "カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement"
+},
+"s2061": {
+"artists": [
+3,
+29,
+36,
+42,
+477,
+509,
+585,
+634,
+676
+],
+"category": "EVENT",
+"date": "2027-03-28",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/",
+"members": [
+13,
+67,
+300,
+450,
+462,
+481,
+496,
+497,
+515,
+516,
+518,
+519,
+524,
+525,
+540,
+541,
+543,
+544,
+567,
+568,
+571,
+586,
+588,
+590,
+591,
+592,
+593,
+601,
+604,
+605,
+606,
+607,
+608,
+609,
+610,
+611,
+612,
+618,
+619,
+620,
+621,
+625,
+626,
+628,
+630,
+631,
+635,
+639,
+643,
+644,
+646,
+647,
+654,
+655,
+656,
+660,
+663,
+664,
+665,
+666,
+667,
+668,
+669,
+670,
+671,
+677,
+678,
+679,
+681,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+708,
+709,
+710,
+711
+],
+"note": "幕張メッセ 国際展示場 ホール6 （千葉）",
+"start": null,
+"status": null,
+"title": "カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement"
+},
+"s2065": {
+"artists": [
+29
+],
+"category": "TV",
+"date": "2026-11-02",
+"end": "16:45",
+"isFc": false,
+"label": null,
+"link": "https://www.tsb.jp/get-every/",
+"members": [
+567
+],
+"note": "",
+"start": "15:50",
+"status": null,
+"title": "テレビ信州「ゆうがたGet！every.」"
+},
+"s2066": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-08",
+"end": "25:00",
+"isFc": false,
+"label": null,
+"link": "https://www.bs4.jp/sorosoromarriage/",
+"members": [
+519
+],
+"note": "",
+"start": "24:30",
+"status": null,
+"title": "BS日テレ「そろそろマリッジしませんか！？」"
+},
+"s2067": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-12-05",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/139304fcae7baa78a1683d6246b0a7882935f314e093abb3e53631ced5b86dea/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "シャングリ・ラ ファーイースタン 台北 怡東園(Shang Palace)（台湾）",
+"start": null,
+"status": null,
+"title": "Juice=Juice Fan Meeting 2026 in Taipei \"Nice to meet Juice\""
+},
+"s2069": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-05",
+"end": "16:20",
+"isFc": false,
+"label": null,
+"link": "https://www.ybc.co.jp/radioprogram/panpakapan/",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "13:00",
+"status": null,
+"title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
+},
+"s2070": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-05",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/radio/",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "IBCラジオ「音楽のハコ」"
+},
+"s2071": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [
+588,
+605
+],
+"note": "※16時台にコメント出演予定。",
+"start": "16:00",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
+},
+"s2074": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "12:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tfm.co.jp/choice/",
+"members": [
+13,
+601
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
+},
+"s2075": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-13",
+"end": "12:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tfm.co.jp/choice/",
+"members": [
+13,
+601
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
+},
+"s2076": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-12-03",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+515
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "りぼん1月号"
+},
+"s2077": {
+"artists": [
+3
+],
+"category": "MAGAZINE",
+"date": "2026-12-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+13
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "CDジャーナル2027冬号"
+},
 "s910": {
 "artists": [
 42
@@ -50760,5 +51249,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611012140-esQclVgEf907uOZc"
+"versionDir": "2611022350-pwsjTGme5vlkr9xj"
 }

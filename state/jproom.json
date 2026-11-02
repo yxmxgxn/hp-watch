@@ -7996,6 +7996,38 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
+"s2072": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-04",
+"end": "11:20",
+"isFc": false,
+"label": null,
+"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
+"members": [],
+"note": "",
+"start": "10:24",
+"status": null,
+"title": "tbc東北放送「ひるまでウォッチン！」"
+},
+"s2073": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tbc-sendai.co.jp/rkibun/",
+"members": [],
+"note": "※12:30頃～出演予定。",
+"start": "12:00",
+"status": null,
+"title": "tbc東北放送「GoGoはみみこい ラジオな気分」"
+},
 "s714": {
 "artists": [
 40
@@ -8333,5 +8365,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611012140-esQclVgEf907uOZc"
+"versionDir": "2611022350-pwsjTGme5vlkr9xj"
 }
