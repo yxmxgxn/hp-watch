@@ -12,5 +12,7 @@ services:
     volumes:
       - /volume1/Yuta:/nas                 # \\DS220j\Yuta
       - ./data:/data                       # 状態と作業用ファイル
-      - ./rclone.conf:/config/rclone.conf  # BOX の認証（rclone が更新するので書き込み可のまま）
+      # BOX の認証。ファイル1つではなくフォルダごと渡す。rclone は鍵を更新するたびに
+      # 別名で書いてから置き換えるので、ファイル1つだけだと保存に失敗して鍵が使えなくなる
+      - ./rclone:/config
     mem_limit: 256m
