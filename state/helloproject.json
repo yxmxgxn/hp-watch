@@ -24141,6 +24141,25 @@
 "status": null,
 "title": "MARQUEE Vol.162"
 },
+"h7ae7678237cbfcc0": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-02",
+"end": "22:00",
+"isFc": false,
+"label": null,
+"link": "https://www.stv.jp/radio/clap/index.html",
+"members": [
+588,
+611
+],
+"note": "",
+"start": "21:30",
+"status": null,
+"title": "STVラジオ「クラップリスト」"
+},
 "h7af7f921d565b94e": {
 "artists": [
 585
@@ -26740,6 +26759,25 @@
 "start": "15:00",
 "status": null,
 "title": "ラブエフエム「music×serendipity」"
+},
+"h89a589b85ae0a103": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-02",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://radio.rcc.jp/yorunova/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "RCCラジオ「ヨルノバ」"
 },
 "h89b2c6fa1f278350": {
 "artists": [
@@ -33426,6 +33464,41 @@
 "status": null,
 "title": "今日は服部琉愛（ハロプロ研修生）の14歳の誕生日です！"
 },
+"hb1ef425459e52745": {
+"artists": [
+634,
+676
+],
+"category": "EVENT",
+"date": "2026-11-02",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/05305b6807c16d8d5fb9f39e4e724a5197d367a6a989609405019489ee05b82c/",
+"members": [
+497,
+544,
+568,
+571,
+586,
+588,
+604,
+605,
+606,
+608,
+611,
+612,
+630,
+635,
+646,
+660,
+664
+],
+"note": "豊洲PIT （東京）",
+"start": null,
+"status": null,
+"title": "IDOL BATTLE ALIVE 2026"
+},
 "hb204ee85820bada1": {
 "artists": [
 676
@@ -36642,6 +36715,24 @@
 "start": null,
 "status": null,
 "title": "今日は谷本安美（つばきファクトリー）の28歳の誕生日です！"
+},
+"hc5d24277bacc31f0": {
+"artists": [
+29
+],
+"category": "TV",
+"date": "2026-11-02",
+"end": "16:45",
+"isFc": false,
+"label": null,
+"link": "https://www.tsb.jp/get-every/",
+"members": [
+567
+],
+"note": "",
+"start": "15:50",
+"status": null,
+"title": "テレビ信州「ゆうがたGet！every.」"
 },
 "hc5d8ece5278a31fa": {
 "artists": [
@@ -45034,6 +45125,32 @@
 "status": null,
 "title": "今日は小林萌花（BEYOOOOONDS）の26歳の誕生日です！"
 },
+"hf4660208b1fd55ac": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-02",
+"end": "27:26",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-tokyo.co.jp/melodix_premium/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": "26:56",
+"status": null,
+"title": "テレビ東京「プレミアMelodiX!」"
+},
 "hf46e77a922bbd104": {
 "artists": [
 585
@@ -47362,41 +47479,6 @@
 "status": null,
 "title": "GIFT～Girls Idol Festival Tokyo～"
 },
-"s1341": {
-"artists": [
-634,
-676
-],
-"category": "EVENT",
-"date": "2026-11-02",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/05305b6807c16d8d5fb9f39e4e724a5197d367a6a989609405019489ee05b82c/",
-"members": [
-497,
-544,
-568,
-571,
-586,
-588,
-604,
-605,
-606,
-608,
-611,
-612,
-630,
-635,
-646,
-660,
-664
-],
-"note": "豊洲PIT （東京）",
-"start": null,
-"status": null,
-"title": "IDOL BATTLE ALIVE 2026"
-},
 "s1348": {
 "artists": [
 477
@@ -48961,25 +49043,6 @@
 "status": null,
 "title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
 },
-"s1842": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-02",
-"end": "22:00",
-"isFc": false,
-"label": null,
-"link": "https://www.stv.jp/radio/clap/index.html",
-"members": [
-588,
-611
-],
-"note": "",
-"start": "21:30",
-"status": null,
-"title": "STVラジオ「クラップリスト」"
-},
 "s1843": {
 "artists": [
 676
@@ -49320,25 +49383,6 @@
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
-"s1914": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-02",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://radio.rcc.jp/yorunova/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "RCCラジオ「ヨルノバ」"
-},
 "s1915": {
 "artists": [
 676
@@ -49654,32 +49698,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 伊勢鈴蘭バースデーイベント2027"
-},
-"s1941": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-02",
-"end": "27:26",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-tokyo.co.jp/melodix_premium/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "",
-"start": "26:56",
-"status": null,
-"title": "テレビ東京「プレミアMelodiX!」"
 },
 "s1949": {
 "artists": [
@@ -51015,24 +51033,6 @@
 "status": null,
 "title": "カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement"
 },
-"s2065": {
-"artists": [
-29
-],
-"category": "TV",
-"date": "2026-11-02",
-"end": "16:45",
-"isFc": false,
-"label": null,
-"link": "https://www.tsb.jp/get-every/",
-"members": [
-567
-],
-"note": "",
-"start": "15:50",
-"status": null,
-"title": "テレビ信州「ゆうがたGet！every.」"
-},
 "s2066": {
 "artists": [
 477
@@ -51249,5 +51249,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611022350-pwsjTGme5vlkr9xj"
+"versionDir": "2611032240-h6XDysIf8nWut6in"
 }

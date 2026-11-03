@@ -6137,6 +6137,22 @@
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"hdca84351f89afa54": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-11-02",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/19427a2bfe267fbea938a8d9265ddfdb025ba10e7f54436e8d5f2dfd26704878/",
+"members": [],
+"note": "イオンモール幕張新都心 グランドモール1F グランドスクエア（千葉）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
+},
 "hdd585f508efe313f": {
 "artists": [
 40
@@ -7403,22 +7419,6 @@
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1743": {
-"artists": [
-11
-],
-"category": "EVENT",
-"date": "2026-11-02",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/19427a2bfe267fbea938a8d9265ddfdb025ba10e7f54436e8d5f2dfd26704878/",
-"members": [],
-"note": "イオンモール幕張新都心 グランドモール1F グランドスクエア（千葉）",
-"start": null,
-"status": null,
-"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
-},
 "s1744": {
 "artists": [
 11
@@ -8365,5 +8365,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611022350-pwsjTGme5vlkr9xj"
+"versionDir": "2611032240-h6XDysIf8nWut6in"
 }
