@@ -297,22 +297,25 @@ def notify(msgs, site):
         print(f"=== {site}: {len(msgs)}件 ===")
         print("\n\n".join(f"【{site}】【{kind}】{body}" for kind, body in msgs))
         return
+    send_embeds(hook, [to_embed(kind, body, site) for kind, body in msgs], site)
+
+
+def send_embeds(hook, embeds, site, suffix="予定"):
     # Discord は1メッセージに埋め込み10個・合計6000文字まで
-    embeds = [to_embed(kind, body, site) for kind, body in msgs]
     batch, size = [], 0
     for e in embeds:
         n = len(e["title"]) + len(e["description"]) + len(site)
         if batch and (len(batch) == 10 or size + n > 5500):
-            post(hook, batch, site)
+            post(hook, batch, site, suffix)
             batch, size = [], 0
         batch.append(e)
         size += n
     if batch:
-        post(hook, batch, site)
+        post(hook, batch, site, suffix)
 
 
-def post(hook, embeds, site):
-    data = json.dumps({"username": f"{site}予定", "embeds": embeds}).encode()
+def post(hook, embeds, site, suffix="予定"):
+    data = json.dumps({"username": f"{site}{suffix}", "embeds": embeds}).encode()
     req = urllib.request.Request(hook, data=data, headers={"Content-Type": "application/json", "User-Agent": UA})
     for attempt in range(5):
         try:
