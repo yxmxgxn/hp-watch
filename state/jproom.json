@@ -6942,7 +6942,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6962,7 +6962,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -6982,7 +6982,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7002,7 +7002,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7022,7 +7022,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8028,6 +8028,54 @@
 "status": null,
 "title": "tbc東北放送「GoGoはみみこい ラジオな気分」"
 },
+"s2078": {
+"artists": [
+10
+],
+"category": "EVENT",
+"date": "2026-11-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/",
+"members": [],
+"note": "梅田 蔦屋書店（大阪）",
+"start": null,
+"status": null,
+"title": "『石田亜佑美カレンダー2027』発売記念イベント"
+},
+"s2079": {
+"artists": [
+10
+],
+"category": "EVENT",
+"date": "2026-12-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/",
+"members": [],
+"note": "六本木 蔦屋書店2階 イベントスペース（東京）",
+"start": null,
+"status": null,
+"title": "『石田亜佑美カレンダー2027』発売記念イベント"
+},
+"s2089": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-23",
+"end": "20:55",
+"isFc": false,
+"label": null,
+"link": "https://bangbang771-moe-zunda.buyertakahashi.com/",
+"members": [],
+"note": "※コメント",
+"start": "20:00",
+"status": null,
+"title": "Date fm「BANG! BANG!!」"
+},
 "s714": {
 "artists": [
 40
@@ -8365,5 +8413,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611032240-h6XDysIf8nWut6in"
+"versionDir": "2611042250-fGegVKaLq2FlpRft"
 }

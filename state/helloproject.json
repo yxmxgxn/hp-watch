@@ -10147,6 +10147,41 @@
 "status": null,
 "title": "14thシングル発売記念 トーク&一言お話し会"
 },
+"h2901d791012bbf6f": {
+"artists": [
+634,
+676
+],
+"category": "EVENT",
+"date": "2026-11-03",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c8aaeccce15eb5209994f81ff109c855e8f0637e1f9c175ba04b2129396235d0/",
+"members": [
+497,
+544,
+568,
+571,
+586,
+588,
+604,
+605,
+606,
+608,
+611,
+612,
+630,
+635,
+646,
+660,
+664
+],
+"note": "Shibuya LOVEZ（東京）",
+"start": null,
+"status": null,
+"title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
+},
 "h295183fe48c39005": {
 "artists": [
 634
@@ -23630,6 +23665,34 @@
 "start": null,
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
+},
+"h77a3edbd0d7f3999": {
+"artists": [
+3
+],
+"category": "RELEASE",
+"date": "2026-12-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7713/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "DVD｜「モーニング娘。'26 コンサートツアー春 - Rays Of Light - Final ～牧野真莉愛 卒業スペシャル～」"
 },
 "h77bc63ab6199c286": {
 "artists": [
@@ -43332,6 +43395,24 @@
 "status": null,
 "title": "和歌山放送「すみたにの全開！水曜日」"
 },
+"hea005c085f7e293f": {
+"artists": [
+29
+],
+"category": "EVENT",
+"date": "2026-11-02",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=ujrwNMeUDLa0GLHB",
+"members": [
+618
+],
+"note": "スタァライト劇場 （東京）",
+"start": null,
+"status": null,
+"title": "エムハロイベント vol.13 ～保田圭×アンジュルム 川名凜～"
+},
 "hea48b17596ecf219": {
 "artists": [
 3,
@@ -44917,6 +44998,24 @@
 "start": null,
 "status": null,
 "title": "発売日｜Juice=Juice Room Tour 2026 「5ROOMS」"
+},
+"hf34e7ff41fa55365": {
+"artists": [
+42
+],
+"category": "BIRTHDAY",
+"date": "2028-11-04",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/helloprokenshusei/shiori_sakata/",
+"members": [
+701
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は坂田しおり（ハロプロ研修生）の14歳の誕生日です！"
 },
 "hf35e42c659962787": {
 "artists": [
@@ -47350,41 +47449,6 @@
 "start": null,
 "status": null,
 "title": "77thシングル発売記念 チェキ・サイン・トーク会"
-},
-"s120": {
-"artists": [
-634,
-676
-],
-"category": "EVENT",
-"date": "2026-11-03",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c8aaeccce15eb5209994f81ff109c855e8f0637e1f9c175ba04b2129396235d0/",
-"members": [
-497,
-544,
-568,
-571,
-586,
-588,
-604,
-605,
-606,
-608,
-611,
-612,
-630,
-635,
-646,
-660,
-664
-],
-"note": "Shibuya LOVEZ（東京）",
-"start": null,
-"status": null,
-"title": "ガラフェス ～渋谷 文化的衝撃センセーション 秋の新作発表会～"
 },
 "s1314": {
 "artists": [
@@ -50278,6 +50342,25 @@
 "status": null,
 "title": "東海ラジオ「Music Submarine」"
 },
+"s2018": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "24:44",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/tv/michi/",
+"members": [
+588,
+660
+],
+"note": "",
+"start": "23:56",
+"status": null,
+"title": "CBCテレビ「道との遭遇」"
+},
 "s2022": {
 "artists": [
 3
@@ -50516,6 +50599,26 @@
 "start": "25:25",
 "status": null,
 "title": "長崎文化放送「みゅーじっくら部」"
+},
+"s2034": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:59",
+"isFc": false,
+"label": null,
+"link": "https://www.nib.jp/air/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "25:29",
+"status": null,
+"title": "長崎国際テレビ「AIR」"
 },
 "s2035": {
 "artists": [
@@ -51212,6 +51315,225 @@
 "status": null,
 "title": "CDジャーナル2027冬号"
 },
+"s2082": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
+},
+"s2083": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-16",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
+},
+"s2084": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
+},
+"s2085": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-11",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+591
+],
+"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2086": {
+"artists": [
+634
+],
+"category": "RADIO",
+"date": "2026-11-10",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+635
+],
+"note": "※スペシャルパーソナリティとして生出演。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2087": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+591
+],
+"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2088": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+591
+],
+"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2090": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-07",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "",
+"start": "24:28",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
+},
+"s2093": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-07",
+"end": "06:15",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "※再放送",
+"start": "05:45",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
+},
+"s2099": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2027-01-11",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=71mEkL802AaYJh0g",
+"members": [
+300
+],
+"note": "スタァライト劇場 （東京）",
+"start": null,
+"status": null,
+"title": "エムハロイベント vol.14 ～中澤裕子×モーニング娘。'27 野中美希～"
+},
+"s2100": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2027-01-21",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=5bzK2eWi1qbqt3Bm",
+"members": [
+667
+],
+"note": "I'MA SHOW （東京）",
+"start": null,
+"status": null,
+"title": "モーニング娘。'27 杉原明紗バースデーイベント"
+},
+"s2101": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-01-15",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=DHAK7gJQPEbJxByE",
+"members": [
+496
+],
+"note": "I'MA SHOW （東京）",
+"start": null,
+"status": null,
+"title": "「BEYOOOOONDS/雨ノ森 川海 清野桃々姫バースデーイベント2027"
+},
 "s910": {
 "artists": [
 42
@@ -51249,5 +51571,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611032240-h6XDysIf8nWut6in"
+"versionDir": "2611042250-fGegVKaLq2FlpRft"
 }
