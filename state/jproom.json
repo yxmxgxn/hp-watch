@@ -2408,6 +2408,22 @@
 "status": null,
 "title": "5thシングル発売記念 PCSCイベント"
 },
+"h39586834c436b548": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-04",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/80c505691c3b73699b1f927cabd93db1c0f84725a5feac1ed6dd23d30100680d/",
+"members": [],
+"note": "イオンモール名取 なとりコート（宮城）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h397a51238f2078ab": {
 "artists": [
 442,
@@ -6356,6 +6372,22 @@
 "status": null,
 "title": "ラブライブ！シリーズ『スクールアイドルミュージカル』出演！"
 },
+"he2f6a0c179ff4be1": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-04",
+"end": "11:20",
+"isFc": false,
+"label": null,
+"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
+"members": [],
+"note": "",
+"start": "10:24",
+"status": null,
+"title": "tbc東北放送「ひるまでウォッチン！」"
+},
 "he349160fce461866": {
 "artists": [
 59
@@ -6515,6 +6547,22 @@
 "start": "15:30",
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
+},
+"he8b40648c0f17208": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tbc-sendai.co.jp/rkibun/",
+"members": [],
+"note": "※12:30頃～出演予定。",
+"start": "12:00",
+"status": null,
+"title": "tbc東北放送「GoGoはみみこい ラジオな気分」"
 },
 "he8da966aac55c148": {
 "artists": [
@@ -7266,22 +7314,6 @@
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
 },
-"s1561": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-04",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/80c505691c3b73699b1f927cabd93db1c0f84725a5feac1ed6dd23d30100680d/",
-"members": [],
-"note": "イオンモール名取 なとりコート（宮城）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
-},
 "s1562": {
 "artists": [
 5
@@ -7996,38 +8028,6 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
-"s2072": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-04",
-"end": "11:20",
-"isFc": false,
-"label": null,
-"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
-"members": [],
-"note": "",
-"start": "10:24",
-"status": null,
-"title": "tbc東北放送「ひるまでウォッチン！」"
-},
-"s2073": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-04",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://www.tbc-sendai.co.jp/rkibun/",
-"members": [],
-"note": "※12:30頃～出演予定。",
-"start": "12:00",
-"status": null,
-"title": "tbc東北放送「GoGoはみみこい ラジオな気分」"
-},
 "s2078": {
 "artists": [
 10
@@ -8413,5 +8413,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611042250-fGegVKaLq2FlpRft"
+"versionDir": "2611050210-2M5IaH42th5ceLxO"
 }

@@ -13449,6 +13449,25 @@
 "status": null,
 "title": "発売日｜OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
+"h3b4c180f573d0a8c": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-okayama.co.jp/passage/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "FM岡山「PASSAGE」"
+},
 "h3b5716356082968c": {
 "artists": [
 3
@@ -14251,6 +14270,25 @@
 "start": "21:00",
 "status": null,
 "title": "RCCラジオ「ヨルノバ」"
+},
+"h3f9b28f5a94f8425": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://www.e-radio.co.jp",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "14:00",
+"status": null,
+"title": "FM滋賀「キャッチ！」"
 },
 "h3fb11f13a3e74c62": {
 "artists": [
@@ -21169,6 +21207,32 @@
 "status": null,
 "title": "アンジュルム 2026秋 風林火山・弐"
 },
+"h69776152ce210741": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-04",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.mbc.co.jp/tv/tege2/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "MBC南日本放送「てゲてゲ」"
+},
 "h69ce1d56efbb207d": {
 "artists": [
 3,
@@ -21496,6 +21560,24 @@
 "start": null,
 "status": null,
 "title": "日経エンタテインメント"
+},
+"h6a65b759cdfaa055": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-04",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=2MtxJPI0hz4m7pqT",
+"members": [
+669
+],
+"note": "墨田区曳舟文化センター 劇場ホール （東京）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー 石井泉羽バースデーイベント2026"
 },
 "h6a72c6e5d52a6382": {
 "artists": [
@@ -26969,6 +27051,32 @@
 "status": null,
 "title": "アンジュルム 2026秋 風林火山・弐"
 },
+"h8ad91c7c483bec43": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-04",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/249e3d1965053a02ff36b53a7a4b614f04bb0c0dd52b1bf3b1d8bac91738483f/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "池袋・サンシャインシティ 噴水広場（東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
+},
 "h8afb151256a3d360": {
 "artists": [
 3
@@ -30290,6 +30398,25 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十五席＞～モーニング娘。'26野中美希＆杉原明紗～トークイベント"
 },
+"h9dd956e52ca3f65e": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "14:30",
+"isFc": false,
+"label": null,
+"link": "http://www.rokinawa.co.jp/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "14:20",
+"status": null,
+"title": "ラジオ沖縄「気ままにウィークリー」"
+},
 "h9dfade5a26304077": {
 "artists": [
 477
@@ -30363,6 +30490,25 @@
 "start": "23:00",
 "status": null,
 "title": "ラジオ沖縄「今週のライブラリー情報」"
+},
+"h9e5de072e495d92e": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-04",
+"end": "18:25",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/tv/news/hidamino/post.html",
+"members": [
+588,
+660
+],
+"note": "※コメント",
+"start": "18:00",
+"status": null,
+"title": "ぎふチャン「ヒダミノ」"
 },
 "h9e682ded7e29aee3": {
 "artists": [
@@ -36477,6 +36623,26 @@
 "start": "14:00",
 "status": null,
 "title": "MBSラジオ「松井愛のすこ～し愛して♡MORE」"
+},
+"hc314191c515abc5c": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-04",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://kry.co.jp/radio/asa/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "07:00",
+"status": null,
+"title": "山口放送「KRY Morning Up」"
 },
 "hc3bdd438418d5003": {
 "artists": [
@@ -47731,32 +47897,6 @@
 "status": null,
 "title": "OCHA NORMA FCイベント2026 メリクリティーパーティー 〜 聖なる鐘がCHA CHA CHA CHA〜N！〜"
 },
-"s1435": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-11-04",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/249e3d1965053a02ff36b53a7a4b614f04bb0c0dd52b1bf3b1d8bac91738483f/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "池袋・サンシャインシティ 噴水広場（東京）",
-"start": null,
-"status": null,
-"title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
-},
 "s1436": {
 "artists": [
 676
@@ -48015,24 +48155,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
-},
-"s1488": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-11-04",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=2MtxJPI0hz4m7pqT",
-"members": [
-669
-],
-"note": "墨田区曳舟文化センター 劇場ホール （東京）",
-"start": null,
-"status": null,
-"title": "つばきファクトリー 石井泉羽バースデーイベント2026"
 },
 "s1490": {
 "artists": [
@@ -48694,25 +48816,6 @@
 "start": "12:00",
 "status": null,
 "title": "ぎふチャン「ときめきステーション ダブジェネカウントダウン」"
-},
-"s1804": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-04",
-"end": "18:25",
-"isFc": false,
-"label": null,
-"link": "https://www.zf-web.com/tv/news/hidamino/post.html",
-"members": [
-588,
-660
-],
-"note": "※コメント",
-"start": "18:00",
-"status": null,
-"title": "ぎふチャン「ヒダミノ」"
 },
 "s1809": {
 "artists": [
@@ -49446,64 +49549,6 @@
 "start": null,
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
-},
-"s1915": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-04",
-"end": "11:00",
-"isFc": false,
-"label": null,
-"link": "https://kry.co.jp/radio/asa/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "07:00",
-"status": null,
-"title": "山口放送「KRY Morning Up」"
-},
-"s1916": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-04",
-"end": "19:00",
-"isFc": false,
-"label": null,
-"link": "https://www.e-radio.co.jp",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "14:00",
-"status": null,
-"title": "FM滋賀「キャッチ！」"
-},
-"s1917": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-04",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fm-okayama.co.jp/passage/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "16:00",
-"status": null,
-"title": "FM岡山「PASSAGE」"
 },
 "s1918": {
 "artists": [
@@ -50529,32 +50574,6 @@
 "status": null,
 "title": "interfm「朝みみ！Precious Family」"
 },
-"s2031": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-04",
-"end": "20:00",
-"isFc": false,
-"label": null,
-"link": "https://www.mbc.co.jp/tv/tege2/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "MBC南日本放送「てゲてゲ」"
-},
 "s2032": {
 "artists": [
 676
@@ -50619,25 +50638,6 @@
 "start": "25:29",
 "status": null,
 "title": "長崎国際テレビ「AIR」"
-},
-"s2035": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-04",
-"end": "14:30",
-"isFc": false,
-"label": null,
-"link": "http://www.rokinawa.co.jp/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "14:20",
-"status": null,
-"title": "ラジオ沖縄「気ままにウィークリー」"
 },
 "s2036": {
 "artists": [
@@ -51571,5 +51571,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611042250-fGegVKaLq2FlpRft"
+"versionDir": "2611050210-2M5IaH42th5ceLxO"
 }
