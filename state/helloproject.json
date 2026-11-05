@@ -51534,6 +51534,205 @@
 "status": null,
 "title": "「BEYOOOOONDS/雨ノ森 川海 清野桃々姫バースデーイベント2027"
 },
+"s2102": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2027-02-03",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=ntPxywb0bpkiySut",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "川口総合文化センターリリア フカガワみらいホール （埼玉）",
+"start": null,
+"status": null,
+"title": "Juice=Juice FCイベント2027 ～Miracle×Juice×Box×結成Party！～"
+},
+"s2103": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2027-02-04",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=d73DU9JLRxPUwHPz",
+"members": [
+664
+],
+"note": "TOKYO FM HALL （東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 相馬優芽バースデーイベント2027"
+},
+"s2106": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-05",
+"end": "27:28",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/tv/midnightshuffle",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "26:58",
+"status": null,
+"title": "IBC岩手放送「ミッドナイトシャッフル」"
+},
+"s2107": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-08",
+"end": "11:50",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "11:40",
+"status": null,
+"title": "ABS秋田放送「ZIP！SUNDAY」"
+},
+"s2108": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "岩手めんこいテレビ「BEATNIKS」"
+},
+"s2109": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-08",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rab.co.jp/radio/niche/",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "RABラジオ「らじ丸にっち！」"
+},
+"s2110": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rfm.co.jp/program/recomend",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "16:55",
+"status": null,
+"title": "FM山形「レコメンド！」"
+},
+"s2112": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ctv.co.jp/omouma/",
+"members": [
+67,
+515
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "中京テレビ/日本テレビ「ヒューマンドキュメンタリーオモウマい店」"
+},
+"s2113": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "11:15",
+"isFc": false,
+"label": null,
+"link": "http://www.tnc.co.jp/store/",
+"members": [
+646,
+664
+],
+"note": "",
+"start": "09:50",
+"status": null,
+"title": "テレビ西日本「ももち浜ストア」"
+},
+"s2114": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-05",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/r-radio/musahaji/",
+"members": [
+646,
+664
+],
+"note": "",
+"start": "24:00",
+"status": null,
+"title": "九州朝日放送「ムサシハジメました。」"
+},
 "s910": {
 "artists": [
 42
@@ -51571,5 +51770,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611050210-2M5IaH42th5ceLxO"
+"versionDir": "2611052300-pWBtvjd4QGkjQ2Wd"
 }
