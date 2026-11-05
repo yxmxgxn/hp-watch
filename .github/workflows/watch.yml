@@ -16,7 +16,7 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +34,18 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python hpwatch.py --base https://www.jp-r.co.jp --state state/jproom.json --name JPROOM
+
+      - name: プロフィール（ハロプロ）
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python profiles.py --base https://helloproject.com --state state/profiles_helloproject.json --name ハロプロ
+
+      - name: プロフィール（JPROOM）
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python profiles.py --base https://www.jp-r.co.jp --state state/profiles_jproom.json --name JPROOM
 
       - name: 状態をコミット
         if: always()
