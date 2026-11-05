@@ -170,6 +170,19 @@ def diff_section(old, new, pair_by="link"):
         if fields:
             changed.append((old[k], new[k], fields))
 
+    # 中身が同じ削除と追加は、キーが付け替わっただけ（日付が過ぎると公式サイトが ical を外すので、
+    # s{id} → h{ハッシュ} に変わる）。通知しない。同じリンクの別番組が複数あっても対応できるよう、
+    # リンクではなく中身そのもので突き合わせる
+    def body(v):
+        return json.dumps(v, sort_keys=True, ensure_ascii=False)
+    same = {}
+    for k, v in added.items():
+        same.setdefault(body(v), []).append(k)
+    for k in list(removed):
+        ks = same.get(body(removed[k]))
+        if ks:
+            del added[ks.pop()], removed[k]
+
     # キーがハッシュの項目は、日付やタイトルが変わると「削除＋追加」に見える。
     # 同じリンク（＋カテゴリ）の削除と追加が1対1なら「変更」とみなす
     def pkey(v):
@@ -187,7 +200,8 @@ def diff_section(old, new, pair_by="link"):
         if len(aks) == 1 and len(rks) == 1:
             o, n = removed.pop(rks[0]), added.pop(aks[0])
             fields = [f for f in WATCH_FIELDS if f in n and o.get(f) != n.get(f)]
-            changed.append((o, n, fields))
+            if fields:  # 空なら見た目は同じ。黙る
+                changed.append((o, n, fields))
     return added, removed, changed
 
 
