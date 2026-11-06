@@ -23,6 +23,15 @@
 "start": "2026-12-22",
 "title": "​「西乃風ブラン堂」公開収録のお知らせ"
 },
+"/ayumi_ishida/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/": {
+"artists": [
+10
+],
+"end": "2026-12-06",
+"link": "/ayumi_ishida/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/",
+"start": "2026-11-23",
+"title": "『石田亜佑美カレンダー2027』発売記念イベント開催決定！"
+},
 "/ayumi_ishida/event/45924b5042f2d355d37bec9fd8d357bb05c4b98f7553359df53ed9641dfb6f73/": {
 "artists": [
 10
@@ -1657,6 +1666,22 @@
 "start": "13:30",
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
+},
+"h199442ee81099aeb": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-05",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/3c3c39ba633cdb0177b540cd1a7c805ddb21b84b19d0493d7bcdc7583aba29df/",
+"members": [],
+"note": "HMV札幌ステラプレイス（北海道）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "h1a2261c6d4bf6998": {
 "artists": [
@@ -5306,6 +5331,22 @@
 "status": null,
 "title": "AIR-G’「1400」"
 },
+"hb2ad36280c1fb133": {
+"artists": [
+33
+],
+"category": "EVENT",
+"date": "2026-11-05",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
+},
 "hb36429efb1d9f191": {
 "artists": [
 40
@@ -6990,7 +7031,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7010,7 +7051,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7030,7 +7071,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7050,7 +7091,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7070,7 +7111,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7298,22 +7339,6 @@
 "status": null,
 "title": "発売日｜浅倉樹々2027壁掛けカレンダー"
 },
-"s1499": {
-"artists": [
-33
-],
-"category": "EVENT",
-"date": "2026-11-05",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
-"members": [],
-"note": "ミッドランドスクエア シネマ2 （愛知）",
-"start": null,
-"status": null,
-"title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
-},
 "s1562": {
 "artists": [
 5
@@ -7402,22 +7427,6 @@
 "start": null,
 "status": null,
 "title": "2ndシングル発売記念 リミスタ インターネットサイン会"
-},
-"s1701": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-05",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/3c3c39ba633cdb0177b540cd1a7c805ddb21b84b19d0493d7bcdc7583aba29df/",
-"members": [],
-"note": "HMV札幌ステラプレイス（北海道）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1702": {
 "artists": [
@@ -8076,6 +8085,38 @@
 "status": null,
 "title": "Date fm「BANG! BANG!!」"
 },
+"s2141": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-07",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/ittoko/",
+"members": [],
+"note": "",
+"start": "10:25",
+"status": null,
+"title": "UHB北海道文化放送「いっとこ！みんテレ」"
+},
+"s2156": {
+"artists": [
+59
+],
+"category": "EVENT",
+"date": "2027-01-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/0bfdb667b71357ae034291182b319fc51dc9a64a0096e8eb37f684e190941b2e/",
+"members": [],
+"note": "代々木公園（東京）",
+"start": null,
+"status": null,
+"title": "HERO GATE"
+},
 "s714": {
 "artists": [
 40
@@ -8389,7 +8430,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"link": "https://t.pia.jp/pia/search_all.do?kw=334-649",
 "members": [],
 "note": "11/23(月) LIVE ROXY SHIZUOKA （静岡）公演",
 "start": null,
@@ -8413,5 +8454,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611050210-2M5IaH42th5ceLxO"
+"versionDir": "2611062250-XWROWjYwcDDFHqGI"
 }
