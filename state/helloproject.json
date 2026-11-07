@@ -316,6 +316,15 @@
 "start": "2027-03-27",
 "title": "イベント「カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement」開催決定！！"
 },
+"/juicejuice/event/45f5d1c5af4212ac369d9123fd4e31a84c21aae387dde3cc160cf44ba8e5efa3/": {
+"artists": [
+36
+],
+"end": "2027-02-06",
+"link": "/juicejuice/event/45f5d1c5af4212ac369d9123fd4e31a84c21aae387dde3cc160cf44ba8e5efa3/",
+"start": "2027-02-06",
+"title": "Juice=Juice『第59回 NHK福祉大相撲』出演決定！"
+},
 "/juicejuice/event/49b8859206a5ab6e953c6dbe064d6a8e8e32faca5f50dbbbe6a814d1cb929b12/": {
 "artists": [
 36
@@ -324,6 +333,16 @@
 "link": "/juicejuice/event/49b8859206a5ab6e953c6dbe064d6a8e8e32faca5f50dbbbe6a814d1cb929b12/",
 "start": "2026-12-06",
 "title": "Juice=Juice台北公演 Juice=Juice Room Tour 2026「5ROOMS-TAIPEI ANNEX-」詳細決定！"
+},
+"/juicejuice/event/5c60b63582760eaf6ad72c8ff16f39467c0982324fff535b76118085d4287f06/": {
+"artists": [
+3,
+36
+],
+"end": "2027-02-02",
+"link": "/juicejuice/event/5c60b63582760eaf6ad72c8ff16f39467c0982324fff535b76118085d4287f06/",
+"start": "2027-02-02",
+"title": "小田さくら・段原瑠々「BS-TBS Presents All That Music2027」出演！"
 },
 "/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/": {
 "artists": [
@@ -425,6 +444,16 @@
 "link": "/morningmusume/event/57f5f6309ba8fc283f7a87a46b6b3afc4f889b30973fb5789e340397780b9ed7/",
 "start": "2026-12-11",
 "title": "モーニング娘。'26 コンサートツアー秋「超 Heartful 11 コスモス」～小田さくら FINAL～"
+},
+"/morningmusume/event/5c60b63582760eaf6ad72c8ff16f39467c0982324fff535b76118085d4287f06/": {
+"artists": [
+3,
+36
+],
+"end": "2027-02-02",
+"link": "/morningmusume/event/5c60b63582760eaf6ad72c8ff16f39467c0982324fff535b76118085d4287f06/",
+"start": "2027-02-02",
+"title": "小田さくら・段原瑠々「BS-TBS Presents All That Music2027」出演！"
 },
 "/morningmusume/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/": {
 "artists": [
@@ -3975,6 +4004,26 @@
 "status": null,
 "title": "FM熊本「FMK InStyle」"
 },
+"h088678dcb371d75f": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-06",
+"end": "11:20",
+"isFc": false,
+"label": null,
+"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "10:24",
+"status": null,
+"title": "tbc東北放送「ひるまでウォッチン！」"
+},
 "h088cb8b1b53e2677": {
 "artists": [
 29
@@ -4417,6 +4466,25 @@
 "start": "14:20",
 "status": null,
 "title": "ラジオ沖縄「気ままにウィークリー」"
+},
+"h0b6cbaac78cfc843": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://rkk.jp/raditen/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "12:10",
+"status": null,
+"title": "熊本放送「ラジてん」"
 },
 "h0b8f8b21de893cc3": {
 "artists": [
@@ -13727,6 +13795,25 @@
 "status": null,
 "title": "NHK総合「うたコン」"
 },
+"h3bf7c4741b22ff1d": {
+"artists": [
+634
+],
+"category": "STREAM",
+"date": "2026-11-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+497,
+604
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
+},
 "h3c221948076a4777": {
 "artists": [
 477
@@ -16936,6 +17023,34 @@
 "start": null,
 "status": null,
 "title": "今日は染谷彩良（ハロプロ研修生）の13歳の誕生日です！"
+},
+"h4fed0bcc932eae20": {
+"artists": [
+585
+],
+"category": "STREAM",
+"date": "2026-11-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.up-fc.jp/helloproject-stream/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "演劇女子部「TIME REPEAT」"
 },
 "h4ffcef48de0c5cfd": {
 "artists": [
@@ -25722,6 +25837,25 @@
 "status": null,
 "title": "OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
+"h81d608e7b5771b1d": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.kry.co.jp/radio/hiru/#google_vignette",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジオTIME」"
+},
 "h82268265ba3e57a3": {
 "artists": [
 585
@@ -30745,6 +30879,31 @@
 "status": null,
 "title": "ぎふチャン「ヒダミノ」"
 },
+"h9e632d0df5b1a14b": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-11-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/217f72670365bd568a929794d6c6fcc6e44ae7a6d69f9d39c4aaedae1a743568/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "COMTEC PORTBASE （愛知）",
+"start": null,
+"status": null,
+"title": "あたヒロ2026～いつでもあたしがヒロイン神うたアイドル歌合戦～"
+},
 "h9e682ded7e29aee3": {
 "artists": [
 634
@@ -31314,6 +31473,25 @@
 "start": "20:30",
 "status": null,
 "title": "エフエム福岡「カムカムFM FUKUOKA」"
+},
+"ha21ebfc92c699e04": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "12:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tfm.co.jp/choice/",
+"members": [
+13,
+601
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
 },
 "ha22af0a0cbf77e03": {
 "artists": [
@@ -39191,6 +39369,25 @@
 "status": null,
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 },
+"hcf59483513d1fc25": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-06",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [
+588,
+605
+],
+"note": "※16時台にコメント出演予定。",
+"start": "16:00",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
+},
 "hcf5bf66a62e18418": {
 "artists": [
 36
@@ -39887,6 +40084,25 @@
 "start": "18:30",
 "status": null,
 "title": "ロージークロニクル ライブツアー2026春 ～Turn the Leaf!～"
+},
+"hd2ac70f5a7eaaa1a": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-06",
+"end": "25:45",
+"isFc": false,
+"label": null,
+"link": "https://www.ncctv.co.jp/5ch/musiclove/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "25:25",
+"status": null,
+"title": "長崎文化放送「みゅーじっくら部」"
 },
 "hd2cb410cb32bd5ff": {
 "artists": [
@@ -47931,6 +48147,25 @@
 "status": null,
 "title": "CBCテレビ「道との遭遇」"
 },
+"hff58ce56b9d4ea20": {
+"artists": [
+29
+],
+"category": "STREAM",
+"date": "2026-11-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+525,
+677
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
+},
 "hff69a54f4eb85fb4": {
 "artists": [
 634
@@ -48656,25 +48891,6 @@
 "status": null,
 "title": "Juice=Juice Room Tour 2026「5ROOMS-TAIPEI ANNEX-」"
 },
-"s1479": {
-"artists": [
-29
-],
-"category": "STREAM",
-"date": "2026-11-06",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-525,
-677
-],
-"note": "※配信終了日",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十六席＞～アンジュルム橋迫鈴＆長野桃羽～トークイベント"
-},
 "s1490": {
 "artists": [
 3
@@ -48728,25 +48944,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルムFCイベント2026 ～Angermerry Xmas～"
-},
-"s1541": {
-"artists": [
-634
-],
-"category": "STREAM",
-"date": "2026-11-06",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-497,
-604
-],
-"note": "※配信開始",
-"start": "18:00",
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
 },
 "s1542": {
 "artists": [
@@ -49335,31 +49532,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 豫風瑠乃バースデーイベント2026"
-},
-"s1827": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-11-06",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/217f72670365bd568a929794d6c6fcc6e44ae7a6d69f9d39c4aaedae1a743568/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "COMTEC PORTBASE （愛知）",
-"start": null,
-"status": null,
-"title": "あたヒロ2026～いつでもあたしがヒロイン神うたアイドル歌合戦～"
 },
 "s1829": {
 "artists": [
@@ -50058,25 +50230,6 @@
 "start": null,
 "status": null,
 "title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント"
-},
-"s1922": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-06",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://www.kry.co.jp/radio/hiru/#google_vignette",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "12:00",
-"status": null,
-"title": "山口放送「お昼はZETTAIラジオTIME」"
 },
 "s1923": {
 "artists": [
@@ -50921,26 +51074,6 @@
 "status": null,
 "title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
 },
-"s2026": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-06",
-"end": "11:20",
-"isFc": false,
-"label": null,
-"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "10:24",
-"status": null,
-"title": "tbc東北放送「ひるまでウォッチン！」"
-},
 "s2028": {
 "artists": [
 3
@@ -51003,25 +51136,6 @@
 "status": null,
 "title": "MBC南日本放送「てゲてゲ」"
 },
-"s2033": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-06",
-"end": "25:45",
-"isFc": false,
-"label": null,
-"link": "https://www.ncctv.co.jp/5ch/musiclove/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "25:25",
-"status": null,
-"title": "長崎文化放送「みゅーじっくら部」"
-},
 "s2034": {
 "artists": [
 676
@@ -51041,25 +51155,6 @@
 "start": "25:29",
 "status": null,
 "title": "長崎国際テレビ「AIR」"
-},
-"s2037": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-06",
-"end": "16:50",
-"isFc": false,
-"label": null,
-"link": "https://rkk.jp/raditen/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "12:10",
-"status": null,
-"title": "熊本放送「ラジてん」"
 },
 "s2041": {
 "artists": [
@@ -51565,44 +51660,6 @@
 "status": null,
 "title": "Juice=Juice Fan Meeting 2026 in Taipei \"Nice to meet Juice\""
 },
-"s2071": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-06",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fmii.co.jp/youcanradio/",
-"members": [
-588,
-605
-],
-"note": "※16時台にコメント出演予定。",
-"start": "16:00",
-"status": null,
-"title": "FM岩手「夕刊ラジオ」"
-},
-"s2074": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-11-06",
-"end": "12:55",
-"isFc": false,
-"label": null,
-"link": "https://www.tfm.co.jp/choice/",
-"members": [
-13,
-601
-],
-"note": "",
-"start": "12:30",
-"status": null,
-"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
-},
 "s2075": {
 "artists": [
 3
@@ -52058,34 +52115,6 @@
 "status": null,
 "title": "BS-TBS Presents All That Music2027"
 },
-"s2127": {
-"artists": [
-585
-],
-"category": "STREAM",
-"date": "2026-11-06",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.up-fc.jp/helloproject-stream/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "※配信開始",
-"start": "18:00",
-"status": null,
-"title": "演劇女子部「TIME REPEAT」"
-},
 "s2128": {
 "artists": [
 585
@@ -52140,6 +52169,59 @@
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
 },
+"s2132": {
+"artists": [
+634
+],
+"category": "WEB",
+"date": "2026-11-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.asahi.com/articles/ASVC51HMVVC5PTIL009M.html",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "朝日新聞デジタル版"
+},
+"s2157": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2027-02-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/45f5d1c5af4212ac369d9123fd4e31a84c21aae387dde3cc160cf44ba8e5efa3/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "両国国技館（東京）",
+"start": null,
+"status": null,
+"title": "第59回 NHK福祉大相撲"
+},
 "s910": {
 "artists": [
 42
@@ -52177,5 +52259,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611062250-XWROWjYwcDDFHqGI"
+"versionDir": "2611072130-rWqplCpJXbfvgDjy"
 }

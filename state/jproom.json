@@ -162,6 +162,15 @@
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
+"/kiki_asakura/event/e0e18e7a2edf29a56e229ac03f2dec25c5160e0fd3a7b928f34f97372c280657/": {
+"artists": [
+483
+],
+"end": "2027-03-21",
+"link": "/kiki_asakura/event/e0e18e7a2edf29a56e229ac03f2dec25c5160e0fd3a7b928f34f97372c280657/",
+"start": "2026-11-24",
+"title": "浅倉樹々 ソロデビューシングル発売記念イベントのお知らせ(一覧)"
+},
 "/mai_ozeki/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
 "artists": [
 5,
@@ -210,6 +219,15 @@
 "link": "/mai_ozeki/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
+"/manaka_inaba/event/0bfdb667b71357ae034291182b319fc51dc9a64a0096e8eb37f684e190941b2e/": {
+"artists": [
+59
+],
+"end": "2027-01-24",
+"link": "/manaka_inaba/event/0bfdb667b71357ae034291182b319fc51dc9a64a0096e8eb37f684e190941b2e/",
+"start": "2027-01-24",
+"title": "「HERO GATE」出演！"
 },
 "/manaka_inaba/event/49faea5d51f49308b8d227318ed3fa5c845e91b80ad95f6511824f764269afaa/": {
 "artists": [
@@ -3172,6 +3190,22 @@
 "status": null,
 "title": "FM大阪「HIT STREET HANAKIN SPECIAL 宮本佳林EDITION」"
 },
+"h59271ba32bdf019b": {
+"artists": [
+483
+],
+"category": "RELEASE",
+"date": "2027-01-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7715/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "CDシングル｜「ナナドイチブ/まだ水曜日(曲順未定)」"
+},
 "h5981c05604514ef6": {
 "artists": [
 40
@@ -4895,6 +4929,22 @@
 "start": null,
 "status": null,
 "title": "5thシングル発売記念 WithLIVEオンライン個別お話し会"
+},
+"h9daad0f042049957": {
+"artists": [
+57
+],
+"category": "EVENT",
+"date": "2026-11-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/a83d984742daf1fd150a88f12d3731662c27aab251967ac6d445df59ba66f3c5/",
+"members": [],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
 },
 "h9f6228f1cfcfd626": {
 "artists": [
@@ -7031,7 +7081,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7051,7 +7101,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7071,7 +7121,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7091,7 +7141,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7111,7 +7161,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7604,22 +7654,6 @@
 "status": null,
 "title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
 },
-"s1774": {
-"artists": [
-57
-],
-"category": "EVENT",
-"date": "2026-11-06",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/a83d984742daf1fd150a88f12d3731662c27aab251967ac6d445df59ba66f3c5/",
-"members": [],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
-},
 "s1784": {
 "artists": [
 40
@@ -8037,6 +8071,22 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
+"s2056": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-14",
+"end": "07:45",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/oshigoto/post.html",
+"members": [],
+"note": "",
+"start": "07:15",
+"status": null,
+"title": "ぎふチャン「土曜日の推し事」"
+},
 "s2078": {
 "artists": [
 10
@@ -8100,6 +8150,230 @@
 "start": "10:25",
 "status": null,
 "title": "UHB北海道文化放送「いっとこ！みんテレ」"
+},
+"s2142": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-11-29",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "タワーレコード新宿店（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2143": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "タワーレコード錦糸町パルコ店（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2144": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-19",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "HMV札幌ステラプレイス（北海道）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2145": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "タワーレコード池袋店（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2146": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "タワーレコード川崎店（神奈川）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2147": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "タワーレコード梅田NU茶屋町店（大阪）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2148": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "HMV&BOOKS HAKATA（福岡）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2149": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "池袋・サンシャインシティ噴水広場（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2150": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "新星堂アスナル金山店（愛知）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2151": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "イオンモール幕張新都心 ホビーコート（千葉）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 ミニライブ＆一言お話し会"
+},
+"s2152": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-02-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "大崎ブライトコアホール（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 forTUNE musicイベント"
+},
+"s2153": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-03-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "大崎ブライトコアホール（東京）",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 forTUNE musicイベント"
+},
+"s2154": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-11-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 WithLIVEオンラインお話し会"
+},
+"s2155": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 WithLIVEオンラインお話し会"
 },
 "s2156": {
 "artists": [
@@ -8454,5 +8728,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611062250-XWROWjYwcDDFHqGI"
+"versionDir": "2611072130-rWqplCpJXbfvgDjy"
 }
