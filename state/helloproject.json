@@ -513,15 +513,6 @@
 "start": "2026-09-20",
 "title": "OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
 },
-"/ochanorma/event/217f72670365bd568a929794d6c6fcc6e44ae7a6d69f9d39c4aaedae1a743568/": {
-"artists": [
-634
-],
-"end": "2026-11-06",
-"link": "/ochanorma/event/217f72670365bd568a929794d6c6fcc6e44ae7a6d69f9d39c4aaedae1a743568/",
-"start": "2026-11-06",
-"title": "OCHA NORMA「あたヒロ2026～いつでもあたしがヒロイン神うたアイドル歌合戦～」出演！"
-},
 "/ochanorma/event/24c9eaf13547cf3c0c887ab4903e32bf9fc1782f4990f7db132af9cc430bb0b8/": {
 "artists": [
 585,
@@ -590,15 +581,6 @@
 "link": "/ochanorma/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
 "start": "2026-10-20",
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
-"/ochanorma/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/": {
-"artists": [
-634
-],
-"end": "2026-11-08",
-"link": "/ochanorma/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
-"start": "2026-11-07",
-"title": "「GTFグリーンチャレンジデー2026 in 新宿御苑」出演決定！"
 },
 "/rosychronicle/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
@@ -2225,6 +2207,45 @@
 }
 },
 "singles": {
+"h001d3843467e2d2d": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"members": [
+611,
+612,
+646
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "岩手めんこいテレビ「BEATNIKS」"
+},
+"h005319274b70781f": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-08",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rab.co.jp/radio/niche/",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "RABラジオ「らじ丸にっち！」"
+},
 "h007629c01b14f2d5": {
 "artists": [
 3
@@ -3351,6 +3372,34 @@
 "start": null,
 "status": null,
 "title": "今日は杉原明紗（モーニング娘。'26）の15歳の誕生日です！"
+},
+"h048b101f16eb5539": {
+"artists": [
+585
+],
+"category": "TICKET",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/beyooooonds/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "11/26(木) 府中の森芸術劇場 どりーむホール（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
 },
 "h0499f10f04e2297e": {
 "artists": [
@@ -9729,6 +9778,25 @@
 "status": null,
 "title": "富山テレビ放送「bms BBT MUSIC SELECTION」"
 },
+"h2602cedf4a25bc3b": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-08",
+"end": "11:50",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "11:40",
+"status": null,
+"title": "ABS秋田放送「ZIP！SUNDAY」"
+},
 "h26a1cfdd1b077c69": {
 "artists": [
 634
@@ -11132,6 +11200,24 @@
 "start": null,
 "status": null,
 "title": "旅するクラシック プレミアムステージ2026"
+},
+"h2d77614fce7cb22d": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-08",
+"end": "08:30",
+"isFc": false,
+"label": null,
+"link": "https://www.interfm.co.jp/asamimi",
+"members": [
+13
+],
+"note": "",
+"start": "08:00",
+"status": null,
+"title": "interfm「朝みみ！Precious Family」"
 },
 "h2dabe3955d1a755b": {
 "artists": [
@@ -12930,6 +13016,34 @@
 "start": null,
 "status": null,
 "title": "今日は弓桁朱琴（モーニング娘。'26）の20歳の誕生日です！"
+},
+"h37b3a60c19484428": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/716eb52be355d435074f2a84fae9312e99b86e92a26969be49a6bcc8b907d702/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "新宿住友ホール （東京）",
+"start": null,
+"status": null,
+"title": "77thシングル発売記念 チェキ・サイン・トーク会"
 },
 "h37be037649a927bc": {
 "artists": [
@@ -22669,6 +22783,31 @@
 "status": null,
 "title": "熊本放送「ラジてん」"
 },
+"h706a911ee412184e": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "新宿御苑内 風景式庭園・整形式庭園 （東京）",
+"start": null,
+"status": null,
+"title": "GTFグリーンチャレンジデー2026 in 新宿御苑"
+},
 "h7081c39faf464d9a": {
 "artists": [
 477
@@ -25014,6 +25153,34 @@
 "status": null,
 "title": "HBCテレビ「キタコイ」"
 },
+"h7d574d07e76900b5": {
+"artists": [
+3
+],
+"category": "RELEASE",
+"date": "2026-12-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7716/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "ブルーレイディスク｜「モーニング娘。'26 小田さくら 「さくらのしらべFINAL」」"
+},
 "h7d5c1e23a1dba84c": {
 "artists": [
 585
@@ -26097,6 +26264,26 @@
 "status": null,
 "title": "FM大分「Oita Sunset Groove」"
 },
+"h825eb5b1eecbc65b": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.e-radio.co.jp/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "19:55",
+"status": null,
+"title": "FM滋賀「MUSIC BREAK」"
+},
 "h8269e656839840da": {
 "artists": [
 634
@@ -26371,6 +26558,25 @@
 "start": "12:00",
 "status": null,
 "title": "山口放送「お昼はZETTAI ラジTIME」"
+},
+"h85327ccb86acda7d": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-11-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+586,
+608
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA 斉藤円香バースデーイベント2026 in 名古屋"
 },
 "h853ceb7d953356c8": {
 "artists": [
@@ -29610,6 +29816,43 @@
 "start": null,
 "status": null,
 "title": "14thシングル発売記念 WithLIVEオンライン個別お話し会"
+},
+"h9654c799dfb4acfd": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
+},
+"h967501a480fc064e": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-08",
+"end": "25:00",
+"isFc": false,
+"label": null,
+"link": "https://www.bs4.jp/sorosoromarriage/",
+"members": [
+519
+],
+"note": "",
+"start": "24:30",
+"status": null,
+"title": "BS日テレ「そろそろマリッジしませんか！？」"
 },
 "h9686661239f3c7f4": {
 "artists": [
@@ -38763,6 +39006,26 @@
 "status": null,
 "title": "ぎふチャン「ラジオ土曜便」"
 },
+"hcb7a575e8835d3f1": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-08",
+"end": "23:00",
+"isFc": false,
+"label": null,
+"link": "https://nasanchi.com/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "22:30",
+"status": null,
+"title": "和歌山放送「なーさんち。」"
+},
 "hcb7dc205172622de": {
 "artists": [
 477
@@ -42421,6 +42684,26 @@
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
+"hddd6fb99a08dccee": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-09",
+"end": "25:59",
+"isFc": false,
+"label": null,
+"link": "https://www.nib.jp/air/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "25:29",
+"status": null,
+"title": "長崎国際テレビ「AIR」"
+},
 "hdde3b23779077f17": {
 "artists": [
 42,
@@ -44113,6 +44396,32 @@
 "start": null,
 "status": null,
 "title": "今日は坂本葵花（ハロプロ研修生）の14歳の誕生日です！"
+},
+"he8030bc563d9a617": {
+"artists": [
+29
+],
+"category": "TICKET",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/",
+"members": [
+525,
+567,
+590,
+607,
+618,
+619,
+639,
+647,
+677
+],
+"note": "12/2(水) ぴあアリーナMM（神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜アンジュルム 2026秋 FINAL 風林火山・極"
 },
 "he82c24cc6de60c54": {
 "artists": [
@@ -45848,6 +46157,25 @@
 "status": null,
 "title": "LuckyFM茨城放送「MUSIC STATE」"
 },
+"hf258a4a0c01b04a0": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "15:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fbc.jp/radio/raditas",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "08:15",
+"status": null,
+"title": "FBCラジオ「ラジ＋」"
+},
 "hf266ea32aa14657f": {
 "artists": [
 634
@@ -47473,6 +47801,25 @@
 "status": null,
 "title": "ニコニコ生放送「モーニング娘。'26小田さくら・岡村ほまれ・山﨑愛生・櫻井梨央の「ハロ通GAMES」【リズム天国 ミラクルスターズ】」"
 },
+"hfa4ffc4a94727a76": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-09",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rfm.co.jp/program/recomend",
+"members": [
+588,
+605
+],
+"note": "※コメント",
+"start": "16:55",
+"status": null,
+"title": "FM山形「レコメンド！」"
+},
 "hfa5eb297cfd075a8": {
 "artists": [
 36
@@ -48581,34 +48928,6 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
-"s1165": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/716eb52be355d435074f2a84fae9312e99b86e92a26969be49a6bcc8b907d702/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "新宿住友ホール （東京）",
-"start": null,
-"status": null,
-"title": "77thシングル発売記念 チェキ・サイン・トーク会"
-},
 "s1314": {
 "artists": [
 3
@@ -49185,25 +49504,6 @@
 "status": null,
 "title": "モーニング娘。'26 櫻井梨央バースデーイベント in 大阪"
 },
-"s1548": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-11-09",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
-"members": [
-586,
-608
-],
-"note": "ミッドランドスクエア シネマ2 （愛知）",
-"start": null,
-"status": null,
-"title": "OCHA NORMA 斉藤円香バースデーイベント2026 in 名古屋"
-},
 "s1556": {
 "artists": [
 477
@@ -49239,34 +49539,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー 福田真琳バースデーイベント2026 in 名古屋"
-},
-"s1628": {
-"artists": [
-585
-],
-"category": "TICKET",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/beyooooonds/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "11/26(木) 府中の森芸術劇場 どりーむホール（東京）公演",
-"start": null,
-"status": null,
-"title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
 },
 "s1629": {
 "artists": [
@@ -49594,32 +49866,6 @@
 "status": null,
 "title": "3WAYポーチ付き Gacha FAN BOOK"
 },
-"s1769": {
-"artists": [
-29
-],
-"category": "TICKET",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/",
-"members": [
-525,
-567,
-590,
-607,
-618,
-619,
-639,
-647,
-677
-],
-"note": "12/2(水) ぴあアリーナMM（神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜アンジュルム 2026秋 FINAL 風林火山・極"
-},
 "s1777": {
 "artists": [
 29
@@ -49637,31 +49883,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 川名凜バースデーイベント2026"
-},
-"s1792": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
-"members": [
-497,
-544,
-568,
-586,
-604,
-606,
-608,
-635
-],
-"note": "新宿御苑内 風景式庭園・整形式庭園 （東京）",
-"start": null,
-"status": null,
-"title": "GTFグリーンチャレンジデー2026 in 新宿御苑"
 },
 "s1796": {
 "artists": [
@@ -50217,26 +50438,6 @@
 "status": null,
 "title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
-"s1883": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-08",
-"end": "23:00",
-"isFc": false,
-"label": null,
-"link": "https://nasanchi.com/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "22:30",
-"status": null,
-"title": "和歌山放送「なーさんち。」"
-},
 "s1886": {
 "artists": [
 36
@@ -50377,26 +50578,6 @@
 "start": null,
 "status": null,
 "title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント"
-},
-"s1925": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-09",
-"end": "20:00",
-"isFc": false,
-"label": null,
-"link": "https://www.e-radio.co.jp/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "19:55",
-"status": null,
-"title": "FM滋賀「MUSIC BREAK」"
 },
 "s1926": {
 "artists": [
@@ -50612,25 +50793,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
-},
-"s1992": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-09",
-"end": "15:30",
-"isFc": false,
-"label": null,
-"link": "https://www.fbc.jp/radio/raditas",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "08:15",
-"status": null,
-"title": "FBCラジオ「ラジ＋」"
 },
 "s1996": {
 "artists": [
@@ -51181,24 +51343,6 @@
 "status": null,
 "title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
 },
-"s2028": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-11-08",
-"end": "08:30",
-"isFc": false,
-"label": null,
-"link": "https://www.interfm.co.jp/asamimi",
-"members": [
-13
-],
-"note": "",
-"start": "08:00",
-"status": null,
-"title": "interfm「朝みみ！Precious Family」"
-},
 "s2029": {
 "artists": [
 3
@@ -51216,26 +51360,6 @@
 "start": "08:00",
 "status": null,
 "title": "interfm「朝みみ！Precious Family」"
-},
-"s2034": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-09",
-"end": "25:59",
-"isFc": false,
-"label": null,
-"link": "https://www.nib.jp/air/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "25:29",
-"status": null,
-"title": "長崎国際テレビ「AIR」"
 },
 "s2042": {
 "artists": [
@@ -51694,24 +51818,6 @@
 "status": null,
 "title": "カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement"
 },
-"s2066": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-11-08",
-"end": "25:00",
-"isFc": false,
-"label": null,
-"link": "https://www.bs4.jp/sorosoromarriage/",
-"members": [
-519
-],
-"note": "",
-"start": "24:30",
-"status": null,
-"title": "BS日テレ「そろそろマリッジしませんか！？」"
-},
 "s2067": {
 "artists": [
 36
@@ -51794,25 +51900,6 @@
 "start": null,
 "status": null,
 "title": "CDジャーナル2027冬号"
-},
-"s2082": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-09",
-"end": "25:29",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs.jp/nishinokazebrand/",
-"members": [
-604,
-635
-],
-"note": "",
-"start": "24:59",
-"status": null,
-"title": "MBS「西乃風ブラン堂」"
 },
 "s2083": {
 "artists": [
@@ -52060,83 +52147,6 @@
 "status": null,
 "title": "ロージークロニクル 相馬優芽バースデーイベント2027"
 },
-"s2107": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-08",
-"end": "11:50",
-"isFc": false,
-"label": null,
-"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
-"members": [
-588,
-605
-],
-"note": "※コメント",
-"start": "11:40",
-"status": null,
-"title": "ABS秋田放送「ZIP！SUNDAY」"
-},
-"s2108": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-09",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.menkoi-tv.co.jp/mms/top.html",
-"members": [
-611,
-612,
-646
-],
-"note": "※コメント",
-"start": "24:45",
-"status": null,
-"title": "岩手めんこいテレビ「BEATNIKS」"
-},
-"s2109": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-08",
-"end": "15:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rab.co.jp/radio/niche/",
-"members": [
-588,
-605
-],
-"note": "※コメント",
-"start": "11:00",
-"status": null,
-"title": "RABラジオ「らじ丸にっち！」"
-},
-"s2110": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-09",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://rfm.co.jp/program/recomend",
-"members": [
-588,
-605
-],
-"note": "※コメント",
-"start": "16:55",
-"status": null,
-"title": "FM山形「レコメンド！」"
-},
 "s2112": {
 "artists": [
 36
@@ -52174,6 +52184,82 @@
 "start": "09:50",
 "status": null,
 "title": "テレビ西日本「ももち浜ストア」"
+},
+"s2115": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃155」"
+},
+"s2116": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃156」"
+},
+"s2117": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "27:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+544,
+568
+],
+"note": "",
+"start": "27:00",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃157」"
+},
+"s2118": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "26:35",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+544,
+568
+],
+"note": "",
+"start": "26:30",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃158」"
 },
 "s2124": {
 "artists": [
@@ -52277,6 +52363,44 @@
 "status": null,
 "title": "第59回 NHK福祉大相撲"
 },
+"s2161": {
+"artists": [
+676
+],
+"category": "MAGAZINE",
+"date": "2026-11-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+646
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "IDOL FILE Vol.44"
+},
+"s2166": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-11",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://s.mxtv.jp/music/70_room/",
+"members": [
+605,
+611,
+660
+],
+"note": "",
+"start": "21:25",
+"status": null,
+"title": "TOKYO MX「70号室の住人」"
+},
 "s910": {
 "artists": [
 42
@@ -52314,5 +52438,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611082150-GBz9Xyhrm5wpvHq8"
+"versionDir": "2611100020-D0a1F0EfUBKqrqP4"
 }

@@ -50,16 +50,6 @@
 "start": "2026-11-20",
 "title": "タクフェス第14弾「北の島から」出演決定！"
 },
-"/chisaki_morito/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/": {
-"artists": [
-442,
-550
-],
-"end": "2026-11-08",
-"link": "/chisaki_morito/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
-"start": "2026-11-07",
-"title": "「GTFグリーンチャレンジデー2026 in 新宿御苑」出演決定！"
-},
 "/chisaki_morito/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
 5,
@@ -182,16 +172,6 @@
 "link": "/mai_ozeki/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
 "start": "2026-10-20",
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
-"/mai_ozeki/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/": {
-"artists": [
-442,
-550
-],
-"end": "2026-11-08",
-"link": "/mai_ozeki/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
-"start": "2026-11-07",
-"title": "「GTFグリーンチャレンジデー2026 in 新宿御苑」出演決定！"
 },
 "/mai_ozeki/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
@@ -351,15 +331,6 @@
 "link": "/mizuki_fukumura/event/ca8d7774640045d3b7a9b7b4834696a23f3fcf6075bddc5936ed350214749bc9/",
 "start": "2026-10-04",
 "title": "譜久村聖 2026年11月18日発売 『もうどうでもよくなっちゃった/もしも』発売記念イベント【一覧】"
-},
-"/rikako_sasaki/event/a83d984742daf1fd150a88f12d3731662c27aab251967ac6d445df59ba66f3c5/": {
-"artists": [
-57
-],
-"end": "2026-11-06",
-"link": "/rikako_sasaki/event/a83d984742daf1fd150a88f12d3731662c27aab251967ac6d445df59ba66f3c5/",
-"start": "2026-11-06",
-"title": "11/6(金)ハロショ大阪店にて 『＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
 }
 },
 "names": {
@@ -1241,6 +1212,26 @@
 "status": null,
 "title": "DAISY TOWN Pre.「はなぱり Vol.01」curated by Yackle"
 },
+"h0a3fe58e3de5c79d": {
+"artists": [
+5,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-11-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
+"members": [],
+"note": "11/21(土) 東別院テラスホール（愛知）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
+},
 "h0a6d9fcf11c58d75": {
 "artists": [
 40
@@ -1392,6 +1383,22 @@
 "start": null,
 "status": null,
 "title": "稲場愛香カレンダー2027発売記念イベント"
+},
+"h1005c6251440710f": {
+"artists": [
+483
+],
+"category": "RELEASE",
+"date": "2026-11-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "発売日｜浅倉樹々2027壁掛けカレンダー"
 },
 "h1043fdaeaddc23aa": {
 "artists": [
@@ -2221,6 +2228,22 @@
 "status": null,
 "title": "KBS京都放送「新・流行音楽堂」"
 },
+"h325809c9853bcae6": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-11-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://t.pia.jp/pia/search_all.do?kw=334-649",
+"members": [],
+"note": "11/23(月) LIVE ROXY SHIZUOKA （静岡）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
 "h3272d48d399eab27": {
 "artists": [
 10
@@ -2548,6 +2571,22 @@
 "status": null,
 "title": "5thシングル発売記念 ミニライブ＆一言お話し会"
 },
+"h3e8f65940399cba5": {
+"artists": [
+40
+],
+"category": "EVENT",
+"date": "2026-11-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5a2855892e371ce82cf63283aaa9324a611cbb706bf9e367b2f05fef54c33df2/",
+"members": [],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント"
+},
 "h3fcd9a2b30d94c0b": {
 "artists": [
 40
@@ -2727,6 +2766,22 @@
 "start": "05:45",
 "status": null,
 "title": "HBCテレビ「キタコイ」"
+},
+"h460c82e08ecd2c2b": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-09",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/7aabb823bec4eb1f353e21c28baab3107c9b9081481a408c95337773b697a515/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 リミスタ インターネットサイン会"
 },
 "h463943b91f491cab": {
 "artists": [
@@ -4522,6 +4577,22 @@
 "status": null,
 "title": "梅棒21st STAGE『ラヴ・オール!!』石田亜佑美出演！"
 },
+"h8a92fe70caadc96c": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
+"members": [],
+"note": "SHIBUYA TSUTAYA（東京）",
+"start": null,
+"status": null,
+"title": "浅倉樹々2027壁掛けカレンダー発売記念イベント"
+},
 "h8ce4fa785dc14075": {
 "artists": [
 5,
@@ -4684,6 +4755,22 @@
 "start": "19:30",
 "status": null,
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
+},
+"h9293fd00a96306ae": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-07",
+"end": "11:30",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/ittoko/",
+"members": [],
+"note": "",
+"start": "10:25",
+"status": null,
+"title": "UHB北海道文化放送「いっとこ！みんテレ」"
 },
 "h92aa6ab132686ce1": {
 "artists": [
@@ -5500,6 +5587,22 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十七席＞～稲場愛香～トークイベント"
+},
+"hb8a6776d3413f6fe": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ba344af543f60c8972b1c04a858ef75c96c8d8d08602fec8a3dbcedeef189d1a/",
+"members": [],
+"note": "金沢フォーラス 6F KUUGOスクエア（石川）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "hb988dfcd48092aeb": {
 "artists": [
@@ -7034,6 +7137,23 @@
 "status": null,
 "title": "今日は宮本佳林の誕生日です！"
 },
+"hf8302fba5b0bfcd1": {
+"artists": [
+442,
+550
+],
+"category": "EVENT",
+"date": "2026-11-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
+"members": [],
+"note": "新宿御苑内 風景式庭園・整形式庭園 （東京）",
+"start": null,
+"status": null,
+"title": "GTFグリーンチャレンジデー2026 in 新宿御苑"
+},
 "hf84097b7b151ec84": {
 "artists": [
 40
@@ -7081,7 +7201,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7101,7 +7221,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7141,7 +7261,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7161,7 +7281,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7309,22 +7429,6 @@
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
-"s1420": {
-"artists": [
-483
-],
-"category": "EVENT",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
-"members": [],
-"note": "SHIBUYA TSUTAYA（東京）",
-"start": null,
-"status": null,
-"title": "浅倉樹々2027壁掛けカレンダー発売記念イベント"
-},
 "s1421": {
 "artists": [
 483
@@ -7373,22 +7477,6 @@
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1462": {
-"artists": [
-483
-],
-"category": "RELEASE",
-"date": "2026-11-07",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "発売日｜浅倉樹々2027壁掛けカレンダー"
-},
 "s1562": {
 "artists": [
 5
@@ -7425,42 +7513,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1654": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-11-07",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"members": [],
-"note": "11/21(土) 東別院テラスホール（愛知）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
-"s1681": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-09",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/7aabb823bec4eb1f353e21c28baab3107c9b9081481a408c95337773b697a515/",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 リミスタ インターネットサイン会"
 },
 "s1682": {
 "artists": [
@@ -7509,22 +7561,6 @@
 "start": null,
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
-},
-"s1744": {
-"artists": [
-11
-],
-"category": "EVENT",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/ba344af543f60c8972b1c04a858ef75c96c8d8d08602fec8a3dbcedeef189d1a/",
-"members": [],
-"note": "金沢フォーラス 6F KUUGOスクエア（石川）",
-"start": null,
-"status": null,
-"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1745": {
 "artists": [
@@ -7654,22 +7690,6 @@
 "status": null,
 "title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
 },
-"s1784": {
-"artists": [
-40
-],
-"category": "EVENT",
-"date": "2026-11-09",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/5a2855892e371ce82cf63283aaa9324a611cbb706bf9e367b2f05fef54c33df2/",
-"members": [],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント"
-},
 "s1785": {
 "artists": [
 40
@@ -7701,23 +7721,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント"
-},
-"s1792": {
-"artists": [
-442,
-550
-],
-"category": "EVENT",
-"date": "2026-11-08",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/a655965aa693e11d1adb0ebfb991f6ab6dc4ba713ae09541ff0aa0a675998b2d/",
-"members": [],
-"note": "新宿御苑内 風景式庭園・整形式庭園 （東京）",
-"start": null,
-"status": null,
-"title": "GTFグリーンチャレンジデー2026 in 新宿御苑"
 },
 "s1805": {
 "artists": [
@@ -8135,22 +8138,6 @@
 "status": null,
 "title": "Date fm「BANG! BANG!!」"
 },
-"s2141": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-07",
-"end": "11:30",
-"isFc": false,
-"label": null,
-"link": "https://www.uhb.jp/program/ittoko/",
-"members": [],
-"note": "",
-"start": "10:25",
-"status": null,
-"title": "UHB北海道文化放送「いっとこ！みんテレ」"
-},
 "s2142": {
 "artists": [
 483
@@ -8352,7 +8339,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "",
+"link": "/event/cce172b2f16dd8bed3f6e3a019d8d46b461d729d34289564922a106f76a9cba5/",
 "members": [],
 "note": "",
 "start": null,
@@ -8368,7 +8355,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "",
+"link": "/event/cce172b2f16dd8bed3f6e3a019d8d46b461d729d34289564922a106f76a9cba5/",
 "members": [],
 "note": "",
 "start": null,
@@ -8390,6 +8377,22 @@
 "start": null,
 "status": null,
 "title": "HERO GATE"
+},
+"s2160": {
+"artists": [
+11
+],
+"category": "RADIO",
+"date": "2026-11-14",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
 },
 "s714": {
 "artists": [
@@ -8695,22 +8698,6 @@
 "status": null,
 "title": "タクフェス第14弾「北の島から」"
 },
-"s909": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-11-07",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://t.pia.jp/pia/search_all.do?kw=334-649",
-"members": [],
-"note": "11/23(月) LIVE ROXY SHIZUOKA （静岡）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
-},
 "s910": {
 "artists": [
 40
@@ -8728,5 +8715,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611072130-rWqplCpJXbfvgDjy"
+"versionDir": "2611100020-D0a1F0EfUBKqrqP4"
 }
