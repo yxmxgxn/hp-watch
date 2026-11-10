@@ -52401,6 +52401,24 @@
 "status": null,
 "title": "TOKYO MX「70号室の住人」"
 },
+"s2167": {
+"artists": [
+29
+],
+"category": "EVENT",
+"date": "2027-02-09",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=UkP80A3PUjWyXvU5",
+"members": [
+567
+],
+"note": "スタァライト劇場 （東京）",
+"start": null,
+"status": null,
+"title": "アンジュルム 為永幸音バースデーイベント2027"
+},
 "s910": {
 "artists": [
 42
@@ -52438,5 +52456,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611100020-D0a1F0EfUBKqrqP4"
+"versionDir": "2611102320-I8hWWUwyJT0JGPeo"
 }

@@ -77,15 +77,6 @@
 "start": "2026-09-19",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
-"/karin_miyamoto/event/5a2855892e371ce82cf63283aaa9324a611cbb706bf9e367b2f05fef54c33df2/": {
-"artists": [
-40
-],
-"end": "2026-11-09",
-"link": "/karin_miyamoto/event/5a2855892e371ce82cf63283aaa9324a611cbb706bf9e367b2f05fef54c33df2/",
-"start": "2026-11-09",
-"title": "11/9(月)ハロショ大阪店にて 『＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
-},
 "/karin_miyamoto/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/": {
 "artists": [
 40
@@ -7201,7 +7192,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7221,7 +7212,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8394,6 +8385,103 @@
 "status": null,
 "title": "MBSラジオ「ヤングタウン土曜日」"
 },
+"s2171": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "20:58",
+"isFc": false,
+"label": null,
+"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"members": [],
+"note": "※コメント",
+"start": "20:54",
+"status": null,
+"title": "福島テレビ「MUSIC TIME」"
+},
+"s2172": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-19",
+"end": "27:28",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/tv/midnightshuffle",
+"members": [],
+"note": "※コメント\n※放送時間が急遽変更となる場合がございます。",
+"start": "26:58",
+"status": null,
+"title": "IBC岩手放送「ミッドナイトシャッフル」"
+},
+"s2173": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "25:10",
+"isFc": false,
+"label": null,
+"link": "https://www.fct.co.jp/program/2johan/",
+"members": [],
+"note": "※放送予定\n※コメント",
+"start": "24:55",
+"status": null,
+"title": "福島中央テレビ「二畳半レコード」"
+},
+"s2174": {
+"artists": [
+5,
+11
+],
+"category": "MAGAZINE",
+"date": "2026-12-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "CDジャーナル2027冬号"
+},
+"s2175": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-13",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/r-radio/posi-mon/",
+"members": [],
+"note": "",
+"start": "06:30",
+"status": null,
+"title": "九州朝日放送「ポジモン！」"
+},
+"s2176": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "14:50",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/wish_plus/",
+"members": [],
+"note": "",
+"start": "13:50",
+"status": null,
+"title": "九州朝日放送「地元応援live Wish＋」"
+},
 "s714": {
 "artists": [
 40
@@ -8715,5 +8803,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611100020-D0a1F0EfUBKqrqP4"
+"versionDir": "2611102320-I8hWWUwyJT0JGPeo"
 }
