@@ -138,8 +138,7 @@
 },
 "/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/": {
 "artists": [
-585,
-676
+585
 ],
 "end": "2026-11-11",
 "link": "/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
@@ -615,16 +614,6 @@
 "link": "/rosychronicle/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/",
 "start": "2027-03-27",
 "title": "イベント「カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement」開催決定！！"
-},
-"/rosychronicle/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/": {
-"artists": [
-585,
-676
-],
-"end": "2026-11-11",
-"link": "/rosychronicle/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
-"start": "2026-11-11",
-"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
 },
 "/rosychronicle/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/": {
 "artists": [
@@ -6848,6 +6837,25 @@
 "status": null,
 "title": "エムハロイベント vol.12 ～山岸理子×つばきファクトリー 福田真琳～"
 },
+"h174234c38c425da6": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-10",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/radio/naru/",
+"members": [
+588,
+611
+],
+"note": "",
+"start": "08:15",
+"status": null,
+"title": "HBCラジオ「気分上昇ワイド ナルミッツ！！！」"
+},
 "h175f7b5a3bae8d19": {
 "artists": [
 42
@@ -7929,6 +7937,34 @@
 "status": null,
 "title": "今日は松原ユリヤ（ロージークロニクル）の19歳の誕生日です！"
 },
+"h1c0bec29ec0034c2": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-03-03",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/bc8d1a3660aa3b854fd78cb6769c1d3a1a9cc63251451363d2ee698e0baff48a/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "NHKホール（東京）",
+"start": "18:30",
+"status": null,
+"title": "billboard classics BEYOOOOOPHONIC Ⅳ"
+},
 "h1c30f0ac4f0fef99": {
 "artists": [
 29
@@ -8183,6 +8219,25 @@
 "status": null,
 "title": "37thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"h1d9e86becb8a3c04": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "24:44",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/tv/michi/",
+"members": [
+588,
+660
+],
+"note": "",
+"start": "23:56",
+"status": null,
+"title": "CBCテレビ「道との遭遇」"
+},
 "h1daf07fcac50076d": {
 "artists": [
 36
@@ -8276,6 +8331,24 @@
 "start": null,
 "status": null,
 "title": "BEYOOOOONDS/CHICA#TETSU 西田汐里バースデーイベント2026"
+},
+"h1e20ad79c393e8b4": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-11-10",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=YDBA3IgbdN85TZGg",
+"members": [
+643
+],
+"note": "NEW PIER HALL （東京）",
+"start": null,
+"status": null,
+"title": "モーニング娘。'26 櫻井梨央バースデーイベント"
 },
 "h1e2c7239fbd8e2fc": {
 "artists": [
@@ -10266,6 +10339,34 @@
 "start": "18:15",
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
+},
+"h284b99a87c288966": {
+"artists": [
+585
+],
+"category": "CONCERT",
+"date": "2026-11-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "日本武道館（東京）",
+"start": "18:00",
+"status": null,
+"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
 },
 "h2855f34489675f48": {
 "artists": [
@@ -19960,6 +20061,25 @@
 "status": null,
 "title": "今日は筒井澪心（OCHA NORMA）の20歳の誕生日です！"
 },
+"h5f6c8e03e49800c6": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ctv.co.jp/omouma/",
+"members": [
+67,
+515
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "中京テレビ/日本テレビ「ヒューマンドキュメンタリーオモウマい店」"
+},
 "h5f979d78c32f6b94": {
 "artists": [
 676
@@ -27720,6 +27840,25 @@
 "status": null,
 "title": "HBCラジオ「ゆうがターミナル」"
 },
+"h8b267f670c7f5bc2": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-10",
+"end": "11:15",
+"isFc": false,
+"label": null,
+"link": "http://www.tnc.co.jp/store/",
+"members": [
+646,
+664
+],
+"note": "",
+"start": "09:50",
+"status": null,
+"title": "テレビ西日本「ももち浜ストア」"
+},
 "h8b4d4911bff92646": {
 "artists": [
 29
@@ -33964,6 +34103,24 @@
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"haded72e63615f7b3": {
+"artists": [
+3
+],
+"category": "BIRTHDAY",
+"date": "2028-11-11",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/morningmusume/rio_sakurai/",
+"members": [
+643
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は櫻井梨央（モーニング娘。'26）の23歳の誕生日です！"
+},
 "hadfdba388c03cfca": {
 "artists": [
 634
@@ -37807,6 +37964,24 @@
 "status": null,
 "title": "発売日｜アンジュルム 2026秋 風林火山・弐"
 },
+"hc575003811c8ba7b": {
+"artists": [
+634
+],
+"category": "RADIO",
+"date": "2026-11-10",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+635
+],
+"note": "※スペシャルパーソナリティとして生出演。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
 "hc58ae08e1880eb77": {
 "artists": [
 42,
@@ -40173,44 +40348,6 @@
 "status": null,
 "title": "つばきファクトリー 河西結心バースデーイベント2026 in 名古屋"
 },
-"hd09aefa43a244264": {
-"artists": [
-585,
-676
-],
-"category": "CONCERT",
-"date": "2026-11-11",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-571,
-588,
-591,
-592,
-593,
-605,
-611,
-612,
-630,
-646,
-660,
-664,
-665,
-708,
-709
-],
-"note": "日本武道館（東京）",
-"start": "18:00",
-"status": null,
-"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
-},
 "hd0b91cec1aff03bc": {
 "artists": [
 3
@@ -41283,6 +41420,34 @@
 "start": null,
 "status": null,
 "title": "6thシングル発売記念 ミニライブ＆お見送り会"
+},
+"hd73a41018dac8b1e": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-03-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/bc8d1a3660aa3b854fd78cb6769c1d3a1a9cc63251451363d2ee698e0baff48a/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "兵庫県立芸術文化センター KOBELCO大ホール（兵庫）",
+"start": "17:00",
+"status": null,
+"title": "billboard classics BEYOOOOOPHONIC Ⅳ"
 },
 "hd749985db6d07a93": {
 "artists": [
@@ -49468,24 +49633,6 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
 },
-"s1543": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-11-10",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=YDBA3IgbdN85TZGg",
-"members": [
-643
-],
-"note": "NEW PIER HALL （東京）",
-"start": null,
-"status": null,
-"title": "モーニング娘。'26 櫻井梨央バースデーイベント"
-},
 "s1546": {
 "artists": [
 3
@@ -50241,25 +50388,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
-},
-"s1843": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-10",
-"end": "12:00",
-"isFc": false,
-"label": null,
-"link": "https://www.hbc.co.jp/radio/naru/",
-"members": [
-588,
-611
-],
-"note": "",
-"start": "08:15",
-"status": null,
-"title": "HBCラジオ「気分上昇ワイド ナルミッツ！！！」"
 },
 "s1846": {
 "artists": [
@@ -51240,25 +51368,6 @@
 "status": null,
 "title": "BEYOOOOONDS DVD MAGAZINE Vol.17～島倉りか卒業メモリアル～"
 },
-"s2018": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-10",
-"end": "24:44",
-"isFc": false,
-"label": null,
-"link": "https://hicbc.com/tv/michi/",
-"members": [
-588,
-660
-],
-"note": "",
-"start": "23:56",
-"status": null,
-"title": "CBCテレビ「道との遭遇」"
-},
 "s2023": {
 "artists": [
 3
@@ -51957,24 +52066,6 @@
 "status": null,
 "title": "ラジオ日本「60TRY部」"
 },
-"s2086": {
-"artists": [
-634
-],
-"category": "RADIO",
-"date": "2026-11-10",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.jorf.co.jp/?program=60trybu",
-"members": [
-635
-],
-"note": "※スペシャルパーソナリティとして生出演。",
-"start": "18:00",
-"status": null,
-"title": "ラジオ日本「60TRY部」"
-},
 "s2087": {
 "artists": [
 585
@@ -52146,44 +52237,6 @@
 "start": null,
 "status": null,
 "title": "ロージークロニクル 相馬優芽バースデーイベント2027"
-},
-"s2112": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-10",
-"end": "20:00",
-"isFc": false,
-"label": null,
-"link": "https://www.ctv.co.jp/omouma/",
-"members": [
-67,
-515
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "中京テレビ/日本テレビ「ヒューマンドキュメンタリーオモウマい店」"
-},
-"s2113": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-10",
-"end": "11:15",
-"isFc": false,
-"label": null,
-"link": "http://www.tnc.co.jp/store/",
-"members": [
-646,
-664
-],
-"note": "",
-"start": "09:50",
-"status": null,
-"title": "テレビ西日本「ももち浜ストア」"
 },
 "s2115": {
 "artists": [
@@ -52456,5 +52509,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611102320-I8hWWUwyJT0JGPeo"
+"versionDir": "2611112240-OxF44DcdhFsZ7ElG"
 }

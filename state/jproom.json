@@ -4831,6 +4831,22 @@
 "status": null,
 "title": "舞台『横浜グラフィティ・フォーエバー』出演決定！"
 },
+"h97db680653beceed": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-10",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/7aabb823bec4eb1f353e21c28baab3107c9b9081481a408c95337773b697a515/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 リミスタ インターネットサイン会"
+},
 "h9878473f568a5f65": {
 "artists": [
 442,
@@ -7232,7 +7248,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7272,7 +7288,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7504,22 +7520,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1682": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-10",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/7aabb823bec4eb1f353e21c28baab3107c9b9081481a408c95337773b697a515/",
-"members": [],
-"note": "",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 リミスタ インターネットサイン会"
 },
 "s1702": {
 "artists": [
@@ -8049,6 +8049,38 @@
 "status": null,
 "title": "FM長野「SATURDAY D」"
 },
+"s1977": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-17",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
+"s1978": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-18",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [],
+"note": "※コメント\n※再放送",
+"start": "25:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
 "s2039": {
 "artists": [
 10
@@ -8138,7 +8170,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "",
+"link": "/event/d8c73ddcf6aa685ddc8f834ed047655ba2601d7e375f108d3ad663847ea7af26/",
 "members": [],
 "note": "タワーレコード新宿店（東京）",
 "start": null,
@@ -8803,5 +8835,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611102320-I8hWWUwyJT0JGPeo"
+"versionDir": "2611112240-OxF44DcdhFsZ7ElG"
 }
