@@ -136,15 +136,6 @@
 "start": "2026-10-27",
 "title": "BEYOOOOONDS 2026年11月25日発売7thシングル『笑止千万/勝利のセンタク』発売記念イベント【一覧】"
 },
-"/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/": {
-"artists": [
-585
-],
-"end": "2026-11-11",
-"link": "/beyooooonds/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
-"start": "2026-11-11",
-"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME BUDOOOOOKAN！]"
-},
 "/beyooooonds/event/64cd7698df8b7de3d18049bea5b4d61c5f2d5f79919d51b5c53b7e4b77a19813/": {
 "artists": [
 585,
@@ -163,6 +154,15 @@
 "link": "/beyooooonds/event/a18324f0a44bff40490b436d7d32a9aa97acd36199c4576fc9cbec69b2bbe9ac/",
 "start": "2026-12-19",
 "title": "BEYOOOOONDS「IWA ROCK presented by e-Broad」出演！"
+},
+"/beyooooonds/event/bc8d1a3660aa3b854fd78cb6769c1d3a1a9cc63251451363d2ee698e0baff48a/": {
+"artists": [
+585
+],
+"end": "2027-03-07",
+"link": "/beyooooonds/event/bc8d1a3660aa3b854fd78cb6769c1d3a1a9cc63251451363d2ee698e0baff48a/",
+"start": "2027-03-03",
+"title": "billboard classics BEYOOOOOPHONIC Ⅳ"
 },
 "/helloprokenshusei/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
@@ -7941,7 +7941,7 @@
 "artists": [
 585
 ],
-"category": "EVENT",
+"category": "CONCERT",
 "date": "2027-03-03",
 "end": null,
 "isFc": false,
@@ -14638,6 +14638,34 @@
 "start": "17:30",
 "status": null,
 "title": "つばきファクトリー LIVE TOUR 2026 SPRING ～HEAT IT UP～"
+},
+"h3eac224175f61e1e": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-11",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/besthits/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※生放送",
+"start": "19:00",
+"status": null,
+"title": "読売テレビ/日本テレビ系全国ネット「ベストヒット歌謡祭2026」"
 },
 "h3ebad260162262c0": {
 "artists": [
@@ -31187,6 +31215,25 @@
 "status": null,
 "title": "とちぎテレビ「SOUND30」"
 },
+"h9d81d470238cf9fd": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-11",
+"end": "20:00",
+"isFc": false,
+"label": null,
+"link": "https://www.at-s.com/sbstv/program/sokoshiri/",
+"members": [
+300,
+656
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "SBSテレビ「静岡発そこ知り」"
+},
 "h9da412f72396486b": {
 "artists": [
 36
@@ -33620,6 +33667,24 @@
 "start": "09:00",
 "status": null,
 "title": "YBSラジオ「ミュートレック～MuTrek～」"
+},
+"hab0a7714d2d4222a": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-11",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+591
+],
+"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
 },
 "hab255f9f6619ca4c": {
 "artists": [
@@ -40997,6 +41062,26 @@
 "status": null,
 "title": "6thシングル発売記念 ミニライブ＆お見送り会"
 },
+"hd43825295666a12f": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-11",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://s.mxtv.jp/music/70_room/",
+"members": [
+605,
+611,
+660
+],
+"note": "",
+"start": "21:25",
+"status": null,
+"title": "TOKYO MX「70号室の住人」"
+},
 "hd47558ff3a1f2ac7": {
 "artists": [
 42
@@ -41425,7 +41510,7 @@
 "artists": [
 585
 ],
-"category": "EVENT",
+"category": "CONCERT",
 "date": "2027-03-07",
 "end": null,
 "isFc": false,
@@ -50612,25 +50697,6 @@
 "status": null,
 "title": "読売テレビ「秘密のケンミンSHOW極」"
 },
-"s1897": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-11",
-"end": "20:00",
-"isFc": false,
-"label": null,
-"link": "https://www.at-s.com/sbstv/program/sokoshiri/",
-"members": [
-300,
-656
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "SBSテレビ「静岡発そこ知り」"
-},
 "s1909": {
 "artists": [
 36
@@ -51525,34 +51591,6 @@
 "status": null,
 "title": "FM長崎「go!go!vanillasジェットセイヤのGO!GO! JETT RADIO」"
 },
-"s2045": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-11",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.ytv.co.jp/besthits/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "※生放送",
-"start": "19:00",
-"status": null,
-"title": "読売テレビ/日本テレビ系全国ネット「ベストヒット歌謡祭2026」"
-},
 "s2046": {
 "artists": [
 3,
@@ -51700,6 +51738,25 @@
 "start": "25:35",
 "status": null,
 "title": "読売テレビ「すもももももも！ピーチCAFE」"
+},
+"s2058": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-18",
+"end": "23:25",
+"isFc": false,
+"label": null,
+"link": "https://www.tvk-yokohama.com/appare_daibouken/",
+"members": [
+620,
+631
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "テレビ神奈川「Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～」"
 },
 "s2060": {
 "artists": [
@@ -52047,24 +52104,6 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
-},
-"s2085": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-11",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.jorf.co.jp/?program=60trybu",
-"members": [
-591
-],
-"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
-"start": "18:00",
-"status": null,
-"title": "ラジオ日本「60TRY部」"
 },
 "s2087": {
 "artists": [
@@ -52434,26 +52473,6 @@
 "status": null,
 "title": "IDOL FILE Vol.44"
 },
-"s2166": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-11",
-"end": "21:54",
-"isFc": false,
-"label": null,
-"link": "https://s.mxtv.jp/music/70_room/",
-"members": [
-605,
-611,
-660
-],
-"note": "",
-"start": "21:25",
-"status": null,
-"title": "TOKYO MX「70号室の住人」"
-},
 "s2167": {
 "artists": [
 29
@@ -52471,6 +52490,52 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 為永幸音バースデーイベント2027"
+},
+"s2179": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2027-02-10",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=6Ama6h8qMEjiEbVv",
+"members": [
+611
+],
+"note": "TOKYO FM HALL （東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 村越彩菜バースデーイベント2027"
+},
+"s2181": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-11-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://maquia.hpplus.jp/life/news/123984/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "MAQUIA web"
 },
 "s910": {
 "artists": [
@@ -52509,5 +52574,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611112240-OxF44DcdhFsZ7ElG"
+"versionDir": "2611122340-zldJIWuRqg0d6KHO"
 }

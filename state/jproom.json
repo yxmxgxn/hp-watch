@@ -8514,6 +8514,22 @@
 "status": null,
 "title": "九州朝日放送「地元応援live Wish＋」"
 },
+"s2183": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "20:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.jp/g/ts/KNY2YKWLG9/",
+"members": [],
+"note": "",
+"start": "20:00",
+"status": null,
+"title": "NHK「沼にハマってきいてみた」"
+},
 "s714": {
 "artists": [
 40
@@ -8835,5 +8851,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611112240-OxF44DcdhFsZ7ElG"
+"versionDir": "2611122340-zldJIWuRqg0d6KHO"
 }
