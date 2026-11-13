@@ -296,7 +296,7 @@
 "end": "2026-11-15",
 "link": "/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
 "start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
 },
 "/juicejuice/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
@@ -416,7 +416,7 @@
 "end": "2026-11-15",
 "link": "/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
 "start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
 },
 "/morningmusume/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
@@ -502,6 +502,15 @@
 "link": "/ochanorma/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
+},
+"/ochanorma/event/1021fd971a30baf5ddc3a93e91c976a12f1005846d9ed020c41d44e8c5df9092/": {
+"artists": [
+634
+],
+"end": "2027-01-06",
+"link": "/ochanorma/event/1021fd971a30baf5ddc3a93e91c976a12f1005846d9ed020c41d44e8c5df9092/",
+"start": "2027-01-06",
+"title": "Hello! Project「NEW YEAR CELEBRATION 2027-OCHA NORMA-」"
 },
 "/ochanorma/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/": {
 "artists": [
@@ -615,6 +624,15 @@
 "start": "2027-03-27",
 "title": "イベント「カーボンニュートラルを考える 2027 by SATOYAMA & SATOUMI movement」開催決定！！"
 },
+"/rosychronicle/event/603fccb379bf2c215982dbd34c52a9b9364a1347514f761b46992b2b05eda5ae/": {
+"artists": [
+676
+],
+"end": "2027-01-07",
+"link": "/rosychronicle/event/603fccb379bf2c215982dbd34c52a9b9364a1347514f761b46992b2b05eda5ae/",
+"start": "2027-01-07",
+"title": "Hello! Project「NEW YEAR CELEBRATION 2027 -ロージークロニクル-」"
+},
 "/rosychronicle/event/74b3f7024b660b2919bcaab4a6eefb3deb626e7b8f5003a3eab95291384befd6/": {
 "artists": [
 29,
@@ -692,7 +710,7 @@
 "end": "2026-11-15",
 "link": "/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
 "start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”にゲスト出演決定！！"
+"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
 },
 "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/": {
 "artists": [
@@ -5811,6 +5829,34 @@
 "start": null,
 "status": null,
 "title": "今日は前田こころ（BEYOOOOONDS）の26歳の誕生日です！"
+},
+"h1240f13a4b46efe8": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-12",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
 },
 "h126e20a1b65e7679": {
 "artists": [
@@ -14870,6 +14916,25 @@
 "status": null,
 "title": "6thシングル発売記念forTUNE musicイベント"
 },
+"h4040b185bfbd09ef": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-12",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://datefm.jp/pgm/genic/",
+"members": [
+588,
+611
+],
+"note": "※コメント",
+"start": "16:00",
+"status": null,
+"title": "Date fm「SOUND GENIC」"
+},
 "h4057f689c069216a": {
 "artists": [
 477
@@ -16043,6 +16108,34 @@
 "start": "24:45",
 "status": null,
 "title": "岩手めんこいテレビ「BEATNIKS」"
+},
+"h486b3874882afcfc": {
+"artists": [
+36
+],
+"category": "WEB",
+"date": "2026-11-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://maquia.hpplus.jp/life/news/123984/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "MAQUIA web"
 },
 "h4878f7a6315cef28": {
 "artists": [
@@ -19985,6 +20078,31 @@
 "start": "25:26",
 "status": null,
 "title": "テレビ朝日「BREAK OUT」"
+},
+"h5f2c1761a2b28436": {
+"artists": [
+634
+],
+"category": "CONCERT",
+"date": "2027-01-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1021fd971a30baf5ddc3a93e91c976a12f1005846d9ed020c41d44e8c5df9092/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "Shibuya LOVEZ（東京）",
+"start": "18:00",
+"status": null,
+"title": "Hello! Project「NEW YEAR CELEBRATION 2027-OCHA NORMA-」"
 },
 "h5f2c924572c199e2": {
 "artists": [
@@ -39889,6 +40007,24 @@
 "status": null,
 "title": "つばきファクトリー LIVE TOUR 2026 SPRING ～HEAT IT UP～"
 },
+"hce65e3ca5473148d": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-12",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/kenmin_show/",
+"members": [
+626
+],
+"note": "",
+"start": "20:54",
+"status": null,
+"title": "読売テレビ「秘密のケンミンSHOW極」"
+},
 "hce8b2220415bfd85": {
 "artists": [
 676
@@ -48030,6 +48166,32 @@
 "status": null,
 "title": "ぎふチャン「ときめきステーション ダブジェネカウントダウン」"
 },
+"hf9dc9b84b61de691": {
+"artists": [
+676
+],
+"category": "CONCERT",
+"date": "2027-01-07",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/603fccb379bf2c215982dbd34c52a9b9364a1347514f761b46992b2b05eda5ae/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "Shibuya LOVEZ（東京）",
+"start": "18:00",
+"status": null,
+"title": "Hello! Project「NEW YEAR CELEBRATION 2027 -ロージークロニクル-」"
+},
 "hf9f23a412de9dbf0": {
 "artists": [
 3
@@ -50679,24 +50841,6 @@
 "status": null,
 "title": "MAQUIA 2027年1月号"
 },
-"s1887": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-11-12",
-"end": "21:54",
-"isFc": false,
-"label": null,
-"link": "https://www.ytv.co.jp/kenmin_show/",
-"members": [
-626
-],
-"note": "",
-"start": "20:54",
-"status": null,
-"title": "読売テレビ「秘密のケンミンSHOW極」"
-},
 "s1909": {
 "artists": [
 36
@@ -50791,25 +50935,6 @@
 "start": "13:40",
 "status": null,
 "title": "FM愛媛「Groovy Radio Caravan」"
-},
-"s1929": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-12",
-"end": "18:30",
-"isFc": false,
-"label": null,
-"link": "https://datefm.jp/pgm/genic/",
-"members": [
-588,
-611
-],
-"note": "※コメント",
-"start": "16:00",
-"status": null,
-"title": "Date fm「SOUND GENIC」"
 },
 "s1930": {
 "artists": [
@@ -51434,34 +51559,6 @@
 "status": null,
 "title": "BEYOOOOONDS DVD MAGAZINE Vol.17～島倉りか卒業メモリアル～"
 },
-"s2023": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-12",
-"end": "27:05",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/barabara/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "",
-"start": "26:45",
-"status": null,
-"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
-},
 "s2024": {
 "artists": [
 3
@@ -51738,6 +51835,24 @@
 "start": "25:35",
 "status": null,
 "title": "読売テレビ「すもももももも！ピーチCAFE」"
+},
+"s2055": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "20:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tbs.co.jp/ookami_tbs/",
+"members": [
+67
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "TBS「ハマダ歌謡祭★オオカミ少年」"
 },
 "s2058": {
 "artists": [
@@ -52509,33 +52624,43 @@
 "status": null,
 "title": "ロージークロニクル 村越彩菜バースデーイベント2027"
 },
-"s2181": {
+"s2188": {
 "artists": [
-36
+676
 ],
-"category": "WEB",
-"date": "2026-11-12",
-"end": null,
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "18:30",
 "isFc": false,
 "label": null,
-"link": "https://maquia.hpplus.jp/life/news/123984/",
+"link": "https://www.radionikkei.jp/toraken/",
 "members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
+588,
+612
 ],
 "note": "",
-"start": null,
+"start": "18:00",
 "status": null,
-"title": "MAQUIA web"
+"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
+},
+"s2189": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.radionikkei.jp/toraken/",
+"members": [
+588,
+612
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
 },
 "s910": {
 "artists": [
@@ -52574,5 +52699,5 @@
 "title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611122340-zldJIWuRqg0d6KHO"
+"versionDir": "2611132300-jpkWWnYKFslOt1rA"
 }
