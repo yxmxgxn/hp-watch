@@ -2530,6 +2530,22 @@
 "status": null,
 "title": "5thシングル発売記念 ミニライブ＆一言お話し会"
 },
+"h3bd62936e298830c": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-13",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/r-radio/posi-mon/",
+"members": [],
+"note": "",
+"start": "06:30",
+"status": null,
+"title": "九州朝日放送「ポジモン！」"
+},
 "h3d0700508e3f2254": {
 "artists": [
 40
@@ -4811,6 +4827,22 @@
 "status": null,
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
+"h92936cba70cad7ae": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "20:58",
+"isFc": false,
+"label": null,
+"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"members": [],
+"note": "※コメント",
+"start": "20:54",
+"status": null,
+"title": "福島テレビ「MUSIC TIME」"
+},
 "h9293fd00a96306ae": {
 "artists": [
 5
@@ -5135,6 +5167,22 @@
 "start": "23:00",
 "status": null,
 "title": "BS日テレ「アイ、語らせてください！」"
+},
+"h9fda88ebeac56cdc": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-10-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"members": [],
+"note": "11/8(日) OSAKA MUSE （大阪）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
 },
 "h9feb468ba23ac986": {
 "artists": [
@@ -6021,6 +6069,22 @@
 "start": "16:00",
 "status": null,
 "title": "テレビ東京「Jリーグ開幕直前SP！サッカー観戦＆サウナでWサ活旅」"
+},
+"hc4d025f0cbd6b6c2": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "14:50",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/wish_plus/",
+"members": [],
+"note": "",
+"start": "13:50",
+"status": null,
+"title": "九州朝日放送「地元応援live Wish＋」"
 },
 "hc5c11765bcc701e4": {
 "artists": [
@@ -7336,7 +7400,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7356,7 +7420,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7396,7 +7460,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7416,7 +7480,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8481,22 +8545,6 @@
 "status": null,
 "title": "MBSラジオ「ヤングタウン土曜日」"
 },
-"s2171": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-13",
-"end": "20:58",
-"isFc": false,
-"label": null,
-"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
-"members": [],
-"note": "※コメント",
-"start": "20:54",
-"status": null,
-"title": "福島テレビ「MUSIC TIME」"
-},
 "s2172": {
 "artists": [
 5
@@ -8545,38 +8593,6 @@
 "start": null,
 "status": null,
 "title": "CDジャーナル2027冬号"
-},
-"s2175": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-13",
-"end": "12:00",
-"isFc": false,
-"label": null,
-"link": "https://kbc.co.jp/r-radio/posi-mon/",
-"members": [],
-"note": "",
-"start": "06:30",
-"status": null,
-"title": "九州朝日放送「ポジモン！」"
-},
-"s2176": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-13",
-"end": "14:50",
-"isFc": false,
-"label": null,
-"link": "https://kbc.co.jp/wish_plus/",
-"members": [],
-"note": "",
-"start": "13:50",
-"status": null,
-"title": "九州朝日放送「地元応援live Wish＋」"
 },
 "s2183": {
 "artists": [
@@ -9170,6 +9186,22 @@
 "status": null,
 "title": "タクフェス第14弾「北の島から」"
 },
+"s908": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/miyamotokarin/",
+"members": [],
+"note": "11/29(日) 広島LIVE VANQUISH （広島）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
 "s910": {
 "artists": [
 40
@@ -9184,8 +9216,8 @@
 "note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
 "start": null,
 "status": null,
-"title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611132300-jpkWWnYKFslOt1rA"
+"versionDir": "2611142200-k34ubm86CASSPT4a"
 }

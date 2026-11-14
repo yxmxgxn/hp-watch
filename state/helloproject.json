@@ -531,15 +531,6 @@
 "start": "2026-12-05",
 "title": "BEYOOOOONDS・OCHA NORMA「SHIGA IDOL COLLECTION “PREMIUM” 2026」出演！"
 },
-"/ochanorma/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/": {
-"artists": [
-634
-],
-"end": "2026-11-13",
-"link": "/ochanorma/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/",
-"start": "2026-11-13",
-"title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント【11/13(金)書泉ブックタワー】開催決定"
-},
 "/ochanorma/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
 3,
@@ -5197,6 +5188,25 @@
 "start": "16:00",
 "status": null,
 "title": "山陰放送「エイスケとEscape！」"
+},
+"h0f6bcae6a6f852c7": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-13",
+"end": "16:55",
+"isFc": false,
+"label": null,
+"link": "https://www.joeufm.co.jp/grc/",
+"members": [
+588,
+605
+],
+"note": "",
+"start": "13:40",
+"status": null,
+"title": "FM愛媛「Groovy Radio Caravan」"
 },
 "h0fe9e06df43a8def": {
 "artists": [
@@ -15867,6 +15877,24 @@
 "status": null,
 "title": "アンジュルム 2026秋 風林火山・弐"
 },
+"h4744301a59028ccf": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-13",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dWYz8TkiZHwRTKEq",
+"members": [
+481
+],
+"note": "LANDMARK HALL （神奈川）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー 谷本安美バースデーイベント2026"
+},
 "h474c3d30bb8a11c4": {
 "artists": [
 585
@@ -17586,6 +17614,25 @@
 "start": "10:00",
 "status": null,
 "title": "RKBラジオ「Weekend Live あんたっちゃぶる」"
+},
+"h5081d687c2e9937e": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-13",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃155」"
 },
 "h50bb12ed1a35d322": {
 "artists": [
@@ -22774,6 +22821,25 @@
 "start": "16:45",
 "status": null,
 "title": "Juice=Juice LIVE TOUR 2026 UP TO 11"
+},
+"h6dea5f95adb1bddc": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-13",
+"end": "12:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tfm.co.jp/choice/",
+"members": [
+13,
+601
+],
+"note": "",
+"start": "12:30",
+"status": null,
+"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
 },
 "h6e5a9430f7031f73": {
 "artists": [
@@ -45804,6 +45870,24 @@
 "status": null,
 "title": "富山テレビ放送「bms BBT MUSIC SELECTION」"
 },
+"hec988f71978cab71": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-11-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/",
+"members": [
+606
+],
+"note": "書泉ブックタワー （東京）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント"
+},
 "hed10380cf40bac33": {
 "artists": [
 477
@@ -48595,6 +48679,24 @@
 "status": null,
 "title": "FM香川「JOY-U CLUB」"
 },
+"hfc69976e69432611": {
+"artists": [
+676
+],
+"category": "MAGAZINE",
+"date": "2026-11-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+646
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "IDOL FILE Vol.44"
+},
 "hfc7d8502e6f879be": {
 "artists": [
 36
@@ -49898,24 +50000,6 @@
 "status": null,
 "title": "モーニング娘。'26 櫻井梨央バースデーイベント in 大阪"
 },
-"s1556": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-11-13",
-"end": null,
-"isFc": true,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=dWYz8TkiZHwRTKEq",
-"members": [
-481
-],
-"note": "LANDMARK HALL （神奈川）",
-"start": null,
-"status": null,
-"title": "つばきファクトリー 谷本安美バースデーイベント2026"
-},
 "s1607": {
 "artists": [
 477
@@ -49943,7 +50027,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/22fb08b4cbabbb7af59fd5e5cd85d07debb8c3f91f362faaa44a5f2a357fc162/",
+"link": "https://w.pia.jp/t/beyooooonds-ks/",
 "members": [
 462,
 496,
@@ -50341,7 +50425,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/57f5f6309ba8fc283f7a87a46b6b3afc4f889b30973fb5789e340397780b9ed7/",
+"link": "https://w.pia.jp/t/morningmusume-k/",
 "members": [
 13,
 300,
@@ -50898,43 +50982,6 @@
 "start": null,
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
-},
-"s1919": {
-"artists": [
-634
-],
-"category": "EVENT",
-"date": "2026-11-13",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/34a5a39a9fcc7be2696ad8191f0414e175479266b9cf4736eccd996f0799daba/",
-"members": [
-606
-],
-"note": "書泉ブックタワー （東京）",
-"start": null,
-"status": null,
-"title": "OCHA NORMA西﨑美空写真集「MIKU」発売記念イベント"
-},
-"s1926": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-13",
-"end": "16:55",
-"isFc": false,
-"label": null,
-"link": "https://www.joeufm.co.jp/grc/",
-"members": [
-588,
-605
-],
-"note": "",
-"start": "13:40",
-"status": null,
-"title": "FM愛媛「Groovy Radio Caravan」"
 },
 "s1930": {
 "artists": [
@@ -52127,25 +52174,6 @@
 "status": null,
 "title": "Juice=Juice Fan Meeting 2026 in Taipei \"Nice to meet Juice\""
 },
-"s2075": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-11-13",
-"end": "12:55",
-"isFc": false,
-"label": null,
-"link": "https://www.tfm.co.jp/choice/",
-"members": [
-13,
-601
-],
-"note": "",
-"start": "12:30",
-"status": null,
-"title": "TOKYO FM「鞘師里保のライフアップ・チョイス supported by マイベスト」"
-},
 "s2076": {
 "artists": [
 36
@@ -52392,25 +52420,6 @@
 "status": null,
 "title": "ロージークロニクル 相馬優芽バースデーイベント2027"
 },
-"s2115": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-13",
-"end": "27:00",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/",
-"members": [
-604,
-635
-],
-"note": "",
-"start": "26:45",
-"status": null,
-"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃155」"
-},
 "s2116": {
 "artists": [
 634
@@ -52570,24 +52579,6 @@
 "status": null,
 "title": "第59回 NHK福祉大相撲"
 },
-"s2161": {
-"artists": [
-676
-],
-"category": "MAGAZINE",
-"date": "2026-11-13",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [
-646
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "IDOL FILE Vol.44"
-},
 "s2167": {
 "artists": [
 29
@@ -52696,8 +52687,8 @@
 "note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
 "start": null,
 "status": null,
-"title": "宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611132300-jpkWWnYKFslOt1rA"
+"versionDir": "2611142200-k34ubm86CASSPT4a"
 }
