@@ -343,15 +343,6 @@
 "start": "2027-02-02",
 "title": "小田さくら・段原瑠々「BS-TBS Presents All That Music2027」出演！"
 },
-"/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/": {
-"artists": [
-36
-],
-"end": "2026-11-14",
-"link": "/juicejuice/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/",
-"start": "2026-11-14",
-"title": "11/14(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
-},
 "/juicejuice/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/": {
 "artists": [
 3,
@@ -3446,6 +3437,26 @@
 "start": "24:50",
 "status": null,
 "title": "石川テレビ「N-18 凸」"
+},
+"h050ef66d06fdd3c0": {
+"artists": [
+36,
+477
+],
+"category": "EVENT",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"members": [
+515,
+610
+],
+"note": "岸和田旧港地区緑地 （大阪）",
+"start": null,
+"status": null,
+"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
 "h0531f2949708a4b3": {
 "artists": [
@@ -12430,6 +12441,34 @@
 "status": null,
 "title": "UHB北海道文化放送「いっとこ！みんテレ」"
 },
+"h324ca7a21d59a5da": {
+"artists": [
+585
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://w.pia.jp/t/beyooooonds-ks/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "12/7(月) NHK大阪ホール（大阪）公演",
+"start": null,
+"status": null,
+"title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
+},
 "h325e890015911539": {
 "artists": [
 477
@@ -12604,6 +12643,42 @@
 "start": null,
 "status": null,
 "title": "今日は窪田七海（OCHA NORMA）の22歳の誕生日です！"
+},
+"h332bfe21bed8f53b": {
+"artists": [
+42
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"members": [
+666,
+668,
+678,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+710
+],
+"note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 },
 "h33361e534cc5cf3c": {
 "artists": [
@@ -15979,6 +16054,25 @@
 "status": null,
 "title": "『MORE! MORE! EP』発売記念 ミニライブ＆お見送り会"
 },
+"h47bd2598f77003a8": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/",
+"members": [
+450,
+543
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
+},
 "h47def43923cebc1c": {
 "artists": [
 3
@@ -17924,6 +18018,24 @@
 "start": "14:20",
 "status": null,
 "title": "HTB「イチ盛り！」"
+},
+"h52e884b3b4989abe": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "",
+"start": "24:28",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
 },
 "h52ee36879b8ccc93": {
 "artists": [
@@ -35419,6 +35531,25 @@
 "status": null,
 "title": "6thシングル発売記念 WithLIVE オンラインお話し会"
 },
+"hb5f27fded4ab9fc1": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "26:05",
+"isFc": false,
+"label": null,
+"link": "https://www.ytv.co.jp/peachcafe/",
+"members": [
+605,
+612
+],
+"note": "",
+"start": "25:35",
+"status": null,
+"title": "読売テレビ「すもももももも！ピーチCAFE」"
+},
 "hb5fc5d286b32ddbc": {
 "artists": [
 3
@@ -36446,6 +36577,33 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice Concert 2025 Queen of Hearts Special Flush"
+},
+"hbc71cda66625cd5f": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "17:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/ch/",
+"members": [
+481,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "CSテレ朝チャンネル1「行くぜ！つばきファクトリー〜秋山眞緒卒業スペシャル〜」"
 },
 "hbd17d4782ad4a97b": {
 "artists": [
@@ -38745,6 +38903,34 @@
 "start": null,
 "status": null,
 "title": "37thシングル発売記念PCSCイベント"
+},
+"hc8294fd10d0c76e3": {
+"artists": [
+3
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://w.pia.jp/t/morningmusume-k/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "12/11(金) 横浜アリーナ（神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11 コスモス」～小田さくら FINAL～"
 },
 "hc861d9fd91ef831a": {
 "artists": [
@@ -48374,6 +48560,24 @@
 "status": null,
 "title": "今日は青木優奈（ハロプロ研修生）の13歳の誕生日です！"
 },
+"hfac787811c8fe0ad": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "06:15",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "※再放送",
+"start": "05:45",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
+},
 "hfb061afcd6fb08c6": {
 "artists": [
 29
@@ -50018,34 +50222,6 @@
 "status": null,
 "title": "つばきファクトリー 福田真琳バースデーイベント2026 in 名古屋"
 },
-"s1629": {
-"artists": [
-585
-],
-"category": "TICKET",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://w.pia.jp/t/beyooooonds-ks/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "12/7(月) NHK大阪ホール（大阪）公演",
-"start": null,
-"status": null,
-"title": "発売日｜BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
-},
 "s1662": {
 "artists": [
 585
@@ -50416,34 +50592,6 @@
 "status": null,
 "title": "つばきファクトリー 小野田紗栞バースデーイベント2026"
 },
-"s1830": {
-"artists": [
-3
-],
-"category": "TICKET",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://w.pia.jp/t/morningmusume-k/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "12/11(金) 横浜アリーナ（神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜モーニング娘。'26 コンサートツアー秋「超 Heartful 11 コスモス」～小田さくら FINAL～"
-},
 "s1834": {
 "artists": [
 42,
@@ -50762,33 +50910,6 @@
 "status": null,
 "title": "西乃風ブラン堂 ～西日本の魅力、お茶の間にもっと届けるDOOOOO！～"
 },
-"s1867": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-11-14",
-"end": "17:30",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/ch/",
-"members": [
-481,
-518,
-519,
-610,
-626,
-628,
-663,
-669,
-670,
-671
-],
-"note": "",
-"start": "16:00",
-"status": null,
-"title": "CSテレ朝チャンネル1「行くぜ！つばきファクトリー〜秋山眞緒卒業スペシャル〜」"
-},
 "s1868": {
 "artists": [
 585,
@@ -50943,26 +51064,6 @@
 "status": null,
 "title": "Juice=Juice 川嶋美楓バースデーイベント2027"
 },
-"s1910": {
-"artists": [
-36,
-477
-],
-"category": "EVENT",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
-"members": [
-515,
-610
-],
-"note": "岸和田旧港地区緑地 （大阪）",
-"start": null,
-"status": null,
-"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
-},
 "s1911": {
 "artists": [
 3,
@@ -50982,6 +51083,26 @@
 "start": null,
 "status": null,
 "title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
+},
+"s1927": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "22:30",
+"isFc": false,
+"label": null,
+"link": "https://www.bss.jp/radio/escape/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "BSS山陰放送「エイスケとEscape！」"
 },
 "s1930": {
 "artists": [
@@ -51102,25 +51223,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 有澤一華バースデーイベント2027"
-},
-"s1960": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/83873f6fd6af2ffb0830255ae9945f22e9ea4d6be1cdc1d1dd816fc1737aeb52/",
-"members": [
-450,
-543
-],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
 },
 "s1961": {
 "artists": [
@@ -51864,25 +51966,6 @@
 "status": null,
 "title": "Juice=Juice 江端妃咲バースデーイベント2027"
 },
-"s2054": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-14",
-"end": "26:05",
-"isFc": false,
-"label": null,
-"link": "https://www.ytv.co.jp/peachcafe/",
-"members": [
-605,
-612
-],
-"note": "",
-"start": "25:35",
-"status": null,
-"title": "読売テレビ「すもももももも！ピーチCAFE」"
-},
 "s2055": {
 "artists": [
 36
@@ -52284,12 +52367,12 @@
 "status": null,
 "title": "ラジオ日本「60TRY部」"
 },
-"s2091": {
+"s2092": {
 "artists": [
 477
 ],
 "category": "TV",
-"date": "2026-11-14",
+"date": "2026-11-21",
 "end": "24:58",
 "isFc": false,
 "label": null,
@@ -52302,12 +52385,12 @@
 "status": null,
 "title": "HBCテレビ「キタコイ」"
 },
-"s2094": {
+"s2095": {
 "artists": [
 477
 ],
 "category": "TV",
-"date": "2026-11-14",
+"date": "2026-11-21",
 "end": "06:15",
 "isFc": false,
 "label": null,
@@ -52652,43 +52735,7 @@
 "start": "18:00",
 "status": null,
 "title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
-},
-"s910": {
-"artists": [
-42
-],
-"category": "TICKET",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
-"members": [
-666,
-668,
-678,
-682,
-683,
-684,
-685,
-686,
-687,
-696,
-697,
-698,
-699,
-700,
-701,
-702,
-703,
-704,
-710
-],
-"note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611142200-k34ubm86CASSPT4a"
+"versionDir": "2611152230-5soA7LIlSaVgR5HK"
 }

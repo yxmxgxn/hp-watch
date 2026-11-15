@@ -1471,6 +1471,22 @@
 "status": null,
 "title": "MUSIC ON! TV「Juice=Juice 10th ANNIVERSARY ～We are Juice=Juice!～＜#1＞」"
 },
+"h137bac488a669a89": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
+"members": [],
+"note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+},
 "h160c484551f5f2a3": {
 "artists": [
 10
@@ -4891,6 +4907,22 @@
 "status": null,
 "title": "RKBラジオ「#さえのわっふる」"
 },
+"h946b84b1ac049d32": {
+"artists": [
+11
+],
+"category": "RADIO",
+"date": "2026-11-14",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
 "h948a35e509bda060": {
 "artists": [
 5,
@@ -5251,6 +5283,22 @@
 "status": null,
 "title": "今日は植村あかりの誕生日です！"
 },
+"ha3c2b7d38973298f": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/miyamotokarin/",
+"members": [],
+"note": "11/29(日) 広島LIVE VANQUISH （広島）公演",
+"start": null,
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
 "ha44b32b0c5be7735": {
 "artists": [
 10
@@ -5394,6 +5442,22 @@
 "start": "20:55",
 "status": null,
 "title": "FM石川「HELLO FIVE BOX」"
+},
+"ha89c849ac83fc23c": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-14",
+"end": "07:45",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/oshigoto/post.html",
+"members": [],
+"note": "",
+"start": "07:15",
+"status": null,
+"title": "ぎふチャン「土曜日の推し事」"
 },
 "ha9cfca0975caa177": {
 "artists": [
@@ -5635,6 +5699,22 @@
 "status": null,
 "title": "アンジュルム 橋迫鈴イベント2026 in 名古屋～たけりんブラザーズ～"
 },
+"hb326921861442ac8": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-14",
+"end": "20:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.jp/g/ts/KNY2YKWLG9/",
+"members": [],
+"note": "",
+"start": "20:00",
+"status": null,
+"title": "NHK「沼にハマってきいてみた」"
+},
 "hb36429efb1d9f191": {
 "artists": [
 40
@@ -5754,6 +5834,22 @@
 "start": null,
 "status": null,
 "title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
+},
+"hb8f8f8caba2d2407": {
+"artists": [
+40
+],
+"category": "EVENT",
+"date": "2026-11-14",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.jp-r.co.jp/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/",
+"members": [],
+"note": "バンテリンドーム ナゴヤ（愛知）",
+"start": null,
+"status": null,
+"title": "LoveLive! Series 15th Anniversary ラブライブ！フェス"
 },
 "hb988dfcd48092aeb": {
 "artists": [
@@ -7440,7 +7536,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7460,7 +7556,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7480,7 +7576,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8225,22 +8321,6 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
-"s2056": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-14",
-"end": "07:45",
-"isFc": false,
-"label": null,
-"link": "https://www.zf-web.com/radio/regular/oshigoto/post.html",
-"members": [],
-"note": "",
-"start": "07:15",
-"status": null,
-"title": "ぎふチャン「土曜日の推し事」"
-},
 "s2078": {
 "artists": [
 10
@@ -8529,22 +8609,6 @@
 "status": null,
 "title": "HERO GATE"
 },
-"s2160": {
-"artists": [
-11
-],
-"category": "RADIO",
-"date": "2026-11-14",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/yando/",
-"members": [],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
-},
 "s2172": {
 "artists": [
 5
@@ -8593,22 +8657,6 @@
 "start": null,
 "status": null,
 "title": "CDジャーナル2027冬号"
-},
-"s2183": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-14",
-"end": "20:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nhk.jp/g/ts/KNY2YKWLG9/",
-"members": [],
-"note": "",
-"start": "20:00",
-"status": null,
-"title": "NHK「沼にハマってきいてみた」"
 },
 "s2184": {
 "artists": [
@@ -8802,6 +8850,22 @@
 "status": null,
 "title": "FM徳島「Nani-Show? Friday!」"
 },
+"s2198": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "26:00",
+"isFc": false,
+"label": null,
+"link": "https://abcradio.asahi.co.jp/program/rikky/",
+"members": [],
+"note": "",
+"start": "25:00",
+"status": null,
+"title": "ABC朝日放送「小西陸斗 #よどオシ！」"
+},
 "s2203": {
 "artists": [
 11
@@ -8881,22 +8945,6 @@
 "start": "12:00",
 "status": null,
 "title": "HBCラジオ「カーナビラジオ午後一番！」"
-},
-"s714": {
-"artists": [
-40
-],
-"category": "EVENT",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.jp-r.co.jp/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/",
-"members": [],
-"note": "バンテリンドーム ナゴヤ（愛知）",
-"start": null,
-"status": null,
-"title": "LoveLive! Series 15th Anniversary ラブライブ！フェス"
 },
 "s715": {
 "artists": [
@@ -9185,39 +9233,7 @@
 "start": null,
 "status": null,
 "title": "タクフェス第14弾「北の島から」"
-},
-"s908": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/miyamotokarin/",
-"members": [],
-"note": "11/29(日) 広島LIVE VANQUISH （広島）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
-},
-"s910": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-11-14",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/",
-"members": [],
-"note": "12/1(火) KT Zepp Yokohama （神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611142200-k34ubm86CASSPT4a"
+"versionDir": "2611152230-5soA7LIlSaVgR5HK"
 }
