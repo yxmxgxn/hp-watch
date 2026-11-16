@@ -86,15 +86,6 @@
 "start": "2026-10-17",
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
 },
-"/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/": {
-"artists": [
-40
-],
-"end": "2026-11-15",
-"link": "/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/",
-"start": "2026-11-14",
-"title": "「LoveLive! Series 15th Anniversary ラブライブ！フェス」出演！"
-},
 "/kiki_asakura/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/": {
 "artists": [
 483
@@ -3495,6 +3486,22 @@
 "status": null,
 "title": "佐藤優樹 Live Tour 2027 (仮タイトル)"
 },
+"h60297e1cf3e93f0a": {
+"artists": [
+40
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.jp-r.co.jp/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/",
+"members": [],
+"note": "バンテリンドーム ナゴヤ（愛知）",
+"start": null,
+"status": null,
+"title": "LoveLive! Series 15th Anniversary ラブライブ！フェス"
+},
 "h60a8d97b75a78486": {
 "artists": [
 40
@@ -3510,6 +3517,22 @@
 "start": "13:00",
 "status": null,
 "title": "ラブライブ！シリーズ『スクールアイドルミュージカル』出演！"
+},
+"h610468b4a843d534": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-15",
+"end": "09:55",
+"isFc": false,
+"label": null,
+"link": "https://www.air-g.co.jp/aoi/",
+"members": [],
+"note": "",
+"start": "09:30",
+"status": null,
+"title": "AIR-G'「青い音楽室 supported by 大通 BISSE」"
 },
 "h61360b710dcdfdb5": {
 "artists": [
@@ -3687,6 +3710,22 @@
 "start": null,
 "status": null,
 "title": "BRUTUS"
+},
+"h668d716379cd915d": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/df2cdddea74f7be166e8c98184d830c8b99bbe3e086e9611d1302387de6f6a76/",
+"members": [],
+"note": "タワーレコード錦糸町パルコ店（東京）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "h67ab1a2879340b76": {
 "artists": [
@@ -4548,6 +4587,22 @@
 "status": null,
 "title": "ラブライブ！シリーズ『スクールアイドルミュージカル』出演！"
 },
+"h86da93866e9acec7": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/e8becb1e516f332b61da68c2bff6dd917c64a9d0cd95559f1114980e9ae933d9/",
+"members": [],
+"note": "ヨドバシカメラマルチメディア博多（福岡）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h87e9946d53e77374": {
 "artists": [
 37
@@ -4890,6 +4945,22 @@
 "start": "11:00",
 "status": null,
 "title": "テレビせとうち「ピリッとサタデー」"
+},
+"h92f02cd705d38a38": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
+"members": [],
+"note": "紀伊國屋書店グランフロント大阪（大阪）",
+"start": null,
+"status": null,
+"title": "浅倉樹々2027壁掛けカレンダー発売記念イベント"
 },
 "h93d279e23b16a31c": {
 "artists": [
@@ -7496,7 +7567,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7516,7 +7587,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7556,7 +7627,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7576,7 +7647,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7724,22 +7795,6 @@
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
-"s1421": {
-"artists": [
-483
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/5e21b459e039f9490fe17ec9847863d6eddb35bd8093d2eb4b38aaada179f08f/",
-"members": [],
-"note": "紀伊國屋書店グランフロント大阪（大阪）",
-"start": null,
-"status": null,
-"title": "浅倉樹々2027壁掛けカレンダー発売記念イベント"
-},
 "s1422": {
 "artists": [
 483
@@ -7809,22 +7864,6 @@
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
-"s1702": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/e8becb1e516f332b61da68c2bff6dd917c64a9d0cd95559f1114980e9ae933d9/",
-"members": [],
-"note": "ヨドバシカメラマルチメディア博多（福岡）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
-},
 "s1703": {
 "artists": [
 5
@@ -7840,22 +7879,6 @@
 "start": null,
 "status": null,
 "title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
-},
-"s1745": {
-"artists": [
-11
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/df2cdddea74f7be166e8c98184d830c8b99bbe3e086e9611d1302387de6f6a76/",
-"members": [],
-"note": "タワーレコード錦糸町パルコ店（東京）",
-"start": null,
-"status": null,
-"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1746": {
 "artists": [
@@ -8866,6 +8889,22 @@
 "status": null,
 "title": "ABC朝日放送「小西陸斗 #よどオシ！」"
 },
+"s2199": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-23",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://radiko.jp/r_seasons/10015534",
+"members": [],
+"note": "※14時台～出演予定。",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジオTIME」"
+},
 "s2203": {
 "artists": [
 11
@@ -8914,22 +8953,6 @@
 "status": null,
 "title": "HBCテレビ「もんすけインフォメーション」"
 },
-"s2207": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-15",
-"end": "09:55",
-"isFc": false,
-"label": null,
-"link": "https://www.air-g.co.jp/aoi/",
-"members": [],
-"note": "",
-"start": "09:30",
-"status": null,
-"title": "AIR-G'「青い音楽室 supported by 大通 BISSE」"
-},
 "s2208": {
 "artists": [
 5
@@ -8946,21 +8969,149 @@
 "status": null,
 "title": "HBCラジオ「カーナビラジオ午後一番！」"
 },
-"s715": {
+"s2215": {
 "artists": [
-40
+10
 ],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
+"category": "TV",
+"date": "2026-11-23",
+"end": "10:50",
 "isFc": false,
 "label": null,
-"link": "https://www.jp-r.co.jp/karin_miyamoto/event/e6c4f84d52091c86537d1115a298188e29546b606a19177f990be01d0d50303a/",
+"link": "https://www.ox-tv.co.jp/sugojob/",
 "members": [],
-"note": "バンテリンドーム ナゴヤ（愛知）",
-"start": null,
+"note": "",
+"start": "09:50",
 "status": null,
-"title": "LoveLive! Series 15th Anniversary ラブライブ！フェス"
+"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
+},
+"s2216": {
+"artists": [
+10
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "25:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/sugojob/",
+"members": [],
+"note": "※再放送",
+"start": "25:40",
+"status": null,
+"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
+},
+"s2219": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "14:00",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/kon/",
+"members": [],
+"note": "※12時台～生出演。",
+"start": "12:00",
+"status": null,
+"title": "MBSラジオ「こんちわコンちゃんお昼ですょ！」"
+},
+"s2220": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/r-radio/musahaji/",
+"members": [],
+"note": "",
+"start": "24:00",
+"status": null,
+"title": "KBCラジオ「ムサシハジメました。」"
+},
+"s2224": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
+},
+"s2227": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rfm.co.jp/program/recomend",
+"members": [],
+"note": "※コメント",
+"start": "16:55",
+"status": null,
+"title": "FM山形「レコメンド！」"
+},
+"s2228": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/radio/",
+"members": [],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "IBCラジオ「音楽のハコ」"
+},
+"s2229": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "16:20",
+"isFc": false,
+"label": null,
+"link": "https://www.ybc.co.jp/radioprogram/panpakapan/",
+"members": [],
+"note": "※コメント",
+"start": "13:00",
+"status": null,
+"title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
+},
+"s2230": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmosaka.net/_sites/16783751",
+"members": [],
+"note": "※生出演",
+"start": "11:30",
+"status": null,
+"title": "FM大阪「iDoBuddy」"
 },
 "s720": {
 "artists": [
@@ -9235,5 +9386,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611152230-5soA7LIlSaVgR5HK"
+"versionDir": "2611162350-igQWKWpXU2UZxqYA"
 }

@@ -56,15 +56,6 @@
 "start": "2026-10-20",
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
-"/angerme/event/eea32ca83d6d9dfe389e097519cca28e46fdf1a07e83372663ef7376a2c2ec36/": {
-"artists": [
-29
-],
-"end": "2026-11-15",
-"link": "/angerme/event/eea32ca83d6d9dfe389e097519cca28e46fdf1a07e83372663ef7376a2c2ec36/",
-"start": "2026-09-12",
-"title": "アンジュルム 2026秋 風林火山・弐"
-},
 "/beyooooonds/event/069a5ee813b618cd97118749c5bb075b37473af75b0a4fcbd091807b0ac93fee/": {
 "artists": [
 585
@@ -90,6 +81,15 @@
 "link": "/beyooooonds/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
+},
+"/beyooooonds/event/1befba40a8402a32fee762e3ecef292a84b9dc2056efee8bb897a86a0c35e066/": {
+"artists": [
+585
+],
+"end": "2026-12-01",
+"link": "/beyooooonds/event/1befba40a8402a32fee762e3ecef292a84b9dc2056efee8bb897a86a0c35e066/",
+"start": "2026-12-01",
+"title": "小林萌花の「ほのクラ。」2ndファンミーティング"
 },
 "/beyooooonds/event/22fb08b4cbabbb7af59fd5e5cd85d07debb8c3f91f362faaa44a5f2a357fc162/": {
 "artists": [
@@ -287,17 +287,6 @@
 "start": "2026-12-05",
 "title": "「Juice=Juice Fan Meeting 2026 in Taipei \"Nice to meet Juice\"」開催決定！"
 },
-"/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
-"artists": [
-3,
-36,
-477
-],
-"end": "2026-11-15",
-"link": "/juicejuice/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
-"start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
-},
 "/juicejuice/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
 3,
@@ -372,15 +361,6 @@
 "start": "2026-12-26",
 "title": "「COUNTDOWN JAPAN 26/27」Juice=Juice出演決定！！"
 },
-"/juicejuice/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/": {
-"artists": [
-36
-],
-"end": "2026-11-15",
-"link": "/juicejuice/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/",
-"start": "2026-11-15",
-"title": "Juice=Juice「昭和女子大学 秋桜祭」出演決定！！"
-},
 "/morningmusume/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
 3,
@@ -397,17 +377,6 @@
 "link": "/morningmusume/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
-},
-"/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
-"artists": [
-3,
-36,
-477
-],
-"end": "2026-11-15",
-"link": "/morningmusume/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
-"start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
 },
 "/morningmusume/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
@@ -682,17 +651,6 @@
 "link": "/tsubakifactory/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/",
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
-},
-"/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/": {
-"artists": [
-3,
-36,
-477
-],
-"end": "2026-11-15",
-"link": "/tsubakifactory/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
-"start": "2026-11-14",
-"title": "「さかなの日」応援隊の工藤由愛・櫻井梨央・豫風瑠乃が“第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～”関連行事「豊かな海づくりフェスティバル」【岸和田会場】にゲスト出演決定！！"
 },
 "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/": {
 "artists": [
@@ -4269,6 +4227,24 @@
 "start": null,
 "status": null,
 "title": "配信｜「ハイ！テンション」"
+},
+"h0a4b4250dbe72b37": {
+"artists": [
+477
+],
+"category": "BIRTHDAY",
+"date": "2028-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/tsubakifactory/ami_tanimoto/",
+"members": [
+481
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は谷本安美（つばきファクトリー）の29歳の誕生日です！"
 },
 "h0a509dd2c2da7c03": {
 "artists": [
@@ -13249,6 +13225,26 @@
 "status": null,
 "title": "今日は弓桁朱琴（モーニング娘。'26）の20歳の誕生日です！"
 },
+"h3764691face91f7e": {
+"artists": [
+3,
+477
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
+"members": [
+610,
+643
+],
+"note": "岸和田旧港地区緑地 （大阪）",
+"start": null,
+"status": null,
+"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
+},
 "h37b3a60c19484428": {
 "artists": [
 3
@@ -18594,6 +18590,32 @@
 "start": null,
 "status": null,
 "title": "今日は下井谷幸穂（アンジュルム）の22歳の誕生日です！"
+},
+"h56aad3203921e8b9": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/282f99b7376c9a85cef549dc3f60967f27c161d41cac9c7078923659b75556fa/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "泉ガーデンギャラリー（東京）",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 forTUNE musicイベント"
 },
 "h56b1225c3738c3a8": {
 "artists": [
@@ -41700,6 +41722,24 @@
 "status": null,
 "title": "NHK総合「うたコン」"
 },
+"hd5f8a7cfd8f46f02": {
+"artists": [
+3
+],
+"category": "RADIO",
+"date": "2026-11-15",
+"end": "08:30",
+"isFc": false,
+"label": null,
+"link": "https://www.interfm.co.jp/asamimi",
+"members": [
+13
+],
+"note": "",
+"start": "08:00",
+"status": null,
+"title": "interfm「朝みみ！Precious Family」"
+},
 "hd6157adb32779814": {
 "artists": [
 477
@@ -43206,6 +43246,34 @@
 "start": null,
 "status": null,
 "title": "今日は大坪茉乃（BEYOOOOONDS）の16歳の誕生日です！"
+},
+"hdcf515591788867f": {
+"artists": [
+36
+],
+"category": "EVENT",
+"date": "2026-11-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "昭和女子大学 人見記念講堂 （東京）",
+"start": null,
+"status": null,
+"title": "昭和女子大学 秋桜祭"
 },
 "hdd58851c59181827": {
 "artists": [
@@ -47585,6 +47653,34 @@
 "status": null,
 "title": "発売日｜​佐藤優樹 Live Tour 2026 〜Vesper〜"
 },
+"hf52790da666454cb": {
+"artists": [
+3
+],
+"category": "STREAM",
+"date": "2026-11-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/item_detail.php?@uid=gWWHPBraB414Emps",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "小田さくら 卒業記念スペシャル配信"
+},
 "hf54910766befc314": {
 "artists": [
 3
@@ -49899,32 +49995,6 @@
 "status": null,
 "title": "OCHA NORMA FCイベント2026 メリクリティーパーティー 〜 聖なる鐘がCHA CHA CHA CHA〜N！〜"
 },
-"s1437": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/282f99b7376c9a85cef549dc3f60967f27c161d41cac9c7078923659b75556fa/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "泉ガーデンギャラリー（東京）",
-"start": null,
-"status": null,
-"title": "4thシングル発売記念 forTUNE musicイベント"
-},
 "s1438": {
 "artists": [
 676
@@ -50473,34 +50543,6 @@
 "start": null,
 "status": null,
 "title": "7thシングル発売記念 forTUNE musicイベント"
-},
-"s1708": {
-"artists": [
-36
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/d73e50a3b61846ef8c07ebbdf481977eb5971b317ed557cd4416800315759e66/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "昭和女子大学 人見記念講堂 （東京）",
-"start": null,
-"status": null,
-"title": "昭和女子大学 秋桜祭"
 },
 "s1768": {
 "artists": [
@@ -51063,26 +51105,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 川嶋美楓バースデーイベント2027"
-},
-"s1911": {
-"artists": [
-3,
-477
-],
-"category": "EVENT",
-"date": "2026-11-15",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/1f3017e8b72834a5dbb15117085036468ccb31326e8499bb0749bd08a0a66ee5/",
-"members": [
-610,
-643
-],
-"note": "岸和田旧港地区緑地 （大阪）",
-"start": null,
-"status": null,
-"title": "第45回全国豊かな海づくり大会 ～魚庭(なにわ)の海おおさか大会～"
 },
 "s1927": {
 "artists": [
@@ -51763,24 +51785,6 @@
 "start": "26:45",
 "status": null,
 "title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
-},
-"s2029": {
-"artists": [
-3
-],
-"category": "RADIO",
-"date": "2026-11-15",
-"end": "08:30",
-"isFc": false,
-"label": null,
-"link": "https://www.interfm.co.jp/asamimi",
-"members": [
-13
-],
-"note": "",
-"start": "08:00",
-"status": null,
-"title": "interfm「朝みみ！Precious Family」"
 },
 "s2042": {
 "artists": [
@@ -52735,7 +52739,117 @@
 "start": "18:00",
 "status": null,
 "title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
+},
+"s2213": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-12-01",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1befba40a8402a32fee762e3ecef292a84b9dc2056efee8bb897a86a0c35e066/",
+"members": [
+592
+],
+"note": "東京建物 Brillia HALL （東京）",
+"start": null,
+"status": null,
+"title": "小林萌花の「ほのクラ。」2ndファンミーティング"
+},
+"s2217": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-12-28",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=UQgqXJgI0pk7RhVF",
+"members": [
+481,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "LANDMARK HALL （神奈川）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー FCイベント2026「CAMELLyear end Party」～大忘年会スッペシャル～"
+},
+"s2218": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "22:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.jp/p/ml/rs/Z9WGYY3GP5/",
+"members": [
+612,
+660
+],
+"note": "",
+"start": "21:45",
+"status": null,
+"title": "NHK-FM「ミュージックライン」"
+},
+"s2226": {
+"artists": [
+3
+],
+"category": "STREAM",
+"date": "2026-12-06",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/item_detail.php?@uid=gWWHPBraB414Emps",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "小田さくら 卒業記念スペシャル配信"
+},
+"s2231": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://s.mxtv.jp/variety/aikatsu_challenge/",
+"members": [
+516
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "TOKYO MX「バンマニ!リアルアイカツ！チャレンジ 〜現役アイドルがアイカツ！ゲームバトル〜」"
 }
 },
-"versionDir": "2611152230-5soA7LIlSaVgR5HK"
+"versionDir": "2611162350-igQWKWpXU2UZxqYA"
 }
