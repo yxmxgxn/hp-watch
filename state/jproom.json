@@ -2275,6 +2275,22 @@
 "status": null,
 "title": "ロージークロニクル 夏イベント 2026～ハロプロクロニクル～"
 },
+"h33991470df513a50": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/182c07de6a3e242738fbc50eed84cfa4f2c0875d3950800581e0aef0b8116153/",
+"members": [],
+"note": "セブンパーク天美 AMAMI STADIUM（大阪）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h33d44f41eab75e74": {
 "artists": [
 40
@@ -2935,6 +2951,22 @@
 "status": null,
 "title": "LoveLive! Series 15th Anniversaryラブライブ！フェス 前夜祭 FILM LIVE ～未来へ届けるタイムカプセル～"
 },
+"h4db4c53c710eb8fb": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-17",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://www.asahi.co.jp/news-okaeri/",
+"members": [],
+"note": "",
+"start": "15:40",
+"status": null,
+"title": "朝日放送テレビ「newsおかえり」"
+},
 "h4dca5100bda1c175": {
 "artists": [
 10
@@ -3306,6 +3338,22 @@
 "start": null,
 "status": null,
 "title": "植村あかりフォトブック発売記念イベント"
+},
+"h5aaf8327783a8580": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "14:00",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/kon/",
+"members": [],
+"note": "※12時台～生出演。",
+"start": "12:00",
+"status": null,
+"title": "MBSラジオ「こんちわコンちゃんお昼ですょ！」"
 },
 "h5ae28b06643551dc": {
 "artists": [
@@ -3710,6 +3758,22 @@
 "start": null,
 "status": null,
 "title": "BRUTUS"
+},
+"h66487325cfd51d5d": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
 },
 "h668d716379cd915d": {
 "artists": [
@@ -6617,6 +6681,22 @@
 "status": null,
 "title": "竹内朱莉書道展 煌々舞踊 光"
 },
+"hd6e2f94f8ca7b40b": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://abcradio.asahi.co.jp/program/tsugihagi/",
+"members": [],
+"note": "",
+"start": "21:05",
+"status": null,
+"title": "ABCラジオ「ツギハギ火曜日～超能力戦士ドリアンのたのしいラジオ～」"
+},
 "hd82f88a2db622632": {
 "artists": [
 10
@@ -7075,6 +7155,22 @@
 "start": "24:55",
 "status": null,
 "title": "AIR-G'「アーティストフラッシュ」"
+},
+"he7dbd1d910a835c5": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-17",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
 },
 "he8470a5894c7bdcd": {
 "artists": [
@@ -7607,7 +7703,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7627,7 +7723,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7647,7 +7743,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7759,6 +7855,22 @@
 "status": null,
 "title": "東海テレビ「スイッチ！」"
 },
+"hff3118045214a988": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmosaka.net/_sites/16783751",
+"members": [],
+"note": "※生出演",
+"start": "11:30",
+"status": null,
+"title": "FM大阪「iDoBuddy」"
+},
 "hff4997badc9db2ca": {
 "artists": [
 41
@@ -7863,22 +7975,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1703": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/182c07de6a3e242738fbc50eed84cfa4f2c0875d3950800581e0aef0b8116153/",
-"members": [],
-"note": "セブンパーク天美 AMAMI STADIUM（大阪）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1746": {
 "artists": [
@@ -8295,22 +8391,6 @@
 "start": "11:00",
 "status": null,
 "title": "FM長野「SATURDAY D」"
-},
-"s1977": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-17",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [],
-"note": "※コメント",
-"start": "24:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
 },
 "s1978": {
 "artists": [
@@ -8745,22 +8825,6 @@
 "status": null,
 "title": "発売日｜佐藤優樹 Live Tour 2027 (仮タイトル)"
 },
-"s2190": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-17",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://www.asahi.co.jp/news-okaeri/",
-"members": [],
-"note": "",
-"start": "15:40",
-"status": null,
-"title": "朝日放送テレビ「newsおかえり」"
-},
 "s2191": {
 "artists": [
 5
@@ -8776,22 +8840,6 @@
 "start": "24:43",
 "status": null,
 "title": "RSK山陽放送「ユタンポ」"
-},
-"s2192": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-17",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://abcradio.asahi.co.jp/program/tsugihagi/",
-"members": [],
-"note": "",
-"start": "21:05",
-"status": null,
-"title": "ABCラジオ「ツギハギ火曜日～超能力戦士ドリアンのたのしいラジオ～」"
 },
 "s2193": {
 "artists": [
@@ -9001,22 +9049,6 @@
 "status": null,
 "title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
-"s2219": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-17",
-"end": "14:00",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/kon/",
-"members": [],
-"note": "※12時台～生出演。",
-"start": "12:00",
-"status": null,
-"title": "MBSラジオ「こんちわコンちゃんお昼ですょ！」"
-},
 "s2220": {
 "artists": [
 5
@@ -9032,22 +9064,6 @@
 "start": "24:00",
 "status": null,
 "title": "KBCラジオ「ムサシハジメました。」"
-},
-"s2224": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-17",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fmii.co.jp/youcanradio/",
-"members": [],
-"note": "※コメント",
-"start": "16:30",
-"status": null,
-"title": "FM岩手「夕刊ラジオ」"
 },
 "s2227": {
 "artists": [
@@ -9097,21 +9113,165 @@
 "status": null,
 "title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
 },
-"s2230": {
+"s2232": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-12-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/207b2496729f002513c21da405671f15f2221128143d9fe3fc9ec2aa9d14380f/",
+"members": [],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第二十席＞～佐藤優樹～トークイベント"
+},
+"s2233": {
+"artists": [
+11
+],
+"category": "STREAM",
+"date": "2027-01-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [],
+"note": "※配信開始",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第二十席＞～佐藤優樹～トークイベント"
+},
+"s2234": {
+"artists": [
+11
+],
+"category": "STREAM",
+"date": "2027-01-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [],
+"note": "※配信終了",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第二十席＞～佐藤優樹～トークイベント"
+},
+"s2245": {
+"artists": [
+11
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [],
+"note": "※19時台～出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2246": {
 "artists": [
 5
 ],
 "category": "RADIO",
-"date": "2026-11-17",
-"end": "15:00",
+"date": "2026-11-25",
+"end": "23:00",
 "isFc": false,
 "label": null,
-"link": "https://www.fmosaka.net/_sites/16783751",
+"link": "https://www.nack5.co.jp/program/fav_four_tue/",
 "members": [],
-"note": "※生出演",
-"start": "11:30",
+"note": "※22時台～生出演予定。",
+"start": "20:00",
 "status": null,
-"title": "FM大阪「iDoBuddy」"
+"title": "NACK5「FAV FOUR」"
+},
+"s2247": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmnorth.co.jp/radiogroove/",
+"members": [],
+"note": "※コメント",
+"start": "19:00",
+"status": null,
+"title": "FM NORTH WAVE「RADIO GROOVE」"
+},
+"s2248": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://fma.co.jp/f/prg/afternooncolors/",
+"members": [],
+"note": "※16時台～生出演。",
+"start": "14:30",
+"status": null,
+"title": "FM AICHI「AFTERNOON COLORS」"
+},
+"s2249": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/radio/oshimashi/",
+"members": [],
+"note": "※23時台～生出演。",
+"start": "22:00",
+"status": null,
+"title": "CBCラジオ「推しマシ」"
+},
+"s2254": {
+"artists": [
+57
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "19:57",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
+"members": [],
+"note": "",
+"start": "19:30",
+"status": null,
+"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
+},
+"s2255": {
+"artists": [
+57
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "10:32",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
+"members": [],
+"note": "※再放送",
+"start": "10:05",
+"status": null,
+"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
 },
 "s720": {
 "artists": [
@@ -9386,5 +9546,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611162350-igQWKWpXU2UZxqYA"
+"versionDir": "2611180030-XFEynhpRX8EPyKqM"
 }

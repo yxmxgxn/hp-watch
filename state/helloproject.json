@@ -8337,6 +8337,27 @@
 "status": null,
 "title": "NHK総合「うたコン」"
 },
+"h1de08b5b015dce56": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-17",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
+"members": [
+571,
+588,
+605,
+611
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
 "h1df58fccd023c8be": {
 "artists": [
 634,
@@ -16332,6 +16353,34 @@
 "status": null,
 "title": "さにこ会 vol.3 ～最強さにこ伝説「不滅」～"
 },
+"h4948c309bd0f9d91": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-17",
+"end": "20:42",
+"isFc": false,
+"label": null,
+"link": "https://www.web.nhk/tv/an/utacon/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "19:57",
+"status": null,
+"title": "NHK総合「うたコン」"
+},
 "h494e6098d441c442": {
 "artists": [
 36
@@ -17500,6 +17549,28 @@
 "status": null,
 "title": "OCHA NORMA中山夏月姫写真集「ルビーの体温」発売記念イベント"
 },
+"h4f92775bb32073ce": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2026-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
+"members": [
+612,
+630,
+646,
+660,
+664
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
+},
 "h4fcc0c959ee1164a": {
 "artists": [
 3
@@ -17789,6 +17860,24 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
+},
+"h5146635bbc0904a2": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=K3vi9AiyxUHymirM",
+"members": [
+643
+],
+"note": "YES THEATER  （大阪）",
+"start": null,
+"status": null,
+"title": "モーニング娘。'26 櫻井梨央バースデーイベント in 大阪"
 },
 "h514d8a2199615e71": {
 "artists": [
@@ -21687,6 +21776,25 @@
 "status": null,
 "title": "大分朝日放送「SOLD OUT」"
 },
+"h674aad7e7f8ff366": {
+"artists": [
+585
+],
+"category": "WEB",
+"date": "2026-11-16",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://natalie.mu/music/news/698134",
+"members": [
+593,
+708
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "音楽ナタリー"
+},
 "h67727367e6558cd6": {
 "artists": [
 676
@@ -22736,6 +22844,25 @@
 "start": null,
 "status": null,
 "title": "OCHA NORMA 中山夏月姫バースデーイベント2026"
+},
+"h6c6d8761572b99bc": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-16",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
 },
 "h6c76a61082d97c08": {
 "artists": [
@@ -48367,6 +48494,25 @@
 "status": null,
 "title": "今日は石川華望（モーニング娘。'26）の15歳の誕生日です！"
 },
+"hf8cbec8ee9ddc7c3": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-17",
+"end": "22:30",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.jp/p/ml/rs/Z9WGYY3GP5/",
+"members": [
+612,
+660
+],
+"note": "",
+"start": "21:45",
+"status": null,
+"title": "NHK-FM「ミュージックライン」"
+},
 "hf8dcc3a7cff69464": {
 "artists": [
 477
@@ -50256,24 +50402,6 @@
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
 },
-"s1546": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-11-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=K3vi9AiyxUHymirM",
-"members": [
-643
-],
-"note": "YES THEATER  （大阪）",
-"start": null,
-"status": null,
-"title": "モーニング娘。'26 櫻井梨央バースデーイベント in 大阪"
-},
 "s1607": {
 "artists": [
 477
@@ -51016,49 +51144,6 @@
 "start": null,
 "status": null,
 "title": "COUNTDOWN JAPAN 26/27"
-},
-"s1875": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-11-16",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
-"members": [
-612,
-630,
-646,
-660,
-664
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
-},
-"s1876": {
-"artists": [
-676
-],
-"category": "EVENT",
-"date": "2026-11-17",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/590c1ba3d2d15ec860712cedd5731d2194aa03ec29d438670e900e9c52a689c4/",
-"members": [
-571,
-588,
-605,
-611
-],
-"note": "",
-"start": null,
-"status": null,
-"title": "4thシングル発売記念 WithLIVEオンラインお話し会"
 },
 "s1886": {
 "artists": [
@@ -52297,25 +52382,6 @@
 "status": null,
 "title": "CDジャーナル2027冬号"
 },
-"s2083": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-16",
-"end": "25:29",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs.jp/nishinokazebrand/",
-"members": [
-604,
-635
-],
-"note": "",
-"start": "24:59",
-"status": null,
-"title": "MBS「西乃風ブラン堂」"
-},
 "s2084": {
 "artists": [
 634
@@ -52758,6 +52824,25 @@
 "status": null,
 "title": "小林萌花の「ほのクラ。」2ndファンミーティング"
 },
+"s2214": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "24:55",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/tantomusik/",
+"members": [
+588,
+611
+],
+"note": "",
+"start": "24:45",
+"status": null,
+"title": "UHB北海道文化放送「TANTO MUSIK」"
+},
 "s2217": {
 "artists": [
 477
@@ -52784,25 +52869,6 @@
 "start": null,
 "status": null,
 "title": "つばきファクトリー FCイベント2026「CAMELLyear end Party」～大忘年会スッペシャル～"
-},
-"s2218": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-17",
-"end": "22:30",
-"isFc": false,
-"label": null,
-"link": "https://www.nhk.jp/p/ml/rs/Z9WGYY3GP5/",
-"members": [
-612,
-660
-],
-"note": "",
-"start": "21:45",
-"status": null,
-"title": "NHK-FM「ミュージックライン」"
 },
 "s2226": {
 "artists": [
@@ -52849,7 +52915,83 @@
 "start": "19:00",
 "status": null,
 "title": "TOKYO MX「バンマニ!リアルアイカツ！チャレンジ 〜現役アイドルがアイカツ！ゲームバトル〜」"
+},
+"s2244": {
+"artists": [
+477
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+518
+],
+"note": "※スペシャルパーソナリティとして出演。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
+"s2251": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-02-16",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=39aZzv4N55w0Y4qT",
+"members": [
+591,
+592,
+593
+],
+"note": "ヒューリックホール東京 （東京）",
+"start": null,
+"status": null,
+"title": "BEYOOOOONDS/SeasoningS FCイベント2027 ～Triple Flavor 2～"
+},
+"s2252": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-02-22",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=39aZzv4N55w0Y4qT",
+"members": [
+591,
+592,
+593
+],
+"note": "YES THEATER （大阪）",
+"start": null,
+"status": null,
+"title": "BEYOOOOONDS/SeasoningS FCイベント2027 ～Triple Flavor 2～"
+},
+"s2253": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-12-20",
+"end": "19:00",
+"isFc": false,
+"label": null,
+"link": "https://bs.tbs.co.jp/sis/",
+"members": [
+67
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "BS-TBS「Sound Inn S」"
 }
 },
-"versionDir": "2611162350-igQWKWpXU2UZxqYA"
+"versionDir": "2611180030-XFEynhpRX8EPyKqM"
 }
