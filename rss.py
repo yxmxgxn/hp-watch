@@ -133,17 +133,17 @@ def radiko_links(x, title, start, rk):
     links, notes = [], []
     ft = radiko.ft_of(x["date"], start)
     for sid in rk.station_ids(title):
-        name, area = rk.name(sid), rk.area(sid)
+        name, area = rk.name(sid), rk.free_area(sid)
         p = rk.lookup(sid, ft)
         if p is None or p.get("ts_ng"):
             notes.append(f"{name}: radiko のタイムフリーの対象外です")
             continue
-        text = f"radiko タイムフリー（{name}{'・' + area + 'の局' if area else ''}）"
+        text = f"radiko タイムフリー（{name}{'・無料で聴けるのは' + area if area else ''}）"
         if p.get("corner"):
             text += f" ※番組の途中、{start}ごろから"
         links.append((text, radiko.timefree_url(sid, p["ft"])))
     if links:
-        notes.append("radiko のタイムフリーは放送後1週間、無料で聴けます（局の地域の外ではエリアフリーが必要）")
+        notes.append("radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）")
     return links, notes
 
 

@@ -2,6 +2,7 @@
 
 - 局: 公式スケジュールのタイトル「ラジオ日本/ラジオ関西「番組名」」の局名から radiko の局IDを引く
 - 番組表: 局ごとの週間番組表（前後1週間ほど）で、その時刻の番組の開始時刻とタイムフリー可否を見る
+- 地域: 都道府県ごとの局一覧（47本）から、その局を無料で聴ける範囲を出す
   番組表の範囲外（1週間より先）は、公式の時刻でそのままリンクを作る（公式の時刻は番組の開始と一致していた）
 """
 import datetime as dt
@@ -16,6 +17,13 @@ UA = "Mozilla/5.0 (hp-watch; personal schedule rss)"
 PREFS = ("北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 "
          "静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 "
          "熊本 大分 宮崎 鹿児島 沖縄").split()
+
+# 無料で聴ける範囲をまとめて書くときの名前（都道府県の集合がちょうど一致したときだけ使う）
+REGIONS = {
+    "関東": {"茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川"},
+    "関西": {"滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山"},
+    "東海": {"岐阜", "愛知", "三重"},
+}
 
 # 公式の局名と radiko の局名が違うもの（文字の幅・空白をそろえても合わないものだけ）
 ALIAS = {
@@ -54,9 +62,10 @@ def ft_of(date, start):
 
 class Radiko:
     def __init__(self):
-        self._stations = None  # id -> {"name", "area"}
+        self._stations = None  # id -> {"name"}
         self._by_name = None
         self._weekly = {}
+        self._free = None  # id -> [無料で聴ける都道府県]
 
     def _load_stations(self):
         if self._stations is not None:
@@ -69,9 +78,8 @@ class Radiko:
             return
         for s in root.iter("station"):
             sid = s.findtext("id")
-            m = re.fullmatch(r"JP(\d+)", s.findtext("area_id") or "")
-            area = PREFS[int(m.group(1)) - 1] if m and 1 <= int(m.group(1)) <= 47 else ""
-            self._stations[sid] = {"name": s.findtext("name"), "area": area}
+            # 表示用。ＨＢＣラジオ → HBCラジオ、全角の空白 → 半角
+            self._stations[sid] = {"name": unicodedata.normalize("NFKC", s.findtext("name") or sid)}
             for n in (s.findtext("name"), s.findtext("ascii_name")):
                 if n:
                     self._by_name[norm(n)] = sid
@@ -93,9 +101,27 @@ class Radiko:
                 ids.append(sid)
         return ids
 
-    def area(self, sid):
-        self._load_stations()
-        return (self._stations.get(sid) or {}).get("area", "")
+    def free_area(self, sid):
+        """無料で聴ける範囲。radiko の都道府県ごとの局一覧（47本）から作る。取れなければ空"""
+        if self._free is None:
+            self._free = {}
+            try:
+                for i, pref in enumerate(PREFS, 1):
+                    root = ET.fromstring(_get(f"https://radiko.jp/v3/station/list/JP{i}.xml"))
+                    for s in root.iter("station"):
+                        self._free.setdefault(s.findtext("id"), []).append(pref)
+            except Exception as e:
+                print(f"warn: radiko の地域ごとの局一覧: {e}", file=sys.stderr)
+                self._free = {}
+        prefs = self._free.get(sid) or []
+        if not prefs:
+            return ""
+        if len(prefs) == len(PREFS):
+            return "全国"
+        for name, members in REGIONS.items():
+            if set(prefs) == members:
+                return name
+        return "・".join(prefs)
 
     def name(self, sid):
         self._load_stations()
