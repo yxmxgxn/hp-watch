@@ -30,6 +30,33 @@
 - 判定方法を変えたら `state/` のファイルを消して作り直す（消さないと大量の誤通知が出る）
 - 手元で試すとき: `python hpwatch.py --state state/helloproject.json --force`（Webhook未設定なら画面に出る）
 
+## RSS（rss.py・作成中）
+
+公式のJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers、未設定）。
+
+- お知らせ: `hp/news/{グループ}.xml`・`hp/news/all.xml`、`jproom/news/all.xml`
+  - 記事IDと公開日がJSONにあるので、状態ファイルは持たない。各フィード最新50件
+  - リンクは JSON の `link`、無ければ `/news/{id}/`
+  - 更新は追わない。載った日に1回配信して終わり（公式の UPDATE の印はタイトルに入れず、カテゴリ欄にだけ残す）
+- MEDIA: `hp/media/{グループ}.xml`・`hp/media/all.xml`、`jproom/media/all.xml`
+  - スケジュールの TV / RADIO / MAGAZINE / WEB で、新しく載った予定。毎週の番組は出さない
+  - 放送日を過ぎてから載ったものは出さない。WEB・雑誌だけ30日以内なら「[掲載済]」で出す
+  - ラジオは radiko のタイムフリーのリンク付き（`radiko.py`）。局名から局IDを引き、radiko の週間番組表で開始時刻とタイムフリー可否を確かめる。局名が合わないときは `radiko.py` の `ALIAS` に足す。無料で聴ける範囲（関東・関西・東海・全国、または都道府県）も radiko の都道府県ごとの局一覧から出す
+  - 状態は `state/rss_media_*.json`。初回は今日から1週間分を入れて始める
+- 今日の予定: `hp/today.xml`、`jproom/today.xml`
+  - その日の予定を、毎週の番組も含めて全部、時刻順に1記事にまとめる（記事の時刻は朝5時）
+  - 同じ番組・同じ時刻・同じ出演者で局だけ違うものは1行にまとめる。ラジオは radiko のタイムフリーのリンク付き
+  - 直近7日分を毎回JSONから作り直す（状態は持たない）
+- JPROOM は所属が個人なので、どれも全員まとめて1本
+- `index.html`（一覧）と `all.opml`（まとめて登録）
+- 手元で試す: `python rss.py --out public --state-dir /tmp/rss-state`（`state/` を汚さないように）
+
+- 公開: `.github/workflows/rss.yml` が JST 5:07 と 8〜23時の3時間おきに `rss.py` を動かし、`wrangler.toml` で Cloudflare Workers（`hello-rss`）に送る
+  - Secrets に `CLOUDFLARE_API_TOKEN`（テンプレート「Edit Cloudflare Workers」、アカウントと `karin-archive.com` に絞る）と `CLOUDFLARE_ACCOUNT_ID` が要る。無い間は公開を飛ばす
+  - どちらかのサイトの取得に失敗した回は公開しない（そのサイトのフィードが消えるので）
+
+これから: TVer の番組ページの対応表。
+
 ## radio/
 
 NAS で radiko のタイムフリーを自動で回収するラジオ録音。GitHub Actions は使わない。→ [radio/README.md](radio/README.md)

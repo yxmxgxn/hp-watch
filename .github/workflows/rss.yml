@@ -1,0 +1,57 @@
+name: rss
+
+on:
+  schedule:
+    # JST 5:07（今日の予定）と、8〜23時の3時間おき（お知らせ・MEDIA）。cron は UTC
+    # GitHub 側の混雑で数分〜数十分遅れることがある
+    - cron: "7 20,23,2,5,8,11,14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch  # watch.yml と同じ。状態ファイルのコミットがぶつからないように1本ずつ
+  cancel-in-progress: false
+
+jobs:
+  rss:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: フィードを作る
+        id: build
+        run: python rss.py --out public --state-dir state
+
+      - name: Cloudflare に公開
+        # 片方のサイトでも失敗したら公開しない（そのサイトのフィードが消えるので）
+        # トークン未登録の間は飛ばす
+        if: steps.build.outcome == 'success' && env.CLOUDFLARE_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: 状態をコミット
+        if: always()
+        run: |
+          git add state
+          if git diff --cached --quiet; then
+            echo "no state change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "rss state: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase
+          git push
