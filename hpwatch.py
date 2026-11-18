@@ -4,7 +4,8 @@
   1. /schedule/ のHTMLから versionDir と対象年を取る（前回と同じなら終了）
   2. /json/{versionDir}/{year}_schedules.json と artist_list.json を取る
   3. 単発スケジュール / レギュラー番組 / イベント に分けて前回状態と比較
-  4. 差分を通知（DISCORD_WEBHOOK_URL があればDiscord、なければ標準出力）
+  4. 新しく増えたものだけを通知（DISCORD_WEBHOOK_URL があればDiscord、なければ標準出力）
+     変更・削除・レギュラー終了は通知しない
 
 使い方:
   python hpwatch.py [--state state.json] [--name ハロプロ] [--force] [--base https://helloproject.com]
@@ -246,53 +247,29 @@ def fmt_item(v, names):
     return "\n".join(lines)
 
 
-def fmt_change(o, n, fields, names):
-    parts = []
-    for f in fields:
-        a, b = o.get(f), n.get(f)
-        if f == "members":
-            a, b = who({"members": a}, names), who({"members": b}, names)
-        parts.append(f"  {f}: {a} → {b}")
-    return fmt_item(n, names) + "\n" + "\n".join(parts)
-
-
 def build_messages(prev, cur):
+    """新規・レギュラー開始・イベント発表だけを通知する（変更・削除・終了は通知しない）。
+    diff_section の変更・削除は捨てるが、突き合わせ（キーの付け替えや変更を「新規」と誤認しない）には使っている"""
     names = cur["names"]
     msgs = []
-    a, r, c = diff_section(prev["singles"], cur["singles"])
+    a, _, _ = diff_section(prev["singles"], cur["singles"])
     msgs += [("新規", fmt_item(v, names)) for v in sorted(a.values(), key=lambda v: v["date"] or "") if not is_muted(v)]
-    msgs += [("変更", fmt_change(o, n, f, names)) for o, n, f in c if not is_muted(n)]
-    # 単発で載っていたものが後からレギュラー登録された場合、消えたように見えるが黙る
-    reg_titles = {(v["title"], v["link"]) for v in cur["regulars"].values()}
-    msgs += [("削除", fmt_item(v, names)) for v in r.values()
-             if not is_muted(v) and (v["title"], v["link"]) not in reg_titles]
 
-    a, r, c = diff_section(prev["regulars"], cur["regulars"])
+    a, _, _ = diff_section(prev["regulars"], cur["regulars"])
     msgs += [("レギュラー開始", fmt_item(v, names)) for v in a.values() if not is_muted(v)]
-    msgs += [("レギュラー変更", fmt_change(o, n, f, names)) for o, n, f in c if not is_muted(n)]
-    msgs += [("レギュラー終了", fmt_item(v, names)) for v in r.values() if not is_muted(v)]
 
-    a, r, c = diff_section(prev["events"], cur["events"])
+    a, _, _ = diff_section(prev["events"], cur["events"])
     msgs += [("イベント発表", fmt_item(v, names)) for v in a.values()]
-    msgs += [("イベント変更", fmt_change(o, n, f, names)) for o, n, f in c]
-    msgs += [("イベント削除", fmt_item(v, names)) for v in r.values()]
     return msgs
 
 
-# 埋め込みの左端の色。新規・開始＝緑、変更＝黄、削除・終了・中止＝赤
-GREEN, YELLOW, RED = 0x2ECC71, 0xF1C40F, 0xE74C3C
-KIND_COLOR = {
-    "新規": GREEN, "レギュラー開始": GREEN, "イベント発表": GREEN,
-    "変更": YELLOW, "レギュラー変更": YELLOW, "イベント変更": YELLOW,
-    "削除": RED, "レギュラー終了": RED, "イベント削除": RED,
-}
+# 埋め込みの左端の色。新規・開始・発表＝緑（中止が付いていたら赤）
+GREEN, RED = 0x2ECC71, 0xE74C3C
 
 
 def to_embed(kind, body, site):
     head, *rest = body.split("\n")
-    color = KIND_COLOR.get(kind, YELLOW)
-    if "[中止]" in head:
-        color = RED
+    color = RED if "[中止]" in head else GREEN
     embed = {
         "title": f"【{kind}】{head}"[:256],
         "description": "\n".join(s.strip() for s in rest)[:4000],
