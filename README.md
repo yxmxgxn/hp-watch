@@ -32,17 +32,22 @@
 
 ## RSS（rss.py・作成中）
 
-公式のお知らせJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers、未設定）。
+公式のJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers、未設定）。
 
-- `hp/news/{グループ}.xml`・`hp/news/all.xml`: ハロプロのお知らせ（イベントの発表もここ）
-- `jproom/news/all.xml`: JPROOM のお知らせ（所属が個人なので全員まとめて1本）
+- お知らせ: `hp/news/{グループ}.xml`・`hp/news/all.xml`、`jproom/news/all.xml`
+  - 記事IDと公開日がJSONにあるので、状態ファイルは持たない。各フィード最新50件
+  - リンクは JSON の `link`、無ければ `/news/{id}/`
+  - 更新は追わない。載った日に1回配信して終わり（公式の UPDATE の印はタイトルに入れず、カテゴリ欄にだけ残す）
+- MEDIA: `hp/media/{グループ}.xml`・`hp/media/all.xml`、`jproom/media/all.xml`
+  - スケジュールの TV / RADIO / MAGAZINE / WEB で、新しく載った予定。毎週の番組は出さない
+  - 放送日を過ぎてから載ったものは出さない。WEB・雑誌だけ30日以内なら「[掲載済]」で出す
+  - ラジオは radiko のタイムフリーのリンク付き（`radiko.py`）。局名から局IDを引き、radiko の週間番組表で開始時刻とタイムフリー可否を確かめる。局名が合わないときは `radiko.py` の `ALIAS` に足す
+  - 状態は `state/rss_media_*.json`。初回は今日から1週間分を入れて始める
+- JPROOM は所属が個人なので、どちらも全員まとめて1本
 - `index.html`（一覧）と `all.opml`（まとめて登録）
-- 記事IDと公開日がJSONにあるので、状態ファイルは持たない。各フィード最新50件
-- リンクは JSON の `link`、無ければ `/news/{id}/`
-- 更新は追わない。載った日に1回配信して終わり（公式の UPDATE の印はタイトルに入れず、カテゴリ欄にだけ残す）
-- 手元で試す: `python rss.py --out public`
+- 手元で試す: `python rss.py --out public --state-dir /tmp/rss-state`（`state/` を汚さないように）
 
-これから: MEDIA（テレビ・ラジオ・雑誌・WEBの新着、radiko のタイムフリーのリンク付き）と「今日の予定」、Actions からの公開。
+これから: 「今日の予定」、Actions からの公開、TVer の番組ページの対応表。
 
 ## radio/
 
