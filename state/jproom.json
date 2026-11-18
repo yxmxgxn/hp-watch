@@ -1790,6 +1790,22 @@
 "status": null,
 "title": "竹内朱莉書道展 煌々舞踊 光"
 },
+"h1ca076b90d6906da": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://kry.co.jp/radio/asa/",
+"members": [],
+"note": "※10時台～出演予定。",
+"start": "07:00",
+"status": null,
+"title": "山口放送「KRY Morning Up」"
+},
 "h1cfcccf1eedd6e83": {
 "artists": [
 33
@@ -3518,6 +3534,22 @@
 "status": null,
 "title": "FM岩手「夕刊ラジオ」"
 },
+"h5fca149c419dc703": {
+"artists": [
+5
+],
+"category": "RELEASE",
+"date": "2026-11-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/release/7720/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "配信｜「もうどうでもよくなっちゃった/もしも(Special Edition)」"
+},
 "h5fdb8b77976e2aa4": {
 "artists": [
 11
@@ -4943,6 +4975,22 @@
 "status": null,
 "title": "譜久村聖・石田亜佑美・佐藤優樹×竹内朱莉・勝田里奈FCイベント ～ガチ☆キラ2026～"
 },
+"h9132cddc21b11507": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "09:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rnb.co.jp/radio/md-yamashita/",
+"members": [],
+"note": "※7時台～出演予定。",
+"start": "07:00",
+"status": null,
+"title": "南海放送「山下泰則のモーニング ディライト」"
+},
 "h9139f96435ceefa4": {
 "artists": [
 5,
@@ -5093,6 +5141,22 @@
 "start": "18:00",
 "status": null,
 "title": "舞台『横浜グラフィティ・フォーエバー』出演決定！"
+},
+"h95bf6f450d1926c2": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "18:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-okayama.co.jp/passage/",
+"members": [],
+"note": "",
+"start": "17:00",
+"status": null,
+"title": "FM岡山「PASSAGE」"
 },
 "h97db680653beceed": {
 "artists": [
@@ -5986,6 +6050,22 @@
 "status": null,
 "title": "LoveLive! Series 15th Anniversary ラブライブ！フェス"
 },
+"hb93059d97c9fc594": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/41afd501250ec85e3f670ccdd5b59a2e3e25ab2bcdd81e2944aa11f46b6ec8f7/",
+"members": [],
+"note": "東京ドームシティ ラクーアガーデンステージ （東京）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
+},
 "hb988dfcd48092aeb": {
 "artists": [
 10
@@ -6133,6 +6213,22 @@
 "start": null,
 "status": null,
 "title": "5thシングル発売記念 ミニライブ＆一言お話し会"
+},
+"hbcd00ce03067ec03": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-18",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [],
+"note": "※コメント\n※再放送",
+"start": "25:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
 },
 "hbdd364c889e0a901": {
 "artists": [
@@ -6600,6 +6696,22 @@
 "start": "16:25",
 "status": null,
 "title": "青森テレビ「わっち!!」"
+},
+"hd3cd68a6bb551c68": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-18",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://rfm.co.jp/program/recomend",
+"members": [],
+"note": "※コメント",
+"start": "16:55",
+"status": null,
+"title": "FM山形「レコメンド！」"
 },
 "hd4ebcacfbbbde1f9": {
 "artists": [
@@ -7663,7 +7775,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
+"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7683,7 +7795,7 @@
 "label": null,
 "link": "https://eplus.jp/m-line/",
 "members": [],
-"note": "9/20(日) 広島LIVE VANQUISH（広島）公演",
+"note": "9/19(土) 梅田クラブクアトロ（大阪）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7703,7 +7815,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7723,7 +7835,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7922,22 +8034,6 @@
 "start": null,
 "status": null,
 "title": "浅倉樹々2027壁掛けカレンダー発売記念オンラインイベント"
-},
-"s1456": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-18",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/41afd501250ec85e3f670ccdd5b59a2e3e25ab2bcdd81e2944aa11f46b6ec8f7/",
-"members": [],
-"note": "東京ドームシティ ラクーアガーデンステージ （東京）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1562": {
 "artists": [
@@ -8392,22 +8488,6 @@
 "status": null,
 "title": "FM長野「SATURDAY D」"
 },
-"s1978": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-18",
-"end": "26:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [],
-"note": "※コメント\n※再放送",
-"start": "25:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
-},
 "s2039": {
 "artists": [
 10
@@ -8841,54 +8921,6 @@
 "status": null,
 "title": "RSK山陽放送「ユタンポ」"
 },
-"s2193": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-18",
-"end": "09:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rnb.co.jp/radio/md-yamashita/",
-"members": [],
-"note": "※7時台～出演予定。",
-"start": "07:00",
-"status": null,
-"title": "南海放送「山下泰則のモーニング ディライト」"
-},
-"s2194": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-18",
-"end": "11:00",
-"isFc": false,
-"label": null,
-"link": "https://kry.co.jp/radio/asa/",
-"members": [],
-"note": "※10時台～出演予定。",
-"start": "07:00",
-"status": null,
-"title": "山口放送「KRY Morning Up」"
-},
-"s2195": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-18",
-"end": "18:00",
-"isFc": false,
-"label": null,
-"link": "https://www.fm-okayama.co.jp/passage/",
-"members": [],
-"note": "",
-"start": "17:00",
-"status": null,
-"title": "FM岡山「PASSAGE」"
-},
 "s2196": {
 "artists": [
 5
@@ -9064,22 +9096,6 @@
 "start": "24:00",
 "status": null,
 "title": "KBCラジオ「ムサシハジメました。」"
-},
-"s2227": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-18",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://rfm.co.jp/program/recomend",
-"members": [],
-"note": "※コメント",
-"start": "16:55",
-"status": null,
-"title": "FM山形「レコメンド！」"
 },
 "s2228": {
 "artists": [
@@ -9546,5 +9562,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611180030-XFEynhpRX8EPyKqM"
+"versionDir": "2611190010-bdh6k7owtKR4eduk"
 }
