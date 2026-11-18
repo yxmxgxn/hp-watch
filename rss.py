@@ -57,18 +57,18 @@ def item_link(base, x):
 
 
 def to_item(site, base, x):
+    """タイトルは [NEWS] か [EVENT] だけ。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
+    タイトルには入れずカテゴリ欄にだけ残す（更新は追わない。載った日に1回配信して終わり）"""
     title = hpwatch.text_of(x.get("title")).strip()
-    tags = [x.get("category") or "NEWS"]
-    if x.get("flag") == "UPDATE":
-        tags.append("更新")
+    cat = x.get("category") or "NEWS"
     date = dt.datetime.fromisoformat(x["date"]).replace(tzinfo=JST)
     return {
         "guid": f"{site}-news-{x['id']}",
         "id": x["id"],
-        "title": "".join(f"[{t}]" for t in tags) + " " + title,
+        "title": f"[{cat}] {title}",
         "link": item_link(base, x),
         "date": date,
-        "categories": [x.get("category") or "NEWS"] + list(x.get("tags") or []),
+        "categories": [cat] + ([x["flag"]] if x.get("flag") else []) + list(x.get("tags") or []),
         "groups": [str(i) for i in x.get("artistsSearch") or []],
     }
 
