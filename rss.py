@@ -14,10 +14,15 @@ MEDIA（media）
   状態ファイル state/rss_media_{site}.json に「見た予定」と「配信した記事」を持つ。
   初回は今日から1週間分の予定を入れて始める。
 
+今日の予定（today）
+  その日の予定を、毎週の番組も含めて全部、時刻順に1記事にまとめる（1日1記事、記事の時刻は朝5時）。
+  同じ番組・同じ時刻で局だけ違うものは1行にまとめる。直近7日分をJSONから毎回作り直す（状態は持たない）。
+
 フィード（out 配下）:
   hp/news/{グループslug}.xml, hp/news/all.xml     … ハロプロのお知らせ（グループ別）
   hp/media/{グループslug}.xml, hp/media/all.xml   … ハロプロの MEDIA（グループ別）
-  jproom/news/all.xml, jproom/media/all.xml       … JPROOM（所属が個人なので全員まとめて1本）
+  hp/today.xml                                    … ハロプロの今日の予定（全体で1本、1日1記事）
+  jproom/news/all.xml, jproom/media/all.xml, jproom/today.xml … JPROOM（所属が個人なので全員まとめて1本）
   index.html, all.opml                            … 一覧ページとまとめて登録するファイル
 """
 import argparse
@@ -40,13 +45,15 @@ SITES = {
     "hp": {"label": "ハロプロ", "base": "https://helloproject.com", "by_group": True},
     "jproom": {"label": "JPROOM", "base": "https://www.jp-r.co.jp", "by_group": False},
 }
-KINDS = {"news": "お知らせ", "media": "MEDIA"}
+KINDS = {"news": "お知らせ", "media": "MEDIA", "today": "今日の予定"}
 
 MEDIA_CATS = ("TV", "RADIO", "MAGAZINE", "WEB")
 MEDIA_KEEP = 300  # 状態ファイルに残す配信済みの記事数
 SEEN_DAYS = 60    # 「見た予定」は放送日からこの日数で忘れる
 LATE_DAYS = 30    # 放送日を過ぎて載った WEB・雑誌を「掲載済」で出す範囲
 SEED_DAYS = 7     # 初回に入れる先の日数
+TODAY_DAYS = 7    # 「今日の予定」に残す日数
+TODAY_HOUR = 5    # 「今日の予定」の記事の時刻（radiko の1日の始まりに合わせる）
 WEEK = "月火水木金土日"
 
 
@@ -230,6 +237,99 @@ def update_media(site, base, schedules, profiles, names, state_path, now, rk):
     return items, {"seen": seen, "items": items}
 
 
+# ---------- 今日の予定 ----------
+
+def split_station(cat, title):
+    """「ラジオ日本「番組名」」→ ("ラジオ日本", "番組名")。テレビ・ラジオ・WEB 以外や「」が無いものは局なし"""
+    if cat in ("TV", "RADIO", "WEB") and "「" in title and title.endswith("」"):
+        head, prog = title.split("「", 1)
+        return head.strip(), prog[:-1]
+    return "", title
+
+
+def time_key(start):
+    if not start:
+        return -1  # 時刻なし（雑誌・発売日・誕生日など）は先頭
+    h, m = map(int, start.split(":"))
+    return h * 60 + m
+
+
+def today_rows(xs, names):
+    """その日の予定を行にする。同じ番組・同じ時刻・同じ出演者で局だけ違うものは1行にまとめる"""
+    rows = {}
+    for x in xs:
+        s = x.get("schedule") or {}
+        cat = x.get("category") or ""
+        title = hpwatch.text_of(x.get("title")).strip()
+        station, prog = split_station(cat, title)
+        start = s.get("start") or ""
+        who = hpwatch.who({"members": x.get("membersSearch") or [], "artists": x.get("artistsSearch") or []}, names)
+        key = (start, cat, prog, who, x.get("status") or "", bool(x.get("isFc")))
+        r = rows.setdefault(key, {"start": start, "cat": cat, "prog": prog, "who": who, "status": x.get("status"),
+                                  "fc": bool(x.get("isFc")), "stations": [], "items": []})
+        if station and station not in r["stations"]:
+            r["stations"].append(station)
+        r["items"].append(x)
+    return sorted(rows.values(), key=lambda r: (time_key(r["start"]), r["cat"], r["prog"]))
+
+
+def today_row_html(r, base, rk):
+    x = r["items"][0]
+    link = abs_link(base, hpwatch.link_of(x))
+    prog = r["prog"]
+    if r["stations"] and ("「" in prog or "」" in prog):  # 「番組」内「コーナー」は、かぎかっこごと出す
+        prog = f"「{prog}」"
+    name = f"<a href={quoteattr(link)}>{escape(prog)}</a>" if link else escape(prog)
+    head = f"<b>{escape(r['start'] or '—')}</b> [{escape(r['cat'])}] {name}"
+    if r["stations"]:
+        head += f"（{escape(' / '.join(r['stations']))}）"
+    tags = (["FC限定"] if r["fc"] else []) + ([r["status"]] if r["status"] else [])
+    head += "".join(f" [{escape(t)}]" for t in tags)
+    lines = [head]
+    if r["who"]:
+        lines.append(f"出演: {escape(r['who'])}")
+    if r["cat"] == "RADIO" and r["start"] and not r["status"]:
+        ft = radiko.ft_of(x["date"], r["start"])
+        rl = []
+        for it in r["items"]:
+            for sid in rk.station_ids(hpwatch.text_of(it.get("title")).strip()):
+                p = rk.lookup(sid, ft)
+                if p and not p.get("ts_ng"):
+                    rl.append(f"<a href={quoteattr(radiko.timefree_url(sid, p['ft']))}>radiko（{escape(rk.name(sid))}）</a>")
+        if rl:
+            lines.append(" ".join(dict.fromkeys(rl)))
+    return "<li>" + "<br>".join(lines) + "</li>"
+
+
+def today_items(site, base, schedules, names, now, rk):
+    """直近 TODAY_DAYS 日の「今日の予定」。JSON から毎回作り直す（過去の日の予定もJSONに残っている）"""
+    by_date = {}
+    for x in schedules:
+        if x.get("date"):
+            by_date.setdefault(x["date"], []).append(x)
+    out = []
+    for i in range(TODAY_DAYS):
+        day = now.date() - dt.timedelta(days=i)
+        d = day.isoformat()
+        rows = today_rows(by_date.get(d) or [], names)
+        if not rows:
+            continue
+        html = ("<ul>" + "".join(today_row_html(r, base, rk) for r in rows) + "</ul>"
+                "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）。放送中は radiko の生放送で聴けます。</p>")
+        cats = sorted({r["cat"] for r in rows if r["cat"]})
+        out.append({
+            "guid": f"{site}-today-{d}",
+            "sort": d,
+            "title": f"{md(d)}の予定（{len(rows)}件）",
+            "link": f"{base}/schedule/",
+            "date": dt.datetime.combine(day, dt.time(TODAY_HOUR), JST),
+            "html": html,
+            "categories": cats,
+            "groups": [],
+        })
+    return out
+
+
 # ---------- 書き出し ----------
 
 def as_dt(v):
@@ -308,6 +408,14 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, f"{base}/schedule/")
 
+    path = f"{site}/today.xml"
+    url = f"{feed_base}/{path}"
+    name = "全体" if cfg["by_group"] else "全員"
+    write(os.path.join(out, path), rss_xml(
+        f"{cfg['label']} 今日の予定", f"{base} のスケジュールから、その日の予定を毎朝1本にまとめたもの・非公式",
+        f"{base}/schedule/", url, newest(today_items(site, base, schedules, names, now, rk))))
+    feeds.append({"site": site, "kind": "today", "name": name, "url": url})
+
     # フィードを書けてから状態を保存する。中身が同じなら書かない（コミットが増えないように）
     text = json.dumps(state, ensure_ascii=False, indent=0, sort_keys=True)
     old = open(state_path, encoding="utf-8").read() if os.path.exists(state_path) else None
@@ -344,6 +452,7 @@ code{font-size:.8rem;color:var(--mute);word-break:break-all}
 KIND_NOTE = {
     "news": "公式のお知らせ（イベントの発表を含む）。載った日に配信。",
     "media": "テレビ・ラジオ・雑誌・WEB の新しく載った出演予定（だいたい1週間前）。毎週の番組は含みません。ラジオには radiko のタイムフリーのリンク付き。",
+    "today": "その日の予定を毎朝1本にまとめたもの。毎週の番組も含めて全部。",
 }
 
 
