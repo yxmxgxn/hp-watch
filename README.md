@@ -30,6 +30,19 @@
 - 判定方法を変えたら `state/` のファイルを消して作り直す（消さないと大量の誤通知が出る）
 - 手元で試すとき: `python hpwatch.py --state state/helloproject.json --force`（Webhook未設定なら画面に出る）
 
+## RSS（rss.py・作成中）
+
+公式のお知らせJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers、未設定）。
+
+- `hp/news/{グループ}.xml`・`hp/news/all.xml`: ハロプロのお知らせ（イベントの発表もここ）
+- `jproom/news/all.xml`: JPROOM のお知らせ（所属が個人なので全員まとめて1本）
+- `index.html`（一覧）と `all.opml`（まとめて登録）
+- 記事IDと公開日がJSONにあるので、状態ファイルは持たない。各フィード最新50件
+- リンクは JSON の `link`、無ければ `/news/{id}/`
+- 手元で試す: `python rss.py --out public`
+
+これから: MEDIA（テレビ・ラジオ・雑誌・WEBの新着、radiko のタイムフリーのリンク付き）と「今日の予定」、Actions からの公開。
+
 ## radio/
 
 NAS で radiko のタイムフリーを自動で回収するラジオ録音。GitHub Actions は使わない。→ [radio/README.md](radio/README.md)
