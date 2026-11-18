@@ -1,3 +1,4 @@
 radio/nas/.env
 radio/nas/rclone/
 radio/nas/data/
+__pycache__/
