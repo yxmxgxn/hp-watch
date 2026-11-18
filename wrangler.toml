@@ -1,0 +1,11 @@
+# hello-rss（rss.py が public/ に書き出したフィードを、そのまま配る静的な Worker）
+# デプロイは .github/workflows/rss.yml から。初回のデプロイで Worker とカスタムドメインの DNS が作られる
+name = "hello-rss"
+compatibility_date = "2026-11-18"
+
+[assets]
+directory = "./public"
+
+[[routes]]
+pattern = "hello-rss.karin-archive.com"
+custom_domain = true

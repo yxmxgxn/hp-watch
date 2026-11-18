@@ -478,6 +478,16 @@ def index_html(feeds, now):
     return "\n".join(out)
 
 
+# Cloudflare（Workers の静的配信）に渡すヘッダー。フィードの種類を正しく伝える
+HEADERS = """/hp/*
+  Content-Type: application/rss+xml; charset=utf-8
+/jproom/*
+  Content-Type: application/rss+xml; charset=utf-8
+/all.opml
+  Content-Type: text/x-opml; charset=utf-8
+"""
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="public")
@@ -500,6 +510,7 @@ def main():
 
     write(os.path.join(args.out, "index.html"), index_html(feeds, now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
+    write(os.path.join(args.out, "_headers"), HEADERS)
     print(f"feeds: {len(feeds)}" + (f" (失敗: {', '.join(failed)})" if failed else ""))
     if failed:
         sys.exit(1)

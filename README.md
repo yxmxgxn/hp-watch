@@ -51,7 +51,11 @@
 - `index.html`（一覧）と `all.opml`（まとめて登録）
 - 手元で試す: `python rss.py --out public --state-dir /tmp/rss-state`（`state/` を汚さないように）
 
-これから: Actions からの公開（朝5時と15時）、TVer の番組ページの対応表。
+- 公開: `.github/workflows/rss.yml` が JST 5:07 と 8〜23時の3時間おきに `rss.py` を動かし、`wrangler.toml` で Cloudflare Workers（`hello-rss`）に送る
+  - Secrets に `CLOUDFLARE_API_TOKEN`（テンプレート「Edit Cloudflare Workers」、アカウントと `karin-archive.com` に絞る）と `CLOUDFLARE_ACCOUNT_ID` が要る。無い間は公開を飛ばす
+  - どちらかのサイトの取得に失敗した回は公開しない（そのサイトのフィードが消えるので）
+
+これから: TVer の番組ページの対応表。
 
 ## radio/
 
