@@ -1,0 +1,102 @@
+// hello-rss-watch: 時計の役。Cloudflare の Cron Trigger で、GitHub Actions の作業を決まった時刻に呼び出す。
+// GitHub の定期実行は数時間遅れたり飛ばされたりするので使わない。記憶（KV など）は持たない。
+//
+//   */15 * * * *  公式の /schedule/ の Last-Modified が直近17分以内なら（＝サイトが作り直されたら）rss.yml を呼ぶ
+//   0 20 * * *    05:00 JST  rss.yml（今日の予定）
+//   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）を別々に呼ぶ
+//
+// 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したときだけ Discord に知らせる。
+
+const SITES = { hp: "https://helloproject.com", jproom: "https://www.jp-r.co.jp" };
+const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
+const DETECT = "*/15 * * * *";
+const WINDOW_MS = 17 * 60 * 1000; // 15分おきの実行 ＋ 少しの余裕
+const FIXED = {
+  "0 20 * * *": ["rss.yml"],
+  "0 9 * * *": ["hpwatch.yml", "profiles.yml"],
+};
+
+// サイトが最後に作り直された時刻。直近 WINDOW_MS 以内なら Date、そうでなければ null
+export async function builtRecently(base, now) {
+  const r = await fetch(`${base}/schedule/`, { method: "HEAD", headers: { "User-Agent": UA } });
+  if (!r.ok) throw new Error(`${r.status} ${base}/schedule/`);
+  const lm = r.headers.get("last-modified");
+  if (!lm) return null;
+  const t = new Date(lm);
+  const age = now.getTime() - t.getTime();
+  return age >= -60_000 && age <= WINDOW_MS ? t : null;
+}
+
+export async function dispatch(env, workflow, ref = "main") {
+  const url = `https://api.github.com/repos/${env.GH_REPO}/actions/workflows/${workflow}/dispatches`;
+  let last;
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${env.GH_TOKEN}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+          "User-Agent": "hello-rss-watch",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ref }),
+      });
+      if (r.status === 204 || r.status === 200) return;
+      last = `${workflow}: ${r.status} ${(await r.text()).slice(0, 200)}`;
+      if (r.status < 500) break; // 401・404・422 などは、やり直しても同じ
+    } catch (e) {
+      last = `${workflow}: ${e && e.message || e}`;
+    }
+    await new Promise((res) => setTimeout(res, 1000 * (i + 1)));
+  }
+  throw new Error(last);
+}
+
+async function notifyFailure(env, text, now) {
+  // 失敗が続いても、Discord への通知は1時間に1回まで（15分おきの実行の最初の1回だけ）
+  if (!env.DISCORD_WEBHOOK_URL || now.getUTCMinutes() >= 15) return;
+  await fetch(env.DISCORD_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "User-Agent": UA },
+    body: JSON.stringify({ username: "hello-rss-watch", content: `⚠️ GitHub の作業を呼べませんでした\n${text}`.slice(0, 1900) }),
+  }).catch(() => {});
+}
+
+export async function run(cron, env, now) {
+  const jobs = new Map(); // 作業 → 理由
+  for (const w of FIXED[cron] || []) jobs.set(w, cron);
+  const errors = [];
+  if (cron === DETECT) {
+    for (const [site, base] of Object.entries(SITES)) {
+      try {
+        const t = await builtRecently(base, now);
+        if (t) jobs.set("rss.yml", `${site} 更新 ${t.toISOString()}`);
+      } catch (e) {
+        errors.push(`${site}: ${e && e.message || e}`); // 公式側の一時的な失敗。呼び出しの失敗ではないので Discord には出さない
+      }
+    }
+  }
+  const failed = [];
+  for (const [w, why] of jobs) {
+    try {
+      await dispatch(env, w);
+    } catch (e) {
+      failed.push(String(e.message || e));
+    }
+  }
+  const summary = { cron, at: now.toISOString(), dispatched: [...jobs].map(([w, why]) => `${w} (${why})`), failed, errors };
+  console.log(JSON.stringify(summary));
+  if (failed.length) await notifyFailure(env, failed.join("\n"), now);
+  return summary;
+}
+
+export default {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(run(controller.cron, env, new Date(controller.scheduledTime)));
+  },
+  async fetch() {
+    return new Response("not found", { status: 404 });
+  },
+};

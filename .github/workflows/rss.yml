@@ -1,5 +1,7 @@
 name: rss
 
+# 公式が更新されたとき（Cloudflare の Cron Trigger が検知して呼ぶ）と、毎朝 05:00 JST（今日の予定）に動く。
+# 下の schedule は、Cloudflare の呼び出しが確かめられるまでの保険。確かめたら消す
 on:
   schedule:
     # JST 5:07（今日の予定）と、8〜23時の3時間おき（お知らせ・MEDIA）。cron は UTC
@@ -11,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: watch  # watch.yml と同じ。状態ファイルのコミットがぶつからないように1本ずつ
+  group: rss
   cancel-in-progress: false
 
 jobs:
@@ -53,5 +55,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "rss state: $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase
-          git push
+          for i in 1 2 3 4; do
+            git pull --rebase -q && git push -q && exit 0
+            sleep $((i * 3))
+          done
+          exit 1
