@@ -59,4 +59,7 @@ githubStatus = 500; calls = [];
 s = await run("0 20 * * *", env, new Date("2026-11-19T20:30:00Z"));
 assert(gh().length === 3 && s.failed.length === 1, "500 は3回までやり直す");
 
-assert((await watcher.fetch()).status === 404, "HTTP は404");
+for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
+  const r = await watcher.fetch(new Request("https://hello-rss.example" + path));
+  assert(r.status === 302 && r.headers.get("location") === "https://hello-rss.example/", `無いパス ${path} はトップへ302`);
+}
