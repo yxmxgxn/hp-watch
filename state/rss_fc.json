@@ -1,0 +1,1266 @@
+{
+"gids": {
+"angerme": 4,
+"beyooooonds": 9,
+"helloprokenshusei": 11,
+"juicejuice": 5,
+"morningmusume": 3,
+"ochanorma": 10,
+"rosychronicle": 12,
+"tsubakifactory": 8
+},
+"items": [
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-QWpIQqf4RmTRvtBx",
+"html": "<p>イベント ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=QWpIQqf4RmTRvtBx\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=QWpIQqf4RmTRvtBx",
+"sort": "2026-11-1999",
+"title": "2026.11.19 [イベント] ★ファンクラブ会員限定イベント★「OCHA NORMA FCイベント2027 ～ OCHA NORMAの間10 アチアチ延長注意報♡kawaiiショコラティー 〜」開催決定！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-hdca34d495e44",
+"html": "<p>その他 ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/fan/fan_sp_info.php\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/fan/fan_sp_info.php",
+"sort": "2026-11-1998",
+"title": "2026.11.19 [その他] スペシャル会員ポイントプレゼント情報更新！（15000pt 2ショット写真＆直筆サイン色紙）"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-hf34f07dd3e35",
+"html": "<p>ニュース ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=vtdZdV8jImJEPq0M&amp;ccid=15&amp;gid=3&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=vtdZdV8jImJEPq0M&ccid=15&gid=3&@rst=all",
+"sort": "2026-11-1997",
+"title": "2026.11.19 [ニュース] モーニング娘。’26　18期メンバーWebトーク「四つ葉ラジオ」を更新しました。"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-qWQLwVj1eXyytBUn",
+"html": "<p>イベント ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=qWQLwVj1eXyytBUn\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=qWQLwVj1eXyytBUn",
+"sort": "2026-11-1996",
+"title": "2026.11.19 [イベント] 「ENPLEX × Hello! Project 名古屋定期イベント」 1/15「つばきファクトリー 豫風瑠乃バースデーイベントin 名古屋」開催決定！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-5IkPrshQDKfyAPzY",
+"html": "<p>イベント ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=5IkPrshQDKfyAPzY\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=5IkPrshQDKfyAPzY",
+"sort": "2026-11-1995",
+"title": "2026.11.19 [イベント] 「アンジュルム 川名凜バースデーイベント2026」当日券予約販売のお知らせ"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-19T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-k7M5tvhF5VqnNuB2",
+"html": "<p>グッズ ・ 2026.11.19</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=k7M5tvhF5VqnNuB2\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=k7M5tvhF5VqnNuB2",
+"sort": "2026-11-1994",
+"title": "2026.11.19 [グッズ] 「ロージークロニクル相馬優芽バースデーイベント2027」オリジナルグッズ公開！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-18T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-TQaAs6ebLE0uXUe4",
+"html": "<p>イベント ・ 2026.11.18</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=TQaAs6ebLE0uXUe4\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=TQaAs6ebLE0uXUe4",
+"sort": "2026-11-1893",
+"title": "2026.11.18 [イベント] 「アンジュルム 伊勢鈴蘭・川名凜バースデーイベント in 大阪」FC先行受付のお知らせ"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-18T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-h27b5cb48d9ad",
+"html": "<p>その他 ・ 2026.11.18</p><p><a href=\"https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500",
+"sort": "2026-11-1892",
+"title": "2026.11.18 [その他] スペシャル会員ポイントプレゼント情報更新！（8500pt ファンクラブイベントチケット）"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-18T12:00:00+09:00",
+"fcgroups": [],
+"guid": "fc-RS6Xm4y9JEBddATv",
+"html": "<p>イベント ・ 2026.11.18</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=RS6Xm4y9JEBddATv\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=RS6Xm4y9JEBddATv",
+"sort": "2026-11-1891",
+"title": "2026.11.18 [イベント] Hello! Project会員の皆様へ、『竹内朱莉バースデーイベント2026～Ⅳ～』当日券販売のお知らせ"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-18T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-e6SrZJMgMBQ9fuag",
+"html": "<p>グッズ ・ 2026.11.18</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=e6SrZJMgMBQ9fuag\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=e6SrZJMgMBQ9fuag",
+"sort": "2026-11-1890",
+"title": "2026.11.18 [グッズ] Juice=Juice FCイベント2027 ～Miracle×Juice×Box×結成Party！～ オリジナルグッズ公開！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-39aZzv4N55w0Y4qT",
+"html": "<p>イベント ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=39aZzv4N55w0Y4qT\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=39aZzv4N55w0Y4qT",
+"sort": "2026-11-1789",
+"title": "2026.11.17 [イベント] ★ファンクラブ会員限定イベント★「BEYOOOOONDS/SeasoningS FCイベント2027 ～Triple Flavor 2～」開催決定！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-h3f28fe2c70fd",
+"html": "<p>その他 ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/fan/fan_sp_info.php\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/fan/fan_sp_info.php",
+"sort": "2026-11-1788",
+"title": "2026.11.17 [その他] スペシャル会員ポイントプレゼント情報更新！（15000pt 2ショット写真＆直筆サイン色紙）"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [],
+"guid": "fc-nrnF2Utzretw1Hhe",
+"html": "<p>ニュース ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=nrnF2Utzretw1Hhe\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=nrnF2Utzretw1Hhe",
+"sort": "2026-11-1787",
+"title": "2026.11.17 [ニュース] Hello! Project会員の皆様へ、保田圭出演 朗読劇『すぎた女たち』FC先行受付のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-JZt9Lb39udy5Lfqv",
+"html": "<p>ニュース ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=JZt9Lb39udy5Lfqv\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=JZt9Lb39udy5Lfqv",
+"sort": "2026-11-1786",
+"title": "2026.11.17 [ニュース] エグゼクティブパス2027の販売決定！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-hH3krxbN1amxa7kF",
+"html": "<p>イベント ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=hH3krxbN1amxa7kF\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=hH3krxbN1amxa7kF",
+"sort": "2026-11-1785",
+"title": "2026.11.17 [イベント] 「ロージークロニクルFCイベント2026 〜Rosy Christmas!〜」当日券予約販売のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-17T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-hcf101e584235",
+"html": "<p>ニュース ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&amp;@tbl=contents&amp;@uid=KENSYUSEI\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&@tbl=contents&@uid=KENSYUSEI",
+"sort": "2026-11-1784",
+"title": "2026.11.17 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-UQgqXJgI0pk7RhVF",
+"html": "<p>イベント ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=UQgqXJgI0pk7RhVF\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=UQgqXJgI0pk7RhVF",
+"sort": "2026-11-1683",
+"title": "2026.11.16 [イベント] ★ファンクラブ会員限定イベント★『つばきファクトリー FCイベント2026「CAMELLyear end Party」～大忘年会スッペシャル～』開催決定！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-4sWNRiK0Kni6bVf0",
+"html": "<p>イベント ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=4sWNRiK0Kni6bVf0\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=4sWNRiK0Kni6bVf0",
+"sort": "2026-11-1682",
+"title": "2026.11.16 [イベント] 「BEYOOOOONDS FCイベント2026 ～クリスマスの陣ZIN～」当日券予約販売のお知らせ"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-90t6tQhpRR65qTHS",
+"html": "<p>その他 ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=90t6tQhpRR65qTHS\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=90t6tQhpRR65qTHS",
+"sort": "2026-11-1681",
+"title": "2026.11.16 [その他] ファンクラブ会員限定企画 小田さくら「Graduation Flower Project」実施のお知らせ"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-KkwdvnFTE3LKHA23",
+"html": "<p>その他 ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=KkwdvnFTE3LKHA23\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=KkwdvnFTE3LKHA23",
+"sort": "2026-11-1680",
+"title": "2026.11.16 [その他] 小田さくら「Graduation Flower Project」アイディア募集！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-h11cc4af2b11f",
+"html": "<p>ニュース ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=VKb2URgMJsyxWKKQ&amp;ccid=9&amp;gid=8&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=VKb2URgMJsyxWKKQ&ccid=9&gid=8&@rst=all",
+"sort": "2026-11-1679",
+"title": "2026.11.16 [ニュース] つばきムービーを更新しました。"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-16T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-FPEkq8GV2MGQt5fp",
+"html": "<p>ニュース ・ 2026.11.16</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=FPEkq8GV2MGQt5fp\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=FPEkq8GV2MGQt5fp",
+"sort": "2026-11-1678",
+"title": "2026.11.16 [ニュース] 「Hello! Projectデジタルコレクション」にて11月還元FESを開催します！"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-13T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-SH1d5QwgzTzjAe7m",
+"html": "<p>配信 ・ 2026.11.13</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=SH1d5QwgzTzjAe7m\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=SH1d5QwgzTzjAe7m",
+"sort": "2026-11-1377",
+"title": "2026.11.13 [配信] 「小田さくら　卒業記念スペシャル配信」決定！"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-13T12:00:00+09:00",
+"fcgroups": [
+"ochanorma",
+"rosychronicle"
+],
+"guid": "fc-qHLA38PmmwSUGFXE",
+"html": "<p>コンサート ・ 2026.11.13</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=qHLA38PmmwSUGFXE\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=qHLA38PmmwSUGFXE",
+"sort": "2026-11-1376",
+"title": "2026.11.13 [コンサート] 『Hello! Project 「NEW YEAR CELEBRATION 2027 -OCHA NORMA-／-ロージークロニクル- 」』FC先行受付のお知らせ"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-13T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-tqJ1g1XH29EBhL9L",
+"html": "<p>配信 ・ 2026.11.13</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=tqJ1g1XH29EBhL9L\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=tqJ1g1XH29EBhL9L",
+"sort": "2026-11-1375",
+"title": "2026.11.13 [配信] ファンクラブ会員限定イベント「つばきファクトリー 谷本安美バースデーイベント2026」配信決定！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-13T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"ochanorma"
+],
+"guid": "fc-LqEkGfIpYIWRyJay",
+"html": "<p>ニュース ・ 2026.11.13</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=LqEkGfIpYIWRyJay\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=LqEkGfIpYIWRyJay",
+"sort": "2026-11-1374",
+"title": "2026.11.13 [ニュース] 「Hello! Projectデジタルコレクション」に新トレカが追加されました！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-13T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-HATTFme0G74YqXWW",
+"html": "<p>イベント ・ 2026.11.13</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=HATTFme0G74YqXWW\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=HATTFme0G74YqXWW",
+"sort": "2026-11-1373",
+"title": "2026.11.13 [イベント] 「ミニモちゃん紙芝居andダンスショー in ミニモちゃんカフェ」ジュニア会員ご招待のお知らせ"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-Dt56uNAAvPTjK2EH",
+"html": "<p>コンサート ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Dt56uNAAvPTjK2EH\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Dt56uNAAvPTjK2EH",
+"sort": "2026-11-1272",
+"title": "2026.11.12 [コンサート] 【購入希望者向け】『Juice=Juice Room Tour 2026 「5ROOMS -ROYAL SUITE-」』チケット公式リセール開始のお知らせ"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-APbyAdiUJMTq0EJ3",
+"html": "<p>コンサート ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=APbyAdiUJMTq0EJ3\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=APbyAdiUJMTq0EJ3",
+"sort": "2026-11-1271",
+"title": "2026.11.12 [コンサート] 【出品希望者向け】『Juice=Juice Room Tour 2026 「5ROOMS -ROYAL SUITE-」』チケット公式リセール開始のお知らせ"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-6Ama6h8qMEjiEbVv",
+"html": "<p>イベント ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=6Ama6h8qMEjiEbVv\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=6Ama6h8qMEjiEbVv",
+"sort": "2026-11-1270",
+"title": "2026.11.12 [イベント] ★ファンクラブ会員限定イベント★「ロージークロニクル 村越彩菜バースデーイベント2027」開催決定！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-h3eacd8a021cd",
+"html": "<p>ニュース ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=0rrjhFT1PQ8bjzGp&amp;ccid=15&amp;gid=3&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=0rrjhFT1PQ8bjzGp&ccid=15&gid=3&@rst=all",
+"sort": "2026-11-1243",
+"title": "2026.11.12 [ニュース] モーニング娘。’26　18期メンバーWebトーク「四つ葉ラジオ」を更新しました。"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-rUGAxIMVs3A301rs",
+"html": "<p>グッズ ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=rUGAxIMVs3A301rs\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=rUGAxIMVs3A301rs",
+"sort": "2026-11-1243",
+"title": "2026.11.12 [グッズ] Juice=Juice 江端妃咲バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-h7a02655d566e",
+"html": "<p>その他 ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500",
+"sort": "2026-11-1243",
+"title": "2026.11.12 [その他] スペシャル会員ポイントプレゼント情報更新！（8500pt ファンクラブイベントチケット）"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"helloprokenshusei",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-iQmWjt2zEz9pq4uk",
+"html": "<p>コンサート ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=iQmWjt2zEz9pq4uk\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=iQmWjt2zEz9pq4uk",
+"sort": "2026-11-1242",
+"title": "2026.11.12 [コンサート] 『Hello! Project 2027 Winter  「Crossroads」』FC2次受付のお知らせ"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-GYw5NG0pg2FSbIUX",
+"html": "<p>グッズ ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=GYw5NG0pg2FSbIUX\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=GYw5NG0pg2FSbIUX",
+"sort": "2026-11-1242",
+"title": "2026.11.12 [グッズ] つばきファクトリー 谷本安美バースデーイベント2026 オリジナルグッズ公開！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-hb89260663574",
+"html": "<p>その他 ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/fan/fan_sp_info.php\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/fan/fan_sp_info.php",
+"sort": "2026-11-1242",
+"title": "2026.11.12 [その他] スペシャル会員ポイントプレゼント情報更新！（15000pt 2ショット写真＆直筆サイン色紙）"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-12T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-KRgeXwwtkUNdp5TF",
+"html": "<p>イベント ・ 2026.11.12</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=KRgeXwwtkUNdp5TF\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=KRgeXwwtkUNdp5TF",
+"sort": "2026-11-1241",
+"title": "2026.11.12 [イベント] 【11/12更新】「つばきファクトリー 谷本安美バースデーイベント2026」当日券販売のお知らせ"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-11T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-BrIkhyRQ0J2UQ6ex",
+"html": "<p>グッズ ・ 2026.11.11</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=BrIkhyRQ0J2UQ6ex\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=BrIkhyRQ0J2UQ6ex",
+"sort": "2026-11-1142",
+"title": "2026.11.11 [グッズ] Juice=Juice 有澤一華バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-11T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-hJtPkDS7w02s7F5G",
+"html": "<p>コンサート ・ 2026.11.11</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=hJtPkDS7w02s7F5G\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=hJtPkDS7w02s7F5G",
+"sort": "2026-11-1142",
+"title": "2026.11.11 [コンサート] BEYOOOOONDS出演「BEYOOOOOPHONIC Ⅳ」ファンクラブ先行受付のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-11T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-hc494905f5ee4",
+"html": "<p>ニュース ・ 2026.11.11</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=6wrZRWPDkwHiQ3xM&amp;ccid=5&amp;gid=3&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=6wrZRWPDkwHiQ3xM&ccid=5&gid=3&@rst=all",
+"sort": "2026-11-1141",
+"title": "2026.11.11 [ニュース] モーニング’ムービーを更新しました。"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-11T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-4hVQgMHANPJn8Qw7",
+"html": "<p>グッズ ・ 2026.11.11</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=4hVQgMHANPJn8Qw7\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=4hVQgMHANPJn8Qw7",
+"sort": "2026-11-1140",
+"title": "2026.11.11 [グッズ] ファンクラブショップ 受付締切日・商品お届け予定日のお知らせ"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-10T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-UkP80A3PUjWyXvU5",
+"html": "<p>イベント ・ 2026.11.10</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=UkP80A3PUjWyXvU5\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=UkP80A3PUjWyXvU5",
+"sort": "2026-11-1041",
+"title": "2026.11.10 [イベント] ★ファンクラブ会員限定イベント★「アンジュルム 為永幸音バースデーイベント2027」開催決定！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-10T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-h5f47d0524954",
+"html": "<p>その他 ・ 2026.11.10</p><p><a href=\"https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500",
+"sort": "2026-11-1040",
+"title": "2026.11.10 [その他] スペシャル会員ポイントプレゼント情報更新！（8500pt ファンクラブイベントチケット）"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-10T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-hf7579657fc2a",
+"html": "<p>その他 ・ 2026.11.10</p><p><a href=\"https://www.upfc.jp/helloproject/fan/fan_sp_info.php\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/fan/fan_sp_info.php",
+"sort": "2026-11-1039",
+"title": "2026.11.10 [その他] スペシャル会員ポイントプレゼント情報更新！（15000pt 2ショット写真＆直筆サイン色紙）"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-10T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-FD29U0LUZtfbLFbp",
+"html": "<p>グッズ ・ 2026.11.10</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=FD29U0LUZtfbLFbp\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=FD29U0LUZtfbLFbp",
+"sort": "2026-11-1039",
+"title": "2026.11.10 [グッズ] ロージークロニクル 小野田華凜バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-09T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-0NTJ2MYjYGZN9vTi",
+"html": "<p>イベント ・ 2026.11.09</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=0NTJ2MYjYGZN9vTi\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=0NTJ2MYjYGZN9vTi",
+"sort": "2026-11-0939",
+"title": "2026.11.09 [イベント] ★ファンクラブ会員限定イベント★「モーニング娘。’27 杉原明紗バースデーイベント」FC2次受付のお知らせ"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-09T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-V9j3kNIGv0gVfBYM",
+"html": "<p>グッズ ・ 2026.11.09</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=V9j3kNIGv0gVfBYM\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=V9j3kNIGv0gVfBYM",
+"sort": "2026-11-0938",
+"title": "2026.11.09 [グッズ] モーニング娘。'26 櫻井梨央バースデーイベント オリジナルグッズ公開！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-8TZH4bwiAwEidYAM",
+"html": "<p>イベント ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=8TZH4bwiAwEidYAM\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=8TZH4bwiAwEidYAM",
+"sort": "2026-11-0641",
+"title": "2026.11.06 [イベント] 11/9(月)『OCHA NORMA 斉藤円香バースデーイベント2026 in 名古屋』皆さんからの質問を大募集！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-36x8rvNtJnKj8Kq3",
+"html": "<p>イベント ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=36x8rvNtJnKj8Kq3\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=36x8rvNtJnKj8Kq3",
+"sort": "2026-11-0640",
+"title": "2026.11.06 [イベント] ★ファンクラブ会員限定イベント★「Juice=Juice 有澤一華バースデーイベント2027」FC2次受付のお知らせ"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-t2rrLn8J5eW3MRQE",
+"html": "<p>配信 ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=t2rrLn8J5eW3MRQE\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=t2rrLn8J5eW3MRQE",
+"sort": "2026-11-0640",
+"title": "2026.11.06 [配信] 【HELLO! PROJECT STREAM】演劇女子部「TIME REPEAT」配信決定！"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-y2sV1vGgMkhsubAF",
+"html": "<p>配信 ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=y2sV1vGgMkhsubAF\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=y2sV1vGgMkhsubAF",
+"sort": "2026-11-0639",
+"title": "2026.11.06 [配信] ファンクラブ会員限定イベント「つばきファクトリー 石井泉羽バースデーイベント2026」配信決定！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei",
+"tsubakifactory"
+],
+"guid": "fc-AHTydtJMp36NiYSf",
+"html": "<p>ニュース ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=AHTydtJMp36NiYSf\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=AHTydtJMp36NiYSf",
+"sort": "2026-11-0638",
+"title": "2026.11.06 [ニュース] 「Hello! Projectデジタルコレクション」に新トレカが追加されました！"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-DnVb6WPXi99em5MB",
+"html": "<p>配信 ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=DnVb6WPXi99em5MB\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=DnVb6WPXi99em5MB",
+"sort": "2026-11-0637",
+"title": "2026.11.06 [配信] ファンクラブ会員限定イベント「モーニング娘。’26 櫻井梨央バースデーイベント2026」配信決定！"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-rETGKX0zksPNEQGG",
+"html": "<p>グッズ ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=rETGKX0zksPNEQGG\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=rETGKX0zksPNEQGG",
+"sort": "2026-11-0636",
+"title": "2026.11.06 [グッズ] 11/6(金)受付スタート 11月通販公開！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-06T12:00:00+09:00",
+"fcgroups": [
+"juicejuice",
+"morningmusume"
+],
+"guid": "fc-Wtt39IFfMSsYhVUK",
+"html": "<p>イベント ・ 2026.11.06</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Wtt39IFfMSsYhVUK\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Wtt39IFfMSsYhVUK",
+"sort": "2026-11-0635",
+"title": "2026.11.06 [イベント] 小田さくら・段原瑠々出演『BS-TBS　Presents　All That Music2027』FC先行受付のお知らせ"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-ZBiUZjmnH4JuEb8g",
+"html": "<p>イベント ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=ZBiUZjmnH4JuEb8g\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=ZBiUZjmnH4JuEb8g",
+"sort": "2026-11-0537",
+"title": "2026.11.05 [イベント] ★ファンクラブ会員限定イベント★「アンジュルム 伊勢鈴蘭バースデーイベント2027」FC2次受付のお知らせ"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-ntPxywb0bpkiySut",
+"html": "<p>イベント ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=ntPxywb0bpkiySut\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=ntPxywb0bpkiySut",
+"sort": "2026-11-0537",
+"title": "2026.11.05 [イベント] ★ファンクラブ会員限定イベント★「Juice=Juice FCイベント2027 ～Miracle×Juice×Box×結成Party！～」開催決定！"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-d73DU9JLRxPUwHPz",
+"html": "<p>イベント ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=d73DU9JLRxPUwHPz\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=d73DU9JLRxPUwHPz",
+"sort": "2026-11-0537",
+"title": "2026.11.05 [イベント] ★ファンクラブ会員限定イベント★「ロージークロニクル 相馬優芽バースデーイベント2027」開催決定！"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"juicejuice",
+"rosychronicle"
+],
+"guid": "fc-h893854968424",
+"html": "<p>その他 ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/fan/fan_sp_info.php\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/fan/fan_sp_info.php",
+"sort": "2026-11-0536",
+"title": "2026.11.05 [その他] スペシャル会員ポイントプレゼント情報更新！（15000pt 2ショット写真＆直筆サイン色紙）"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-hee931d55e0dd",
+"html": "<p>ニュース ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=IyRRtmJRua6gWtsa&amp;ccid=9&amp;gid=8&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=IyRRtmJRua6gWtsa&ccid=9&gid=8&@rst=all",
+"sort": "2026-11-0536",
+"title": "2026.11.05 [ニュース] つばきムービーを更新しました。"
+},
+{
+"cat": "その他",
+"categories": [
+"その他"
+],
+"date": "2026-11-05T12:00:00+09:00",
+"fcgroups": [
+"rosychronicle"
+],
+"guid": "fc-he7caa4014cca",
+"html": "<p>その他 ・ 2026.11.05</p><p><a href=\"https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/event/event_sp_list.php?@wc=sp8500",
+"sort": "2026-11-0536",
+"title": "2026.11.05 [その他] スペシャル会員ポイントプレゼント情報更新！（8500pt ファンクラブイベントチケット）"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-03T12:00:00+09:00",
+"fcgroups": [
+"tsubakifactory"
+],
+"guid": "fc-Um6IEhgt0gjfuzh7",
+"html": "<p>グッズ ・ 2026.11.03</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Um6IEhgt0gjfuzh7\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Um6IEhgt0gjfuzh7",
+"sort": "2026-11-0335",
+"title": "2026.11.03 [グッズ] つばきファクトリー 石井泉羽バースデーイベント2026 オリジナルグッズ公開！"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-11-02T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-pa4EHJz4PwTq7tdy",
+"html": "<p>コンサート ・ 2026.11.02</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=pa4EHJz4PwTq7tdy\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=pa4EHJz4PwTq7tdy",
+"sort": "2026-11-0238",
+"title": "2026.11.02 [コンサート] 演劇女子部「TIME REPEAT」 中止公演のチケット払い戻し方法についてのご案内（11/2更新）"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-02T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-5XKgIHQDdnMXxaLb",
+"html": "<p>グッズ ・ 2026.11.02</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=5XKgIHQDdnMXxaLb\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=5XKgIHQDdnMXxaLb",
+"sort": "2026-11-0237",
+"title": "2026.11.02 [グッズ] BEYOOOOONDS/雨ノ森 川海 清野桃々姫バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-02T12:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-i7DZPraMRBDuetKj",
+"html": "<p>グッズ ・ 2026.11.02</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=i7DZPraMRBDuetKj\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=i7DZPraMRBDuetKj",
+"sort": "2026-11-0236",
+"title": "2026.11.02 [グッズ] アンジュルム 伊勢鈴蘭バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-02T12:00:00+09:00",
+"fcgroups": [
+"beyooooonds"
+],
+"guid": "fc-hac890d9206bc",
+"html": "<p>ニュース ・ 2026.11.02</p><p><a href=\"https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=idAzkiiKwh9p3zFG&amp;ccid=11&amp;gid=9&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/contents_detail.php?@uid=idAzkiiKwh9p3zFG&ccid=11&gid=9&@rst=all",
+"sort": "2026-11-0236",
+"title": "2026.11.02 [ニュース] BEYOOOOONDS MOOOOOVIEを更新しました。"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-01T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"ochanorma"
+],
+"guid": "fc-zvzN4siyynW430zV",
+"html": "<p>ニュース ・ 2026.11.01</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=zvzN4siyynW430zV\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=zvzN4siyynW430zV",
+"sort": "2026-11-0135",
+"title": "2026.11.01 [ニュース] 「Hello! Projectデジタルコレクション」にて11月還元FESを開催します！"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-10-30T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-XRZbfSrFY2i9yvXj",
+"html": "<p>配信 ・ 2026.10.30</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=XRZbfSrFY2i9yvXj\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=XRZbfSrFY2i9yvXj",
+"sort": "2026-10-3038",
+"title": "2026.10.30 [配信] ファンクラブ会員限定イベント「OCHA NORMA 斉藤円香バースデーイベント2026」配信決定！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-10-30T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-gye3FFmq7LmMxT7j",
+"html": "<p>ニュース ・ 2026.10.30</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=gye3FFmq7LmMxT7j\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=gye3FFmq7LmMxT7j",
+"sort": "2026-10-3037",
+"title": "2026.10.30 [ニュース] 『好きなグループ』登録変更受付のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-10-29T12:00:00+09:00",
+"fcgroups": [
+"ochanorma"
+],
+"guid": "fc-xs2rIJmHTy5ndwIb",
+"html": "<p>ニュース ・ 2026.10.29</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=xs2rIJmHTy5ndwIb\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=xs2rIJmHTy5ndwIb",
+"sort": "2026-10-2936",
+"title": "2026.10.29 [ニュース] 【ミニモちゃんカフェ】ミニモちゃん✕ほっぺちゃんコラボ記念！「ほっぺちゃんしぼり体験」開催♪"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-10-29T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei",
+"ochanorma"
+],
+"guid": "fc-aGr5JuH9jfn2zPjz",
+"html": "<p>ニュース ・ 2026.10.29</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=aGr5JuH9jfn2zPjz\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=aGr5JuH9jfn2zPjz",
+"sort": "2026-10-2935",
+"title": "2026.10.29 [ニュース] 『ミニモちゃんカフェ』開催決定！チケットのご予約は10月30日（金）18:00から！"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-10-27T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-Ta0Pam82b0HNqzq8",
+"html": "<p>コンサート ・ 2026.10.27</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Ta0Pam82b0HNqzq8\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Ta0Pam82b0HNqzq8",
+"sort": "2026-10-2744",
+"title": "2026.10.27 [コンサート] 『Hello! Project 2027 Winter  「Crossroads」』FC先行受付のお知らせ"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-10-09T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-szJaTLd82unWavUu",
+"html": "<p>コンサート ・ 2026.10.09</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=szJaTLd82unWavUu\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=szJaTLd82unWavUu",
+"sort": "2026-10-0943",
+"title": "2026.10.09 [コンサート] 「Hello! Project 研修生発表会 2026 12月 〜光星〜」FC先行受付のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-10-01T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-h5d7f2e6c8c52",
+"html": "<p>ニュース ・ 2026.10.01</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&amp;@tbl=contents&amp;@uid=KENSYUSEI\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&@tbl=contents&@uid=KENSYUSEI",
+"sort": "2026-10-0142",
+"title": "2026.10.01 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-09-28T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-sqJwf4Ej2Uzfi5HJ",
+"html": "<p>配信 ・ 2026.09.28</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=sqJwf4Ej2Uzfi5HJ\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=sqJwf4Ej2Uzfi5HJ",
+"sort": "2026-09-2841",
+"title": "2026.09.28 [配信] 「Hello! Project 研修生発表会 2026 9月 ～新風～」配信決定！"
+},
+{
+"cat": "コンサート",
+"categories": [
+"コンサート"
+],
+"date": "2026-09-28T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-kAVTdD0WUhH1xtNr",
+"html": "<p>コンサート ・ 2026.09.28</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=kAVTdD0WUhH1xtNr\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=kAVTdD0WUhH1xtNr",
+"sort": "2026-09-2840",
+"title": "2026.09.28 [コンサート] Hello! Project会員の皆様へ、『宮本佳林 5周年記念LIVE TOUR 2026 ～ぼくのかんがえたさいきょうの「宮本佳林MAX」～』 FC NEXT先行受付のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-09-17T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-hdbb47e562089",
+"html": "<p>ニュース ・ 2026.09.17</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&@rst=all",
+"sort": "2026-09-1739",
+"title": "2026.09.17 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-08-26T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-h30b3e5514165",
+"html": "<p>ニュース ・ 2026.08.26</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&amp;@tbl=contents&amp;@uid=KENSYUSEI\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&@tbl=contents&@uid=KENSYUSEI",
+"sort": "2026-08-2638",
+"title": "2026.08.26 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-08-18T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-h61a211684f63",
+"html": "<p>ニュース ・ 2026.08.18</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&@rst=all",
+"sort": "2026-08-1837",
+"title": "2026.08.18 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-08-14T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-rNFw7g00ELFewZIp",
+"html": "<p>配信 ・ 2026.08.14</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=rNFw7g00ELFewZIp\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=rNFw7g00ELFewZIp",
+"sort": "2026-08-1436",
+"title": "2026.08.14 [配信] 「ハロ！コン 2026」配信決定！"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-08-12T12:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-h4ff0dff68dc4",
+"html": "<p>ニュース ・ 2026.08.12</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@uid=KENSYUSEI&@rst=all",
+"sort": "2026-08-1235",
+"title": "2026.08.12 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+}
+]
+}
