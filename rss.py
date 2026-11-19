@@ -51,9 +51,12 @@ from xml.sax.saxutils import escape, quoteattr
 
 import hpwatch
 import radiko
+import selectable
 
 JST = dt.timezone(dt.timedelta(hours=9))
 LIMIT = 50  # 1フィードに出す記事数
+CAT_LABELS = {"NEWS": "お知らせ", "EVENT": "イベント", "TV": "テレビ", "RADIO": "ラジオ", "MAGAZINE": "雑誌", "WEB": "WEB"}
+SITE_LABELS = {"hp": "ハロプロ", "jproom": "JPROOM", "fc": "ハロプロFC"}
 
 SITES = {
     "hp": {"label": "ハロプロ", "base": "https://helloproject.com", "by_group": True},
@@ -104,7 +107,7 @@ def fetch_news(base, version, years):
     return items
 
 
-def news_item(site, base, x):
+def news_item(site, base, x, pm):
     """タイトルは「2026.11.16 [NEWS] 題名」（公式サイトの並びと日付の書き方）。種類は [NEWS] か [EVENT] だけ。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
     タイトルには入れずカテゴリ欄にだけ残す"""
     title = hpwatch.text_of(x.get("title")).strip()
@@ -121,6 +124,8 @@ def news_item(site, base, x):
         "html": news_html(x, cat, link),
         "categories": [cat] + ([x["flag"]] if x.get("flag") else []) + list(x.get("tags") or []),
         "groups": [str(i) for i in x.get("artistsSearch") or []],
+        "who": selectable.who_of(x.get("artistsSearch"), pm),  # 選択式フィード用
+        "cats": [cat],
     }
 
 
@@ -224,7 +229,12 @@ def perf_of(x):
     return list(x.get("tags") or [])
 
 
-def media_item(site, base, x, rk, now, late):
+def media_who(x, pm):
+    """グループ（artistsSearch）と、出るメンバー（membersSearch）のキー"""
+    return selectable.who_of(list(x.get("artistsSearch") or []) + list(x.get("membersSearch") or []), pm)
+
+
+def media_item(site, base, x, rk, now, late, pm):
     s = x.get("schedule") or {}
     cat = x["category"]
     title = hpwatch.text_of(x.get("title")).strip()
@@ -262,6 +272,8 @@ def media_item(site, base, x, rk, now, late):
         "html": html,
         "categories": [cat] + tags + perf,
         "groups": [str(i) for i in x.get("artistsSearch") or []],
+        "who": media_who(x, pm),  # 選択式フィード用
+        "cats": [cat],
     }
 
 
@@ -274,6 +286,16 @@ def update_media(site, base, schedules, profiles, state_path, now, rk):
     first = state is None
     seen = dict((state or {}).get("seen") or {})
     items = list((state or {}).get("items") or [])
+    pm = selectable.people_map(profiles)
+
+    # 選択式フィード用の「人・グループ」「カテゴリ」を持たない、これまでの記事に付ける（公式のJSONに残っているものだけ。
+    # 無いものは、グループだけ付ける）
+    who_by_guid = {f"{site}-media-{media_keys(x)[0]}": media_who(x, pm) for x in media_candidates(schedules, profiles)}
+    for i in items:
+        if "who" not in i:
+            i["who"] = who_by_guid.get(i["guid"]) or selectable.who_of(i.get("groups"), pm)
+        if "cats" not in i:
+            i["cats"] = i["categories"][:1]
 
     today = now.date()
     seed_end = (today + dt.timedelta(days=SEED_DAYS)).isoformat()
@@ -295,7 +317,7 @@ def update_media(site, base, schedules, profiles, state_path, now, rk):
                 continue
         elif late and not (x["category"] in ("WEB", "MAGAZINE") and x["date"] >= late_from):
             continue  # 放送日を過ぎてから載ったテレビ・ラジオは出さない
-        new.append(media_item(site, base, x, rk, now, late))
+        new.append(media_item(site, base, x, rk, now, late, pm))
 
     cutoff = (now.date() - dt.timedelta(days=SEEN_DAYS)).isoformat()
     seen = {k: d for k, d in seen.items() if d >= cutoff}
@@ -470,7 +492,8 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
         raise RuntimeError(f"{site}: お知らせが1件も取れなかった")
     if not schedules:
         raise RuntimeError(f"{site}: スケジュールが1件も取れなかった")
-    news, news_state, news_found = stamp_news([news_item(site, base, x) for x in raw],
+    pm = selectable.people_map(profiles)
+    news, news_state, news_found = stamp_news([news_item(site, base, x, pm) for x in raw],
                                   os.path.join(state_dir, f"rss_news_{site}.json"), stamp)
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
@@ -487,10 +510,19 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
         f"{base}/schedule/", url, newest(today_items(site, base, schedules, now, rk))))
     feeds.append({"site": site, "kind": "today", "name": name, "url": url})
 
+    # 選択式フィードの元データ（人・グループは、プロフィールの順。種別: group・unit はグループ、member・solo は人）
+    who_info = list(pm.values())
+    sources = [
+        selectable.make_source(out, site, SITE_LABELS[site], "news", "お知らせ", news, who_info,
+                               [(k, CAT_LABELS[k]) for k in ("NEWS", "EVENT")]),
+        selectable.make_source(out, site, SITE_LABELS[site], "schedule", "スケジュール（新しく載った出演）", media, who_info,
+                               [(k, CAT_LABELS[k]) for k in MEDIA_CATS], who_all=True),
+    ]
+
     # フィードを書けてから状態を保存する
     save_state(state_path, state)
     save_state(os.path.join(state_dir, f"rss_news_{site}.json"), news_state)
-    return feeds, {"site": site, "version": version, "news": news_found, "media": media_found}
+    return feeds, {"site": site, "version": version, "news": news_found, "media": media_found}, sources
 
 
 # ---------- ファンクラブニュース ----------
@@ -637,7 +669,11 @@ def build_fc(out, state_dir, feed_base, stamp):
     if new_state is not None:
         save_state(path, new_state)
     print(f"fc news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
-    return feeds
+    rows = [dict(i, who=i.get("fcgroups") or [], cats=[FC_CATS[i["cat"]]] if i["cat"] in FC_CATS else []) for i in items]
+    source = selectable.make_source(out, "fc", SITE_LABELS["fc"], "news", "ニュース", rows,
+                                    [(slug, name, "group") for slug, _, name in FC_GROUPS],
+                                    [(k, n) for k, n in FC_FEEDS if k != "all"], who_all=True)
+    return feeds, [source]
 
 
 # ---------- 公式の更新の記録 ----------
@@ -717,6 +753,7 @@ def index_html(feeds, now):
         "<h1>hello-rss</h1>",
         "<p>公式サイトの情報を RSS にしたものです（非公式）。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
+        '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
     ]
     for site in SITES:
         for kind in KINDS:
@@ -748,6 +785,8 @@ HEADERS = """/hp/*
   Content-Type: application/rss+xml; charset=utf-8
 /all.opml
   Content-Type: text/x-opml; charset=utf-8
+/data/*
+  Cache-Control: public, max-age=300
 """
 
 
@@ -761,17 +800,20 @@ def main():
     now = dt.datetime.now(JST).replace(microsecond=0)
     rk = radiko.Radiko()
 
-    feeds, failed, records = [], [], []
+    feeds, failed, records, sources = [], [], [], []
     for site, cfg in SITES.items():
         try:
-            f, rec = build_site(site, cfg, args.out, args.state_dir, feed_base, now, rk)
+            f, rec, src = build_site(site, cfg, args.out, args.state_dir, feed_base, now, rk)
             feeds += f
             records.append(rec)
+            sources += src
         except Exception as e:  # 片方のサイトが落ちても、もう片方は出す
             print(f"error: {site}: {e}", file=sys.stderr)
             failed.append(site)
     try:
-        feeds += build_fc(args.out, args.state_dir, feed_base, now.replace(minute=0, second=0))
+        f, src = build_fc(args.out, args.state_dir, feed_base, now.replace(minute=0, second=0))
+        feeds += f
+        sources += src
     except Exception as e:
         print(f"error: fc: {e}", file=sys.stderr)
         failed.append("fc")
@@ -780,6 +822,7 @@ def main():
 
     write(os.path.join(args.out, "index.html"), index_html(feeds, now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
+    selectable.write_options(args.out, sources)
     write(os.path.join(args.out, "_headers"), HEADERS)
     log_versions(os.path.join(args.state_dir, "observe.jsonl"), records, now)
     print(f"feeds: {len(feeds)}" + (f" (失敗: {', '.join(failed)})" if failed else ""))

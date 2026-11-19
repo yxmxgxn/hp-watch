@@ -67,6 +67,20 @@
 
 これから: TVer の番組ページの対応表。
 
+## 選んで作る RSS（`/custom/`）
+
+好きな人・グループ・カテゴリだけのフィードを、各自が選んで作れる。選んだ内容はURLに入るので、保存先（KV など）は要らない。
+
+- 選ぶ画面: `https://hello-rss.karin-archive.com/custom/`（トップの一覧からリンク）
+- URL: `/custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT`
+  - `site`（`hp`・`jproom`・`fc`）と `kind`（`news`・`schedule`）は必須。**サイトはまたがない**。**お知らせとスケジュールは別**（1本＝1つのサイト × 片方の種類）
+  - `who`（人・グループ）、`cat`（カテゴリ）は任意。カンマ区切りで複数。同じ項目の中は「どれか」、`who` と `cat` は「両方」。空なら全部
+  - 選べるのは `data/options.json` にある値だけ。それ以外は400を返す（誤ったURLを、空のフィードとして登録させない）。最新50件
+- 仕組み: 公開のたびに `rss.py`（`selectable.py`）が `data/{site}-{kind}.json`（人・グループ・カテゴリ付きの記事、最大400件）と `data/options.json`（選べる値）を置く。Worker（`watcher/src/custom.js`）がデータを読んで、条件に合う記事だけを RSS にして返す（`Cache-Control: max-age=600`）
+- 人・グループのキーは、公式のプロフィールの `slug`（無い・重複するものは `id{番号}`）。名前が空のプロフィールは選択肢に出さない
+- スケジュールの元は「新しく載った出演」（MEDIA のフィードと同じ）。新しく載ったものから溜めるので、使い始めは記事が少なく、日がたつほど増える。人・グループは、記事がまだ無くても選べる
+- 手元の確認: `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（`PUBLIC_DIR` を付けると、選択式フィードのテストも動く）
+
 ## 動かす仕組み（Cloudflare の Cron Trigger が時計、GitHub Actions が作業）
 
 GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を呼ぶ。作業は3つに分けて、それぞれ独立して動く。
