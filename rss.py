@@ -18,12 +18,20 @@ MEDIA（media）
   その日の予定を、毎週の番組も含めて全部、時刻順に1記事にまとめる（1日1記事、記事の時刻は朝5時）。
   同じ番組・同じ時刻で局だけ違うものは1行にまとめる。直近7日分をJSONから毎回作り直す（状態は持たない）。
 
+ファンクラブニュース（fc）
+  Hello! Project オフィシャルファンクラブ（upfc.jp/helloproject）のニュース。HTMLを読む（JSONは無い）。
+  「すべて」の一覧（1ページ15件）を見て、新しく載った記事を状態ファイル state/rss_fc.json に足す。
+  更新を見分ける印（Last-Modified など）が無いので、動かすたびに1ページ目を見る。記事の時刻はお知らせと同じ決め方。
+  グループ別は、グループのページの一覧（news_list.php?gid=…の1ページ目）に載っているかどうかで決める（記事にはグループの印が無い）。
+  フィード: 全体、ニュース（公式のタブには無い分類）、イベント、コンサート、グッズ、配信、その他、グループ別8本。
+
 公式の更新の記録（state/observe.jsonl）
   公式が更新される（版が変わる）たびに1行。版の時刻（日本時間）と、そのとき見つけた新着の件数。
 
 フィード（out 配下）:
   hp/news/{グループslug}.xml, hp/news/all.xml     … ハロプロのお知らせ（グループ別）
   hp/media/{グループslug}.xml, hp/media/all.xml   … ハロプロの MEDIA（グループ別）
+  fc/{all,news,event,concert,goods,stream,other}.xml, fc/group/{グループ}.xml … ファンクラブニュース
   hp/today.xml                                    … ハロプロの今日の予定（全体で1本、1日1記事）
   jproom/news/all.xml, jproom/media/all.xml, jproom/today.xml … JPROOM（所属が個人なので全員まとめて1本）
   index.html, all.opml                            … 一覧ページとまとめて登録するファイル
@@ -35,7 +43,10 @@ import json
 import os
 import re
 import sys
+import time
 from email.utils import format_datetime
+from html import unescape
+from urllib.parse import urljoin
 from xml.sax.saxutils import escape, quoteattr
 
 import hpwatch
@@ -482,6 +493,153 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     return feeds, {"site": site, "version": version, "news": news_found, "media": media_found}
 
 
+# ---------- ファンクラブニュース ----------
+
+FC_BASE = "https://www.upfc.jp"
+FC_LIST = FC_BASE + "/helloproject/news_list.php"
+FC_KEEP = 300   # 状態ファイルに残す記事数
+FC_PAGES = 3    # 「すべて」を1回に見るページ数の上限（1ページ15件）
+# 公式のタブの順。ニュースはタブには無いが、「すべて」の中にある分類
+FC_FEEDS = [("all", "全体"), ("news", "ニュース"), ("event", "イベント"), ("concert", "コンサート"),
+            ("goods", "グッズ"), ("stream", "配信"), ("other", "その他")]
+FC_CATS = {"ニュース": "news", "イベント": "event", "コンサート": "concert", "グッズ": "goods", "配信": "stream", "その他": "other"}
+# グループ別（フィードの名前 → ファンクラブのグループのページ）。ハロプロのお知らせのフィードと名前をそろえる
+FC_GROUPS = [("morningmusume", "MORNING", "モーニング娘。'26"), ("angerme", "ANGERME", "アンジュルム"),
+             ("juicejuice", "JUICEJUICE", "Juice=Juice"), ("tsubakifactory", "TSUBAKIFACTORY", "つばきファクトリー"),
+             ("beyooooonds", "BEYOOOOONDS", "BEYOOOOONDS"), ("ochanorma", "OCHANORMA", "OCHA NORMA"),
+             ("rosychronicle", "ROSYCHRONICLE", "ロージークロニクル"), ("helloprokenshusei", "KENSYUSEI", "ハロプロ研修生")]
+FC_ITEM_RE = re.compile(
+    r'<li>\s*<a href="([^"]+)">\s*<p class="news__date[^"]*">\s*([\d.]+)\s*<span class="news__ctg">([^<]*)</span>\s*</p>'
+    r'\s*<p class="news__txt[^"]*">(.*?)</p>', re.S)
+
+
+def fc_get(url):
+    time.sleep(0.3)  # 続けて取りに行かない
+    return hpwatch.get(url)
+
+
+def fc_parse(page, url):
+    """一覧（news_list.php。「すべて」の ctg00）の記事。上から新しい順。1件も読めなければ、作りが変わったとみなして失敗にする"""
+    m = re.search(r'<div class="filter-atc news_list_wrap[^"]*" data-category="ctg00">(.*?)(?=<div class="filter-atc news_list_wrap|\Z)', page, re.S)
+    rows = []
+    for href, d, cat, title in FC_ITEM_RE.findall(m.group(1) if m else ""):
+        title = unescape(re.sub(r"<[^>]+>", "", title)).strip()
+        link = urljoin(url, unescape(href).strip())
+        y, mo, da = (int(x) for x in d.split("."))
+        # 記事ごとのIDがあるのは news_detail だけ。ほかは同じページを指す記事が複数あるので、中身から作る
+        uid = re.search(r"news_detail\.php\?@uid=(\w+)", link)
+        key = uid.group(1) if uid else "h" + hashlib.sha1(f"{d}|{cat}|{title}|{link}".encode()).hexdigest()[:12]
+        rows.append({"guid": f"fc-{key}", "d": d, "jd": dt.date(y, mo, da), "cat": cat.strip(), "title": title, "link": link})
+    if not rows:
+        raise RuntimeError(f"ファンクラブニュース: 記事が1件も読めない（サイトの作りが変わった？）{url}")
+    return rows
+
+
+def fc_item(r, idx, when, groups):
+    return {
+        "guid": r["guid"],
+        "sort": f"{r['jd'].isoformat()}{99 - idx:02d}",  # 同じ日・同じ時刻の中は、ページの上にあるほうが新しい
+        "title": f"{r['d']} [{r['cat']}] {r['title']}",
+        "link": r["link"],
+        "date": when.isoformat(),
+        "html": f"<p>{escape(r['cat'])} ・ {escape(r['d'])}</p><p><a href={quoteattr(r['link'])}>ファンクラブサイトで読む</a></p>",
+        "categories": [r["cat"]],
+        "cat": r["cat"],
+        "fcgroups": sorted(groups),
+    }
+
+
+def update_fc(state, stamp):
+    """一覧を見て、新しく載った記事を足す。戻り値: (記事, 新しい状態, 新しく見つけた件数)"""
+    first = state is None
+    items = list((state or {}).get("items") or [])
+    gids = dict((state or {}).get("gids") or {})
+    by_guid = {i["guid"]: i for i in items}
+
+    # 「すべて」。初回は2ページ分で始める。ふだんは、見たことのある記事に当たったら、それより先は新しくない
+    fetched = []
+    for pg in range(1, FC_PAGES + 1):
+        url = FC_LIST + ("?@rst=all" if pg == 1 else f"?@pg={pg}&@tbl=news")
+        rows = fc_parse(fc_get(url), url)
+        fetched += [(r, len(fetched) + n) for n, r in enumerate(rows)]
+        if (first and pg >= 2) or (not first and any(r["guid"] in by_guid for r in rows)):
+            break
+    in_all = {r["guid"] for r, _ in fetched}
+
+    # グループ別（1ページ目だけ）。記事そのものにはグループの印が無いので、どのグループの一覧に載っているかで決める。
+    # 2ページ目以降は、絞り込みがセッションに依るので見ない。1グループが失敗しても、ほかは続ける
+    member = {}
+    for slug, uid, _ in FC_GROUPS:
+        try:
+            if slug not in gids:  # グループの番号（gid）は、グループのページの「view more」のリンクにある
+                m = re.search(r"news_list\.php\?gid=(\d+)", fc_get(f"{FC_BASE}/helloproject/artist/?@uid={uid}&@rst=all"))
+                if not m:
+                    raise RuntimeError("グループの番号が見つからない")
+                gids[slug] = int(m.group(1))
+            url = f"{FC_LIST}?gid={gids[slug]}&@rst=all"
+            rows = fc_parse(fc_get(url), url)
+        except Exception as e:
+            print(f"warn: fc {slug}: {e}", file=sys.stderr)
+            continue
+        for pos, r in enumerate(rows):
+            member.setdefault(r["guid"], set()).add(slug)
+            if r["guid"] not in in_all:  # 「すべて」の範囲より古いが、グループの一覧にはある記事
+                in_all.add(r["guid"])
+                fetched.append((r, 50 + pos))
+
+    for i in items:  # 既に持っている記事に、グループを足す
+        g = member.get(i["guid"])
+        if g:
+            i["fcgroups"] = sorted(set(i.get("fcgroups") or []) | g)
+
+    recent = stamp.date() - dt.timedelta(days=NEWS_LATE_DAYS)
+    new = []
+    for r, idx in fetched:
+        if r["guid"] in by_guid:
+            continue
+        noon = dt.datetime.combine(r["jd"], dt.time(12), JST)
+        # 初回と、公式の日付が古い記事は、日付の正午のまま。新しい記事は、見つけた時刻（分・秒は0）
+        it = fc_item(r, idx, noon if first or r["jd"] < recent else stamp, member.get(r["guid"], set()))
+        by_guid[r["guid"]] = it
+        new.append(it)
+    items = sorted(new + items, key=lambda i: (as_dt(i["date"]), str(i["sort"])), reverse=True)[:FC_KEEP]
+    return items, {"items": items, "gids": gids}, 0 if first else len(new)
+
+
+def build_fc(out, state_dir, feed_base, stamp):
+    """ファンクラブニュースのフィードを書き出す。取得に失敗しても、前回の状態があればそれで書く（他のフィードの公開を止めない）"""
+    path = os.path.join(state_dir, "rss_fc.json")
+    state = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            state = json.load(f)
+    try:
+        items, new_state, found = update_fc(state, stamp)
+    except Exception as e:
+        if state is None:
+            raise
+        print(f"warn: fc: {e}（前回の状態で書く）", file=sys.stderr)
+        items, new_state, found = state["items"], None, 0
+
+    feeds = []
+
+    def emit(rel, name, part, subset):
+        url = f"{feed_base}/{rel}"
+        write(os.path.join(out, rel), rss_xml(
+            f"ファンクラブ ニュース ― {name}", f"{FC_BASE}/helloproject/ のファンクラブニュース（{name}）・非公式",
+            FC_LIST + "?@rst=all", url, newest(subset)))
+        feeds.append({"site": "fc", "kind": "news", "name": name, "url": url, "part": part})
+
+    for slug, name in FC_FEEDS:
+        emit(f"fc/{slug}.xml", name, "category", items if slug == "all" else [i for i in items if FC_CATS.get(i["cat"]) == slug])
+    for slug, _, name in FC_GROUPS:
+        emit(f"fc/group/{slug}.xml", name, "group", [i for i in items if slug in (i.get("fcgroups") or [])])
+    if new_state is not None:
+        save_state(path, new_state)
+    print(f"fc news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
+    return feeds
+
+
 # ---------- 公式の更新の記録 ----------
 
 def version_time(version):
@@ -519,6 +677,8 @@ def log_versions(path, records, now):
 # ---------- 一覧ページ・OPML ----------
 
 def feed_title(f):
+    if f["site"] == "fc":
+        return f"ファンクラブ ニュース ― {f['name']}"
     return f"{SITES[f['site']]['label']} {KINDS[f['kind']]} ― {f['name']}"
 
 
@@ -545,6 +705,7 @@ KIND_NOTE = {
     "news": "公式のお知らせ（イベントの発表を含む）。載った日に配信。",
     "media": "テレビ・ラジオ・雑誌・WEB の新しく載った出演予定（だいたい1週間前）。毎週の番組は含みません。ラジオには radiko のタイムフリーのリンク付き。",
     "today": "その日の予定を毎朝1本にまとめたもの。毎週の番組も含めて全部。",
+    "fc": "Hello! Project オフィシャルファンクラブのニュース。公式のタブどおりに分けています（ニュースだけは、タブには無い分類です）。",
 }
 
 
@@ -566,6 +727,14 @@ def index_html(feeds, now):
             for f in group:
                 out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
             out.append("</ul>")
+    fc = [f for f in feeds if f["site"] == "fc"]
+    if fc:
+        out.append(f"<h2>ファンクラブ ニュース</h2><p>{escape(KIND_NOTE['fc'])}</p>")
+        for part, label in (("category", "タブ"), ("group", "グループ別")):
+            out.append(f'<p class="mute">{label}</p><ul>')
+            for f in [f for f in fc if f.get("part") == part]:
+                out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
+            out.append("</ul>")
     out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n')
     return "\n".join(out)
 
@@ -574,6 +743,8 @@ def index_html(feeds, now):
 HEADERS = """/hp/*
   Content-Type: application/rss+xml; charset=utf-8
 /jproom/*
+  Content-Type: application/rss+xml; charset=utf-8
+/fc/*
   Content-Type: application/rss+xml; charset=utf-8
 /all.opml
   Content-Type: text/x-opml; charset=utf-8
@@ -599,6 +770,11 @@ def main():
         except Exception as e:  # 片方のサイトが落ちても、もう片方は出す
             print(f"error: {site}: {e}", file=sys.stderr)
             failed.append(site)
+    try:
+        feeds += build_fc(args.out, args.state_dir, feed_base, now.replace(minute=0, second=0))
+    except Exception as e:
+        print(f"error: fc: {e}", file=sys.stderr)
+        failed.append("fc")
     if not feeds:
         sys.exit(1)
 
