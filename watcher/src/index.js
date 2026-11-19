@@ -98,7 +98,9 @@ export default {
   async scheduled(controller, env, ctx) {
     ctx.waitUntil(run(controller.cron, env, new Date(controller.scheduledTime)));
   },
-  async fetch() {
-    return new Response("not found", { status: 404 });
+  // フィード（public/）に無いパスだけが、ここに来る（あるファイルは、Cloudflare が直接返す）。
+  // 無いURLはトップページ（フィードの一覧）へ移す。302 にしておく（打ち間違いのURLを、リーダーに永久に覚えさせない）
+  async fetch(req) {
+    return Response.redirect(new URL("/", req.url).toString(), 302);
   },
 };

@@ -77,6 +77,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 | スケジュールの Discord 通知 | `hpwatch.yml` | 毎日 18:00 JST |
 | プロフィール | `profiles.yml` | 毎日 18:00 JST |
 
+- フィードに無いURLは、トップページ（一覧）へ302で移す（`watcher/src/index.js` の `fetch`。あるファイルは Cloudflare が直接返すので、ここには来ない）
 - 時計のコードは `watcher/src/index.js`、cron の設定はルートの `wrangler.toml`。RSS の公開（`rss.yml` の `wrangler deploy`）のたびに、フィードと一緒に送り直す。時計の手順を変えたら、次の RSS の公開から効く
 - Worker は記憶（KV など）を持たない。二重に呼んでも、どの作業も新しい分だけを処理するので困らない
 - 呼び出しに失敗したら、そのたびに Worker が Discord に知らせる（呼び出しは1日に十数回しか無いので、続いても数は限られる）
