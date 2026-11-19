@@ -8,6 +8,8 @@
 //
 // 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したら、そのたびに Discord に知らせる。
 
+import { customFeed } from "./custom.js";
+
 const SITES = { hp: "https://helloproject.com", jproom: "https://www.jp-r.co.jp" };
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";
@@ -99,8 +101,11 @@ export default {
     ctx.waitUntil(run(controller.cron, env, new Date(controller.scheduledTime)));
   },
   // フィード（public/）に無いパスだけが、ここに来る（あるファイルは、Cloudflare が直接返す）。
-  // 無いURLはトップページ（フィードの一覧）へ移す。302 にしておく（打ち間違いのURLを、リーダーに永久に覚えさせない）
-  async fetch(req) {
+  // /custom.xml は選択式フィード（custom.js）。それ以外の無いURLはトップページ（フィードの一覧）へ移す。
+  // 302 にしておく（打ち間違いのURLを、リーダーに永久に覚えさせない）
+  async fetch(req, env) {
+    const url = new URL(req.url);
+    if (url.pathname === "/custom.xml") return customFeed(req, env);
     return Response.redirect(new URL("/", req.url).toString(), 302);
   },
 };

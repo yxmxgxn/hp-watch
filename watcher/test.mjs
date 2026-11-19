@@ -63,3 +63,50 @@ for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
   const r = await watcher.fetch(new Request("https://hello-rss.example" + path));
   assert(r.status === 302 && r.headers.get("location") === "https://hello-rss.example/", `無いパス ${path} はトップへ302`);
 }
+
+// ---- 選択式フィード（/custom.xml）。ASSETS は、rss.py が作った data/ を読む偽物
+import { readFileSync, existsSync } from "node:fs";
+const dataDir = process.env.PUBLIC_DIR;
+if (dataDir) {
+  const cenv = { ASSETS: { fetch: async (req) => {
+    const p = dataDir + new URL(req.url).pathname;
+    return existsSync(p) ? new Response(readFileSync(p)) : new Response("no", { status: 404 });
+  } } };
+  const get = async (qs) => watcher.fetch(new Request("https://hello-rss.example/custom.xml" + qs), cenv);
+  const items = (xml) => (xml.match(/<item>/g) || []).length;
+
+  let r = await get("?site=hp&kind=news");
+  let x = await r.text();
+  assert(r.status === 200 && r.headers.get("content-type").startsWith("application/rss+xml") && items(x) === 50, "条件なし: 最新50件のRSS");
+  r = await get("?site=hp&kind=news&who=angerme");
+  x = await r.text();
+  assert(items(x) > 0 && x.includes("<title>ハロプロ お知らせ ― アンジュルム</title>"), "who=angerme: アンジュルムの記事だけ・題名に選んだ名前");
+  const ids = [...x.matchAll(/<guid[^>]*>([^<]*)</g)].map((m) => m[1]);
+  const all = JSON.parse(readFileSync(dataDir + "/data/hp-news.json")).items;
+  assert(ids.every((g) => all.find((i) => i.guid === g).who.includes("angerme")), "返った記事は全部、アンジュルムの記事");
+  r = await get("?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT");
+  x = await r.text();
+  assert(x.includes("アンジュルム・Juice=Juice（イベント）") && [...x.matchAll(/<guid[^>]*>([^<]*)</g)].every((m) => { const i = all.find((j) => j.guid === m[1]); return i.cats.includes("EVENT") && (i.who.includes("angerme") || i.who.includes("juicejuice")); }), "複数のグループ × カテゴリ: どれか＋両方");
+  r = await get("?site=hp&kind=schedule&cat=RADIO");
+  assert(r.status === 200, "スケジュールのカテゴリ");
+  r = await get("?site=jproom&kind=news&who=mizuki_fukumura");
+  assert(r.status === 200 && (await r.text()).includes("譜久村聖"), "JPROOM（個人）");
+  r = await get("?site=fc&kind=news&cat=goods");
+  assert(r.status === 200, "ファンクラブのニュース");
+
+  r = await get("?site=hp");
+  assert(r.status === 400, "kind が無いと400");
+  r = await get("?site=hp&kind=music");
+  assert(r.status === 400, "知らない kind は400");
+  r = await get("?site=hp&kind=news&who=nobody");
+  assert(r.status === 400 && (await r.text()).includes("who=nobody"), "選べない人・グループは400（誤ったURLを空のフィードにしない）");
+  r = await get("?site=hp&kind=news&cat=TV");
+  assert(r.status === 400, "お知らせに無いカテゴリは400");
+  r = await get("?site=hp&kind=news&who=" + Array.from({ length: 50 }, (_, i) => "a" + i).join(","));
+  assert(r.status === 400, "選びすぎは400");
+  r = await watcher.fetch(new Request("https://hello-rss.example/custom.xml?site=hp&kind=news"), { ASSETS: { fetch: async () => new Response("x", { status: 500 }) } });
+  assert(r.status === 503, "データが読めないときは503");
+  // サイトをまたがない: hp のカテゴリ・人を jproom では選べない
+  r = await get("?site=jproom&kind=news&who=angerme");
+  assert(r.status === 400, "サイトをまたいだ指定（jproom に hp のグループ）は400");
+}
