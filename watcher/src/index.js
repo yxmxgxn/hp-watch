@@ -6,7 +6,7 @@
 //   0 20 * * *    05:00 JST  rss.yml（今日の予定）
 //   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）を別々に呼ぶ
 //
-// 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したときだけ Discord に知らせる。
+// 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したら、そのたびに Discord に知らせる。
 
 const SITES = { hp: "https://helloproject.com", jproom: "https://www.jp-r.co.jp" };
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
@@ -55,9 +55,10 @@ export async function dispatch(env, workflow, ref = "main") {
   throw new Error(last);
 }
 
-async function notifyFailure(env, text, now) {
-  // 失敗が続いても、Discord への通知は1時間に1回まで（15分おきの実行の最初の1回だけ）
-  if (!env.DISCORD_WEBHOOK_URL || now.getUTCMinutes() >= 15) return;
+async function notifyFailure(env, text) {
+  // 失敗したら毎回知らせる。呼び出しは1日に十数回（更新の検知と、5:00・18:00）しか無いので、続いても数が限られる。
+  // 時刻で間引くと、間引かれた回の失敗が誰にも知られない
+  if (!env.DISCORD_WEBHOOK_URL) return;
   await fetch(env.DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json", "User-Agent": UA },
@@ -89,7 +90,7 @@ export async function run(cron, env, now) {
   }
   const summary = { cron, at: now.toISOString(), dispatched: [...jobs].map(([w, why]) => `${w} (${why})`), failed, errors };
   console.log(JSON.stringify(summary));
-  if (failed.length) await notifyFailure(env, failed.join("\n"), now);
+  if (failed.length) await notifyFailure(env, failed.join("\n"));
   return summary;
 }
 
