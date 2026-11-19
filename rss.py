@@ -91,7 +91,7 @@ def fetch_news(base, version, years):
 
 
 def news_item(site, base, x):
-    """タイトルは「[NEWS] 2026.11.16 題名」（日付は公式サイトの書き方）。[NEWS] か [EVENT] だけを付ける。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
+    """タイトルは「2026.11.16 [NEWS] 題名」（公式サイトの並びと日付の書き方）。種類は [NEWS] か [EVENT] だけ。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
     タイトルには入れずカテゴリ欄にだけ残す"""
     title = hpwatch.text_of(x.get("title")).strip()
     cat = x.get("category") or "NEWS"
@@ -100,7 +100,7 @@ def news_item(site, base, x):
     return {
         "guid": f"{site}-news-{x['id']}",
         "sort": x["id"],
-        "title": f"[{cat}] {ymd(x['date'])} {title}",
+        "title": f"{ymd(x['date'])} [{cat}] {title}",
         "link": link,
         # JSONには日付しか無い。0時ちょうどだと、リーダーによっては前日の23:59と表示されるので、正午にしておく
         "date": dt.datetime.fromisoformat(x["date"]).replace(hour=12, tzinfo=JST),
