@@ -49,8 +49,10 @@ githubStatus = 401; calls = [];
 s = await run("0 9 * * *", env, new Date("2026-11-19T09:00:00Z"));
 assert(s.failed.length === 2 && gh().length === 2, "401 はやり直さない（2作業×1回）");
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "失敗を Discord に1回知らせる");
-calls = []; await run("0 9 * * *", env, new Date("2026-11-19T09:30:00Z"));
-assert(calls.filter((x) => x.url.includes("discord")).length === 0, "毎時の15分以降は Discord に知らせない");
+calls = []; await run("*/15 * * * *", env, at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
+assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時刻の失敗でも Discord に知らせる");
+calls = []; await run("0 9 * * *", { ...env, DISCORD_WEBHOOK_URL: undefined }, new Date("2026-11-19T09:00:00Z"));
+assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ先が未設定なら何もしない");
 
 // 500 は3回までやり直す
 githubStatus = 500; calls = [];
