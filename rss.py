@@ -91,7 +91,7 @@ def fetch_news(base, version, years):
 
 
 def news_item(site, base, x):
-    """タイトルは [NEWS] か [EVENT] だけ。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
+    """タイトルは「[NEWS] 2026.11.16 題名」（日付は公式サイトの書き方）。[NEWS] か [EVENT] だけを付ける。公式の UPDATE / NEW の印は後から付いたり外れたりするので、
     タイトルには入れずカテゴリ欄にだけ残す"""
     title = hpwatch.text_of(x.get("title")).strip()
     cat = x.get("category") or "NEWS"
@@ -100,7 +100,7 @@ def news_item(site, base, x):
     return {
         "guid": f"{site}-news-{x['id']}",
         "sort": x["id"],
-        "title": f"[{cat}] {title}",
+        "title": f"[{cat}] {ymd(x['date'])} {title}",
         "link": link,
         # JSONには日付しか無い。0時ちょうどだと、リーダーによっては前日の23:59と表示されるので、正午にしておく
         "date": dt.datetime.fromisoformat(x["date"]).replace(hour=12, tzinfo=JST),
@@ -113,7 +113,7 @@ def news_item(site, base, x):
 def news_html(x, cat, link):
     """本文はタイトルの繰り返しにしない。グループ・種類・日付の1行と、公式へのリンク"""
     kind = {"NEWS": "お知らせ", "EVENT": "イベント"}.get(cat, cat)
-    line = " ・ ".join(p for p in ["・".join(x.get("tags") or []), kind, md(x["date"])] if p)
+    line = " ・ ".join(p for p in ["・".join(x.get("tags") or []), kind, ymd(x["date"])] if p)
     return f"<p>{escape(line)}</p><p><a href={quoteattr(link)}>公式サイトで読む</a></p>"
 
 
@@ -170,6 +170,12 @@ def media_keys(x):
     if kind == "schedule":
         keys.append(f"s{iid}")
     return keys
+
+
+def ymd(date):
+    """公式サイトの日付の書き方（2026.11.6）"""
+    d = dt.date.fromisoformat(date)
+    return f"{d.year}.{d.month}.{d.day}"
 
 
 def md(date):
