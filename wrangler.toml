@@ -1,6 +1,12 @@
-# hello-rss（rss.py が public/ に書き出したフィードを、そのまま配る静的な Worker）
-# デプロイは .github/workflows/rss.yml から。初回のデプロイで Worker とカスタムドメインの DNS が作られる
+# hello-rss: フィードを配る（public/）のと、GitHub の作業を決まった時刻に呼ぶ「時計」（watcher/src/index.js）を1つの Worker にしている
+# 公開は .github/workflows/rss.yml から。初回の公開で Worker とカスタムドメインの DNS が作られる
+#
+# 秘密の値は Cloudflare のダッシュボードで直接入れる（公開しても消えない）:
+#   hello-rss → Settings → Variables and Secrets → Add → Secret
+#   GH_TOKEN             … 時計が GitHub の作業を呼ぶための fine-grained トークン（このリポジトリだけ・Actions の実行権限だけ）
+#   DISCORD_WEBHOOK_URL  … 呼び出しに失敗したときの知らせ先
 name = "hello-rss"
+main = "watcher/src/index.js"
 compatibility_date = "2026-11-18"
 
 # 元の URL（hello-rss.○○.workers.dev）と試し用の URL は出さない。案内するのはカスタムドメインだけ。
@@ -14,3 +20,13 @@ directory = "./public"
 [[routes]]
 pattern = "hello-rss.karin-archive.com"
 custom_domain = true
+
+[triggers]
+# UTC。*/15 は公式の更新の検知（rss.yml）、0 20 は 05:00 JST（rss.yml）、0 9 は 18:00 JST（hpwatch.yml と profiles.yml）
+crons = ["*/15 * * * *", "0 20 * * *", "0 9 * * *"]
+
+[vars]
+GH_REPO = "yxmxgxn/hp-watch"
+
+[observability]
+enabled = true

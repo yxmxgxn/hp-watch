@@ -1,6 +1,7 @@
 name: rss
 
 # 公式が更新されたとき（Cloudflare の Cron Trigger が検知して呼ぶ）と、毎朝 05:00 JST（今日の予定）に動く。
+# 公開（wrangler deploy）で、フィード（public/）と、時計のコード（watcher/src/index.js・cron の設定）を一緒に送る。
 # 下の schedule は、Cloudflare の呼び出しが確かめられるまでの保険。確かめたら消す
 on:
   schedule:

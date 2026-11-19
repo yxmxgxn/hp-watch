@@ -1,4 +1,5 @@
-// hello-rss-watch: 時計の役。Cloudflare の Cron Trigger で、GitHub Actions の作業を決まった時刻に呼び出す。
+// hello-rss の「時計」。Cloudflare の Cron Trigger で、GitHub Actions の作業を決まった時刻に呼び出す。
+// フィードを配る Worker（ルートの wrangler.toml）に同居している。
 // GitHub の定期実行は数時間遅れたり飛ばされたりするので使わない。記憶（KV など）は持たない。
 //
 //   */15 * * * *  公式の /schedule/ の Last-Modified が直近17分以内なら（＝サイトが作り直されたら）rss.yml を呼ぶ
@@ -38,7 +39,7 @@ export async function dispatch(env, workflow, ref = "main") {
           Authorization: `Bearer ${env.GH_TOKEN}`,
           Accept: "application/vnd.github+json",
           "X-GitHub-Api-Version": "2022-11-28",
-          "User-Agent": "hello-rss-watch",
+          "User-Agent": "hello-rss",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ ref }),
@@ -60,7 +61,7 @@ async function notifyFailure(env, text, now) {
   await fetch(env.DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json", "User-Agent": UA },
-    body: JSON.stringify({ username: "hello-rss-watch", content: `⚠️ GitHub の作業を呼べませんでした\n${text}`.slice(0, 1900) }),
+    body: JSON.stringify({ username: "hello-rss", content: `⚠️ GitHub の作業を呼べませんでした\n${text}`.slice(0, 1900) }),
   }).catch(() => {});
 }
 
