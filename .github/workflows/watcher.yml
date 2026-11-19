@@ -1,8 +1,9 @@
 name: watcher
 
 # 時計の役の Worker（watcher/）を Cloudflare に公開する。
-# GH_TOKEN は、この Worker が GitHub の作業（rss / hpwatch / profiles）を呼び出すためのトークン
-# （GitHub の Secrets では WATCHER_GITHUB_TOKEN。このリポジトリだけ・Actions の実行権限だけ）
+# GH_TOKEN（この Worker が GitHub の作業を呼び出すための、GitHub の fine-grained トークン）は、
+# ここでは渡さない。Cloudflare のダッシュボードで Worker に直接入れる
+# （hello-rss-watch → Settings → Variables and Secrets → Add → Secret、名前は GH_TOKEN）。デプロイしても消えない
 on:
   push:
     branches: [main]
@@ -27,8 +28,6 @@ jobs:
           workingDirectory: watcher
           command: deploy
           secrets: |
-            GH_TOKEN
             DISCORD_WEBHOOK_URL
         env:
-          GH_TOKEN: ${{ secrets.WATCHER_GITHUB_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}

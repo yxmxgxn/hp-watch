@@ -1,5 +1,5 @@
 # hello-rss-watch: GitHub Actions の作業を決まった時刻に呼び出す Worker（時計の役）
-# GH_TOKEN（GitHub のトークン）と DISCORD_WEBHOOK_URL は watcher.yml が秘密の値として渡す
+# GH_TOKEN（GitHub のトークン）は、Cloudflare のダッシュボードで Worker に直接入れる。DISCORD_WEBHOOK_URL は watcher.yml が渡す
 name = "hello-rss-watch"
 main = "src/index.js"
 compatibility_date = "2026-11-18"

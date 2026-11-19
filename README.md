@@ -72,7 +72,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 - Worker は記憶（KV など）を持たない。二重に呼んでも、どの作業も新しい分だけを処理するので困らない
 - 呼び出しに失敗したときだけ、Worker が Discord に知らせる（1時間に1回まで）
-- Worker の公開は `watcher.yml`（`watcher/` を `main` に入れたとき、または手動）。Secrets: `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`・`DISCORD_WEBHOOK_URL` に加えて、`WATCHER_GITHUB_TOKEN`（GitHub の fine-grained トークン。このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなり、Discord に知らせが来る）
+- Worker の公開は `watcher.yml`（`watcher/` を `main` に入れたとき、または手動）。GitHub の Secrets は `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`・`DISCORD_WEBHOOK_URL`。Worker が GitHub を呼ぶためのトークン `GH_TOKEN`（GitHub の fine-grained トークン。このリポジトリだけ・Actions の実行権限だけ）は、Cloudflare のダッシュボードで Worker に直接入れる（hello-rss-watch → Settings → Variables and Secrets → Secret）。期限が切れると呼べなくなり、Discord に知らせが来る
 - 手元の確認: `NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（公式サイトへの HEAD は本物、GitHub と Discord は偽物）
 - 公式の更新の記録: `rss.yml` が更新のたびに `state/observe.jsonl` へ1行（版の時刻・見つけた新着の件数）。取りに行く時間帯を決めるための記録
 - `watch.yml`（スケジュールとプロフィールを1つにまとめた古い作業）は、上の仕組みが確かめられるまでの保険として残してある。確かめたら消す
