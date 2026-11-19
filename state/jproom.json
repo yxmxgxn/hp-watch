@@ -1143,6 +1143,22 @@
 "status": null,
 "title": "舞台『横浜グラフィティ・フォーエバー』出演決定！"
 },
+"h08181c660cd511e7": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/radio/oshimashi/",
+"members": [],
+"note": "※23時台～生出演。",
+"start": "22:00",
+"status": null,
+"title": "CBCラジオ「推しマシ」"
+},
 "h08ade29676d22f7f": {
 "artists": [
 11
@@ -3807,6 +3823,22 @@
 "status": null,
 "title": "FM岩手「夕刊ラジオ」"
 },
+"h667e33e291a747f6": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/radio/",
+"members": [],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "IBCラジオ「音楽のハコ」"
+},
 "h668d716379cd915d": {
 "artists": [
 11
@@ -4851,6 +4883,22 @@
 "status": null,
 "title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
+"h8cf2e529048ea79c": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/radio/kyun/",
+"members": [],
+"note": "※19時台～出演予定。",
+"start": "19:00",
+"status": null,
+"title": "RSK山陽放送「キューン！MUSIC」"
+},
 "h8e54a25237eb040d": {
 "artists": [
 40
@@ -5610,6 +5658,22 @@
 "status": null,
 "title": "bayfm「78musi-curate」"
 },
+"ha689e60d4366534e": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://fma.co.jp/f/prg/afternooncolors/",
+"members": [],
+"note": "※16時台～生出演。",
+"start": "14:30",
+"status": null,
+"title": "FM AICHI「AFTERNOON COLORS」"
+},
 "ha7652b30b2d2ee72": {
 "artists": [
 40
@@ -5881,6 +5945,22 @@
 "start": "14:00",
 "status": null,
 "title": "AIR-G’「1400」"
+},
+"hb2260326fd45f442": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://kbc.co.jp/r-radio/musahaji/",
+"members": [],
+"note": "",
+"start": "24:00",
+"status": null,
+"title": "KBCラジオ「ムサシハジメました。」"
 },
 "hb2ad36280c1fb133": {
 "artists": [
@@ -6448,6 +6528,22 @@
 "status": null,
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
+"hc5d1b0580b51db30": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "16:20",
+"isFc": false,
+"label": null,
+"link": "https://www.ybc.co.jp/radioprogram/panpakapan/",
+"members": [],
+"note": "※コメント",
+"start": "13:00",
+"status": null,
+"title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
+},
 "hc604ceaa282083cb": {
 "artists": [
 5,
@@ -6632,6 +6728,22 @@
 "start": "17:15",
 "status": null,
 "title": "ロージークロニクル 夏イベント 2026～ハロプロクロニクル～"
+},
+"hd16ed31debd86115": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-19",
+"end": "27:28",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/tv/midnightshuffle",
+"members": [],
+"note": "※コメント\n※放送時間が急遽変更となる場合がございます。",
+"start": "26:58",
+"status": null,
+"title": "IBC岩手放送「ミッドナイトシャッフル」"
 },
 "hd1e9714aa869224c": {
 "artists": [
@@ -7815,7 +7927,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7835,7 +7947,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7855,7 +7967,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8792,22 +8904,6 @@
 "status": null,
 "title": "HERO GATE"
 },
-"s2172": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-19",
-"end": "27:28",
-"isFc": false,
-"label": null,
-"link": "https://www.ibc.co.jp/tv/midnightshuffle",
-"members": [],
-"note": "※コメント\n※放送時間が急遽変更となる場合がございます。",
-"start": "26:58",
-"status": null,
-"title": "IBC岩手放送「ミッドナイトシャッフル」"
-},
 "s2173": {
 "artists": [
 5
@@ -8920,22 +9016,6 @@
 "start": "24:43",
 "status": null,
 "title": "RSK山陽放送「ユタンポ」"
-},
-"s2196": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rsk.co.jp/radio/kyun/",
-"members": [],
-"note": "※19時台～出演予定。",
-"start": "19:00",
-"status": null,
-"title": "RSK山陽放送「キューン！MUSIC」"
 },
 "s2197": {
 "artists": [
@@ -9081,54 +9161,6 @@
 "status": null,
 "title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
-"s2220": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "24:30",
-"isFc": false,
-"label": null,
-"link": "https://kbc.co.jp/r-radio/musahaji/",
-"members": [],
-"note": "",
-"start": "24:00",
-"status": null,
-"title": "KBCラジオ「ムサシハジメました。」"
-},
-"s2228": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "16:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ibc.co.jp/radio/",
-"members": [],
-"note": "※コメント",
-"start": "16:30",
-"status": null,
-"title": "IBCラジオ「音楽のハコ」"
-},
-"s2229": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "16:20",
-"isFc": false,
-"label": null,
-"link": "https://www.ybc.co.jp/radioprogram/panpakapan/",
-"members": [],
-"note": "※コメント",
-"start": "13:00",
-"status": null,
-"title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
-},
 "s2232": {
 "artists": [
 11
@@ -9225,38 +9257,6 @@
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
 },
-"s2248": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://fma.co.jp/f/prg/afternooncolors/",
-"members": [],
-"note": "※16時台～生出演。",
-"start": "14:30",
-"status": null,
-"title": "FM AICHI「AFTERNOON COLORS」"
-},
-"s2249": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://hicbc.com/radio/oshimashi/",
-"members": [],
-"note": "※23時台～生出演。",
-"start": "22:00",
-"status": null,
-"title": "CBCラジオ「推しマシ」"
-},
 "s2254": {
 "artists": [
 57
@@ -9288,6 +9288,54 @@
 "start": "10:05",
 "status": null,
 "title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
+},
+"s2269": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-22",
+"end": "11:50",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
+"members": [],
+"note": "※コメント",
+"start": "11:40",
+"status": null,
+"title": "ABS秋田放送「ZIP！SUNDAY」"
+},
+"s2270": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"members": [],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "岩手めんこいテレビ「BEATNIKS」"
+},
+"s2271": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-22",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rab.co.jp/radio/niche/",
+"members": [],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "RABラジオ「らじ丸にっち！」"
 },
 "s720": {
 "artists": [
@@ -9562,5 +9610,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611190010-bdh6k7owtKR4eduk"
+"versionDir": "2611200020-0kAeh2UwWIPnuAhZ"
 }

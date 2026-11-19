@@ -46024,6 +46024,34 @@
 "status": null,
 "title": "CDシングル｜「だって大凶じゃん☆/なじられたって泣けない 愛されたって泣けない」"
 },
+"heb4b669e90dd3aa4": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-19",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
 "heb811022e7c174ec": {
 "artists": [
 42
@@ -48865,6 +48893,25 @@
 "status": null,
 "title": "今日は青木優奈（ハロプロ研修生）の13歳の誕生日です！"
 },
+"hfaa636291775621a": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-19",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.radionikkei.jp/toraken/",
+"members": [
+588,
+612
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
+},
 "hfac787811c8fe0ad": {
 "artists": [
 477
@@ -51274,6 +51321,26 @@
 "status": null,
 "title": "BSS山陰放送「エイスケとEscape！」"
 },
+"s1928": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/radio/kyun/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "RSK山陽放送「キューン！MUSIC」"
+},
 "s1930": {
 "artists": [
 477
@@ -51918,34 +51985,6 @@
 "status": null,
 "title": "BEYOOOOONDS DVD MAGAZINE Vol.17～島倉りか卒業メモリアル～"
 },
-"s2024": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-19",
-"end": "27:05",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/barabara/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "",
-"start": "26:45",
-"status": null,
-"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
-},
 "s2025": {
 "artists": [
 3
@@ -52175,6 +52214,25 @@
 "start": "19:00",
 "status": null,
 "title": "TBS「ハマダ歌謡祭★オオカミ少年」"
+},
+"s2059": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-25",
+"end": "23:25",
+"isFc": false,
+"label": null,
+"link": "https://www.tvk-yokohama.com/appare_daibouken/",
+"members": [
+620,
+631
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "テレビ神奈川「Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～」"
 },
 "s2060": {
 "artists": [
@@ -52852,6 +52910,24 @@
 "status": null,
 "title": "ロージークロニクル 村越彩菜バースデーイベント2027"
 },
+"s2180": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2027-01-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+610
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー 豫風瑠乃バースデーイベント in 名古屋"
+},
 "s2182": {
 "artists": [
 29
@@ -52870,25 +52946,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 伊勢鈴蘭・川名凜バースデーイベント in 大阪"
-},
-"s2188": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-19",
-"end": "18:30",
-"isFc": false,
-"label": null,
-"link": "https://www.radionikkei.jp/toraken/",
-"members": [
-588,
-612
-],
-"note": "",
-"start": "18:00",
-"status": null,
-"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
 },
 "s2189": {
 "artists": [
@@ -53925,7 +53982,195 @@
 "start": null,
 "status": null,
 "title": "発売日｜Hello! Project 2027 Winter「Crossroads」"
+},
+"s2267": {
+"artists": [
+29
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+590
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
+},
+"s2268": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2027-02-18",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=QWpIQqf4RmTRvtBx",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "練馬文化センター大ホール （東京）",
+"start": null,
+"status": null,
+"title": "OCHA NORMA FCイベント2027 ～ OCHA NORMAの間10 アチアチ延長注意報♡kawaiiショコラティー 〜"
+},
+"s2272": {
+"artists": [
+634
+],
+"category": "EVENT",
+"date": "2026-12-28",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/be5a5bb4002e4289c6120ea34a45073bfb0270a1cd1d8271fa2d3babebd9cdd7/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "Kanadevia Hall （東京） / ラクーアガーデンステージ （東京）",
+"start": null,
+"status": null,
+"title": "SPARK 2026 年末SPECIAL"
+},
+"s2273": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "25:45",
+"isFc": false,
+"label": null,
+"link": "https://www.ncctv.co.jp/5ch/musiclove/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "25:25",
+"status": null,
+"title": "長崎文化放送「みゅーじっくら部」"
+},
+"s2274": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-20",
+"end": "18:20",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/flight_park",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
+},
+"s2275": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/doichi_de_much_on",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "13:00",
+"status": null,
+"title": "OBSラジオ「土イチ de much-on!」"
+},
+"s2276": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "10:40",
+"isFc": false,
+"label": null,
+"link": "https://fmk.fm/pop/",
+"members": [
+496,
+541,
+708
+],
+"note": "※8時台～コメント出演予定。",
+"start": "07:30",
+"status": null,
+"title": "FM熊本「FMK poppin' breakfast」"
+},
+"s2277": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "12:30",
+"isFc": false,
+"label": null,
+"link": "https://jocr.jp/programsite/utakaze/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "10:00",
+"status": null,
+"title": "ラジオ関西「歌声は風にのって～ブランチ～」"
+},
+"s2278": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://www.myufm.jp/program/asacafe/archive/",
+"members": [
+496,
+541,
+708
+],
+"note": "※9時台～コメント出演予定。",
+"start": "08:30",
+"status": null,
+"title": "μFMエフエム鹿児島「あさcafé」"
 }
 },
-"versionDir": "2611190010-bdh6k7owtKR4eduk"
+"versionDir": "2611200020-0kAeh2UwWIPnuAhZ"
 }
