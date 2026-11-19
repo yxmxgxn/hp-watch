@@ -84,6 +84,16 @@ if (dataDir) {
   const ids = [...x.matchAll(/<guid[^>]*>([^<]*)</g)].map((m) => m[1]);
   const all = JSON.parse(readFileSync(dataDir + "/data/hp-news.json")).items;
   assert(ids.every((g) => all.find((i) => i.guid === g).who.includes("angerme")), "返った記事は全部、アンジュルムの記事");
+  r = await get("?site=mline&kind=news&who=inabamanaka&cat=ticket,goods");
+  x = await r.text();
+  assert(r.status === 200 && x.includes("M-line club FC ニュース ― 稲場愛香（チケット・グッズ）".replace("稲場愛香", (JSON.parse(readFileSync(dataDir + "/data/options.json")).sources.find((q) => q.site === "mline").who.find((w) => w.key === "inabamanaka") || {}).label)), "M-line（個人）× カテゴリ");
+  const up = JSON.parse(readFileSync(dataDir + "/data/options.json")).sources.find((q) => q.site === "upfront" && q.kind === "news").who[0];
+  r = await get("?site=upfront&kind=news&who=" + up.key);
+  assert(r.status === 200 && (await r.text()).includes(up.label), `アップフロントの人（${up.label}）`);
+  r = await get("?site=upfront&kind=schedule");
+  assert(r.status === 200, "アップフロントのスケジュール");
+  r = await get("?site=mline&kind=news&who=angerme");
+  assert(r.status === 400, "M-line に、ハロプロのグループは選べない（サイトをまたがない）");
   r = await get("?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT");
   x = await r.text();
   assert(x.includes("アンジュルム・Juice=Juice（イベント）") && [...x.matchAll(/<guid[^>]*>([^<]*)</g)].every((m) => { const i = all.find((j) => j.guid === m[1]); return i.cats.includes("EVENT") && (i.who.includes("angerme") || i.who.includes("juicejuice")); }), "複数のグループ × カテゴリ: どれか＋両方");
