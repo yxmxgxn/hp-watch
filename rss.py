@@ -816,6 +816,14 @@ def index_html(feeds, now):
                 for f in group:
                     out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
                 out.append("</ul>")
+    out.append("<h2>ハロショ（公式のRSSがあります）</h2>"
+               "<p>ハロー！プロジェクト オフィシャルショップは、公式がRSSを出しています（本文・画像つき）。"
+               "タイトルだけにしたいときや、グループ・カテゴリ・人名で絞りたいときは、"
+               '<a href="custom/">選んで作る RSS</a> の「ハロショ」が使えます。</p><ul>'
+               '<li><a href="https://www.helloshop.info/feed">新着情報（全部）</a><code>https://www.helloshop.info/feed</code></li>'
+               '<li><a href="https://www.helloshop.info/category/goods/feed">グッズ情報</a><code>https://www.helloshop.info/category/goods/feed</code></li>'
+               '<li><a href="https://www.helloshop.info/category/photo/feed">生写真情報</a><code>https://www.helloshop.info/category/photo/feed</code></li>'
+               '<li><a href="https://www.helloshop.info/category/news/feed">お知らせ</a><code>https://www.helloshop.info/category/news/feed</code></li></ul>')
     out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n')
     return "\n".join(out)
 

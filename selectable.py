@@ -68,7 +68,24 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
     }
 
 
+# 公式が WordPress で RSS を出しているサイト。記事のデータは持たず、Worker が公式のRSSを取りに行って、タイトルだけにして返す。
+# タグ・カテゴリの英字のIDは、公式の /tag/{ID}/・/category/{ID}/ のもの。新しいタグ・カテゴリが増えたら、ここに足す
+HELLOSHOP = {
+    "site": "helloshop", "siteLabel": "ハロショ", "kind": "news", "kindLabel": "新着情報（タイトルだけ）",
+    "live": {"type": "wordpress", "base": "https://www.helloshop.info"},
+    "keyword": True,  # 人名などのキーワードで探せる（公式の検索）。タイトルだけでなく、本文に含まれるものも出る
+    "who": [{"key": k, "label": n, "type": "group"} for k, n in [
+        ("morningmusume", "モーニング娘。'26"), ("angerme", "アンジュルム"), ("juicejuice", "Juice=Juice"),
+        ("tsubakifactory", "つばきファクトリー"), ("beyooooonds", "BEYOOOOONDS"), ("ocha-norma", "OCHA NORMA"),
+        ("rosychronicle", "ロージークロニクル"), ("sotsugyo", "ハロプロ卒業メンバー"), ("kensyu", "ハロプロ研修生"), ("other", "その他")]],
+    "cat": [{"key": k, "label": n} for k, n in [
+        ("news", "お知らせ"), ("event", "イベント"), ("goods", "グッズ情報"), ("photo", "生写真情報"),
+        ("shop", "ショップ情報"), ("shops", "店舗"), ("extra", "臨時店")]],
+}
+
+
 def write_options(out, sources):
+    sources = list(sources) + [HELLOSHOP]
     write(os.path.join(out, "data/options.json"), json.dumps({"sources": sources}, ensure_ascii=False, separators=(",", ":")))
     write(os.path.join(out, "custom/index.html"), PAGE)
 
@@ -101,6 +118,9 @@ ol{padding-left:1.3em;margin:6px 0}
 <div id="sources" class="grid"></div></fieldset>
 <fieldset id="whoBox"><legend>2. 人・グループ</legend><div id="who"></div>
 <button type="button" class="sub" id="clearWho">選択を外す</button></fieldset>
+<fieldset id="qBox" hidden><legend>キーワード</legend>
+<label for="q" class="mute">人名など（記事のタイトルや本文に含まれる言葉。公式の検索を使います）</label>
+<input type="text" id="q" maxlength="40" placeholder="例: 譜久村" autocomplete="off"></fieldset>
 <fieldset id="catBox"><legend>3. カテゴリ</legend><div id="cat" class="grid"></div>
 <button type="button" class="sub" id="clearCat">選択を外す</button></fieldset>
 <div class="out"><strong>できたURL</strong>
@@ -121,7 +141,7 @@ function box(name,o){return `<label><input type="checkbox" data-k="${esc(o.key)}
 function pick(i){
   cur=SOURCES[i]; document.querySelector(`input[name=src][value="${i}"]`).checked=true;
   const g=cur.who.filter(w=>w.type==='group'), p=cur.who.filter(w=>w.type!=='group');
-  $('whoBox').hidden=!cur.who.length; $('catBox').hidden=!cur.cat.length;
+  $('whoBox').hidden=!cur.who.length; $('catBox').hidden=!cur.cat.length; $('qBox').hidden=!cur.keyword; $('q').value='';
   $('who').innerHTML=(g.length?`<div class="grid">${g.map(w=>box('who',w)).join('')}</div>`:'')+
     (p.length?`<details${g.length?'':' open'}><summary>${g.length?'メンバー・個人（'+p.length+'人）':'人'}</summary><div class="grid">${p.map(w=>box('who',w)).join('')}</div></details>`:'');
   $('cat').innerHTML=cur.cat.map(c=>box('cat',c)).join('');
@@ -135,17 +155,23 @@ function update(){
   let u=location.origin+'/custom.xml?site='+cur.site+'&kind='+cur.kind;
   if(w.length)u+='&who='+w.map(encodeURIComponent).join(',');
   if(c.length)u+='&cat='+c.map(encodeURIComponent).join(',');
+  const kw=$('q').value.trim(); if(cur.keyword&&kw)u+='&q='+encodeURIComponent(kw);
   $('url').value=u; $('open').href=u; $('msg').textContent='';
   clearTimeout(timer); timer=setTimeout(()=>preview(u),300);
 }
+let seq=0;
 async function preview(u){
+  const my=++seq;  // 遅れて返ってきた古い問い合わせの結果で、新しい結果を上書きしない
+  $('preview').innerHTML='<li class="mute">確認中…</li>';
   try{
-    const r=await fetch(u); if(!r.ok){$('preview').innerHTML='<li>'+esc(await r.text())+'</li>';return}
-    const x=new DOMParser().parseFromString(await r.text(),'application/xml'), it=[...x.querySelectorAll('item')];
+    const r=await fetch(u), body=await r.text(); if(my!==seq)return;
+    if(!r.ok){$('preview').innerHTML='<li>'+esc(body)+'</li>';return}
+    const x=new DOMParser().parseFromString(body,'application/xml'), it=[...x.querySelectorAll('item')];
     $('preview').innerHTML=it.length?it.slice(0,5).map(i=>'<li>'+esc(i.querySelector('title').textContent)+'</li>').join(''):'<li>該当する記事がありません</li>';
-  }catch(e){$('preview').innerHTML='<li>確認できませんでした</li>'}
+  }catch(e){if(my===seq)$('preview').innerHTML='<li>確認できませんでした</li>'}
 }
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('url').value);$('msg').textContent='コピーしました'}catch(e){$('url').select();$('msg').textContent='選択しました。コピーしてください'}});
+$('q').addEventListener('input',update);
 $('clearWho').addEventListener('click',()=>{document.querySelectorAll('input[data-n=who]').forEach(c=>c.checked=false);update()});
 $('clearCat').addEventListener('click',()=>{document.querySelectorAll('input[data-n=cat]').forEach(c=>c.checked=false);update()});
 </script></main></body></html>

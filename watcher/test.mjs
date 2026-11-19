@@ -1,6 +1,7 @@
 // 手元の確認: NODE_USE_ENV_PROXY=1 node watcher/test.mjs
 // 公式サイトへの HEAD は本物、GitHub と Discord への呼び出しは偽物
 import watcher, { run, builtRecently } from "./src/index.js";
+import { parseWpFeed } from "./src/custom.js";
 
 const realFetch = globalThis.fetch;
 let calls = [];
@@ -94,6 +95,31 @@ if (dataDir) {
   assert(r.status === 200, "アップフロントのスケジュール");
   r = await get("?site=mline&kind=news&who=angerme");
   assert(r.status === 400, "M-line に、ハロプロのグループは選べない（サイトをまたがない）");
+  // ---- ハロショ: 公式のWordPressのRSSを取りに行って、タイトルだけにして返す（公式サイトへの本物のアクセス）
+  const sample = '<rss><channel><item><title><![CDATA[A &amp; B『題』]]></title><link>https://x/1</link><guid isPermaLink="false">https://x/?p=1</guid><pubDate>Thu, 19 Nov 2026 09:30:37 +0000</pubDate><category><![CDATA[グッズ情報]]></category><category>Juice=Juice</category><description>d</description><content:encoded><![CDATA[<img src="a.jpg">長い本文]]></content:encoded></item></channel></rss>';
+  const pi = parseWpFeed(sample);
+  assert(pi.length === 1 && pi[0].title === "A & B『題』" && pi[0].date === "2026-11-19T09:30:37.000Z" && pi[0].categories.join() === "グッズ情報,Juice=Juice" && pi[0].html === "", "公式のRSSの読み取り（CDATA・実体参照・カテゴリ・本文は捨てる）");
+  r = await get("?site=helloshop&kind=news");
+  x = await r.text();
+  assert(r.status === 200 && items(x) >= 20 && !x.includes("<description>" + "&lt;img") && !/<item>[\s\S]*?<description>/.test(x), "ハロショ: 30件ほど・タイトルだけ（本文の description が無い）");
+  r = await get("?site=helloshop&kind=news&who=beyooooonds");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<category>BEYOOOOONDS</category>")), "ハロショ: タグで絞る（全部 BEYOOOOONDS の記事）");
+  r = await get("?site=helloshop&kind=news&who=angerme&cat=goods");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<category>グッズ情報</category>") && b.includes("<category>アンジュルム</category>")), "ハロショ: グループ × カテゴリ（両方に合う記事だけ）");
+  assert(x.includes("<title>ハロショ 新着情報（タイトルだけ） ― アンジュルム（グッズ情報）</title>"), "ハロショ: 題名に選んだ条件");
+  r = await get("?site=helloshop&kind=news&q=" + encodeURIComponent("譜久村"));
+  x = await r.text();
+  assert(r.status === 200 && items(x) > 0 && x.includes("「譜久村」"), "ハロショ: キーワード（公式の検索）");
+  r = await get("?site=helloshop&kind=news&who=nobody");
+  assert(r.status === 400, "ハロショ: 知らないタグは400");
+  r = await get("?site=helloshop&kind=news&cat=nothing");
+  assert(r.status === 400, "ハロショ: 知らないカテゴリは400");
+  r = await get("?site=helloshop&kind=news&q=" + "あ".repeat(41));
+  assert(r.status === 400, "ハロショ: 長すぎるキーワードは400");
+  r = await get("?site=hp&kind=news&q=abc");
+  assert(r.status === 400, "キーワードを使えないサイトでは、キーワードは400");
   r = await get("?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT");
   x = await r.text();
   assert(x.includes("アンジュルム・Juice=Juice（イベント）") && [...x.matchAll(/<guid[^>]*>([^<]*)</g)].every((m) => { const i = all.find((j) => j.guid === m[1]); return i.cats.includes("EVENT") && (i.who.includes("angerme") || i.who.includes("juicejuice")); }), "複数のグループ × カテゴリ: どれか＋両方");
