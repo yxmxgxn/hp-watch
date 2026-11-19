@@ -1,0 +1,19 @@
+# hello-rss-watch: 公式サイトの更新を15分おきに記録する Worker（様子見用）
+# 記録は https://hello-rss-watch.<アカウントのサブドメイン>.workers.dev/<LOG_PATH>?text で見る
+# LOG_PATH は推測されにくい文字列。見えるのは公式サイトの更新時刻だけ
+name = "hello-rss-watch"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+workers_dev = true
+preview_urls = false
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+LOG_PATH = "39e7236f9fa00d87e7b58215"
+
+# KV の namespace は、初回のデプロイで自動で作られるか確かめていない。
+# 作られなければ ダッシュボード → Storage → KV で作り、出てきた id をここに足す（id = "..."）
+[[kv_namespaces]]
+binding = "WATCH"

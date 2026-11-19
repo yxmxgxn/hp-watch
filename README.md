@@ -1,6 +1,8 @@
 # hp-watch
 
-ハロー！プロジェクト公式サイトとJPROOMのスケジュールJSONを毎日15時に取得し、前回からの差分をDiscordに通知する。
+ハロー！プロジェクト公式サイトとJPROOMのスケジュールJSONを毎日取得し、前回からの差分をDiscordに通知する。
+
+> GitHub Actions の定期実行は時刻を当てにできない。`watch.yml` は 15:00 JST の予定だが、実際は 21:30〜00:40 に動いている（2026-11-07〜18 の12回）。`rss.yml` も遅れたり飛ばされたりする。時刻が大事なものは Cloudflare の Cron Trigger（`watcher/`）に任せる。
 
 - 単発の出演: 新規
 - レギュラー番組: 開始（毎週の放送分は通知しない）
@@ -59,6 +61,15 @@
   - どちらかのサイトの取得に失敗した回は公開しない（そのサイトのフィードが消えるので）
 
 これから: TVer の番組ページの対応表。
+
+## watcher/（公式サイトの更新を記録する Worker・様子見用）
+
+Cloudflare Workers の Cron Trigger で15分おきに、公式サイトの更新（版）を記録する。いつお知らせ・スケジュールが更新されるかを数日見て、取りに行く時間帯を決めるため。
+
+- `/schedule/` の `Last-Modified`・`ETag`（HEADだけ）で更新を見分け、変わったときだけ版の名前（`2611191300-…` ＝ 日本時間 2026-11-19 13:00）と、お知らせ・スケジュールのJSONのサイズ／ETagを記録する。JSON本体は取らない
+- 記録は KV。見るのは `https://hello-rss-watch.<サブドメイン>.workers.dev/<LOG_PATH>?text`（`LOG_PATH` は `watcher/wrangler.toml`。公式サイトの更新時刻しか見えない）
+- 公開: `.github/workflows/watcher.yml`（`watcher/` を `main` に入れたとき、または手動）。Secrets は `rss.yml` と同じ。トークンに「Workers KV Storage: Edit」が要る
+- 手元の確認: `NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（本物の公式サイトに HEAD する。KV は偽物）
 
 ## radio/
 

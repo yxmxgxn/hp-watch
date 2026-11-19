@@ -1,0 +1,27 @@
+name: watcher
+
+# 公式サイトの更新を15分おきに記録する Worker（watcher/）を Cloudflare に公開する。
+# 定期実行そのものは Cloudflare の Cron Trigger（watcher/wrangler.toml）。GitHub の定期実行は使わない
+on:
+  push:
+    branches: [main]
+    paths: ["watcher/**", ".github/workflows/watcher.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: watcher
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: watcher
+          command: deploy
