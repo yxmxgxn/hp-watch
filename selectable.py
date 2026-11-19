@@ -73,6 +73,7 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
 HELLOSHOP = {
     "site": "helloshop", "siteLabel": "ハロショ", "kind": "news", "kindLabel": "新着情報（タイトルだけ）",
     "live": {"type": "wordpress", "base": "https://www.helloshop.info"},
+    "note": "公式のRSSから、最近180日の記事のタイトルだけを返します（古い記事は出しません）。",
     "keyword": True,  # 人名などのキーワードで探せる（公式の検索）。タイトルだけでなく、本文に含まれるものも出る
     "who": [{"key": k, "label": n, "type": "group"} for k, n in [
         ("morningmusume", "モーニング娘。'26"), ("angerme", "アンジュルム"), ("juicejuice", "Juice=Juice"),
@@ -115,7 +116,7 @@ ol{padding-left:1.3em;margin:6px 0}
 <p>サイトと種類を選んで、見たい人・グループとカテゴリにチェックを入れると、その分だけのフィードのURLができます。何も選ばなければ、全部です。</p>
 <p><a href="/">← フィードの一覧へ</a></p>
 <fieldset><legend>1. サイトと種類</legend>
-<div id="sources" class="grid"></div></fieldset>
+<div id="sources" class="grid"></div><p class="mute" id="note" hidden></p></fieldset>
 <fieldset id="whoBox"><legend>2. 人・グループ</legend><div id="who"></div>
 <button type="button" class="sub" id="clearWho">選択を外す</button></fieldset>
 <fieldset id="qBox" hidden><legend>キーワード</legend>
@@ -141,7 +142,7 @@ function box(name,o){return `<label><input type="checkbox" data-k="${esc(o.key)}
 function pick(i){
   cur=SOURCES[i]; document.querySelector(`input[name=src][value="${i}"]`).checked=true;
   const g=cur.who.filter(w=>w.type==='group'), p=cur.who.filter(w=>w.type!=='group');
-  $('whoBox').hidden=!cur.who.length; $('catBox').hidden=!cur.cat.length; $('qBox').hidden=!cur.keyword; $('q').value='';
+  $('whoBox').hidden=!cur.who.length; $('catBox').hidden=!cur.cat.length; $('qBox').hidden=!cur.keyword; $('q').value=''; $('note').hidden=!cur.note; $('note').textContent=cur.note||'';
   $('who').innerHTML=(g.length?`<div class="grid">${g.map(w=>box('who',w)).join('')}</div>`:'')+
     (p.length?`<details${g.length?'':' open'}><summary>${g.length?'メンバー・個人（'+p.length+'人）':'人'}</summary><div class="grid">${p.map(w=>box('who',w)).join('')}</div></details>`:'');
   $('cat').innerHTML=cur.cat.map(c=>box('cat',c)).join('');

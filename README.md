@@ -79,7 +79,7 @@
 - 仕組み: 公開のたびに `rss.py`（`selectable.py`）が `data/{site}-{kind}.json`（人・グループ・カテゴリ付きの記事、最大400件）と `data/options.json`（選べる値）を置く。Worker（`watcher/src/custom.js`）がデータを読んで、条件に合う記事だけを RSS にして返す（`Cache-Control: max-age=600`）
 - 人・グループのキーは、公式のプロフィールの `slug`（無い・重複するものは `id{番号}`）。名前が空のプロフィールは選択肢に出さない
 - スケジュールの元は「新しく載った出演」（MEDIA のフィードと同じ）。新しく載ったものから溜めるので、使い始めは記事が少なく、日がたつほど増える。人・グループは、記事がまだ無くても選べる
-- ハロショ（`helloshop.info`）: `site=helloshop&kind=news`。公式が WordPress で RSS（`/feed`）を出していて、タグ・カテゴリ・検索で絞れる（`?tag=a,b`・`?category_name=goods`・`?s=譜久村`、組み合わせも可）。Worker が公式のRSSを取りに行き（1ページ10件×3ページ、5分キャッシュ）、**タイトルだけ**（本文・画像は捨てる）にして返す。記事のデータは持たない
+- ハロショ（`helloshop.info`）: `site=helloshop&kind=news`。公式が WordPress で RSS（`/feed`）を出していて、タグ・カテゴリ・検索で絞れる（`?tag=a,b`・`?category_name=goods`・`?s=譜久村`、組み合わせも可）。Worker が公式のRSSを取りに行き（1ページ10件×3ページ、5分キャッシュ）、**タイトルだけ**（本文・画像は捨てる）にして返す。記事のデータは持たない。**最近180日の記事だけ**返す（`LIVE_DAYS`。登録した直後に、何年も前の記事が大量に未読で入るのを防ぐ。公式の検索は新しい順に返すが、「譜久村」だと30件のうち最近半年は3件だけだった）
   - `who`＝グループのタグ、`cat`＝カテゴリ、`q`＝キーワード（人名など。公式の検索なので、タイトルだけでなく本文に含まれるものも出る）。選べるタグ・カテゴリは `selectable.py` の `HELLOSHOP`（公式の `/tag/{ID}/`・`/category/{ID}/` の英字ID）。増えたらそこに足す
   - 公式のRSSは、ページ（画面）には出ていない。`<head>` に自動検出用の `<link rel="alternate">` があるだけ
 - 手元の確認: `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（ハロショは公式サイトへ本物のアクセスをする）（`PUBLIC_DIR` を付けると、選択式フィードのテストも動く）
