@@ -32,7 +32,7 @@
 
 ## RSS（rss.py・作成中）
 
-公式のJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers、未設定）。
+公式のJSONから RSS を作る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers `hello-rss`）。
 
 - お知らせ: `hp/news/{グループ}.xml`・`hp/news/all.xml`、`jproom/news/all.xml`
   - タイトルは `2026.11.16 [NEWS] 題名`（公式サイトの並びと日付の書き方）
@@ -59,6 +59,24 @@
   - どちらかのサイトの取得に失敗した回は公開しない（そのサイトのフィードが消えるので）
 
 これから: TVer の番組ページの対応表。
+
+## 動かす仕組み（Cloudflare の Cron Trigger が時計、GitHub Actions が作業）
+
+GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を呼ぶ。作業は3つに分けて、それぞれ独立して動く。
+
+| 作業 | ワークフロー | 呼ぶタイミング（Cloudflare の cron は UTC） |
+|---|---|---|
+| RSS | `rss.yml` | 公式が更新されたとき（15分おきに `/schedule/` の `Last-Modified` を見て、直近17分以内なら）と、毎朝 05:00 JST（今日の予定） |
+| スケジュールの Discord 通知 | `hpwatch.yml` | 毎日 18:00 JST |
+| プロフィール | `profiles.yml` | 毎日 18:00 JST |
+
+- 時計のコードは `watcher/src/index.js`、cron の設定はルートの `wrangler.toml`。RSS の公開（`rss.yml` の `wrangler deploy`）のたびに、フィードと一緒に送り直す。時計の手順を変えたら、次の RSS の公開から効く
+- Worker は記憶（KV など）を持たない。二重に呼んでも、どの作業も新しい分だけを処理するので困らない
+- 呼び出しに失敗したときだけ、Worker が Discord に知らせる（1時間に1回まで）
+- GitHub の Secrets は `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`・`DISCORD_WEBHOOK_URL`（hpwatch と profiles 用）。Worker に入れる秘密の値は、Cloudflare のダッシュボードで直接入れる（hello-rss → Settings → Variables and Secrets → Secret）: `GH_TOKEN`（GitHub の fine-grained トークン。このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなり、Discord に知らせが来る）と `DISCORD_WEBHOOK_URL`
+- 手元の確認: `NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（公式サイトへの HEAD は本物、GitHub と Discord は偽物）
+- 公式の更新の記録: `rss.yml` が更新のたびに `state/observe.jsonl` へ1行（版の時刻・見つけた新着の件数）。取りに行く時間帯を決めるための記録
+- `watch.yml`（スケジュールとプロフィールを1つにまとめた古い作業）と、`rss.yml` の `schedule` は、上の仕組みが確かめられるまでの保険として残してある。確かめたら消す
 
 ## radio/
 

@@ -18,6 +18,9 @@ MEDIA（media）
   その日の予定を、毎週の番組も含めて全部、時刻順に1記事にまとめる（1日1記事、記事の時刻は朝5時）。
   同じ番組・同じ時刻で局だけ違うものは1行にまとめる。直近7日分をJSONから毎回作り直す（状態は持たない）。
 
+公式の更新の記録（state/observe.jsonl）
+  公式が更新される（版が変わる）たびに1行。版の時刻（日本時間）と、そのとき見つけた新着の件数。
+
 フィード（out 配下）:
   hp/news/{グループslug}.xml, hp/news/all.xml     … ハロプロのお知らせ（グループ別）
   hp/media/{グループslug}.xml, hp/media/all.xml   … ハロプロの MEDIA（グループ別）
@@ -129,17 +132,20 @@ def stamp_news(items, state_path, now):
     first = state is None
     seen = dict((state or {}).get("seen") or {})
     recent = now.date() - dt.timedelta(days=NEWS_LATE_DAYS)
+    found = 0  # 今回はじめて見つけた記事（初回は数えない）
     for i in items:
         t = seen.get(i["guid"])
         if t:
             i["date"] = dt.datetime.fromisoformat(t)
             continue
+        if not first:
+            found += 1
         if not first and i["date"].date() >= recent:
             i["date"] = now
         seen[i["guid"]] = i["date"].isoformat()
     cutoff = (now - dt.timedelta(days=730)).isoformat()  # 2年より古い記事は忘れる（時刻はすべて JST なので文字列で比べられる）
     seen = {k: v for k, v in seen.items() if v >= cutoff}
-    return items, {"seen": seen}
+    return items, {"seen": seen}, found
 
 
 # ---------- MEDIA ----------
@@ -287,7 +293,7 @@ def update_media(site, base, schedules, profiles, state_path, now, rk):
     items.sort(key=lambda i: (i["date"], i["sort"]), reverse=True)
     items = items[:MEDIA_KEEP]
     print(f"{site} media: 候補{len(cands)} 新規{len(new)}{'（初回）' if first else ''}")
-    return items, {"seen": seen, "items": items}
+    return items, {"seen": seen, "items": items}, (0 if first else len(new))
 
 
 # ---------- 今日の予定 ----------
@@ -453,11 +459,11 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
         raise RuntimeError(f"{site}: お知らせが1件も取れなかった")
     if not schedules:
         raise RuntimeError(f"{site}: スケジュールが1件も取れなかった")
-    news, news_state = stamp_news([news_item(site, base, x) for x in raw],
+    news, news_state, news_found = stamp_news([news_item(site, base, x) for x in raw],
                                   os.path.join(state_dir, f"rss_news_{site}.json"), stamp)
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
-    media, state = update_media(site, base, schedules, profiles, state_path, stamp, rk)
+    media, state, media_found = update_media(site, base, schedules, profiles, state_path, stamp, rk)
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, f"{base}/schedule/")
@@ -473,7 +479,41 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     # フィードを書けてから状態を保存する
     save_state(state_path, state)
     save_state(os.path.join(state_dir, f"rss_news_{site}.json"), news_state)
-    return feeds
+    return feeds, {"site": site, "version": version, "news": news_found, "media": media_found}
+
+
+# ---------- 公式の更新の記録 ----------
+
+def version_time(version):
+    """版の名前 2611191300-xxxx は日本時間の年月日時分（サイトを作り直した時刻）"""
+    try:
+        return dt.datetime.strptime(version[:10], "%y%m%d%H%M").replace(tzinfo=JST).isoformat()
+    except ValueError:
+        return None
+
+
+def log_versions(path, records, now):
+    """公式が更新されるたびに1行。いつ更新されて、そのとき何件の新着があったか（取りに行く時間帯を決めるための記録）。
+    版が前回の記録と同じなら書かない（更新の無い回で行が増えないように）"""
+    last = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                    last[r["site"]] = r["version"]
+                except (ValueError, KeyError):
+                    pass
+    lines = []
+    for r in records:
+        if last.get(r["site"]) == r["version"]:
+            continue
+        lines.append(json.dumps({"site": r["site"], "version": r["version"], "versionTime": version_time(r["version"]),
+                                 "runAt": now.isoformat(), "news": r["news"], "media": r["media"]}, ensure_ascii=False))
+    if lines:
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
 
 
 # ---------- 一覧ページ・OPML ----------
@@ -550,10 +590,12 @@ def main():
     now = dt.datetime.now(JST).replace(microsecond=0)
     rk = radiko.Radiko()
 
-    feeds, failed = [], []
+    feeds, failed, records = [], [], []
     for site, cfg in SITES.items():
         try:
-            feeds += build_site(site, cfg, args.out, args.state_dir, feed_base, now, rk)
+            f, rec = build_site(site, cfg, args.out, args.state_dir, feed_base, now, rk)
+            feeds += f
+            records.append(rec)
         except Exception as e:  # 片方のサイトが落ちても、もう片方は出す
             print(f"error: {site}: {e}", file=sys.stderr)
             failed.append(site)
@@ -563,6 +605,7 @@ def main():
     write(os.path.join(args.out, "index.html"), index_html(feeds, now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     write(os.path.join(args.out, "_headers"), HEADERS)
+    log_versions(os.path.join(args.state_dir, "observe.jsonl"), records, now)
     print(f"feeds: {len(feeds)}" + (f" (失敗: {', '.join(failed)})" if failed else ""))
     if failed:
         sys.exit(1)
