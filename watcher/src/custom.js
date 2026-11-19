@@ -9,6 +9,7 @@ const LIMIT = 50;
 const MAX_VALUES = 40;
 const MAX_QUERY = 40;   // キーワード（人名など）の長さ
 const LIVE_PAGES = 3;   // 公式のフィードは1ページ10件。3ページ分（30件）まで見る
+const LIVE_DAYS = 180;  // 公式のRSSから返すのは、最近この日数の記事だけ（RSSは新しい記事を受け取るもの。登録した直後に、何年も前の記事が大量に未読で入るのを防ぐ）
 
 const text = (status, body) => new Response(body + "\n", { status, headers: { "content-type": "text/plain; charset=utf-8" } });
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -64,13 +65,14 @@ async function liveFeed(src, u, who, cat, q) {
     return text(502, `${src.siteLabel}の公式のRSSを読み込めませんでした（${e.message}）。しばらくしてからもう一度お試しください`);
   }
   const seen = new Set();
-  const items = pages.flat().filter((i) => !seen.has(i.guid) && seen.add(i.guid)).slice(0, LIMIT);
+  const since = Date.now() - LIVE_DAYS * 86400000;
+  const items = pages.flat().filter((i) => !seen.has(i.guid) && seen.add(i.guid) && new Date(i.date).getTime() >= since).slice(0, LIMIT);
   const label = (arr, sel) => src[arr].filter((o) => sel.includes(o.key)).map((o) => o.label);
   const names = who.length ? label("who", who).join("・") : "全部";
   const cats = cat.length ? `（${label("cat", cat).join("・")}）` : "";
   return new Response(renderRss({
     title: `${src.siteLabel} ${src.kindLabel} ― ${names}${cats}${q ? `「${q}」` : ""}`,
-    description: `${src.siteLabel}の公式のRSSから、選んだ条件の記事のタイトルだけ・非公式`,
+    description: `${src.siteLabel}の公式のRSSから、選んだ条件の最近${LIVE_DAYS}日の記事のタイトルだけ・非公式`,
     link: `${u.origin}/custom/`,
     self: u.href,
     items,

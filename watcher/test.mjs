@@ -112,6 +112,11 @@ if (dataDir) {
   r = await get("?site=helloshop&kind=news&q=" + encodeURIComponent("譜久村"));
   x = await r.text();
   assert(r.status === 200 && items(x) > 0 && x.includes("「譜久村」"), "ハロショ: キーワード（公式の検索）");
+  // 古い記事は出さない（「譜久村」は、2021年からの記事が30件ほどヒットするが、最近半年のものだけになる）
+  r = await get("?site=helloshop&kind=news&q=" + encodeURIComponent("譜久村"));
+  x = await r.text();
+  const old = [...x.matchAll(/<pubDate>([^<]*)</g)].map((m) => new Date(m[1]).getTime()).filter((t) => t < Date.now() - 181 * 86400000);
+  assert(r.status === 200 && old.length === 0 && x.includes("最近180日"), "ハロショ: 最近180日より古い記事は出さない");
   r = await get("?site=helloshop&kind=news&who=nobody");
   assert(r.status === 400, "ハロショ: 知らないタグは400");
   r = await get("?site=helloshop&kind=news&cat=nothing");
