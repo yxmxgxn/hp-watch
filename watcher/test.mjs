@@ -117,6 +117,12 @@ if (dataDir) {
   x = await r.text();
   const old = [...x.matchAll(/<pubDate>([^<]*)</g)].map((m) => new Date(m[1]).getTime()).filter((t) => t < Date.now() - 181 * 86400000);
   assert(r.status === 200 && old.length === 0 && x.includes("最近180日"), "ハロショ: 最近180日より古い記事は出さない");
+  // 題名の条件（グループ・カテゴリ・キーワードの有無で、「全部」が紛らわしくならない）
+  const titleOf = async (qs) => ((await (await get(qs)).text()).match(/<title>([^<]*)<\/title>/) || [])[1];
+  assert(await titleOf("?site=helloshop&kind=news") === "ハロショ 新着情報（タイトルだけ） ― 全部", "題名: 何も選ばない → 全部");
+  assert(await titleOf("?site=helloshop&kind=news&q=" + encodeURIComponent("譜久村")) === "ハロショ 新着情報（タイトルだけ） ― 「譜久村」", "題名: キーワードだけ → 「譜久村」（全部は付けない）");
+  assert(await titleOf("?site=helloshop&kind=news&cat=goods") === "ハロショ 新着情報（タイトルだけ） ― グッズ情報", "題名: カテゴリだけ → グッズ情報");
+  assert(await titleOf("?site=helloshop&kind=news&who=angerme&cat=goods&q=" + encodeURIComponent("譜久村")) === "ハロショ 新着情報（タイトルだけ） ― アンジュルム（グッズ情報） 「譜久村」", "題名: 全部指定");
   r = await get("?site=helloshop&kind=news&who=nobody");
   assert(r.status === 400, "ハロショ: 知らないタグは400");
   r = await get("?site=helloshop&kind=news&cat=nothing");

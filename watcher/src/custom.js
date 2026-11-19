@@ -68,10 +68,11 @@ async function liveFeed(src, u, who, cat, q) {
   const since = Date.now() - LIVE_DAYS * 86400000;
   const items = pages.flat().filter((i) => !seen.has(i.guid) && seen.add(i.guid) && new Date(i.date).getTime() >= since).slice(0, LIMIT);
   const label = (arr, sel) => src[arr].filter((o) => sel.includes(o.key)).map((o) => o.label);
-  const names = who.length ? label("who", who).join("・") : "全部";
-  const cats = cat.length ? `（${label("cat", cat).join("・")}）` : "";
+  // 題名の条件: グループ（カテゴリ）「キーワード」。どれも選んでいなければ「全部」（キーワードだけのとき「全部」は付けない）
+  const cats = label("cat", cat).join("・");
+  const what = [who.length ? label("who", who).join("・") + (cat.length ? `（${cats}）` : "") : cats, q ? `「${q}」` : ""].filter(Boolean).join(" ");
   return new Response(renderRss({
-    title: `${src.siteLabel} ${src.kindLabel} ― ${names}${cats}${q ? `「${q}」` : ""}`,
+    title: `${src.siteLabel} ${src.kindLabel} ― ${what || "全部"}`,
     description: `${src.siteLabel}の公式のRSSから、選んだ条件の最近${LIVE_DAYS}日の記事のタイトルだけ・非公式`,
     link: `${u.origin}/custom/`,
     self: u.href,
