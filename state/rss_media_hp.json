@@ -2,6 +2,36 @@
 "items": [
 {
 "categories": [
+"TV",
+"Juice=Juice：有澤一華・川嶋美楓"
+],
+"date": "2026-11-19T13:00:00+09:00",
+"groups": [
+"36"
+],
+"guid": "hp-media-hf8aacb0d3bf76e90",
+"html": "<p>出演: Juice=Juice：有澤一華・川嶋美楓</p><ul><li><a href=\"https://www.tvk-yokohama.com/appare_daibouken/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E3%83%86%E3%83%AC%E3%83%93%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%80%8CAppare%21%E3%81%8B%E3%81%AA%E3%81%8C%E3%82%8F%E5%A4%A7%E5%86%92%E9%99%BA%EF%BD%9E%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E7%9B%AE%E6%8C%87%E3%81%9B%EF%BC%81%E6%A8%AA%E6%B5%9C%E3%82%A2%E3%83%AA%E3%83%BC%E3%83%8A%EF%BD%9E%E3%80%8D&amp;dates=20261125T230000%2F20261125T232500&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.tvk-yokohama.com/appare_daibouken/",
+"sort": "2026-11-25 23:00",
+"title": "[TV] 11/25(水) 23:00 テレビ神奈川「Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～」"
+},
+{
+"categories": [
+"RADIO",
+"アンジュルム：伊勢鈴蘭"
+],
+"date": "2026-11-19T13:00:00+09:00",
+"groups": [
+"29"
+],
+"guid": "hp-media-h089b457babeddc6f",
+"html": "<p>出演: アンジュルム：伊勢鈴蘭</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.mbs1179.com/yando/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/MBS/20261121220000\">radiko タイムフリー（MBSラジオ・無料で聴けるのは関西）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=MBS%E3%83%A9%E3%82%B8%E3%82%AA%E3%80%8C%E3%83%A4%E3%83%B3%E3%82%B0%E3%82%BF%E3%82%A6%E3%83%B3%E5%9C%9F%E6%9B%9C%E6%97%A5%E3%80%8D&amp;dates=20261121T220000%2F20261121T233000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.mbs1179.com/yando/",
+"sort": "2026-11-21 22:00",
+"title": "[RADIO] 11/21(土) 22:00 MBSラジオ「ヤングタウン土曜日」"
+},
+{
+"categories": [
 "TV"
 ],
 "date": "2026-11-19T06:52:28+09:00",
@@ -303,6 +333,7 @@
 "h06bc8b38510f6bb4": "2026-11-18",
 "h084faa115c49e25f": "2026-10-05",
 "h086e4aecd4838f59": "2026-09-25",
+"h089b457babeddc6f": "2026-11-21",
 "h089bf7d138ceb71a": "2026-10-05",
 "h08ee888fa9452f48": "2026-11-08",
 "h09d0f9a32d3a332f": "2026-10-06",
@@ -601,6 +632,7 @@
 "hf72f8754bdeb96cf": "2026-11-02",
 "hf8611a1afd4decbe": "2026-11-21",
 "hf87423c11b80e7be": "2026-11-21",
+"hf8aacb0d3bf76e90": "2026-11-25",
 "hf8f91af5d16130eb": "2026-11-10",
 "hf983c010a75d526a": "2026-10-17",
 "hfbe6bcca2dc56cee": "2026-11-06",
@@ -624,6 +656,7 @@
 "s2052": "2026-11-23",
 "s2055": "2026-11-20",
 "s2058": "2026-11-18",
+"s2059": "2026-11-25",
 "s2076": "2026-12-03",
 "s2077": "2026-12-18",
 "s2081": "2026-11-25",
@@ -642,6 +675,7 @@
 "s2242": "2026-11-24",
 "s2243": "2026-11-25",
 "s2244": "2026-11-24",
-"s2253": "2026-12-20"
+"s2253": "2026-12-20",
+"s2267": "2026-11-21"
 }
 }
