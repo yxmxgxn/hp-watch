@@ -264,7 +264,8 @@ def build_messages(prev, cur):
 
 
 # 埋め込みの左端の色。新規・開始・発表＝緑（中止が付いていたら赤）
-GREEN, RED = 0x2ECC71, 0xE74C3C
+# YELLOW・RED は profiles.py（プロフィールの変更・消滅）も使う。消さないこと
+GREEN, YELLOW, RED = 0x2ECC71, 0xF1C40F, 0xE74C3C
 
 
 def to_embed(kind, body, site):
