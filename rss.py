@@ -436,6 +436,7 @@ def emit_feeds(site, cfg, kind, items, profiles, out, feed_base, site_link):
 
 def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     base = cfg["base"]
+    stamp = now.replace(minute=0, second=0)  # 記事の時刻（こちらが見つけた時刻）。分・秒は0にそろえる
     version, years = hpwatch.fetch_version(base)
     schedules, artists = hpwatch.fetch_data(base, version, years)
     profiles = artists.get("profilesById") or {}
@@ -446,10 +447,10 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     if not schedules:
         raise RuntimeError(f"{site}: スケジュールが1件も取れなかった")
     news, news_state = stamp_news([news_item(site, base, x) for x in raw],
-                                  os.path.join(state_dir, f"rss_news_{site}.json"), now)
+                                  os.path.join(state_dir, f"rss_news_{site}.json"), stamp)
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
-    media, state = update_media(site, base, schedules, profiles, state_path, now, rk)
+    media, state = update_media(site, base, schedules, profiles, state_path, stamp, rk)
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, f"{base}/schedule/")
