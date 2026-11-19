@@ -102,7 +102,8 @@ def news_item(site, base, x):
         "sort": x["id"],
         "title": f"[{cat}] {title}",
         "link": link,
-        "date": dt.datetime.fromisoformat(x["date"]).replace(tzinfo=JST),
+        # JSONには日付しか無い。0時ちょうどだと、リーダーによっては前日の23:59と表示されるので、正午にしておく
+        "date": dt.datetime.fromisoformat(x["date"]).replace(hour=12, tzinfo=JST),
         "html": news_html(x, cat, link),
         "categories": [cat] + ([x["flag"]] if x.get("flag") else []) + list(x.get("tags") or []),
         "groups": [str(i) for i in x.get("artistsSearch") or []],
@@ -118,8 +119,8 @@ def news_html(x, cat, link):
 
 def stamp_news(items, state_path, now):
     """記事の時刻（pubDate）を決める。お知らせのJSONには日付しか無いので、こちらが初めて見た時刻を使う。
-    - 初回（状態ファイルなし）: 今ある分は公式の日付の0時のまま
-    - 状態に無い新しい記事: 今の時刻。ただし公式の日付が NEWS_LATE_DAYS より前なら公式の日付のまま
+    - 初回（状態ファイルなし）: 今ある分は公式の日付の正午のまま
+    - 状態に無い新しい記事: 今の時刻。ただし公式の日付が NEWS_LATE_DAYS より前なら公式の日付（正午）のまま
     - 一度決めた時刻は変えない（同じ記事の pubDate が動くと、リーダーで並びが乱れる）"""
     state = None
     if os.path.exists(state_path):
