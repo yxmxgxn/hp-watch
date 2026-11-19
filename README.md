@@ -50,14 +50,14 @@
   - その日の予定を、毎週の番組も含めて全部、時刻順に1記事にまとめる（記事の時刻は朝5時）
   - 同じ番組・同じ時刻・同じ出演者で局だけ違うものは1行にまとめる。ラジオは radiko のタイムフリーのリンク付き
   - 直近7日分を毎回JSONから作り直す（状態は持たない）
-- ファンクラブニュース: `fc/{all,news,event,concert,goods,stream,other}.xml`（全体・ニュース・公式のタブ5つ）と `fc/group/{グループ}.xml`（8グループ）
+- ファンクラブニュース: `fc/{all,news,event,concert,goods,stream,other}.xml`（全体・ニュース・公式のタブ5つ）と `fc/group/{グループ}.xml`（8グループ）。M-line club のファンクラブ（`upfc.jp/m-line`）も同じ作りで、`mline/{all,news,fcevent,ticket,goods,contents,other}.xml`（タブは公式のもの）。29人分の個人別は静的には作らず、選択式で選ぶ。ファンクラブごとの設定は `rss.py` の `FC_SITES`
   - Hello! Project オフィシャルファンクラブ（`upfc.jp/helloproject`）のHTMLを読む（JSONは無い）。「すべて」の一覧（1ページ15件）の1ページ目を見て、新しく載った記事を足す。初回は2ページ分
   - ニュースは、公式のタブには無いが「すべて」の中にある分類。そこだけ別のフィードにしている
-  - グループ別は、グループのページの一覧（`news_list.php?gid=…`、1ページ目）に載っているかどうかで決める（記事にはグループの印が無い）。グループの番号（gid）はグループのページの「view more」のリンクから読んで、状態に持つ
+  - グループ別・人別は、そのページの一覧（`news_list.php?gid=…`、1ページ目）に載っているかどうかで決める（記事にはグループ・人の印が無い）。番号（gid）はそのページの「view more」のリンクから読んで、状態に持つ。M-line の人の一覧は、ファンクラブのトップのページから毎回読む（読めなければ前回の分）
   - 更新を見分ける印（`Last-Modified` など）が無いので、`rss.yml` が動くたびに見る（ハロプロの公式の更新を検知したときと毎朝5:00）
   - 日付は公式の書き方（`2026.11.19`）のまま。記事の時刻は、お知らせと同じ決め方（初めて見た時刻、分・秒は0。初回は日付の正午）
-  - 状態は `state/rss_fc.json`。取得に失敗しても、前回の状態があればそれでフィードを書く（他のフィードの公開を止めない）。1グループだけ失敗したときは、そのグループだけ飛ばす
-- JPROOM は所属が個人なので、どれも全員まとめて1本
+  - 状態は `state/rss_fc.json`（M-line は `rss_fc_mline.json`）。取得に失敗しても、前回の状態があればそれでフィードを書く（他のフィードの公開を止めない）。1グループだけ失敗したときは、そのグループだけ飛ばす
+- JPROOM・アップフロント（`up-front-create.com`。同じ仕組み・同じ版。会社全体のサイトで、ハロプロ以外の人も入る）は所属が個人なので、どれも全員まとめて1本。人ごとに見たいときは選択式（下）で選ぶ
 - `index.html`（一覧）と `all.opml`（まとめて登録）
 - 手元で試す: `python rss.py --out public --state-dir /tmp/rss-state`（`state/` を汚さないように）
 
@@ -73,7 +73,7 @@
 
 - 選ぶ画面: `https://hello-rss.karin-archive.com/custom/`（トップの一覧からリンク）
 - URL: `/custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT`
-  - `site`（`hp`・`jproom`・`fc`）と `kind`（`news`・`schedule`）は必須。**サイトはまたがない**。**お知らせとスケジュールは別**（1本＝1つのサイト × 片方の種類）
+  - `site`（`hp`・`jproom`・`upfront`・`fc`・`mline`）と `kind`（`news`・`schedule`）は必須。**サイトはまたがない**。**お知らせとスケジュールは別**（1本＝1つのサイト × 片方の種類）
   - `who`（人・グループ）、`cat`（カテゴリ）は任意。カンマ区切りで複数。同じ項目の中は「どれか」、`who` と `cat` は「両方」。空なら全部
   - 選べるのは `data/options.json` にある値だけ。それ以外は400を返す（誤ったURLを、空のフィードとして登録させない）。最新50件
 - 仕組み: 公開のたびに `rss.py`（`selectable.py`）が `data/{site}-{kind}.json`（人・グループ・カテゴリ付きの記事、最大400件）と `data/options.json`（選べる値）を置く。Worker（`watcher/src/custom.js`）がデータを読んで、条件に合う記事だけを RSS にして返す（`Cache-Control: max-age=600`）
