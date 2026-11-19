@@ -52,6 +52,7 @@ MEDIA_KEEP = 300  # 状態ファイルに残す配信済みの記事数
 SEEN_DAYS = 60    # 「見た予定」は放送日からこの日数で忘れる
 LATE_DAYS = 30    # 放送日を過ぎて載った WEB・雑誌を「掲載済」で出す範囲
 SEED_DAYS = 7     # 初回に入れる先の日数
+NEWS_LATE_DAYS = 7  # お知らせ: 公式の日付がこれより前の記事は、初めて見ても公式の日付のまま（取得に失敗した年が戻ってきたとき等）
 TODAY_DAYS = 7    # 「今日の予定」に残す日数
 TODAY_HOUR = 5    # 「今日の予定」の記事の時刻（radiko の1日の始まりに合わせる）
 WEEK = "月火水木金土日"
@@ -61,6 +62,14 @@ def write(path, text):
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)
+
+
+def save_state(path, state):
+    """中身が同じなら書かない（コミットが増えないように）"""
+    text = json.dumps(state, ensure_ascii=False, indent=0, sort_keys=True)
+    old = open(path, encoding="utf-8").read() if os.path.exists(path) else None
+    if text != old:
+        write(path, text)
 
 
 def abs_link(base, link):
@@ -94,10 +103,42 @@ def news_item(site, base, x):
         "title": f"[{cat}] {title}",
         "link": link,
         "date": dt.datetime.fromisoformat(x["date"]).replace(tzinfo=JST),
-        "html": f"<p>{escape(title)}</p>",
+        "html": news_html(x, cat, link),
         "categories": [cat] + ([x["flag"]] if x.get("flag") else []) + list(x.get("tags") or []),
         "groups": [str(i) for i in x.get("artistsSearch") or []],
     }
+
+
+def news_html(x, cat, link):
+    """本文はタイトルの繰り返しにしない。グループ・種類・日付の1行と、公式へのリンク"""
+    kind = {"NEWS": "お知らせ", "EVENT": "イベント"}.get(cat, cat)
+    line = " ・ ".join(p for p in ["・".join(x.get("tags") or []), kind, md(x["date"])] if p)
+    return f"<p>{escape(line)}</p><p><a href={quoteattr(link)}>公式サイトで読む</a></p>"
+
+
+def stamp_news(items, state_path, now):
+    """記事の時刻（pubDate）を決める。お知らせのJSONには日付しか無いので、こちらが初めて見た時刻を使う。
+    - 初回（状態ファイルなし）: 今ある分は公式の日付の0時のまま
+    - 状態に無い新しい記事: 今の時刻。ただし公式の日付が NEWS_LATE_DAYS より前なら公式の日付のまま
+    - 一度決めた時刻は変えない（同じ記事の pubDate が動くと、リーダーで並びが乱れる）"""
+    state = None
+    if os.path.exists(state_path):
+        with open(state_path, encoding="utf-8") as f:
+            state = json.load(f)
+    first = state is None
+    seen = dict((state or {}).get("seen") or {})
+    recent = now.date() - dt.timedelta(days=NEWS_LATE_DAYS)
+    for i in items:
+        t = seen.get(i["guid"])
+        if t:
+            i["date"] = dt.datetime.fromisoformat(t)
+            continue
+        if not first and i["date"].date() >= recent:
+            i["date"] = now
+        seen[i["guid"]] = i["date"].isoformat()
+    cutoff = (now - dt.timedelta(days=730)).isoformat()  # 2年より古い記事は忘れる（時刻はすべて JST なので文字列で比べられる）
+    seen = {k: v for k, v in seen.items() if v >= cutoff}
+    return items, {"seen": seen}
 
 
 # ---------- MEDIA ----------
@@ -154,7 +195,12 @@ def radiko_links(x, title, start, rk):
     return links, notes
 
 
-def media_item(site, base, x, names, rk, now, late):
+def perf_of(x):
+    """出演は公式のタグに従う（HELLO! PROJECT ／ BEYOOOOONDS ／ BEYOOOOONDS：平井美葉 など）"""
+    return list(x.get("tags") or [])
+
+
+def media_item(site, base, x, rk, now, late):
     s = x.get("schedule") or {}
     cat = x["category"]
     title = hpwatch.text_of(x.get("title")).strip()
@@ -165,9 +211,9 @@ def media_item(site, base, x, names, rk, now, late):
 
     link = abs_link(base, hpwatch.link_of(x))
     paras = []
-    who = hpwatch.who({"members": x.get("membersSearch") or [], "artists": x.get("artistsSearch") or []}, names)
-    if who:
-        paras.append(f"出演: {who}")
+    perf = perf_of(x)
+    if perf:
+        paras.append(f"出演: {'、'.join(perf)}")
     note = hpwatch.text_of(x.get("note")).strip()
     if note:
         paras.append(note)
@@ -190,12 +236,12 @@ def media_item(site, base, x, names, rk, now, late):
         "link": link or f"{base}/schedule/",
         "date": now.isoformat(),
         "html": html,
-        "categories": [cat] + tags,
+        "categories": [cat] + tags + perf,
         "groups": [str(i) for i in x.get("artistsSearch") or []],
     }
 
 
-def update_media(site, base, schedules, profiles, names, state_path, now, rk):
+def update_media(site, base, schedules, profiles, state_path, now, rk):
     """新しく載った MEDIA の予定を状態ファイルの記事に足す。戻り値: (記事, 新しい状態)"""
     state = None
     if os.path.exists(state_path):
@@ -225,7 +271,7 @@ def update_media(site, base, schedules, profiles, names, state_path, now, rk):
                 continue
         elif late and not (x["category"] in ("WEB", "MAGAZINE") and x["date"] >= late_from):
             continue  # 放送日を過ぎてから載ったテレビ・ラジオは出さない
-        new.append(media_item(site, base, x, names, rk, now, late))
+        new.append(media_item(site, base, x, rk, now, late))
 
     cutoff = (now.date() - dt.timedelta(days=SEEN_DAYS)).isoformat()
     seen = {k: d for k, d in seen.items() if d >= cutoff}
@@ -254,7 +300,7 @@ def time_key(start):
     return h * 60 + m
 
 
-def today_rows(xs, names):
+def today_rows(xs):
     """その日の予定を行にする。同じ番組・同じ時刻・同じ出演者で局だけ違うものは1行にまとめる"""
     rows = {}
     for x in xs:
@@ -263,7 +309,7 @@ def today_rows(xs, names):
         title = hpwatch.text_of(x.get("title")).strip()
         station, prog = split_station(cat, title)
         start = s.get("start") or ""
-        who = hpwatch.who({"members": x.get("membersSearch") or [], "artists": x.get("artistsSearch") or []}, names)
+        who = "、".join(perf_of(x))
         key = (start, cat, prog, who, x.get("status") or "", bool(x.get("isFc")))
         r = rows.setdefault(key, {"start": start, "cat": cat, "prog": prog, "who": who, "status": x.get("status"),
                                   "fc": bool(x.get("isFc")), "stations": [], "items": []})
@@ -301,7 +347,7 @@ def today_row_html(r, base, rk):
     return "<li>" + "<br>".join(lines) + "</li>"
 
 
-def today_items(site, base, schedules, names, now, rk):
+def today_items(site, base, schedules, now, rk):
     """直近 TODAY_DAYS 日の「今日の予定」。JSON から毎回作り直す（過去の日の予定もJSONに残っている）"""
     by_date = {}
     for x in schedules:
@@ -311,7 +357,7 @@ def today_items(site, base, schedules, names, now, rk):
     for i in range(TODAY_DAYS):
         day = now.date() - dt.timedelta(days=i)
         d = day.isoformat()
-        rows = today_rows(by_date.get(d) or [], names)
+        rows = today_rows(by_date.get(d) or [])
         if not rows:
             continue
         html = ("<ul>" + "".join(today_row_html(r, base, rk) for r in rows) + "</ul>"
@@ -393,17 +439,17 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     version, years = hpwatch.fetch_version(base)
     schedules, artists = hpwatch.fetch_data(base, version, years)
     profiles = artists.get("profilesById") or {}
-    names = {str(k): v.get("nameJa") or v.get("slug") for k, v in profiles.items()}
 
     raw = fetch_news(base, version, [str(now.year - 1), str(now.year)])
     if not raw:
         raise RuntimeError(f"{site}: お知らせが1件も取れなかった")
     if not schedules:
         raise RuntimeError(f"{site}: スケジュールが1件も取れなかった")
-    news = [news_item(site, base, x) for x in raw]
+    news, news_state = stamp_news([news_item(site, base, x) for x in raw],
+                                  os.path.join(state_dir, f"rss_news_{site}.json"), now)
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
-    media, state = update_media(site, base, schedules, profiles, names, state_path, now, rk)
+    media, state = update_media(site, base, schedules, profiles, state_path, now, rk)
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, f"{base}/schedule/")
@@ -413,14 +459,12 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     name = "全体" if cfg["by_group"] else "全員"
     write(os.path.join(out, path), rss_xml(
         f"{cfg['label']} 今日の予定", f"{base} のスケジュールから、その日の予定を毎朝1本にまとめたもの・非公式",
-        f"{base}/schedule/", url, newest(today_items(site, base, schedules, names, now, rk))))
+        f"{base}/schedule/", url, newest(today_items(site, base, schedules, now, rk))))
     feeds.append({"site": site, "kind": "today", "name": name, "url": url})
 
-    # フィードを書けてから状態を保存する。中身が同じなら書かない（コミットが増えないように）
-    text = json.dumps(state, ensure_ascii=False, indent=0, sort_keys=True)
-    old = open(state_path, encoding="utf-8").read() if os.path.exists(state_path) else None
-    if text != old:
-        write(state_path, text)
+    # フィードを書けてから状態を保存する
+    save_state(state_path, state)
+    save_state(os.path.join(state_dir, f"rss_news_{site}.json"), news_state)
     return feeds
 
 
