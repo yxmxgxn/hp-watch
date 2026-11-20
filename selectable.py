@@ -1,6 +1,6 @@
 """選択式フィード（/custom.xml?site=…&kind=…&who=…&cat=…&general=1&q=…&x=…）の元データと、選ぶ画面を作る
 
-  data/{site}-{kind}.json … 記事（人・グループ・カテゴリ付き）。Worker（watcher/src/custom.js）が読んで、条件に合うものだけRSSにする
+  data/{site}-{kind}.json … 記事（site は公式のURLの名前。下の SITE_IDS）（人・グループ・カテゴリ付き）。Worker（watcher/src/custom.js）が読んで、条件に合うものだけRSSにする
   data/options.json       … 選べるもの（サイト・種類・人／グループ・カテゴリ）。選ぶ画面と Worker が読む
   custom/index.html       … 選ぶ画面
 
@@ -34,6 +34,25 @@ def load_roster(path):
         return None
     with open(path, encoding="utf-8") as f:
         return {compact_name(l) for l in (x.strip() for x in f) if l and not l.startswith("#")}
+
+
+# 選択式フィードの site= の名前は、公式のURLの名前（ドメインから www. と末尾（.com など）を除いたもの）にそろえる。
+# rss.py の内部のキー（SITES・FC_SITES のキー。状態ファイルの名前・静的フィードのフォルダ名）は変えない。ここで、公開する名前に変えるだけ。
+# 昔の名前（hp・jproom など）は、Worker（watcher/src/custom.js の ALIASES）が、今の名前として受け付ける（登録済みのURLが切れないように）
+SITE_IDS = {
+    "hp": "helloproject",            # helloproject.com
+    "jproom": "jp-r",                # www.jp-r.co.jp
+    "upfront": "up-front-create",    # up-front-create.com
+    "reina": "tanaka-reina",         # tanaka-reina.com
+    "airi": "airisuzuki-officialweb",  # www.airisuzuki-officialweb.com
+    "justpro": "just-pro",           # www.just-pro.jp
+    "fc": "upfc-helloproject",       # www.upfc.jp/helloproject
+    "mline": "upfc-m-line",          # www.upfc.jp/m-line
+}                                    # helloshop（helloshop.info）・ameblo（ameblo.jp）・youtube（youtube.com）は、そのまま
+
+
+def site_id(site):
+    return SITE_IDS.get(site, site)
 
 
 def write(path, text):
@@ -96,6 +115,7 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
     名前が空のプロフィール（未発表のユニットなど）は出さない。カテゴリは、記事がまだ無くても全部出す。人・グループは、記事に出てくるものだけ
     （who_all なら全員。スケジュールは新しく載ったものから溜めるので、使い始めは記事が少なくても、見たい人を選べるようにする）
     who_keep: 「人」の選択肢に出す名前の条件（名前 → 真偽）。記事のデータは絞らない（全部・言葉の検索には出る）"""
+    site = site_id(site)
     rows = sorted(items, key=lambda i: (iso(i["date"]), str(i["sort"])), reverse=True)[:DATA_LIMIT]
     used_who = {k for i in rows for k in i.get("who") or []}
     data = {"items": []}
