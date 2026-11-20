@@ -876,13 +876,13 @@ def ameblo_source(profiles, pm):
 
 
 # ---------- YouTube（公式のチャンネル。保存しない・リーダーが取りに来たときに取りに行く） ----------
-# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube・decarbo46。個人のチャンネルは、対象にしていない。
+# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube・decarbo46。個人のチャンネルは、今の事務所に所属している人だけ。
 # RSS: https://www.youtube.com/feeds/videos.xml?channel_id=UC…（最新15件・公式のもの）。チャンネルのIDは、チャンネルのページの
 # RSSの印（<link rel="alternate" type="application/rss+xml">）から1回だけ引いて、state/youtube_channels.json に残す（毎回は引かない）。
 # 動画とShortsは、リンクの形（/shorts/）で見分ける。保存しないので、本文の説明は持たない。埋め込み（embed=1）は、公式の埋め込みプレーヤー
 
 YT_CHANNELS = [
-    # (key, チャンネルのURL)  名前は、ページから引く
+    # (key, チャンネルのURL[, 種別: 省略は group（チャンネル）／person（個人）])  名前は、ページから引く
     ("morningmusume", "https://www.youtube.com/user/morningmusumechannel"),
     ("angerme", "https://www.youtube.com/c/angerme"),
     ("juicejuice", "https://www.youtube.com/user/juicejuicechannel"),
@@ -902,6 +902,13 @@ YT_CHANNELS = [
     ("uffanclub", "https://www.youtube.com/@UFfanclub"),
     ("jprtube", "https://www.youtube.com/@JPR_Tube"),
     ("decarbo46", "https://www.youtube.com/@decarbo46"),
+    # 個人（今の事務所に所属している人だけ。アップフロントクリエイト・JPROOM・ジャストプロ）。画面では「メンバー・個人」に入る
+    ("takahashi_ai", "https://www.youtube.com/@lab3546", "person"),
+    ("suzuki_airi", "https://www.youtube.com/@airisuzukich", "person"),
+    ("rina_katsuta", "https://www.youtube.com/@rinakatsuta_official", "person"),
+    ("miyamoto_karin", "https://www.youtube.com/@miyamotokarin", "person"),
+    ("mai_ozeki", "https://www.youtube.com/@ozeki_mai", "person"),
+    ("miki_fujimoto", "https://www.youtube.com/@hello_mikitty", "person"),
 ]
 YT_ID_RE = re.compile(r'<link rel="alternate" type="application/rss\+xml"[^>]*channel_id=(UC[\w-]{22})')
 YT_ID_RE2 = re.compile(r'"externalId":"(UC[\w-]{22})"')
@@ -927,7 +934,7 @@ def youtube_source(state_dir):
         with open(path, encoding="utf-8") as f:
             known = json.load(f)
     changed, who = False, []
-    for key, url in YT_CHANNELS:
+    for key, url, *typ in YT_CHANNELS:
         rec = known.get(key)
         if not rec or rec.get("url") != url:
             try:
@@ -939,7 +946,7 @@ def youtube_source(state_dir):
                 continue
             rec = known[key] = {"url": url, "id": got[0], "name": got[1]}
             changed = True
-        who.append({"key": key, "label": rec["name"], "type": "group", "channels": [rec["id"]], "url": rec["url"]})
+        who.append({"key": key, "label": rec["name"], "type": typ[0] if typ else "group", "channels": [rec["id"]], "url": rec["url"]})
         time.sleep(0.5)
     if changed:
         save_state(path, known)

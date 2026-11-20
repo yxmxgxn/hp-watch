@@ -165,7 +165,7 @@ if (dataDir) {
   // --- C: ハロショ（公式のRSSから溜めた記事を、タイトルだけで返す）
   r = await get("?site=helloshop&kind=news");
   x = await r.text();
-  assert(r.status === 200 && items(x) === 30 && !/<item>[\s\S]*?<description>/.test(x), "ハロショ: 溜めた30件・タイトルだけ（記事に本文 description が無い）");
+  assert(r.status === 200 && items(x) >= 30 && !/<item>[\s\S]*?<description>/.test(x), "ハロショ: 溜めた30件以上（新着で増える）・タイトルだけ（記事に本文 description が無い）");
   r = await get("?site=helloshop&kind=news&who=beyooooonds");
   x = await r.text();
   assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<category>BEYOOOOONDS</category>")), "ハロショ: タグで絞る");
