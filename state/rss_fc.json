@@ -11,6 +11,23 @@
 },
 "items": [
 {
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-20T16:00:00+09:00",
+"fcgroups": [
+"angerme",
+"morningmusume"
+],
+"guid": "fc-k4u3wmiVwt2TpMe6",
+"html": "<p>ニュース ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=k4u3wmiVwt2TpMe6\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=k4u3wmiVwt2TpMe6",
+"name": "「Hello! Projectデジタルコレクション」に新トレカが追加されました！",
+"sort": "2026-11-2099",
+"title": "2026.11.20 [ニュース] 「Hello! Projectデジタルコレクション」に新トレカが追加されました！"
+},
+{
 "cat": "イベント",
 "categories": [
 "イベント"

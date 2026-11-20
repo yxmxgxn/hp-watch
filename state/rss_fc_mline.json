@@ -32,6 +32,54 @@
 },
 "items": [
 {
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-20T16:00:00+09:00",
+"fcgroups": [
+"yamagishiriko"
+],
+"guid": "mline-FLzeTzqnGk85ji3y",
+"html": "<p>グッズ ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=FLzeTzqnGk85ji3y\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=FLzeTzqnGk85ji3y",
+"name": "『山岸理子バースデーイベント2026 〜最近、顔がナマケモノ化してきた〜』オリジナルグッズ公開！",
+"sort": "2026-11-2099",
+"title": "2026.11.20 [グッズ] 『山岸理子バースデーイベント2026 〜最近、顔がナマケモノ化してきた〜』オリジナルグッズ公開！"
+},
+{
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-20T16:00:00+09:00",
+"fcgroups": [
+"iikuboharuna"
+],
+"guid": "mline-he9d8684629a2",
+"html": "<p>FCイベント ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp9000\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp9000",
+"name": "スペシャル会員ポイントプレゼント【チケット9000】情報更新！",
+"sort": "2026-11-2098",
+"title": "2026.11.20 [FCイベント] スペシャル会員ポイントプレゼント【チケット9000】情報更新！"
+},
+{
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-20T16:00:00+09:00",
+"fcgroups": [
+"iikuboharuna"
+],
+"guid": "mline-GKMTBFY4nRx8Fh01",
+"html": "<p>FCイベント ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=GKMTBFY4nRx8Fh01\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=GKMTBFY4nRx8Fh01",
+"name": "★ファンクラブ会員限定イベント★『飯窪春菜ファンクラブイベント2027～運気爆上がり～』開催決定！",
+"sort": "2026-11-2097",
+"title": "2026.11.20 [FCイベント] ★ファンクラブ会員限定イベント★『飯窪春菜ファンクラブイベント2027～運気爆上がり～』開催決定！"
+},
+{
 "cat": "コンテンツ",
 "categories": [
 "コンテンツ"
