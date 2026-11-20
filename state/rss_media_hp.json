@@ -3,6 +3,40 @@
 {
 "categories": [
 "TV",
+"Juice=Juice"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-20T18:00:00+09:00",
+"general": false,
+"groups": [
+"36"
+],
+"guid": "hp-media-hbf1fdb7963af005f",
+"html": "<p>出演: Juice=Juice</p><p>※【第一部】16:00～17:00放送/【第二部】19:00～22:54放送</p><ul><li><a href=\"https://www.ntv.co.jp/best-artist/artist/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E6%97%A5%E6%9C%AC%E3%83%86%E3%83%AC%E3%83%93%E3%80%8C%E3%83%99%E3%82%B9%E3%83%88%E3%82%A2%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9%E3%83%882026%E3%80%8D+&amp;dates=20261128T160000%2F20261128T225400&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.ntv.co.jp/best-artist/artist/",
+"name": "日本テレビ「ベストアーティスト2026」",
+"sort": "2026-11-28 16:00",
+"title": "[TV] 11/28(土) 16:00 日本テレビ「ベストアーティスト2026」",
+"who": [
+"juicejuice",
+"ruru_dambara",
+"rei_inoue",
+"yume_kudou",
+"riai_matsunaga",
+"kisaki_ebata",
+"ichika_arisawa",
+"sakura_ishiyama",
+"risa_irie",
+"mifu_kawashima",
+"akari_endo",
+"niina_hayashi"
+]
+},
+{
+"categories": [
+"TV",
 "Juice=Juice：有澤一華"
 ],
 "cats": [
@@ -1354,6 +1388,7 @@
 "hb922829fc8c24746": "2026-11-24",
 "hba22697eebe5b1a8": "2026-09-27",
 "hbc9cb2ac57bd019c": "2026-11-07",
+"hbf1fdb7963af005f": "2026-11-28",
 "hbf3b051a3350cdb8": "2026-10-24",
 "hc005210c3900b46f": "2026-09-26",
 "hc037721b7f45efc6": "2026-10-21",
@@ -1495,6 +1530,7 @@
 "s2276": "2026-11-25",
 "s2277": "2026-11-24",
 "s2278": "2026-11-25",
+"s2282": "2026-11-28",
 "s2285": "2026-11-28",
 "s2286": "2026-11-27",
 "s2287": "2026-11-25",

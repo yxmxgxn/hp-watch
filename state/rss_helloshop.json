@@ -1,6 +1,28 @@
 {
-"etag": "\"8632438a313a3028792f8d927b56481d\"",
+"etag": "\"e3ff15b6beba7fd195ba8cb6f8c8199b\"",
 "items": [
+{
+"categories": [
+"イベント",
+"店舗",
+"BEYOOOOONDS"
+],
+"cats": [
+"event",
+"shops"
+],
+"date": "2026-11-20T18:00:49+09:00",
+"general": false,
+"guid": "shop-211193",
+"html": "",
+"link": "https://www.helloshop.info/news/event/20261120_211193.html",
+"name": "12/23（水）大阪店にて 『＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS 西田汐里＆小島はな～トークイベント』開催＆【HELLO! PROJECT STREAM】にて配信決定！",
+"sort": "2026-11-20T18:00:49+09:00",
+"title": "12/23（水）大阪店にて 『＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS 西田汐里＆小島はな～トークイベント』開催＆【HELLO! PROJECT STREAM】にて配信決定！",
+"who": [
+"beyooooonds"
+]
+},
 {
 "categories": [
 "グッズ情報",
