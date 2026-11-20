@@ -2,7 +2,7 @@
 // フィードを配る Worker（ルートの wrangler.toml）に同居している。
 // GitHub の定期実行は数時間遅れたり飛ばされたりするので使わない。記憶（KV など）は持たない。
 //
-//   */15 * * * *  公式の /schedule/ の Last-Modified が直近17分以内なら（＝サイトが作り直されたら）rss.yml を呼ぶ
+//   */15 * * * *  公式の更新を見るページ（WATCH）の Last-Modified が直近17分以内なら（＝サイトが更新されたら）rss.yml を呼ぶ
 //   0 20 * * *    05:00 JST  rss.yml（今日の予定）
 //   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）を別々に呼ぶ
 //
@@ -10,7 +10,13 @@
 
 import { customFeed } from "./custom.js";
 
-const SITES = { hp: "https://helloproject.com", jproom: "https://www.jp-r.co.jp" };
+// 公式の更新を見るページ（HEAD の Last-Modified）。ハロプロ・JPROOM・アップフロントは同じ版で作り直される（/schedule/）。
+// ハロショ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。ファンクラブのページには更新の印が無いので見られない
+const WATCH = {
+  hp: "https://helloproject.com/schedule/",
+  jproom: "https://www.jp-r.co.jp/schedule/",
+  helloshop: "https://www.helloshop.info/feed",
+};
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";
 const WINDOW_MS = 17 * 60 * 1000; // 15分おきの実行 ＋ 少しの余裕
@@ -19,10 +25,10 @@ const FIXED = {
   "0 9 * * *": ["hpwatch.yml", "profiles.yml"],
 };
 
-// サイトが最後に作り直された時刻。直近 WINDOW_MS 以内なら Date、そうでなければ null
-export async function builtRecently(base, now) {
-  const r = await fetch(`${base}/schedule/`, { method: "HEAD", headers: { "User-Agent": UA } });
-  if (!r.ok) throw new Error(`${r.status} ${base}/schedule/`);
+// ページが最後に更新された時刻。直近 WINDOW_MS 以内なら Date、そうでなければ null
+export async function builtRecently(url, now) {
+  const r = await fetch(url, { method: "HEAD", headers: { "User-Agent": UA } });
+  if (!r.ok) throw new Error(`${r.status} ${url}`);
   const lm = r.headers.get("last-modified");
   if (!lm) return null;
   const t = new Date(lm);
@@ -73,9 +79,9 @@ export async function run(cron, env, now) {
   for (const w of FIXED[cron] || []) jobs.set(w, cron);
   const errors = [];
   if (cron === DETECT) {
-    for (const [site, base] of Object.entries(SITES)) {
+    for (const [site, url] of Object.entries(WATCH)) {
       try {
-        const t = await builtRecently(base, now);
+        const t = await builtRecently(url, now);
         if (t) jobs.set("rss.yml", `${site} 更新 ${t.toISOString()}`);
       } catch (e) {
         errors.push(`${site}: ${e && e.message || e}`); // 公式側の一時的な失敗。呼び出しの失敗ではないので Discord には出さない

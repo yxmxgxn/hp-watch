@@ -25,6 +25,10 @@ MEDIA（media）
   グループ別は、グループのページの一覧（news_list.php?gid=…の1ページ目）に載っているかどうかで決める（記事にはグループの印が無い）。
   フィード: 全体、ニュース（公式のタブには無い分類）、イベント、コンサート、グッズ、配信、その他、グループ別8本。
 
+ハロショ（helloshop）
+  公式の WordPress の RSS（/feed）から、記事の題名・リンク・公開時刻・カテゴリを state/rss_helloshop.json に溜める（本文・画像は持たない）。
+  静的なフィードは作らず、選んで作る RSS（/custom/）の元データだけを書く。更新は時計（Cloudflare）が /feed の Last-Modified を見て知らせる。
+
 公式の更新の記録（state/observe.jsonl）
   公式が更新される（版が変わる）たびに1行。版の時刻（日本時間）と、そのとき見つけた新着の件数。
 
@@ -44,7 +48,10 @@ import os
 import re
 import sys
 import time
-from email.utils import format_datetime
+import urllib.error
+import urllib.request
+import xml.etree.ElementTree as ET
+from email.utils import format_datetime, parsedate_to_datetime
 from html import unescape
 from urllib.parse import urljoin
 from xml.sax.saxutils import escape, quoteattr
@@ -114,6 +121,7 @@ def news_item(site, base, x, pm):
     cat = x.get("category") or "NEWS"
     # リンク欄があればそれ。無ければ /news/{id}/（NEWS の記事にだけ存在する）
     link = abs_link(base, (x.get("link") or {}).get("link")) or f"{base}/news/{x['id']}/"
+    who = selectable.who_of(x.get("artistsSearch"), pm)
     return {
         "guid": f"{site}-news-{x['id']}",
         "sort": x["id"],
@@ -124,8 +132,10 @@ def news_item(site, base, x, pm):
         "html": news_html(x, cat, link),
         "categories": [cat] + ([x["flag"]] if x.get("flag") else []) + list(x.get("tags") or []),
         "groups": [str(i) for i in x.get("artistsSearch") or []],
-        "who": selectable.who_of(x.get("artistsSearch"), pm),  # 選択式フィード用
+        "who": who,  # 選択式フィード用
         "cats": [cat],
+        "name": title,  # 言葉で探すときに見る、飾りの無い題名
+        "general": selectable.is_general(who, x.get("tags")),  # 特定の人・グループに紐づかない全体のもの
     }
 
 
@@ -274,6 +284,8 @@ def media_item(site, base, x, rk, now, late, pm):
         "groups": [str(i) for i in x.get("artistsSearch") or []],
         "who": media_who(x, pm),  # 選択式フィード用
         "cats": [cat],
+        "name": title,
+        "general": selectable.is_general(media_who(x, pm), x.get("tags")),
     }
 
 
@@ -296,6 +308,10 @@ def update_media(site, base, schedules, profiles, state_path, now, rk):
             i["who"] = who_by_guid.get(i["guid"]) or selectable.who_of(i.get("groups"), pm)
         if "cats" not in i:
             i["cats"] = i["categories"][:1]
+        if "general" not in i:
+            i["general"] = selectable.is_general(i["who"], i.get("categories"))
+        if "name" not in i:
+            i["name"] = selectable.plain_title(i["title"])
 
     today = now.date()
     seed_end = (today + dt.timedelta(days=SEED_DAYS)).isoformat()
@@ -589,6 +605,7 @@ def fc_item(r, idx, when, groups):
         "html": f"<p>{escape(r['cat'])} ・ {escape(r['d'])}</p><p><a href={quoteattr(r['link'])}>ファンクラブサイトで読む</a></p>",
         "categories": [r["cat"]],
         "cat": r["cat"],
+        "name": r["title"],
         "fcgroups": sorted(groups),  # 載っているグループ／人の一覧のキー
     }
 
@@ -711,10 +728,118 @@ def build_fc(out, state_dir, feed_base, stamp, site):
     if new_state is not None:
         save_state(path, new_state)
     print(f"{site} news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
-    rows = [dict(i, who=i.get("fcgroups") or [], cats=[slug_of[i["cat"]]] if i["cat"] in slug_of else []) for i in items]
+    rows = [dict(i, who=i.get("fcgroups") or [], cats=[slug_of[i["cat"]]] if i["cat"] in slug_of else [],
+                 general=not i.get("fcgroups")) for i in items]
     source = selectable.make_source(out, site, cfg["label"], "news", "ニュース", rows,
                                     [(slug, name, cfg["who_type"]) for slug, _, name in people], cfg["cats"], who_all=True)
     return feeds, [source]
+
+
+# ---------- ハロショ（helloshop.info） ----------
+# 公式が WordPress で RSS（/feed）を出している。記事（題名・リンク・公開時刻・カテゴリ）を、状態ファイルに溜めていく。
+# 本文・画像は持たない（公式のRSSに入っているが、読まない）。更新の確認は時計（Cloudflare）が /feed の Last-Modified を見る。
+# 取りに行くときは、前回の ETag を付ける（変わっていなければ 304 で、中身は送られない）
+
+SHOP_BASE = "https://www.helloshop.info"
+SHOP_KEEP = 300   # 状態ファイルに残す記事数
+SHOP_PAGES = 3    # 初回に見るページ数（1ページ10件。約30日分）。ふだんは1ページ目だけ（全部新しければ次のページも）
+# タグ（グループ。公式の /tag/{ID}/）とカテゴリ（公式の /category/{ID}/）。新しいものが増えたら、ここに足す
+SHOP_WHO = [("morningmusume", "モーニング娘。'26"), ("angerme", "アンジュルム"), ("juicejuice", "Juice=Juice"),
+            ("tsubakifactory", "つばきファクトリー"), ("beyooooonds", "BEYOOOOONDS"), ("ocha-norma", "OCHA NORMA"),
+            ("rosychronicle", "ロージークロニクル"), ("sotsugyo", "ハロプロ卒業メンバー"), ("kensyu", "ハロプロ研修生"), ("other", "その他")]
+SHOP_CATS = [("news", "お知らせ"), ("event", "イベント"), ("goods", "グッズ情報"), ("photo", "生写真情報"),
+             ("shop", "ショップ情報"), ("shops", "店舗"), ("extra", "臨時店")]
+
+
+def shop_get(url, etag=None):
+    """戻り値: (本文, ETag)。前回から変わっていなければ (None, 前回のETag)"""
+    headers = {"User-Agent": hpwatch.UA}
+    if etag:
+        headers["If-None-Match"] = etag
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
+            return r.read().decode("utf-8"), r.headers.get("ETag")
+    except urllib.error.HTTPError as e:
+        if e.code == 304:
+            return None, etag
+        raise
+
+
+def shop_parse(xml_text):
+    who_of = {label: key for key, label in SHOP_WHO}
+    cat_of = {label: key for key, label in SHOP_CATS}
+    rows = []
+    for it in ET.fromstring(xml_text).find("channel").findall("item"):
+        title = (it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        guid = (it.findtext("guid") or link).strip()
+        pub = it.findtext("pubDate")
+        if not (title and pub):
+            continue
+        labels = [c.text.strip() for c in it.findall("category") if c.text]
+        who = [who_of[x] for x in labels if x in who_of]
+        pid = re.search(r"[?&]p=(\d+)", guid)
+        rows.append({
+            "guid": "shop-" + (pid.group(1) if pid else hashlib.sha1(guid.encode()).hexdigest()[:12]),
+            "sort": parsedate_to_datetime(pub).astimezone(JST).isoformat(),
+            "title": title, "name": title, "link": link, "html": "",
+            "date": parsedate_to_datetime(pub).astimezone(JST).isoformat(),
+            "categories": labels,  # 公式のカテゴリ・タグの名前をそのまま
+            "who": who, "cats": [cat_of[x] for x in labels if x in cat_of],
+            "general": not who or set(who) <= {"other"},  # グループのタグが無い（店舗・お知らせなど）
+        })
+    return rows
+
+
+def update_shop(state):
+    """公式のRSSを見て、新しい記事を足す。戻り値: (記事, 新しい状態, 新しく見つけた件数)"""
+    first = state is None
+    items = list((state or {}).get("items") or [])
+    etag = (state or {}).get("etag")
+    have = {i["guid"] for i in items}
+    fetched, new_etag = [], etag
+    for pg in range(1, SHOP_PAGES + 1):
+        body, e = shop_get(SHOP_BASE + "/feed" + (f"?paged={pg}" if pg > 1 else ""), None if first or pg > 1 else etag)
+        if pg == 1:
+            new_etag = e
+        if body is None:  # 前回から変わっていない
+            break
+        rows = shop_parse(body)
+        fetched += rows
+        if (first and pg >= SHOP_PAGES) or (not first and any(r["guid"] in have for r in rows)):
+            break
+        time.sleep(0.5)
+    new = []
+    for r in fetched:
+        if r["guid"] not in have:
+            have.add(r["guid"])
+            new.append(r)
+    items = sorted(new + items, key=lambda i: (i["date"], i["guid"]), reverse=True)[:SHOP_KEEP]
+    return items, {"items": items, "etag": new_etag}, 0 if first else len(new)
+
+
+def build_shop(out, state_dir, now):
+    """ハロショの選択式フィードの元データを書く。取得に失敗しても、前回の状態があればそれで書く"""
+    path = os.path.join(state_dir, "rss_helloshop.json")
+    state = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            state = json.load(f)
+    try:
+        items, new_state, found = update_shop(state)
+    except Exception as e:
+        if state is None:
+            raise
+        print(f"warn: helloshop: {e}（前回の状態で書く）", file=sys.stderr)
+        items, new_state, found = state["items"], None, 0
+    source = selectable.make_source(
+        out, "helloshop", "ハロショ", "news", "新着情報（タイトルだけ）", items,
+        [(k, n, "group") for k, n in SHOP_WHO], SHOP_CATS, who_all=True,
+        note="ハロショの公式のRSSから溜めた記事の、タイトルだけを返します（本文・画像は返しません）。最初は直近30日分から始まります。")
+    if new_state is not None:
+        save_state(path, new_state)
+    print(f"helloshop news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
+    return [source]
 
 
 # ---------- 公式の更新の記録 ----------
@@ -864,6 +989,11 @@ def main():
         except Exception as e:
             print(f"error: {fsite}: {e}", file=sys.stderr)
             failed.append(fsite)
+    try:
+        sources += build_shop(args.out, args.state_dir, now)
+    except Exception as e:
+        print(f"error: helloshop: {e}", file=sys.stderr)
+        failed.append("helloshop")
     if not feeds:
         sys.exit(1)
 

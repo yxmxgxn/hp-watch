@@ -1,15 +1,18 @@
-// 選択式フィード: /custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT
+// 選択式フィード: /custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT&q=ツアー&x=抽選
 //   site / kind … 必須。1つのサイトの、お知らせ（news）かスケジュール（schedule）のどちらか（またがない）
-//   who / cat   … 任意。カンマ区切りで複数。who は人・グループ、cat はカテゴリ。同じ項目の中は「どれか」、who と cat は「両方」。
-//                 空なら全部
-// 元データは公開のたびに rss.py が置く data/{site}-{kind}.json（人・グループ・カテゴリ付きの記事）と data/options.json
+//   who / cat   … 任意。カンマ区切りで複数。who は人・グループ、cat はカテゴリ。同じ項目の中は「どれか」
+//   general     … 特定の人・グループに紐づかない「全体のもの」の扱い。1＝全体のものだけ（who とは一緒に使えない）／0＝全体のものを除く
+//                 （例: who=angerme&general=0 で、アンジュルムだけのタグの記事）。無ければ、含める
+//   q / x       … 題名（name）に含まれる言葉。q は「含む」（スペース区切りは全部を含む）、x は「含まない」（どれかを含むものを除く）
+//   上の条件は、全部を満たす記事だけ。空なら全部
+// 元データは公開のたびに rss.py が置く data/{site}-{kind}.json（人・グループ・カテゴリ・題名付きの記事）と data/options.json
 // 選べる値は options.json にあるものだけ。それ以外は400を返す（誤った条件のURLが、空のフィードとして登録されるのを防ぐ）
+// 言葉の判定は、全角・半角と大文字・小文字をそろえて（NFKC・小文字）、題名だけを見る。本文は持たない・公開しない
 
 const LIMIT = 50;
 const MAX_VALUES = 40;
-const MAX_QUERY = 40;   // キーワード（人名など）の長さ
-const LIVE_PAGES = 3;   // 公式のフィードは1ページ10件。3ページ分（30件）まで見る
-const LIVE_DAYS = 180;  // 公式のRSSから返すのは、最近この日数の記事だけ（RSSは新しい記事を受け取るもの。登録した直後に、何年も前の記事が大量に未読で入るのを防ぐ）
+const MAX_WORDS = 5;    // q・x それぞれの言葉の数
+const MAX_QUERY = 60;   // q・x それぞれの長さ
 
 const text = (status, body) => new Response(body + "\n", { status, headers: { "content-type": "text/plain; charset=utf-8" } });
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -20,66 +23,9 @@ async function readJson(env, path) {
   return r.json();
 }
 
-// ---- 公式が WordPress で、RSS（タグ・カテゴリ・検索で絞れる）を出しているサイト。公式のRSSを取りに行って、タイトルだけにして返す
-const decodeXml = (t) => t
-  .replace(/^\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*$/, "$1")
-  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d))
-  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, "&");
-
-export function parseWpFeed(xml) {
-  const items = [];
-  for (const chunk of xml.split("<item>").slice(1)) {
-    const b = chunk.split("</item>")[0];
-    const one = (tag) => { const m = b.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`)); return m ? decodeXml(m[1]).trim() : ""; };
-    const date = new Date(one("pubDate"));
-    if (!one("title") || Number.isNaN(date.getTime())) continue;
-    items.push({
-      guid: one("guid") || one("link"), title: one("title"), link: one("link"), date: date.toISOString(), html: "",
-      categories: [...b.matchAll(/<category(?:\s[^>]*)?>([\s\S]*?)<\/category>/g)].map((m) => decodeXml(m[1]).trim()).filter(Boolean),
-    });
-  }
-  return items;
-}
-
-async function liveFeed(src, u, who, cat, q) {
-  const base = src.live.base;
-  const url = (page) => {
-    const p = new URLSearchParams();
-    if (who.length) p.set("tag", who.join(","));
-    if (cat.length) p.set("category_name", cat.join(","));
-    if (q) p.set("s", q);
-    if (page > 1) p.set("paged", String(page));
-    const qs = p.toString();
-    return `${base}/feed${qs ? "?" + qs : ""}`;
-  };
-  const get = async (page) => {
-    const r = await fetch(url(page), { headers: { "User-Agent": "hello-rss (title-only feed)" }, cf: { cacheTtl: 300, cacheEverything: true } });
-    if (!r.ok) throw new Error(`${r.status}`);
-    return parseWpFeed(await r.text());
-  };
-  let pages;
-  try {
-    pages = await Promise.all(Array.from({ length: LIVE_PAGES }, (_, i) => get(i + 1).catch((e) => (i === 0 ? Promise.reject(e) : []))));
-  } catch (e) {
-    return text(502, `${src.siteLabel}の公式のRSSを読み込めませんでした（${e.message}）。しばらくしてからもう一度お試しください`);
-  }
-  const seen = new Set();
-  const since = Date.now() - LIVE_DAYS * 86400000;
-  const items = pages.flat().filter((i) => !seen.has(i.guid) && seen.add(i.guid) && new Date(i.date).getTime() >= since).slice(0, LIMIT);
-  const label = (arr, sel) => src[arr].filter((o) => sel.includes(o.key)).map((o) => o.label);
-  const names = who.length ? label("who", who).join("・") : "全部";
-  const cats = cat.length ? `（${label("cat", cat).join("・")}）` : "";
-  return new Response(renderRss({
-    title: `${src.siteLabel} ${src.kindLabel} ― ${names}${cats}${q ? `「${q}」` : ""}`,
-    description: `${src.siteLabel}の公式のRSSから、選んだ条件の最近${LIVE_DAYS}日の記事のタイトルだけ・非公式`,
-    link: `${u.origin}/custom/`,
-    self: u.href,
-    items,
-  }), { headers: { "content-type": "application/rss+xml; charset=utf-8", "cache-control": "public, max-age=300" } });
-}
-
 const list = (v) => [...new Set((v || "").split(",").map((x) => x.trim()).filter(Boolean))];
+const norm = (s) => String(s || "").normalize("NFKC").toLowerCase();
+const words = (v) => norm(v).split(/\s+/).filter(Boolean);
 
 export function renderRss({ title, description, link, self, items }) {
   const out = [
@@ -124,17 +70,21 @@ export async function customFeed(req, env) {
     return text(400, `site と kind を指定してください（${ok}）`);
   }
   const who = list(u.searchParams.get("who")), cat = list(u.searchParams.get("cat"));
-  const q = (u.searchParams.get("q") || "").trim();
-  if (q && !src.keyword) return text(400, "この組み合わせは、キーワード（q）を指定できません");
-  if (q.length > MAX_QUERY) return text(400, "キーワードが長すぎます");
+  const gRaw = u.searchParams.get("general");
+  if (gRaw !== null && !["1", "true", "0", "false"].includes(gRaw)) return text(400, "general は 1（全体のものだけ）か 0（全体のものを除く）です");
+  const general = ["1", "true"].includes(gRaw || "");        // 全体のものだけ
+  const noGeneral = ["0", "false"].includes(gRaw || "");     // 全体のものを除く
+  const qRaw = (u.searchParams.get("q") || "").trim(), xRaw = (u.searchParams.get("x") || "").trim();
   if (who.length > MAX_VALUES || cat.length > MAX_VALUES) return text(400, "選びすぎです");
+  if (qRaw.length > MAX_QUERY || xRaw.length > MAX_QUERY || words(qRaw).length > MAX_WORDS || words(xRaw).length > MAX_WORDS) {
+    return text(400, `言葉は、${MAX_WORDS}個・${MAX_QUERY}文字までです`);
+  }
+  if (general && who.length) return text(400, "general（全体のものだけ）と who（人・グループ）は、一緒に使えません");
   const badWho = who.filter((k) => !src.who.some((o) => o.key === k));
   const badCat = cat.filter((k) => !src.cat.some((o) => o.key === k));
   if (badWho.length || badCat.length) {
     return text(400, `選べない値があります: ${[...badWho.map((k) => `who=${k}`), ...badCat.map((k) => `cat=${k}`)].join(", ")}\n選べる値は /custom/ の画面で確かめてください`);
   }
-
-  if (src.live) return liveFeed(src, u, who, cat, q);
 
   let data;
   try {
@@ -142,18 +92,28 @@ export async function customFeed(req, env) {
   } catch (e) {
     return text(503, "記事のデータを読み込めませんでした。しばらくしてからもう一度お試しください");
   }
+  const inc = words(qRaw), exc = words(xRaw);
   const items = data.items
-    .filter((i) => (!who.length || (i.who || []).some((k) => who.includes(k))) && (!cat.length || (i.cats || []).some((c) => cat.includes(c))))
+    .filter((i) => {
+      if (general && !i.general) return false;
+      if (noGeneral && i.general) return false;
+      if (who.length && !(i.who || []).some((k) => who.includes(k))) return false;
+      if (cat.length && !(i.cats || []).some((c) => cat.includes(c))) return false;
+      if (!inc.length && !exc.length) return true;
+      const name = norm(i.name || i.title);
+      return inc.every((w) => name.includes(w)) && !exc.some((w) => name.includes(w));
+    })
     .slice(0, LIMIT);
 
+  // 題名の条件: 全体のもの／グループ（カテゴリ）／「含む言葉」／除く「含まない言葉」。どれも選んでいなければ「全部」
   const label = (arr, sel) => src[arr].filter((o) => sel.includes(o.key)).map((o) => o.label);
-  const names = who.length ? label("who", who).join("・") : "全員";
-  const cats = cat.length ? `（${label("cat", cat).join("・")}）` : "";
-  const origin = u.origin;
+  const cats = label("cat", cat).join("・");
+  const head = general ? "全体のもの" + (cat.length ? `（${cats}）` : "") : who.length ? label("who", who).join("・") + (cat.length ? `（${cats}）` : "") : cats;
+  const what = [head, noGeneral ? "全体のものを除く" : "", qRaw ? `「${qRaw}」` : "", xRaw ? `除く「${xRaw}」` : ""].filter(Boolean).join(" ");
   return new Response(renderRss({
-    title: `${src.siteLabel} ${src.kindLabel} ― ${names}${cats}`,
+    title: `${src.siteLabel} ${src.kindLabel} ― ${what || "全部"}`,
     description: `${src.siteLabel}の${src.kindLabel}から、選んだ条件の記事だけ・非公式`,
-    link: `${origin}/custom/`,
+    link: `${u.origin}/custom/`,
     self: u.href,
     items,
   }), {
