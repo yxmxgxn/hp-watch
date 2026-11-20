@@ -116,7 +116,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - GitHub の Secrets は `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`・`DISCORD_WEBHOOK_URL`（hpwatch と profiles 用）。Worker に入れる秘密の値は、Cloudflare のダッシュボードで直接入れる（hello-rss → Settings → Variables and Secrets → Secret）: `GH_TOKEN`（GitHub の fine-grained トークン。このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなり、Discord に知らせが来る）と `DISCORD_WEBHOOK_URL`
 - 手元の確認: `NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（公式サイトへの HEAD は本物、GitHub と Discord は偽物）
 - 公式の更新の記録: `rss.yml` が更新のたびに `state/observe.jsonl` へ1行（版の時刻・見つけた新着の件数）。取りに行く時間帯を決めるための記録
-- `watch.yml`（スケジュールとプロフィールを1つにまとめた古い作業）と、`rss.yml` の `schedule` は、上の仕組みが確かめられるまでの保険として残してある。確かめたら消す
+- GitHub の cron（`schedule`）は使わない（遅れる・飛ぶことがあるため）。定期の作業は、すべて Cloudflare の時計から `workflow_dispatch` で呼ぶ。以前あった `watch.yml`（スケジュールとプロフィールを1つにまとめた作業）と `rss.yml` の `schedule` は、2026-11-20 の 18:00 JST の呼び出し（hpwatch・profiles の成功と Discord への通知）を確かめて、削除した
 
 ## radio/
 
