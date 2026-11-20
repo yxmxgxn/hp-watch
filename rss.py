@@ -966,29 +966,105 @@ def airi_parse(html_text):
     return rows, guids
 
 
-def build_airi(out, state_dir, now):
-    """鈴木愛理の選択式フィードの元データを書く。取得に失敗しても、前回の状態があればそれで書く"""
-    path = os.path.join(state_dir, "rss_airi.json")
+def build_personal(out, state_dir, key, label, feed, parse, pages, note):
+    """個人の公式サイトのお知らせの選択式フィードの元データを書く（人・カテゴリの選択肢は無い。言葉だけ）。取得に失敗しても、前回の状態があればそれで書く"""
+    path = os.path.join(state_dir, f"rss_{key}.json")
     state = None
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
             state = json.load(f)
     try:
-        items, new_state, found = update_wp(state, AIRI_NEWS, airi_parse, 1)
+        items, new_state, found = update_wp(state, feed, parse, pages)
     except Exception as e:
         if state is None:
             raise
-        print(f"warn: airi: {e}（前回の状態で書く）", file=sys.stderr)
+        print(f"warn: {key}: {e}（前回の状態で書く）", file=sys.stderr)
         items, new_state, found = state["items"], None, 0
-    source = selectable.make_source(
-        out, "airi", "鈴木愛理", "news", "お知らせ（タイトルだけ）", items, [], [],
-        note="鈴木愛理の公式サイトのお知らせ（ライブのお知らせを含む）から、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。"
-             "公式のサイトにRSSが無いので、一覧のページから作っています。日付は、その日の正午です。")
+    source = selectable.make_source(out, key, label, "news", "お知らせ（タイトルだけ）", items, [], [], note=note)
     source["general"] = False
     if new_state is not None:
         save_state(path, new_state)
-    print(f"airi news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
+    print(f"{key} news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
     return [source]
+
+
+def build_airi(out, state_dir, now):
+    return build_personal(
+        out, state_dir, "airi", "鈴木愛理", AIRI_NEWS, airi_parse, 1,
+        "鈴木愛理の公式サイトのお知らせ（ライブのお知らせを含む）から、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。"
+        "公式のサイトにRSSが無いので、一覧のページから作っています。日付は、その日の正午です。")
+
+
+# ---------- 小片リサ・小林梓・夏焼雅（個人の公式サイトのお知らせ） ----------
+# 事務所のサイトではなく、本人のサイトだけ（事務所全体のお知らせは、ほかのタレントの記事が混ざるので対象にしない）。題名・リンク・日付だけを溜める（本文・画像は持たない）。
+#   小片リサ（risaogata.com）: WordPress。/feed/ が、お知らせのRSS（ETagあり）。更新の検知は、時計が /feed/ の Last-Modified を見る
+#   小林梓（kobayashi-azusa.officialsite.co）: /atom.xml が、お知らせのAtom（30件）。ETag・Last-Modified が無いので、更新の検知はできない（毎朝5:00など、rss.yml が動いたときに見る）
+#   夏焼雅（miyabiroom0825.com）: RSS が無い。/news のHTMLの一覧（日付・題名・リンク）から作る（ETagあり）。更新の検知はできない（同上）
+# 日付が時刻の無い形（夏焼雅）は、その日の正午（日本時間）にする
+
+OGATA_FEED = "https://risaogata.com/feed/"
+KOBAYASHI_FEED = "https://kobayashi-azusa.officialsite.co/atom.xml"
+MIYABI_NEWS = "https://miyabiroom0825.com/news"
+MIYABI_ITEM = re.compile(r'<a href="(/news/(\d+))"[^>]*>.*?<span class="date">\s*(\d{4})\.(\d{1,2})\.(\d{1,2})\s*.*?<div class="item__title">(.*?)</div>', re.S)
+ATOM = "{http://www.w3.org/2005/Atom}"
+
+
+def _row(guid, title, link, date):
+    return {"guid": guid, "sort": date, "title": title, "name": title, "link": link, "html": "", "date": date, "categories": [], "who": [], "cats": []}
+
+
+def ogata_parse(xml_text):
+    rows, guids = [], []
+    for it in ET.fromstring(xml_text).find("channel").findall("item"):
+        title = re.sub(r"\s+", " ", it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        guid = (it.findtext("guid") or link).strip()
+        pub = it.findtext("pubDate")
+        if not (title and link and pub):
+            continue
+        pid = re.search(r"[?&]p=(\d+)", guid)
+        g = "ogata-" + (pid.group(1) if pid else hashlib.sha1(guid.encode()).hexdigest()[:12])
+        guids.append(g)
+        rows.append(_row(g, title, link, parsedate_to_datetime(pub).astimezone(JST).isoformat()))
+    return rows, guids
+
+
+def kobayashi_parse(xml_text):
+    rows, guids = [], []
+    for e in ET.fromstring(xml_text).findall(ATOM + "entry"):
+        title = re.sub(r"\s+", " ", e.findtext(ATOM + "title") or "").strip()
+        link = next((l.get("href") for l in e.findall(ATOM + "link") if l.get("rel") == "alternate"), "")
+        pub = e.findtext(ATOM + "published") or e.findtext(ATOM + "updated")
+        n = re.search(r"/posts/(\d+)", link or "")
+        if not (title and link and pub and n):
+            continue
+        g = "kobayashi-" + n.group(1)
+        guids.append(g)
+        rows.append(_row(g, title, link, dt.datetime.fromisoformat(pub).astimezone(JST).isoformat()))
+    return rows, guids
+
+
+def miyabi_parse(html_text):
+    rows, guids = [], []
+    for href, nid, y, m, d, title in MIYABI_ITEM.findall(html_text):
+        title = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", title))).strip()
+        if not title:
+            continue
+        g = "miyabi-" + nid
+        guids.append(g)
+        rows.append(_row(g, title, urljoin(MIYABI_NEWS, href), dt.datetime(int(y), int(m), int(d), 12, tzinfo=JST).isoformat()))
+    return rows, guids
+
+
+PERSONAL = (
+    ("ogata", "小片リサ", OGATA_FEED, ogata_parse, 3,
+     "小片リサの公式サイト（risaogata.com）のお知らせの、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。最初は直近30件ほどから始まります。"),
+    ("kobayashi", "小林梓", KOBAYASHI_FEED, kobayashi_parse, 1,
+     "小林梓の公式サイトのお知らせ（Atom）の、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。公式のサイトに更新の印が無いので、1日に数回しか見に行きません。"),
+    ("miyabi", "夏焼雅", MIYABI_NEWS, miyabi_parse, 1,
+     "夏焼雅の公式サイトのお知らせから、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。公式のサイトにRSSが無いので、一覧のページから作っています。"
+     "日付は、その日の正午です。公式のサイトに更新の印が無いので、1日に数回しか見に行きません。"),
+)
 
 
 # ---------- アメブロ（ハロプロのグループ・メンバーのブログ） ----------
@@ -1285,6 +1361,7 @@ def main():
     for name, build in (("helloshop", lambda: build_shop(args.out, args.state_dir, now)),
                         ("justpro", lambda: build_jp(args.out, args.state_dir, now)),
                         ("airi", lambda: build_airi(args.out, args.state_dir, now)),
+                        *[(p[0], lambda p=p: build_personal(args.out, args.state_dir, *p)) for p in PERSONAL],
                         ("youtube", lambda: [x for x in [youtube_source(args.state_dir)] if x])):
         try:
             sources += build()
