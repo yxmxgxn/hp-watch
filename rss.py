@@ -535,6 +535,9 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
                                [(k, CAT_LABELS[k]) for k in MEDIA_CATS], who_all=True),
     ]
 
+    if site == "hp":
+        sources.append(ameblo_source(profiles, pm))
+
     # フィードを書けてから状態を保存する
     save_state(state_path, state)
     save_state(os.path.join(state_dir, f"rss_news_{site}.json"), news_state)
@@ -842,6 +845,36 @@ def build_shop(out, state_dir, now):
     return [source]
 
 
+# ---------- アメブロ（ハロプロのグループ・メンバーのブログ） ----------
+# 保存しない。リーダーが取りに来たときに、Worker（watcher/src/ameblo.js）が選んだブログのRSSを取りに行って、題名だけにして返す。
+# ここでは、選ぶ画面と Worker に渡す選択肢（グループ・メンバーと、そのブログのID）だけを作る。
+# ブログのIDは、公式のプロフィールの blogSlug（グループ: そのグループのブログ全部／メンバー: その人のブログ）。手で持つ対応表は無い。
+# ブログ全体を見たいだけなら、公式のRSS（https://rssblog.ameba.jp/{ブログのID}/rss20.xml）をそのまま使うほうが確実なので、そのURLを一覧に載せる。
+# JPROOM・アップフロントは、1人に1つのブログなので、対象にしない（ブログ全体＝その人の公式のRSS）。
+# 人で絞れるのは、グループのブログに複数のメンバーの記事が混ざっていて、テーマ（カテゴリ）でも分かれていないハロプロだけ
+
+def ameblo_source(profiles, pm):
+    groups, persons = [], []
+    for pid in sorted(profiles, key=lambda k: int(k)):
+        p = profiles[pid]
+        key, name, typ = pm[str(pid)]
+        blogs = [b for b in (p.get("blogSlug") or []) if b]
+        if not blogs or not name.strip():
+            continue
+        row = {"key": key, "label": name, "blogs": blogs}
+        if typ == "group":
+            groups.append(dict(row, type="group"))
+        elif typ == "member":
+            persons.append(dict(row, type="person"))
+    return {
+        "site": "ameblo", "siteLabel": "アメブロ（ハロプロ）", "kind": "blog", "kindLabel": "ブログ（題名だけ）",
+        "live": {"type": "ameblo"}, "general": False, "who": groups + persons, "cat": [],
+        "note": "ハロプロのグループ・メンバーのブログから、題名だけを返します（本文は返しません）。グループは、そのグループのブログの記事全部。"
+                "メンバーは、そのメンバーのブログのうち、題名にその名前がある記事です（名前を書かない記事は拾えません）。"
+                "ブログ全体を見たいときは、トップの一覧にある公式のRSSを使ってください。",
+    }
+
+
 # ---------- 公式の更新の記録 ----------
 
 def version_time(version):
@@ -910,7 +943,7 @@ KIND_NOTE = {
 }
 
 
-def index_html(feeds, now):
+def index_html(feeds, now, sources=()):
     out = [
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
@@ -941,6 +974,17 @@ def index_html(feeds, now):
                 for f in group:
                     out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
                 out.append("</ul>")
+    ameblo = next((s for s in sources if s["site"] == "ameblo"), None)
+    if ameblo:
+        out.append("<h2>アメブロ（公式のRSSがあります）</h2>"
+                   "<p>ハロプロのグループ・メンバーのブログは、ブログごとに公式のRSSがあります。ブログ全体を見たいときは、これが一番確実です。"
+                   "人で絞りたいとき（題名にその名前がある記事）や、言葉で絞りたいときは、"
+                   '<a href="custom/">選んで作る RSS</a> の「アメブロ（ハロプロ）」が使えます。</p><ul>')
+        for g in [w for w in ameblo["who"] if w["type"] == "group"]:
+            for b in g["blogs"]:
+                u = f"https://rssblog.ameba.jp/{b}/rss20.xml"
+                out.append(f'<li><a href={quoteattr(u)}>{escape(g["label"])}（{escape(b)}）</a><code>{escape(u)}</code></li>')
+        out.append("</ul>")
     out.append("<h2>ハロショ（公式のRSSがあります）</h2>"
                "<p>ハロー！プロジェクト オフィシャルショップは、公式がRSSを出しています（本文・画像つき）。"
                "タイトルだけにしたいときや、グループ・カテゴリ・人名で絞りたいときは、"
@@ -997,7 +1041,7 @@ def main():
     if not feeds:
         sys.exit(1)
 
-    write(os.path.join(args.out, "index.html"), index_html(feeds, now))
+    write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
     write(os.path.join(args.out, "_headers"), headers_file())
