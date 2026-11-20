@@ -1067,6 +1067,81 @@ PERSONAL = (
 )
 
 
+# ---------- YU-M Entertainment（yum-e.jp。ハロプロ関係の人のお知らせ） ----------
+# 事務所のサイトだが、お知らせは人ごとに絞れる（/news/?artist_id=ID。2ページ目以降は /news/page/N/?artist_id=ID）ので、ハロプロ関係の2人（辻希美・岸本ゆめの）の分だけを取りに行く。
+# 事務所全体のお知らせは取らない（ほかのタレントの記事が混ざるので）。RSS（/feed/）は空、WordPress の REST（/wp-json/）は閉じられているので、公開のHTMLの一覧を読む。
+# 一覧は、日付・題名・リンクだけ（時刻が無いので、その日の正午（日本時間））。題名・リンク・日付だけを state/rss_yume.json に溜める（本文・画像は持たない）。
+# 初回は人ごとに2ページ、そのあとは1ページ目だけ（人ごとに1回）。更新の検知はできない（公式に更新の印が無い）ので、rss.yml が動いたときに見る
+# スケジュール（/schedule/）は、一覧がJavaScriptで読み込まれる（管理用のajax）ので、まだ対象にしていない
+
+YUME_NEWS = "https://yum-e.jp/news/"
+YUME_WHO = [("tsuji_nozomi", "辻希美", 267), ("kishimoto_yumeno", "岸本ゆめの", 279)]  # 公式の artist_id（/artists/…/ のページのリンクにある）
+YUME_SEED_PAGES = 2
+YUME_KEEP = 200
+YUME_ITEM = re.compile(r'<article class="c-news_list_item[^"]*">\s*<a href="([^"]+)">.*?<time datetime="(\d{4})\.(\d{1,2})\.(\d{1,2})">.*?c-news_list_item__title[^>]*>\s*(.*?)\s*</h3>', re.S)
+
+
+def yume_parse(html_text):
+    rows = []
+    for href, y, m, d, title in YUME_ITEM.findall(html_text):
+        title = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", title))).strip()
+        if not title:
+            continue
+        link = urljoin(YUME_NEWS, unescape(href))
+        guid = "yume-" + hashlib.sha1(link.encode()).hexdigest()[:12]
+        rows.append(_row(guid, title, link, dt.datetime(int(y), int(m), int(d), 12, tzinfo=JST).isoformat()))
+    return rows
+
+
+def build_yume(out, state_dir, now):
+    """YU-M Entertainment のお知らせ（ハロプロ関係の人だけ）の選択式フィードの元データを書く。取得に失敗しても、前回の状態があればそれで書く"""
+    path = os.path.join(state_dir, "rss_yume.json")
+    state = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            state = json.load(f)
+    who_sig = [k for k, _, _ in YUME_WHO]
+    first = state is None or state.get("who") != who_sig  # 初回と、対象の人が増えたとき: 人ごとに2ページ見る
+    items = {i["guid"]: i for i in (state or {}).get("items") or []}
+    new_state, found = None, 0
+    try:
+        for key, label, aid in YUME_WHO:
+            for pg in range(1, (YUME_SEED_PAGES if first else 1) + 1):
+                url = f"{YUME_NEWS}?artist_id={aid}" if pg == 1 else f"{YUME_NEWS}page/{pg}/?artist_id={aid}"
+                body, _ = shop_get(url)
+                rows = yume_parse(body)
+                if not rows and pg == 1 and "c-news_list_item" not in body:
+                    raise RuntimeError(f"{label}: お知らせが1件も読めない（サイトの作りが変わった？）{url}")
+                for r in rows:
+                    r["categories"] = [label]
+                    r["who"] = [key]
+                    old = items.get(r["guid"])
+                    if old:
+                        old["who"] = sorted(set(old["who"]) | {key})
+                        old["categories"] = sorted(set(old["categories"]) | {label})
+                    else:
+                        items[r["guid"]] = r
+                        found += 1
+                time.sleep(1)
+        kept = sorted(items.values(), key=lambda i: (i["date"], i["guid"]), reverse=True)[:YUME_KEEP]
+        new_state = {"items": kept, "who": who_sig}
+    except Exception as e:
+        if state is None:
+            raise
+        print(f"warn: yume: {e}（前回の状態で書く）", file=sys.stderr)
+        kept = state["items"]
+    source = selectable.make_source(
+        out, "yume", "YU-M Entertainment", "news", "お知らせ（タイトルだけ）", kept,
+        [(k, n, "member") for k, n, _ in YUME_WHO], [], who_all=True,
+        note="YU-M Entertainment の公式サイトのお知らせから、ハロプロ関係の2人（辻希美・岸本ゆめの）の記事の、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。"
+             "日付は、その日の正午です。公式のサイトに更新の印が無いので、1日に数回しか見に行きません。ほかのタレントのお知らせ・スケジュールは対象にしていません。")
+    source["general"] = False
+    if new_state is not None:
+        save_state(path, new_state)
+    print(f"yume news: 記事{len(kept)} 新規{found}{'（初回）' if state is None else ''}")
+    return [source]
+
+
 # ---------- アメブロ（ハロプロのグループ・メンバーのブログ） ----------
 # 保存しない。リーダーが取りに来たときに、Worker（watcher/src/ameblo.js）が選んだブログのRSSを取りに行って、題名だけにして返す。
 # ここでは、選ぶ画面と Worker に渡す選択肢（グループ・メンバーと、そのブログのID）だけを作る。
@@ -1361,6 +1436,7 @@ def main():
     for name, build in (("helloshop", lambda: build_shop(args.out, args.state_dir, now)),
                         ("justpro", lambda: build_jp(args.out, args.state_dir, now)),
                         ("airi", lambda: build_airi(args.out, args.state_dir, now)),
+                        ("yume", lambda: build_yume(args.out, args.state_dir, now)),
                         *[(p[0], lambda p=p: build_personal(args.out, args.state_dir, *p)) for p in PERSONAL],
                         ("youtube", lambda: [x for x in [youtube_source(args.state_dir)] if x])):
         try:
