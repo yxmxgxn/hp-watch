@@ -1,13 +1,9 @@
 name: rss
 
-# 公式が更新されたとき（Cloudflare の Cron Trigger が検知して呼ぶ）と、毎朝 05:00 JST（今日の予定）に動く。
+# 公式が更新されたとき（Cloudflare の Cron Trigger が検知して呼ぶ）と、毎朝 05:00 JST（今日の予定）に、Cloudflare から呼ばれて動く。
 # 公開（wrangler deploy）で、フィード（public/）と、時計のコード（watcher/src/index.js・cron の設定）を一緒に送る。
-# 下の schedule は、Cloudflare の呼び出しが確かめられるまでの保険。確かめたら消す
+# GitHub の cron（schedule）は使わない（遅れる・飛ぶことがあるため）。手で動かすときは workflow_dispatch
 on:
-  schedule:
-    # JST 5:07（今日の予定）と、8〜23時の3時間おき（お知らせ・MEDIA）。cron は UTC
-    # GitHub 側の混雑で数分〜数十分遅れることがある
-    - cron: "7 20,23,2,5,8,11,14 * * *"
   workflow_dispatch:
 
 permissions:
