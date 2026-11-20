@@ -876,7 +876,7 @@ def ameblo_source(profiles, pm):
 
 
 # ---------- YouTube（公式のチャンネル。保存しない・リーダーが取りに来たときに取りに行く） ----------
-# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube。個人のチャンネルは、対象にしていない。
+# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube・decarbo46。個人のチャンネルは、対象にしていない。
 # RSS: https://www.youtube.com/feeds/videos.xml?channel_id=UC…（最新15件・公式のもの）。チャンネルのIDは、チャンネルのページの
 # RSSの印（<link rel="alternate" type="application/rss+xml">）から1回だけ引いて、state/youtube_channels.json に残す（毎回は引かない）。
 # 動画とShortsは、リンクの形（/shorts/）で見分ける。保存しないので、本文の説明は持たない。埋め込み（embed=1）は、公式の埋め込みプレーヤー
@@ -901,6 +901,7 @@ YT_CHANNELS = [
     ("kimitsuta", "https://www.youtube.com/@kimitsuta"),
     ("uffanclub", "https://www.youtube.com/@UFfanclub"),
     ("jprtube", "https://www.youtube.com/@JPR_Tube"),
+    ("decarbo46", "https://www.youtube.com/@decarbo46"),
 ]
 YT_ID_RE = re.compile(r'<link rel="alternate" type="application/rss\+xml"[^>]*channel_id=(UC[\w-]{22})')
 YT_ID_RE2 = re.compile(r'"externalId":"(UC[\w-]{22})"')
