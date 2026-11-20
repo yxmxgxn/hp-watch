@@ -11,6 +11,22 @@
 },
 "items": [
 {
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-20T17:00:00+09:00",
+"fcgroups": [
+"juicejuice"
+],
+"guid": "fc-WSJa8KUuUSyxtnFH",
+"html": "<p>イベント ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=WSJa8KUuUSyxtnFH\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=WSJa8KUuUSyxtnFH",
+"name": "「Juice=Juice FCイベント2026 ～メリクリ×Juice×Box～」当日券予約販売のお知らせ",
+"sort": "2026-11-2099",
+"title": "2026.11.20 [イベント] 「Juice=Juice FCイベント2026 ～メリクリ×Juice×Box～」当日券予約販売のお知らせ"
+},
+{
 "cat": "ニュース",
 "categories": [
 "ニュース"
