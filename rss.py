@@ -814,14 +814,15 @@ def shop_parse(xml_text):
     return rows
 
 
-def update_wp(state, feed, parse, pages, keep=SHOP_KEEP):
+def update_wp(state, feed, parse, pages, keep=SHOP_KEEP, reseed=False):
     """WordPress の公式のRSS（ハロショ・ジャストプロ）を見て、新しい記事を足す。戻り値: (記事, 新しい状態, 新しく見つけた件数)
     parse(本文) は、対象の記事の行（rows）と、見た記事の全部の guid（seen。対象外も含む）を返す。
+    reseed: 溜めた記事は残したまま、初回と同じように、最初のページから pages ページ分を取り直す（対象を増やしたとき、さかのぼって拾うため）。
     対象外の記事が多いサイトでも、「前に見た記事に着いたら、次のページを見ない」が効くように、見た guid も状態に持つ"""
-    first = state is None
+    first = state is None or reseed
     items = list((state or {}).get("items") or [])
-    seen = list((state or {}).get("seen") or [])
-    etag = (state or {}).get("etag")
+    seen = [] if reseed else list((state or {}).get("seen") or [])
+    etag = None if reseed else (state or {}).get("etag")
     have = {i["guid"] for i in items} | set(seen)
     fetched, new_etag, all_seen = [], etag, []
     for pg in range(1, pages + 1):
@@ -918,8 +919,11 @@ def build_jp(out, state_dir, now):
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
             state = json.load(f)
+    who_sig = [k for k, _ in JP_WHO]
+    reseed = state is not None and state.get("who") != who_sig  # 対象の人が変わった（増えた）ら、直近30日分を取り直す
     try:
-        items, new_state, found = update_wp(state, JP_FEED, jp_parse, JP_PAGES)
+        items, new_state, found = update_wp(state, JP_FEED, jp_parse, JP_PAGES, reseed=reseed)
+        new_state["who"] = who_sig
     except Exception as e:
         if state is None:
             raise
@@ -1214,7 +1218,7 @@ def index_html(feeds, now, sources=()):
                 u = f"https://rssblog.ameba.jp/{b}/rss20.xml"
                 out.append(f'<li><a href={quoteattr(u)}>{escape(g["label"])}（{escape(b)}）</a><code>{escape(u)}</code></li>')
         out.append("</ul>")
-    if any(s["site"] == "justpro" for s in sources):
+    if any(s["site"] == selectable.site_id("justpro") for s in sources):
         out.append("<h2>ジャストプロ（公式のRSSがあります）</h2>"
                    "<p>ジャストプロの公式のお知らせは、全タレント分のRSSがあります（本文つき）。ハロプロ関係の4人（藤本美貴・飯窪春菜・高瀬くるみ・真野恵里菜）の記事だけを、"
                    "タイトルだけで見たいときは、"

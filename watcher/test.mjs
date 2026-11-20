@@ -109,14 +109,14 @@ if (dataDir) {
   assert(r.status === 200 && r.headers.get("content-type").startsWith("application/rss+xml") && items(x) === 50, "条件なし: 最新50件のRSS");
   r = await get("?site=hp&kind=news&who=angerme");
   x = await r.text();
-  const hpNews = data("hp-news");
+  const hpNews = data("helloproject-news");
   assert(items(x) > 0 && x.includes("<title>ハロプロ お知らせ ― アンジュルム</title>") && guids(x).every((g) => hpNews.find((i) => i.guid === g).who.includes("angerme")), "who=angerme: アンジュルムの記事だけ・題名に選んだ名前");
   r = await get("?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT");
   x = await r.text();
   assert(x.includes("アンジュルム・Juice=Juice（イベント）") && guids(x).every((g) => { const i = hpNews.find((j) => j.guid === g); return i.cats.includes("EVENT") && (i.who.includes("angerme") || i.who.includes("juicejuice")); }), "複数のグループ × カテゴリ: どれか＋両方");
   r = await get("?site=jproom&kind=news&who=mizuki_fukumura");
   assert(r.status === 200 && (await r.text()).includes("譜久村聖"), "JPROOM（個人）");
-  const ml = options.find((q) => q.site === "mline").who[0];
+  const ml = options.find((q) => q.site === "upfc-m-line").who[0];
   r = await get(`?site=mline&kind=news&who=${ml.key}&cat=ticket,goods`);
   assert(r.status === 200 && (await r.text()).includes(`M-line club FC ニュース ― ${ml.label}（チケット・グッズ）`), "M-line（個人）× カテゴリ");
   r = await get("?site=fc&kind=news&cat=goods");
@@ -163,7 +163,7 @@ if (dataDir) {
   r = await get("?site=hp&kind=news&q=news");
   assert(items(await r.text()) === hpNews.filter((i) => norm(i.name).includes("news")).slice(0, 50).length, "題名の飾り（[NEWS] など）は探さない");
   r = await get("?site=hp&kind=schedule&q=" + encodeURIComponent("RADIO"));
-  assert(guids(await r.text()).every((g) => norm(data("hp-schedule").find((i) => i.guid === g).name).includes("radio")), "スケジュールも、題名だけを探す（[RADIO] の印は探さない）");
+  assert(guids(await r.text()).every((g) => norm(data("helloproject-schedule").find((i) => i.guid === g).name).includes("radio")), "スケジュールも、題名だけを探す（[RADIO] の印は探さない）");
   r = await get("?site=hp&kind=news&q=a+b+c+d+e+f");
   assert(r.status === 400, "言葉が多すぎる（6個）は400");
   r = await get("?site=hp&kind=news&x=" + "あ".repeat(61));
@@ -184,11 +184,11 @@ if (dataDir) {
   assert(guids(await r.text()).every((g) => !data("helloshop-news").find((i) => i.guid === g).name.includes("生写真")), "ハロショ: 含まない言葉（マイナス検索）");
 
   // --- ジャストプロ（ハロプロ関係の4人のお知らせ。溜めたものを、タイトルだけで返す）
-  const jpo = options.find((q) => q.site === "justpro");
+  const jpo = options.find((q) => q.site === "just-pro");
   assert(jpo && jpo.kind === "news" && jpo.general === false && jpo.cat.length === 0 && jpo.who.map((w) => w.key).join() === "miki_fujimoto,haruna_iikubo,kurumi_takase,erina_mano", "ジャストプロ: 選択肢は、ハロプロ関係の4人だけ（カテゴリ・全体のものは無い）");
   r = await get("?site=justpro&kind=news");
   x = await r.text();
-  const jpItems = data("justpro-news");
+  const jpItems = data("just-pro-news");
   assert(r.status === 200 && items(x) === Math.min(50, jpItems.length) && items(x) > 0 && !/<item>[\s\S]*?<description>/.test(x), "ジャストプロ: 全部 → 溜めた記事・タイトルだけ（本文なし）");
   assert(jpItems.every((i) => i.who.length > 0 && i.link.startsWith("https://www.just-pro.jp/")), "ジャストプロ: 溜めた記事は、4人の誰かの記事だけ（公式のリンク）");
   r = await get("?site=justpro&kind=news&who=miki_fujimoto");
@@ -201,15 +201,25 @@ if (dataDir) {
   r = await get("?site=justpro&kind=news&general=1");
   assert(r.status === 400, "ジャストプロ: 全体のもの（general）は指定できない（400）");
 
+  // --- site= の名前は、公式のURLの名前。昔の名前も、今の名前として受け付ける（登録済みのURLが切れない）
+  for (const [oldName, newName] of Object.entries({ hp: "helloproject", jproom: "jp-r", upfront: "up-front-create", justpro: "just-pro", reina: "tanaka-reina", airi: "airisuzuki-officialweb", mline: "upfc-m-line", fc: "upfc-helloproject" })) {
+    const ra = await get(`?site=${oldName}&kind=news`), rb = await get(`?site=${newName}&kind=news`);
+    const ga = guids(await ra.text()), gb = guids(await rb.text());
+    assert(ra.status === 200 && rb.status === 200 && ga.length > 0 && ga.join() === gb.join(), `site=${oldName}（昔の名前）は site=${newName}（公式のURLの名前）と同じ`);
+  }
+  assert(options.map((q) => q.site).every((n) => !["hp", "jproom", "upfront", "reina", "airi", "justpro", "fc", "mline"].includes(n)), "選択肢の site は、公式のURLの名前だけ（昔の名前は出さない）");
+  r = await get("?site=hp");
+  assert(r.status === 400 && (await r.text()).includes("site=helloproject&kind=news"), "エラーの案内も、今の名前");
+
   // --- 田中れいな（個人の公式サイト。ハロプロ公式と同じ仕組み。お知らせだけ）
-  const rn = options.find((q) => q.site === "reina" && q.kind === "news");
-  assert(rn && !options.some((q) => q.site === "reina" && q.kind === "schedule"), "田中れいな: お知らせだけ（スケジュールは無い）");
+  const rn = options.find((q) => q.site === "tanaka-reina" && q.kind === "news");
+  assert(rn && !options.some((q) => q.site === "tanaka-reina" && q.kind === "schedule"), "田中れいな: お知らせだけ（スケジュールは無い）");
   r = await get("?site=reina&kind=news");
   x = await r.text();
   assert(r.status === 200 && items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<link>https://tanaka-reina.com/")), "田中れいな: お知らせ（公式のリンク）");
 
   // --- 鈴木愛理（個人の公式サイト。RSSが無いので、お知らせの一覧のページから作る）
-  const ai = options.find((q) => q.site === "airi" && q.kind === "news");
+  const ai = options.find((q) => q.site === "airisuzuki-officialweb" && q.kind === "news");
   assert(ai && ai.who.length === 0 && ai.cat.length === 0 && ai.general === false, "鈴木愛理: 選択肢は、人・カテゴリ・全体のものが無い（言葉だけ）");
   r = await get("?site=airi&kind=news");
   x = await r.text();
@@ -221,10 +231,10 @@ if (dataDir) {
   assert(r.status === 400, "鈴木愛理: 人は選べない（400）");
 
   // --- アップフロント: 人の選択肢は、ハロプロ関係の名簿の人だけ。名簿に無い人の記事も、全部・言葉の検索には出る
-  const up = options.find((q) => q.site === "upfront" && q.kind === "schedule");
+  const up = options.find((q) => q.site === "up-front-create" && q.kind === "schedule");
   const upLabels = up.who.map((w) => w.label);
   assert(upLabels.includes("鈴木愛理") && upLabels.includes("高橋愛") && upLabels.includes("藤本美貴") && !upLabels.includes("堀内孝雄") && !upLabels.includes("松原健之") && !upLabels.includes("ブラザーズ5"), "アップフロント: 人の選択肢は、ハロプロ関係の人だけ（歌手・グループなどは出ない）");
-  const upn = options.find((q) => q.site === "upfront" && q.kind === "news");
+  const upn = options.find((q) => q.site === "up-front-create" && q.kind === "news");
   assert(!upn.who.some((w) => ["堀内孝雄", "松原健之", "ブラザーズ5"].includes(w.label)) && upn.who.length > 5, "アップフロントのお知らせも、人の選択肢は名簿の人だけ");
   r = await get("?site=upfront&kind=news&q=" + encodeURIComponent("松原健之"));
   assert(r.status === 200 && items(await r.text()) > 0, "名簿に無い人の記事も、言葉の検索には出る");
