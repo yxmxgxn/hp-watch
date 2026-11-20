@@ -32,6 +32,21 @@
 },
 "items": [
 {
+"cat": "コンテンツ",
+"categories": [
+"コンテンツ"
+],
+"date": "2026-11-20T13:00:00+09:00",
+"fcgroups": [
+"suzukiairi"
+],
+"guid": "mline-h0ff45254b41a",
+"html": "<p>コンテンツ ・ 2026.11.17</p><p><a href=\"https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=3I9shzeUeVMzWqIX&amp;ccid=20&amp;gid=30&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=3I9shzeUeVMzWqIX&ccid=20&gid=30&@rst=all",
+"sort": "2026-11-1793",
+"title": "2026.11.17 [コンテンツ] ＃ウゴクスズキを更新しました。"
+},
+{
 "cat": "チケット",
 "categories": [
 "チケット"
