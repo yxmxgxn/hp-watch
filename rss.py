@@ -68,6 +68,7 @@ SITES = {
     "hp": {"label": "ハロプロ", "base": "https://helloproject.com", "by_group": True},
     "jproom": {"label": "JPROOM", "base": "https://www.jp-r.co.jp", "by_group": False},
     "upfront": {"label": "アップフロント", "base": "https://up-front-create.com", "by_group": False},
+    "reina": {"label": "田中れいな", "base": "https://tanaka-reina.com", "by_group": False, "news_only": True},
 }
 KINDS = {"news": "お知らせ", "media": "MEDIA", "today": "今日の予定"}
 
@@ -506,24 +507,33 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     raw = fetch_news(base, version, [str(now.year - 1), str(now.year)])
     if not raw:
         raise RuntimeError(f"{site}: お知らせが1件も取れなかった")
-    if not schedules:
+    if not schedules and not cfg.get("news_only"):
         raise RuntimeError(f"{site}: スケジュールが1件も取れなかった")
     pm = selectable.people_map(profiles)
     news, news_state, news_found = stamp_news([news_item(site, base, x, pm) for x in raw],
                                   os.path.join(state_dir, f"rss_news_{site}.json"), stamp)
 
+    if cfg.get("news_only"):
+        # お知らせだけのサイト（個人の公式サイトなど。スケジュールの欄は、ほとんど使われていない）
+        feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
+        who_info = list(pm.values())
+        sources = [selectable.make_source(out, site, cfg["label"], "news", "お知らせ", news, who_info,
+                                          [(k, CAT_LABELS[k]) for k in ("NEWS", "EVENT")])]
+        save_state(os.path.join(state_dir, f"rss_news_{site}.json"), news_state)
+        return feeds, {"site": site, "version": version, "news": news_found, "media": 0}, sources
+
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
     media, state, media_found = update_media(site, base, schedules, profiles, state_path, stamp, rk)
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
-    feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, f"{base}/schedule/")
+    feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, base + cfg.get("schedule_path", "/schedule/"))
 
     path = f"{site}/today.xml"
     url = f"{feed_base}/{path}"
     name = "全体" if cfg["by_group"] else "全員"
     write(os.path.join(out, path), rss_xml(
         f"{cfg['label']} 今日の予定", f"{base} のスケジュールから、その日の予定を毎朝1本にまとめたもの・非公式",
-        f"{base}/schedule/", url, newest(today_items(site, base, schedules, now, rk))))
+        base + cfg.get("schedule_path", "/schedule/"), url, newest(today_items(site, base, schedules, now, rk))))
     feeds.append({"site": site, "kind": "today", "name": name, "url": url})
 
     # 選択式フィードの元データ（人・グループは、プロフィールの順。種別: group・unit はグループ、member・solo は人）
@@ -759,17 +769,23 @@ SHOP_CATS = [("news", "お知らせ"), ("event", "イベント"), ("goods", "グ
 
 
 def shop_get(url, etag=None):
-    """戻り値: (本文, ETag)。前回から変わっていなければ (None, 前回のETag)"""
+    """戻り値: (本文, ETag)。前回から変わっていなければ (None, 前回のETag)。
+    接続が途中で切れたとき（一時的なことが多い）は、少し待って3回まで試す。404・500 など、公式が返したエラーは、すぐ失敗にする"""
     headers = {"User-Agent": hpwatch.UA}
     if etag:
         headers["If-None-Match"] = etag
-    try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
-            return r.read().decode("utf-8"), r.headers.get("ETag")
-    except urllib.error.HTTPError as e:
-        if e.code == 304:
-            return None, etag
-        raise
+    for i in range(3):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
+                return r.read().decode("utf-8"), r.headers.get("ETag")
+        except urllib.error.HTTPError as e:
+            if e.code == 304:
+                return None, etag
+            raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError):
+            if i == 2:
+                raise
+            time.sleep(3 * (i + 1))
 
 
 def shop_parse(xml_text):
@@ -864,12 +880,12 @@ def build_shop(out, state_dir, now):
 
 # ---------- ジャストプロ（ハロプロ関係のタレントのお知らせ） ----------
 # 公式のサイト（https://www.just-pro.jp/）は WordPress。/feed/ が、全タレントのお知らせのRSS（1ページ10件・ETagあり。カテゴリがタレント名）。
-# ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事だけを溜める（本文・画像は持たない）。更新の検知・溜め方は、ハロショと同じ
+# ハロプロ関係の4人（藤本美貴・飯窪春菜・高瀬くるみ・真野恵里菜）の記事だけを溜める（本文・画像は持たない）。更新の検知・溜め方は、ハロショと同じ
 # タレントの題名は「藤本美貴　フジテレビ「…」出演のお知らせ」のようにタレント名が先頭にある。言葉で探すときは、題名を見る
 
 JP_FEED = "https://www.just-pro.jp/feed/"
 JP_PAGES = 4   # 初回に見るページ数（約30日分。全タレントの記事が1ページ10件）
-JP_WHO = [("miki_fujimoto", "藤本美貴"), ("haruna_iikubo", "飯窪春菜"), ("kurumi_takase", "高瀬くるみ")]
+JP_WHO = [("miki_fujimoto", "藤本美貴"), ("haruna_iikubo", "飯窪春菜"), ("kurumi_takase", "高瀬くるみ"), ("erina_mano", "真野恵里菜")]
 
 
 def jp_parse(xml_text):
@@ -912,12 +928,62 @@ def build_jp(out, state_dir, now):
     source = selectable.make_source(
         out, "justpro", "ジャストプロ", "news", "お知らせ（タイトルだけ）", items,
         [(k, n, "member") for k, n in JP_WHO], [], who_all=True,
-        note="ジャストプロの公式のお知らせから、ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事のタイトルだけを溜めて返します（本文・画像は返しません）。"
+        note="ジャストプロの公式のお知らせから、ハロプロ関係の4人（藤本美貴・飯窪春菜・高瀬くるみ・真野恵里菜）の記事のタイトルだけを溜めて返します（本文・画像は返しません）。"
              "最初は直近30日分から始まります。ほかのタレントのお知らせは対象にしていません。")
     source["general"] = False
     if new_state is not None:
         save_state(path, new_state)
     print(f"justpro news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
+    return [source]
+
+
+# ---------- 鈴木愛理（個人の公式サイトのお知らせ） ----------
+# https://www.airisuzuki-officialweb.com/news/index.html は、静的なHTMLのお知らせの一覧（日付・題名・リンク。直近の21件ほど）。RSSは無い。
+# 一覧のページを取りに行き（前回の ETag を付けて、変わっていなければ 304 で済ませる）、題名・リンク・日付だけを state/rss_airi.json に溜める（本文・画像は持たない）。
+# 日付は「2026.11.2」の形で、時刻が無いので、その日の正午（日本時間）にする。ライブのお知らせ（../live/detail_N.html）も、一覧にはお知らせとして載っている
+# 更新の検知は、時計が一覧のページの Last-Modified を見る（watcher/src/index.js の WATCH）
+
+AIRI_NEWS = "https://www.airisuzuki-officialweb.com/news/index.html"
+AIRI_ITEM = re.compile(r'<div class="list__item">.*?<time class="list__item-time">\s*(\d{4})\.(\d{1,2})\.(\d{1,2})\s*</time>.*?<a href="([^"]+)">\s*(.*?)\s*</a>', re.S)
+
+
+def airi_parse(html_text):
+    rows, guids = [], []
+    for y, m, d, href, title in AIRI_ITEM.findall(html_text):
+        title = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", title))).strip()
+        n = re.search(r"(live/)?detail_(\d+)\.html", href)
+        if not title or not n:
+            continue
+        guid = f"airi-{'live-' if n.group(1) else ''}{n.group(2)}"
+        guids.append(guid)
+        date = dt.datetime(int(y), int(m), int(d), 12, tzinfo=JST).isoformat()
+        rows.append({"guid": guid, "sort": date, "title": title, "name": title, "link": urljoin(AIRI_NEWS, href), "html": "",
+                     "date": date, "categories": [], "who": [], "cats": []})
+    return rows, guids
+
+
+def build_airi(out, state_dir, now):
+    """鈴木愛理の選択式フィードの元データを書く。取得に失敗しても、前回の状態があればそれで書く"""
+    path = os.path.join(state_dir, "rss_airi.json")
+    state = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            state = json.load(f)
+    try:
+        items, new_state, found = update_wp(state, AIRI_NEWS, airi_parse, 1)
+    except Exception as e:
+        if state is None:
+            raise
+        print(f"warn: airi: {e}（前回の状態で書く）", file=sys.stderr)
+        items, new_state, found = state["items"], None, 0
+    source = selectable.make_source(
+        out, "airi", "鈴木愛理", "news", "お知らせ（タイトルだけ）", items, [], [],
+        note="鈴木愛理の公式サイトのお知らせ（ライブのお知らせを含む）から、題名・リンク・日付だけを溜めて返します（本文・画像は返しません）。"
+             "公式のサイトにRSSが無いので、一覧のページから作っています。日付は、その日の正午です。")
+    source["general"] = False
+    if new_state is not None:
+        save_state(path, new_state)
+    print(f"airi news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
     return [source]
 
 
@@ -1150,7 +1216,7 @@ def index_html(feeds, now, sources=()):
         out.append("</ul>")
     if any(s["site"] == "justpro" for s in sources):
         out.append("<h2>ジャストプロ（公式のRSSがあります）</h2>"
-                   "<p>ジャストプロの公式のお知らせは、全タレント分のRSSがあります（本文つき）。ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事だけを、"
+                   "<p>ジャストプロの公式のお知らせは、全タレント分のRSSがあります（本文つき）。ハロプロ関係の4人（藤本美貴・飯窪春菜・高瀬くるみ・真野恵里菜）の記事だけを、"
                    "タイトルだけで見たいときは、"
                    '<a href="custom/">選んで作る RSS</a> の「ジャストプロ」が使えます。</p><ul>'
                    '<li><a href="https://www.just-pro.jp/feed/">お知らせ（全タレント）</a><code>https://www.just-pro.jp/feed/</code></li></ul>')
@@ -1214,6 +1280,7 @@ def main():
             failed.append(fsite)
     for name, build in (("helloshop", lambda: build_shop(args.out, args.state_dir, now)),
                         ("justpro", lambda: build_jp(args.out, args.state_dir, now)),
+                        ("airi", lambda: build_airi(args.out, args.state_dir, now)),
                         ("youtube", lambda: [x for x in [youtube_source(args.state_dir)] if x])):
         try:
             sources += build()

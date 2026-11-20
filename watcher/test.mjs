@@ -183,14 +183,14 @@ if (dataDir) {
   r = await get("?site=helloshop&kind=news&x=" + encodeURIComponent("生写真"));
   assert(guids(await r.text()).every((g) => !data("helloshop-news").find((i) => i.guid === g).name.includes("生写真")), "ハロショ: 含まない言葉（マイナス検索）");
 
-  // --- ジャストプロ（ハロプロ関係の3人のお知らせ。溜めたものを、タイトルだけで返す）
+  // --- ジャストプロ（ハロプロ関係の4人のお知らせ。溜めたものを、タイトルだけで返す）
   const jpo = options.find((q) => q.site === "justpro");
-  assert(jpo && jpo.kind === "news" && jpo.general === false && jpo.cat.length === 0 && jpo.who.map((w) => w.key).join() === "miki_fujimoto,haruna_iikubo,kurumi_takase", "ジャストプロ: 選択肢は、ハロプロ関係の3人だけ（カテゴリ・全体のものは無い）");
+  assert(jpo && jpo.kind === "news" && jpo.general === false && jpo.cat.length === 0 && jpo.who.map((w) => w.key).join() === "miki_fujimoto,haruna_iikubo,kurumi_takase,erina_mano", "ジャストプロ: 選択肢は、ハロプロ関係の4人だけ（カテゴリ・全体のものは無い）");
   r = await get("?site=justpro&kind=news");
   x = await r.text();
   const jpItems = data("justpro-news");
   assert(r.status === 200 && items(x) === Math.min(50, jpItems.length) && items(x) > 0 && !/<item>[\s\S]*?<description>/.test(x), "ジャストプロ: 全部 → 溜めた記事・タイトルだけ（本文なし）");
-  assert(jpItems.every((i) => i.who.length > 0 && i.link.startsWith("https://www.just-pro.jp/")), "ジャストプロ: 溜めた記事は、3人の誰かの記事だけ（公式のリンク）");
+  assert(jpItems.every((i) => i.who.length > 0 && i.link.startsWith("https://www.just-pro.jp/")), "ジャストプロ: 溜めた記事は、4人の誰かの記事だけ（公式のリンク）");
   r = await get("?site=justpro&kind=news&who=miki_fujimoto");
   x = await r.text();
   assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("藤本美貴")) && x.includes("<title>ジャストプロ お知らせ（タイトルだけ） ― 藤本美貴</title>"), "ジャストプロ: 人を選ぶ");
@@ -200,6 +200,25 @@ if (dataDir) {
   assert(r.status === 400, "ジャストプロ: ほかのタレントは選べない（400）");
   r = await get("?site=justpro&kind=news&general=1");
   assert(r.status === 400, "ジャストプロ: 全体のもの（general）は指定できない（400）");
+
+  // --- 田中れいな（個人の公式サイト。ハロプロ公式と同じ仕組み。お知らせだけ）
+  const rn = options.find((q) => q.site === "reina" && q.kind === "news");
+  assert(rn && !options.some((q) => q.site === "reina" && q.kind === "schedule"), "田中れいな: お知らせだけ（スケジュールは無い）");
+  r = await get("?site=reina&kind=news");
+  x = await r.text();
+  assert(r.status === 200 && items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<link>https://tanaka-reina.com/")), "田中れいな: お知らせ（公式のリンク）");
+
+  // --- 鈴木愛理（個人の公式サイト。RSSが無いので、お知らせの一覧のページから作る）
+  const ai = options.find((q) => q.site === "airi" && q.kind === "news");
+  assert(ai && ai.who.length === 0 && ai.cat.length === 0 && ai.general === false, "鈴木愛理: 選択肢は、人・カテゴリ・全体のものが無い（言葉だけ）");
+  r = await get("?site=airi&kind=news");
+  x = await r.text();
+  assert(r.status === 200 && items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<link>https://www.airisuzuki-officialweb.com/") && !b.includes("<description>")), "鈴木愛理: お知らせ（公式のリンク・タイトルだけ）");
+  assert(x.includes("<title>鈴木愛理 お知らせ（タイトルだけ） ― 全部</title>"), "鈴木愛理: フィード名");
+  r = await get("?site=airi&kind=news&q=" + encodeURIComponent("zzzzzz存在しない"));
+  assert(r.status === 200 && items(await r.text()) === 0, "鈴木愛理: 言葉に合う記事が無ければ0件");
+  r = await get("?site=airi&kind=news&who=anyone");
+  assert(r.status === 400, "鈴木愛理: 人は選べない（400）");
 
   // --- アップフロント: 人の選択肢は、ハロプロ関係の名簿の人だけ。名簿に無い人の記事も、全部・言葉の検索には出る
   const up = options.find((q) => q.site === "upfront" && q.kind === "schedule");

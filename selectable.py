@@ -186,7 +186,7 @@ function box(name,o){return `<label><input type="checkbox" data-k="${esc(o.key)}
 function pick(i){
   cur=SOURCES[i]; document.querySelector(`input[name=src][value="${i}"]`).checked=true;
   const g=cur.who.filter(w=>w.type==='group'), p=cur.who.filter(w=>w.type!=='group');
-  $('catBox').hidden=!cur.cat.length; $('embedBox').hidden=!cur.embed; $('embed').checked=false; $('genBox').hidden=cur.general===false; $('q').value=''; $('x').value=''; document.querySelector('input[name=gen][value=""]').checked=true;
+  $('whoBox').hidden=!cur.who.length&&cur.general===false; $('catBox').hidden=!cur.cat.length; $('embedBox').hidden=!cur.embed; $('embed').checked=false; $('genBox').hidden=cur.general===false; $('q').value=''; $('x').value=''; document.querySelector('input[name=gen][value=""]').checked=true;
   $('note').hidden=!cur.note; $('note').textContent=cur.note||'';
   $('who').innerHTML=(g.length?`<div class="grid">${g.map(w=>box('who',w)).join('')}</div>`:'')+
     (p.length?`<details${g.length?'':' open'}><summary>${g.length?'メンバー・個人（'+p.length+'人）':'人'}</summary><div class="grid">${p.map(w=>box('who',w)).join('')}</div></details>`:'');
