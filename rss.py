@@ -875,6 +875,85 @@ def ameblo_source(profiles, pm):
     }
 
 
+# ---------- YouTube（公式のチャンネル。保存しない・リーダーが取りに来たときに取りに行く） ----------
+# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube。個人のチャンネルは、対象にしていない。
+# RSS: https://www.youtube.com/feeds/videos.xml?channel_id=UC…（最新15件・公式のもの）。チャンネルのIDは、チャンネルのページの
+# RSSの印（<link rel="alternate" type="application/rss+xml">）から1回だけ引いて、state/youtube_channels.json に残す（毎回は引かない）。
+# 動画とShortsは、リンクの形（/shorts/）で見分ける。保存しないので、本文の説明は持たない。埋め込み（embed=1）は、公式の埋め込みプレーヤー
+
+YT_CHANNELS = [
+    # (key, チャンネルのURL)  名前は、ページから引く
+    ("morningmusume", "https://www.youtube.com/user/morningmusumechannel"),
+    ("angerme", "https://www.youtube.com/c/angerme"),
+    ("juicejuice", "https://www.youtube.com/user/juicejuicechannel"),
+    ("tsubakifactory", "https://www.youtube.com/c/tsubakifactory"),
+    ("hapisugo", "https://www.youtube.com/c/hapisugo"),
+    ("beyooooonds", "https://www.youtube.com/c/beyooooonds"),
+    ("beyonobi", "https://www.youtube.com/c/beyonobi"),
+    ("ochanorma", "https://www.youtube.com/c/ochanorma"),
+    ("rosychronicle", "https://www.youtube.com/@rosychronicle"),
+    ("kenshusei", "https://www.youtube.com/user/helloprokenshusei"),
+    ("helloprojectstation", "https://www.youtube.com/helloprojectstation"),
+    ("mlinemusic", "https://www.youtube.com/c/mlinemusic"),
+    ("upfrontchannel", "https://www.youtube.com/@upfrontchannel"),
+    ("satoyama", "https://www.youtube.com/user/satoyamachannel"),
+    ("omake", "https://www.youtube.com/@omake"),
+    ("kimitsuta", "https://www.youtube.com/@kimitsuta"),
+    ("uffanclub", "https://www.youtube.com/@UFfanclub"),
+    ("jprtube", "https://www.youtube.com/@JPR_Tube"),
+]
+YT_ID_RE = re.compile(r'<link rel="alternate" type="application/rss\+xml"[^>]*channel_id=(UC[\w-]{22})')
+YT_ID_RE2 = re.compile(r'"externalId":"(UC[\w-]{22})"')
+YT_NAME_RE = re.compile(r"<title>([^<]*?)(?: - YouTube)?</title>")
+
+
+def youtube_resolve(url):
+    """チャンネルのページから (チャンネルのID, 名前) を引く。引けなければ None"""
+    req = urllib.request.Request(url, headers={"User-Agent": hpwatch.UA, "Accept-Language": "ja"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        html = r.read().decode("utf-8", "replace")
+    m = YT_ID_RE.search(html) or YT_ID_RE2.search(html)
+    n = YT_NAME_RE.search(html)
+    if not m:
+        return None
+    return m.group(1), unescape(n.group(1)).strip() if n else url
+
+
+def youtube_source(state_dir):
+    path = os.path.join(state_dir, "youtube_channels.json")
+    known = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            known = json.load(f)
+    changed, who = False, []
+    for key, url in YT_CHANNELS:
+        rec = known.get(key)
+        if not rec or rec.get("url") != url:
+            try:
+                got = youtube_resolve(url)
+            except (urllib.error.URLError, OSError) as e:
+                got = None
+                print(f"YouTube: {key} のチャンネルのIDを引けませんでした（{e}）", file=sys.stderr)
+            if not got:
+                continue
+            rec = known[key] = {"url": url, "id": got[0], "name": got[1]}
+            changed = True
+        who.append({"key": key, "label": rec["name"], "type": "group", "channels": [rec["id"]], "url": rec["url"]})
+        time.sleep(0.5)
+    if changed:
+        save_state(path, known)
+    if not who:
+        return None
+    return {
+        "site": "youtube", "siteLabel": "YouTube（ハロプロ公式）", "kind": "video", "kindLabel": "動画",
+        "live": {"type": "youtube"}, "general": False, "embed": True, "who": who,
+        "cat": [{"key": "video", "label": "動画"}, {"key": "shorts", "label": "Shorts"}],
+        "note": "ハロプロ公式のYouTubeチャンネル（グループ・ハロ！ステ・M-line Music・JPRTubeなど）の新しい動画の題名を返します。"
+                "動画とShortsは分けて選べます。保存はしません。最新15件までなので、チャンネルによっては数日分です。"
+                "「動画を埋め込む」を選ぶと、公式の埋め込みプレーヤーを記事に入れます（リーダーによっては表示されません）。",
+    }
+
+
 # ---------- 公式の更新の記録 ----------
 
 def version_time(version):
@@ -985,6 +1064,16 @@ def index_html(feeds, now, sources=()):
                 u = f"https://rssblog.ameba.jp/{b}/rss20.xml"
                 out.append(f'<li><a href={quoteattr(u)}>{escape(g["label"])}（{escape(b)}）</a><code>{escape(u)}</code></li>')
         out.append("</ul>")
+    yt = next((s for s in sources if s["site"] == "youtube"), None)
+    if yt:
+        out.append("<h2>YouTube（公式のRSSがあります）</h2>"
+                   "<p>チャンネルごとに公式のRSSがあります（動画とShortsが混ざります）。動画とShortsを分けたいとき、複数のチャンネルをまとめたいとき、"
+                   "動画を埋め込みたいときは、"
+                   '<a href="custom/">選んで作る RSS</a> の「YouTube（ハロプロ公式）」が使えます。</p><ul>')
+        for w in yt["who"]:
+            u = f"https://www.youtube.com/feeds/videos.xml?channel_id={w['channels'][0]}"
+            out.append(f'<li><a href={quoteattr(u)}>{escape(w["label"])}</a><code>{escape(u)}</code></li>')
+        out.append("</ul>")
     out.append("<h2>ハロショ（公式のRSSがあります）</h2>"
                "<p>ハロー！プロジェクト オフィシャルショップは、公式がRSSを出しています（本文・画像つき）。"
                "タイトルだけにしたいときや、グループ・カテゴリ・人名で絞りたいときは、"
@@ -1035,6 +1124,9 @@ def main():
             failed.append(fsite)
     try:
         sources += build_shop(args.out, args.state_dir, now)
+        yt = youtube_source(args.state_dir)
+        if yt:
+            sources.append(yt)
     except Exception as e:
         print(f"error: helloshop: {e}", file=sys.stderr)
         failed.append("helloshop")

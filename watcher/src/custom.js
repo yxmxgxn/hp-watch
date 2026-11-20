@@ -3,13 +3,15 @@
 //   who / cat   … 任意。カンマ区切りで複数。who は人・グループ、cat はカテゴリ。同じ項目の中は「どれか」
 //   general     … 特定の人・グループに紐づかない「全体のもの」の扱い。1＝全体のものだけ（who とは一緒に使えない）／0＝全体のものを除く
 //                 （例: who=angerme&general=0 で、アンジュルムだけのタグの記事）。無ければ、含める
+//   embed       … 1＝動画を埋め込む（YouTube だけ。公式の埋め込みプレーヤーを本文に入れる）。無ければ、題名だけ
 //   q / x       … 題名（name）に含まれる言葉。q は「含む」（スペース区切りは全部を含む）、x は「含まない」（どれかを含むものを除く）
 //   上の条件は、全部を満たす記事だけ。空なら全部
 // 元データは公開のたびに rss.py が置く data/{site}-{kind}.json（人・グループ・カテゴリ・題名付きの記事）と data/options.json
 // 選べる値は options.json にあるものだけ。それ以外は400を返す（誤った条件のURLが、空のフィードとして登録されるのを防ぐ）
 // 言葉の判定は、全角・半角と大文字・小文字・異体字（﨑／崎など。text.js）をそろえて、題名だけを見る。本文は持たない・公開しない
 
-import { liveItems } from "./ameblo.js";
+import { liveItems as amebloItems } from "./ameblo.js";
+import { liveItems as youtubeItems } from "./youtube.js";
 import { norm } from "./text.js";
 
 const LIMIT = 50;
@@ -76,6 +78,10 @@ export async function customFeed(req, env) {
   if (gRaw !== null && !["1", "true", "0", "false"].includes(gRaw)) return text(400, "general は 1（全体のものだけ）か 0（全体のものを除く）です");
   const general = ["1", "true"].includes(gRaw || "");        // 全体のものだけ
   const noGeneral = ["0", "false"].includes(gRaw || "");     // 全体のものを除く
+  const eRaw = u.searchParams.get("embed");
+  if (eRaw !== null && !["1", "true", "0", "false"].includes(eRaw)) return text(400, "embed は 1（動画を埋め込む）か 0 です");
+  const embed = ["1", "true"].includes(eRaw || "");
+  if (embed && !src.embed) return text(400, "この組み合わせでは、embed（埋め込み）は指定できません");
   const qRaw = (u.searchParams.get("q") || "").trim(), xRaw = (u.searchParams.get("x") || "").trim();
   if (who.length > MAX_VALUES || cat.length > MAX_VALUES) return text(400, "選びすぎです");
   if (qRaw.length > MAX_QUERY || xRaw.length > MAX_QUERY || words(qRaw).length > MAX_WORDS || words(xRaw).length > MAX_WORDS) {
@@ -91,9 +97,9 @@ export async function customFeed(req, env) {
 
   let data;
   if (src.live) {
-    // 保存しない（アメブロ）: 取りに来たときに、選んだブログのRSSを取りに行く（ameblo.js）
+    // 保存しない（アメブロ・YouTube）: 取りに来たときに、選んだブログ・チャンネルのRSSを取りに行く（ameblo.js・youtube.js）
     try {
-      data = { items: await liveItems(src, who) };
+      data = { items: src.live.type === "youtube" ? await youtubeItems(src, who, { embed }) : await amebloItems(src, who) };
     } catch (e) {
       return text(502, `${src.siteLabel}のRSSを読み込めませんでした（${e.message}）。しばらくしてからもう一度お試しください`);
     }
