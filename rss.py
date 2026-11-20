@@ -528,11 +528,15 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
 
     # 選択式フィードの元データ（人・グループは、プロフィールの順。種別: group・unit はグループ、member・solo は人）
     who_info = list(pm.values())
+    # アップフロントは、ハロプロ以外の人（歌手・俳優など）も所属しているので、「人」の選択肢は、ハロプロ関係の人の名簿（hp_people.txt）の人に絞る。
+    # 記事のデータは絞らない（名簿に無い人の記事も、全部・言葉の検索には出る）
+    roster = selectable.load_roster(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hp_people.txt")) if site == "upfront" else None
+    keep = (lambda n: selectable.compact_name(n) in roster) if roster else None
     sources = [
         selectable.make_source(out, site, cfg["label"], "news", "お知らせ", news, who_info,
-                               [(k, CAT_LABELS[k]) for k in ("NEWS", "EVENT")]),
+                               [(k, CAT_LABELS[k]) for k in ("NEWS", "EVENT")], who_keep=keep),
         selectable.make_source(out, site, cfg["label"], "schedule", "スケジュール（新しく載った出演）", media, who_info,
-                               [(k, CAT_LABELS[k]) for k in MEDIA_CATS], who_all=True),
+                               [(k, CAT_LABELS[k]) for k in MEDIA_CATS], who_all=True, who_keep=keep),
     ]
 
     if site == "hp":
@@ -794,31 +798,44 @@ def shop_parse(xml_text):
     return rows
 
 
-def update_shop(state):
-    """公式のRSSを見て、新しい記事を足す。戻り値: (記事, 新しい状態, 新しく見つけた件数)"""
+def update_wp(state, feed, parse, pages, keep=SHOP_KEEP):
+    """WordPress の公式のRSS（ハロショ・ジャストプロ）を見て、新しい記事を足す。戻り値: (記事, 新しい状態, 新しく見つけた件数)
+    parse(本文) は、対象の記事の行（rows）と、見た記事の全部の guid（seen。対象外も含む）を返す。
+    対象外の記事が多いサイトでも、「前に見た記事に着いたら、次のページを見ない」が効くように、見た guid も状態に持つ"""
     first = state is None
     items = list((state or {}).get("items") or [])
+    seen = list((state or {}).get("seen") or [])
     etag = (state or {}).get("etag")
-    have = {i["guid"] for i in items}
-    fetched, new_etag = [], etag
-    for pg in range(1, SHOP_PAGES + 1):
-        body, e = shop_get(SHOP_BASE + "/feed" + (f"?paged={pg}" if pg > 1 else ""), None if first or pg > 1 else etag)
+    have = {i["guid"] for i in items} | set(seen)
+    fetched, new_etag, all_seen = [], etag, []
+    for pg in range(1, pages + 1):
+        body, e = shop_get(feed + (f"?paged={pg}" if pg > 1 else ""), None if first or pg > 1 else etag)
         if pg == 1:
             new_etag = e
         if body is None:  # 前回から変わっていない
             break
-        rows = shop_parse(body)
+        rows, guids = parse(body)
         fetched += rows
-        if (first and pg >= SHOP_PAGES) or (not first and any(r["guid"] in have for r in rows)):
+        all_seen += guids
+        if (first and pg >= pages) or (not first and any(g in have for g in guids)):
             break
         time.sleep(0.5)
     new = []
+    stored = {i["guid"] for i in items}
     for r in fetched:
-        if r["guid"] not in have:
-            have.add(r["guid"])
+        if r["guid"] not in stored:
+            stored.add(r["guid"])
             new.append(r)
-    items = sorted(new + items, key=lambda i: (i["date"], i["guid"]), reverse=True)[:SHOP_KEEP]
-    return items, {"items": items, "etag": new_etag}, 0 if first else len(new)
+    items = sorted(new + items, key=lambda i: (i["date"], i["guid"]), reverse=True)[:keep]
+    seen = list(dict.fromkeys(all_seen + seen))[:100]
+    state_out = {"items": items, "etag": new_etag}
+    if seen and any(g not in stored for g in seen):  # 対象外の記事を見たサイトだけ、見た記事の記録を持つ
+        state_out["seen"] = seen
+    return items, state_out, 0 if first else len(new)
+
+
+def update_shop(state):
+    return update_wp(state, SHOP_BASE + "/feed", lambda t: (lambda r: (r, [x["guid"] for x in r]))(shop_parse(t)), SHOP_PAGES)
 
 
 def build_shop(out, state_dir, now):
@@ -842,6 +859,65 @@ def build_shop(out, state_dir, now):
     if new_state is not None:
         save_state(path, new_state)
     print(f"helloshop news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
+    return [source]
+
+
+# ---------- ジャストプロ（ハロプロ関係のタレントのお知らせ） ----------
+# 公式のサイト（https://www.just-pro.jp/）は WordPress。/feed/ が、全タレントのお知らせのRSS（1ページ10件・ETagあり。カテゴリがタレント名）。
+# ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事だけを溜める（本文・画像は持たない）。更新の検知・溜め方は、ハロショと同じ
+# タレントの題名は「藤本美貴　フジテレビ「…」出演のお知らせ」のようにタレント名が先頭にある。言葉で探すときは、題名を見る
+
+JP_FEED = "https://www.just-pro.jp/feed/"
+JP_PAGES = 4   # 初回に見るページ数（約30日分。全タレントの記事が1ページ10件）
+JP_WHO = [("miki_fujimoto", "藤本美貴"), ("haruna_iikubo", "飯窪春菜"), ("kurumi_takase", "高瀬くるみ")]
+
+
+def jp_parse(xml_text):
+    who_of = {selectable.compact_name(label): key for key, label in JP_WHO}
+    rows, guids = [], []
+    for it in ET.fromstring(xml_text).find("channel").findall("item"):
+        title = (it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        guid = (it.findtext("guid") or link).strip()
+        pub = it.findtext("pubDate")
+        if not (title and pub):
+            continue
+        pid = re.search(r"[?&]p=(\d+)", guid)
+        g = "jp-" + (pid.group(1) if pid else hashlib.sha1(guid.encode()).hexdigest()[:12])
+        guids.append(g)
+        labels = [c.text.strip() for c in it.findall("category") if c.text]
+        who = [who_of[k] for k in (selectable.compact_name(x) for x in labels) if k in who_of]
+        if not who:
+            continue  # ハロプロ関係の3人の記事だけ
+        date = parsedate_to_datetime(pub).astimezone(JST).isoformat()
+        rows.append({"guid": g, "sort": date, "title": title, "name": title, "link": link, "html": "", "date": date,
+                     "categories": [dict((k, n) for k, n in JP_WHO)[w] for w in who], "who": who, "cats": []})
+    return rows, guids
+
+
+def build_jp(out, state_dir, now):
+    """ジャストプロの選択式フィードの元データを書く。取得に失敗しても、前回の状態があればそれで書く"""
+    path = os.path.join(state_dir, "rss_justpro.json")
+    state = None
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            state = json.load(f)
+    try:
+        items, new_state, found = update_wp(state, JP_FEED, jp_parse, JP_PAGES)
+    except Exception as e:
+        if state is None:
+            raise
+        print(f"warn: justpro: {e}（前回の状態で書く）", file=sys.stderr)
+        items, new_state, found = state["items"], None, 0
+    source = selectable.make_source(
+        out, "justpro", "ジャストプロ", "news", "お知らせ（タイトルだけ）", items,
+        [(k, n, "member") for k, n in JP_WHO], [], who_all=True,
+        note="ジャストプロの公式のお知らせから、ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事のタイトルだけを溜めて返します（本文・画像は返しません）。"
+             "最初は直近30日分から始まります。ほかのタレントのお知らせは対象にしていません。")
+    source["general"] = False
+    if new_state is not None:
+        save_state(path, new_state)
+    print(f"justpro news: 記事{len(items)} 新規{found}{'（初回）' if state is None else ''}")
     return [source]
 
 
@@ -876,13 +952,13 @@ def ameblo_source(profiles, pm):
 
 
 # ---------- YouTube（公式のチャンネル。保存しない・リーダーが取りに来たときに取りに行く） ----------
-# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube。個人のチャンネルは、対象にしていない。
+# 公式の一覧（https://helloproject.com/link/）にあるチャンネルと、JPRTube・decarbo46。個人のチャンネルは、今の事務所に所属している人だけ。
 # RSS: https://www.youtube.com/feeds/videos.xml?channel_id=UC…（最新15件・公式のもの）。チャンネルのIDは、チャンネルのページの
 # RSSの印（<link rel="alternate" type="application/rss+xml">）から1回だけ引いて、state/youtube_channels.json に残す（毎回は引かない）。
 # 動画とShortsは、リンクの形（/shorts/）で見分ける。保存しないので、本文の説明は持たない。埋め込み（embed=1）は、公式の埋め込みプレーヤー
 
 YT_CHANNELS = [
-    # (key, チャンネルのURL)  名前は、ページから引く
+    # (key, チャンネルのURL[, 種別: 省略は group（チャンネル）／person（個人）])  名前は、ページから引く
     ("morningmusume", "https://www.youtube.com/user/morningmusumechannel"),
     ("angerme", "https://www.youtube.com/c/angerme"),
     ("juicejuice", "https://www.youtube.com/user/juicejuicechannel"),
@@ -901,6 +977,14 @@ YT_CHANNELS = [
     ("kimitsuta", "https://www.youtube.com/@kimitsuta"),
     ("uffanclub", "https://www.youtube.com/@UFfanclub"),
     ("jprtube", "https://www.youtube.com/@JPR_Tube"),
+    ("decarbo46", "https://www.youtube.com/@decarbo46"),
+    # 個人（今の事務所に所属している人だけ。アップフロントクリエイト・JPROOM・ジャストプロ）。画面では「メンバー・個人」に入る
+    ("takahashi_ai", "https://www.youtube.com/@lab3546", "person"),
+    ("suzuki_airi", "https://www.youtube.com/@airisuzukich", "person"),
+    ("rina_katsuta", "https://www.youtube.com/@rinakatsuta_official", "person"),
+    ("miyamoto_karin", "https://www.youtube.com/@miyamotokarin", "person"),
+    ("mai_ozeki", "https://www.youtube.com/@ozeki_mai", "person"),
+    ("miki_fujimoto", "https://www.youtube.com/@hello_mikitty", "person"),
 ]
 YT_ID_RE = re.compile(r'<link rel="alternate" type="application/rss\+xml"[^>]*channel_id=(UC[\w-]{22})')
 YT_ID_RE2 = re.compile(r'"externalId":"(UC[\w-]{22})"')
@@ -926,7 +1010,7 @@ def youtube_source(state_dir):
         with open(path, encoding="utf-8") as f:
             known = json.load(f)
     changed, who = False, []
-    for key, url in YT_CHANNELS:
+    for key, url, *typ in YT_CHANNELS:
         rec = known.get(key)
         if not rec or rec.get("url") != url:
             try:
@@ -938,7 +1022,7 @@ def youtube_source(state_dir):
                 continue
             rec = known[key] = {"url": url, "id": got[0], "name": got[1]}
             changed = True
-        who.append({"key": key, "label": rec["name"], "type": "group", "channels": [rec["id"]], "url": rec["url"]})
+        who.append({"key": key, "label": rec["name"], "type": typ[0] if typ else "group", "channels": [rec["id"]], "url": rec["url"]})
         time.sleep(0.5)
     if changed:
         save_state(path, known)
@@ -1064,6 +1148,12 @@ def index_html(feeds, now, sources=()):
                 u = f"https://rssblog.ameba.jp/{b}/rss20.xml"
                 out.append(f'<li><a href={quoteattr(u)}>{escape(g["label"])}（{escape(b)}）</a><code>{escape(u)}</code></li>')
         out.append("</ul>")
+    if any(s["site"] == "justpro" for s in sources):
+        out.append("<h2>ジャストプロ（公式のRSSがあります）</h2>"
+                   "<p>ジャストプロの公式のお知らせは、全タレント分のRSSがあります（本文つき）。ハロプロ関係の3人（藤本美貴・飯窪春菜・高瀬くるみ）の記事だけを、"
+                   "タイトルだけで見たいときは、"
+                   '<a href="custom/">選んで作る RSS</a> の「ジャストプロ」が使えます。</p><ul>'
+                   '<li><a href="https://www.just-pro.jp/feed/">お知らせ（全タレント）</a><code>https://www.just-pro.jp/feed/</code></li></ul>')
     yt = next((s for s in sources if s["site"] == "youtube"), None)
     if yt:
         out.append("<h2>YouTube（公式のRSSがあります）</h2>"
@@ -1122,14 +1212,14 @@ def main():
         except Exception as e:
             print(f"error: {fsite}: {e}", file=sys.stderr)
             failed.append(fsite)
-    try:
-        sources += build_shop(args.out, args.state_dir, now)
-        yt = youtube_source(args.state_dir)
-        if yt:
-            sources.append(yt)
-    except Exception as e:
-        print(f"error: helloshop: {e}", file=sys.stderr)
-        failed.append("helloshop")
+    for name, build in (("helloshop", lambda: build_shop(args.out, args.state_dir, now)),
+                        ("justpro", lambda: build_jp(args.out, args.state_dir, now)),
+                        ("youtube", lambda: [x for x in [youtube_source(args.state_dir)] if x])):
+        try:
+            sources += build()
+        except Exception as e:
+            print(f"error: {name}: {e}", file=sys.stderr)
+            failed.append(name)
     if not feeds:
         sys.exit(1)
 

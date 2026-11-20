@@ -13,9 +13,27 @@ import datetime as dt
 import json
 import os
 import re
+import unicodedata
 
 DATA_LIMIT = 400  # 1つの元データに残す記事数（新しい順）
 GROUP_TYPES = {"group", "unit"}  # ほかの種別（member・solo）は「人」
+
+
+# 名前の照合用にそろえる（watcher/src/text.js の compact と同じ考え方。全角半角・大文字小文字・空白・異体字）
+_VARIANTS = str.maketrans({"﨑": "崎", "嵜": "崎", "髙": "高", "櫻": "桜", "澤": "沢", "嶋": "島", "邉": "辺", "邊": "辺",
+                           "齋": "斎", "齊": "斉", "德": "徳", "國": "国", "濱": "浜", "廣": "広", "眞": "真"})
+
+
+def compact_name(s):
+    return re.sub(r"\s+", "", unicodedata.normalize("NFKC", s or "").lower().translate(_VARIANTS))
+
+
+def load_roster(path):
+    """名簿（1行に1人。# から始まる行は説明）。戻り値: 照合用にそろえた名前の集合。ファイルが無ければ None（絞らない）"""
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return {compact_name(l) for l in (x.strip() for x in f) if l and not l.startswith("#")}
 
 
 def write(path, text):
@@ -71,12 +89,13 @@ def plain_title(title):
     return _TAIL.sub("", t).strip() or (title or "")
 
 
-def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_info, who_all=False, note=None):
+def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_info, who_all=False, note=None, who_keep=None):
     """元データを書いて、選ぶ画面用の選択肢を返す。
     items: "who"（キーのリスト）・"cats"（カテゴリのキーのリスト）・"general"・"name"（飾りの無い題名）が付いた記事
     who_info: [(キー, 名前, 種別)] をプロフィールの順に。cat_info: [(キー, 名前)] を画面に出す順に。
     名前が空のプロフィール（未発表のユニットなど）は出さない。カテゴリは、記事がまだ無くても全部出す。人・グループは、記事に出てくるものだけ
-    （who_all なら全員。スケジュールは新しく載ったものから溜めるので、使い始めは記事が少なくても、見たい人を選べるようにする）"""
+    （who_all なら全員。スケジュールは新しく載ったものから溜めるので、使い始めは記事が少なくても、見たい人を選べるようにする）
+    who_keep: 「人」の選択肢に出す名前の条件（名前 → 真偽）。記事のデータは絞らない（全部・言葉の検索には出る）"""
     rows = sorted(items, key=lambda i: (iso(i["date"]), str(i["sort"])), reverse=True)[:DATA_LIMIT]
     used_who = {k for i in rows for k in i.get("who") or []}
     data = {"items": []}
@@ -93,7 +112,7 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
     write(os.path.join(out, file.lstrip("/")), json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     src = {
         "site": site, "siteLabel": site_label, "kind": kind, "kindLabel": kind_label, "file": file, "count": len(rows),
-        "who": [{"key": k, "label": n, "type": "group" if t in GROUP_TYPES else "person"} for k, n, t in who_info if n.strip() and (who_all or k in used_who)],
+        "who": [{"key": k, "label": n, "type": "group" if t in GROUP_TYPES else "person"} for k, n, t in who_info if n.strip() and (who_all or k in used_who) and (who_keep is None or who_keep(n))],
         "cat": [{"key": k, "label": n} for k, n in cat_info],
     }
     if note:
