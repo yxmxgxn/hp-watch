@@ -147,6 +147,8 @@ ol{padding-left:1.3em;margin:6px 0}
 <input type="text" id="q" maxlength="60" placeholder="例: 譜久村" autocomplete="off">
 <label class="field" for="x"><span class="mute">含まない言葉（スペースで区切ると、どれかを含む記事を除く）</span></label>
 <input type="text" id="x" maxlength="60" placeholder="例: 写真集" autocomplete="off"></fieldset>
+<fieldset id="embedBox" hidden><legend>5. 動画の埋め込み</legend>
+<label><input type="checkbox" id="embed"> 動画を埋め込む（公式の埋め込みプレーヤーを、記事に入れる。リーダーによっては、表示されません）</label></fieldset>
 <div class="out"><strong>できたURL</strong>
 <input type="text" id="url" readonly aria-label="できたURL">
 <button type="button" id="copy">コピー</button><a class="btn sub" id="open" target="_blank" rel="noopener">開いて確かめる</a>
@@ -165,7 +167,7 @@ function box(name,o){return `<label><input type="checkbox" data-k="${esc(o.key)}
 function pick(i){
   cur=SOURCES[i]; document.querySelector(`input[name=src][value="${i}"]`).checked=true;
   const g=cur.who.filter(w=>w.type==='group'), p=cur.who.filter(w=>w.type!=='group');
-  $('catBox').hidden=!cur.cat.length; $('genBox').hidden=cur.general===false; $('q').value=''; $('x').value=''; document.querySelector('input[name=gen][value=""]').checked=true;
+  $('catBox').hidden=!cur.cat.length; $('embedBox').hidden=!cur.embed; $('embed').checked=false; $('genBox').hidden=cur.general===false; $('q').value=''; $('x').value=''; document.querySelector('input[name=gen][value=""]').checked=true;
   $('note').hidden=!cur.note; $('note').textContent=cur.note||'';
   $('who').innerHTML=(g.length?`<div class="grid">${g.map(w=>box('who',w)).join('')}</div>`:'')+
     (p.length?`<details${g.length?'':' open'}><summary>${g.length?'メンバー・個人（'+p.length+'人）':'人'}</summary><div class="grid">${p.map(w=>box('who',w)).join('')}</div></details>`:'');
@@ -190,6 +192,7 @@ function update(){
   if(c.length)u+='&cat='+c.map(encodeURIComponent).join(',');
   if(q)u+='&q='+encodeURIComponent(q);
   if(x)u+='&x='+encodeURIComponent(x);
+  if(cur.embed&&$('embed').checked)u+='&embed=1';
   $('url').value=u; $('open').href=u; $('msg').textContent='';
   clearTimeout(timer); timer=setTimeout(()=>preview(u),300);
 }
@@ -206,6 +209,7 @@ async function preview(u){
 }
 $('q').addEventListener('input',update);
 $('x').addEventListener('input',update);
+$('embed').addEventListener('change',update);
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('url').value);$('msg').textContent='コピーしました'}catch(e){$('url').select();$('msg').textContent='選択しました。コピーしてください'}});
 $('clearWho').addEventListener('click',()=>{document.querySelectorAll('input[data-n=who]').forEach(c=>c.checked=false);update()});
 $('clearCat').addEventListener('click',()=>{document.querySelectorAll('input[data-n=cat]').forEach(c=>c.checked=false);update()});

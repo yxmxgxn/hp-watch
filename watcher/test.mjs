@@ -2,15 +2,18 @@
 // 公式サイトへの HEAD は本物、GitHub と Discord への呼び出しは偽物
 import watcher, { run, builtRecently } from "./src/index.js";
 import { parseRss } from "./src/ameblo.js";
+import { parseAtom } from "./src/youtube.js";
 import { compact, norm as normJa } from "./src/text.js";
 
 const realFetch = globalThis.fetch;
 let calls = [];
 let githubStatus = 204;
 let failAmeba = false;
+let failYoutube = false;
 globalThis.fetch = async (url, opts = {}) => {
   const u = String(url);
   if (failAmeba && u.startsWith("https://rssblog.ameba.jp/")) return new Response("x", { status: 500 });
+  if (failYoutube && u.startsWith("https://www.youtube.com/feeds/")) return new Response("x", { status: 500 });
   if (u.startsWith("https://api.github.com/") || u.startsWith("https://discord.test/")) {
     calls.push({ url: u, opts });
     return new Response(githubStatus === 204 ? null : "boom", { status: u.includes("discord") ? 204 : githubStatus });
@@ -210,6 +213,38 @@ if (dataDir) {
   r = await get("?site=ameblo&kind=blog&who=angerme");
   assert(r.status === 502, "アメブロ: ブログのRSSが1つも読めなければ502");
   failAmeba = false;
+
+  // --- YouTube（ハロプロ公式のチャンネル。保存せず、取りに来たときに公式のRSSを取りに行く。本物のアクセス）
+  const yt = options.find((q) => q.site === "youtube");
+  assert(yt && yt.live && yt.embed && yt.general === false && yt.who.length >= 15 && yt.who.every((w) => /^UC[\w-]{22}$/.test(w.channels[0])) && yt.cat.map((c) => c.key).join() === "video,shorts", "YouTube: 選択肢（チャンネルのID付き・動画/Shorts）");
+  const sampleAtom = '<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"><entry><yt:videoId>AAAAAAAAAAA</yt:videoId><title>歌って &amp; 踊る</title><link rel="alternate" href="https://www.youtube.com/shorts/AAAAAAAAAAA"/><published>2026-11-19T10:00:00+00:00</published><media:group><media:description>長い説明</media:description></media:group></entry><entry><yt:videoId>BBBBBBBBBBB</yt:videoId><title>日付なし</title><link rel="alternate" href="https://www.youtube.com/watch?v=BBBBBBBBBBB"/><published>不正</published></entry></feed>';
+  const pa = parseAtom(sampleAtom);
+  assert(pa.length === 1 && pa[0].title === "歌って & 踊る" && pa[0].short === true && pa[0].id === "AAAAAAAAAAA" && !JSON.stringify(pa[0]).includes("説明"), "YouTubeのRSSの読み取り（Shortsはリンクで判定。日付が不正なものは捨てる。説明は読まない）");
+  r = await get("?site=youtube&kind=video");
+  x = await r.text();
+  assert(r.status === 200 && items(x) === 50 && x.split("<item>").slice(1).every((b) => /<title>\[[^\]]+\] /.test(b) && !b.includes("<description>")), "YouTube: 全部 → 最新50件・題名の先頭にチャンネル名・本文なし");
+  r = await get("?site=youtube&kind=video&who=angerme");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<category>アンジュルム</category>")) && x.includes("<title>YouTube（ハロプロ公式） 動画 ― アンジュルム</title>"), "YouTube: チャンネルを選ぶ");
+  r = await get("?site=youtube&kind=video&cat=shorts");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("/shorts/")), "YouTube: Shorts だけ");
+  r = await get("?site=youtube&kind=video&cat=video");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => !b.includes("/shorts/")), "YouTube: 動画だけ（Shortsを除く）");
+  r = await get("?site=youtube&kind=video&who=angerme&embed=1");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => /&lt;iframe [^>]*youtube-nocookie\.com\/embed\/[\w-]{11}/.test(b)), "YouTube: embed=1 で、公式の埋め込みプレーヤーを入れる");
+  r = await get("?site=hp&kind=news&embed=1");
+  assert(r.status === 400, "embed は YouTube だけ（ほかは400）");
+  r = await get("?site=youtube&kind=video&embed=2");
+  assert(r.status === 400, "embed の値が不正なら400");
+  r = await get("?site=youtube&kind=video&general=1");
+  assert(r.status === 400, "YouTube: 全体のもの（general）は指定できない（400）");
+  failYoutube = true;
+  r = await get("?site=youtube&kind=video&who=angerme");
+  assert(r.status === 502, "YouTube: チャンネルのRSSが1つも読めなければ502");
+  failYoutube = false;
 
   // --- エラー
   r = await get("?site=hp");
