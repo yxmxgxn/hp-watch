@@ -44,18 +44,6 @@
 "start": "2026-12-02",
 "title": "アンジュルム 2026秋 FINAL 風林火山・極"
 },
-"/angerme/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-3,
-29,
-634,
-676
-],
-"end": "2026-11-19",
-"link": "/angerme/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
 "/beyooooonds/event/069a5ee813b618cd97118749c5bb075b37473af75b0a4fcbd091807b0ac93fee/": {
 "artists": [
 585
@@ -434,18 +422,6 @@
 "start": "2026-09-05",
 "title": "モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
 },
-"/morningmusume/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-3,
-29,
-634,
-676
-],
-"end": "2026-11-19",
-"link": "/morningmusume/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
 "/ochanorma/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
 3,
@@ -529,17 +505,14 @@
 "start": "2026-11-27",
 "title": "モーニング娘。'26・Juice=Juice・OCHA NORMA「GIFT～Girls Idol Festival Tokyo～」出演！"
 },
-"/ochanorma/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
+"/ochanorma/event/be5a5bb4002e4289c6120ea34a45073bfb0270a1cd1d8271fa2d3babebd9cdd7/": {
 "artists": [
-3,
-29,
-634,
-676
+634
 ],
-"end": "2026-11-19",
-"link": "/ochanorma/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
+"end": "2026-12-28",
+"link": "/ochanorma/event/be5a5bb4002e4289c6120ea34a45073bfb0270a1cd1d8271fa2d3babebd9cdd7/",
+"start": "2026-12-28",
+"title": "OCHA NORMA「SPARK 2026 年末SPECIAL」出演！"
 },
 "/rosychronicle/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
@@ -602,18 +575,6 @@
 "link": "/rosychronicle/event/90e7f623f2d92bf7a432cfe3af45caa5a87ab69fb319b123a33fd3acc84477ba/",
 "start": "2026-10-04",
 "title": "ロージークロニクル ライブツアー2026秋 ～Blueprint～"
-},
-"/rosychronicle/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-3,
-29,
-634,
-676
-],
-"end": "2026-11-19",
-"link": "/rosychronicle/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
 "/rosychronicle/event/ce6d54103681d86dcb4cd6d349f38bed93fc8f3eeadc17757d29674c962db19c/": {
 "artists": [
@@ -53076,6 +53037,63 @@
 "status": null,
 "title": "TOKYO MX「バンマニ!リアルアイカツ！チャレンジ 〜現役アイドルがアイカツ！ゲームバトル〜」"
 },
+"s2239": {
+"artists": [
+585
+],
+"category": "STREAM",
+"date": "2027-01-08",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+524,
+708
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS西田汐里＆小島はな～トークイベント"
+},
+"s2240": {
+"artists": [
+585
+],
+"category": "STREAM",
+"date": "2027-01-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+524,
+708
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS西田汐里＆小島はな～トークイベント"
+},
+"s2241": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-12-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/de87dd57fac7c8c4b22be57d13a09c365269b61bca329cb1934536ed7a15c1b2/",
+"members": [
+524,
+708
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS西田汐里＆小島はな～トークイベント"
+},
 "s2242": {
 "artists": [
 585
@@ -54170,7 +54188,310 @@
 "start": "08:30",
 "status": null,
 "title": "μFMエフエム鹿児島「あさcafé」"
+},
+"s2282": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-28",
+"end": "22:54",
+"isFc": false,
+"label": null,
+"link": "https://www.ntv.co.jp/best-artist/artist/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※【第一部】16:00～17:00放送/【第二部】19:00～22:54放送",
+"start": "16:00",
+"status": null,
+"title": "日本テレビ「ベストアーティスト2026」"
+},
+"s2285": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-28",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "http://www.fmnagano.co.jp/whatfmn/satd/index.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "FM長野「SATURDAY D」"
+},
+"s2286": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "25:13",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/tv/yutanpo/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "24:43",
+"status": null,
+"title": "RSK山陽放送「ユタンポ」"
+},
+"s2287": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "09:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rnb.co.jp/radio/md-yamashita/",
+"members": [
+496,
+541,
+708
+],
+"note": "※7時台～出演予定。",
+"start": "07:00",
+"status": null,
+"title": "南海放送「山下泰則のモーニング ディライト」"
+},
+"s2288": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://kry.co.jp/radio/asa/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "07:00",
+"status": null,
+"title": "山口放送「KRY Morning Up」"
+},
+"s2289": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-okayama.co.jp/passage/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "FM岡山「PASSAGE」"
+},
+"s2290": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://fm807.jp/program/tj/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "18:20",
+"status": null,
+"title": "FM徳島「T-Joint」"
+},
+"s2291": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://radiko.jp/r_seasons/10015534",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジTIME」"
+},
+"s2292": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-03",
+"end": "22:00",
+"isFc": false,
+"label": null,
+"link": "https://www.joeufm.co.jp/crn/",
+"members": [
+496,
+541,
+708
+],
+"note": "",
+"start": "20:00",
+"status": null,
+"title": "FM愛媛「カモ☆れでぃ★Night！」"
+},
+"s2295": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-10",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-sanin.co.jp/program/go",
+"members": [
+592,
+665
+],
+"note": "※17時台～出演予定。",
+"start": "17:20",
+"status": null,
+"title": "エフエム山陰「髙田りおんのGO-!EVENING!」"
+},
+"s2300": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "13:55",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/musictune/post.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "10:00",
+"status": null,
+"title": "ぎふチャン「Music Tune」"
+},
+"s2301": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://fma.co.jp/f/prg/afternooncolors/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "14:30",
+"status": null,
+"title": "FM AICHI「AFTERNOON COLORS」"
+},
+"s2302": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://www.knb.ne.jp/bangumi/asanama/",
+"members": [
+592,
+665
+],
+"note": "※コメント",
+"start": "08:30",
+"status": null,
+"title": "北日本放送「とれたてワイド朝生！」"
+},
+"s2303": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://hellofive.jp/program/flyin-pop/",
+"members": [
+592,
+665
+],
+"note": "※コメント",
+"start": "13:30",
+"status": null,
+"title": "FM石川「Flyin'Pop」"
+},
+"s2308": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-28",
+"end": "15:57",
+"isFc": false,
+"label": null,
+"link": "https://www.ktv.jp/hatsukoiclassic/",
+"members": [
+620
+],
+"note": "",
+"start": "14:57",
+"status": null,
+"title": "関西テレビ「初恋クラシックⅡ～名門吹奏楽部の熱き青春＆オーケストラでいろいろ遊んじゃいました～」"
 }
 },
-"versionDir": "2611200020-0kAeh2UwWIPnuAhZ"
+"versionDir": "2611201800-c72EkfI5Ql4WKYZi"
 }

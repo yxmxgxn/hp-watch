@@ -95,18 +95,6 @@
 "start": "2026-11-08",
 "title": "浅倉樹々 2027壁掛けカレンダー発売記念イベント開催決定！"
 },
-"/kiki_asakura/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-5,
-59,
-442,
-483
-],
-"end": "2026-11-19",
-"link": "/kiki_asakura/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
 "/kiki_asakura/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
 5,
@@ -142,18 +130,6 @@
 "link": "/kiki_asakura/event/e0e18e7a2edf29a56e229ac03f2dec25c5160e0fd3a7b928f34f97372c280657/",
 "start": "2026-11-24",
 "title": "浅倉樹々 ソロデビューシングル発売記念イベントのお知らせ(一覧)"
-},
-"/mai_ozeki/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-5,
-59,
-442,
-483
-],
-"end": "2026-11-19",
-"link": "/mai_ozeki/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
 "/mai_ozeki/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
@@ -200,18 +176,6 @@
 "start": "2027-02-07",
 "title": "稲場愛香 Live Tour 2027"
 },
-"/manaka_inaba/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-5,
-59,
-442,
-483
-],
-"end": "2026-11-19",
-"link": "/manaka_inaba/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
-},
 "/manaka_inaba/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
 5,
@@ -248,6 +212,15 @@
 "start": "2026-11-02",
 "title": "佐藤優樹 2026年12月16日発売3rdシングル『Dominant Life!/紅い花』発売記念イベント【一覧】"
 },
+"/masaki_satou/event/207b2496729f002513c21da405671f15f2221128143d9fe3fc9ec2aa9d14380f/": {
+"artists": [
+11
+],
+"end": "2026-12-17",
+"link": "/masaki_satou/event/207b2496729f002513c21da405671f15f2221128143d9fe3fc9ec2aa9d14380f/",
+"start": "2026-12-17",
+"title": "12/17(木)ハロショ大阪店にて 『＜ハロショ大阪独演会 第二十席＞～佐藤優樹～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
+},
 "/masaki_satou/event/b739ebb7a9d7fb34af94621156139af16691eb87cda6315b7846fd28574e8734/": {
 "artists": [
 11
@@ -265,18 +238,6 @@
 "link": "/mizuki_fukumura/event/5d634a1cd27f3f2d9334959dc9a93784a6019b49edb502722a47efccd1b1901d/",
 "start": "2027-01-09",
 "title": "譜久村聖 コンサート 2027"
-},
-"/mizuki_fukumura/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/": {
-"artists": [
-5,
-59,
-442,
-483
-],
-"end": "2026-11-19",
-"link": "/mizuki_fukumura/event/a4b6e6d56adaa2ab562266157f111d26da6d527c9b1f7a1db4247b73fb09baa3/",
-"start": "2026-10-20",
-"title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
 "/mizuki_fukumura/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/": {
 "artists": [
@@ -1429,6 +1390,22 @@
 "start": "12:00",
 "status": null,
 "title": "ぎふチャン「ときめきステーション ダブジェネカウントダウン」"
+},
+"h1156d2389aa1e8e3": {
+"artists": [
+40
+],
+"category": "RADIO",
+"date": "2026-08-07",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.kry.co.jp/radio/hiru/#google_vignette",
+"members": [],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジTIME」"
 },
 "h116171475ddf6915": {
 "artists": [
@@ -4164,22 +4141,6 @@
 "start": "10:25",
 "status": null,
 "title": "UHB北海道文化放送「いっとこ！みんテレ」"
-},
-"h7359c5980fd6e101": {
-"artists": [
-40
-],
-"category": "RADIO",
-"date": "2026-08-07",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://www.kry.co.jp/radio/hiru/#google_vignette",
-"members": [],
-"note": "",
-"start": "12:00",
-"status": null,
-"title": "山口放送「お昼はZETTAIラジオTIME」"
 },
 "h73cad9b9040e4cbb": {
 "artists": [
@@ -9063,7 +9024,23 @@
 "note": "※14時台～出演予定。",
 "start": "12:00",
 "status": null,
-"title": "山口放送「お昼はZETTAIラジオTIME」"
+"title": "山口放送「お昼はZETTAIラジTIME」"
+},
+"s2200": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://www.joeufm.co.jp/grc/",
+"members": [],
+"note": "",
+"start": "13:41",
+"status": null,
+"title": "FM愛媛「Groovy Radio Caravan」"
 },
 "s2203": {
 "artists": [
@@ -9610,5 +9587,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611200020-0kAeh2UwWIPnuAhZ"
+"versionDir": "2611201800-c72EkfI5Ql4WKYZi"
 }
