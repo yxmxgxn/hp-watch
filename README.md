@@ -69,20 +69,23 @@
 
 ## 選んで作る RSS（`/custom/`）
 
-好きな人・グループ・カテゴリだけのフィードを、各自が選んで作れる。選んだ内容はURLに入るので、保存先（KV など）は要らない。
+好きな人・グループ・カテゴリ・言葉だけのフィードを、各自が選んで作れる。選んだ内容はURLに入るので、保存先（KV など）は要らない。
 
 - 選ぶ画面: `https://hello-rss.karin-archive.com/custom/`（トップの一覧からリンク）
-- URL: `/custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT`
-  - `site`（`hp`・`jproom`・`upfront`・`fc`・`mline`・`helloshop`）と `kind`（`news`・`schedule`）は必須。**サイトはまたがない**。**お知らせとスケジュールは別**（1本＝1つのサイト × 片方の種類）
-  - `who`（人・グループ）、`cat`（カテゴリ）は任意。カンマ区切りで複数。同じ項目の中は「どれか」、`who` と `cat` は「両方」。空なら全部
-  - 選べるのは `data/options.json` にある値だけ。それ以外は400を返す（誤ったURLを、空のフィードとして登録させない）。最新50件
-- 仕組み: 公開のたびに `rss.py`（`selectable.py`）が `data/{site}-{kind}.json`（人・グループ・カテゴリ付きの記事、最大400件）と `data/options.json`（選べる値）を置く。Worker（`watcher/src/custom.js`）がデータを読んで、条件に合う記事だけを RSS にして返す（`Cache-Control: max-age=600`）
+- URL: `/custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT&q=ツアー&x=抽選`
+  - `site`（`hp`・`jproom`・`upfront`・`fc`・`mline`・`helloshop`）と `kind`（`news`・`schedule`）は必須。**サイトはまたがない**。**お知らせとスケジュールは別**（1本＝1つのサイト × 片方の種類）。ハロショ・ファンクラブはお知らせ（ニュース）だけ
+  - `who`（人・グループ）、`cat`（カテゴリ）は任意。カンマ区切りで複数。同じ項目の中は「どれか」
+  - `general=1`: 特定の人・グループに紐づかない**全体のものだけ**（`who` とは一緒に使えない）。ハロプロは全グループのタグ（`HELLO! PROJECT`）が付いたものと、どのタグも付いていないもの。JPROOM・アップフロントは誰にも紐づかないもの。ファンクラブはどのグループ・人の一覧にも載っていないもの。ハロショはグループのタグが無いもの（店舗・お知らせなど）
+  - `q`（含む言葉）、`x`（含まない言葉）: **題名だけ**が対象（本文は持たない・公開しない）。`q` はスペース区切りで全部を含む、`x` はどれかを含むものを除く。全角・半角と大文字・小文字をそろえて探す（NFKC・小文字）。題名の飾り（日付・`[NEWS]`・`[RADIO]`・`[FC限定]` など）は探さない。言葉は5個・60文字まで
+  - 上の条件は、全部を満たす記事だけ。空なら全部。最新50件
+  - 選べない値は400（誤ったURLを、空のフィードとして登録させない）。データが読めないときは503
+- 仕組み: 公開のたびに `rss.py`（`selectable.py`）が `data/{site}-{kind}.json`（人・グループ・カテゴリ・題名付きの記事、最大400件）と `data/options.json`（選べる値）、`custom/index.html` を書く。Worker（`watcher/src/custom.js`）がデータを読んで、条件に合う記事だけを RSS にして返す（`Cache-Control: max-age=600`）。**`data/` は公開されているので、本文など公開したくないものは入れない**
 - 人・グループのキーは、公式のプロフィールの `slug`（無い・重複するものは `id{番号}`）。名前が空のプロフィールは選択肢に出さない
 - スケジュールの元は「新しく載った出演」（MEDIA のフィードと同じ）。新しく載ったものから溜めるので、使い始めは記事が少なく、日がたつほど増える。人・グループは、記事がまだ無くても選べる
-- ハロショ（`helloshop.info`）: `site=helloshop&kind=news`。公式が WordPress で RSS（`/feed`）を出していて、タグ・カテゴリ・検索で絞れる（`?tag=a,b`・`?category_name=goods`・`?s=譜久村`、組み合わせも可）。Worker が公式のRSSを取りに行き（1ページ10件×3ページ、5分キャッシュ）、**タイトルだけ**（本文・画像は捨てる）にして返す。記事のデータは持たない。**最近180日の記事だけ**返す（`LIVE_DAYS`。登録した直後に、何年も前の記事が大量に未読で入るのを防ぐ。公式の検索は新しい順に返すが、「譜久村」だと30件のうち最近半年は3件だけだった）
-  - `who`＝グループのタグ、`cat`＝カテゴリ、`q`＝キーワード（人名など。公式の検索なので、タイトルだけでなく本文に含まれるものも出る）。選べるタグ・カテゴリは `selectable.py` の `HELLOSHOP`（公式の `/tag/{ID}/`・`/category/{ID}/` の英字ID）。増えたらそこに足す
+- ハロショ（`helloshop.info`）: 公式が WordPress で RSS（`/feed`）を出している。記事（題名・リンク・公開時刻・カテゴリ）を `state/rss_helloshop.json` に溜める（本文・画像は読まない）。初回は直近30日分（3ページ）、あとは新しい記事だけ。取りに行くときは前回の ETag を付けて、変わっていなければ 304 で済ませる（公式への負担を抑える）。更新は、時計が `/feed` の `Last-Modified` を見て（15分おき）、変わったら `rss.yml` を呼ぶ。タグ・カテゴリの英字のIDは `rss.py` の `SHOP_WHO`・`SHOP_CATS`（公式の `/tag/{ID}/`・`/category/{ID}/`。増えたらそこに足す）
   - 公式のRSSは、ページ（画面）には出ていない。`<head>` に自動検出用の `<link rel="alternate">` があるだけ
-- 手元の確認: `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（ハロショは公式サイトへ本物のアクセスをする）（`PUBLIC_DIR` を付けると、選択式フィードのテストも動く）
+  - 見送り: 本文の全文保存（公開してしまう・本文のページを1件ずつ取りに行く負担・検索のノイズ・公式が消した記事が残る）、DVDマガジン（配信）のスケジュール入り、`up-front-promotion.co.jp`
+- 手元の確認: `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（時計の確認は、公式サイトへ本物の HEAD をする）
 
 ## 動かす仕組み（Cloudflare の Cron Trigger が時計、GitHub Actions が作業）
 
