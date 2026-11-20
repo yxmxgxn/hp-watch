@@ -79,6 +79,14 @@ for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
   assert((await builtRecently("https://www.helloshop.info/feed", new Date(hlm.getTime() + 90 * 60000))) === null, "ハロショ: 更新の90分後 → 検知しない");
 }
 
+// ---- ジャストプロの更新も、時計が見る（公式の /feed/ の Last-Modified。本物のアクセス）
+{
+  const jp = await realFetch("https://www.just-pro.jp/feed/", { method: "HEAD" });
+  const jlm = new Date(jp.headers.get("last-modified"));
+  assert((await builtRecently("https://www.just-pro.jp/feed/", new Date(jlm.getTime() + 5 * 60000)))?.getTime() === jlm.getTime(), "ジャストプロ: 更新の5分後 → 直近の更新として検知");
+  assert((await builtRecently("https://www.just-pro.jp/feed/", new Date(jlm.getTime() + 90 * 60000))) === null, "ジャストプロ: 更新の90分後 → 検知しない");
+}
+
 // ---- 選択式フィード（/custom.xml）。ASSETS は、rss.py が作った data/ を読む偽物
 import { readFileSync, existsSync } from "node:fs";
 const dataDir = process.env.PUBLIC_DIR;
@@ -174,6 +182,33 @@ if (dataDir) {
   assert(x.split("<item>").slice(1).every((b) => b.includes("<category>グッズ情報</category>") && b.includes("<category>アンジュルム</category>")) && x.includes("アンジュルム（グッズ情報）"), "ハロショ: グループ × カテゴリ");
   r = await get("?site=helloshop&kind=news&x=" + encodeURIComponent("生写真"));
   assert(guids(await r.text()).every((g) => !data("helloshop-news").find((i) => i.guid === g).name.includes("生写真")), "ハロショ: 含まない言葉（マイナス検索）");
+
+  // --- ジャストプロ（ハロプロ関係の3人のお知らせ。溜めたものを、タイトルだけで返す）
+  const jpo = options.find((q) => q.site === "justpro");
+  assert(jpo && jpo.kind === "news" && jpo.general === false && jpo.cat.length === 0 && jpo.who.map((w) => w.key).join() === "miki_fujimoto,haruna_iikubo,kurumi_takase", "ジャストプロ: 選択肢は、ハロプロ関係の3人だけ（カテゴリ・全体のものは無い）");
+  r = await get("?site=justpro&kind=news");
+  x = await r.text();
+  const jpItems = data("justpro-news");
+  assert(r.status === 200 && items(x) === Math.min(50, jpItems.length) && items(x) > 0 && !/<item>[\s\S]*?<description>/.test(x), "ジャストプロ: 全部 → 溜めた記事・タイトルだけ（本文なし）");
+  assert(jpItems.every((i) => i.who.length > 0 && i.link.startsWith("https://www.just-pro.jp/")), "ジャストプロ: 溜めた記事は、3人の誰かの記事だけ（公式のリンク）");
+  r = await get("?site=justpro&kind=news&who=miki_fujimoto");
+  x = await r.text();
+  assert(items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("藤本美貴")) && x.includes("<title>ジャストプロ お知らせ（タイトルだけ） ― 藤本美貴</title>"), "ジャストプロ: 人を選ぶ");
+  r = await get("?site=justpro&kind=news&q=" + encodeURIComponent("藤本 美貴") + "&x=" + encodeURIComponent("zzzzzz存在しない"));
+  assert(r.status === 200 && items(await r.text()) > 0, "ジャストプロ: 言葉（空白をそろえる）");
+  r = await get("?site=justpro&kind=news&who=enomoto_yuina");
+  assert(r.status === 400, "ジャストプロ: ほかのタレントは選べない（400）");
+  r = await get("?site=justpro&kind=news&general=1");
+  assert(r.status === 400, "ジャストプロ: 全体のもの（general）は指定できない（400）");
+
+  // --- アップフロント: 人の選択肢は、ハロプロ関係の名簿の人だけ。名簿に無い人の記事も、全部・言葉の検索には出る
+  const up = options.find((q) => q.site === "upfront" && q.kind === "schedule");
+  const upLabels = up.who.map((w) => w.label);
+  assert(upLabels.includes("鈴木愛理") && upLabels.includes("高橋愛") && upLabels.includes("藤本美貴") && !upLabels.includes("堀内孝雄") && !upLabels.includes("松原健之") && !upLabels.includes("ブラザーズ5"), "アップフロント: 人の選択肢は、ハロプロ関係の人だけ（歌手・グループなどは出ない）");
+  const upn = options.find((q) => q.site === "upfront" && q.kind === "news");
+  assert(!upn.who.some((w) => ["堀内孝雄", "松原健之", "ブラザーズ5"].includes(w.label)) && upn.who.length > 5, "アップフロントのお知らせも、人の選択肢は名簿の人だけ");
+  r = await get("?site=upfront&kind=news&q=" + encodeURIComponent("松原健之"));
+  assert(r.status === 200 && items(await r.text()) > 0, "名簿に無い人の記事も、言葉の検索には出る");
 
   // --- アメブロ（ハロプロのブログ。保存せず、取りに来たときに公式のRSSを取りに行く。本物のアクセス）
   const am = options.find((q) => q.site === "ameblo");
