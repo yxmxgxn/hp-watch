@@ -223,7 +223,7 @@ async function preview(u){
     const r=await fetch(u), body=await r.text(); if(my!==seq)return;
     if(!r.ok){$('preview').innerHTML='<li>'+esc(body)+'</li>';return}
     const xml=new DOMParser().parseFromString(body,'application/xml'), it=[...xml.querySelectorAll('item')];
-    $('preview').innerHTML=it.length?it.slice(0,5).map(i=>'<li>'+esc(i.querySelector('title').textContent)+'</li>').join(''):'<li>該当する記事がありません</li>';
+    $('preview').innerHTML=it.length?it.slice(0,5).map(i=>{const t=esc(i.querySelector('title').textContent),l=(i.querySelector('link')||{}).textContent||'';return '<li>'+(/^https?:/.test(l)?'<a href="'+esc(l)+'" target="_blank" rel="noopener noreferrer">'+t+'</a>':t)+'</li>'}).join(''):'<li>該当する記事がありません</li>';
   }catch(e){if(my===seq)$('preview').innerHTML='<li>確認できませんでした</li>'}
 }
 $('q').addEventListener('input',update);
