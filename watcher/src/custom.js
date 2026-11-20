@@ -7,7 +7,10 @@
 //   上の条件は、全部を満たす記事だけ。空なら全部
 // 元データは公開のたびに rss.py が置く data/{site}-{kind}.json（人・グループ・カテゴリ・題名付きの記事）と data/options.json
 // 選べる値は options.json にあるものだけ。それ以外は400を返す（誤った条件のURLが、空のフィードとして登録されるのを防ぐ）
-// 言葉の判定は、全角・半角と大文字・小文字をそろえて（NFKC・小文字）、題名だけを見る。本文は持たない・公開しない
+// 言葉の判定は、全角・半角と大文字・小文字・異体字（﨑／崎など。text.js）をそろえて、題名だけを見る。本文は持たない・公開しない
+
+import { liveItems } from "./ameblo.js";
+import { norm } from "./text.js";
 
 const LIMIT = 50;
 const MAX_VALUES = 40;
@@ -24,7 +27,6 @@ async function readJson(env, path) {
 }
 
 const list = (v) => [...new Set((v || "").split(",").map((x) => x.trim()).filter(Boolean))];
-const norm = (s) => String(s || "").normalize("NFKC").toLowerCase();
 const words = (v) => norm(v).split(/\s+/).filter(Boolean);
 
 export function renderRss({ title, description, link, self, items }) {
@@ -80,6 +82,7 @@ export async function customFeed(req, env) {
     return text(400, `言葉は、${MAX_WORDS}個・${MAX_QUERY}文字までです`);
   }
   if (general && who.length) return text(400, "general（全体のものだけ）と who（人・グループ）は、一緒に使えません");
+  if ((general || noGeneral) && src.general === false) return text(400, "この組み合わせでは、general（全体のもの）は指定できません");
   const badWho = who.filter((k) => !src.who.some((o) => o.key === k));
   const badCat = cat.filter((k) => !src.cat.some((o) => o.key === k));
   if (badWho.length || badCat.length) {
@@ -87,10 +90,19 @@ export async function customFeed(req, env) {
   }
 
   let data;
-  try {
-    data = await readJson(env, src.file);
-  } catch (e) {
-    return text(503, "記事のデータを読み込めませんでした。しばらくしてからもう一度お試しください");
+  if (src.live) {
+    // 保存しない（アメブロ）: 取りに来たときに、選んだブログのRSSを取りに行く（ameblo.js）
+    try {
+      data = { items: await liveItems(src, who) };
+    } catch (e) {
+      return text(502, `${src.siteLabel}のRSSを読み込めませんでした（${e.message}）。しばらくしてからもう一度お試しください`);
+    }
+  } else {
+    try {
+      data = await readJson(env, src.file);
+    } catch (e) {
+      return text(503, "記事のデータを読み込めませんでした。しばらくしてからもう一度お試しください");
+    }
   }
   const inc = words(qRaw), exc = words(xRaw);
   const items = data.items

@@ -1,12 +1,16 @@
 // 手元の確認: NODE_USE_ENV_PROXY=1 node watcher/test.mjs
 // 公式サイトへの HEAD は本物、GitHub と Discord への呼び出しは偽物
 import watcher, { run, builtRecently } from "./src/index.js";
+import { parseRss } from "./src/ameblo.js";
+import { compact, norm as normJa } from "./src/text.js";
 
 const realFetch = globalThis.fetch;
 let calls = [];
 let githubStatus = 204;
+let failAmeba = false;
 globalThis.fetch = async (url, opts = {}) => {
   const u = String(url);
+  if (failAmeba && u.startsWith("https://rssblog.ameba.jp/")) return new Response("x", { status: 500 });
   if (u.startsWith("https://api.github.com/") || u.startsWith("https://discord.test/")) {
     calls.push({ url: u, opts });
     return new Response(githubStatus === 204 ? null : "boom", { status: u.includes("discord") ? 204 : githubStatus });
@@ -167,6 +171,45 @@ if (dataDir) {
   assert(x.split("<item>").slice(1).every((b) => b.includes("<category>グッズ情報</category>") && b.includes("<category>アンジュルム</category>")) && x.includes("アンジュルム（グッズ情報）"), "ハロショ: グループ × カテゴリ");
   r = await get("?site=helloshop&kind=news&x=" + encodeURIComponent("生写真"));
   assert(guids(await r.text()).every((g) => !data("helloshop-news").find((i) => i.guid === g).name.includes("生写真")), "ハロショ: 含まない言葉（マイナス検索）");
+
+  // --- アメブロ（ハロプロのブログ。保存せず、取りに来たときに公式のRSSを取りに行く。本物のアクセス）
+  const am = options.find((q) => q.site === "ameblo");
+  assert(am && am.live && am.general === false && am.cat.length === 0 && am.who.filter((w) => w.type === "group").length >= 7 && am.who.filter((w) => w.type === "person").length >= 50 && am.who.every((w) => w.blogs.length > 0), "アメブロ: 選択肢（グループ・メンバーに、ブログのIDが付く）");
+  const sampleRss = '<rss><channel><item><title><![CDATA[シチュー　川名凜 &amp; 友達]]></title><description>長い本文</description><link>https://ameblo.jp/x/entry-1.html</link><pubDate>Thu, 19 Nov 2026 13:22:00 +0000</pubDate></item><item><title>題なし</title><link>https://ameblo.jp/x/entry-2.html</link><pubDate>不正</pubDate></item></channel></rss>';
+  const pr = parseRss(sampleRss);
+  assert(pr.length === 1 && pr[0].title === "シチュー　川名凜 & 友達" && pr[0].date === "2026-11-19T13:22:00.000Z" && !("description" in pr[0]), "アメブロのRSSの読み取り（CDATA・実体参照。日付が不正な記事は捨てる。本文は読まない）");
+  assert(compact("川名 凜") === compact("川名凜") && compact("ＯＣＨＡ　ＮＯＲＭＡ") === "ochanorma", "名前の照合: 空白・全角半角・大文字小文字をそろえる");
+  assert(compact("山\uFA11愛生") === compact("山崎愛生") && compact("西\uFA11美空") === compact("西崎美空") && compact("櫻井梨央") === compact("桜井梨央") && compact("有澤一華") === compact("有沢一華") && compact("川嶋美楓") === compact("川島美楓"), "名前の照合: 異体字（﨑／崎、櫻／桜、澤／沢、嶋／島）をそろえる");
+  r = await get("?site=hp&kind=news&q=" + encodeURIComponent("櫻井"));
+  assert(r.status === 200, "含む言葉も、異体字をそろえる（櫻井／桜井）");
+  r = await get("?site=ameblo&kind=blog");
+  x = await r.text();
+  assert(r.status === 200 && items(x) === 50 && x.split("<item>").slice(1).every((b) => /<title>\[[^\]]+\] /.test(b) && !b.includes("<description>")), "アメブロ: 全部 → 最新50件・題名の先頭にグループ名・本文なし");
+  r = await get("?site=ameblo&kind=blog&who=angerme");
+  x = await r.text();
+  assert(items(x) > 0 && [...x.matchAll(/<link>([^<]*)</g)].slice(1).every((m) => m[1].includes("ameblo.jp/angerme-new")) && x.includes("<title>アメブロ（ハロプロ） ブログ（題名だけ） ― アンジュルム</title>"), "アメブロ: グループ → そのグループのブログの記事だけ");
+  // メンバー: 題名にその名前がある記事だけ（記事の多いグループのメンバーを順に試して、1人でも見つかればよい）
+  let found = null;
+  for (const w of am.who.filter((q) => q.type === "person" && q.blogs.includes("angerme-new"))) {
+    const rr = await get(`?site=ameblo&kind=blog&who=${w.key}`);
+    const xx = await rr.text();
+    if (items(xx) > 0) { found = { w, xx }; break; }
+  }
+  assert(found && found.xx.split("<item>").slice(1).every((b) => compact(b.match(/<title>([^<]*)</)[1]).includes(compact(found.w.label))), `アメブロ: メンバー（${found && found.w.label}）→ 題名にその名前がある記事だけ`);
+  r = await get("?site=ameblo&kind=blog&who=juicejuice&x=" + encodeURIComponent("ライブ"));
+  assert(r.status === 200 && !(await r.text()).includes("ライブ</title>".slice(0, 0) + "[Juice=Juice] ライブ"), "アメブロ: 含まない言葉");
+  r = await get("?site=ameblo&kind=blog&who=ochanorma&q=" + encodeURIComponent("zzzzzz存在しない言葉"));
+  assert(r.status === 200 && items(await r.text()) === 0, "アメブロ: 含む言葉に合う記事が無ければ0件（エラーにしない）");
+  r = await get("?site=ameblo&kind=blog&general=1");
+  assert(r.status === 400, "アメブロ: 全体のもの（general）は指定できない（400）");
+  r = await get("?site=ameblo&kind=blog&cat=news");
+  assert(r.status === 400, "アメブロ: カテゴリは無い（400）");
+  r = await get("?site=ameblo&kind=blog&who=nobody");
+  assert(r.status === 400, "アメブロ: 知らない人は400");
+  failAmeba = true;
+  r = await get("?site=ameblo&kind=blog&who=angerme");
+  assert(r.status === 502, "アメブロ: ブログのRSSが1つも読めなければ502");
+  failAmeba = false;
 
   // --- エラー
   r = await get("?site=hp");
