@@ -32,6 +32,22 @@
 },
 "items": [
 {
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-20T20:00:00+09:00",
+"fcgroups": [
+"satomasaki"
+],
+"guid": "mline-hbPrshUDKfnAPaTT",
+"html": "<p>ニュース ・ 2026.11.20</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=hbPrshUDKfnAPaTT\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=hbPrshUDKfnAPaTT",
+"name": "【HELLO! PROJECT STREAM】「＜ハロショ大阪独演会 第二十席＞～佐藤優樹～ ～トークイベント」配信決定！",
+"sort": "2026-11-2099",
+"title": "2026.11.20 [ニュース] 【HELLO! PROJECT STREAM】「＜ハロショ大阪独演会 第二十席＞～佐藤優樹～ ～トークイベント」配信決定！"
+},
+{
 "cat": "グッズ",
 "categories": [
 "グッズ"
