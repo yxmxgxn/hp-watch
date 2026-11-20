@@ -1,7 +1,8 @@
 // 選択式フィード: /custom.xml?site=hp&kind=news&who=angerme,juicejuice&cat=EVENT&q=ツアー&x=抽選
 //   site / kind … 必須。1つのサイトの、お知らせ（news）かスケジュール（schedule）のどちらか（またがない）
 //   who / cat   … 任意。カンマ区切りで複数。who は人・グループ、cat はカテゴリ。同じ項目の中は「どれか」
-//   general=1   … 特定の人・グループに紐づかない全体のものだけ（who とは一緒に使えない）
+//   general     … 特定の人・グループに紐づかない「全体のもの」の扱い。1＝全体のものだけ（who とは一緒に使えない）／0＝全体のものを除く
+//                 （例: who=angerme&general=0 で、アンジュルムだけのタグの記事）。無ければ、含める
 //   q / x       … 題名（name）に含まれる言葉。q は「含む」（スペース区切りは全部を含む）、x は「含まない」（どれかを含むものを除く）
 //   上の条件は、全部を満たす記事だけ。空なら全部
 // 元データは公開のたびに rss.py が置く data/{site}-{kind}.json（人・グループ・カテゴリ・題名付きの記事）と data/options.json
@@ -69,7 +70,10 @@ export async function customFeed(req, env) {
     return text(400, `site と kind を指定してください（${ok}）`);
   }
   const who = list(u.searchParams.get("who")), cat = list(u.searchParams.get("cat"));
-  const general = ["1", "true"].includes(u.searchParams.get("general") || "");
+  const gRaw = u.searchParams.get("general");
+  if (gRaw !== null && !["1", "true", "0", "false"].includes(gRaw)) return text(400, "general は 1（全体のものだけ）か 0（全体のものを除く）です");
+  const general = ["1", "true"].includes(gRaw || "");        // 全体のものだけ
+  const noGeneral = ["0", "false"].includes(gRaw || "");     // 全体のものを除く
   const qRaw = (u.searchParams.get("q") || "").trim(), xRaw = (u.searchParams.get("x") || "").trim();
   if (who.length > MAX_VALUES || cat.length > MAX_VALUES) return text(400, "選びすぎです");
   if (qRaw.length > MAX_QUERY || xRaw.length > MAX_QUERY || words(qRaw).length > MAX_WORDS || words(xRaw).length > MAX_WORDS) {
@@ -92,6 +96,7 @@ export async function customFeed(req, env) {
   const items = data.items
     .filter((i) => {
       if (general && !i.general) return false;
+      if (noGeneral && i.general) return false;
       if (who.length && !(i.who || []).some((k) => who.includes(k))) return false;
       if (cat.length && !(i.cats || []).some((c) => cat.includes(c))) return false;
       if (!inc.length && !exc.length) return true;
@@ -104,7 +109,7 @@ export async function customFeed(req, env) {
   const label = (arr, sel) => src[arr].filter((o) => sel.includes(o.key)).map((o) => o.label);
   const cats = label("cat", cat).join("・");
   const head = general ? "全体のもの" + (cat.length ? `（${cats}）` : "") : who.length ? label("who", who).join("・") + (cat.length ? `（${cats}）` : "") : cats;
-  const what = [head, qRaw ? `「${qRaw}」` : "", xRaw ? `除く「${xRaw}」` : ""].filter(Boolean).join(" ");
+  const what = [head, noGeneral ? "全体のものを除く" : "", qRaw ? `「${qRaw}」` : "", xRaw ? `除く「${xRaw}」` : ""].filter(Boolean).join(" ");
   return new Response(renderRss({
     title: `${src.siteLabel} ${src.kindLabel} ― ${what || "全部"}`,
     description: `${src.siteLabel}の${src.kindLabel}から、選んだ条件の記事だけ・非公式`,

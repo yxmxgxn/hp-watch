@@ -118,6 +118,16 @@ if (dataDir) {
   assert(guids(x).every((g) => { const i = hpNews.find((j) => j.guid === g); return i.general && i.cats.includes("EVENT"); }) && x.includes("全体のもの（イベント）"), "全体のもの × カテゴリ");
   r = await get("?site=hp&kind=news&general=1&who=angerme");
   assert(r.status === 400, "全体のもの と 人・グループは、一緒に使えない（400）");
+  // 全体のものを除く（general=0）: タグが付いた記事だけ
+  r = await get("?site=hp&kind=news&who=angerme&general=0");
+  x = await r.text();
+  assert(items(x) > 0 && guids(x).every((g) => { const i = hpNews.find((j) => j.guid === g); return i.who.includes("angerme") && !i.general; }) && x.includes("<title>ハロプロ お知らせ ― アンジュルム 全体のものを除く</title>"), "全体のものを除く（general=0）＋グループ: そのグループだけのタグの記事");
+  r = await get("?site=hp&kind=news&who=angerme");
+  assert(items(await r.text()) >= items(await (await get("?site=hp&kind=news&who=angerme&general=0")).text()), "除かないときは、全体のものも入る（除いたときより多いか同じ）");
+  r = await get("?site=hp&kind=news&general=0");
+  assert(guids(await r.text()).every((g) => !hpNews.find((i) => i.guid === g).general), "全体のものを除く（グループを選ばない）");
+  r = await get("?site=hp&kind=news&general=x");
+  assert(r.status === 400, "general が 1・0 以外は400");
   r = await get("?site=helloshop&kind=news&general=1");
   assert(r.status === 200 && items(await r.text()) > 0, "ハロショの全体のもの（店舗・お知らせなど）");
 

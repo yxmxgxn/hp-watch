@@ -6,6 +6,7 @@
 
 方針: サイトはまたがない。お知らせとスケジュールは別。1本のフィード＝「1つのサイト × 片方の種類」の中で選ぶ。
   who … 人・グループ（どれか）／cat … カテゴリ（どれか）／general … 特定の人・グループに紐づかない全体のものだけ
+  general=1 … 全体のものだけ／general=0 … 全体のものを除く（タグが付いた記事だけ）
   q … 含む言葉（全部を含む）／x … 含まない言葉（どれかを含むものを除く）。言葉は題名（name）が対象。本文は持たない・公開しない
 """
 import datetime as dt
@@ -133,7 +134,10 @@ ol{padding-left:1.3em;margin:6px 0}
 <fieldset><legend>1. サイトと種類</legend>
 <div id="sources" class="grid"></div><p class="mute" id="note" hidden></p></fieldset>
 <fieldset id="whoBox"><legend>2. 人・グループ</legend>
-<label><input type="checkbox" id="general"> 全体のものだけ（特定の人・グループに紐づかないもの）</label>
+<div id="genBox"><span class="mute">全体のもの（特定の人・グループに紐づかないもの。全グループのタグが付いたもの、タグが付いていないもの）:</span><br>
+<label><input type="radio" name="gen" value="" checked> 含める</label>
+<label><input type="radio" name="gen" value="1"> 全体のものだけ</label>
+<label><input type="radio" name="gen" value="0"> 全体のものを除く</label></div>
 <div id="who"></div>
 <button type="button" class="sub" id="clearWho">選択を外す</button></fieldset>
 <fieldset id="catBox"><legend>3. カテゴリ</legend><div id="cat" class="grid"></div>
@@ -161,7 +165,7 @@ function box(name,o){return `<label><input type="checkbox" data-k="${esc(o.key)}
 function pick(i){
   cur=SOURCES[i]; document.querySelector(`input[name=src][value="${i}"]`).checked=true;
   const g=cur.who.filter(w=>w.type==='group'), p=cur.who.filter(w=>w.type!=='group');
-  $('catBox').hidden=!cur.cat.length; $('q').value=''; $('x').value=''; $('general').checked=false;
+  $('catBox').hidden=!cur.cat.length; $('q').value=''; $('x').value=''; document.querySelector('input[name=gen][value=""]').checked=true;
   $('note').hidden=!cur.note; $('note').textContent=cur.note||'';
   $('who').innerHTML=(g.length?`<div class="grid">${g.map(w=>box('who',w)).join('')}</div>`:'')+
     (p.length?`<details${g.length?'':' open'}><summary>${g.length?'メンバー・個人（'+p.length+'人）':'人'}</summary><div class="grid">${p.map(w=>box('who',w)).join('')}</div></details>`:'');
@@ -169,19 +173,20 @@ function pick(i){
   document.querySelectorAll('input[type=checkbox]').forEach(c=>c.addEventListener('change',update));
   setGeneral(); update();
 }
-// 「全体のものだけ」を選ぶと、人・グループは選べない（一緒には使えない）
+// 「全体のものだけ」を選ぶと、人・グループは選べない（一緒には使えない）。「全体のものを除く」は、人・グループと一緒に使える
+const gen=()=>document.querySelector('input[name=gen]:checked').value;
 function setGeneral(){
-  const on=$('general').checked;
+  const on=gen()==='1';
   document.querySelectorAll('input[data-n=who]').forEach(c=>{if(on)c.checked=false;c.disabled=on});
   $('clearWho').disabled=on;
 }
-$('general').addEventListener('change',()=>{setGeneral();update()});
+document.querySelectorAll('input[name=gen]').forEach(r=>r.addEventListener('change',()=>{setGeneral();update()}));
 const checked=n=>[...document.querySelectorAll(`input[data-n=${n}]:checked`)].map(c=>c.dataset.k);
 let timer;
 function update(){
   const w=checked('who'), c=checked('cat'), q=$('q').value.trim(), x=$('x').value.trim();
   let u=location.origin+'/custom.xml?site='+cur.site+'&kind='+cur.kind;
-  if($('general').checked)u+='&general=1'; else if(w.length)u+='&who='+w.map(encodeURIComponent).join(',');
+  if(gen()==='1')u+='&general=1'; else{ if(w.length)u+='&who='+w.map(encodeURIComponent).join(','); if(gen()==='0')u+='&general=0'; }
   if(c.length)u+='&cat='+c.map(encodeURIComponent).join(',');
   if(q)u+='&q='+encodeURIComponent(q);
   if(x)u+='&x='+encodeURIComponent(x);
