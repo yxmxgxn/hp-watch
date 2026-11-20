@@ -11,12 +11,14 @@
 import { customFeed } from "./custom.js";
 
 // 公式の更新を見るページ（HEAD の Last-Modified）。ハロプロ・JPROOM・アップフロントは同じ版で作り直される（/schedule/）。
-// ハロショ・ジャストプロ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。ファンクラブのページには更新の印が無いので見られない
+// ハロショ・ジャストプロ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。田中れいな・鈴木愛理の公式サイトも、別（お知らせのページ）。ファンクラブのページには更新の印が無いので見られない
 const WATCH = {
   hp: "https://helloproject.com/schedule/",
   jproom: "https://www.jp-r.co.jp/schedule/",
   helloshop: "https://www.helloshop.info/feed",
   justpro: "https://www.just-pro.jp/feed/",
+  reina: "https://tanaka-reina.com/news/",
+  airi: "https://www.airisuzuki-officialweb.com/news/index.html",
 };
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";

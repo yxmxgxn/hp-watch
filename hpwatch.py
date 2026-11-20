@@ -46,7 +46,13 @@ def get(url):
 
 
 def fetch_version(base):
-    page = html.unescape(get(f"{base}/schedule/"))
+    # 版（versionDir）は、どのページにも入っている。/schedule/ が無いサイト（個人の公式サイトなど）は /news/ から読む
+    try:
+        page = html.unescape(get(f"{base}/schedule/"))
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            raise
+        page = html.unescape(get(f"{base}/news/"))
     m = re.search(r'"versionDir":\[0,"([^"]+)"\]', page)
     if not m:
         raise RuntimeError("versionDir が見つからない（サイト構造が変わった？）")
