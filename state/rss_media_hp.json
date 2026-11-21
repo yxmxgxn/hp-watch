@@ -3,6 +3,30 @@
 {
 "categories": [
 "TV",
+"つばきファクトリー：谷本安美"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-22T01:00:00+09:00",
+"general": false,
+"groups": [
+"477"
+],
+"guid": "hp-media-h2350df1c6733500d",
+"html": "<p>出演: つばきファクトリー：谷本安美</p><p>※再放送</p><ul><li><a href=\"https://www.hbc.co.jp/tv/kitakoi/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=HBC%E3%83%86%E3%83%AC%E3%83%93%E3%80%8C%E3%82%AD%E3%82%BF%E3%82%B3%E3%82%A4%E3%80%8D&amp;dates=20261128T054500%2F20261128T061500&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"name": "HBCテレビ「キタコイ」",
+"sort": "2026-11-28 05:45",
+"title": "[TV] 11/28(土) 05:45 HBCテレビ「キタコイ」",
+"who": [
+"tsubakifactory",
+"ami_tanimoto"
+]
+},
+{
+"categories": [
+"TV",
 "Juice=Juice"
 ],
 "cats": [
@@ -1202,6 +1226,7 @@
 "h21479019cc1e908c": "2026-10-20",
 "h21bfbb91556e7a13": "2026-11-01",
 "h2316017ba6b779ba": "2026-11-09",
+"h2350df1c6733500d": "2026-11-28",
 "h2408d1006bcaa200": "2026-11-27",
 "h2416580f7f0c43b0": "2026-11-05",
 "h25e43da7cd6fbbf3": "2026-10-13",
@@ -1508,6 +1533,7 @@
 "s2088": "2026-11-25",
 "s2092": "2026-11-21",
 "s2095": "2026-11-21",
+"s2096": "2026-11-28",
 "s2116": "2026-11-20",
 "s2117": "2026-11-21",
 "s2118": "2026-11-27",
