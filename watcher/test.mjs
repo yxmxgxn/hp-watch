@@ -230,6 +230,30 @@ if (dataDir) {
   r = await get("?site=airi&kind=news&who=anyone");
   assert(r.status === 400, "鈴木愛理: 人は選べない（400）");
 
+  // --- 小片リサ・小林梓・夏焼雅（個人の公式サイト。人・カテゴリの選択肢は無く、タイトルだけ）
+  for (const [site, label, host] of [["risaogata", "小片リサ", "https://risaogata.com/"], ["kobayashi-azusa", "小林梓", "https://kobayashi-azusa.officialsite.co/"], ["miyabiroom0825", "夏焼雅", "https://miyabiroom0825.com/"]]) {
+    const o = options.find((q) => q.site === site && q.kind === "news");
+    assert(o && o.who.length === 0 && o.cat.length === 0 && o.general === false, `${label}: 選択肢は、言葉だけ`);
+    r = await get(`?site=${site}&kind=news`);
+    x = await r.text();
+    assert(r.status === 200 && items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes(`<link>${host}`) && !b.includes("<description>")), `${label}: お知らせ（公式のリンク・タイトルだけ）`);
+    assert(x.includes(`<title>${label} お知らせ（タイトルだけ） ― 全部</title>`), `${label}: フィード名`);
+    r = await get(`?site=${site}&kind=news&who=anyone`);
+    assert(r.status === 400, `${label}: 人は選べない（400）`);
+  }
+
+  // --- YU-M Entertainment（事務所のサイト。ハロプロ関係の2人のお知らせだけ。人を選べる）
+  const ye = options.find((q) => q.site === "yum-e" && q.kind === "news");
+  assert(ye && !options.some((q) => q.site === "yum-e" && q.kind === "schedule") && ye.who.map((w) => w.label).join() === "辻希美,岸本ゆめの" && ye.general === false, "YU-M: お知らせだけ（スケジュールは無い）。人は辻希美・岸本ゆめの");
+  r = await get("?site=yum-e&kind=news");
+  x = await r.text();
+  assert(r.status === 200 && items(x) > 0 && x.split("<item>").slice(1).every((b) => b.includes("<link>https://yum-e.jp/news/") && !b.includes("<description>")), "YU-M: お知らせ（公式のリンク・タイトルだけ）");
+  r = await get("?site=yum-e&kind=news&who=tsuji_nozomi");
+  x = await r.text();
+  assert(r.status === 200 && items(x) > 0 && x.includes("<title>YU-M Entertainment お知らせ（タイトルだけ） ― 辻希美</title>"), "YU-M: 人（辻希美）を選ぶ");
+  r = await get("?site=yum-e&kind=news&who=yagi_saki");
+  assert(r.status === 400, "YU-M: ほかのタレントは選べない（400）");
+
   // --- アップフロント: 人の選択肢は、ハロプロ関係の名簿の人だけ。名簿に無い人の記事も、全部・言葉の検索には出る
   const up = options.find((q) => q.site === "up-front-create" && q.kind === "schedule");
   const upLabels = up.who.map((w) => w.label);
