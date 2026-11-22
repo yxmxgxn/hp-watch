@@ -1058,8 +1058,10 @@ def index_html(feeds, now, sources=()):
     out = [
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
-        "<title>hello-rss</title>", f"<style>{INDEX_CSS}</style></head><body><main>",
-        "<h1>hello-rss</h1>",
+        '<meta name="description" content="ハロー！プロジェクトのお知らせを、RSSで読むためのページです（非公式）。">',
+        "<title>ハロプロ RSS（アンオフィシャル）</title>", f"<style>{INDEX_CSS}</style></head><body><main>",
+        "<h1>ハロプロ RSS（アンオフィシャル）</h1>",
+        "<p>ハロー！プロジェクトのお知らせをRSSで読むとしよう</p>",
         "<p>公式サイトの情報を RSS にしたものです（非公式）。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
         '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
