@@ -1045,6 +1045,11 @@ main{max-width:720px;margin:0 auto}h1{font-size:1.5rem;margin:0 0 4px}h2{font-si
 p,.mute{color:var(--mute);margin:4px 0}a{color:var(--accent)}ul{padding:0;list-style:none;margin:0}
 li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 code{font-size:.8rem;color:var(--mute);word-break:break-all}
+details.sec{margin-top:8px}
+details.sec>summary{cursor:pointer;list-style:none;font-size:1.1rem;font-weight:700;margin:20px 0 4px}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::before{content:"＋ ";color:var(--mute)}
+details.sec[open]>summary::before{content:"－ "}
 """
 
 KIND_NOTE = {
@@ -1071,15 +1076,15 @@ def index_html(feeds, now, sources=()):
             group = [f for f in feeds if f["site"] == site and f["kind"] == kind]
             if not group:
                 continue
-            out.append(f"<h2>{escape(SITES[site]['label'])} {KINDS[kind]}</h2><p>{escape(KIND_NOTE[kind])}</p><ul>")
+            out.append(f'<details class="sec"><summary>{escape(SITES[site]["label"])} {KINDS[kind]}</summary><p>{escape(KIND_NOTE[kind])}</p><ul>')
             for f in group:
                 out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
-            out.append("</ul>")
+            out.append("</ul></details>")
     for fsite, cfg in FC_SITES.items():
         fc = [f for f in feeds if f["site"] == fsite]
         if not fc:
             continue
-        out.append(f"<h2>{escape(cfg['title'])}</h2><p>{escape(cfg['note'])}</p>")
+        out.append(f'<details class="sec"><summary>{escape(cfg["title"])}</summary><p>{escape(cfg["note"])}</p>')
         for part, label in (("category", "タブ"), ("group", "グループ別")):
             group = [f for f in fc if f.get("part") == part]
             if group:
@@ -1087,9 +1092,10 @@ def index_html(feeds, now, sources=()):
                 for f in group:
                     out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
                 out.append("</ul>")
+        out.append("</details>")
     ameblo = next((s for s in sources if s["site"] == "ameblo"), None)
     if ameblo:
-        out.append("<h2>アメブロ（公式のRSSがあります）</h2>"
+        out.append('<details class="sec"><summary>アメブロ（公式のRSSがあります）</summary>'
                    "<p>ハロプロのグループ・メンバーのブログは、ブログごとに公式のRSSがあります。ブログ全体を見たいときは、これが一番確実です。"
                    "人で絞りたいとき（題名にその名前がある記事）や、言葉で絞りたいときは、"
                    '<a href="custom/">選んで作る RSS</a> の「アメブロ（ハロプロ）」が使えます。</p><ul>')
@@ -1097,25 +1103,25 @@ def index_html(feeds, now, sources=()):
             for b in g["blogs"]:
                 u = f"https://rssblog.ameba.jp/{b}/rss20.xml"
                 out.append(f'<li><a href={quoteattr(u)}>{escape(g["label"])}（{escape(b)}）</a><code>{escape(u)}</code></li>')
-        out.append("</ul>")
+        out.append("</ul></details>")
     yt = next((s for s in sources if s["site"] == "youtube"), None)
     if yt:
-        out.append("<h2>YouTube（公式のRSSがあります）</h2>"
+        out.append('<details class="sec"><summary>YouTube（公式のRSSがあります）</summary>'
                    "<p>チャンネルごとに公式のRSSがあります（動画とShortsが混ざります）。動画とShortsを分けたいとき、複数のチャンネルをまとめたいとき、"
                    "動画を埋め込みたいときは、"
                    '<a href="custom/">選んで作る RSS</a> の「YouTube（ハロプロ公式）」が使えます。</p><ul>')
         for w in yt["who"]:
             u = f"https://www.youtube.com/feeds/videos.xml?channel_id={w['channels'][0]}"
             out.append(f'<li><a href={quoteattr(u)}>{escape(w["label"])}</a><code>{escape(u)}</code></li>')
-        out.append("</ul>")
-    out.append("<h2>ハロショ（公式のRSSがあります）</h2>"
+        out.append("</ul></details>")
+    out.append('<details class="sec"><summary>ハロショ（公式のRSSがあります）</summary>'
                "<p>ハロー！プロジェクト オフィシャルショップは、公式がRSSを出しています（本文・画像つき）。"
                "タイトルだけにしたいときや、グループ・カテゴリ・人名で絞りたいときは、"
                '<a href="custom/">選んで作る RSS</a> の「ハロショ」が使えます。</p><ul>'
                '<li><a href="https://www.helloshop.info/feed">新着情報（全部）</a><code>https://www.helloshop.info/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/goods/feed">グッズ情報</a><code>https://www.helloshop.info/category/goods/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/photo/feed">生写真情報</a><code>https://www.helloshop.info/category/photo/feed</code></li>'
-               '<li><a href="https://www.helloshop.info/category/news/feed">お知らせ</a><code>https://www.helloshop.info/category/news/feed</code></li></ul>')
+               '<li><a href="https://www.helloshop.info/category/news/feed">お知らせ</a><code>https://www.helloshop.info/category/news/feed</code></li></ul></details>')
     out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n')
     return "\n".join(out)
 
