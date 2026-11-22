@@ -1,5 +1,5 @@
 // 選択式フィード: /custom.xml?site=helloproject&kind=news&who=angerme,juicejuice&cat=EVENT&q=ツアー&x=抽選
-//   site / kind … 必須。1つのサイトの、お知らせ（news）かスケジュール（schedule）のどちらか（またがない）。site は公式のURLの名前（helloproject・jp-r・up-front-create・just-pro など）
+//   site / kind … 必須。1つのサイトの、お知らせ（news）かスケジュール（schedule）のどちらか（またがない）。site は公式のURLの名前（helloproject・jp-r・up-front-create など）
 //   who / cat   … 任意。カンマ区切りで複数。who は人・グループ、cat はカテゴリ。同じ項目の中は「どれか」
 //   general     … 特定の人・グループに紐づかない「全体のもの」の扱い。1＝全体のものだけ（who とは一緒に使えない）／0＝全体のものを除く
 //                 （例: who=angerme&general=0 で、アンジュルムだけのタグの記事）。無ければ、含める
@@ -16,8 +16,7 @@ import { norm } from "./text.js";
 
 // site= の名前は、公式のURLの名前（selectable.py の SITE_IDS）。昔の名前も、今の名前として受け付ける（登録済みのURLが切れないように）
 const ALIASES = {
-  hp: "helloproject", jproom: "jp-r", upfront: "up-front-create", reina: "tanaka-reina", airi: "airisuzuki-officialweb",
-  justpro: "just-pro", fc: "upfc-helloproject", mline: "upfc-m-line",
+  hp: "helloproject", jproom: "jp-r", upfront: "up-front-create", fc: "upfc-helloproject", mline: "upfc-m-line",
 };
 
 const LIMIT = 50;
