@@ -43,13 +43,6 @@ SITE_IDS = {
     "hp": "helloproject",            # helloproject.com
     "jproom": "jp-r",                # www.jp-r.co.jp
     "upfront": "up-front-create",    # up-front-create.com
-    "reina": "tanaka-reina",         # tanaka-reina.com
-    "airi": "airisuzuki-officialweb",  # www.airisuzuki-officialweb.com
-    "ogata": "risaogata",            # risaogata.com
-    "kobayashi": "kobayashi-azusa",  # kobayashi-azusa.officialsite.co（サブドメインの名前）
-    "miyabi": "miyabiroom0825",      # miyabiroom0825.com
-    "yume": "yum-e",                 # yum-e.jp
-    "justpro": "just-pro",           # www.just-pro.jp
     "fc": "upfc-helloproject",       # www.upfc.jp/helloproject
     "mline": "upfc-m-line",          # www.upfc.jp/m-line
 }                                    # helloshop（helloshop.info）・ameblo（ameblo.jp）・youtube（youtube.com）は、そのまま
