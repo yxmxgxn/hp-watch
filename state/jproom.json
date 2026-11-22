@@ -64,19 +64,6 @@
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
-"/chisaki_morito/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"end": "2026-11-21",
-"link": "/chisaki_morito/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"start": "2026-09-19",
-"title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
 "/karin_miyamoto/event/b9e3ed53c350375b509bb411561b6acb86938fd4098b2705baf97120dff6b0ae/": {
 "artists": [
 40
@@ -109,19 +96,6 @@
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
 },
-"/kiki_asakura/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"end": "2026-11-21",
-"link": "/kiki_asakura/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"start": "2026-09-19",
-"title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
-},
 "/kiki_asakura/event/e0e18e7a2edf29a56e229ac03f2dec25c5160e0fd3a7b928f34f97372c280657/": {
 "artists": [
 483
@@ -144,19 +118,6 @@
 "link": "/mai_ozeki/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/",
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"/mai_ozeki/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"end": "2026-11-21",
-"link": "/mai_ozeki/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"start": "2026-09-19",
-"title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
 "/manaka_inaba/event/0bfdb667b71357ae034291182b319fc51dc9a64a0096e8eb37f684e190941b2e/": {
 "artists": [
@@ -189,19 +150,6 @@
 "link": "/manaka_inaba/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/",
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"/manaka_inaba/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"end": "2026-11-21",
-"link": "/manaka_inaba/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"start": "2026-09-19",
-"title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
 "/masaki_satou/event/006feb74b8da455d4d8e8d30b5f54904965d113acebc5cffe84c79f8d2b7cc76/": {
 "artists": [
@@ -252,19 +200,6 @@
 "link": "/mizuki_fukumura/event/ac882df7e0f5ad93a579c838c4a5323bfcebee6d88757cf0aef095e821c2fc31/",
 "start": "2026-12-05",
 "title": "M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"/mizuki_fukumura/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/": {
-"artists": [
-5,
-59,
-442,
-483,
-550
-],
-"end": "2026-11-21",
-"link": "/mizuki_fukumura/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
-"start": "2026-09-19",
-"title": "M-line Special 2026 Autumn 〜NOCTURNE〜"
 },
 "/mizuki_fukumura/event/ca8d7774640045d3b7a9b7b4834696a23f3fcf6075bddc5936ed350214749bc9/": {
 "artists": [
@@ -1207,6 +1142,22 @@
 "status": null,
 "title": "5thシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"h0aae288ed28036d4": {
+"artists": [
+11
+],
+"category": "RADIO",
+"date": "2026-11-20",
+"end": "22:00",
+"isFc": false,
+"label": null,
+"link": "https://www.air-g.co.jp/ima/",
+"members": [],
+"note": "※生出演",
+"start": "18:00",
+"status": null,
+"title": "AIR-G'「IMAREAL」"
+},
 "h0ba489c8e5df55c7": {
 "artists": [
 5
@@ -1294,6 +1245,22 @@
 "start": "18:15",
 "status": null,
 "title": "​佐藤優樹 Live Tour 2026 〜Vesper〜"
+},
+"h0dd98b849b0d1d29": {
+"artists": [
+11
+],
+"category": "RADIO",
+"date": "2026-11-20",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://www.stv.jp/radio/nomad/index.html",
+"members": [],
+"note": "※生出演",
+"start": "13:00",
+"status": null,
+"title": "STVラジオ「ラジオノマド」"
 },
 "h0fbbc367552aca80": {
 "artists": [
@@ -1439,6 +1406,22 @@
 "status": null,
 "title": "今日は佐藤優樹の誕生日です！"
 },
+"h127c1bc6c0cb825f": {
+"artists": [
+10
+],
+"category": "STAGE",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
+"members": [],
+"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
+"start": null,
+"status": null,
+"title": "タクフェス第14弾「北の島から」"
+},
 "h135ce87459299e7f": {
 "artists": [
 41
@@ -1470,6 +1453,22 @@
 "start": null,
 "status": null,
 "title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+},
+"h152beb26531cacee": {
+"artists": [
+5
+],
+"category": "EVENT",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/bbbb791b474ad549d4f3bc2bb46179a0cb02462584ea0eb20a23beea5f7609c4/",
+"members": [],
+"note": "イオンモールナゴヤドーム前 1Fセントラルコート（愛知）",
+"start": null,
+"status": null,
+"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
 },
 "h160c484551f5f2a3": {
 "artists": [
@@ -3479,6 +3478,22 @@
 "status": null,
 "title": "＜ハロショ大阪独演会 第十六席＞～石田亜佑美～トークイベント"
 },
+"h5d239fae7626f4ad": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "26:00",
+"isFc": false,
+"label": null,
+"link": "https://abcradio.asahi.co.jp/program/rikky/",
+"members": [],
+"note": "",
+"start": "25:00",
+"status": null,
+"title": "ABC朝日放送「小西陸斗 #よどオシ！」"
+},
 "h5d4658fa87b00100": {
 "artists": [
 40
@@ -3510,6 +3525,22 @@
 "start": "17:55",
 "status": null,
 "title": "BS10「楽天vs日本ハム BS10はデータで深読み！超解説！プロ野球中継」"
+},
+"h5e9dbe274f95c5e4": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "25:10",
+"isFc": false,
+"label": null,
+"link": "https://www.fct.co.jp/program/2johan/",
+"members": [],
+"note": "※放送予定\n※コメント",
+"start": "24:55",
+"status": null,
+"title": "福島中央テレビ「二畳半レコード」"
 },
 "h5eb7a7c738c872e2": {
 "artists": [
@@ -3928,6 +3959,22 @@
 "status": null,
 "title": "KBCラジオ「PAO～N」"
 },
+"h6c72f4d37486fe66": {
+"artists": [
+57
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "19:57",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
+"members": [],
+"note": "",
+"start": "19:30",
+"status": null,
+"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
+},
 "h6c75d98e208d54c2": {
 "artists": [
 59
@@ -3959,6 +4006,22 @@
 "start": null,
 "status": null,
 "title": "今日は譜久村聖の誕生日です！"
+},
+"h6f49509a5781a219": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-20",
+"end": "15:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fm807.jp/program/nanishow/",
+"members": [],
+"note": "",
+"start": "13:00",
+"status": null,
+"title": "FM徳島「Nani-Show? Friday!」"
 },
 "h6f8ed3fc6d2b3fca": {
 "artists": [
@@ -4269,6 +4332,22 @@
 "start": null,
 "status": null,
 "title": "Heavy Kawaii Fes 2026"
+},
+"h78afe38531b76abe": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "http://www.fmnagano.co.jp/whatfmn/satd/index.html",
+"members": [],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "FM長野「SATURDAY D」"
 },
 "h791037dcbb1610f4": {
 "artists": [
@@ -4644,6 +4723,22 @@
 "status": null,
 "title": "Hello! Project 30th Anniversary「タイム・マシーン XXXX」"
 },
+"h83c816f4159b91eb": {
+"artists": [
+57
+],
+"category": "STREAM",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [],
+"note": "※配信開始",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
+},
 "h860de1c982491d1e": {
 "artists": [
 40
@@ -4859,6 +4954,22 @@
 "start": "19:00",
 "status": null,
 "title": "RSK山陽放送「キューン！MUSIC」"
+},
+"h8d4cc63635692876": {
+"artists": [
+10
+],
+"category": "STAGE",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
+"members": [],
+"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
+"start": null,
+"status": null,
+"title": "タクフェス第14弾「北の島から」"
 },
 "h8e54a25237eb040d": {
 "artists": [
@@ -5491,6 +5602,22 @@
 "status": null,
 "title": "今日は植村あかりの誕生日です！"
 },
+"ha2d2ba86582c2a59": {
+"artists": [
+57
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "10:32",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
+"members": [],
+"note": "※再放送",
+"start": "10:05",
+"status": null,
+"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
+},
 "ha3c2b7d38973298f": {
 "artists": [
 40
@@ -6042,6 +6169,22 @@
 "start": null,
 "status": null,
 "title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林」〜 〜ぼくのかんがえたさいきょうの「セトリ」〜"
+},
+"hb6525a54464063b6": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/29a88066015474c57e09c8086d24832e580af106bad7dbf9f56f3eb921ff9ba2/",
+"members": [],
+"note": "サッポロファクトリー アトリウム（北海道）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "hb702d1fa5e3d987f": {
 "artists": [
@@ -6706,6 +6849,27 @@
 "status": null,
 "title": "IBC岩手放送「ミッドナイトシャッフル」"
 },
+"hd1d7efe3374e29fa": {
+"artists": [
+5,
+33,
+59,
+442,
+483,
+550
+],
+"category": "TICKET",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/m-line/",
+"members": [],
+"note": "12/5(土) KT Zepp Yokohama（神奈川）公演",
+"start": null,
+"status": null,
+"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
+},
 "hd1e9714aa869224c": {
 "artists": [
 40
@@ -7292,6 +7456,22 @@
 "start": "14:20",
 "status": null,
 "title": "HTB「イチ盛り！」"
+},
+"he69d6783d4baa2a3": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "25:13",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/tv/yutanpo/",
+"members": [],
+"note": "",
+"start": "24:43",
+"status": null,
+"title": "RSK山陽放送「ユタンポ」"
 },
 "he72f4aed90547c4a": {
 "artists": [
@@ -7908,7 +8088,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -7928,7 +8108,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8108,59 +8288,6 @@
 "status": null,
 "title": "浅倉樹々2027壁掛けカレンダー発売記念オンラインイベント"
 },
-"s1562": {
-"artists": [
-5
-],
-"category": "EVENT",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/bbbb791b474ad549d4f3bc2bb46179a0cb02462584ea0eb20a23beea5f7609c4/",
-"members": [],
-"note": "イオンモールナゴヤドーム前 1Fセントラルコート（愛知）",
-"start": null,
-"status": null,
-"title": "2ndシングル発売記念 ミニライブ＆一言お話し会"
-},
-"s1639": {
-"artists": [
-5,
-33,
-59,
-442,
-483,
-550
-],
-"category": "TICKET",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/m-line/",
-"members": [],
-"note": "12/5(土) KT Zepp Yokohama（神奈川）公演",
-"start": null,
-"status": null,
-"title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE FINALE〜"
-},
-"s1746": {
-"artists": [
-11
-],
-"category": "EVENT",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/29a88066015474c57e09c8086d24832e580af106bad7dbf9f56f3eb921ff9ba2/",
-"members": [],
-"note": "サッポロファクトリー アトリウム（北海道）",
-"start": null,
-"status": null,
-"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
-},
 "s1747": {
 "artists": [
 11
@@ -8237,22 +8364,6 @@
 "link": "https://helloproject-stream.com/",
 "members": [],
 "note": "※配信終了日",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
-},
-"s1773": {
-"artists": [
-57
-],
-"category": "STREAM",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [],
-"note": "※配信開始",
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
@@ -8545,22 +8656,6 @@
 "status": null,
 "title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
-"s1976": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "12:00",
-"isFc": false,
-"label": null,
-"link": "http://www.fmnagano.co.jp/whatfmn/satd/index.html",
-"members": [],
-"note": "※コメント",
-"start": "11:00",
-"status": null,
-"title": "FM長野「SATURDAY D」"
-},
 "s2039": {
 "artists": [
 10
@@ -8624,6 +8719,22 @@
 "start": "20:00",
 "status": null,
 "title": "Date fm「BANG! BANG!!」"
+},
+"s2133": {
+"artists": [
+483
+],
+"category": "TV",
+"date": "2026-11-28",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [],
+"note": "",
+"start": "24:28",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
 },
 "s2142": {
 "artists": [
@@ -8865,22 +8976,6 @@
 "status": null,
 "title": "HERO GATE"
 },
-"s2173": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-21",
-"end": "25:10",
-"isFc": false,
-"label": null,
-"link": "https://www.fct.co.jp/program/2johan/",
-"members": [],
-"note": "※放送予定\n※コメント",
-"start": "24:55",
-"status": null,
-"title": "福島中央テレビ「二畳半レコード」"
-},
 "s2174": {
 "artists": [
 5,
@@ -8962,54 +9057,6 @@
 "status": null,
 "title": "発売日｜佐藤優樹 Live Tour 2027 (仮タイトル)"
 },
-"s2191": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-20",
-"end": "25:13",
-"isFc": false,
-"label": null,
-"link": "https://www.rsk.co.jp/tv/yutanpo/",
-"members": [],
-"note": "",
-"start": "24:43",
-"status": null,
-"title": "RSK山陽放送「ユタンポ」"
-},
-"s2197": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-20",
-"end": "15:30",
-"isFc": false,
-"label": null,
-"link": "https://www.fm807.jp/program/nanishow/",
-"members": [],
-"note": "",
-"start": "13:00",
-"status": null,
-"title": "FM徳島「Nani-Show? Friday!」"
-},
-"s2198": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "26:00",
-"isFc": false,
-"label": null,
-"link": "https://abcradio.asahi.co.jp/program/rikky/",
-"members": [],
-"note": "",
-"start": "25:00",
-"status": null,
-"title": "ABC朝日放送「小西陸斗 #よどオシ！」"
-},
 "s2199": {
 "artists": [
 5
@@ -9041,38 +9088,6 @@
 "start": "13:41",
 "status": null,
 "title": "FM愛媛「Groovy Radio Caravan」"
-},
-"s2203": {
-"artists": [
-11
-],
-"category": "RADIO",
-"date": "2026-11-20",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://www.stv.jp/radio/nomad/index.html",
-"members": [],
-"note": "※生出演",
-"start": "13:00",
-"status": null,
-"title": "STVラジオ「ラジオノマド」"
-},
-"s2204": {
-"artists": [
-11
-],
-"category": "RADIO",
-"date": "2026-11-20",
-"end": "22:00",
-"isFc": false,
-"label": null,
-"link": "https://www.air-g.co.jp/ima/",
-"members": [],
-"note": "※生出演",
-"start": "18:00",
-"status": null,
-"title": "AIR-G'「IMAREAL」"
 },
 "s2205": {
 "artists": [
@@ -9234,38 +9249,6 @@
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
 },
-"s2254": {
-"artists": [
-57
-],
-"category": "TV",
-"date": "2026-11-20",
-"end": "19:57",
-"isFc": false,
-"label": null,
-"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
-"members": [],
-"note": "",
-"start": "19:30",
-"status": null,
-"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
-},
-"s2255": {
-"artists": [
-57
-],
-"category": "TV",
-"date": "2026-11-21",
-"end": "10:32",
-"isFc": false,
-"label": null,
-"link": "https://www.nhk.or.jp/sendai/info/articles/310/077/27/",
-"members": [],
-"note": "※再放送",
-"start": "10:05",
-"status": null,
-"title": "NHK仙台放送局「東北ココから 再び、この海で ～閖上漁港 しらすに希望を託して～」"
-},
 "s2269": {
 "artists": [
 5
@@ -9313,38 +9296,6 @@
 "start": "11:00",
 "status": null,
 "title": "RABラジオ「らじ丸にっち！」"
-},
-"s720": {
-"artists": [
-10
-],
-"category": "STAGE",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
-"members": [],
-"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
-"start": null,
-"status": null,
-"title": "タクフェス第14弾「北の島から」"
-},
-"s781": {
-"artists": [
-10
-],
-"category": "STAGE",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
-"members": [],
-"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
-"start": null,
-"status": null,
-"title": "タクフェス第14弾「北の島から」"
 },
 "s782": {
 "artists": [
@@ -9587,5 +9538,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611201800-c72EkfI5Ql4WKYZi"
+"versionDir": "2611221800-ullgXtOfvWVixvLF"
 }

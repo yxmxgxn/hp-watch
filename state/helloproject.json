@@ -448,15 +448,6 @@
 "start": "2027-01-06",
 "title": "Hello! Project「NEW YEAR CELEBRATION 2027-OCHA NORMA-」"
 },
-"/ochanorma/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/": {
-"artists": [
-634
-],
-"end": "2026-11-21",
-"link": "/ochanorma/event/11d8d2c5b7f26e0eb652f7d41a5b47448f46f892af88d81e806ece70d9cdcdea/",
-"start": "2026-09-20",
-"title": "OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
-},
 "/ochanorma/event/24c9eaf13547cf3c0c887ab4903e32bf9fc1782f4990f7db132af9cc430bb0b8/": {
 "artists": [
 585,
@@ -621,15 +612,6 @@
 "link": "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
 "start": "2026-11-22",
 "title": "つばきファクトリー「カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合」出演！"
-},
-"/tsubakifactory/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/": {
-"artists": [
-477
-],
-"end": "2026-11-21",
-"link": "/tsubakifactory/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
-"start": "2026-11-21",
-"title": "11/21(土)ハロショ大阪店にて『＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
 },
 "/tsubakifactory/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
@@ -4018,6 +4000,24 @@
 "start": null,
 "status": null,
 "title": "今日は長野桃羽（アンジュルム）の18歳の誕生日です！"
+},
+"h08c1e664eab83c2a": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "20:55",
+"isFc": false,
+"label": null,
+"link": "https://www.tbs.co.jp/ookami_tbs/",
+"members": [
+67
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "TBS「ハマダ歌謡祭★オオカミ少年」"
 },
 "h092ae79f39edb675": {
 "artists": [
@@ -14876,6 +14876,52 @@
 "status": null,
 "title": "BEYOOOOONDS CONCERT TOUR 2026 SPRING [BEYOSCOOOOOPE]"
 },
+"h3f6f93872905173f": {
+"artists": [
+42,
+676
+],
+"category": "TICKET",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ce6d54103681d86dcb4cd6d349f38bed93fc8f3eeadc17757d29674c962db19c/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664,
+666,
+668,
+678,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+710
+],
+"note": "12/5(土) Zepp Namba(OSAKA)（大阪）公演",
+"start": null,
+"status": null,
+"title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
+},
 "h3f8395aca425dd1d": {
 "artists": [
 634
@@ -15741,6 +15787,34 @@
 "start": "15:30",
 "status": null,
 "title": "ロージークロニクル ライブツアー2026秋 ～Blueprint～"
+},
+"h45066ede6e1f2569": {
+"artists": [
+36
+],
+"category": "MAGAZINE",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "※表紙・誌面(通常盤・集英社スペシャル増刊)",
+"start": null,
+"status": null,
+"title": "MAQUIA 2027年1月号"
 },
 "h454ff8f5e3bafd89": {
 "artists": [
@@ -16909,6 +16983,25 @@
 "status": null,
 "title": "南海放送「山下泰則のモーニング ディライト」"
 },
+"h4c3aa8692dfc401c": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
+"members": [
+663,
+671
+],
+"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
+},
 "h4c8adca01d231700": {
 "artists": [
 3,
@@ -17471,6 +17564,52 @@
 "start": null,
 "status": null,
 "title": "TJ Hiroshima 7月号"
+},
+"h4f4ebca6185c8469": {
+"artists": [
+42,
+676
+],
+"category": "TICKET",
+"date": "2026-11-21",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ea17b123f8ec10b3eff76392cb11b5a1212d771fe8a7dd21b9d876abb8582a98/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664,
+666,
+668,
+678,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+710
+],
+"note": "12/5(土) Zepp Namba(OSAKA)（大阪）公演",
+"start": null,
+"status": null,
+"title": "発売日｜ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
 },
 "h4f5f7559d9ebaa64": {
 "artists": [
@@ -22019,6 +22158,24 @@
 "start": "13:00",
 "status": null,
 "title": "KBCラジオ「PAO～N」"
+},
+"h68bf2cee448f6c7c": {
+"artists": [
+29
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs1179.com/yando/",
+"members": [
+590
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "MBSラジオ「ヤングタウン土曜日」"
 },
 "h68de9a61bb3ea2be": {
 "artists": [
@@ -29470,6 +29627,25 @@
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
 },
+"h91965a189419ccde": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-20",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃156」"
+},
 "h91b017a4141f30be": {
 "artists": [
 585
@@ -34256,6 +34432,24 @@
 "status": null,
 "title": "今日は福田真琳（つばきファクトリー）の22歳の誕生日です！"
 },
+"habcdd087359f9f1e": {
+"artists": [
+29
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "19:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fmnagasaki.co.jp/program/GGJETTRADIO/",
+"members": [
+590
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "FM長崎「go!go!vanillasジェットセイヤのGO!GO! JETT RADIO」"
+},
 "habd3196e3d371ec4": {
 "artists": [
 477
@@ -34485,6 +34679,26 @@
 "status": null,
 "title": "つばきファクトリー LIVE TOUR 2026 SPRING ～HEAT IT UP～"
 },
+"had698d4b92feb3dd": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/doichi_de_much_on",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "13:00",
+"status": null,
+"title": "OBSラジオ「土イチ de much-on!」"
+},
 "had99ed6068324793": {
 "artists": [
 3
@@ -34704,6 +34918,24 @@
 "start": "17:45",
 "status": null,
 "title": "OCHA NORMA LIVE TOUR 2026 SPRING ～Overdrive CHAllenge～"
+},
+"hae8dc118cbc0f8bf": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "24:58",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "",
+"start": "24:28",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
 },
 "haea7c644b3d24ce4": {
 "artists": [
@@ -38049,6 +38281,24 @@
 "status": null,
 "title": "14thシングル発売記念 リミスタ インターネットサイン会"
 },
+"hc1c64db4f0ed7ae6": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+628
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "つばきファクトリー 福田真琳バースデーイベント2026 in 名古屋"
+},
 "hc1db7ef231a27cf8": {
 "artists": [
 477
@@ -39909,6 +40159,26 @@
 "start": null,
 "status": null,
 "title": "2026プロ野球ファーム・リーグ 中地区 公式戦「中日ドラゴンズ対読売ジャイアンツ」始球式"
+},
+"hcbfb078a8926f7ad": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-21",
+"end": "22:30",
+"isFc": false,
+"label": null,
+"link": "https://www.bss.jp/radio/escape/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "22:00",
+"status": null,
+"title": "BSS山陰放送「エイスケとEscape！」"
 },
 "hcc1be1aa4a4442a4": {
 "artists": [
@@ -43025,6 +43295,25 @@
 "status": null,
 "title": "Hello! Project 2027 Winter「Crossroads」"
 },
+"hdb1fa166e973060b": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "27:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+544,
+568
+],
+"note": "",
+"start": "27:00",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃157」"
+},
 "hdb858f22058be6bb": {
 "artists": [
 634
@@ -44056,6 +44345,26 @@
 "status": null,
 "title": "FM長崎「Colors」"
 },
+"he1733ad36e0b63e9": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-20",
+"end": "18:20",
+"isFc": false,
+"label": null,
+"link": "https://obs-oita.co.jp/radio/program/flight_park",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
+},
 "he17463dfedfa63fe": {
 "artists": [
 29
@@ -44112,6 +44421,24 @@
 "start": null,
 "status": null,
 "title": "ハロー！プロジェクトモバイル ハロー！ラジオ「ろこの部屋」"
+},
+"he2083f433ba6f2d6": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-11-21",
+"end": "06:15",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/tv/kitakoi/",
+"members": [
+481
+],
+"note": "※再放送",
+"start": "05:45",
+"status": null,
+"title": "HBCテレビ「キタコイ」"
 },
 "he21fdd3308689008": {
 "artists": [
@@ -44477,6 +44804,25 @@
 "start": "22:00",
 "status": null,
 "title": "ABSラジオ「タマリバ」"
+},
+"he46785ceeab119b5": {
+"artists": [
+634
+],
+"category": "STREAM",
+"date": "2026-11-20",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+497,
+604
+],
+"note": "※配信終了日",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
 },
 "he49660332b7170bb": {
 "artists": [
@@ -50454,43 +50800,6 @@
 "status": null,
 "title": "アンジュルムFCイベント2026 ～Angermerry Xmas～"
 },
-"s1542": {
-"artists": [
-634
-],
-"category": "STREAM",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-497,
-604
-],
-"note": "※配信終了日",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十七席＞～OCHA NORMA広本瑠璃＆米村姫良々～トークイベント"
-},
-"s1607": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
-"members": [
-628
-],
-"note": "ミッドランドスクエア シネマ2 （愛知）",
-"start": null,
-"status": null,
-"title": "つばきファクトリー 福田真琳バースデーイベント2026 in 名古屋"
-},
 "s1662": {
 "artists": [
 585
@@ -50833,52 +51142,6 @@
 "status": null,
 "title": "つばきファクトリー 小野田紗栞バースデーイベント2026"
 },
-"s1834": {
-"artists": [
-42,
-676
-],
-"category": "TICKET",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/ea17b123f8ec10b3eff76392cb11b5a1212d771fe8a7dd21b9d876abb8582a98/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664,
-666,
-668,
-678,
-682,
-683,
-684,
-685,
-686,
-687,
-696,
-697,
-698,
-699,
-700,
-701,
-702,
-703,
-704,
-710
-],
-"note": "12/5(土) Zepp Namba(OSAKA)（大阪）公演",
-"start": null,
-"status": null,
-"title": "発売日｜ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
-},
 "s1835": {
 "artists": [
 42,
@@ -50970,52 +51233,6 @@
 "start": null,
 "status": null,
 "title": "発売日｜ロージークロニクル ライブツアー2026 BOOKMARK－FROST & FLAME"
-},
-"s1837": {
-"artists": [
-42,
-676
-],
-"category": "TICKET",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/ce6d54103681d86dcb4cd6d349f38bed93fc8f3eeadc17757d29674c962db19c/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664,
-666,
-668,
-678,
-682,
-683,
-684,
-685,
-686,
-687,
-696,
-697,
-698,
-699,
-700,
-701,
-702,
-703,
-704,
-710
-],
-"note": "12/5(土) Zepp Namba(OSAKA)（大阪）公演",
-"start": null,
-"status": null,
-"title": "発売日｜Hello! Project 研修生発表会 2026 12月 ～光星～"
 },
 "s1838": {
 "artists": [
@@ -51216,34 +51433,6 @@
 "status": null,
 "title": "COUNTDOWN JAPAN 26/27"
 },
-"s1886": {
-"artists": [
-36
-],
-"category": "MAGAZINE",
-"date": "2026-11-20",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "※表紙・誌面(通常盤・集英社スペシャル増刊)",
-"start": null,
-"status": null,
-"title": "MAQUIA 2027年1月号"
-},
 "s1909": {
 "artists": [
 36
@@ -51261,26 +51450,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 川嶋美楓バースデーイベント2027"
-},
-"s1927": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "22:30",
-"isFc": false,
-"label": null,
-"link": "https://www.bss.jp/radio/escape/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "BSS山陰放送「エイスケとEscape！」"
 },
 "s1928": {
 "artists": [
@@ -51301,25 +51470,6 @@
 "start": "19:00",
 "status": null,
 "title": "RSK山陽放送「キューン！MUSIC」"
-},
-"s1930": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-11-21",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/30dc2d4540b17484817360972156b948554bfae05dc4661b86104fb8285b0152/",
-"members": [
-663,
-671
-],
-"note": "ハロー！プロジェクト オフィシャルショップ大阪店（大阪）",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
 },
 "s1931": {
 "artists": [
@@ -51993,24 +52143,6 @@
 "status": null,
 "title": "ミニモちゃん ミニモニ。テレフォンポーチBOOK"
 },
-"s2043": {
-"artists": [
-29
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "19:30",
-"isFc": false,
-"label": null,
-"link": "https://www.fmnagasaki.co.jp/program/GGJETTRADIO/",
-"members": [
-590
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "FM長崎「go!go!vanillasジェットセイヤのGO!GO! JETT RADIO」"
-},
 "s2044": {
 "artists": [
 29
@@ -52157,24 +52289,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 江端妃咲バースデーイベント2027"
-},
-"s2055": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-20",
-"end": "20:55",
-"isFc": false,
-"label": null,
-"link": "https://www.tbs.co.jp/ookami_tbs/",
-"members": [
-67
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "TBS「ハマダ歌謡祭★オオカミ少年」"
 },
 "s2059": {
 "artists": [
@@ -52540,30 +52654,12 @@
 "status": null,
 "title": "ラジオ日本「60TRY部」"
 },
-"s2092": {
+"s2096": {
 "artists": [
 477
 ],
 "category": "TV",
-"date": "2026-11-21",
-"end": "24:58",
-"isFc": false,
-"label": null,
-"link": "https://www.hbc.co.jp/tv/kitakoi/",
-"members": [
-481
-],
-"note": "",
-"start": "24:28",
-"status": null,
-"title": "HBCテレビ「キタコイ」"
-},
-"s2095": {
-"artists": [
-477
-],
-"category": "TV",
-"date": "2026-11-21",
+"date": "2026-11-28",
 "end": "06:15",
 "isFc": false,
 "label": null,
@@ -52675,44 +52771,6 @@
 "start": null,
 "status": null,
 "title": "ロージークロニクル 相馬優芽バースデーイベント2027"
-},
-"s2116": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-20",
-"end": "27:00",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/",
-"members": [
-604,
-635
-],
-"note": "",
-"start": "26:45",
-"status": null,
-"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃156」"
-},
-"s2117": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-21",
-"end": "27:30",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/",
-"members": [
-544,
-568
-],
-"note": "",
-"start": "27:00",
-"status": null,
-"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃157」"
 },
 "s2118": {
 "artists": [
@@ -54001,24 +54059,6 @@
 "status": null,
 "title": "発売日｜Hello! Project 2027 Winter「Crossroads」"
 },
-"s2267": {
-"artists": [
-29
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "23:30",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs1179.com/yando/",
-"members": [
-590
-],
-"note": "",
-"start": "22:00",
-"status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
-},
 "s2268": {
 "artists": [
 634
@@ -54088,46 +54128,6 @@
 "start": "25:25",
 "status": null,
 "title": "長崎文化放送「みゅーじっくら部」"
-},
-"s2274": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-20",
-"end": "18:20",
-"isFc": false,
-"label": null,
-"link": "https://obs-oita.co.jp/radio/program/flight_park",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "16:30",
-"status": null,
-"title": "大分放送「フライトPark ～ 出発時刻は夕方4時30分！」"
-},
-"s2275": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-21",
-"end": "15:00",
-"isFc": false,
-"label": null,
-"link": "https://obs-oita.co.jp/radio/program/doichi_de_much_on",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "13:00",
-"status": null,
-"title": "OBSラジオ「土イチ de much-on!」"
 },
 "s2276": {
 "artists": [
@@ -54493,5 +54493,5 @@
 "title": "関西テレビ「初恋クラシックⅡ～名門吹奏楽部の熱き青春＆オーケストラでいろいろ遊んじゃいました～」"
 }
 },
-"versionDir": "2611201800-c72EkfI5Ql4WKYZi"
+"versionDir": "2611221800-ullgXtOfvWVixvLF"
 }
