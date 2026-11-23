@@ -231,6 +231,7 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 
 <label for="key">鍵</label>
 <div class="row"><input id="key" type="password" autocomplete="current-password"><button id="load" type="button">一覧を読む</button></div>
+<p id="msg" role="status"></p>
 
 <h2>期限内の項目</h2>
 <p class="mute" id="count"></p>
@@ -249,7 +250,6 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
   <p class="mute">保存すると、フィードの記事の後ろに、この内容が付きます（次の作り直しで反映）。</p>
   <button id="save" type="button">保存</button>
   <button class="sub" id="clear" type="button">この項目の情報を消す</button>
-  <p id="msg" role="status"></p>
 </div>
 
 <datalist id="labels"><option value="TVer"><option value="YouTube"><option value="Spotify"><option value="公式"><option value="記事"></datalist>
@@ -378,7 +378,18 @@ export async function importRoutes(req, env, { now, dispatch }) {
   if (req.method === "GET" && url.pathname === "/import") {
     return new Response(PAGE, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
   }
-  if (req.method === "POST" && url.pathname === "/import/state") return state(req, env, now);
-  if (req.method === "POST" && url.pathname === "/import/save") return saveEntry(req, env, now, dispatch);
+  if (req.method === "POST" && url.pathname === "/import/state") return guard("state", () => state(req, env, now));
+  if (req.method === "POST" && url.pathname === "/import/save") return guard("save", () => saveEntry(req, env, now, dispatch));
   return null;
+}
+
+// 途中で例外が出ても、画面に読める理由を返す（GitHub の応答の番号など。鍵や中身は出さない）
+async function guard(name, fn) {
+  try {
+    return await fn();
+  } catch (e) {
+    const why = (e && e.message) || String(e);
+    console.error(`import ${name}: ${why}`);
+    return json(502, { error: `${name === "state" ? "一覧" : "保存"}で失敗しました: ${why}` });
+  }
 }
