@@ -121,6 +121,7 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
             "guid": i["guid"], "title": i["title"], "name": i.get("name") or plain_title(i["title"]), "link": i["link"],
             "date": iso(i["date"]), "html": i["html"], "categories": i["categories"],
             "cats": i.get("cats") or [], "who": i.get("who") or [],
+            "air": str(i.get("sort") or "")[:10],  # 放送日（sort は「日付 開始時刻」）。ダッシュボードの期限に使う
         }
         if i.get("general"):
             row["general"] = True

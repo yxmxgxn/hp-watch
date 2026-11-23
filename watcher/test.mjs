@@ -291,3 +291,62 @@ if (dataDir) {
   r = await watcher.fetch(new Request("https://hello-rss.example/custom.xml?site=hp&kind=news"), { ASSETS: { fetch: async () => new Response("x", { status: 500 }) } });
   assert(r.status === 503, "データが読めないときは503");
 }
+
+// --- 放送の情報を手で入れるページ（鍵つき）。GitHub と Worker の素材（ASSETS）は偽物
+{
+  const im = await import("./src/import.js");
+  assert(im.addDays("2026-11-22", 3) === "2026-11-25" && im.jstDay(new Date("2026-11-22T16:00:00Z")) === "2026-11-23", "日付: 放送日の3日後・JST の今日");
+  assert(im.validate({ guid: "x", tver: "" }).error, "項目のIDの形が違えばエラー");
+  assert(im.validate({ guid: "helloproject-media-abc", tver: "https://example.com/x" }).error, "Tver 以外のURLはエラー");
+  assert(im.validate({ guid: "helloproject-media-abc", tver: "https://tver.jp/episodes/epkbq9top3" }).tver, "Tver のエピソードのURLは通る");
+  assert(im.validate({ guid: "helloproject-media-abc", guest: "a\u0007b  " }).guest === "ab", "ゲスト名の制御文字は消す");
+  const m = im.merge({ items: [{ guid: "g1", air: "2026-11-01", until: "2026-11-04", tver: "t" }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "u" }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "v", guest: "" }, "2026-11-23");
+  assert(m.items.length === 1 && m.items[0].tver === "v", "期限の切れた分は外し、同じ項目は入れ替える");
+  const m2 = im.merge({ items: [{ guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "u" }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "", guest: "" }, "2026-11-21");
+  assert(m2.items.length === 0, "両方空なら、その項目は外す");
+
+  const prev = globalThis.fetch;
+  const log = [];
+  let putBody = null;
+  globalThis.fetch = async (url, opts = {}) => {
+    const u = String(url);
+    if (u.startsWith("https://api.github.com/")) {
+      log.push({ url: u, opts });
+      if (u.includes("/contents/manual/import.json")) {
+        if (opts.method === "PUT") { putBody = JSON.parse(opts.body); return new Response("{}", { status: 201 }); }
+        return new Response("Not Found", { status: 404 });
+      }
+      if (u.includes("/dispatches")) return new Response(null, { status: 204 });
+    }
+    return realFetch(url, opts);
+  };
+  try {
+    const assets = { fetch: async (req) => {
+      const p = new URL(req.url).pathname;
+      if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }] });
+      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", title: "番組", name: "番組名", air: "2026-11-16", link: "x", date: "2026-11-17T00:00:00Z" }] });
+      return new Response("no", { status: 404 });
+    } };
+    const kenv = { GH_REPO: "o/r", GH_TOKEN: "tok", GH_DATA_TOKEN: "dtok", DASHBOARD_KEY: "secret-key-1", ASSETS: assets };
+    const post = (b) => watcher.fetch(new Request("https://hello-rss.example/import/save", { method: "POST", body: JSON.stringify(b) }), kenv);
+
+    let r = await watcher.fetch(new Request("https://hello-rss.example/import"), kenv);
+    const html = await r.text();
+    assert(r.status === 200 && html.includes("放送の情報を入れる") && !html.includes("secret-key-1"), "入力ページ: 開ける・鍵の値は出ない");
+
+    r = await post({ key: "wrong", guid: "helloproject-media-abc123", tver: "", guest: "" });
+    assert(r.status === 403 && putBody === null, "鍵が違えば403。書き込みもしない");
+
+    r = await post({ key: "secret-key-1", guid: "helloproject-media-abc123", tver: "https://tver.jp/episodes/epkbq9top3", guest: "ゲスト" });
+    const j = await r.json();
+    assert(r.status === 200 && j.until === "2026-11-19", "保存: 放送日（11/16）の3日後（11/19）まで");
+    const saved = JSON.parse(Buffer.from(putBody.content, "base64").toString("utf8"));
+    assert(saved.items.length === 1 && saved.items[0].guid === "helloproject-media-abc123" && saved.items[0].guest === "ゲスト", "書き込んだファイルの中身（base64 を戻すと一致）");
+    assert(log.some((c) => c.url.endsWith("/actions/workflows/rss.yml/dispatches")), "保存のあと rss.yml を呼ぶ");
+
+    r = await post({ key: "secret-key-1", guid: "helloproject-media-zzz", tver: "", guest: "" });
+    assert(r.status === 400, "フィードに無い項目は400");
+  } finally {
+    globalThis.fetch = prev;
+  }
+}
