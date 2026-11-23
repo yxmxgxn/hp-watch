@@ -184,7 +184,7 @@ async function state(req, env, now) {
       if (!String(it.guid).includes("-media-") || !it.air) continue;
       const air = String(it.air).slice(0, 10);
       if (air < lo || air > hi) continue;
-      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel });
+      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel, cat: String((it.cats && it.cats[0]) || "") });
     }
   }
   const cur = await readFile(env);
@@ -251,6 +251,9 @@ button{padding:8px 14px;border:1px solid var(--accent);border-radius:6px;backgro
 button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 .row{display:flex;gap:8px;align-items:center}.row input[type=url]{flex:1}.row input[type=text]{width:130px;flex:none}
 .list{border:1px solid var(--line);border-radius:8px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips button{margin:0;padding:5px 12px;border-radius:14px;background:none;color:var(--accent)}
+.chips button.on{background:var(--accent);color:#fff}
 .item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-top:1px solid var(--line)}
 .item:first-child{border-top:0}.item .main{flex:1;min-width:0}.item .name{font-weight:700;word-break:break-all}
 .badge{display:inline-block;font-size:.8rem;padding:1px 8px;border-radius:10px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
@@ -269,6 +272,7 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 <p id="msg" role="status"></p>
 
 <h2>期限内の項目</h2>
+<div class="chips" id="filters"></div>
 <p class="mute" id="count"></p>
 <div class="list" id="list"></div>
 
@@ -326,11 +330,28 @@ function fill(it) {
   $("form").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const CATS = [["", "すべて"], ["TV", "テレビ"], ["RADIO", "ラジオ"], ["MAGAZINE", "雑誌"], ["WEB", "WEB"], ["OTHER", "その他"]];
+let filter = "";
+const MEDIA = ["TV", "RADIO", "MAGAZINE", "WEB"];
+const matches = (it) => !filter || (filter === "OTHER" ? !MEDIA.includes(it.cat) : it.cat === filter);
+function drawFilters() {
+  const box = $("filters");
+  box.textContent = "";
+  CATS.forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = label; b.className = key === filter ? "on" : "";
+    b.addEventListener("click", () => { filter = key; drawFilters(); renderList(); });
+    box.appendChild(b);
+  });
+}
+
 function renderList() {
   const list = $("list");
   list.textContent = "";
-  $("count").textContent = items.length ? items.length + "件（放送日の前後。期限内のもの）" : "期限内の項目はありません";
-  items.forEach((it) => {
+  const shown = items.filter(matches);
+  $("count").textContent = !items.length ? "期限内の項目はありません"
+    : (shown.length === items.length ? items.length + "件（放送日の前後。期限内のもの）" : shown.length + "件（全" + items.length + "件のうち）");
+  shown.forEach((it) => {
     const row = document.createElement("div");
     row.className = "item";
     const main = document.createElement("div"); main.className = "main";
@@ -387,6 +408,7 @@ $("login").addEventListener("click", async () => {
 });
 
 $("load").addEventListener("click", () => loadList(false));
+drawFilters();
 
 $("logout").addEventListener("click", async () => {
   await post("/import/logout", {});

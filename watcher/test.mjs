@@ -415,7 +415,7 @@ if (dataDir) {
     const assets2 = { fetch: async (req) => {
       const p = new URL(req.url).pathname;
       if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }, { site: "ameblo", siteLabel: "アメブロ", kind: "blog" }] });
-      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", name: "番組名", air: day, link: "x", date: "2026-11-17T00:00:00Z" }] });
+      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", name: "番組名", air: day, link: "x", date: "2026-11-17T00:00:00Z", cats: ["RADIO"] }] });
       return new Response("no", { status: 404 });
     } };
     const e2 = { GH_REPO: "o/r", GH_TOKEN: "tok", GH_DATA_TOKEN: "dtok", DASHBOARD_KEY: "secret-key-1", ASSETS: assets2 };
@@ -430,6 +430,7 @@ if (dataDir) {
 
     r = await hit("/import/state", { body: "{}", headers: { cookie } });
     assert(r.status === 200, "一覧: 鍵を入れなくても、ログインの Cookie で読める");
+    assert((await r.clone().json()).items[0].cat === "RADIO", "一覧: 項目にメディアの種類（ラジオ）が付く（フィルタに使う）");
     r = await hit("/import/state", { body: "{}", headers: { cookie: "hr_import=" + tok.slice(0, -2) + "zz" } });
     assert(r.status === 403, "一覧: 印が違う Cookie は403");
     r = await hit("/import/state", { body: "{}" });
