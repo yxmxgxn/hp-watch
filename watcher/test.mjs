@@ -296,25 +296,36 @@ if (dataDir) {
 {
   const im = await import("./src/import.js");
   assert(im.addDays("2026-11-22", 3) === "2026-11-25" && im.jstDay(new Date("2026-11-22T16:00:00Z")) === "2026-11-23", "日付: 放送日の3日後・JST の今日");
-  assert(im.validate({ guid: "x", tver: "" }).error, "項目のIDの形が違えばエラー");
-  assert(im.validate({ guid: "helloproject-media-abc", tver: "https://example.com/x" }).error, "Tver 以外のURLはエラー");
-  assert(im.validate({ guid: "helloproject-media-abc", tver: "https://tver.jp/episodes/epkbq9top3" }).tver, "Tver のエピソードのURLは通る");
-  assert(im.validate({ guid: "helloproject-media-abc", guest: "a\u0007b  " }).guest === "ab", "ゲスト名の制御文字は消す");
-  const m = im.merge({ items: [{ guid: "g1", air: "2026-11-01", until: "2026-11-04", tver: "t" }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "u" }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "v", guest: "" }, "2026-11-23");
-  assert(m.items.length === 1 && m.items[0].tver === "v", "期限の切れた分は外し、同じ項目は入れ替える");
-  const m2 = im.merge({ items: [{ guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "u" }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", tver: "", guest: "" }, "2026-11-21");
-  assert(m2.items.length === 0, "両方空なら、その項目は外す");
+  assert(im.validate({ guid: "x" }).error, "項目のIDの形が違えばエラー");
+  const ok = im.validate({ guid: "helloproject-media-abc", links: [{ label: " Spotify ", url: "https://open.spotify.com/show/x" }], guest: "a\u0007b  ", note: "メモ" });
+  assert(ok.links[0].label === "Spotify" && ok.guest === "a b" && ok.note === "メモ", "リンクの名前は前後を消し、ゲストの制御文字は空白にする");
+  assert(im.validate({ guid: "helloproject-media-abc", links: [{ label: "x", url: "http://example.com/" }] }).error, "https 以外のURLはエラー");
+  assert(im.validate({ guid: "helloproject-media-abc", links: [{ label: "x", url: "not a url" }] }).error, "URLの形が違えばエラー");
+  assert(im.validate({ guid: "helloproject-media-abc", links: [{ label: "", url: "https://a.example/" }] }).error, "名前が空のリンクはエラー");
+  assert(im.validate({ guid: "helloproject-media-abc", links: Array.from({ length: 9 }, (_, i) => ({ label: "l" + i, url: "https://a.example/" + i })) }).error, "リンクは8本まで");
+  assert(im.validate({ guid: "helloproject-media-abc", guest: "あ".repeat(61) }).error, "ゲスト名は60文字まで");
+  assert(im.linksOf({ tver: "https://tver.jp/episodes/x" })[0].label === "TVer", "前の形（tver だけ）は TVer のリンクとして扱う");
+  const m = im.merge({ items: [{ guid: "g1", air: "2026-11-01", until: "2026-11-04", links: [{ label: "a", url: "https://a.example/" }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", links: [] }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", links: [{ label: "b", url: "https://b.example/" }], guest: "", note: "" }, "2026-11-23");
+  assert(m.items.length === 1 && m.items[0].links[0].label === "b", "期限の切れた分は外し、同じ項目は入れ替える");
+  const m2 = im.merge({ items: [{ guid: "g2", air: "2026-11-20", until: "2026-11-23", links: [{ label: "u", url: "https://u.example/" }] }] }, { guid: "g2", air: "2026-11-20", until: "2026-11-23", links: [], guest: "", note: "" }, "2026-11-21");
+  assert(m2.items.length === 0, "中身が空なら、その項目は外す");
 
+  const today = im.jstDay(new Date()); // 素材の放送日は「今日」にそろえる（時計に左右されないように）
   const prev = globalThis.fetch;
   const log = [];
-  let putBody = null;
+  let file = null; // 今のリポジトリのファイル（JSON）。null は無い
   globalThis.fetch = async (url, opts = {}) => {
     const u = String(url);
     if (u.startsWith("https://api.github.com/")) {
       log.push({ url: u, opts });
       if (u.includes("/contents/manual/import.json")) {
-        if (opts.method === "PUT") { putBody = JSON.parse(opts.body); return new Response("{}", { status: 201 }); }
-        return new Response("Not Found", { status: 404 });
+        if (opts.method === "PUT") {
+          const body = JSON.parse(opts.body);
+          file = JSON.parse(Buffer.from(body.content, "base64").toString("utf8"));
+          return new Response("{}", { status: 201 });
+        }
+        if (file === null) return new Response("Not Found", { status: 404 });
+        return Response.json({ sha: "abc", content: Buffer.from(JSON.stringify(file)).toString("base64") });
       }
       if (u.includes("/dispatches")) return new Response(null, { status: 204 });
     }
@@ -324,27 +335,46 @@ if (dataDir) {
     const assets = { fetch: async (req) => {
       const p = new URL(req.url).pathname;
       if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }] });
-      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", title: "番組", name: "番組名", air: "2026-11-16", link: "x", date: "2026-11-17T00:00:00Z" }] });
+      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [
+        { guid: "helloproject-media-abc123", title: "番組", name: "番組名", air: today, link: "x", date: "2026-11-17T00:00:00Z" },
+        { guid: "helloproject-media-old999", title: "古い", name: "古い番組", air: im.addDays(today, -30), link: "x", date: "2026-10-25T00:00:00Z" },
+      ] });
       return new Response("no", { status: 404 });
     } };
     const kenv = { GH_REPO: "o/r", GH_TOKEN: "tok", GH_DATA_TOKEN: "dtok", DASHBOARD_KEY: "secret-key-1", ASSETS: assets };
-    const post = (b) => watcher.fetch(new Request("https://hello-rss.example/import/save", { method: "POST", body: JSON.stringify(b) }), kenv);
+    const ask = (path, b) => watcher.fetch(new Request("https://hello-rss.example" + path, { method: "POST", body: JSON.stringify(b) }), kenv);
 
     let r = await watcher.fetch(new Request("https://hello-rss.example/import"), kenv);
     const html = await r.text();
-    assert(r.status === 200 && html.includes("放送の情報を入れる") && !html.includes("secret-key-1"), "入力ページ: 開ける・鍵の値は出ない");
+    assert(r.status === 200 && html.includes("放送の情報を入れる") && !html.includes("secret-key-1") && !html.includes("helloproject-media-"), "入力ページ: 開ける・鍵の値や項目は出ない");
 
-    r = await post({ key: "wrong", guid: "helloproject-media-abc123", tver: "", guest: "" });
-    assert(r.status === 403 && putBody === null, "鍵が違えば403。書き込みもしない");
+    r = await ask("/import/state", { key: "wrong" });
+    assert(r.status === 403 && log.every((c) => c.opts.method !== "PUT"), "一覧: 鍵が違えば403");
 
-    r = await post({ key: "secret-key-1", guid: "helloproject-media-abc123", tver: "https://tver.jp/episodes/epkbq9top3", guest: "ゲスト" });
+    r = await ask("/import/save", { key: "wrong", guid: "helloproject-media-abc123", links: [], guest: "", note: "" });
+    assert(r.status === 403 && file === null, "保存: 鍵が違えば403。書き込みもしない");
+
+    // 一覧（今日の放送日の前後の項目）。古い項目（期限切れ）は出ない
+    const stateRes = await ask("/import/state", { key: "secret-key-1" });
+    const st = await stateRes.json();
+    const hit = st.items.find((i) => i.guid === "helloproject-media-abc123");
+    assert(stateRes.status === 200 && hit && hit.status === "未入力" && hit.until === im.addDays(today, 3), "一覧: 項目の状態と期限（放送日の3日後）");
+    assert(!st.items.some((i) => i.guid === "helloproject-media-old999"), "一覧: 期限の切れた項目は出ない");
+
+    r = await ask("/import/save", { key: "secret-key-1", guid: "helloproject-media-abc123", links: [{ label: "Spotify", url: "https://open.spotify.com/show/x" }, { label: "TVer", url: "https://tver.jp/episodes/epkbq9top3" }], guest: "ゲスト", note: "メモ" });
     const j = await r.json();
-    assert(r.status === 200 && j.until === "2026-11-19", "保存: 放送日（11/16）の3日後（11/19）まで");
-    const saved = JSON.parse(Buffer.from(putBody.content, "base64").toString("utf8"));
-    assert(saved.items.length === 1 && saved.items[0].guid === "helloproject-media-abc123" && saved.items[0].guest === "ゲスト", "書き込んだファイルの中身（base64 を戻すと一致）");
+    assert(r.status === 200 && j.until === im.addDays(today, 3), "保存: 放送日の3日後まで");
+    assert(file.items.length === 1 && file.items[0].links.length === 2 && file.items[0].guest === "ゲスト" && file.items[0].note === "メモ", "書き込んだファイルの中身（リンク2本・ゲスト・メモ）");
     assert(log.some((c) => c.url.endsWith("/actions/workflows/rss.yml/dispatches")), "保存のあと rss.yml を呼ぶ");
 
-    r = await post({ key: "secret-key-1", guid: "helloproject-media-zzz", tver: "", guest: "" });
+    const st2 = await (await ask("/import/state", { key: "secret-key-1" })).json();
+    const hit2 = st2.items.find((i) => i.guid === "helloproject-media-abc123");
+    assert(hit2.status === "入力済み" && hit2.entry.links.length === 2 && hit2.entry.guest === "ゲスト", "一覧: 保存したものが『入力済み』と、入っている中身で見える");
+
+    r = await ask("/import/save", { key: "secret-key-1", guid: "helloproject-media-abc123", links: [], guest: "", note: "" });
+    assert(r.status === 200 && file.items.length === 0, "中身を空にして保存すると、その項目は外れる");
+
+    r = await ask("/import/save", { key: "secret-key-1", guid: "helloproject-media-zzz", links: [], guest: "x", note: "" });
     assert(r.status === 400, "フィードに無い項目は400");
   } finally {
     globalThis.fetch = prev;

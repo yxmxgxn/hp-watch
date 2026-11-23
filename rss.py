@@ -510,8 +510,16 @@ def load_manual(now):
     return {e["guid"]: e for e in entries if e.get("guid") and str(e.get("until") or "") >= today}
 
 
+def manual_links(e):
+    """入れたリンク（名前, URL）。https のものだけ。前の形（tver だけ）の分は「TVer」として先頭に"""
+    links = [(str(l.get("label") or "")[:20], str(l.get("url") or "")) for l in e.get("links") or []]
+    if e.get("tver"):
+        links.insert(0, ("TVer", str(e["tver"])))
+    return [(lab or "リンク", u) for lab, u in links if u.startswith("https://")]
+
+
 def apply_manual(items, manual):
-    """記事の本文の後ろに、Tver のリンクとゲスト名を足す（状態ファイルの本文は変えない）"""
+    """記事の本文の後ろに、メモ・ゲスト・リンクを足す（状態ファイルの本文は変えない）"""
     out = []
     for i in items:
         e = manual.get(i["guid"])
@@ -519,10 +527,13 @@ def apply_manual(items, manual):
             out.append(i)
             continue
         extra = ""
+        if e.get("note"):
+            extra += f"<p>{escape(e['note'])}</p>"
         if e.get("guest"):
             extra += f"<p>ゲスト: {escape(e['guest'])}</p>"
-        if str(e.get("tver") or "").startswith("https://tver.jp/"):
-            extra += f'<ul><li><a href={quoteattr(e["tver"])}>TVer で見る</a></li></ul>'
+        links = manual_links(e)
+        if links:
+            extra += "<ul>" + "".join(f"<li><a href={quoteattr(u)}>{escape(lab)}</a></li>" for lab, u in links) + "</ul>"
         out.append({**i, "html": i["html"] + extra})
     return out
 

@@ -1,15 +1,17 @@
-// ダッシュボード（鍵つき）: 放送の予定に、Tver のリンクやゲスト名を手で足す。自分だけが使う。
-//   GET  /import       … 入力ページ（鍵・項目・Tver のURL・ゲスト名）。データは public の data/ から読む（公開のもの）
-//   POST /import/save  … 鍵を確かめて、manual/import.json をリポジトリに書く。そのあと rss.yml を呼んで、フィードに反映する
+// ダッシュボード（鍵つき）: 放送の予定に、リンク（Tver・YouTube・Spotify など）・ゲスト名・メモを手で足す。自分だけが使う。
+//   GET  /import         … 入力ページ。ページ自体には、データも鍵も無い（開けるが、何も出ない）
+//   POST /import/state   … 鍵を確かめて、期限内の項目の一覧と、入っている中身を返す（鍵は本文に入れる）
+//   POST /import/save    … 鍵を確かめて、manual/import.json をリポジトリに書く。そのあと rss.yml を呼んで、フィードに反映する
 //
-// 鍵は Worker の DASHBOARD_KEY（secret）。書き込みは GH_DATA_TOKEN（このリポジトリの contents だけ）。どちらも値はチャットに出さない。
-// 期限: 放送日の3日後まで（rss.py の load_manual も同じ日で切る）。期限を過ぎた分は、次の保存のときにファイルから外す。
+// 鍵は Worker の DASHBOARD_KEY（secret）。読み書きは GH_DATA_TOKEN（このリポジトリの contents だけ）。どちらも値はチャットに出さない。
+// 期限: 放送日の3日後まで（rss.py の load_manual も同じ日で切る）。期限を過ぎた分は、保存のときにファイルから外す。
 
 const FILE = "manual/import.json";
-const DAYS_AFTER = 3;
+const DAYS_AFTER = 3;   // 放送日から何日まで出すか
+const WINDOW_DAYS = 10; // 一覧に出す放送日の前後（日）
+const MAX_LINKS = 8;
 const UA = "hello-rss-import";
 const GUID = /^[a-z0-9-]+-media-[A-Za-z0-9_-]+$/;
-const TVER = /^https:\/\/tver\.jp\/(episodes|series)\/[A-Za-z0-9]+(\?[^\s]*)?$/;
 
 const json = (status, body) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 
@@ -23,22 +25,49 @@ export function addDays(day, n) {
   return d.toISOString().slice(0, 10);
 }
 
+const clean = (s) => String(s ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim();
+
 // 入力の形を確かめる。項目が実際にあるかは、呼び出し側で調べる
 export function validate(body) {
   if (!body || typeof body !== "object") return { error: "入力が読めません" };
   const guid = String(body.guid || "").trim();
   if (!GUID.test(guid)) return { error: "項目のIDの形が違います" };
-  const tver = String(body.tver || "").trim();
-  if (tver && (tver.length > 200 || !TVER.test(tver))) return { error: "Tver のURLは、https://tver.jp/episodes/… か /series/… の形にしてください" };
-  const guest = String(body.guest || "").replace(/[\u0000-\u001f\u007f]/g, "").trim();
+  const guest = clean(body.guest);
   if (guest.length > 60) return { error: "ゲスト名は60文字までです" };
-  return { guid, tver, guest };
+  const note = clean(body.note);
+  if (note.length > 200) return { error: "メモは200文字までです" };
+  const raw = Array.isArray(body.links) ? body.links : [];
+  if (raw.length > MAX_LINKS) return { error: `リンクは${MAX_LINKS}本までです` };
+  const links = [];
+  for (const l of raw) {
+    const label = clean(l && l.label);
+    if (!label || label.length > 20) return { error: "リンクの名前は1〜20文字にしてください" };
+    const url = String(l && l.url || "").trim();
+    if (url.length > 300) return { error: "URLが長すぎます" };
+    let u;
+    try {
+      u = new URL(url);
+    } catch {
+      return { error: "URLの形が違います" };
+    }
+    if (u.protocol !== "https:") return { error: "URL は https:// で始めてください" };
+    links.push({ label, url: u.toString() });
+  }
+  return { guid, guest, note, links };
 }
 
-// 今のファイルに、1件を足す（同じ項目は入れ替え）。期限の切れた分は外す。両方空なら、その項目は外すだけ
+// 前の形（tver だけ）の分も、リンクとして扱う
+export function linksOf(e) {
+  const out = [];
+  if (e && e.tver) out.push({ label: "TVer", url: e.tver });
+  for (const l of (e && e.links) || []) out.push(l);
+  return out;
+}
+
+// 今のファイルに、1件を足す（同じ項目は入れ替え）。期限の切れた分は外す。中身が空なら、その項目は外すだけ
 export function merge(file, entry, today) {
   const kept = (file && file.items || []).filter((e) => e.until >= today && e.guid !== entry.guid);
-  if (entry.tver || entry.guest) kept.push(entry);
+  if (entry.links.length || entry.guest || entry.note) kept.push(entry);
   kept.sort((a, b) => String(a.air).localeCompare(String(b.air)));
   return { items: kept };
 }
@@ -101,15 +130,46 @@ async function writeFile(env, file, sha, message) {
   });
 }
 
-async function save(req, env, now, dispatch) {
+async function authorized(body, env) {
+  return sameKey(body && body.key, env.DASHBOARD_KEY);
+}
+
+// 期限内の項目（放送日の前後10日・ただし期限内）と、入っている中身
+async function state(req, env, now) {
+  let body;
+  try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
+  if (!env.DASHBOARD_KEY) return json(500, { error: "鍵が設定されていません（DASHBOARD_KEY）" });
+  if (!(await authorized(body, env))) return json(403, { error: "鍵が違います" });
+
+  const today = jstDay(now);
+  const lo = addDays(today, -DAYS_AFTER), hi = addDays(today, WINDOW_DAYS);
+  const opts = await readAsset(env, "/data/options.json");
+  const items = [];
+  for (const s of opts.sources || []) {
+    const d = await readAsset(env, s.file);
+    for (const it of d.items || []) {
+      if (!String(it.guid).includes("-media-") || !it.air) continue;
+      const air = String(it.air).slice(0, 10);
+      if (air < lo || air > hi) continue;
+      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel });
+    }
+  }
+  const cur = await readFile(env);
+  const byGuid = new Map((cur.file.items || []).filter((e) => e.until >= today).map((e) => [e.guid, e]));
+  for (const it of items) {
+    const e = byGuid.get(it.guid);
+    it.status = e ? "入力済み" : "未入力";
+    it.entry = e ? { links: linksOf(e), guest: e.guest || "", note: e.note || "", updated: e.updated || "" } : null;
+  }
+  items.sort((a, b) => a.air.localeCompare(b.air));
+  return json(200, { today, items });
+}
+
+async function saveEntry(req, env, now, dispatch) {
   if (!env.DASHBOARD_KEY) return json(500, { error: "鍵が設定されていません（DASHBOARD_KEY）" });
   let body;
-  try {
-    body = await req.json();
-  } catch {
-    return json(400, { error: "入力が読めません" });
-  }
-  if (!(await sameKey(body && body.key, env.DASHBOARD_KEY))) return json(403, { error: "鍵が違います" });
+  try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
+  if (!(await authorized(body, env))) return json(403, { error: "鍵が違います" });
 
   const v = validate(body);
   if (v.error) return json(400, { error: v.error });
@@ -117,7 +177,10 @@ async function save(req, env, now, dispatch) {
   if (!item) return json(400, { error: "その項目が、フィードの元データに見つかりません" });
   if (!item.air) return json(400, { error: "放送日が分からない項目です（フィードを作り直すと、出るようになります）" });
 
-  const entry = { guid: v.guid, air: item.air, until: addDays(item.air, DAYS_AFTER), tver: v.tver, guest: v.guest, updated: now.toISOString() };
+  const entry = {
+    guid: v.guid, air: item.air, until: addDays(item.air, DAYS_AFTER),
+    links: v.links, guest: v.guest, note: v.note, updated: now.toISOString(),
+  };
   const today = jstDay(now);
   for (let attempt = 0; attempt < 2; attempt++) {
     const cur = await readFile(env);
@@ -144,87 +207,167 @@ const PAGE = `<!doctype html>
 <meta name="robots" content="noindex">
 <title>放送の情報を入れる</title>
 <style>
-:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2}
-@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff}}
-body{margin:0;padding:24px 16px;background:var(--bg);color:var(--fg);font:16px/1.7 "Noto Sans JP",system-ui,sans-serif}
-main{max-width:640px;margin:0 auto}h1{font-size:1.3rem;margin:0 0 8px}p,.mute{color:var(--mute);margin:4px 0}
-label{display:block;margin:14px 0 4px;font-weight:700}
-input,select{width:100%;box-sizing:border-box;padding:9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
-button{margin-top:18px;padding:10px 18px;border:0;border-radius:6px;background:var(--accent);color:#fff;font:inherit;font-weight:700;cursor:pointer}
-button:disabled{opacity:.5}
-#msg{font-weight:700}.ok{color:#1a7f37}.ng{color:#c62828}
+:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2;--card:#f6f7f9}
+@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff;--card:#202124}}
+body{margin:0;padding:20px 16px 56px;background:var(--bg);color:var(--fg);font:15px/1.6 "Noto Sans JP",system-ui,sans-serif}
+main{max-width:680px;margin:0 auto}h1{font-size:1.25rem;margin:0 0 6px}h2{font-size:1rem;margin:22px 0 6px}
+p,.mute{color:var(--mute);margin:4px 0}
+input,select{box-sizing:border-box;width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
+label{display:block;margin:12px 0 4px;font-weight:700}
+button{padding:8px 14px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font:inherit;cursor:pointer;margin:6px 6px 0 0}
+button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
+.row{display:flex;gap:8px;align-items:center}.row input[type=url]{flex:1}.row input[type=text]{width:130px;flex:none}
+.list{border:1px solid var(--line);border-radius:8px;margin-top:8px}
+.item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}.item .main{flex:1;min-width:0}.item .name{font-weight:700;word-break:break-all}
+.badge{display:inline-block;font-size:.8rem;padding:1px 8px;border-radius:10px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
+.badge.done{border-color:var(--accent);color:var(--accent)}
+.got{font-size:.9rem;color:var(--mute);margin-top:2px;word-break:break-all}
+#form{border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:14px;background:var(--card)}
+#msg{font-weight:700;margin-top:10px}.ok{color:#1a7f37}.ng{color:#c62828}
 </style></head><body><main>
 <h1>放送の情報を入れる</h1>
-<p class="mute">放送日から3日たつと、ここには出なくなります。Tver のリンクとゲスト名は、フィードの記事に後ろから足されます。</p>
+<p class="mute">リンクや、ゲスト・メモを入れると、放送日の3日後まで、フィードの記事の後ろに付きます。ページには、鍵を入れるまで何も出ません。</p>
+
 <label for="key">鍵</label>
-<input id="key" type="password" autocomplete="current-password">
-<label for="item">項目（放送日の前後10日）</label>
-<select id="item"><option value="">読み込み中…</option></select>
-<p class="mute" id="until"></p>
-<label for="tver">Tver のURL（任意）</label>
-<input id="tver" type="url" placeholder="https://tver.jp/episodes/..." maxlength="200">
-<label for="guest">ゲスト（任意）</label>
-<input id="guest" maxlength="60">
-<button id="save" type="button">保存</button>
-<p id="msg" role="status"></p>
-</main>
+<div class="row"><input id="key" type="password" autocomplete="current-password"><button id="load" type="button">一覧を読む</button></div>
+
+<h2>期限内の項目</h2>
+<p class="mute" id="count"></p>
+<div class="list" id="list"></div>
+
+<div id="form" hidden>
+  <p><strong id="fname"></strong><span class="mute" id="fmeta"></span></p>
+  <input id="guid" type="hidden">
+  <label>リンク（TVer・YouTube・Spotify など）</label>
+  <div id="links"></div>
+  <button class="sub" id="addLink" type="button">＋ リンク</button>
+  <label for="guest">ゲスト（任意）</label>
+  <input id="guest" maxlength="60">
+  <label for="note">メモ（任意・フィードに出ます）</label>
+  <input id="note" maxlength="200">
+  <p class="mute">保存すると、フィードの記事の後ろに、この内容が付きます（次の作り直しで反映）。</p>
+  <button id="save" type="button">保存</button>
+  <button class="sub" id="clear" type="button">この項目の情報を消す</button>
+  <p id="msg" role="status"></p>
+</div>
+
+<datalist id="labels"><option value="TVer"><option value="YouTube"><option value="Spotify"><option value="公式"><option value="記事"></datalist>
+
 <script>
 const $ = (id) => document.getElementById(id);
-const DAY = 86400000;
-const jst = (d) => new Date(d.getTime() + 9 * 3600000).toISOString().slice(0, 10);
+const KEY = () => $("key").value;
+let items = [];
+const msg = (t, cls) => { $("msg").className = cls || ""; $("msg").textContent = t; };
 const plus = (day, n) => { const d = new Date(day + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
-let rows = [];
-(async () => {
-  try {
-    const opts = await (await fetch("/data/options.json", { cache: "no-store" })).json();
-    const today = jst(new Date());
-    const lo = plus(today, -10), hi = plus(today, 10);
-    for (const s of opts.sources || []) {
-      const d = await (await fetch(s.file, { cache: "no-store" })).json();
-      for (const it of d.items || []) {
-        const air = String(it.air || "").slice(0, 10);
-        if (it.guid.includes("-media-") && air && air >= lo && air <= hi) rows.push({ guid: it.guid, air, name: it.name || it.title, site: s.siteLabel });
-      }
+const post = async (path, body) => {
+  const r = await fetch(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({}));
+  return { ok: r.ok, status: r.status, j };
+};
+
+function linkRow(label, url) {
+  const row = document.createElement("div");
+  row.className = "row"; row.style.marginTop = "6px";
+  const l = document.createElement("input"); l.type = "text"; l.placeholder = "名前"; l.setAttribute("list", "labels"); l.maxLength = 20; l.value = label || "";
+  const u = document.createElement("input"); u.type = "url"; u.placeholder = "https://..."; u.maxLength = 300; u.value = url || "";
+  const d = document.createElement("button"); d.type = "button"; d.className = "sub"; d.textContent = "削除";
+  d.addEventListener("click", () => row.remove());
+  row.append(l, u, d);
+  return row;
+}
+
+function fill(it) {
+  $("form").hidden = false;
+  $("fname").textContent = it.name;
+  $("fmeta").textContent = "  " + it.air + " 放送（" + it.site + "）・期限 " + it.until;
+  $("guid").value = it.guid;
+  $("guest").value = it.entry ? it.entry.guest : "";
+  $("note").value = it.entry ? it.entry.note : "";
+  $("links").textContent = "";
+  ((it.entry && it.entry.links) || []).forEach((l) => $("links").appendChild(linkRow(l.label, l.url)));
+  if (!$("links").children.length) $("links").appendChild(linkRow("", ""));
+  msg("");
+  $("form").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderList() {
+  const list = $("list");
+  list.textContent = "";
+  $("count").textContent = items.length ? items.length + "件（放送日の前後。期限内のもの）" : "期限内の項目はありません";
+  items.forEach((it) => {
+    const row = document.createElement("div");
+    row.className = "item";
+    const main = document.createElement("div"); main.className = "main";
+    const name = document.createElement("div"); name.className = "name"; name.textContent = it.name;
+    const badge = document.createElement("span"); badge.className = "badge" + (it.entry ? " done" : ""); badge.textContent = it.status;
+    name.appendChild(badge);
+    const meta = document.createElement("div"); meta.className = "mute"; meta.textContent = it.air + " 放送（" + it.site + "）・期限 " + it.until;
+    main.append(name, meta);
+    if (it.entry) {
+      const got = document.createElement("div"); got.className = "got";
+      const parts = it.entry.links.map((l) => l.label);
+      if (it.entry.guest) parts.push("ゲスト: " + it.entry.guest);
+      if (it.entry.note) parts.push("メモ: " + it.entry.note);
+      got.textContent = "入っている: " + parts.join(" / ") + (it.entry.updated ? "（" + it.entry.updated.slice(0, 16).replace("T", " ") + "）" : "");
+      main.appendChild(got);
     }
-    rows.sort((a, b) => a.air.localeCompare(b.air));
-    const sel = $("item");
-    sel.textContent = "";
-    const first = document.createElement("option");
-    first.value = ""; first.textContent = rows.length ? "選ぶ" : "（放送日の前後10日に項目がありません）";
-    sel.appendChild(first);
-    rows.forEach((r, i) => {
-      const o = document.createElement("option");
-      o.value = String(i); o.textContent = r.air + "  " + r.name + "（" + r.site + "）";
-      sel.appendChild(o);
-    });
-  } catch (e) {
-    $("msg").className = "ng"; $("msg").textContent = "項目が読めませんでした";
-  }
-})();
-$("item").addEventListener("change", () => {
-  const r = rows[Number($("item").value)];
-  $("until").textContent = r ? "この項目は " + plus(r.air, ${DAYS_AFTER}) + " まで出ます" : "";
-});
-$("save").addEventListener("click", async () => {
-  const r = rows[Number($("item").value)];
-  const msg = $("msg");
-  if (!r) { msg.className = "ng"; msg.textContent = "項目を選んでください"; return; }
-  $("save").disabled = true; msg.className = ""; msg.textContent = "保存しています…";
+    const btn = document.createElement("button"); btn.type = "button"; btn.className = "sub"; btn.textContent = it.entry ? "編集" : "入れる";
+    btn.addEventListener("click", () => fill(it));
+    row.append(main, btn);
+    list.appendChild(row);
+  });
+}
+
+$("load").addEventListener("click", async () => {
+  $("load").disabled = true;
   try {
-    const res = await fetch("/import/save", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ key: $("key").value, guid: r.guid, tver: $("tver").value.trim(), guest: $("guest").value.trim() }),
-    });
-    const j = await res.json().catch(() => ({}));
-    if (res.ok) { msg.className = "ok"; msg.textContent = "保存しました。" + (j.note || "フィードに反映されるまで、少し待ってください"); }
-    else { msg.className = "ng"; msg.textContent = j.error || ("失敗しました（" + res.status + "）"); }
+    const r = await post("/import/state", { key: KEY() });
+    if (!r.ok) { msg(r.j.error || "読めませんでした（" + r.status + "）", "ng"); return; }
+    items = r.j.items || [];
+    renderList();
+    msg("");
   } catch (e) {
-    msg.className = "ng"; msg.textContent = "通信できませんでした";
+    msg("通信できませんでした", "ng");
   } finally {
-    $("save").disabled = false;
+    $("load").disabled = false;
   }
 });
+
+$("addLink").addEventListener("click", () => $("links").appendChild(linkRow("", "")));
+
+function collect() {
+  const links = [];
+  for (const row of $("links").children) {
+    const [l, u] = row.querySelectorAll("input");
+    if (!l.value.trim() && !u.value.trim()) continue;
+    links.push({ label: l.value.trim(), url: u.value.trim() });
+  }
+  return links;
+}
+
+async function save(clearing) {
+  const guid = $("guid").value;
+  if (!guid) { msg("項目を選んでください", "ng"); return; }
+  const body = clearing
+    ? { key: KEY(), guid, links: [], guest: "", note: "" }
+    : { key: KEY(), guid, links: collect(), guest: $("guest").value.trim(), note: $("note").value.trim() };
+  $("save").disabled = true; $("clear").disabled = true;
+  msg("保存しています…");
+  try {
+    const r = await post("/import/save", body);
+    if (!r.ok) { msg(r.j.error || "失敗しました（" + r.status + "）", "ng"); return; }
+    msg("保存しました。" + (r.j.note || "フィードに反映されるまで、少し待ってください"), "ok");
+    const again = await post("/import/state", { key: KEY() });
+    if (again.ok) { items = again.j.items || []; renderList(); }
+  } catch (e) {
+    msg("通信できませんでした", "ng");
+  } finally {
+    $("save").disabled = false; $("clear").disabled = false;
+  }
+}
+$("save").addEventListener("click", () => save(false));
+$("clear").addEventListener("click", () => { if (confirm("この項目の情報を消しますか？")) save(true); });
 </script>
 </main></body></html>
 `;
@@ -235,8 +378,7 @@ export async function importRoutes(req, env, { now, dispatch }) {
   if (req.method === "GET" && url.pathname === "/import") {
     return new Response(PAGE, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
   }
-  if (req.method === "POST" && url.pathname === "/import/save") {
-    return save(req, env, now, dispatch);
-  }
+  if (req.method === "POST" && url.pathname === "/import/state") return state(req, env, now);
+  if (req.method === "POST" && url.pathname === "/import/save") return saveEntry(req, env, now, dispatch);
   return null;
 }

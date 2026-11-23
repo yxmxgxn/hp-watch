@@ -123,10 +123,10 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 ## 放送の情報を手で入れるページ（`/import`・鍵つき）
 
-- 自分だけが使う。入力ページは `watcher/src/import.js`。鍵（`DASHBOARD_KEY`）と、書き込み用のトークン（`GH_DATA_TOKEN`。このリポジトリの contents だけ）は、Worker の secret に入れる（値はチャットやリポジトリに書かない）
-- 項目は、フィードの元データ（`data/*-schedule.json`）の、放送日の前後10日のものから選ぶ。Tver のURL（`https://tver.jp/episodes/…` か `/series/…`）とゲスト名を入れると、`manual/import.json` に書かれ、`rss.yml` が呼ばれてフィードに反映される
+- 自分だけが使う。入力ページは `watcher/src/import.js`（ページ自体は何も出さない。データを読むのも保存するのも、鍵（`DASHBOARD_KEY`）を入れてから）。読み書きに使うトークン（`GH_DATA_TOKEN`。このリポジトリの contents だけ）と鍵は、Worker の secret に入れる（値はチャットやリポジトリに書かない）
+- 項目は、放送日の前後の期限内のものから選ぶ。リンクは何本でも（名前とURL。https のみ）、ゲスト名とメモも入れられる。入れた中身は一覧に出る。保存すると `manual/import.json` に書かれ、`rss.yml` が呼ばれてフィードに反映される
 - 期限は放送日の3日後まで。`rss.py` の `load_manual` と、保存のときの掃除（`merge`）が、同じ日で切る。期限が切れた分は、フィードにも入力ページにも出ない
-- 本文は変えない。記事の後ろに「TVer で見る」のリンクと「ゲスト」の段落を足すだけ（`rss.py` の `apply_manual`）
+- 本文は変えない。記事の後ろに、メモ・ゲスト・リンクを足すだけ（`rss.py` の `apply_manual`）
 
 ## radio/
 
