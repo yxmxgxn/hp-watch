@@ -2480,6 +2480,22 @@
 "status": null,
 "title": "今日は稲場愛香の誕生日です！"
 },
+"h38e8abce0170a153": {
+"artists": [
+33
+],
+"category": "BIRTHDAY",
+"date": "2028-11-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/akari_takeuchi/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "今日は竹内朱莉の誕生日です！"
+},
 "h390006db1e386c97": {
 "artists": [
 40
@@ -2741,6 +2757,22 @@
 "status": null,
 "title": "テレビ和歌山「うたなびMAX!!」"
 },
+"h43f573ec624b0eda": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-22",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rab.co.jp/radio/niche/",
+"members": [],
+"note": "※コメント",
+"start": "11:00",
+"status": null,
+"title": "RABラジオ「らじ丸にっち！」"
+},
 "h440e7b2cfd0efce5": {
 "artists": [
 40
@@ -2894,6 +2926,22 @@
 "start": null,
 "status": null,
 "title": "今日は譜久村聖の誕生日です！"
+},
+"h48d650a4339cf57c": {
+"artists": [
+10
+],
+"category": "STAGE",
+"date": "2026-11-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
+"members": [],
+"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
+"start": null,
+"status": null,
+"title": "タクフェス第14弾「北の島から」"
 },
 "h49ea670ecafe03cc": {
 "artists": [
@@ -4022,6 +4070,22 @@
 "start": "13:00",
 "status": null,
 "title": "FM徳島「Nani-Show? Friday!」"
+},
+"h6f6fbe909c269a75": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-22",
+"end": "11:50",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
+"members": [],
+"note": "※コメント",
+"start": "11:40",
+"status": null,
+"title": "ABS秋田放送「ZIP！SUNDAY」"
 },
 "h6f8ed3fc6d2b3fca": {
 "artists": [
@@ -9153,6 +9217,38 @@
 "status": null,
 "title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
+"s2221": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-24",
+"end": "11:15",
+"isFc": false,
+"label": null,
+"link": "http://www.tnc.co.jp/store/",
+"members": [],
+"note": "※コメント\n※内容が変更になることがございます。ご了承ください。",
+"start": "09:50",
+"status": null,
+"title": "テレビ西日本「ももち浜ストア」"
+},
+"s2222": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-29",
+"end": "22:55",
+"isFc": false,
+"label": null,
+"link": "https://fmfukuoka.co.jp/program/tt/",
+"members": [],
+"note": "※コメント",
+"start": "22:30",
+"status": null,
+"title": "FM福岡「TREASURE TIMES」"
+},
 "s2232": {
 "artists": [
 11
@@ -9249,22 +9345,6 @@
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
 },
-"s2269": {
-"artists": [
-5
-],
-"category": "TV",
-"date": "2026-11-22",
-"end": "11:50",
-"isFc": false,
-"label": null,
-"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
-"members": [],
-"note": "※コメント",
-"start": "11:40",
-"status": null,
-"title": "ABS秋田放送「ZIP！SUNDAY」"
-},
 "s2270": {
 "artists": [
 5
@@ -9280,38 +9360,6 @@
 "start": "24:45",
 "status": null,
 "title": "岩手めんこいテレビ「BEATNIKS」"
-},
-"s2271": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-22",
-"end": "15:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rab.co.jp/radio/niche/",
-"members": [],
-"note": "※コメント",
-"start": "11:00",
-"status": null,
-"title": "RABラジオ「らじ丸にっち！」"
-},
-"s782": {
-"artists": [
-10
-],
-"category": "STAGE",
-"date": "2026-11-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
-"members": [],
-"note": "アマノ芸術創造センター名古屋(名古屋市芸術創造センター)（愛知）",
-"start": null,
-"status": null,
-"title": "タクフェス第14弾「北の島から」"
 },
 "s783": {
 "artists": [
@@ -9538,5 +9586,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611221800-ullgXtOfvWVixvLF"
+"versionDir": "2611231800-Tw3vtoHvEYh3wqT0"
 }
