@@ -145,7 +145,8 @@ def write_options(out, sources):
 PAGE = """<!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>選んで作る RSS ｜ hello-rss</title>
+<meta name="description" content="ハロプロの RSS を、人・グループ・カテゴリ・言葉で選んで作るページです（非公式）。">
+<title>ハロプロ 選んで作るRSS</title>
 <style>
 :root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2;--card:#f6f7f9}
 @media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff;--card:#202124}}
@@ -164,7 +165,7 @@ button,.btn{display:inline-block;margin:8px 8px 0 0;padding:8px 14px;border:1px 
 button.sub{background:none;color:var(--accent)}
 ol{padding-left:1.3em;margin:6px 0}
 </style></head><body><main>
-<h1>選んで作る RSS</h1>
+<h1>ハロプロ 選んで作るRSS</h1>
 <p>サイトと種類を選んで、見たい人・グループ・カテゴリ・言葉を指定すると、その分だけのフィードのURLができます。何も選ばなければ、全部です。</p>
 <p><a href="/">← フィードの一覧へ</a></p>
 <fieldset><legend>1. サイトと種類</legend>
