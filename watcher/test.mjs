@@ -380,3 +380,65 @@ if (dataDir) {
     globalThis.fetch = prev;
   }
 }
+
+// --- ログイン（鍵は1回。Cookie で30日・HttpOnly）。GitHub と ASSETS は偽物
+{
+  const im2 = await import("./src/import.js");
+  const now = Date.now();
+  const tok = await im2.makeSession("secret-key-1", now);
+  assert(await im2.validSession("secret-key-1", tok, now + 1000), "ログイン: 作った印は、期限の中なら通る");
+  assert(!(await im2.validSession("secret-key-1", tok, now + 31 * 86400e3)), "ログイン: 30日を過ぎたら通らない");
+  assert(!(await im2.validSession("other-key", tok, now)), "ログイン: 鍵を変えると、前の印は通らない");
+  const bad = tok.slice(0, -2) + (tok.endsWith("aa") ? "bb" : "aa");
+  assert(!(await im2.validSession("secret-key-1", bad, now)), "ログイン: 印を書き換えたら通らない");
+  assert(im2.cookieValue("a=1; hr_import=xyz; b=2", "hr_import") === "xyz", "Cookie の読み取り");
+
+  const day = im2.jstDay(new Date());
+  const prev2 = globalThis.fetch;
+  let file2 = null;
+  globalThis.fetch = async (url, opts = {}) => {
+    const u = String(url);
+    if (u.startsWith("https://api.github.com/")) {
+      if (u.includes("/contents/manual/import.json")) {
+        if (opts.method === "PUT") {
+          file2 = JSON.parse(Buffer.from(JSON.parse(opts.body).content, "base64").toString("utf8"));
+          return new Response("{}", { status: 201 });
+        }
+        if (file2 === null) return new Response("Not Found", { status: 404 });
+        return Response.json({ sha: "x", content: Buffer.from(JSON.stringify(file2)).toString("base64") });
+      }
+      if (u.includes("/dispatches")) return new Response(null, { status: 204 });
+    }
+    return realFetch(url, opts);
+  };
+  try {
+    const assets2 = { fetch: async (req) => {
+      const p = new URL(req.url).pathname;
+      if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }, { site: "ameblo", siteLabel: "アメブロ", kind: "blog" }] });
+      if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", name: "番組名", air: day, link: "x", date: "2026-11-17T00:00:00Z" }] });
+      return new Response("no", { status: 404 });
+    } };
+    const e2 = { GH_REPO: "o/r", GH_TOKEN: "tok", GH_DATA_TOKEN: "dtok", DASHBOARD_KEY: "secret-key-1", ASSETS: assets2 };
+    const hit = (path, init) => watcher.fetch(new Request("https://hello-rss.example" + path, { method: "POST", ...init }), e2);
+
+    let r = await hit("/import/login", { body: JSON.stringify({ key: "wrong" }) });
+    assert(r.status === 403 && !r.headers.get("set-cookie"), "ログイン: 鍵が違えば403・Cookie を出さない");
+    r = await hit("/import/login", { body: JSON.stringify({ key: "secret-key-1" }) });
+    const sc = r.headers.get("set-cookie") || "";
+    assert(r.status === 200 && sc.includes("hr_import=") && sc.includes("HttpOnly") && sc.includes("Secure") && sc.includes("SameSite=Strict") && sc.includes("Max-Age=2592000"), "ログイン: 鍵が合えば、HttpOnly・Secure・SameSite=Strict・30日の Cookie");
+    const cookie = sc.split(";")[0];
+
+    r = await hit("/import/state", { body: "{}", headers: { cookie } });
+    assert(r.status === 200, "一覧: 鍵を入れなくても、ログインの Cookie で読める");
+    r = await hit("/import/state", { body: "{}", headers: { cookie: "hr_import=" + tok.slice(0, -2) + "zz" } });
+    assert(r.status === 403, "一覧: 印が違う Cookie は403");
+    r = await hit("/import/state", { body: "{}" });
+    assert(r.status === 403, "一覧: Cookie も鍵も無ければ403");
+    r = await hit("/import/save", { body: JSON.stringify({ guid: "helloproject-media-abc123", links: [{ label: "TVer", url: "https://tver.jp/episodes/x" }], guest: "", note: "" }), headers: { cookie } });
+    assert(r.status === 200 && file2 && file2.items.length === 1, "保存: Cookie だけで保存できる");
+    r = await hit("/import/logout", { body: "{}" });
+    assert((r.headers.get("set-cookie") || "").includes("Max-Age=0"), "ログアウト: Cookie を消す");
+  } finally {
+    globalThis.fetch = prev2;
+  }
+}
