@@ -334,7 +334,7 @@ if (dataDir) {
   try {
     const assets = { fetch: async (req) => {
       const p = new URL(req.url).pathname;
-      if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }] });
+      if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }, { site: "ameblo", siteLabel: "アメブロ（ハロプロ）", kind: "blog" }] });
       if (p === "/data/helloproject-schedule.json") return Response.json({ items: [
         { guid: "helloproject-media-abc123", title: "番組", name: "番組名", air: today, link: "x", date: "2026-11-17T00:00:00Z" },
         { guid: "helloproject-media-old999", title: "古い", name: "古い番組", air: im.addDays(today, -30), link: "x", date: "2026-10-25T00:00:00Z" },

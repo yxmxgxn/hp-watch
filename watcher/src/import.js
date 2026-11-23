@@ -93,6 +93,7 @@ async function readAsset(env, path) {
 async function findItem(env, guid) {
   const opts = await readAsset(env, "/data/options.json");
   for (const s of opts.sources || []) {
+    if (!s.file) continue;
     const d = await readAsset(env, s.file);
     const it = (d.items || []).find((i) => i.guid === guid);
     if (it) return { air: String(it.air || "").slice(0, 10), name: it.name || it.title || "", site: s.siteLabel };
@@ -146,6 +147,7 @@ async function state(req, env, now) {
   const opts = await readAsset(env, "/data/options.json");
   const items = [];
   for (const s of opts.sources || []) {
+    if (!s.file) continue; // アメブロ・YouTube は、データのファイルを持たない（保存せず、取りに行く）
     const d = await readAsset(env, s.file);
     for (const it of d.items || []) {
       if (!String(it.guid).includes("-media-") || !it.air) continue;
