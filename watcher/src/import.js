@@ -13,7 +13,36 @@ const MAX_LINKS = 8;
 const UA = "hello-rss-import";
 const GUID = /^[a-z0-9-]+-media-[A-Za-z0-9_-]+$/;
 
-const json = (status, body) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
+const json = (status, body, extra = {}) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...extra } });
+
+// ログイン（鍵を1回入れると、ブラウザに30日残る）。Cookie は、鍵から作った印（HMAC）。鍵を変えると、全部のログインが切れる
+const COOKIE = "hr_import";
+const SESSION_DAYS = 30;
+const enc = (s) => new TextEncoder().encode(s);
+async function sign(secret, msg) {
+  const k = await crypto.subtle.importKey("raw", enc(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sig = new Uint8Array(await crypto.subtle.sign("HMAC", k, enc(msg)));
+  let bin = "";
+  for (const b of sig) bin += String.fromCharCode(b);
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+export async function makeSession(secret, nowMs) {
+  const exp = String(nowMs + SESSION_DAYS * 86400e3);
+  return `${exp}.${await sign(secret, "import:" + exp)}`;
+}
+export async function validSession(secret, token, nowMs) {
+  if (!secret || typeof token !== "string") return false;
+  const [exp, sig] = token.split(".");
+  if (!exp || !sig || !/^\d+$/.test(exp) || Number(exp) < nowMs) return false;
+  return sameKey(sig, await sign(secret, "import:" + exp));
+}
+export function cookieValue(header, name) {
+  for (const part of String(header || "").split(";")) {
+    const i = part.indexOf("=");
+    if (i > 0 && part.slice(0, i).trim() === name) return part.slice(i + 1).trim();
+  }
+  return "";
+}
 
 // JST の日付（YYYY-MM-DD）と、その何日後か
 export function jstDay(now) {
@@ -131,8 +160,10 @@ async function writeFile(env, file, sha, message) {
   });
 }
 
-async function authorized(body, env) {
-  return sameKey(body && body.key, env.DASHBOARD_KEY);
+// 鍵（本文に入れた場合）か、ログインの Cookie のどちらかが合えば通す
+async function authorized(req, body, env, nowMs) {
+  if (await sameKey(body && body.key, env.DASHBOARD_KEY)) return true;
+  return validSession(env.DASHBOARD_KEY, cookieValue(req.headers.get("cookie"), COOKIE), nowMs);
 }
 
 // 期限内の項目（放送日の前後10日・ただし期限内）と、入っている中身
@@ -140,7 +171,7 @@ async function state(req, env, now) {
   let body;
   try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
   if (!env.DASHBOARD_KEY) return json(500, { error: "鍵が設定されていません（DASHBOARD_KEY）" });
-  if (!(await authorized(body, env))) return json(403, { error: "鍵が違います" });
+  if (!(await authorized(req, body, env, now.getTime()))) return json(403, { error: "ログインが切れています。鍵を入れてください" }, {});
 
   const today = jstDay(now);
   const lo = addDays(today, -DAYS_AFTER), hi = addDays(today, WINDOW_DAYS);
@@ -153,7 +184,7 @@ async function state(req, env, now) {
       if (!String(it.guid).includes("-media-") || !it.air) continue;
       const air = String(it.air).slice(0, 10);
       if (air < lo || air > hi) continue;
-      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel });
+      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel, cat: String((it.cats && it.cats[0]) || "") });
     }
   }
   const cur = await readFile(env);
@@ -171,7 +202,7 @@ async function saveEntry(req, env, now, dispatch) {
   if (!env.DASHBOARD_KEY) return json(500, { error: "鍵が設定されていません（DASHBOARD_KEY）" });
   let body;
   try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
-  if (!(await authorized(body, env))) return json(403, { error: "鍵が違います" });
+  if (!(await authorized(req, body, env, now.getTime()))) return json(403, { error: "ログインが切れています。鍵を入れてください" }, {});
 
   const v = validate(body);
   if (v.error) return json(400, { error: v.error });
@@ -220,6 +251,9 @@ button{padding:8px 14px;border:1px solid var(--accent);border-radius:6px;backgro
 button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 .row{display:flex;gap:8px;align-items:center}.row input[type=url]{flex:1}.row input[type=text]{width:130px;flex:none}
 .list{border:1px solid var(--line);border-radius:8px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips button{margin:0;padding:5px 12px;border-radius:14px;background:none;color:var(--accent)}
+.chips button.on{background:var(--accent);color:#fff}
 .item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-top:1px solid var(--line)}
 .item:first-child{border-top:0}.item .main{flex:1;min-width:0}.item .name{font-weight:700;word-break:break-all}
 .badge{display:inline-block;font-size:.8rem;padding:1px 8px;border-radius:10px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
@@ -232,10 +266,13 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 <p class="mute">リンクや、ゲスト・メモを入れると、放送日の3日後まで、フィードの記事の後ろに付きます。ページには、鍵を入れるまで何も出ません。</p>
 
 <label for="key">鍵</label>
-<div class="row"><input id="key" type="password" autocomplete="current-password"><button id="load" type="button">一覧を読む</button></div>
+<div class="row"><input id="key" type="password" autocomplete="current-password"><button id="login" type="button">ログイン</button></div>
+<p class="mute">鍵は、ログインのときだけ入れます。ログインは30日残ります。</p>
+<div class="row"><button id="load" type="button" class="sub">一覧を読む</button><button id="logout" type="button" class="sub">ログアウト</button></div>
 <p id="msg" role="status"></p>
 
 <h2>期限内の項目</h2>
+<div class="chips" id="filters"></div>
 <p class="mute" id="count"></p>
 <div class="list" id="list"></div>
 
@@ -293,11 +330,28 @@ function fill(it) {
   $("form").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const CATS = [["", "すべて"], ["TV", "テレビ"], ["RADIO", "ラジオ"], ["MAGAZINE", "雑誌"], ["WEB", "WEB"], ["OTHER", "その他"]];
+let filter = "";
+const MEDIA = ["TV", "RADIO", "MAGAZINE", "WEB"];
+const matches = (it) => !filter || (filter === "OTHER" ? !MEDIA.includes(it.cat) : it.cat === filter);
+function drawFilters() {
+  const box = $("filters");
+  box.textContent = "";
+  CATS.forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = label; b.className = key === filter ? "on" : "";
+    b.addEventListener("click", () => { filter = key; drawFilters(); renderList(); });
+    box.appendChild(b);
+  });
+}
+
 function renderList() {
   const list = $("list");
   list.textContent = "";
-  $("count").textContent = items.length ? items.length + "件（放送日の前後。期限内のもの）" : "期限内の項目はありません";
-  items.forEach((it) => {
+  const shown = items.filter(matches);
+  $("count").textContent = !items.length ? "期限内の項目はありません"
+    : (shown.length === items.length ? items.length + "件（放送日の前後。期限内のもの）" : shown.length + "件（全" + items.length + "件のうち）");
+  shown.forEach((it) => {
     const row = document.createElement("div");
     row.className = "item";
     const main = document.createElement("div"); main.className = "main";
@@ -321,19 +375,46 @@ function renderList() {
   });
 }
 
-$("load").addEventListener("click", async () => {
-  $("load").disabled = true;
+async function loadList(quiet) {
   try {
-    const r = await post("/import/state", { key: KEY() });
-    if (!r.ok) { msg(r.j.error || "読めませんでした（" + r.status + "）", "ng"); return; }
+    const r = await post("/import/state", {});
+    if (!r.ok) {
+      if (!quiet) msg(r.status === 403 ? "ログインが切れています。鍵を入れて「ログイン」を押してください" : (r.j.error || "読めませんでした（" + r.status + "）"), "ng");
+      return false;
+    }
     items = r.j.items || [];
     renderList();
-    msg("");
+    if (!quiet) msg("");
+    return true;
+  } catch (e) {
+    if (!quiet) msg("通信できませんでした", "ng");
+    return false;
+  }
+}
+
+$("login").addEventListener("click", async () => {
+  $("login").disabled = true;
+  try {
+    const r = await post("/import/login", { key: KEY() });
+    if (!r.ok) { msg(r.j.error || "ログインできませんでした（" + r.status + "）", "ng"); return; }
+    $("key").value = "";
+    msg("ログインしました");
+    await loadList(false);
   } catch (e) {
     msg("通信できませんでした", "ng");
   } finally {
-    $("load").disabled = false;
+    $("login").disabled = false;
   }
+});
+
+$("load").addEventListener("click", () => loadList(false));
+drawFilters();
+
+$("logout").addEventListener("click", async () => {
+  await post("/import/logout", {});
+  items = []; renderList(); $("form").hidden = true;
+  $("count").textContent = "";
+  msg("ログアウトしました");
 });
 
 $("addLink").addEventListener("click", () => $("links").appendChild(linkRow("", "")));
@@ -352,16 +433,15 @@ async function save(clearing) {
   const guid = $("guid").value;
   if (!guid) { msg("項目を選んでください", "ng"); return; }
   const body = clearing
-    ? { key: KEY(), guid, links: [], guest: "", note: "" }
-    : { key: KEY(), guid, links: collect(), guest: $("guest").value.trim(), note: $("note").value.trim() };
+    ? { guid, links: [], guest: "", note: "" }
+    : { guid, links: collect(), guest: $("guest").value.trim(), note: $("note").value.trim() };
   $("save").disabled = true; $("clear").disabled = true;
   msg("保存しています…");
   try {
     const r = await post("/import/save", body);
     if (!r.ok) { msg(r.j.error || "失敗しました（" + r.status + "）", "ng"); return; }
     msg("保存しました。" + (r.j.note || "フィードに反映されるまで、少し待ってください"), "ok");
-    const again = await post("/import/state", { key: KEY() });
-    if (again.ok) { items = again.j.items || []; renderList(); }
+    await loadList(true);
   } catch (e) {
     msg("通信できませんでした", "ng");
   } finally {
@@ -369,6 +449,7 @@ async function save(clearing) {
   }
 }
 $("save").addEventListener("click", () => save(false));
+loadList(true);
 $("clear").addEventListener("click", () => { if (confirm("この項目の情報を消しますか？")) save(true); });
 </script>
 </main></body></html>
@@ -380,9 +461,20 @@ export async function importRoutes(req, env, { now, dispatch }) {
   if (req.method === "GET" && url.pathname === "/import") {
     return new Response(PAGE, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
   }
+  if (req.method === "POST" && url.pathname === "/import/login") return guard("login", () => login(req, env, now));
+  if (req.method === "POST" && url.pathname === "/import/logout") return json(200, { ok: true }, { "set-cookie": `${COOKIE}=; Path=/import; Max-Age=0; HttpOnly; Secure; SameSite=Strict` });
   if (req.method === "POST" && url.pathname === "/import/state") return guard("state", () => state(req, env, now));
   if (req.method === "POST" && url.pathname === "/import/save") return guard("save", () => saveEntry(req, env, now, dispatch));
   return null;
+}
+
+async function login(req, env, now) {
+  if (!env.DASHBOARD_KEY) return json(500, { error: "鍵が設定されていません（DASHBOARD_KEY）" });
+  let body;
+  try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
+  if (!(await sameKey(body && body.key, env.DASHBOARD_KEY))) return json(403, { error: "鍵が違います" });
+  const tok = await makeSession(env.DASHBOARD_KEY, now.getTime());
+  return json(200, { ok: true }, { "set-cookie": `${COOKIE}=${tok}; Path=/import; Max-Age=${SESSION_DAYS * 86400}; HttpOnly; Secure; SameSite=Strict` });
 }
 
 // 途中で例外が出ても、画面に読める理由を返す（GitHub の応答の番号など。鍵や中身は出さない）
