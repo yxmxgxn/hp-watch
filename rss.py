@@ -496,6 +496,37 @@ def emit_feeds(site, cfg, kind, items, profiles, out, feed_base, site_link):
     return feeds
 
 
+# ---------- 手で入れる分（manual/import.json。ダッシュボードから入れる。放送日から3日を過ぎたら出さない） ----------
+MANUAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "import.json")
+
+
+def load_manual(now):
+    """まだ期限の内の、手で入れた分。戻り値: 記事のguid → 入れた内容（tver・guest）"""
+    if not os.path.exists(MANUAL_PATH):
+        return {}
+    with open(MANUAL_PATH, encoding="utf-8") as f:
+        entries = (json.load(f) or {}).get("items") or []
+    today = now.date().isoformat()
+    return {e["guid"]: e for e in entries if e.get("guid") and str(e.get("until") or "") >= today}
+
+
+def apply_manual(items, manual):
+    """記事の本文の後ろに、Tver のリンクとゲスト名を足す（状態ファイルの本文は変えない）"""
+    out = []
+    for i in items:
+        e = manual.get(i["guid"])
+        if not e:
+            out.append(i)
+            continue
+        extra = ""
+        if e.get("guest"):
+            extra += f"<p>ゲスト: {escape(e['guest'])}</p>"
+        if str(e.get("tver") or "").startswith("https://tver.jp/"):
+            extra += f'<ul><li><a href={quoteattr(e["tver"])}>TVer で見る</a></li></ul>'
+        out.append({**i, "html": i["html"] + extra})
+    return out
+
+
 def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     base = cfg["base"]
     stamp = now.replace(minute=0, second=0)  # 記事の時刻（こちらが見つけた時刻）。分・秒は0にそろえる
@@ -514,6 +545,7 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
     media, state, media_found = update_media(site, base, schedules, profiles, state_path, stamp, rk)
+    media = apply_manual(media, load_manual(now))
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, base + cfg.get("schedule_path", "/schedule/"))

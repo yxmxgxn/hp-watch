@@ -9,6 +9,7 @@
 // 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したら、そのたびに Discord に知らせる。
 
 import { customFeed } from "./custom.js";
+import { importRoutes } from "./import.js";
 
 // 公式の更新を見るページ（HEAD の Last-Modified）。ハロプロ・JPROOM・アップフロントは同じ版で作り直される（/schedule/）。
 // ハロショ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。ファンクラブのページには更新の印が無いので見られない
@@ -112,6 +113,9 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === "/custom.xml") return customFeed(req, env);
+    // 放送の情報を手で入れるページ（鍵つき）。保存のあと、フィードを作り直す（rss.yml）
+    const imp = await importRoutes(req, env, { now: new Date(), dispatch: (w) => dispatch(env, w) });
+    if (imp) return imp;
     return Response.redirect(new URL("/", req.url).toString(), 302);
   },
 };
