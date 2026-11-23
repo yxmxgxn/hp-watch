@@ -32,6 +32,22 @@
 },
 "items": [
 {
+"cat": "コンテンツ",
+"categories": [
+"コンテンツ"
+],
+"date": "2026-11-23T13:00:00+09:00",
+"fcgroups": [
+"uemuraakari"
+],
+"guid": "mline-hf0a4fca5f3b8",
+"html": "<p>コンテンツ ・ 2026.11.23</p><p><a href=\"https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=p0uwyhyMzqi8XaRX&amp;ccid=42&amp;gid=48&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=p0uwyhyMzqi8XaRX&ccid=42&gid=48&@rst=all",
+"name": "アレコレのかれこれを更新しました。",
+"sort": "2026-11-2399",
+"title": "2026.11.23 [コンテンツ] アレコレのかれこれを更新しました。"
+},
+{
 "cat": "ニュース",
 "categories": [
 "ニュース"
