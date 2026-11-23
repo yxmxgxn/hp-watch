@@ -1,0 +1,54 @@
+name: tver
+
+# 放送のあとの TVer のリンクを、自動で探して manual/auto.json に入れる（tver.py）。
+# 毎朝 05:00 と 18:00（JST）に、Cloudflare の Cron Trigger（watcher/src/index.js）から呼ばれる。GitHub の cron（schedule）は使わない。
+# 見つかって変わったら、コミットして rss.yml を呼ぶ（フィードに反映する）。手で動かすときは workflow_dispatch
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: tver
+  cancel-in-progress: false
+
+jobs:
+  tver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: ブラウザを入れる
+        # 検索のページは JavaScript で描かれるので、ブラウザ（Playwright の Chromium）で読む
+        run: |
+          python -m pip install --quiet playwright
+          python -m playwright install --with-deps chromium
+
+      - name: TVer のリンクを探す
+        run: python tver.py --state-dir state --out manual/auto.json
+
+      - name: 変わったらコミットして、フィードを作り直す
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add manual/auto.json
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "tver: 自動で入れたリンクを更新 $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do
+            git pull --rebase -q && git push -q && break
+            sleep $((i * 3))
+            [ "$i" = 4 ] && exit 1
+          done
+          gh workflow run rss.yml --ref main

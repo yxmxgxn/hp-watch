@@ -43,10 +43,10 @@ calls = []; await run("*/15 * * * *", env, at(90));
 assert(gh().length === 0, "更新から90分後は何も呼ばない");
 
 calls = []; await run("0 9 * * *", env, at(90));
-assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml"]', "18:00 JST は hpwatch.yml と profiles.yml を別々に呼ぶ");
+assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml"]', "18:00 JST は hpwatch.yml・profiles.yml・tver.yml を別々に呼ぶ");
 
 calls = []; await run("0 20 * * *", env, at(90));
-assert(JSON.stringify(gh()) === '["rss.yml"]', "05:00 JST は rss.yml");
+assert(JSON.stringify(gh()) === '["rss.yml","tver.yml"]', "05:00 JST は rss.yml と tver.yml");
 
 calls = []; await run("0 3 * * *", env, at(5));
 assert(calls.length === 0, "知らない時刻の cron は何もしない");
@@ -54,7 +54,7 @@ assert(calls.length === 0, "知らない時刻の cron は何もしない");
 // 失敗: 401 はやり直さず、Discord に知らせる（毎時の最初の15分だけ）
 githubStatus = 401; calls = [];
 s = await run("0 9 * * *", env, new Date("2026-11-19T09:00:00Z"));
-assert(s.failed.length === 2 && gh().length === 2, "401 はやり直さない（2作業×1回）");
+assert(s.failed.length === 3 && gh().length === 3, "401 はやり直さない（3作業×1回）");
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "失敗を Discord に1回知らせる");
 calls = []; await run("*/15 * * * *", env, at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時刻の失敗でも Discord に知らせる");
@@ -64,7 +64,7 @@ assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ�
 // 500 は3回までやり直す
 githubStatus = 500; calls = [];
 s = await run("0 20 * * *", env, new Date("2026-11-19T20:30:00Z"));
-assert(gh().length === 3 && s.failed.length === 1, "500 は3回までやり直す");
+assert(gh().length === 6 && s.failed.length === 2, "500 は3回までやり直す（2作業×3回）");
 
 for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
   const r = await watcher.fetch(new Request("https://hello-rss.example" + path));
@@ -318,6 +318,7 @@ if (dataDir) {
     const u = String(url);
     if (u.startsWith("https://api.github.com/")) {
       log.push({ url: u, opts });
+      if (u.includes("/contents/manual/auto.json")) return new Response("Not Found", { status: 404 });
       if (u.includes("/contents/manual/import.json")) {
         if (opts.method === "PUT") {
           const body = JSON.parse(opts.body);
@@ -396,9 +397,14 @@ if (dataDir) {
   const day = im2.jstDay(new Date());
   const prev2 = globalThis.fetch;
   let file2 = null;
+  let autoFile2 = null; // tver.py が入れた分（manual/auto.json）
   globalThis.fetch = async (url, opts = {}) => {
     const u = String(url);
     if (u.startsWith("https://api.github.com/")) {
+      if (u.includes("/contents/manual/auto.json")) {
+        if (autoFile2 === null) return new Response("Not Found", { status: 404 });
+        return Response.json({ sha: "a", content: Buffer.from(JSON.stringify(autoFile2)).toString("base64") });
+      }
       if (u.includes("/contents/manual/import.json")) {
         if (opts.method === "PUT") {
           file2 = JSON.parse(Buffer.from(JSON.parse(opts.body).content, "base64").toString("utf8"));
@@ -431,12 +437,17 @@ if (dataDir) {
     r = await hit("/import/state", { body: "{}", headers: { cookie } });
     assert(r.status === 200, "一覧: 鍵を入れなくても、ログインの Cookie で読める");
     assert((await r.clone().json()).items[0].cat === "RADIO", "一覧: 項目にメディアの種類（ラジオ）が付く（フィルタに使う）");
+    autoFile2 = { items: [{ guid: "helloproject-media-abc123", air: day, until: im2.addDays(day, 3), links: [{ label: "TVer", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day }] };
+    const stAuto = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
+    assert(stAuto.items[0].status === "自動" && stAuto.items[0].entry.source === "auto" && stAuto.items[0].entry.links[0].url.endsWith("/auto"), "一覧: 自動で入ったリンクは、『自動』と出る");
     r = await hit("/import/state", { body: "{}", headers: { cookie: "hr_import=" + tok.slice(0, -2) + "zz" } });
     assert(r.status === 403, "一覧: 印が違う Cookie は403");
     r = await hit("/import/state", { body: "{}" });
     assert(r.status === 403, "一覧: Cookie も鍵も無ければ403");
     r = await hit("/import/save", { body: JSON.stringify({ guid: "helloproject-media-abc123", links: [{ label: "TVer", url: "https://tver.jp/episodes/x" }], guest: "", note: "" }), headers: { cookie } });
     assert(r.status === 200 && file2 && file2.items.length === 1, "保存: Cookie だけで保存できる");
+    const stManual = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
+    assert(stManual.items[0].status === "入力済み" && stManual.items[0].entry.source === "manual" && stManual.items[0].entry.links[0].url.endsWith("/x"), "一覧: 手で入れると、自動より手の分が優先される");
     r = await hit("/import/logout", { body: "{}" });
     assert((r.headers.get("set-cookie") || "").includes("Max-Age=0"), "ログアウト: Cookie を消す");
   } finally {

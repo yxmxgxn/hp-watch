@@ -7,6 +7,7 @@
 // 期限: 放送日の3日後まで（rss.py の load_manual も同じ日で切る）。期限を過ぎた分は、保存のときにファイルから外す。
 
 const FILE = "manual/import.json";
+const AUTO_FILE = "manual/auto.json"; // tver.py が自動で入れた分（読むだけ）
 const DAYS_AFTER = 3;   // 放送日から何日まで出すか
 const WINDOW_DAYS = 10; // 一覧に出す放送日の前後（日）
 const MAX_LINKS = 8;
@@ -136,10 +137,10 @@ const ghHeaders = (env) => ({
   "X-GitHub-Api-Version": "2022-11-28",
   "User-Agent": UA,
 });
-const contentsUrl = (env) => `https://api.github.com/repos/${env.GH_REPO}/contents/${FILE}`;
+const contentsUrl = (env, path = FILE) => `https://api.github.com/repos/${env.GH_REPO}/contents/${path}`;
 
-async function readFile(env) {
-  const r = await fetch(contentsUrl(env), { headers: ghHeaders(env) });
+async function readFile(env, path = FILE) {
+  const r = await fetch(contentsUrl(env, path), { headers: ghHeaders(env) });
   if (r.status === 404) return { file: { items: [] }, sha: null };
   if (!r.ok) throw new Error(`GitHub ${r.status}（読み込み）`);
   const j = await r.json();
@@ -188,11 +189,23 @@ async function state(req, env, now) {
     }
   }
   const cur = await readFile(env);
-  const byGuid = new Map((cur.file.items || []).filter((e) => e.until >= today).map((e) => [e.guid, e]));
+  const autoCur = await readFile(env, AUTO_FILE);
+  const live = (f) => new Map(((f.file && f.file.items) || []).filter((e) => e.until >= today).map((e) => [e.guid, e]));
+  const manual = live(cur), auto = live(autoCur);
   for (const it of items) {
-    const e = byGuid.get(it.guid);
-    it.status = e ? "入力済み" : "未入力";
-    it.entry = e ? { links: linksOf(e), guest: e.guest || "", note: e.note || "", updated: e.updated || "" } : null;
+    const e = manual.get(it.guid), a = auto.get(it.guid);
+    if (e) {
+      // 手で入れた分が優先。リンクが無いときだけ、自動のリンクを補う（rss.py と同じ）
+      const own = linksOf(e);
+      it.status = "入力済み";
+      it.entry = { links: own.length ? own : linksOf(a), guest: e.guest || "", note: e.note || "", updated: e.updated || "", source: "manual" };
+    } else if (a) {
+      it.status = "自動";
+      it.entry = { links: linksOf(a), guest: "", note: "", updated: a.found || "", source: "auto" };
+    } else {
+      it.status = "未入力";
+      it.entry = null;
+    }
   }
   items.sort((a, b) => a.air.localeCompare(b.air));
   return json(200, { today, items });
@@ -326,7 +339,7 @@ function fill(it) {
   $("links").textContent = "";
   ((it.entry && it.entry.links) || []).forEach((l) => $("links").appendChild(linkRow(l.label, l.url)));
   if (!$("links").children.length) $("links").appendChild(linkRow("", ""));
-  msg("");
+  msg(it.entry && it.entry.source === "auto" ? "自動で入ったリンクです。直して保存すると、手で入れた分が優先されます" : "");
   $("form").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -365,7 +378,7 @@ function renderList() {
       const parts = it.entry.links.map((l) => l.label);
       if (it.entry.guest) parts.push("ゲスト: " + it.entry.guest);
       if (it.entry.note) parts.push("メモ: " + it.entry.note);
-      got.textContent = "入っている: " + parts.join(" / ") + (it.entry.updated ? "（" + it.entry.updated.slice(0, 16).replace("T", " ") + "）" : "");
+      got.textContent = (it.entry.source === "auto" ? "自動で入った: " : "入っている: ") + parts.join(" / ") + (it.entry.updated ? "（" + it.entry.updated.slice(0, 16).replace("T", " ") + "）" : "");
       main.appendChild(got);
     }
     const btn = document.createElement("button"); btn.type = "button"; btn.className = "sub"; btn.textContent = it.entry ? "編集" : "入れる";

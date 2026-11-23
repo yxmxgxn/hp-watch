@@ -500,14 +500,30 @@ def emit_feeds(site, cfg, kind, items, profiles, out, feed_base, site_link):
 MANUAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "import.json")
 
 
-def load_manual(now):
-    """まだ期限の内の、手で入れた分。戻り値: 記事のguid → 入れた内容（tver・guest）"""
-    if not os.path.exists(MANUAL_PATH):
+AUTO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "auto.json")  # tver.py が自動で入れた分
+
+
+def _load_entries(path, today):
+    if not os.path.exists(path):
         return {}
-    with open(MANUAL_PATH, encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         entries = (json.load(f) or {}).get("items") or []
-    today = now.date().isoformat()
     return {e["guid"]: e for e in entries if e.get("guid") and str(e.get("until") or "") >= today}
+
+
+def load_manual(now):
+    """まだ期限の内の、手で入れた分と、自動で入った分（tver.py）。戻り値: 記事のguid → 入れた内容
+    手で入れた分が優先。手で入れた分にリンクが無いときだけ、自動のリンクを補う"""
+    today = now.date().isoformat()
+    auto = _load_entries(AUTO_PATH, today)
+    manual = _load_entries(MANUAL_PATH, today)
+    merged = dict(auto)
+    for guid, e in manual.items():
+        a = auto.get(guid)
+        if a and not (e.get("links") or e.get("tver")) and a.get("links"):
+            e = {**e, "links": a["links"]}
+        merged[guid] = e
+    return merged
 
 
 def manual_links(e):
