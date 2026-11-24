@@ -23,7 +23,7 @@ pattern = "hello-rss.karin-archive.com"
 custom_domain = true
 
 [triggers]
-# UTC。*/15 は公式の更新の検知（rss.yml）、0 20 は 05:00 JST（rss.yml）、0 9 は 18:00 JST（hpwatch.yml と profiles.yml）
+# UTC。*/15 は公式の更新の検知（rss.yml。ETag が変わったときだけ呼ぶ）、0 20 は 05:00 JST（rss.yml と tver.yml）、0 9 は 18:00 JST（tver.yml）
 crons = ["*/15 * * * *", "0 20 * * *", "0 9 * * *"]
 
 [vars]

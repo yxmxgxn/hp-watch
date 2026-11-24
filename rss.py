@@ -38,7 +38,15 @@ MEDIA（media）
   fc/{all,news,event,concert,goods,stream,other}.xml, fc/group/{グループ}.xml … ファンクラブニュース
   hp/today.xml                                    … ハロプロの今日の予定（全体で1本、1日1記事）
   jproom/news/all.xml, jproom/media/all.xml, jproom/today.xml … JPROOM（所属が個人なので全員まとめて1本）
+  upfront/news/all.xml, upfront/media/all.xml, upfront/today.xml … アップフロント（同じ作り）
+  mline/…                                         … M-line club のファンクラブ
   index.html, all.opml                            … 一覧ページとまとめて登録するファイル
+
+選んで作る RSS の元データ（out 配下）:
+  data/{site}-{kind}.json, data/options.json, custom/index.html … Worker（watcher/src/custom.js）が読む（selectable.py）
+  data/watch.json                                  … 作り直しで使った公式のJSONの ETag。Worker が、変わったときだけ rss.yml を呼ぶのに使う
+
+手で入れた分・自動で入った分（manual/import.json・manual/auto.json）は、期限（放送日から3日）の内の記事の後ろに足す（load_manual・apply_manual）。
 """
 import argparse
 import datetime as dt
