@@ -107,7 +107,6 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - 時計のコードは `watcher/src/index.js`、cron の設定はルートの `wrangler.toml`。RSS の公開（`rss.yml` の `wrangler deploy`）のたびに、フィードと一緒に送り直す。時計の手順を変えたら、次の RSS の公開から効く
 - `rss.yml` と `tver.yml` は、`ref: main` で、いまの main から始める（続けて2回呼ばれたとき、後の実行が古い状態から始まって、状態のコミットが衝突するのを防ぐ）
 - Worker は記憶（KV など）を持たない。二重に呼んでも、どの作業も新しい分だけを処理するので困らない
-- 呼び出しに失敗したら、そのたびに Worker が Discord に知らせる（呼び出しは1日に数回〜十数回しか無いので、続いても数は限られる）
 - 公式の更新の記録: `rss.yml` が更新のたびに `state/observe.jsonl` へ1行（版の時刻・見つけた新着の件数）。取りに行く時間帯を決めるための記録
 
 ## 設定（Secrets）
@@ -116,10 +115,9 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 - **GitHub**（リポジトリの Settings → Secrets and variables → Actions）: `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`
 - **Cloudflare**（hello-rss → Settings → Variables and Secrets → Secret）:
-  - `GH_TOKEN` … 時計が `rss.yml`・`tver.yml` を呼ぶための fine-grained トークン（このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなり、Discord に知らせが来る）
+  - `GH_TOKEN` … 時計が `rss.yml`・`tver.yml` を呼ぶための fine-grained トークン（このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなる）
   - `GH_DATA_TOKEN` … 手で入れるページが `manual/import.json` を読み書きするための fine-grained トークン（このリポジトリだけ・Contents の読み書きだけ）
   - `DASHBOARD_KEY` … 手で入れるページの鍵
-  - `DISCORD_WEBHOOK_URL` … 呼び出しに失敗したときの知らせ先
 
 ## 運用メモ
 
@@ -128,7 +126,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - `state/` には、取り除いた源（田中れいな・鈴木愛理・ジャストプロ・個人の公式サイト・YU-M）の古い状態ファイル（`rss_news_reina.json`・`rss_airi.json`・`rss_justpro.json`・`rss_ogata.json`・`rss_kobayashi.json`・`rss_miyabi.json`・`rss_yume.json`）が残っている。害は無い
 - 手元の確認:
   - `python rss.py --out /tmp/rss-out --state-dir /tmp/rss-state`（全部作る。時間がかかる。`state/` を汚さないように、別の場所に）
-  - `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（Worker。公式サイトへの HEAD は本物、GitHub と Discord は偽物）
+  - `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（Worker。公式サイトへの HEAD は本物、GitHub は偽物）
   - `python3 test_tver.py`（TVer。ブラウザなし）
 
 ## 放送の情報を手で入れるページ（`/import`・鍵つき）
@@ -143,7 +141,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - ハロプロ・JPROOM の公式は、**15分ごとに必ず作り直される**（版 `versionDir` も、ファイルの `Last-Modified` も毎回変わる）。そのため、「最近作り直されたか」を見ると、毎回「更新あり」になり、`rss.yml` が1日に約100回動いていた（非公開リポジトリの Actions の無料枠を使い切った原因。2026-11-24）
 - 公式のJSON（お知らせ・スケジュール）の `ETag` は、**中身のハッシュ**。作り直されても、中身が同じなら変わらない（お知らせのファイルは、14回作り直されても同じだった。スケジュールは、実際に36件が変わったとき、変わった）
 - 作り直し（`rss.py`）は、使った公式のJSONの `ETag` を `data/watch.json` に公開する（`hpwatch.ETAGS`）。Worker（`watcher/src/index.js` の `officialChanged`）は、15分おきに、公式の今年のお知らせ・スケジュールの `ETag`（HEAD）を、`data/watch.json` と比べて、**違うときだけ** `rss.yml` を呼ぶ。Worker は何も覚えず、公開したデータが記憶になる
-- `data/watch.json` が無い（初回）・片方のサイトの記録が無いときは、1回呼ぶ。今年のJSONが取れないときは、呼ばずにエラーとして記録する（Discord には出さない）
+- `data/watch.json` が無い（初回）・片方のサイトの記録が無いときは、1回呼ぶ。今年のJSONが取れないときは、呼ばずにエラーとして記録する
 - 見つけられないもの: 記事の削除など、`ETag` が変わらない変更は無い（中身が変われば `ETag` も変わる）。公式が `ETag` を付けなくなったら、`data/watch.json` と必ず違う扱いになり、毎回呼ぶ（その場合は、毎朝5時の実行だけにする）
 
 ## 放送後の TVer のリンクを自動で入れる（`tver.py`・`tver.yml`）
