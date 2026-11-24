@@ -1239,17 +1239,17 @@ def opml(feeds):
 
 
 INDEX_CSS = """
-:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2}
-@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff}}
+:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0080cb;--link:#0074bb}
+@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#0080cb;--link:#55b4ee}}
 body{margin:0;padding:24px 16px;background:var(--bg);color:var(--fg);font:16px/1.7 "Noto Sans JP",system-ui,sans-serif}
 main{max-width:720px;margin:0 auto}h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.1rem;margin:28px 0 4px}
-p,.mute{color:var(--mute);margin:4px 0}a{color:var(--accent)}ul{padding:0;list-style:none;margin:0}
+p,.mute{color:var(--mute);margin:4px 0}a{color:var(--link)}ul{padding:0;list-style:none;margin:0}
 li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 code{font-size:.8rem;color:var(--mute);word-break:break-all}
 li.feed .act,li.feed .chk{flex-basis:100%}
 .act{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .act button{font:inherit;font-size:.85rem;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:6px;padding:2px 12px;cursor:pointer}
-.act button:hover{border-color:var(--accent);color:var(--accent)}.act button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.act button:hover{border-color:var(--accent);color:var(--link)}.act button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .act .msg{font-size:.85rem;color:var(--mute)}
 ol.chk{margin:4px 0 0;padding-left:1.6em;font-size:.9rem}ol.chk li{display:list-item;border:0;padding:2px 0}
 ol.chk .d{color:var(--mute);font-size:.8rem;margin-right:6px}
