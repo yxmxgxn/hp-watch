@@ -22,6 +22,10 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 呼ばれた時点のコミットではなく、いまの main を取る。続けて2回呼ばれたとき（5:00 の定期と更新の検知が重なるなど）、
+          # 後の実行が古い状態から始まって、状態のコミットが衝突するのを防ぐ
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
