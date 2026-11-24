@@ -63,4 +63,14 @@ check(page.count('<li class="feed">') == 2 and page.count('class="cp"') == 2 and
 check('data-url="https://example.test/hp/today.xml"' in page and "<ol class=\"chk\" hidden>" in page, "トップページ: ボタンは、そのフィードのURLを持つ。5件の一覧は、押すまで隠れている")
 check("slice.call(items, 0, 5)" in page and "textContent" in page and "innerHTML" not in page, "トップページ: 最新5件を、textContent で並べる（フィードの中身を HTML として入れない）")
 
+# radiko の局名の対応（公式の局名に、見えない文字が混ざる・略称で出ている局）
+import radiko
+rk0 = radiko.Radiko()
+rk0._stations = {"CRT": {"name": "CRT栃木放送"}, "MRO": {"name": "MROラジオ"}, "JOAK-FM": {"name": "NHK FM(東京)"}, "CRK": {"name": "ラジオ関西"}}
+rk0._by_name = {radiko.norm(v["name"]): k for k, v in rk0._stations.items()}
+ids = lambda head: rk0.station_ids(head + "「番組」")
+check(ids("\u200b栃木放送") == ["CRT"], "局名に、見えない文字（ゼロ幅スペース）が混ざっていても合う")
+check(ids("北陸放送") == ["MRO"] and ids("NHK-FM") == ["JOAK-FM"], "略称で出ている局（北陸放送→MRO）・NHK-FM")
+check(ids("ラジオ関西") == ["CRK"] and ids("知らない局") == [], "いままで合っていた局は、そのまま。わからない局は飛ばす")
+
 print(f"\nall {ok} ok")

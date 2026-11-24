@@ -57,6 +57,18 @@ export function addDays(day, n) {
   return d.toISOString().slice(0, 10);
 }
 
+// 放送の開始が、もう過ぎたか（開始は "25:30" のように24時を超えることがある。開始が無ければ、日付だけで見る）
+export function started(air, start, now) {
+  const today = jstDay(now);
+  if (air > today) return false;
+  const m = /^(\d{1,2}):(\d{2})/.exec(start || "");
+  if (!m) return true;
+  const jst = new Date(now.getTime() + 9 * 3600e3);
+  const days = Math.round((Date.parse(today + "T00:00:00Z") - Date.parse(air + "T00:00:00Z")) / 86400e3);
+  return days * 1440 + jst.getUTCHours() * 60 + jst.getUTCMinutes() >= Number(m[1]) * 60 + Number(m[2]);
+}
+const RADIKO_DAYS = 7; // radiko のタイムフリーは、放送から1週間まで
+
 const clean = (s) => String(s ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim();
 
 // 入力の形を確かめる。項目が実際にあるかは、呼び出し側で調べる
@@ -232,26 +244,33 @@ async function state(req, env, now) {
   for (const it of items) Object.assign(it, resolve(it.guid));
   items.sort((a, b) => a.air.localeCompare(b.air) || a.name.localeCompare(b.name));
 
-  // 毎週タブ: 番組ごとに、前後の1回分ずつと、リンクが付いているか
-  const groups = new Map();
-  for (const w of weeklyAll) {
-    const r = resolve(w.guid);
-    const labels = [...(w.radiko || []).map((l) => l[0]), ...((r.entry && r.entry.links) || []).map((l) => l.label)];
-    const expected = w.cat === "MAGAZINE" ? false : true; // 雑誌・連載は、リンクを期待しない
-    const hasLink = labels.length > 0 || (r.entry && (r.entry.guest || r.entry.note));
-    let state_ = "ok";
-    if (w.air > today) state_ = "upcoming";
-    else if (!hasLink) state_ = !expected ? "none" : w.air >= addDays(today, -1) ? "pending" : "missing";
-    const key = `${w.siteLabel}|${w.cat}|${w.prog}`;
-    if (!groups.has(key)) groups.set(key, { key, prog: w.prog, cat: w.cat, siteLabel: w.siteLabel, label: w.label, base: w.base || [], occurrences: [] });
-    groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
-  }
   // 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）と、最新のエピソード。公式の予定に枠が無い番組（ポッドキャストだけの番組）も、ここで見る
   const srcList = (await readOptional(env, "/data/sources.json")) || [];
   const latestAll = ((await readFile(env, LATEST_FILE)).file || {}).programs || {};
   const norm = (x) => String(x || "").normalize("NFKC").toLowerCase().replace(/[\s\p{P}\p{S}_]+/gu, "");
-  const sources = srcList.map((src) => {
-    const keys = (src.match || []).map(norm).filter(Boolean);
+  const srcKeys = srcList.map((src) => ({ src, keys: (src.match || []).map(norm).filter(Boolean) }));
+  // 毎週タブ: 番組ごとに、前後の1回分ずつと、リンクが付いているか
+  const groups = new Map();
+  for (const w of weeklyAll) {
+    const r = resolve(w.guid);
+    const begun = started(w.air, w.start, now); // 放送が始まるまでは、タイムフリーのリンクがあっても『これから』
+    const labels = [...(begun ? (w.radiko || []).map((l) => l[0]) : []), ...((r.entry && r.entry.links) || []).map((l) => l.label)];
+    const expected = w.cat === "MAGAZINE" ? false : true; // 雑誌・連載は、リンクを期待しない
+    const hasLink = labels.length > 0 || (r.entry && (r.entry.guest || r.entry.note));
+    // ポッドキャスト・YouTube が付く番組は、1週間を過ぎても、あとからリンクが付くことがある
+    const later = srcKeys.some(({ src, keys }) => (src.podcast || src.youtube) && keys.some((k) => norm(w.prog).includes(k)));
+    let state_ = "ok";
+    if (!begun) state_ = "upcoming";
+    else if (!hasLink) {
+      if (!expected) state_ = "none";
+      else if (w.cat === "RADIO" && !later && w.air < addDays(today, -RADIKO_DAYS)) continue; // radiko のタイムフリーの期限を過ぎて、ほかに付く先も無い回は、出さない
+      else state_ = w.air >= addDays(today, -1) ? "pending" : "missing";
+    }
+    const key = `${w.siteLabel}|${w.cat}|${w.prog}`;
+    if (!groups.has(key)) groups.set(key, { key, prog: w.prog, cat: w.cat, siteLabel: w.siteLabel, label: w.label, base: w.base || [], occurrences: [] });
+    groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
+  }
+  const sources = srcKeys.map(({ src, keys }) => {
     const occ = weeklyAll.filter((w) => keys.some((k) => norm(w.prog).includes(k)));
     const eps = latestAll[src.name] || [];
     const newest = eps.length ? eps[0].date : "";
