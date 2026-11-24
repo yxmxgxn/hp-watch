@@ -413,6 +413,14 @@ if (dataDir) {
 // --- ログイン（鍵は1回。Cookie で30日・HttpOnly）。GitHub と ASSETS は偽物
 {
   const im2 = await import("./src/import.js");
+  {
+    const t = new Date("2026-11-24T07:30:00Z"); // JST 16:30
+    assert(im2.started("2026-11-24", "16:00", t) && !im2.started("2026-11-24", "17:00", t), "放送の開始: 今日は、時刻を過ぎたかで決める");
+    assert(!im2.started("2026-11-24", "25:30", t) && !im2.started("2026-11-25", "01:00", t), "放送の開始: 25:30 は翌日の1:30。まだ来ていない");
+    assert(im2.started("2026-11-23", "25:30", t) && im2.started("2026-11-23", "", t) && im2.started("2026-11-24", "", t), "放送の開始: 昨日の25:30 は過ぎた。開始が無ければ、今日も過ぎた扱い");
+    const early = new Date("2026-11-23T15:30:00Z"); // JST 00:30（11/24）
+    assert(!im2.started("2026-11-23", "25:30", early) && im2.started("2026-11-23", "24:10", early), "放送の開始: 日付が変わった直後は、前日の25:30 はまだ。24:10 は過ぎた");
+  }
   const now = Date.now();
   const tok = await im2.makeSession("secret-key-1", now);
   assert(await im2.validSession("secret-key-1", tok, now + 1000), "ログイン: 作った印は、期限の中なら通る");
@@ -466,7 +474,10 @@ if (dataDir) {
         { name: "古いポッドキャスト", match: ["ラジオ番組"], spotify: "", youtube: "", podcast: true },
       ]);
       if (p === "/data/weekly.json") return Response.json({ items: [
-        { guid: "hp-media-wk1", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: day, start: "25:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [["TVer（番組）", "https://tver.jp/search/x"]] },
+        { guid: "hp-media-wk1", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: day, start: "00:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [["TVer（番組）", "https://tver.jp/search/x"]] },
+        { guid: "hp-media-wk4", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: day, start: "47:00", title: "TBSラジオ「夜のラジオ」", prog: "夜のラジオ", station: "TBSラジオ", label: "毎週月曜日", radiko: [["radiko（TBSラジオ）", "https://radiko.jp/#!/ts/TBS/x"]], base: [] },
+        { guid: "hp-media-wk5", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: im2.addDays(day, -9), start: "10:00", title: "TBSラジオ「期限が切れたラジオ」", prog: "期限が切れたラジオ", station: "TBSラジオ", label: "毎週月曜日", base: [] },
+        { guid: "hp-media-wk6", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: im2.addDays(day, -9), start: "10:00", title: "TBSラジオ「ラジオ番組」", prog: "ラジオ番組", station: "TBSラジオ", label: "毎週日曜日", base: [] },
         { guid: "hp-media-wk2", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: im2.addDays(day, -2), start: "21:00", title: "TBSラジオ「ラジオ番組」", prog: "ラジオ番組", station: "TBSラジオ", label: "毎週日曜日", radiko: [["radiko（TBSラジオ）", "https://radiko.jp/#!/ts/TBS/20261122210000"]], base: [["radiko（TBSラジオ・生放送）", "https://radiko.jp/#!/live/TBS"]] },
         { guid: "hp-media-wk3", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: im2.addDays(day, -9), start: "25:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [] },
       ] });
@@ -509,6 +520,9 @@ if (dataDir) {
     const occ = (guid) => stW.weekly.flatMap((g) => g.occurrences).find((o) => o.guid === guid);
     assert(occ("hp-media-wk1").state === "pending", "毎週タブ: 今日の放送で、まだリンクが無ければ『待ち』");
     assert(occ("hp-media-wk3").state === "missing", "毎週タブ: 放送の翌日を過ぎて、リンクが無ければ『未反映』");
+    assert(occ("hp-media-wk4").state === "upcoming" && occ("hp-media-wk4").labels.length === 0, "毎週タブ: 放送の開始が来るまでは、タイムフリーのリンクがあっても『これから』（リンクも出さない）");
+    assert(occ("hp-media-wk5").state === "expired", "毎週タブ: ラジオで、radiko の期限（1週間）を過ぎて、ほかに付く先も無ければ『期限切れ』");
+    assert(occ("hp-media-wk6").state === "missing", "毎週タブ: ポッドキャストが付く番組は、1週間を過ぎても『未反映』（あとから付くことがある）");
     assert(occ("hp-media-wk2").state === "ok", "毎週タブ: radiko のタイムフリーが付いていれば『反映済み』");
     // ポッドキャスト・YouTube の自動の分は、TVer の自動の分と、リンクをまとめる。毎週タブにも反映される
     epsFile2 = { items: [{ guid: "hp-media-wk3", air: im2.addDays(day, -9), until: im2.addDays(day, 5), links: [{ label: "ポッドキャスト", url: "https://pod.example/ep" }], source: "podcast", found: day },
