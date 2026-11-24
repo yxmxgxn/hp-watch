@@ -1234,6 +1234,8 @@ def main():
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
+    # 公式のJSONの ETag（今回の作り直しで使ったもの）。Worker が、公式の今の ETag と比べて、変わったときだけ rss.yml を呼ぶ
+    write(os.path.join(args.out, "data/watch.json"), json.dumps(hpwatch.ETAGS, ensure_ascii=False, separators=(",", ":"), sort_keys=True))
     write(os.path.join(args.out, "_headers"), headers_file())
     log_versions(os.path.join(args.state_dir, "observe.jsonl"), records, now)
     print(f"feeds: {len(feeds)}" + (f" (失敗: {', '.join(failed)})" if failed else ""))
