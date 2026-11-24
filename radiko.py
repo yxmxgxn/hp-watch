@@ -40,6 +40,17 @@ ALIAS = {
     "ラジオNIKKEI": "RN1",  # 第1と第2がある。ふつうは第1
     "BSS山陰放送": "BSS",
     "FM山形": "RFM",
+    # 公式は「○○放送」、radiko は「MROラジオ」「IBCラジオ」のように、局の略称で出している局
+    "北陸放送": "MRO",
+    "南日本放送": "MBC",
+    "岩手放送": "IBC",
+    "静岡放送": "SBS",
+    "山陰放送": "BSS",
+    "新潟放送": "BSN",
+    "BSN新潟放送": "BSN",
+    "岐阜放送": "GBS",
+    "HBC北海道放送": "HBC",
+    "NHK-FM": "JOAK-FM",  # NHK は地域ごとに別の局。FM は全国同じ番組なので、東京
 }
 
 
@@ -49,8 +60,11 @@ def _get(url):
         return r.read()
 
 
+ZERO_WIDTH = re.compile("[\u200b\u200c\u200d\u2060\ufeff]")  # 公式の局名に混ざる、見えない文字（空白としては扱われない）
+
+
 def norm(s):
-    return re.sub(r"\s", "", unicodedata.normalize("NFKC", s or "")).upper()
+    return re.sub(r"\s", "", ZERO_WIDTH.sub("", unicodedata.normalize("NFKC", s or ""))).upper()
 
 
 def ft_of(date, start):
@@ -90,7 +104,7 @@ class Radiko:
         head = title.split("「", 1)[0] if "「" in title else ""
         ids = []
         for part in re.split(r"[/／]", head):
-            part = part.strip()
+            part = ZERO_WIDTH.sub("", part).strip()
             if not part:
                 continue
             sid = ALIAS.get(part) or self._by_name.get(norm(part))
