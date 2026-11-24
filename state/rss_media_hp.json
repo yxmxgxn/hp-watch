@@ -2,6 +2,31 @@
 "items": [
 {
 "categories": [
+"RADIO",
+"BEYOOOOONDS：岡村美波・小島はな"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-24T14:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-hdeb5a94e1841339d",
+"html": "<p>出演: BEYOOOOONDS：岡村美波・小島はな</p><p>※14:21頃～出演予定。</p><ul><li><a href=\"https://jfn.co.jp/program/875/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=JFN%E3%80%8CFRIDAY+GOES+ON%E3%80%9C%E3%81%82%E3%81%A3%E3%80%81%E3%81%9D%E3%82%8C%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8D%E3%81%A3%EF%BC%81%E3%80%9C%E3%80%8D&amp;dates=20261127T133000%2F20261127T155500&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://jfn.co.jp/program/875/",
+"name": "JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」",
+"sort": "2026-11-27 13:30",
+"title": "[RADIO] 11/27(金) 13:30 JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」",
+"who": [
+"beyooooonds",
+"minami_okamura",
+"hana_kojima"
+]
+},
+{
+"categories": [
 "TV",
 "モーニング娘。'26"
 ],
@@ -1500,6 +1525,7 @@
 "hddc6301c32915c2e": "2026-11-09",
 "hddcab1d0783645a5": "2026-10-01",
 "hde8513e92dedf132": "2026-09-26",
+"hdeb5a94e1841339d": "2026-11-27",
 "he123a98a8eaec603": "2026-11-12",
 "he1d66c170f27874a": "2026-10-07",
 "he297701779eade0a": "2026-10-02",
@@ -1598,6 +1624,7 @@
 "s2302": "2026-11-27",
 "s2303": "2026-11-27",
 "s2308": "2026-11-28",
-"s2311": "2026-11-27"
+"s2311": "2026-11-27",
+"s2314": "2026-11-27"
 }
 }
