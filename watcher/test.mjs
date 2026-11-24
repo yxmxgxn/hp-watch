@@ -88,6 +88,36 @@ assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時�
 calls = []; await run("0 9 * * *", { ...env, DISCORD_WEBHOOK_URL: undefined }, new Date("2026-11-19T09:00:00Z"));
 assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ先が未設定なら何もしない");
 
+// ご連絡のフォーム（POST /report）: 保存せず、作者への通知に送るだけ
+{
+  const keepStatus = githubStatus; githubStatus = 204; // 通知の偽の応答を、正常にしておく（前のテストの失敗を引きずらない）
+  const post = (body, headers = {}, e = env) => watcher.fetch(new Request("https://hello-rss.example/report", { method: "POST", headers: { Origin: "https://hello-rss.example", "Content-Type": "application/json", ...headers }, body: typeof body === "string" ? body : JSON.stringify(body) }), e);
+  calls = [];
+  let r = await post({ target: "https://hello-rss.example/hp/news/all.xml", contact: "a@example.com", message: "消してください @everyone", website: "" });
+  const sent = calls.filter((x) => x.url.includes("discord"));
+  assert(r.status === 200 && (await r.json()).ok === true && sent.length === 1, "ご連絡: 送ると、通知に1回送る");
+  const sentBody = JSON.parse(sent[0].opts.body);
+  assert(sentBody.content.includes("対象: https://hello-rss.example/hp/news/all.xml") && sentBody.content.includes("連絡先: a@example.com") && JSON.stringify(sentBody.allowed_mentions) === '{"parse":[]}', "ご連絡: 対象・連絡先を載せる。メンションは動かさない");
+  calls = []; r = await post({ target: "x", website: "http://spam.example" });
+  assert(r.status === 200 && calls.filter((x) => x.url.includes("discord")).length === 0, "ご連絡: 見えない欄に書いてあれば（機械）、送れたように返して、通知しない");
+  r = await post({ target: "   ", contact: "a" });
+  assert(r.status === 400, "ご連絡: 対象が空なら400");
+  r = await post("not json");
+  assert(r.status === 400, "ご連絡: 読めない内容は400");
+  r = await post({ target: "x" }, { Origin: "https://evil.example" });
+  assert(r.status === 403, "ご連絡: ほかのサイトのページからは403");
+  r = await post("x".repeat(9000));
+  assert(r.status === 413, "ご連絡: 長すぎる内容は413");
+  calls = []; r = await post({ target: "x".repeat(5000), message: "y".repeat(2500) });
+  const longSent = JSON.parse(calls.find((x) => x.url.includes("discord")).opts.body).content;
+  assert(r.status === 200 && longSent.length <= 1900 && !longSent.includes("x".repeat(301)), "ご連絡: 長い内容は、決まった長さに切る");
+  r = await post({ target: "x" }, {}, { ...env, DISCORD_WEBHOOK_URL: undefined });
+  assert(r.status === 503, "ご連絡: 通知先が未設定なら、送れたように見せず、503");
+  r = await watcher.fetch(new Request("https://hello-rss.example/report"), env);
+  assert(r.status === 405, "ご連絡: GET は405");
+  githubStatus = keepStatus;
+}
+
 // 500 は3回までやり直す
 githubStatus = 500; calls = [];
 s = await run("0 20 * * *", env, new Date("2026-11-19T20:30:00Z"));

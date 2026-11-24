@@ -48,3 +48,20 @@ def head_tags(title, description=DESCRIPTION, path="/", site_url=None):
         f"<meta name=\"twitter:description\" content={q(description)}>"
         f"<meta name=\"twitter:image\" content={q(image)}>"
     )
+
+
+FOOTER_CSS = """
+.site-foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+.site-foot p{margin:4px 0;color:var(--mute)}
+"""
+
+
+def footer_html():
+    """どのページも同じフッター（手で入れるページは除く）。一覧・選んで作る RSS・このサイトについて、への行き来と、ご連絡の入口"""
+    return (
+        '<footer class="site-foot">'
+        '<p><a href="/">一覧に戻る</a> ｜ <a href="/custom/">選んで作る RSS</a> ｜ <a href="/about/">このサイトについて</a></p>'
+        "<p>題名とリンクだけを配ります。本文は、公式のページでお読みください。</p>"
+        '<p>個人が作った非公式のサイトです。<a href="/about/#contact">ご連絡はこちら</a>。</p>'
+        "</footer>"
+    )

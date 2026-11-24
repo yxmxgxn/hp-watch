@@ -144,7 +144,8 @@ def write_options(out, sources):
     write(os.path.join(out, "data/options.json"), json.dumps({"sources": list(sources)}, ensure_ascii=False, separators=(",", ":")))
     head = sitemeta.head_tags("ハロプロ 選んで作るRSS ― " + sitemeta.SITE_NAME,
                               "ハロプロの RSS を、人・グループ・カテゴリ・言葉で選んで作るページです（非公式）。", "/custom/")
-    write(os.path.join(out, "custom/index.html"), PAGE.replace("<!--HEAD_TAGS-->", head))
+    head += f"<style>{sitemeta.FOOTER_CSS}</style>"
+    write(os.path.join(out, "custom/index.html"), PAGE.replace("<!--HEAD_TAGS-->", head).replace("<!--FOOTER-->", sitemeta.footer_html()))
 
 
 PAGE = """<!doctype html>
@@ -254,5 +255,5 @@ $('embed').addEventListener('change',update);
 $('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('url').value);$('msg').textContent='コピーしました'}catch(e){$('url').select();$('msg').textContent='選択しました。コピーしてください'}});
 $('clearWho').addEventListener('click',()=>{document.querySelectorAll('input[data-n=who]').forEach(c=>c.checked=false);update()});
 $('clearCat').addEventListener('click',()=>{document.querySelectorAll('input[data-n=cat]').forEach(c=>c.checked=false);update()});
-</script></main></body></html>
+</script><!--FOOTER--></main></body></html>
 """

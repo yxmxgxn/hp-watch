@@ -10,6 +10,7 @@
 
 import { customFeed } from "./custom.js";
 import { importRoutes } from "./import.js";
+import { reportRoute } from "./report.js";
 
 // 公式の更新を見るページ（HEAD の Last-Modified）。ハロプロ・JPROOM・アップフロントは同じ版で作り直される（/schedule/）。
 // ハロショ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。ファンクラブのページには更新の印が無いので見られない
@@ -151,6 +152,9 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === "/custom.xml") return customFeed(req, env);
+    // 「ご連絡」のフォームの受け口（このサイトについて、のページ）
+    const rep = await reportRoute(req, env);
+    if (rep) return rep;
     // 放送の情報を手で入れるページ（鍵つき）。保存のあと、フィードを作り直す（rss.yml）
     const imp = await importRoutes(req, env, { now: new Date(), dispatch: (w) => dispatch(env, w) });
     if (imp) return imp;
