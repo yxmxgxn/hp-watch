@@ -83,4 +83,21 @@ check(ids("\u200b栃木放送") == ["CRT"], "局名に、見えない文字（�
 check(ids("北陸放送") == ["MRO"] and ids("NHK-FM") == ["JOAK-FM"], "略称で出ている局（北陸放送→MRO）・NHK-FM")
 check(ids("ラジオ関西") == ["CRK"] and ids("知らない局") == [], "いままで合っていた局は、そのまま。わからない局は飛ばす")
 
+# ファビコン・OGP: どのページも同じ画像・同じ色。画像は static/ にある
+import selectable, sitemeta, struct
+tp = dt.datetime(2026, 11, 24, 12, 0, tzinfo=rss.JST)
+d_out = tempfile.mkdtemp()
+selectable.write_options(d_out, [])
+pages = {"index": rss.index_html([], tp), "about": rss.about_page(tp), "custom": open(os.path.join(d_out, "custom/index.html"), encoding="utf-8").read()}
+check(all('<meta property="og:image" content="https://hello-rss.karin-archive.com/og.png">' in h and '<meta name="twitter:card" content="summary_large_image">' in h for h in pages.values()), "OGP: どのページも、同じ画像（og.png）と large のカード")
+check(all('href="/favicon.ico"' in h and 'href="/apple-touch-icon.png"' in h and '<meta name="theme-color" content="#0080cb">' in h for h in pages.values()), "ファビコン・ホーム画面のアイコン・ブラウザの色: どのページも同じ")
+check(pages["index"].split("<title>")[1].split("</title>")[0] == "ハロプロ RSS アンオフィシャル" and "<h1>ハロプロ RSS アンオフィシャル</h1>" in pages["index"], "トップ: タイトルは『ハロプロ RSS アンオフィシャル』")
+check("<p>ハロー！プロジェクト関連のお知らせをRSSで読む</p>" in pages["index"] and "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>" in pages["index"], "トップ: 説明の文")
+check("リーダーにURLを登録して使います" in pages["about"] and "ハロー！プロジェクト関連のお知らせをRSSで読む" in pages["about"], "このサイトについて: 同じ説明が入っている")
+st = os.path.join(os.path.dirname(os.path.abspath(rss.__file__)), "static")
+with open(os.path.join(st, "og.png"), "rb") as f:
+    hdr = f.read(24)
+check(hdr[:8] == b"\x89PNG\r\n\x1a\n" and struct.unpack(">II", hdr[16:24]) == (1200, 630), "static/og.png: 1200x630 の PNG")
+check(all(os.path.getsize(os.path.join(st, n)) > 100 for n in ("favicon.ico", "icon-192.png", "icon-512.png", "apple-touch-icon.png")), "static/: ファビコンのファイルがある")
+
 print(f"\nall {ok} ok")

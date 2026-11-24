@@ -15,6 +15,8 @@ import os
 import re
 import unicodedata
 
+import sitemeta
+
 DATA_LIMIT = 400  # 1つの元データに残す記事数（新しい順）
 GROUP_TYPES = {"group", "unit"}  # ほかの種別（member・solo）は「人」
 
@@ -140,14 +142,15 @@ def make_source(out, site, site_label, kind, kind_label, items, who_info, cat_in
 
 def write_options(out, sources):
     write(os.path.join(out, "data/options.json"), json.dumps({"sources": list(sources)}, ensure_ascii=False, separators=(",", ":")))
-    write(os.path.join(out, "custom/index.html"), PAGE)
+    head = sitemeta.head_tags("ハロプロ 選んで作るRSS ― " + sitemeta.SITE_NAME,
+                              "ハロプロの RSS を、人・グループ・カテゴリ・言葉で選んで作るページです（非公式）。", "/custom/")
+    write(os.path.join(out, "custom/index.html"), PAGE.replace("<!--HEAD_TAGS-->", head))
 
 
 PAGE = """<!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ハロプロの RSS を、人・グループ・カテゴリ・言葉で選んで作るページです（非公式）。">
-<title>ハロプロ 選んで作るRSS</title>
+<!--HEAD_TAGS-->
 <style>
 :root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2;--card:#f6f7f9}
 @media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff;--card:#202124}}
