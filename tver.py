@@ -159,7 +159,8 @@ def weekly_tv_items(today):
 
 
 def update_programs(path, programs_found):
-    """TVer で見つかった番組の、TVer の検索のページを残す（ほかの欄は、そのまま）。変わったら True"""
+    """TVer で見つかった番組の、TVer の検索のページを残す（ほかの欄は、そのまま）。変わったら True。
+    手で入れた番組のページ（https://tver.jp/series/…）が、すでにあれば、検索のページで置き換えない"""
     data = {"programs": {}}
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
@@ -170,6 +171,8 @@ def update_programs(path, programs_found):
         key = rss.program_key("TV", prog)
         cur = progs.setdefault(key, {"name": prog, "cat": "TV"})
         url = SEARCH + urllib.parse.quote(prog)
+        if cur.get("tver") and not str(cur["tver"]).startswith(SEARCH):
+            continue
         if cur.get("tver") != url:
             cur["tver"] = url
             changed = True
