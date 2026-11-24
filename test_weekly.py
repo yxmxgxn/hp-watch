@@ -54,4 +54,14 @@ check(rss.standing_links("MAGAZINE", "B.L.T.", [mag_monthly], FakeRk(), progs) =
 rss.PROGRAMS_PATH = os.path.join(tempfile.mkdtemp(), "none.json")
 check(rss.load_programs() == {}, "manual/programs.json が無ければ、空")
 
+# radiko の局名の対応（公式の局名に、見えない文字が混ざる・略称で出ている局）
+import radiko
+rk0 = radiko.Radiko()
+rk0._stations = {"CRT": {"name": "CRT栃木放送"}, "MRO": {"name": "MROラジオ"}, "JOAK-FM": {"name": "NHK FM(東京)"}, "CRK": {"name": "ラジオ関西"}}
+rk0._by_name = {radiko.norm(v["name"]): k for k, v in rk0._stations.items()}
+ids = lambda head: rk0.station_ids(head + "「番組」")
+check(ids("\u200b栃木放送") == ["CRT"], "局名に、見えない文字（ゼロ幅スペース）が混ざっていても合う")
+check(ids("北陸放送") == ["MRO"] and ids("NHK-FM") == ["JOAK-FM"], "略称で出ている局（北陸放送→MRO）・NHK-FM")
+check(ids("ラジオ関西") == ["CRK"] and ids("知らない局") == [], "いままで合っていた局は、そのまま。わからない局は飛ばす")
+
 print(f"\nall {ok} ok")
