@@ -2,6 +2,52 @@
 "items": [
 {
 "categories": [
+"TV",
+"譜久村聖"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-24T16:00:00+09:00",
+"general": false,
+"groups": [
+"5"
+],
+"guid": "jproom-media-hd41f29918c833149",
+"html": "<p>出演: 譜久村聖</p><ul><li><a href=\"https://www.webtsc.com/program/pirisat/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E3%83%86%E3%83%AC%E3%83%93%E3%81%9B%E3%81%A8%E3%81%86%E3%81%A1%E3%80%8C%E3%83%94%E3%83%AA%E3%83%83%E3%81%A8%E3%82%B5%E3%82%BF%E3%83%87%E3%83%BC%E3%80%8D&amp;dates=20261205T110000%2F20261205T113000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.webtsc.com/program/pirisat/",
+"name": "テレビせとうち「ピリッとサタデー」",
+"sort": "2026-12-05 11:00",
+"title": "[TV] 12/5(土) 11:00 テレビせとうち「ピリッとサタデー」",
+"who": [
+"mizuki_fukumura"
+]
+},
+{
+"categories": [
+"RADIO",
+"譜久村聖"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-24T16:00:00+09:00",
+"general": false,
+"groups": [
+"5"
+],
+"guid": "jproom-media-hd870ff703fdcc533",
+"html": "<p>出演: 譜久村聖</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.zf-web.com/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/GBS/20261128203000\">radiko タイムフリー（ぎふチャン・無料で聴けるのは東海）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E3%81%8E%E3%81%B5%E3%83%81%E3%83%A3%E3%83%B3%E3%80%8C%E8%AD%9C%E4%B9%85%E6%9D%91%E8%81%96%E3%81%AE%E3%81%A9%E3%81%86%E3%81%A7%E3%82%82%E3%82%88%E3%81%8F%E3%81%AA%E3%81%84%E3%83%A9%E3%82%B8%E3%82%AA%E3%80%8D&amp;dates=20261128T203000%2F20261128T210000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.zf-web.com/",
+"name": "ぎふチャン「譜久村聖のどうでもよくないラジオ」",
+"sort": "2026-11-28 20:30",
+"title": "[RADIO] 11/28(土) 20:30 ぎふチャン「譜久村聖のどうでもよくないラジオ」",
+"who": [
+"mizuki_fukumura"
+]
+},
+{
+"categories": [
 "RADIO",
 "譜久村聖"
 ],
@@ -855,9 +901,11 @@
 "hc826c4c48a2d3e19": "2026-10-12",
 "hcfd448efbbb5c86a": "2026-11-21",
 "hd2fdb48e2fe8215f": "2026-11-17",
+"hd41f29918c833149": "2026-12-05",
 "hd50b2753cb4ac11f": "2026-11-28",
 "hd54e0a1713fe92a8": "2026-11-17",
 "hd755aec8d9212b7d": "2026-11-14",
+"hd870ff703fdcc533": "2026-11-28",
 "he36eda5b956f298d": "2026-11-19",
 "he71a2ddc269ac5b9": "2026-10-16",
 "he84b6fb7a7645e9d": "2026-11-14",
@@ -905,6 +953,8 @@
 "s2255": "2026-11-21",
 "s2269": "2026-11-22",
 "s2270": "2026-11-23",
-"s2271": "2026-11-22"
+"s2271": "2026-11-22",
+"s2316": "2026-12-05",
+"s2317": "2026-11-28"
 }
 }
