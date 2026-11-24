@@ -9,37 +9,12 @@
    "spotify": "https://open.spotify.com/show/4JSCeuA3H8xkgTeBN89FTz"
   },
   {
-   "name": "里田まいの里田商店",
-   "match": [
-    "里田商店"
-   ],
-   "podcast": "https://anchor.fm/s/db676c8c/podcast/rss",
-   "spotify": "https://open.spotify.com/show/2BvU6aZuaf2TxGDCzTi1hM"
-  },
-  {
    "name": "MUSIC BAR MIRAI亭",
    "match": [
     "MIRAI亭"
    ],
    "podcast": "https://anchor.fm/s/dcd63e68/podcast/rss",
    "spotify": "https://open.spotify.com/show/1SLP7kz2Ge4b29Wu8S6Kig"
-  },
-  {
-   "name": "鞘師里保とこれからの時間",
-   "match": [
-    "これからの時間"
-   ],
-   "podcast": "https://feeds.megaphone.fm/TFM3712341196",
-   "spotify": "https://open.spotify.com/show/27UY31kGnLHeWr0IDH1qkl"
-  },
-  {
-   "name": "鞘師里保のライフアップ・チョイス",
-   "match": [
-    "ライフアップ・チョイス",
-    "ライフアップチョイス"
-   ],
-   "podcast": "https://feeds.megaphone.fm/TFM2763011783",
-   "spotify": "https://open.spotify.com/show/3uoang0Yoi6WHqy7LmHFXt"
   },
   {
    "name": "小林萌花の ほのクラ。",
@@ -55,21 +30,6 @@
     "岐阜ホッケー"
    ],
    "spotify": "https://open.spotify.com/show/459UOmmhAzWwP83EPhirw3"
-  },
-  {
-   "name": "小片リサの「ことばむすび」",
-   "match": [
-    "ことばむすび"
-   ],
-   "podcast": "https://feeds.megaphone.fm/FMN2810457568",
-   "spotify": "https://open.spotify.com/show/3j6zzs2Ru5GSn8LuRkzIVD"
-  },
-  {
-   "name": "BLooM LoUNGE",
-   "match": [
-    "BLooM LoUNGE"
-   ],
-   "spotify": "https://open.spotify.com/show/033oZIh3qRU3nhHISdwhhE"
   },
   {
    "name": "Juice=Juice ジューシー・トーク",
