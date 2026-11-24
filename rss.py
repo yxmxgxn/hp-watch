@@ -56,6 +56,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -184,19 +185,27 @@ def stamp_news(items, state_path, now):
 
 # ---------- MEDIA ----------
 
+def _is_weekly(x, regulars):
+    """毎週・毎月などの番組か（公式の regular の印・定期の書き方）"""
+    kind, _ = hpwatch.ical_id(x)
+    label = (x.get("schedule") or {}).get("label") or ""
+    return kind == "regular" or hpwatch.regular_key(x) in regulars or bool(re.search(hpwatch.RECURRING, label))
+
+
+def _regulars(profiles):
+    return {hpwatch.regular_key(r) for p in profiles.values() for r in p.get("regular") or []}
+
+
 def media_candidates(schedules, profiles):
     """MEDIA の単発の予定（毎週の番組を除く）"""
-    regulars = {hpwatch.regular_key(r) for p in profiles.values() for r in p.get("regular") or []}
-    out = []
-    for x in schedules:
-        if x.get("category") not in MEDIA_CATS or not x.get("date"):
-            continue
-        kind, _ = hpwatch.ical_id(x)
-        label = (x.get("schedule") or {}).get("label") or ""
-        if kind == "regular" or hpwatch.regular_key(x) in regulars or re.search(hpwatch.RECURRING, label):
-            continue
-        out.append(x)
-    return out
+    regulars = _regulars(profiles)
+    return [x for x in schedules if x.get("category") in MEDIA_CATS and x.get("date") and not _is_weekly(x, regulars)]
+
+
+def weekly_candidates(schedules, profiles):
+    """毎週・毎月などの番組の、1回分ずつ（MEDIA のフィードには出さない分）"""
+    regulars = _regulars(profiles)
+    return [x for x in schedules if x.get("category") in MEDIA_CATS and x.get("date") and _is_weekly(x, regulars)]
 
 
 def media_keys(x):
@@ -389,7 +398,59 @@ def today_rows(xs):
     return sorted(rows.values(), key=lambda r: (time_key(r["start"]), r["cat"], r["prog"]))
 
 
-def today_row_html(r, base, rk):
+# ---------- 毎週の番組の、最初から入れておくリンク（manual/programs.json） ----------
+PROGRAMS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "programs.json")
+
+
+def norm_name(s):
+    """番組名をそろえる（全角・半角・大文字・小文字・空白・記号）"""
+    return re.sub(r"[\s\W_]+", "", unicodedata.normalize("NFKC", s or "").casefold())
+
+
+def program_key(cat, prog):
+    return f"{cat}|{norm_name(prog)}"
+
+
+def load_programs():
+    """番組ごとの、決まった行き先。{番組のキー: {"name", "tver"（番組のページ）, "podcast"（RSS）, "spotify"（番組のページ）, "youtube"（チャンネルのページ）}}。
+    tver は tver.py が、見つけたら足す。ほかは手で書く（ポッドキャスト・YouTube の自動が読む）"""
+    if not os.path.exists(PROGRAMS_PATH):
+        return {}
+    with open(PROGRAMS_PATH, encoding="utf-8") as f:
+        return (json.load(f) or {}).get("programs") or {}
+
+
+def standing_links(cat, prog, items, rk, programs):
+    """毎週の番組に、放送の前から入れておくリンク [(名前, URL)]。ラジオは radiko の生放送、テレビは TVer の番組のページ（TVer にある番組だけ）、
+    決まった行き先があれば、Spotify の番組・YouTube のチャンネルも。放送のあとの分（タイムフリー・エピソード）は、別に足す"""
+    out = []
+    if cat == "RADIO":
+        sids = []
+        for it in items:
+            sids += rk.station_ids(hpwatch.text_of(it.get("title")).strip())
+        out += [(f"radiko（{rk.name(sid)}・生放送）", radiko.live_url(sid)) for sid in dict.fromkeys(sids)]
+    cfg = programs.get(program_key(cat, prog)) or {}
+    for field, label in (("tver", "TVer（番組）"), ("spotify", "Spotify（番組）"), ("youtube", "YouTube（チャンネル）")):
+        u = str(cfg.get(field) or "")
+        if u.startswith("https://"):
+            out.append((label, u))
+    return list(dict.fromkeys(out))
+
+
+def radiko_link_list(items, rk):
+    """ラジオの予定の radiko のタイムフリーのリンク [(名前, URL)]。タイムフリーに出来るものだけ"""
+    x = items[0]
+    ft = radiko.ft_of(x["date"], (x.get("schedule") or {}).get("start") or "")
+    out = []
+    for it in items:
+        for sid in rk.station_ids(hpwatch.text_of(it.get("title")).strip()):
+            p = rk.lookup(sid, ft)
+            if p and not p.get("ts_ng"):
+                out.append((f"radiko（{rk.name(sid)}）", radiko.timefree_url(sid, p["ft"])))
+    return list(dict.fromkeys(out))
+
+
+def today_row_html(r, base, rk, site="", ctx=None):
     x = r["items"][0]
     link = abs_link(base, hpwatch.link_of(x))
     prog = r["prog"]
@@ -405,19 +466,31 @@ def today_row_html(r, base, rk):
     if r["who"]:
         lines.append(f"出演: {escape(r['who'])}")
     if r["cat"] == "RADIO" and r["start"] and not r["status"]:
-        ft = radiko.ft_of(x["date"], r["start"])
-        rl = []
-        for it in r["items"]:
-            for sid in rk.station_ids(hpwatch.text_of(it.get("title")).strip()):
-                p = rk.lookup(sid, ft)
-                if p and not p.get("ts_ng"):
-                    rl.append(f"<a href={quoteattr(radiko.timefree_url(sid, p['ft']))}>radiko（{escape(rk.name(sid))}）</a>")
+        rl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in radiko_link_list(r["items"], rk)]
         if rl:
-            lines.append(" ".join(dict.fromkeys(rl)))
+            lines.append(" ".join(rl))
+    ctx = ctx or {}
+    # 毎週の番組は、放送の前から入れておくリンク（radiko の生放送・TVer の番組・Spotify・YouTube）も出す
+    if ctx.get("programs") is not None and _is_weekly(r["items"][0], ctx.get("regulars") or set()):
+        sl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in standing_links(r["cat"], r["prog"], r["items"], rk, ctx["programs"])]
+        if sl:
+            lines.append(" ".join(sl))
+    # 手で入れた分・自動で入った分（TVer・ポッドキャスト・YouTube など）。同じ行にまとめた局の分も、まとめて出す
+    manual = ctx.get("manual")
+    for it in r["items"] if manual else []:
+        e = manual.get(f"{site}-media-{media_keys(it)[0]}")
+        if e:
+            if e.get("note"):
+                lines.append(escape(e["note"]))
+            if e.get("guest"):
+                lines.append(f"ゲスト: {escape(e['guest'])}")
+            ls = manual_links(e)
+            if ls:
+                lines.append(" ".join(f"<a href={quoteattr(u)}>{escape(lab)}</a>" for lab, u in ls))
     return "<li>" + "<br>".join(lines) + "</li>"
 
 
-def today_items(site, base, schedules, now, rk):
+def today_items(site, base, schedules, now, rk, ctx=None):
     """直近 TODAY_DAYS 日の「今日の予定」。JSON から毎回作り直す（過去の日の予定もJSONに残っている）"""
     by_date = {}
     for x in schedules:
@@ -430,7 +503,7 @@ def today_items(site, base, schedules, now, rk):
         rows = today_rows(by_date.get(d) or [])
         if not rows:
             continue
-        html = ("<ul>" + "".join(today_row_html(r, base, rk) for r in rows) + "</ul>"
+        html = ("<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
                 "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）。放送中は radiko の生放送で聴けます。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
@@ -562,6 +635,34 @@ def apply_manual(items, manual):
     return out
 
 
+WEEKLY = []        # 毎週・毎月の番組の、1回分ずつ（data/weekly.json になる。build_site が足す）
+WEEKLY_BACK = 14   # 今日から何日前まで
+WEEKLY_AHEAD = 10  # 今日から何日先まで
+
+
+def weekly_occurrences(site, label, schedules, profiles, now, rk, programs):
+    """毎週・毎月などの番組の、今日の前後の1回分ずつ。guid は MEDIA と同じ形（{site}-media-{ハッシュ}）なので、手で入れた分・自動の分と、
+    同じ仕組みで結べる。ラジオは、タイムフリーに出来る radiko のリンクも付ける（放送後1週間まで）"""
+    today = now.date()
+    lo, hi = today - dt.timedelta(days=WEEKLY_BACK), today + dt.timedelta(days=WEEKLY_AHEAD)
+    out = []
+    for x in weekly_candidates(schedules, profiles):
+        d = dt.date.fromisoformat(x["date"])
+        if not (lo <= d <= hi):
+            continue
+        s_ = x.get("schedule") or {}
+        cat = x["category"]
+        title = hpwatch.text_of(x.get("title")).strip()
+        station, prog = split_station(cat, title)
+        o = {"guid": f"{site}-media-{media_keys(x)[0]}", "site": site, "siteLabel": label, "cat": cat, "air": x["date"],
+             "start": s_.get("start") or "", "title": title, "prog": prog, "station": station, "label": s_.get("label") or ""}
+        if cat == "RADIO" and o["start"] and not x.get("status") and today - dt.timedelta(days=7) <= d <= today:
+            o["radiko"] = [[n, u] for n, u in radiko_link_list([x], rk)]  # 放送後に付くタイムフリー
+        o["base"] = [[n, u] for n, u in standing_links(cat, prog, [x], rk, programs)]  # 放送の前から入れておくリンク
+        out.append(o)
+    return out
+
+
 def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     base = cfg["base"]
     stamp = now.replace(minute=0, second=0)  # 記事の時刻（こちらが見つけた時刻）。分・秒は0にそろえる
@@ -580,7 +681,11 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
 
     state_path = os.path.join(state_dir, f"rss_media_{site}.json")
     media, state, media_found = update_media(site, base, schedules, profiles, state_path, stamp, rk)
-    media = apply_manual(media, load_manual(now))
+    manual = load_manual(now)
+    media = apply_manual(media, manual)
+    programs = load_programs()
+    WEEKLY.extend(weekly_occurrences(site, cfg["label"], schedules, profiles, now, rk, programs))
+    ctx = {"manual": manual, "programs": programs, "regulars": _regulars(profiles)}
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, base + cfg.get("schedule_path", "/schedule/"))
@@ -590,7 +695,7 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     name = "全体" if cfg["by_group"] else "全員"
     write(os.path.join(out, path), rss_xml(
         f"{cfg['label']} 今日の予定", f"{base} のスケジュールから、その日の予定を毎朝1本にまとめたもの・非公式",
-        base + cfg.get("schedule_path", "/schedule/"), url, newest(today_items(site, base, schedules, now, rk))))
+        base + cfg.get("schedule_path", "/schedule/"), url, newest(today_items(site, base, schedules, now, rk, ctx))))
     feeds.append({"site": site, "kind": "today", "name": name, "url": url})
 
     # 選択式フィードの元データ（人・グループは、プロフィールの順。種別: group・unit はグループ、member・solo は人）
@@ -1126,6 +1231,24 @@ KIND_NOTE = {
 }
 
 
+ABOUT_HTML = (
+    '<details class="sec"><summary>このサイトについて</summary>'
+    "<p>ハロー！プロジェクト関係の公式サイトの情報を、RSS リーダーで読めるようにした、非公式のサイトです。"
+    "公式の情報の題名とリンクだけを配ります（本文・画像は載せません。読むときは公式のページへ）。</p>"
+    "<ul>"
+    "<li><b>お知らせ</b>: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります（公式の記事に付いているグループのタグで分けています）。</li>"
+    "<li><b>MEDIA（出演）</b>: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前）。毎週・毎月の番組は含めません。ラジオには radiko のタイムフリーのリンクが付きます。</li>"
+    "<li><b>今日の予定</b>: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて全部です。</li>"
+    "<li><b>ファンクラブ</b>: ニュースを、タブ別（ニュース・イベント・コンサート・グッズなど）とグループ別に配ります。</li>"
+    "<li><b>ハロー！プロジェクト</b>・<b>JPROOM</b>・<b>アップフロント</b>: 同じ形です。JPROOM・アップフロントは所属が個人なので、全員まとめて1本です。人ごとに見たいときは、選んで作る RSS で選びます。</li>"
+    "<li><b>ハロショ・アメブロ・YouTube</b>: 選んで作る RSS で、題名だけにして読めます。</li>"
+    "</ul>"
+    "<p>放送が終わると、記事の後ろに、見られるリンク（TVer・radiko のタイムフリー・ポッドキャスト・YouTube など）が付くことがあります。"
+    "毎週の番組には、放送の前から、radiko の生放送や TVer の番組のページが付きます。</p>"
+    "</details>"
+)
+
+
 def index_html(feeds, now, sources=()):
     out = [
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">',
@@ -1137,6 +1260,7 @@ def index_html(feeds, now, sources=()):
         "<p>公式サイトの情報を RSS にしたものです（非公式）。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
         '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
+        ABOUT_HTML,
     ]
     for site in SITES:
         for kind in KINDS:
@@ -1242,6 +1366,10 @@ def main():
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
+    # 毎週・毎月の番組の、1回分ずつ。手で入れるページの「毎週」が読む
+    write(os.path.join(args.out, "data/weekly.json"), json.dumps(
+        {"updated": now.isoformat(), "items": sorted(WEEKLY, key=lambda o: (o["air"], o["start"], o["guid"]))},
+        ensure_ascii=False, separators=(",", ":")))
     # 公式のJSONの ETag（今回の作り直しで使ったもの）。Worker が、公式の今の ETag と比べて、変わったときだけ rss.yml を呼ぶ
     write(os.path.join(args.out, "data/watch.json"), json.dumps(hpwatch.ETAGS, ensure_ascii=False, separators=(",", ":"), sort_keys=True))
     write(os.path.join(args.out, "_headers"), headers_file())

@@ -119,7 +119,15 @@ async function readAsset(env, path) {
   return r.json();
 }
 
-// フィードの元データ（data/）から、項目の放送日と名前を探す。無ければ null
+async function readOptional(env, path) {
+  try {
+    return await readAsset(env, path);
+  } catch {
+    return null;
+  }
+}
+
+// フィードの元データ（data/）から、項目の放送日と名前を探す。無ければ null。毎週・毎月の番組の1回分（data/weekly.json）も探す
 async function findItem(env, guid) {
   const opts = await readAsset(env, "/data/options.json");
   for (const s of opts.sources || []) {
@@ -128,8 +136,12 @@ async function findItem(env, guid) {
     const it = (d.items || []).find((i) => i.guid === guid);
     if (it) return { air: String(it.air || "").slice(0, 10), name: it.name || it.title || "", site: s.siteLabel };
   }
+  const w = (((await readOptional(env, "/data/weekly.json")) || {}).items || []).find((i) => i.guid === guid);
+  if (w) return { air: w.air, name: weeklyName(w), site: w.siteLabel };
   return null;
 }
+
+const weeklyName = (w) => w.prog + (w.station ? `（${w.station}）` : "");
 
 const ghHeaders = (env) => ({
   Authorization: `Bearer ${env.GH_DATA_TOKEN}`,
@@ -167,7 +179,8 @@ async function authorized(req, body, env, nowMs) {
   return validSession(env.DASHBOARD_KEY, cookieValue(req.headers.get("cookie"), COOKIE), nowMs);
 }
 
-// 期限内の項目（放送日の前後10日・ただし期限内）と、入っている中身
+// 期限内の項目（放送日の前後10日・ただし期限内）と、入っている中身。毎週・毎月の番組は、放送後3日の分を同じ一覧に「毎週」の印で出し、
+// 番組ごとにまとめた見方（weekly）も返す（放送の翌日に、リンクが付いているかを見る）
 async function state(req, env, now) {
   let body;
   try { body = await req.json(); } catch { return json(400, { error: "入力が読めません" }); }
@@ -185,30 +198,51 @@ async function state(req, env, now) {
       if (!String(it.guid).includes("-media-") || !it.air) continue;
       const air = String(it.air).slice(0, 10);
       if (air < lo || air > hi) continue;
-      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel, cat: String((it.cats && it.cats[0]) || "") });
+      items.push({ guid: it.guid, air, until: addDays(air, DAYS_AFTER), name: it.name || it.title || "", site: s.siteLabel, cat: String((it.cats && it.cats[0]) || ""), weekly: false });
     }
   }
   const cur = await readFile(env);
   const autoCur = await readFile(env, AUTO_FILE);
   const live = (f) => new Map(((f.file && f.file.items) || []).filter((e) => e.until >= today).map((e) => [e.guid, e]));
   const manual = live(cur), auto = live(autoCur);
-  for (const it of items) {
-    const e = manual.get(it.guid), a = auto.get(it.guid);
+  const resolve = (guid) => {
+    const e = manual.get(guid), a = auto.get(guid);
     if (e) {
       // 手で入れた分が優先。リンクが無いときだけ、自動のリンクを補う（rss.py と同じ）
       const own = linksOf(e);
-      it.status = "入力済み";
-      it.entry = { links: own.length ? own : linksOf(a), guest: e.guest || "", note: e.note || "", updated: e.updated || "", source: "manual" };
-    } else if (a) {
-      it.status = "自動";
-      it.entry = { links: linksOf(a), guest: "", note: "", updated: a.found || "", source: "auto" };
-    } else {
-      it.status = "未入力";
-      it.entry = null;
+      return { status: "入力済み", entry: { links: own.length ? own : linksOf(a), guest: e.guest || "", note: e.note || "", updated: e.updated || "", source: "manual" } };
     }
+    if (a) return { status: "自動", entry: { links: linksOf(a), guest: "", note: "", updated: a.found || "", source: "auto" } };
+    return { status: "未入力", entry: null };
+  };
+
+  // 毎週・毎月の番組の1回分ずつ。放送後3日までの分は、一覧にも出す
+  const weeklyAll = ((await readOptional(env, "/data/weekly.json")) || {}).items || [];
+  for (const w of weeklyAll) {
+    if (w.air < lo || w.air > today) continue;
+    items.push({ guid: w.guid, air: w.air, until: addDays(w.air, DAYS_AFTER), name: weeklyName(w), site: w.siteLabel, cat: w.cat, weekly: true, radiko: w.radiko || [], base: w.base || [] });
   }
-  items.sort((a, b) => a.air.localeCompare(b.air));
-  return json(200, { today, items });
+  for (const it of items) Object.assign(it, resolve(it.guid));
+  items.sort((a, b) => a.air.localeCompare(b.air) || a.name.localeCompare(b.name));
+
+  // 毎週タブ: 番組ごとに、前後の1回分ずつと、リンクが付いているか
+  const groups = new Map();
+  for (const w of weeklyAll) {
+    const r = resolve(w.guid);
+    const labels = [...(w.radiko || []).map((l) => l[0]), ...((r.entry && r.entry.links) || []).map((l) => l.label)];
+    const expected = w.cat === "MAGAZINE" ? false : true; // 雑誌・連載は、リンクを期待しない
+    const hasLink = labels.length > 0 || (r.entry && (r.entry.guest || r.entry.note));
+    let state_ = "ok";
+    if (w.air > today) state_ = "upcoming";
+    else if (!hasLink) state_ = !expected ? "none" : w.air >= addDays(today, -1) ? "pending" : "missing";
+    const key = `${w.siteLabel}|${w.cat}|${w.prog}`;
+    if (!groups.has(key)) groups.set(key, { key, prog: w.prog, cat: w.cat, siteLabel: w.siteLabel, label: w.label, base: w.base || [], occurrences: [] });
+    groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
+  }
+  const weekly = [...groups.values()];
+  for (const g of weekly) g.occurrences.sort((a, b) => a.air.localeCompare(b.air) || a.start.localeCompare(b.start));
+  weekly.sort((a, b) => a.cat.localeCompare(b.cat) || a.prog.localeCompare(b.prog));
+  return json(200, { today, items, weekly });
 }
 
 async function saveEntry(req, env, now, dispatch) {
@@ -272,6 +306,11 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 .badge{display:inline-block;font-size:.8rem;padding:1px 8px;border-radius:10px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
 .badge.done{border-color:var(--accent);color:var(--accent)}
 .got{font-size:.9rem;color:var(--mute);margin-top:2px;word-break:break-all}
+.tabs{display:flex;gap:6px;margin-top:14px}.tabs button{margin:0;border-radius:6px 6px 0 0}.tabs button:not(.on){background:none;color:var(--accent)}
+.card{border:1px solid var(--line);border-radius:8px;margin-top:10px;padding:8px 12px}.card .t{font-weight:700;word-break:break-all}
+.occ{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-top:1px solid var(--line);font-size:.92rem;cursor:pointer}.occ:first-of-type{border-top:0}
+.occ .d{width:8.4em;flex:none;color:var(--mute)}.occ .s{flex:1;min-width:0;word-break:break-all}.occ .m{flex:none;font-weight:700}
+.st-ok{color:#1a7f37}.st-pending{color:#b26a00}.st-missing{color:#c62828}.st-upcoming,.st-none{color:var(--mute)}
 #form{border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:14px;background:var(--card)}
 #msg{font-weight:700;margin-top:10px}.ok{color:#1a7f37}.ng{color:#c62828}
 </style></head><body><main>
@@ -284,10 +323,18 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 <div class="row"><button id="load" type="button" class="sub">一覧を読む</button><button id="logout" type="button" class="sub">ログアウト</button></div>
 <p id="msg" role="status"></p>
 
+<div class="tabs"><button id="tabList" type="button">期限内</button><button id="tabWeekly" type="button">毎週</button></div>
+<div id="listBox">
 <h2>期限内の項目</h2>
 <div class="chips" id="filters"></div>
 <p class="mute" id="count"></p>
 <div class="list" id="list"></div>
+</div>
+<div id="weeklyBox" hidden>
+<h2>毎週・毎月の番組</h2>
+<p class="mute" id="wcount"></p>
+<div id="wlist"></div>
+</div>
 
 <div id="form" hidden>
   <p><strong id="fname"></strong><span class="mute" id="fmeta"></span></p>
@@ -310,6 +357,8 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 const $ = (id) => document.getElementById(id);
 const KEY = () => $("key").value;
 let items = [];
+let weekly = [];
+let tab = "list";
 const msg = (t, cls) => { $("msg").className = cls || ""; $("msg").textContent = t; };
 const plus = (day, n) => { const d = new Date(day + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
 const post = async (path, body) => {
@@ -343,10 +392,10 @@ function fill(it) {
   $("form").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-const CATS = [["", "すべて"], ["TV", "テレビ"], ["RADIO", "ラジオ"], ["MAGAZINE", "雑誌"], ["WEB", "WEB"], ["OTHER", "その他"]];
+const CATS = [["", "すべて"], ["WEEKLY", "毎週"], ["TV", "テレビ"], ["RADIO", "ラジオ"], ["MAGAZINE", "雑誌"], ["WEB", "WEB"], ["OTHER", "その他"]];
 let filter = "";
 const MEDIA = ["TV", "RADIO", "MAGAZINE", "WEB"];
-const matches = (it) => !filter || (filter === "OTHER" ? !MEDIA.includes(it.cat) : it.cat === filter);
+const matches = (it) => !filter || (filter === "WEEKLY" ? it.weekly : filter === "OTHER" ? !MEDIA.includes(it.cat) : it.cat === filter);
 function drawFilters() {
   const box = $("filters");
   box.textContent = "";
@@ -357,6 +406,50 @@ function drawFilters() {
     box.appendChild(b);
   });
 }
+
+const STATE = { ok: ["✓", "反映済み"], pending: ["…", "待ち"], missing: ["✗", "未反映"], upcoming: ["○", "これから"], none: ["－", ""] };
+const md2 = (d) => d.slice(5).replace("-", "/");
+function renderWeekly() {
+  const box = $("wlist");
+  box.textContent = "";
+  let miss = 0, pend = 0, ok = 0;
+  weekly.forEach((g) => {
+    g.occurrences.forEach((o) => { if (o.state === "missing") miss++; else if (o.state === "pending") pend++; else if (o.state === "ok") ok++; });
+    const card = document.createElement("div"); card.className = "card";
+    const t = document.createElement("div"); t.className = "t";
+    t.textContent = g.prog;
+    const b = document.createElement("span"); b.className = "badge"; b.textContent = g.cat + "・" + g.siteLabel + (g.label ? "・" + g.label : "");
+    t.appendChild(b);
+    card.appendChild(t);
+    if (g.base && g.base.length) {
+      const bl = document.createElement("div"); bl.className = "got"; bl.textContent = "最初から入っている: " + g.base.map((l) => l[0]).join(" / ");
+      card.appendChild(bl);
+    }
+    g.occurrences.forEach((o) => {
+      const row = document.createElement("div"); row.className = "occ";
+      const d = document.createElement("span"); d.className = "d"; d.textContent = md2(o.air) + " " + (o.start || "");
+      const s = document.createElement("span"); s.className = "s"; s.textContent = (o.station || "") + (o.labels.length ? "  " + o.labels.join(" / ") : "");
+      const m = document.createElement("span"); m.className = "m st-" + o.state; m.textContent = STATE[o.state][0] + " " + STATE[o.state][1];
+      row.append(d, s, m);
+      row.addEventListener("click", () => fill({ guid: o.guid, name: o.name, air: o.air, until: plus(o.air, 3), site: o.site, entry: o.entry }));
+      card.appendChild(row);
+    });
+    box.appendChild(card);
+  });
+  $("wcount").textContent = weekly.length
+    ? weekly.length + "番組（前後の1回分ずつ）。反映済み " + ok + "・待ち " + pend + "・未反映 " + miss + "（放送の翌日までにリンクが付いていないもの）"
+    : "毎週・毎月の番組は、まだありません（フィードを作り直すと出ます）";
+}
+
+function showTab(t) {
+  tab = t;
+  $("listBox").hidden = t !== "list";
+  $("weeklyBox").hidden = t !== "weekly";
+  $("tabList").style.opacity = t === "list" ? "1" : ".6";
+  $("tabWeekly").style.opacity = t === "weekly" ? "1" : ".6";
+}
+$("tabList").addEventListener("click", () => showTab("list"));
+$("tabWeekly").addEventListener("click", () => showTab("weekly"));
 
 function renderList() {
   const list = $("list");
@@ -371,8 +464,14 @@ function renderList() {
     const name = document.createElement("div"); name.className = "name"; name.textContent = it.name;
     const badge = document.createElement("span"); badge.className = "badge" + (it.entry ? " done" : ""); badge.textContent = it.status;
     name.appendChild(badge);
+    if (it.weekly) { const w = document.createElement("span"); w.className = "badge"; w.textContent = "毎週"; name.appendChild(w); }
     const meta = document.createElement("div"); meta.className = "mute"; meta.textContent = it.air + " 放送（" + it.site + "）・期限 " + it.until;
     main.append(name, meta);
+    const auto = [...(it.radiko || []).map((l) => l[0]), ...(it.base || []).map((l) => l[0])];
+    if (auto.length) {
+      const a = document.createElement("div"); a.className = "got"; a.textContent = "最初から入っている: " + auto.join(" / ");
+      main.appendChild(a);
+    }
     if (it.entry) {
       const got = document.createElement("div"); got.className = "got";
       const parts = it.entry.links.map((l) => l.label);
@@ -396,7 +495,9 @@ async function loadList(quiet) {
       return false;
     }
     items = r.j.items || [];
+    weekly = r.j.weekly || [];
     renderList();
+    renderWeekly();
     if (!quiet) msg("");
     return true;
   } catch (e) {
@@ -422,6 +523,7 @@ $("login").addEventListener("click", async () => {
 
 $("load").addEventListener("click", () => loadList(false));
 drawFilters();
+showTab("list");
 
 $("logout").addEventListener("click", async () => {
   await post("/import/logout", {});

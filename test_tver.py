@@ -43,6 +43,14 @@ check(tver.pick([tver.parse_row("/episodes/z", "キタコイ\nx\nHBC 11月21日(
 check(tver.nearest(dt.date(2027, 1, 1), 12, 31) == dt.date(2026, 12, 31), "年をまたぐ放送日（1/1 に 12/31）")
 check(tver.pick([tver.parse_row("/episodes/y", "年末番組\nx\nA局 12月31日(木)放送分\n")], "年末番組", dt.date(2027, 1, 1)) == "/episodes/y", "年をまたいでも選べる")
 
+# 毎週の番組: 地方局の遅れ放送（放送日の8日前までの、いちばん新しいエピソード）
+rowsw = [tver.parse_row("/episodes/e1", "Hello! Music Lab。\nx\nテレ東 11月16日(月)放送分\n"),
+         tver.parse_row("/episodes/e0", "Hello! Music Lab。\nx\nテレ東 11月9日(月)放送分\n")]
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18)) is None, "単発は、2日以上ずれたら選ばない（水曜の遅れ放送には、選ばない）")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18), back=8) == "/episodes/e1", "毎週の番組は、水曜の遅れ放送に、月曜のエピソードを選ぶ")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 16), back=8) == "/episodes/e1", "毎週の番組でも、同じ日のエピソードがあれば、それを選ぶ")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 25), back=8) is None, "毎週の番組でも、9日以上前のエピソードは選ばない")
+
 # 探す項目
 with tempfile.TemporaryDirectory() as d:
     sd = os.path.join(d, "state")
@@ -75,5 +83,16 @@ with tempfile.TemporaryDirectory() as d:
     ent = tver.load_entries(p, today)
     check(list(ent) == ["g-2"] and tver.has_link(ent["g-2"]), "ファイルを読む: 期限内だけ・リンクあり")
     check(tver.load_entries(os.path.join(d, "none.json"), today) == {}, "ファイルが無ければ空")
+
+# 番組の記録（manual/programs.json）: TVer の検索のページを足す。ほかの欄は、そのまま
+with tempfile.TemporaryDirectory() as d2:
+    pp = os.path.join(d2, "programs.json")
+    key = tver.rss.program_key("TV", "Hello! Music Lab。")
+    json.dump({"programs": {key: {"name": "Hello! Music Lab。", "cat": "TV", "youtube": "https://www.youtube.com/@x"}}}, open(pp, "w", encoding="utf-8"))
+    check(tver.update_programs(pp, {"Hello! Music Lab。", "西乃風ブラン堂"}) is True, "番組の記録: TVer の検索のページを足す")
+    data = json.load(open(pp, encoding="utf-8"))["programs"]
+    check(data[key]["tver"].startswith("https://tver.jp/search/") and data[key]["youtube"].startswith("https://www.youtube.com/"), "番組の記録: ほかの欄は、そのまま")
+    check(len(data) == 2, "番組の記録: 新しい番組を足す")
+    check(tver.update_programs(pp, {"Hello! Music Lab。"}) is False, "番組の記録: 変わらなければ、書かない")
 
 print(f"\nall {ok} ok")

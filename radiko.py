@@ -157,3 +157,8 @@ class Radiko:
 
 def timefree_url(sid, ft):
     return f"https://radiko.jp/#!/ts/{sid}/{ft}"
+
+
+def live_url(sid):
+    """局の生放送のページ（放送中に聴ける。毎週の番組の、最初から入れておくリンク）"""
+    return f"https://radiko.jp/#!/live/{sid}"

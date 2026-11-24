@@ -450,6 +450,11 @@ if (dataDir) {
       const p = new URL(req.url).pathname;
       if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }, { site: "ameblo", siteLabel: "アメブロ", kind: "blog" }] });
       if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", name: "番組名", air: day, link: "x", date: "2026-11-17T00:00:00Z", cats: ["RADIO"] }] });
+      if (p === "/data/weekly.json") return Response.json({ items: [
+        { guid: "hp-media-wk1", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: day, start: "25:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [["TVer（番組）", "https://tver.jp/search/x"]] },
+        { guid: "hp-media-wk2", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: im2.addDays(day, -2), start: "21:00", title: "TBSラジオ「ラジオ番組」", prog: "ラジオ番組", station: "TBSラジオ", label: "毎週日曜日", radiko: [["radiko（TBSラジオ）", "https://radiko.jp/#!/ts/TBS/20261122210000"]], base: [["radiko（TBSラジオ・生放送）", "https://radiko.jp/#!/live/TBS"]] },
+        { guid: "hp-media-wk3", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: im2.addDays(day, -9), start: "25:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [] },
+      ] });
       return new Response("no", { status: 404 });
     } };
     const e2 = { GH_REPO: "o/r", GH_TOKEN: "tok", GH_DATA_TOKEN: "dtok", DASHBOARD_KEY: "secret-key-1", ASSETS: assets2 };
@@ -464,10 +469,11 @@ if (dataDir) {
 
     r = await hit("/import/state", { body: "{}", headers: { cookie } });
     assert(r.status === 200, "一覧: 鍵を入れなくても、ログインの Cookie で読める");
-    assert((await r.clone().json()).items[0].cat === "RADIO", "一覧: 項目にメディアの種類（ラジオ）が付く（フィルタに使う）");
+    assert((await r.clone().json()).items.find((i) => i.guid === "helloproject-media-abc123").cat === "RADIO", "一覧: 項目にメディアの種類（ラジオ）が付く（フィルタに使う）");
     autoFile2 = { items: [{ guid: "helloproject-media-abc123", air: day, until: im2.addDays(day, 3), links: [{ label: "TVer", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day }] };
     const stAuto = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
-    assert(stAuto.items[0].status === "自動" && stAuto.items[0].entry.source === "auto" && stAuto.items[0].entry.links[0].url.endsWith("/auto"), "一覧: 自動で入ったリンクは、『自動』と出る");
+    const aItem = stAuto.items.find((i) => i.guid === "helloproject-media-abc123");
+    assert(aItem.status === "自動" && aItem.entry.source === "auto" && aItem.entry.links[0].url.endsWith("/auto"), "一覧: 自動で入ったリンクは、『自動』と出る");
     r = await hit("/import/state", { body: "{}", headers: { cookie: "hr_import=" + tok.slice(0, -2) + "zz" } });
     assert(r.status === 403, "一覧: 印が違う Cookie は403");
     r = await hit("/import/state", { body: "{}" });
@@ -475,7 +481,22 @@ if (dataDir) {
     r = await hit("/import/save", { body: JSON.stringify({ guid: "helloproject-media-abc123", links: [{ label: "TVer", url: "https://tver.jp/episodes/x" }], guest: "", note: "" }), headers: { cookie } });
     assert(r.status === 200 && file2 && file2.items.length === 1, "保存: Cookie だけで保存できる");
     const stManual = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
-    assert(stManual.items[0].status === "入力済み" && stManual.items[0].entry.source === "manual" && stManual.items[0].entry.links[0].url.endsWith("/x"), "一覧: 手で入れると、自動より手の分が優先される");
+    const mItem = stManual.items.find((i) => i.guid === "helloproject-media-abc123");
+    assert(mItem.status === "入力済み" && mItem.entry.source === "manual" && mItem.entry.links[0].url.endsWith("/x"), "一覧: 手で入れると、自動より手の分が優先される");
+    // 毎週・毎月の番組: 放送後3日までは一覧にも出る（「毎週」の印・最初から入っているリンク）。毎週タブは、番組ごとに前後の1回分ずつ
+    const stW = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
+    const w1 = stW.items.find((i) => i.guid === "hp-media-wk1"), w2 = stW.items.find((i) => i.guid === "hp-media-wk2");
+    assert(w1 && w1.weekly === true && w1.name === "Hello! Music Lab。（テレビ東京系）" && w1.base[0][0] === "TVer（番組）", "一覧: 毎週の番組は『毎週』の印と、最初から入っているリンクが付く");
+    assert(w2 && w2.radiko[0][0].startsWith("radiko") && w2.cat === "RADIO", "一覧: 毎週のラジオは、放送後のタイムフリーのリンクが付く");
+    assert(!stW.items.some((i) => i.guid === "hp-media-wk3"), "一覧: 放送後3日を過ぎた毎週の分は、一覧には出ない");
+    const gl = stW.weekly.find((g) => g.prog === "Hello! Music Lab。");
+    assert(gl && gl.occurrences.length === 2, "毎週タブ: 番組ごとにまとめる（同じ番組の別の日は、1つの番組に入る）");
+    const occ = (guid) => stW.weekly.flatMap((g) => g.occurrences).find((o) => o.guid === guid);
+    assert(occ("hp-media-wk1").state === "pending", "毎週タブ: 今日の放送で、まだリンクが無ければ『待ち』");
+    assert(occ("hp-media-wk3").state === "missing", "毎週タブ: 放送の翌日を過ぎて、リンクが無ければ『未反映』");
+    assert(occ("hp-media-wk2").state === "ok", "毎週タブ: radiko のタイムフリーが付いていれば『反映済み』");
+    r = await hit("/import/save", { body: JSON.stringify({ guid: "hp-media-wk3", links: [{ label: "TVer", url: "https://tver.jp/episodes/old" }], guest: "", note: "" }), headers: { cookie } });
+    assert(r.status === 200, "保存: 毎週の番組の1回分（一覧から外れた古い分でも）に、リンクを入れられる");
     r = await hit("/import/logout", { body: "{}" });
     assert((r.headers.get("set-cookie") || "").includes("Max-Age=0"), "ログアウト: Cookie を消す");
   } finally {
