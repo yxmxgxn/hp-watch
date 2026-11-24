@@ -6,7 +6,7 @@
 - ポッドキャスト: 番組の RSS の最新のエピソードを、毎週の番組の1回分（放送日が今日から14日前までのもの）に結びつける
     エピソードの題名に日付があれば（「2026年11月15日放送分」「11/16」など）、放送日と合うものを選ぶ。日付が無ければ、公開日が放送日の6日前から10日後までの、放送日にいちばん近いもの（同じ週の再放送・遅れ放送にも、同じエピソード）
     題名に別の日付があるエピソードは、放送日が違うので選ばない。リンクはエピソードのページ（無ければ音声のURL）。リンクの名前は「ポッドキャスト」
-- YouTube: チャンネルの公式のRSS（最新15本）から、放送日（日本時間）に公開された動画のうち、題名に番組名があるもの。リンクの名前は「YouTube」
+- YouTube: チャンネルの公式のRSS（最新15本）から、題名に番組名がある動画のうち、題名の日付（「11月22日放送回」）が放送日と合うもの。題名に日付が無ければ、放送日（日本時間）に公開されたもの。リンクの名前は「YouTube」
 - Spotify は、ここでは扱わない（公開のRSSが無い番組があるため。番組のページのリンクだけ、sources.json から rss.py が付ける）
 - 番組ごとの最新のエピソード（5件）は、manual/episodes.json に残す（手で入れるページの「毎週」が、反映を確かめるのに使う）
 """
@@ -116,10 +116,16 @@ def match_podcast(episodes, air):
 
 
 def match_youtube(videos, name_words, air):
-    """放送日（日本時間）に公開された動画のうち、題名に番組名があるもの。複数あれば、最初のもの。無ければ None"""
+    """題名に番組名がある動画のうち、放送日（air）に合うもの。無ければ None。
+    題名に日付があれば（「11月22日放送回」。テレビの番組が、放送の数日後に上がる）、その日付が放送日と合うもの。
+    日付が無ければ、放送日（日本時間）に公開されたもの。題名に別の日付があるものは、公開日が放送日でも選ばない。複数あれば、最初のもの"""
     words = [rss.norm_name(w) for w in name_words if rss.norm_name(w)]
-    for v in sorted(videos, key=lambda v: v["link"]):
-        if v["date"] == air and v["link"] and any(w in rss.norm_name(v["title"]) for w in words):
+    mine = sorted((v for v in videos if v["link"] and any(w in rss.norm_name(v["title"]) for w in words)), key=lambda v: v["link"])
+    for v in mine:
+        if air in title_dates(v["title"], v["date"]):
+            return v
+    for v in mine:
+        if v["date"] == air and not title_dates(v["title"], v["date"]):
             return v
     return None
 

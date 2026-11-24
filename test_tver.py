@@ -94,5 +94,8 @@ with tempfile.TemporaryDirectory() as d2:
     check(data[key]["tver"].startswith("https://tver.jp/search/") and data[key]["youtube"].startswith("https://www.youtube.com/"), "番組の記録: ほかの欄は、そのまま")
     check(len(data) == 2, "番組の記録: 新しい番組を足す")
     check(tver.update_programs(pp, {"Hello! Music Lab。"}) is False, "番組の記録: 変わらなければ、書かない")
+    data[key]["tver"] = "https://tver.jp/series/srlnqjxe9p"
+    json.dump({"programs": data}, open(pp, "w", encoding="utf-8"), ensure_ascii=False)
+    check(tver.update_programs(pp, {"Hello! Music Lab。"}) is False and json.load(open(pp, encoding="utf-8"))["programs"][key]["tver"].endswith("/series/srlnqjxe9p"), "番組の記録: 手で入れた番組のページ（series）は、検索のページで置き換えない")
 
 print(f"\nall {ok} ok")

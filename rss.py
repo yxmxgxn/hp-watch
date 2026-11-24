@@ -1246,6 +1246,13 @@ main{max-width:720px;margin:0 auto}h1{font-size:1.5rem;margin:0 0 4px}h2{font-si
 p,.mute{color:var(--mute);margin:4px 0}a{color:var(--accent)}ul{padding:0;list-style:none;margin:0}
 li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 code{font-size:.8rem;color:var(--mute);word-break:break-all}
+li.feed .act,li.feed .chk{flex-basis:100%}
+.act{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.act button{font:inherit;font-size:.85rem;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:6px;padding:2px 12px;cursor:pointer}
+.act button:hover{border-color:var(--accent);color:var(--accent)}.act button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.act .msg{font-size:.85rem;color:var(--mute)}
+ol.chk{margin:4px 0 0;padding-left:1.6em;font-size:.9rem}ol.chk li{display:list-item;border:0;padding:2px 0}
+ol.chk .d{color:var(--mute);font-size:.8rem;margin-right:6px}
 details.sec{margin-top:8px}
 details.sec>summary{cursor:pointer;list-style:none;font-size:1.1rem;font-weight:700;margin:20px 0 4px}
 details.sec>summary::-webkit-details-marker{display:none}
@@ -1322,6 +1329,63 @@ def about_page(now):
     )
 
 
+
+# 一覧の、フィード1本分。URL の下に、コピーと、確かめる（最新の5件を、その下に並べる）のボタン
+def feed_li(f):
+    u = quoteattr(f["url"])
+    return (f'<li class="feed"><a href={u}>{escape(f["name"])}</a><code>{escape(f["url"])}</code>'
+            f'<div class="act"><button type="button" class="cp" data-url={u}>コピー</button>'
+            f'<button type="button" class="ck" data-url={u}>確かめる</button><span class="msg" role="status"></span></div>'
+            '<ol class="chk" hidden></ol></li>')
+
+
+FEED_JS = r"""
+(function () {
+  var fmt = new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+  function copyText(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+    return new Promise(function (ok, ng) {
+      var a = document.createElement("textarea"); a.value = t; a.style.position = "fixed"; a.style.opacity = "0";
+      document.body.appendChild(a); a.select();
+      try { document.execCommand("copy") ? ok() : ng(); } catch (e) { ng(e); } finally { document.body.removeChild(a); }
+    });
+  }
+  function txt(el, sel) { var n = el.querySelector(sel); return n ? n.textContent.trim() : ""; }
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest("button.cp, button.ck");
+    if (!b) return;
+    var li = b.closest("li.feed"), msg = li.querySelector(".msg"), url = b.getAttribute("data-url");
+    if (b.classList.contains("cp")) {
+      copyText(url).then(function () { msg.textContent = "コピーしました"; }, function () { msg.textContent = "コピーできませんでした（URL を選んでコピーしてください）"; });
+      return;
+    }
+    var list = li.querySelector("ol.chk");
+    msg.textContent = "確かめています…";
+    fetch(new URL(url, location.href).pathname, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    }).then(function (t) {
+      var doc = new DOMParser().parseFromString(t, "application/xml");
+      var items = doc.querySelectorAll("item");
+      list.textContent = "";
+      Array.prototype.slice.call(items, 0, 5).forEach(function (it) {
+        var row = document.createElement("li"), d = document.createElement("span"), link = txt(it, "link"), title = txt(it, "title") || "（題名なし）";
+        d.className = "d";
+        var p = new Date(txt(it, "pubDate"));
+        d.textContent = isNaN(p) ? "" : fmt.format(p);
+        row.appendChild(d);
+        if (/^https?:\/\//.test(link)) { var a = document.createElement("a"); a.href = link; a.target = "_blank"; a.rel = "noopener"; a.textContent = title; row.appendChild(a); }
+        else row.appendChild(document.createTextNode(title));
+        list.appendChild(row);
+      });
+      list.hidden = items.length === 0;
+      msg.textContent = items.length ? "最新の" + Math.min(5, items.length) + "件（全" + items.length + "件）" : "記事はまだありません";
+    }).catch(function () { list.hidden = true; msg.textContent = "取得できませんでした"; });
+  });
+})();
+"""
+
+
 def index_html(feeds, now, sources=()):
     out = [
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">',
@@ -1342,7 +1406,7 @@ def index_html(feeds, now, sources=()):
                 continue
             out.append(f'<details class="sec"><summary>{escape(SITES[site]["label"])} {KINDS[kind]}</summary><p>{escape(KIND_NOTE[kind])}</p><ul>')
             for f in group:
-                out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
+                out.append(feed_li(f))
             out.append("</ul></details>")
     for fsite, cfg in FC_SITES.items():
         fc = [f for f in feeds if f["site"] == fsite]
@@ -1354,7 +1418,7 @@ def index_html(feeds, now, sources=()):
             if group:
                 out.append(f'<p class="mute">{label}</p><ul>')
                 for f in group:
-                    out.append(f'<li><a href={quoteattr(f["url"])}>{escape(f["name"])}</a><code>{escape(f["url"])}</code></li>')
+                    out.append(feed_li(f))
                 out.append("</ul>")
         out.append("</details>")
     ameblo = next((s for s in sources if s["site"] == "ameblo"), None)
@@ -1386,7 +1450,7 @@ def index_html(feeds, now, sources=()):
                '<li><a href="https://www.helloshop.info/category/goods/feed">グッズ情報</a><code>https://www.helloshop.info/category/goods/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/photo/feed">生写真情報</a><code>https://www.helloshop.info/category/photo/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/news/feed">お知らせ</a><code>https://www.helloshop.info/category/news/feed</code></li></ul></details>')
-    out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n')
+    out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main><script>{FEED_JS}</script></body></html>\n')
     return "\n".join(out)
 
 

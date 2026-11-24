@@ -57,6 +57,15 @@ check(ep.match_youtube(vids, ["ハロ！ステ"], D(2026, 11, 18))["link"].endsw
 check(ep.match_youtube(vids, ["ハロ！ステ"], D(2026, 11, 19)) is None, "YouTube: 放送日に公開が無ければ、選ばない")
 check(ep.match_youtube(vids, ["M-line Music"], D(2026, 11, 18)) is None, "YouTube: 題名に番組名が無い動画は、選ばない（Coming soon を選ばない）")
 
+# テレビの番組が、放送の数日後に、題名に放送日を書いて上がる（ええじゃないか！！）
+YT2 = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015"><entry><title>ええじゃないか！！# 201　11月22日放送回</title><link rel="alternate" href="https://www.youtube.com/watch?v=e201"/><published>2026-11-24T05:15:16+00:00</published></entry>
+<entry><title>【TOKYO GAME SHOW 2026】加藤ナナちゃんがロケで会場を楽しくめぐりました！！</title><link rel="alternate" href="https://www.youtube.com/watch?v=cm"/><published>2026-11-24T04:55:08+00:00</published></entry>
+<entry><title>ええじゃないか！！# 200　11月8日放送回</title><link rel="alternate" href="https://www.youtube.com/watch?v=e200"/><published>2026-11-18T05:06:45+00:00</published></entry></feed>"""
+v2 = ep.parse_youtube(YT2)
+check(ep.match_youtube(v2, ["ええじゃないか"], D(2026, 11, 22))["link"].endswith("e201"), "YouTube: 題名の日付（11月22日放送回）が放送日と合う動画を選ぶ（公開は2日後）")
+check(ep.match_youtube(v2, ["ええじゃないか"], D(2026, 11, 24)) is None, "YouTube: 公開日が放送日でも、題名に別の日付があれば選ばない・番組名が無い動画（CM）も選ばない")
+check(ep.match_youtube(v2, ["ええじゃないか"], D(2026, 11, 8))["link"].endswith("e200"), "YouTube: 前の回は、前の回の放送日に結びつく")
+
 # --- 書き方
 old = [{"guid": "g1", "air": "2026-11-01", "until": "2026-11-15", "links": [{"label": "ポッドキャスト", "url": "https://x/1"}]},
        {"guid": "g2", "air": "2026-11-20", "until": "2026-12-04", "links": [{"label": "ポッドキャスト", "url": "https://x/2"}]}]
