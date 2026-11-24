@@ -39,10 +39,20 @@ RECURRING = r"毎週|隔週|毎月|毎日|月[〜～-]金"
 
 # ---------- 取得 ----------
 
+# 取った公式のJSONの ETag（中身のハッシュ。作り直されても、中身が同じなら変わらない）。{サイト: {ファイル名: ETag}}
+# rss.py が、公開のデータ（data/watch.json）に書く。Worker は、公式の今の ETag と比べて、変わったときだけ rss.yml を呼ぶ
+ETAGS = {}
+
+
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read().decode("utf-8")
+        body = r.read().decode("utf-8")
+        etag = r.headers.get("ETag")
+        if etag and "/json/" in url:
+            site, _, rest = url.partition("/json/")
+            ETAGS.setdefault(site, {})[rest.rsplit("/", 1)[-1]] = etag
+        return body
 
 
 def fetch_version(base):

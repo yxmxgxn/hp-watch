@@ -2,7 +2,7 @@
 // フィードを配る Worker（ルートの wrangler.toml）に同居している。
 // GitHub の定期実行は数時間遅れたり飛ばされたりするので使わない。記憶（KV など）は持たない。
 //
-//   */15 * * * *  公式の更新を見るページ（WATCH）の Last-Modified が直近17分以内なら（＝サイトが更新されたら）rss.yml を呼ぶ
+//   */15 * * * *  ハロプロ・JPROOM は、公式のJSONの ETag（中身のハッシュ）が前回の作り直しと違えば、ハロショは、フィードの Last-Modified が直近17分以内なら、rss.yml を呼ぶ
 //   0 20 * * *    05:00 JST  rss.yml（今日の予定）と tver.yml（放送後の TVer のリンクを探す）
 //   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）と tver.yml を別々に呼ぶ
 //
@@ -14,9 +14,14 @@ import { importRoutes } from "./import.js";
 // 公式の更新を見るページ（HEAD の Last-Modified）。ハロプロ・JPROOM・アップフロントは同じ版で作り直される（/schedule/）。
 // ハロショ（WordPress）は別のサイトなので、別に見る（/feed。記事が載ると更新される）。ファンクラブのページには更新の印が無いので見られない
 const WATCH = {
-  hp: "https://helloproject.com/schedule/",
-  jproom: "https://www.jp-r.co.jp/schedule/",
   helloshop: "https://www.helloshop.info/feed",
+};
+// ハロプロ・JPROOM の公式は、15分ごとに必ず作り直される（版 versionDir も更新時刻も毎回変わる）ので、時刻では「変わった」が分からない。
+// JSON の ETag は中身のハッシュなので、中身が同じなら、作り直されても変わらない。rss.py が、作り直しで使った ETag を data/watch.json に公開している。
+// ここでは、公式の今の ETag（HEAD）と比べて、違うときだけ rss.yml を呼ぶ（Worker は何も覚えず、公開したデータが記憶になる）
+const OFFICIAL = {
+  hp: "https://helloproject.com",
+  jproom: "https://www.jp-r.co.jp",
 };
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";
@@ -35,6 +40,31 @@ export async function builtRecently(url, now) {
   const t = new Date(lm);
   const age = now.getTime() - t.getTime();
   return age >= -60_000 && age <= WINDOW_MS ? t : null;
+}
+
+async function readWatch(env) {
+  if (!env.ASSETS) return null;
+  const r = await env.ASSETS.fetch(new Request("https://assets.invalid/data/watch.json"));
+  return r.ok ? r.json() : null;
+}
+
+// 公式のお知らせ・スケジュール（今年）の ETag が、前回の作り直しで使ったものと違えば、その理由。同じなら null
+export async function officialChanged(env, base, now) {
+  const page = (await (await fetch(`${base}/schedule/`, { headers: { "User-Agent": UA } })).text()).replace(/&quot;/g, '"');
+  const m = page.match(/"versionDir":\[0,"([^"]+)"\]/);
+  if (!m) throw new Error(`${base}: versionDir が見つからない`);
+  const known = ((await readWatch(env)) || {})[base];
+  if (!known) return "data/watch.json に記録が無い";
+  const year = new Date(now.getTime() + 9 * 3600e3).getUTCFullYear();
+  let seen = 0;
+  for (const f of [`${year}_news_list.json`, `${year}_schedules.json`]) {
+    const r = await fetch(`${base}/json/${m[1]}/${f}`, { method: "HEAD", headers: { "User-Agent": UA } });
+    if (!r.ok) continue; // 年が変わった直後などで、まだ無いことがある
+    seen++;
+    if (known[f] !== r.headers.get("etag")) return `${f} が変わった`;
+  }
+  if (!seen) throw new Error(`${base}: ${year} のJSONが取れない`);
+  return null;
 }
 
 export async function dispatch(env, workflow, ref = "main") {
@@ -80,6 +110,14 @@ export async function run(cron, env, now) {
   for (const w of FIXED[cron] || []) jobs.set(w, cron);
   const errors = [];
   if (cron === DETECT) {
+    for (const [site, base] of Object.entries(OFFICIAL)) {
+      try {
+        const why = await officialChanged(env, base, now);
+        if (why) jobs.set("rss.yml", `${site} ${why}`);
+      } catch (e) {
+        errors.push(`${site}: ${e && e.message || e}`); // 公式側の一時的な失敗。呼び出しの失敗ではないので Discord には出さない
+      }
+    }
     for (const [site, url] of Object.entries(WATCH)) {
       try {
         const t = await builtRecently(url, now);

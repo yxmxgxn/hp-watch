@@ -10,8 +10,15 @@ let calls = [];
 let githubStatus = 204;
 let failAmeba = false;
 let failYoutube = false;
+let official = null; // null: 公式は本物。{ version, etags: {ファイル名: ETag} }: 公式（ハロプロ・JPROOM）を偽物にする
 globalThis.fetch = async (url, opts = {}) => {
   const u = String(url);
+  if (official && (u.startsWith("https://helloproject.com/") || u.startsWith("https://www.jp-r.co.jp/"))) {
+    if (u.endsWith("/schedule/")) return new Response(`<html>&quot;versionDir&quot;:[0,&quot;${official.version}&quot;]</html>`);
+    const f = (u.match(/\/json\/[^/]+\/(.+)$/) || [])[1];
+    const etag = f && official.etags[f];
+    return etag ? new Response(null, { status: 200, headers: { etag } }) : new Response("no", { status: 404 });
+  }
   if (failAmeba && u.startsWith("https://rssblog.ameba.jp/")) return new Response("x", { status: 500 });
   if (failYoutube && u.startsWith("https://www.youtube.com/feeds/")) return new Response("x", { status: 500 });
   if (u.startsWith("https://api.github.com/") || u.startsWith("https://discord.test/")) {
@@ -33,14 +40,34 @@ const at = (min) => new Date(lm.getTime() + min * 60000);
 assert((await builtRecently("https://helloproject.com/schedule/", at(5)))?.getTime() === lm.getTime(), "更新の5分後 → 直近の更新として検知");
 assert((await builtRecently("https://helloproject.com/schedule/", at(90))) === null, "更新の90分後 → 検知しない");
 
-calls = []; let s = await run("*/15 * * * *", env, at(5));
-assert(JSON.stringify(gh()) === '["rss.yml"]', "更新の直後（2サイトとも更新）でも rss.yml を1回だけ呼ぶ");
+// 公式（ハロプロ・JPROOM）は15分ごとに作り直されるので、時刻ではなく、JSON の ETag（中身のハッシュ）で「変わった」を見る
+const Y = new Date(at(5).getTime() + 9 * 3600e3).getUTCFullYear();
+const NEWS = `${Y}_news_list.json`, SCHED = `${Y}_schedules.json`;
+const watched = (n, s) => ({ "https://helloproject.com": { [NEWS]: n, [SCHED]: s }, "https://www.jp-r.co.jp": { [NEWS]: n, [SCHED]: s } });
+const kenvOf = (w) => ({ ...env, ASSETS: { fetch: async () => (w ? Response.json(w) : new Response("no", { status: 404 })) } });
+official = { version: "V1", etags: { [NEWS]: '"n1"', [SCHED]: '"s1"' } };
+
+calls = []; let s = await run("*/15 * * * *", kenvOf(watched('"n1"', '"s1"')), at(5));
+assert(gh().length === 0, "公式を15分ごとに作り直しても、ETag が同じなら（中身が同じなら）何も呼ばない");
+calls = []; s = await run("*/15 * * * *", kenvOf(watched('"n1"', '"s0"')), at(5));
+assert(JSON.stringify(gh()) === '["rss.yml"]', "スケジュールの ETag が違えば（中身が変わったら）rss.yml を呼ぶ（2サイトとも違っても1回だけ）");
 const c = calls[0];
 assert(c.url === "https://api.github.com/repos/o/r/actions/workflows/rss.yml/dispatches", "呼び出し先のURL");
 assert(c.opts.method === "POST" && c.opts.headers.Authorization === "Bearer tok" && JSON.parse(c.opts.body).ref === "main", "POST・トークン・ref=main");
 
-calls = []; await run("*/15 * * * *", env, at(90));
-assert(gh().length === 0, "更新から90分後は何も呼ばない");
+calls = []; await run("*/15 * * * *", kenvOf(watched('"n0"', '"s1"')), at(5));
+assert(JSON.stringify(gh()) === '["rss.yml"]', "お知らせの ETag が違えば rss.yml を呼ぶ");
+calls = []; await run("*/15 * * * *", kenvOf(null), at(5));
+assert(JSON.stringify(gh()) === '["rss.yml"]', "記録（data/watch.json）が無ければ、1回呼ぶ（初回）");
+{
+  const only = { "https://helloproject.com": { [NEWS]: '"n1"', [SCHED]: '"s1"' } };
+  calls = []; await run("*/15 * * * *", kenvOf(only), at(5));
+  assert(JSON.stringify(gh()) === '["rss.yml"]', "片方のサイト（JPROOM）の記録が無ければ、呼ぶ");
+}
+official = { version: "V2", etags: {} };
+calls = []; s = await run("*/15 * * * *", kenvOf(watched('"n1"', '"s1"')), at(5));
+assert(gh().length === 0 && s.errors.length === 2, "今年のJSONが取れなければ、呼ばずに、エラーとして記録する（Discord には出さない）");
+official = { version: "V1", etags: { [NEWS]: '"n1"', [SCHED]: '"s1"' } };
 
 calls = []; await run("0 9 * * *", env, at(90));
 assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml"]', "18:00 JST は hpwatch.yml・profiles.yml・tver.yml を別々に呼ぶ");
@@ -56,7 +83,7 @@ githubStatus = 401; calls = [];
 s = await run("0 9 * * *", env, new Date("2026-11-19T09:00:00Z"));
 assert(s.failed.length === 3 && gh().length === 3, "401 はやり直さない（3作業×1回）");
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "失敗を Discord に1回知らせる");
-calls = []; await run("*/15 * * * *", env, at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
+calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s0"')), at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時刻の失敗でも Discord に知らせる");
 calls = []; await run("0 9 * * *", { ...env, DISCORD_WEBHOOK_URL: undefined }, new Date("2026-11-19T09:00:00Z"));
 assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ先が未設定なら何もしない");
@@ -65,6 +92,7 @@ assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ�
 githubStatus = 500; calls = [];
 s = await run("0 20 * * *", env, new Date("2026-11-19T20:30:00Z"));
 assert(gh().length === 6 && s.failed.length === 2, "500 は3回までやり直す（2作業×3回）");
+official = null;
 
 for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
   const r = await watcher.fetch(new Request("https://hello-rss.example" + path));
