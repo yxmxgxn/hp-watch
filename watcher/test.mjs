@@ -521,7 +521,7 @@ if (dataDir) {
     assert(occ("hp-media-wk1").state === "pending", "毎週タブ: 今日の放送で、まだリンクが無ければ『待ち』");
     assert(occ("hp-media-wk3").state === "missing", "毎週タブ: 放送の翌日を過ぎて、リンクが無ければ『未反映』");
     assert(occ("hp-media-wk4").state === "upcoming" && occ("hp-media-wk4").labels.length === 0, "毎週タブ: 放送の開始が来るまでは、タイムフリーのリンクがあっても『これから』（リンクも出さない）");
-    assert(occ("hp-media-wk5").state === "expired", "毎週タブ: ラジオで、radiko の期限（1週間）を過ぎて、ほかに付く先も無ければ『期限切れ』");
+    assert(!occ("hp-media-wk5"), "毎週タブ: ラジオで、radiko の期限（1週間）を過ぎて、ほかに付く先も無い回は、出さない");
     assert(occ("hp-media-wk6").state === "missing", "毎週タブ: ポッドキャストが付く番組は、1週間を過ぎても『未反映』（あとから付くことがある）");
     assert(occ("hp-media-wk2").state === "ok", "毎週タブ: radiko のタイムフリーが付いていれば『反映済み』");
     // ポッドキャスト・YouTube の自動の分は、TVer の自動の分と、リンクをまとめる。毎週タブにも反映される

@@ -263,7 +263,7 @@ async function state(req, env, now) {
     if (!begun) state_ = "upcoming";
     else if (!hasLink) {
       if (!expected) state_ = "none";
-      else if (w.cat === "RADIO" && !later && w.air < addDays(today, -RADIKO_DAYS)) state_ = "expired"; // radiko のタイムフリーの期限を過ぎて、ほかに付く先も無い
+      else if (w.cat === "RADIO" && !later && w.air < addDays(today, -RADIKO_DAYS)) continue; // radiko のタイムフリーの期限を過ぎて、ほかに付く先も無い回は、出さない
       else state_ = w.air >= addDays(today, -1) ? "pending" : "missing";
     }
     const key = `${w.siteLabel}|${w.cat}|${w.prog}`;
@@ -348,7 +348,7 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 .card{border:1px solid var(--line);border-radius:8px;margin-top:10px;padding:8px 12px}.card .t{font-weight:700;word-break:break-all}
 .occ{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-top:1px solid var(--line);font-size:.92rem;cursor:pointer}.occ:first-of-type{border-top:0}
 .occ .d{width:8.4em;flex:none;color:var(--mute)}.occ .s{flex:1;min-width:0;word-break:break-all}.occ .m{flex:none;font-weight:700}
-.st-ok{color:#1a7f37}.st-pending{color:#b26a00}.st-missing{color:#c62828}.st-upcoming,.st-none,.st-expired{color:var(--mute)}
+.st-ok{color:#1a7f37}.st-pending{color:#b26a00}.st-missing{color:#c62828}.st-upcoming,.st-none{color:var(--mute)}
 #form{border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:14px;background:var(--card)}
 #msg{font-weight:700;margin-top:10px}.ok{color:#1a7f37}.ng{color:#c62828}
 </style></head><body><main>
@@ -449,7 +449,7 @@ function drawFilters() {
   });
 }
 
-const STATE = { ok: ["✓", "反映済み"], pending: ["…", "待ち"], missing: ["✗", "未反映"], upcoming: ["○", "これから"], none: ["－", ""], expired: ["－", "期限切れ"] };
+const STATE = { ok: ["✓", "反映済み"], pending: ["…", "待ち"], missing: ["✗", "未反映"], upcoming: ["○", "これから"], none: ["－", ""] };
 const md2 = (d) => d.slice(5).replace("-", "/");
 function renderWeekly() {
   const box = $("wlist");
