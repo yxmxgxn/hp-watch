@@ -54,6 +54,15 @@ check(rss.standing_links("MAGAZINE", "B.L.T.", [mag_monthly], FakeRk(), progs) =
 rss.PROGRAMS_PATH = os.path.join(tempfile.mkdtemp(), "none.json")
 check(rss.load_programs() == {}, "manual/programs.json が無ければ、空")
 
+# トップページ: フィードごとの、コピーと確かめる（最新5件）のボタン
+import datetime as dt
+fx = [{"site": "hp", "kind": "media", "name": "全体", "url": "https://example.test/hp/media/all.xml"},
+      {"site": "hp", "kind": "today", "name": "全体", "url": "https://example.test/hp/today.xml"}]
+page = rss.index_html(fx, dt.datetime(2026, 11, 24, 12, 0, tzinfo=rss.JST))
+check(page.count('<li class="feed">') == 2 and page.count('class="cp"') == 2 and page.count('class="ck"') == 2, "トップページ: フィードごとに、コピーと確かめるのボタン")
+check('data-url="https://example.test/hp/today.xml"' in page and "<ol class=\"chk\" hidden>" in page, "トップページ: ボタンは、そのフィードのURLを持つ。5件の一覧は、押すまで隠れている")
+check("slice.call(items, 0, 5)" in page and "textContent" in page and "innerHTML" not in page, "トップページ: 最新5件を、textContent で並べる（フィードの中身を HTML として入れない）")
+
 # radiko の局名の対応（公式の局名に、見えない文字が混ざる・略称で出ている局）
 import radiko
 rk0 = radiko.Radiko()
