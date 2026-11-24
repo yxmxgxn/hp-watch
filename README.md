@@ -164,7 +164,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 - 毎週の番組には、放送の前から、行き先のリンクを入れておく。放送後に、そのうえで、タイムフリーやエピソードのリンクを足す。`today.xml`（今日の予定）の行と、手で入れるページの「毎週」に出る
 - **ラジオ**: radiko の生放送（局ごと。`radiko.live_url`）。自動（記録は要らない）
-- **テレビ**: TVer の番組のページ（TVer にある番組だけ）。`tver.py` が、番組が TVer で見つかったときに、`manual/programs.json` に足す
+- **テレビ**: TVer の番組のページ（TVer にある番組だけ）。`tver.py` が、番組が TVer で見つかったときに、`manual/programs.json` に足す（検索のページ）。TVer の番組のページ（`https://tver.jp/series/…`）を、`manual/programs.json` の `tver` に手で書けば、そちらを使う（`tver.py` は、手で書いた番組のページを、検索のページで置き換えない）
 - **Spotify・ポッドキャスト・YouTube**: `manual/sources.json`（手で書く。番組ごとに `spotify`＝Spotify の番組のページ、`podcast`＝公開のRSS、`youtube`・`youtube_channel`＝チャンネル）。番組のページのリンク（Spotify・YouTube）は、放送の前から付く。**Spotify は、ポッドキャスト（RSSから取ったエピソード）とは別の欄・別のリンクの名前**にして、混ぜない（Spotify に公開のRSSが無い番組があるため。公開のRSSが無い番組は `podcast` を書かない）
 - `data/sources.json` に、この行き先の一覧を公開する（手で入れるページの「毎週」が使う）
 - **線引き**: `sources.json` に入れるのは、公式の予定（スケジュール）に枠がある番組だけ。公式が載せていない番組（ポッドキャストだけの番組など）は、入れない（ポッドキャストにエピソードがあっても、追わない）
