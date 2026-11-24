@@ -167,6 +167,7 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - **テレビ**: TVer の番組のページ（TVer にある番組だけ）。`tver.py` が、番組が TVer で見つかったときに、`manual/programs.json` に足す
 - **Spotify・ポッドキャスト・YouTube**: `manual/sources.json`（手で書く。番組ごとに `spotify`＝Spotify の番組のページ、`podcast`＝公開のRSS、`youtube`・`youtube_channel`＝チャンネル）。番組のページのリンク（Spotify・YouTube）は、放送の前から付く。**Spotify は、ポッドキャスト（RSSから取ったエピソード）とは別の欄・別のリンクの名前**にして、混ぜない（Spotify に公開のRSSが無い番組があるため。公開のRSSが無い番組は `podcast` を書かない）
 - `data/sources.json` に、この行き先の一覧を公開する（手で入れるページの「毎週」が使う）
+- **線引き**: `sources.json` に入れるのは、公式の予定（スケジュール）に枠がある番組だけ。公式が載せていない番組（ポッドキャストだけの番組など）は、入れない（ポッドキャストにエピソードがあっても、追わない）
 - 番組のキーは、`{種類}|{番組名をそろえたもの}`（`rss.py` の `program_key`。全角・半角・記号をそろえる。局名は入れない）
 
 ## 公式の更新の見つけ方（`data/watch.json`・ETag）
