@@ -8,6 +8,8 @@
 
 const FILE = "manual/import.json";
 const AUTO_FILE = "manual/auto.json"; // tver.py が自動で入れた分（読むだけ）
+const EPISODES_FILE = "manual/auto_episodes.json"; // episodes.py が自動で入れた分（ポッドキャスト・YouTube。読むだけ）
+const LATEST_FILE = "manual/episodes.json"; // 番組ごとの最新のエピソード（episodes.py。読むだけ）
 const DAYS_AFTER = 3;   // 放送日から何日まで出すか
 const WINDOW_DAYS = 10; // 一覧に出す放送日の前後（日）
 const MAX_LINKS = 8;
@@ -203,8 +205,13 @@ async function state(req, env, now) {
   }
   const cur = await readFile(env);
   const autoCur = await readFile(env, AUTO_FILE);
+  const epsCur = await readFile(env, EPISODES_FILE);
   const live = (f) => new Map(((f.file && f.file.items) || []).filter((e) => e.until >= today).map((e) => [e.guid, e]));
   const manual = live(cur), auto = live(autoCur);
+  for (const [guid, e] of live(epsCur)) {
+    const a = auto.get(guid);
+    auto.set(guid, a ? { ...a, links: [...(a.links || []), ...(e.links || [])], found: a.found || e.found } : e);
+  }
   const resolve = (guid) => {
     const e = manual.get(guid), a = auto.get(guid);
     if (e) {
@@ -239,10 +246,22 @@ async function state(req, env, now) {
     if (!groups.has(key)) groups.set(key, { key, prog: w.prog, cat: w.cat, siteLabel: w.siteLabel, label: w.label, base: w.base || [], occurrences: [] });
     groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
   }
+  // 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）と、最新のエピソード。公式の予定に枠が無い番組（ポッドキャストだけの番組）も、ここで見る
+  const srcList = (await readOptional(env, "/data/sources.json")) || [];
+  const latestAll = ((await readFile(env, LATEST_FILE)).file || {}).programs || {};
+  const norm = (x) => String(x || "").normalize("NFKC").toLowerCase().replace(/[\s\p{P}\p{S}_]+/gu, "");
+  const sources = srcList.map((src) => {
+    const keys = (src.match || []).map(norm).filter(Boolean);
+    const occ = weeklyAll.filter((w) => keys.some((k) => norm(w.prog).includes(k)));
+    const eps = latestAll[src.name] || [];
+    const newest = eps.length ? eps[0].date : "";
+    return { name: src.name, spotify: src.spotify || "", youtube: src.youtube || "", podcast: !!src.podcast, hasSchedule: occ.length > 0, episodes: eps, newest,
+             stale: !!src.podcast && (!newest || newest < addDays(today, -8)) };
+  });
   const weekly = [...groups.values()];
   for (const g of weekly) g.occurrences.sort((a, b) => a.air.localeCompare(b.air) || a.start.localeCompare(b.start));
   weekly.sort((a, b) => a.cat.localeCompare(b.cat) || a.prog.localeCompare(b.prog));
-  return json(200, { today, items, weekly });
+  return json(200, { today, items, weekly, sources });
 }
 
 async function saveEntry(req, env, now, dispatch) {
@@ -334,6 +353,9 @@ button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
 <h2>毎週・毎月の番組</h2>
 <p class="mute" id="wcount"></p>
 <div id="wlist"></div>
+<h2>番組ごとの行き先（Spotify・ポッドキャスト・YouTube）</h2>
+<p class="mute" id="scount"></p>
+<div id="slist"></div>
 </div>
 
 <div id="form" hidden>
@@ -358,6 +380,7 @@ const $ = (id) => document.getElementById(id);
 const KEY = () => $("key").value;
 let items = [];
 let weekly = [];
+let sources = [];
 let tab = "list";
 const msg = (t, cls) => { $("msg").className = cls || ""; $("msg").textContent = t; };
 const plus = (day, n) => { const d = new Date(day + "T00:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
@@ -441,6 +464,47 @@ function renderWeekly() {
     : "毎週・毎月の番組は、まだありません（フィードを作り直すと出ます）";
 }
 
+function renderSources() {
+  const box = $("slist");
+  box.textContent = "";
+  let stale = 0;
+  sources.forEach((src) => {
+    if (src.stale) stale++;
+    const card = document.createElement("div"); card.className = "card";
+    const t = document.createElement("div"); t.className = "t"; t.textContent = src.name;
+    const b = document.createElement("span"); b.className = "badge"; b.textContent = src.hasSchedule ? "公式の予定に枠あり" : "公式の予定に枠なし";
+    t.appendChild(b);
+    card.appendChild(t);
+    const links = document.createElement("div"); links.className = "got";
+    const add = (label, url) => { if (!url) return; const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = label; links.appendChild(a); links.appendChild(document.createTextNode("  ")); };
+    add("Spotify（番組）", src.spotify);
+    add("YouTube（チャンネル）", src.youtube);
+    if (!src.spotify && !src.youtube) links.textContent = "";
+    if (links.childNodes.length) card.appendChild(links);
+    const st = document.createElement("div"); st.className = "occ";
+    if (src.podcast) {
+      const m = document.createElement("span"); m.className = "m " + (src.stale ? "st-missing" : "st-ok");
+      m.textContent = src.stale ? "✗ 8日以上、新しいエピソードが無い" : "✓ ポッドキャストあり";
+      st.appendChild(m);
+    } else if (src.youtube) {
+      st.textContent = "YouTube は、放送日に公開された動画を、自動で結びつける"; st.style.color = "var(--mute)";
+    } else {
+      st.textContent = "ポッドキャストの公開RSSなし（Spotify の番組のページだけ）"; st.style.color = "var(--mute)";
+    }
+    card.appendChild(st);
+    (src.episodes || []).slice(0, 3).forEach((e) => {
+      const row = document.createElement("div"); row.className = "occ";
+      const d = document.createElement("span"); d.className = "d"; d.textContent = md2(String(e.date || "").slice(0, 10));
+      const s = document.createElement("span"); s.className = "s";
+      if (e.link) { const a = document.createElement("a"); a.href = e.link; a.target = "_blank"; a.rel = "noopener"; a.textContent = e.title; s.appendChild(a); } else s.textContent = e.title;
+      row.append(d, s);
+      card.appendChild(row);
+    });
+    box.appendChild(card);
+  });
+  $("scount").textContent = sources.length ? sources.length + "番組。新しいエピソードが8日以上無いもの: " + stale : "番組ごとの行き先は、まだありません";
+}
+
 function showTab(t) {
   tab = t;
   $("listBox").hidden = t !== "list";
@@ -496,8 +560,10 @@ async function loadList(quiet) {
     }
     items = r.j.items || [];
     weekly = r.j.weekly || [];
+    sources = r.j.sources || [];
     renderList();
     renderWeekly();
+    renderSources();
     if (!quiet) msg("");
     return true;
   } catch (e) {

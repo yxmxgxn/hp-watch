@@ -70,10 +70,10 @@ assert(gh().length === 0 && s.errors.length === 2, "今年のJSONが取れなけ
 official = { version: "V1", etags: { [NEWS]: '"n1"', [SCHED]: '"s1"' } };
 
 calls = []; await run("0 9 * * *", env, at(90));
-assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml"]', "18:00 JST は hpwatch.yml・profiles.yml・tver.yml を別々に呼ぶ");
+assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml","episodes.yml"]', "18:00 JST は hpwatch.yml・profiles.yml・tver.yml・episodes.yml を別々に呼ぶ");
 
 calls = []; await run("0 20 * * *", env, at(90));
-assert(JSON.stringify(gh()) === '["rss.yml","tver.yml"]', "05:00 JST は rss.yml と tver.yml");
+assert(JSON.stringify(gh()) === '["rss.yml","tver.yml","episodes.yml"]', "05:00 JST は rss.yml・tver.yml・episodes.yml");
 
 calls = []; await run("0 3 * * *", env, at(5));
 assert(calls.length === 0, "知らない時刻の cron は何もしない");
@@ -81,7 +81,7 @@ assert(calls.length === 0, "知らない時刻の cron は何もしない");
 // 失敗: 401 はやり直さず、Discord に知らせる（毎時の最初の15分だけ）
 githubStatus = 401; calls = [];
 s = await run("0 9 * * *", env, new Date("2026-11-19T09:00:00Z"));
-assert(s.failed.length === 3 && gh().length === 3, "401 はやり直さない（3作業×1回）");
+assert(s.failed.length === 4 && gh().length === 4, "401 はやり直さない（4作業×1回）");
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "失敗を Discord に1回知らせる");
 calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s0"')), at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時刻の失敗でも Discord に知らせる");
@@ -91,7 +91,7 @@ assert(calls.filter((x) => x.url.includes("discord")).length === 0, "知らせ�
 // 500 は3回までやり直す
 githubStatus = 500; calls = [];
 s = await run("0 20 * * *", env, new Date("2026-11-19T20:30:00Z"));
-assert(gh().length === 6 && s.failed.length === 2, "500 は3回までやり直す（2作業×3回）");
+assert(gh().length === 9 && s.failed.length === 3, "500 は3回までやり直す（3作業×3回）");
 official = null;
 
 for (const path of ["/no/such.xml", "/hp/", "/rss.xml", "/hp/news/juice.xml"]) {
@@ -346,7 +346,7 @@ if (dataDir) {
     const u = String(url);
     if (u.startsWith("https://api.github.com/")) {
       log.push({ url: u, opts });
-      if (u.includes("/contents/manual/auto.json")) return new Response("Not Found", { status: 404 });
+      if (u.includes("/contents/manual/auto.json") || u.includes("/contents/manual/auto_episodes.json") || u.includes("/contents/manual/episodes.json")) return new Response("Not Found", { status: 404 });
       if (u.includes("/contents/manual/import.json")) {
         if (opts.method === "PUT") {
           const body = JSON.parse(opts.body);
@@ -426,9 +426,19 @@ if (dataDir) {
   const prev2 = globalThis.fetch;
   let file2 = null;
   let autoFile2 = null; // tver.py が入れた分（manual/auto.json）
+  let epsFile2 = null; // episodes.py が入れた分（manual/auto_episodes.json）
+  let latestFile2 = null; // 番組ごとの最新のエピソード（manual/episodes.json）
   globalThis.fetch = async (url, opts = {}) => {
     const u = String(url);
     if (u.startsWith("https://api.github.com/")) {
+      if (u.includes("/contents/manual/auto_episodes.json")) {
+        if (epsFile2 === null) return new Response("Not Found", { status: 404 });
+        return Response.json({ sha: "e", content: Buffer.from(JSON.stringify(epsFile2)).toString("base64") });
+      }
+      if (u.includes("/contents/manual/episodes.json")) {
+        if (latestFile2 === null) return new Response("Not Found", { status: 404 });
+        return Response.json({ sha: "l", content: Buffer.from(JSON.stringify(latestFile2)).toString("base64") });
+      }
       if (u.includes("/contents/manual/auto.json")) {
         if (autoFile2 === null) return new Response("Not Found", { status: 404 });
         return Response.json({ sha: "a", content: Buffer.from(JSON.stringify(autoFile2)).toString("base64") });
@@ -450,6 +460,11 @@ if (dataDir) {
       const p = new URL(req.url).pathname;
       if (p === "/data/options.json") return Response.json({ sources: [{ site: "helloproject", siteLabel: "ハロプロ", kind: "schedule", file: "/data/helloproject-schedule.json" }, { site: "ameblo", siteLabel: "アメブロ", kind: "blog" }] });
       if (p === "/data/helloproject-schedule.json") return Response.json({ items: [{ guid: "helloproject-media-abc123", name: "番組名", air: day, link: "x", date: "2026-11-17T00:00:00Z", cats: ["RADIO"] }] });
+      if (p === "/data/sources.json") return Response.json([
+        { name: "年の差ラジオ", match: ["年の差ラジオ"], spotify: "https://open.spotify.com/show/aaa", youtube: "", podcast: true },
+        { name: "BLooM LoUNGE", match: ["BLooM LoUNGE"], spotify: "https://open.spotify.com/show/bbb", youtube: "", podcast: false },
+        { name: "古いポッドキャスト", match: ["ラジオ番組"], spotify: "", youtube: "", podcast: true },
+      ]);
       if (p === "/data/weekly.json") return Response.json({ items: [
         { guid: "hp-media-wk1", site: "hp", siteLabel: "ハロプロ", cat: "TV", air: day, start: "25:00", title: "テレビ東京系「Hello! Music Lab。」", prog: "Hello! Music Lab。", station: "テレビ東京系", label: "毎週月曜日", base: [["TVer（番組）", "https://tver.jp/search/x"]] },
         { guid: "hp-media-wk2", site: "hp", siteLabel: "ハロプロ", cat: "RADIO", air: im2.addDays(day, -2), start: "21:00", title: "TBSラジオ「ラジオ番組」", prog: "ラジオ番組", station: "TBSラジオ", label: "毎週日曜日", radiko: [["radiko（TBSラジオ）", "https://radiko.jp/#!/ts/TBS/20261122210000"]], base: [["radiko（TBSラジオ・生放送）", "https://radiko.jp/#!/live/TBS"]] },
@@ -495,6 +510,21 @@ if (dataDir) {
     assert(occ("hp-media-wk1").state === "pending", "毎週タブ: 今日の放送で、まだリンクが無ければ『待ち』");
     assert(occ("hp-media-wk3").state === "missing", "毎週タブ: 放送の翌日を過ぎて、リンクが無ければ『未反映』");
     assert(occ("hp-media-wk2").state === "ok", "毎週タブ: radiko のタイムフリーが付いていれば『反映済み』");
+    // ポッドキャスト・YouTube の自動の分は、TVer の自動の分と、リンクをまとめる。毎週タブにも反映される
+    epsFile2 = { items: [{ guid: "hp-media-wk3", air: im2.addDays(day, -9), until: im2.addDays(day, 5), links: [{ label: "ポッドキャスト", url: "https://pod.example/ep" }], source: "podcast", found: day },
+                         { guid: "hp-media-wk2", air: im2.addDays(day, -2), until: im2.addDays(day, 12), links: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=zzz" }], source: "youtube", found: day }] };
+    latestFile2 = { updated: day, programs: { "年の差ラジオ": [{ title: "#216 募金箱", link: "https://pod.example/216", date: day }], "古いポッドキャスト": [{ title: "#1", link: "", date: im2.addDays(day, -20) }] } };
+    autoFile2 = { items: [{ guid: "hp-media-wk2", air: im2.addDays(day, -2), until: im2.addDays(day, 1), links: [{ label: "TVer", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day }] };
+    const stE = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
+    const both = stE.items.find((i) => i.guid === "hp-media-wk2");
+    assert(both.entry.links.map((l) => l.label).join() === "TVer,YouTube", "一覧: TVer と YouTube の自動の分は、リンクをまとめる");
+    const occE = stE.weekly.flatMap((g) => g.occurrences).find((o) => o.guid === "hp-media-wk3");
+    assert(occE.state === "ok" && occE.labels.includes("ポッドキャスト"), "毎週タブ: ポッドキャストの自動の分で、『反映済み』になる");
+    const s0 = stE.sources.find((x) => x.name === "年の差ラジオ"), s1 = stE.sources.find((x) => x.name === "BLooM LoUNGE"), s2 = stE.sources.find((x) => x.name === "古いポッドキャスト");
+    assert(s0.episodes.length === 1 && s0.stale === false && s0.hasSchedule === false && s0.spotify.endsWith("/aaa"), "番組ごとの行き先: 最新のエピソード・Spotify の番組のページ・公式の予定の枠の有無");
+    assert(s1.podcast === false && s1.stale === false && s1.episodes.length === 0, "番組ごとの行き先: ポッドキャストのRSSが無い番組（Spotify だけ）は、古いとは言わない");
+    assert(s2.stale === true && s2.hasSchedule === true, "番組ごとの行き先: 8日以上エピソードが無いポッドキャストは『古い』・枠は名前で見つける");
+    autoFile2 = null; epsFile2 = null; latestFile2 = null;
     r = await hit("/import/save", { body: JSON.stringify({ guid: "hp-media-wk3", links: [{ label: "TVer", url: "https://tver.jp/episodes/old" }], guest: "", note: "" }), headers: { cookie } });
     assert(r.status === 200, "保存: 毎週の番組の1回分（一覧から外れた古い分でも）に、リンクを入れられる");
     r = await hit("/import/logout", { body: "{}" });

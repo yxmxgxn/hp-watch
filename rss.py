@@ -46,7 +46,8 @@ MEDIA（media）
   data/{site}-{kind}.json, data/options.json, custom/index.html … Worker（watcher/src/custom.js）が読む（selectable.py）
   data/watch.json                                  … 作り直しで使った公式のJSONの ETag。Worker が、変わったときだけ rss.yml を呼ぶのに使う
 
-手で入れた分・自動で入った分（manual/import.json・manual/auto.json）は、期限（放送日から3日）の内の記事の後ろに足す（load_manual・apply_manual）。
+手で入れた分・自動で入った分（manual/import.json・manual/auto.json・manual/auto_episodes.json）は、期限（TVer は放送日から3日、ポッドキャスト・YouTube は14日）の内の記事の後ろに足す（load_manual・apply_manual）。
+毎週の番組の行き先（manual/programs.json・manual/sources.json）は、毎週の番組の行に、放送の前から付ける（standing_links）。
 """
 import argparse
 import datetime as dt
@@ -420,7 +421,28 @@ def load_programs():
         return (json.load(f) or {}).get("programs") or {}
 
 
-def standing_links(cat, prog, items, rk, programs):
+SOURCES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "sources.json")
+
+
+def load_sources():
+    """番組ごとの、手で書いた行き先。[{"name", "match"（番組名に含まれる言葉）, "podcast"（RSS）, "spotify"（番組のページ）, "youtube"（チャンネルのページ）, "youtube_channel"（チャンネルのID）}]。
+    Spotify は、ポッドキャスト（RSS から取ったエピソード）とは別に持つ（Spotify に公開のRSSが無い番組があるため）"""
+    if not os.path.exists(SOURCES_PATH):
+        return []
+    with open(SOURCES_PATH, encoding="utf-8") as f:
+        return (json.load(f) or {}).get("programs") or []
+
+
+def source_for(prog, sources):
+    """番組名に、match の言葉が含まれる行き先（最初の1つ）"""
+    n = norm_name(prog)
+    for src in sources:
+        if any(norm_name(m) and norm_name(m) in n for m in src.get("match") or []):
+            return src
+    return None
+
+
+def standing_links(cat, prog, items, rk, programs, sources=()):
     """毎週の番組に、放送の前から入れておくリンク [(名前, URL)]。ラジオは radiko の生放送、テレビは TVer の番組のページ（TVer にある番組だけ）、
     決まった行き先があれば、Spotify の番組・YouTube のチャンネルも。放送のあとの分（タイムフリー・エピソード）は、別に足す"""
     out = []
@@ -430,8 +452,9 @@ def standing_links(cat, prog, items, rk, programs):
             sids += rk.station_ids(hpwatch.text_of(it.get("title")).strip())
         out += [(f"radiko（{rk.name(sid)}・生放送）", radiko.live_url(sid)) for sid in dict.fromkeys(sids)]
     cfg = programs.get(program_key(cat, prog)) or {}
+    src = source_for(prog, sources) or {}
     for field, label in (("tver", "TVer（番組）"), ("spotify", "Spotify（番組）"), ("youtube", "YouTube（チャンネル）")):
-        u = str(cfg.get(field) or "")
+        u = str(cfg.get(field) or src.get(field) or "")
         if u.startswith("https://"):
             out.append((label, u))
     return list(dict.fromkeys(out))
@@ -472,7 +495,7 @@ def today_row_html(r, base, rk, site="", ctx=None):
     ctx = ctx or {}
     # 毎週の番組は、放送の前から入れておくリンク（radiko の生放送・TVer の番組・Spotify・YouTube）も出す
     if ctx.get("programs") is not None and _is_weekly(r["items"][0], ctx.get("regulars") or set()):
-        sl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in standing_links(r["cat"], r["prog"], r["items"], rk, ctx["programs"])]
+        sl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in standing_links(r["cat"], r["prog"], r["items"], rk, ctx["programs"], ctx.get("sources") or ())]
         if sl:
             lines.append(" ".join(sl))
     # 手で入れた分・自動で入った分（TVer・ポッドキャスト・YouTube など）。同じ行にまとめた局の分も、まとめて出す
@@ -582,6 +605,7 @@ MANUAL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual",
 
 
 AUTO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "auto.json")  # tver.py が自動で入れた分
+EPISODES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "manual", "auto_episodes.json")  # episodes.py が自動で入れた分（ポッドキャスト・YouTube）
 
 
 def _load_entries(path, today):
@@ -597,6 +621,9 @@ def load_manual(now):
     手で入れた分が優先。手で入れた分にリンクが無いときだけ、自動のリンクを補う"""
     today = now.date().isoformat()
     auto = _load_entries(AUTO_PATH, today)
+    for guid, e in _load_entries(EPISODES_PATH, today).items():  # 同じ項目の、TVer とポッドキャスト・YouTube は、リンクをまとめる
+        a = auto.get(guid)
+        auto[guid] = {**a, "links": (a.get("links") or []) + (e.get("links") or []), "until": max(str(a.get("until")), str(e.get("until")))} if a else e
     manual = _load_entries(MANUAL_PATH, today)
     merged = dict(auto)
     for guid, e in manual.items():
@@ -640,7 +667,7 @@ WEEKLY_BACK = 14   # 今日から何日前まで
 WEEKLY_AHEAD = 10  # 今日から何日先まで
 
 
-def weekly_occurrences(site, label, schedules, profiles, now, rk, programs):
+def weekly_occurrences(site, label, schedules, profiles, now, rk, programs, sources=()):
     """毎週・毎月などの番組の、今日の前後の1回分ずつ。guid は MEDIA と同じ形（{site}-media-{ハッシュ}）なので、手で入れた分・自動の分と、
     同じ仕組みで結べる。ラジオは、タイムフリーに出来る radiko のリンクも付ける（放送後1週間まで）"""
     today = now.date()
@@ -656,9 +683,10 @@ def weekly_occurrences(site, label, schedules, profiles, now, rk, programs):
         station, prog = split_station(cat, title)
         o = {"guid": f"{site}-media-{media_keys(x)[0]}", "site": site, "siteLabel": label, "cat": cat, "air": x["date"],
              "start": s_.get("start") or "", "title": title, "prog": prog, "station": station, "label": s_.get("label") or ""}
-        if cat == "RADIO" and o["start"] and not x.get("status") and today - dt.timedelta(days=7) <= d <= today:
-            o["radiko"] = [[n, u] for n, u in radiko_link_list([x], rk)]  # 放送後に付くタイムフリー
-        o["base"] = [[n, u] for n, u in standing_links(cat, prog, [x], rk, programs)]  # 放送の前から入れておくリンク
+        if rk is not None:  # radiko を引かない呼び出し（エピソードを探すだけのもの）では、リンクは付けない
+            if cat == "RADIO" and o["start"] and not x.get("status") and today - dt.timedelta(days=7) <= d <= today:
+                o["radiko"] = [[n, u] for n, u in radiko_link_list([x], rk)]  # 放送後に付くタイムフリー
+            o["base"] = [[n, u] for n, u in standing_links(cat, prog, [x], rk, programs, sources)]  # 放送の前から入れておくリンク
         out.append(o)
     return out
 
@@ -684,8 +712,9 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
     manual = load_manual(now)
     media = apply_manual(media, manual)
     programs = load_programs()
-    WEEKLY.extend(weekly_occurrences(site, cfg["label"], schedules, profiles, now, rk, programs))
-    ctx = {"manual": manual, "programs": programs, "regulars": _regulars(profiles)}
+    sources = load_sources()
+    WEEKLY.extend(weekly_occurrences(site, cfg["label"], schedules, profiles, now, rk, programs, sources))
+    ctx = {"manual": manual, "programs": programs, "sources": sources, "regulars": _regulars(profiles)}
 
     feeds = emit_feeds(site, cfg, "news", news, profiles, out, feed_base, f"{base}/news/")
     feeds += emit_feeds(site, cfg, "media", media, profiles, out, feed_base, base + cfg.get("schedule_path", "/schedule/"))
@@ -1366,6 +1395,10 @@ def main():
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
+    # 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）の一覧。手で入れるページの「毎週」が読む（RSS のURLなどは載せない）
+    write(os.path.join(args.out, "data/sources.json"), json.dumps(
+        [{"name": p.get("name"), "match": p.get("match") or [], "spotify": p.get("spotify") or "", "youtube": p.get("youtube") or "",
+          "podcast": bool(p.get("podcast"))} for p in load_sources()], ensure_ascii=False, separators=(",", ":")))
     # 毎週・毎月の番組の、1回分ずつ。手で入れるページの「毎週」が読む
     write(os.path.join(args.out, "data/weekly.json"), json.dumps(
         {"updated": now.isoformat(), "items": sorted(WEEKLY, key=lambda o: (o["air"], o["start"], o["guid"]))},
