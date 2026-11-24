@@ -70,7 +70,7 @@ assert(gh().length === 0 && s.errors.length === 2, "今年のJSONが取れなけ
 official = { version: "V1", etags: { [NEWS]: '"n1"', [SCHED]: '"s1"' } };
 
 calls = []; await run("0 9 * * *", env, at(90));
-assert(JSON.stringify(gh()) === '["tver.yml"]', "18:00 JST は tver.yml");
+assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml"]', "18:00 JST は hpwatch.yml・profiles.yml・tver.yml を別々に呼ぶ");
 
 calls = []; await run("0 20 * * *", env, at(90));
 assert(JSON.stringify(gh()) === '["rss.yml","tver.yml"]', "05:00 JST は rss.yml と tver.yml");
@@ -81,7 +81,7 @@ assert(calls.length === 0, "知らない時刻の cron は何もしない");
 // 失敗: 401 はやり直さず、Discord に知らせる（毎時の最初の15分だけ）
 githubStatus = 401; calls = [];
 s = await run("0 9 * * *", env, new Date("2026-11-19T09:00:00Z"));
-assert(s.failed.length === 1 && gh().length === 1, "401 はやり直さない（1作業×1回）");
+assert(s.failed.length === 3 && gh().length === 3, "401 はやり直さない（3作業×1回）");
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "失敗を Discord に1回知らせる");
 calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s0"')), at(5)); // 更新の検知で呼ぶ回。時刻（:30 など）に関係なく知らせる
 assert(calls.filter((x) => x.url.includes("discord")).length === 1, "どの時刻の失敗でも Discord に知らせる");

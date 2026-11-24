@@ -13,15 +13,14 @@
 | ファイル | 役割 |
 |---|---|
 | `rss.py`・`selectable.py`・`radiko.py` | フィードと、選んで作る RSS の元データを作る（radiko のタイムフリーのリンクも） |
-| `hpwatch.py` | 公式のJSONの取得と整形（`rss.py` が使う）。以前あった Discord への通知は、やめた |
+| `hpwatch.py` | 公式のJSONの取得と整形（`rss.py` が使う） |
 | `tver.py`・`test_tver.py` | 放送後の TVer のリンクを探す。確かめ |
 | `watcher/` | Worker（時計・選んで作る RSS・手で入れるページ・アメブロ・YouTube）とそのテスト |
 | `wrangler.toml` | Worker の設定（公開先・cron・`assets`） |
-| `.github/workflows/` | `rss.yml`（フィードの作成と公開）・`tver.yml`（TVer のリンク） |
+| `.github/workflows/` | `rss.yml`（フィードの作成と公開）・`tver.yml`（TVer のリンク）ほか |
 | `manual/` | 手で入れた分（`import.json`）と、自動で入った分（`auto.json`） |
 | `state/` | 見たもの・配ったものの記録。`rss.yml` が、変わったときだけコミットする |
 | `hp_people.txt` | アップフロントの「人」の選択肢に出す人の名簿 |
-| `radio/` | NAS のラジオ録音（このリポジトリの Actions とは別） |
 
 ## フィード（`rss.py`）
 
@@ -96,14 +95,14 @@
 
 ## 動かす仕組み（Cloudflare の Cron Trigger が時計、GitHub Actions が作業）
 
-GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を `workflow_dispatch` で呼ぶ。作業は2つで、それぞれ独立して動く。
+GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を `workflow_dispatch` で呼ぶ。RSS に関する作業は2つで、それぞれ独立して動く。
 
 | 作業 | ワークフロー | 呼ぶタイミング（Cloudflare の cron は UTC） |
 |---|---|---|
 | フィードの作成と公開 | `rss.yml` | ハロプロ・JPROOM の公式の中身が変わったとき（15分おきに、公式のJSONの `ETag` を、前回の作り直しのもの（`data/watch.json`）と比べて、違えば）、ハロショの `/feed` が更新されたとき、毎朝 05:00 JST（今日の予定）、手で入れたとき・TVer のリンクが入ったとき |
 | TVer のリンク | `tver.yml` | 毎朝 05:00 と 18:00 JST |
 
-- cron は `*/15 * * * *`（公式の更新の検知）・`0 20 * * *`（05:00 JST。`rss.yml` と `tver.yml`）・`0 9 * * *`（18:00 JST。`tver.yml`）の3つ
+- cron は `*/15 * * * *`（公式の更新の検知）・`0 20 * * *`（05:00 JST。`rss.yml` と `tver.yml`）・`0 9 * * *`（18:00 JST。`tver.yml` など）の3つ
 - フィードに無いURLは、トップページ（一覧）へ302で移す（`watcher/src/index.js` の `fetch`。あるファイルは Cloudflare が直接返すので、ここには来ない）。Worker が受けるのは、`/custom.xml`（選んで作る RSS）・`/import`（手で入れるページ）と、それ以外の302
 - 時計のコードは `watcher/src/index.js`、cron の設定はルートの `wrangler.toml`。RSS の公開（`rss.yml` の `wrangler deploy`）のたびに、フィードと一緒に送り直す。時計の手順を変えたら、次の RSS の公開から効く
 - `rss.yml` と `tver.yml` は、`ref: main` で、いまの main から始める（続けて2回呼ばれたとき、後の実行が古い状態から始まって、状態のコミットが衝突するのを防ぐ）
@@ -131,11 +130,10 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
   - `python rss.py --out /tmp/rss-out --state-dir /tmp/rss-state`（全部作る。時間がかかる。`state/` を汚さないように、別の場所に）
   - `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（Worker。公式サイトへの HEAD は本物、GitHub と Discord は偽物）
   - `python3 test_tver.py`（TVer。ブラウザなし）
-- 以前あったもの（2026-11-24 にやめた）: スケジュールの差分の Discord 通知（`hpwatch.yml`・`hpwatch.py` の通知・`mute.txt`）と、メンバーのプロフィールの差分の通知（`profiles.py`・`profiles.yml`）。git の履歴に残っている（`git log --all -- profiles.py`）
 
 ## 放送の情報を手で入れるページ（`/import`・鍵つき）
 
-- 自分だけが使う。入力ページは `watcher/src/import.js`（ページ自体は何も出さない。データを読むのも保存するのも、鍵（`DASHBOARD_KEY`）を入れてから）。読み書きに使うトークン（`GH_DATA_TOKEN`。このリポジトリの contents だけ）と鍵は、Worker の secret に入れる（値はチャットやリポジトリに書かない）
+- 管理用。入力ページは `watcher/src/import.js`（ページ自体は何も出さない。データを読むのも保存するのも、鍵（`DASHBOARD_KEY`）を入れてから）。読み書きに使うトークン（`GH_DATA_TOKEN`。このリポジトリの contents だけ）と鍵は、Worker の secret に入れる（値はチャットやリポジトリに書かない）
 - 項目は、放送日の前後の期限内のものから選ぶ。リンクは何本でも（名前とURL。https のみ）、ゲスト名とメモも入れられる。入れた中身は一覧に出る。保存すると `manual/import.json` に書かれ、`rss.yml` が呼ばれてフィードに反映される
 - 期限は放送日の3日後まで。`rss.py` の `load_manual` と、保存のときの掃除（`merge`）が、同じ日で切る。期限が切れた分は、フィードにも入力ページにも出ない
 - 本文は変えない。記事の後ろに、メモ・ゲスト・リンクを足すだけ（`rss.py` の `apply_manual`）
@@ -156,7 +154,3 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 - 手で入れた分（`manual/import.json`）が優先。手で入れた分にリンクが無いときだけ、自動のリンクを補う（`rss.py` の `load_manual`）。入力ページの一覧には「自動」と出て、直して保存すれば、手の分が優先される
 - 自動で見つからないもの: TVer に無い番組（NHK・CS・地方局の一部など）、まだ載っていない回。ラジオは radiko のリンクが自動で付くので、対象にしない
 - 確かめ: `python3 test_tver.py`（ブラウザなし）。本物の検索は `python3 tver.py --list`（探す項目だけ）か、`tver.py`（手元では `TVER_CHROMIUM` に Chromium のパスを入れる）
-
-## radio/
-
-NAS で radiko のタイムフリーを自動で回収するラジオ録音。GitHub Actions は使わない。→ [radio/README.md](radio/README.md)
