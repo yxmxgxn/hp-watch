@@ -36,13 +36,13 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: TVer のリンクを探す
-        run: python tver.py --state-dir state --out manual/auto.json
+        run: python tver.py --state-dir state --out manual/auto.json --programs manual/programs.json
 
       - name: 変わったらコミットして、フィードを作り直す
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add manual/auto.json
+          git add manual/auto.json manual/programs.json
           if git diff --cached --quiet; then
             echo "no change"
             exit 0

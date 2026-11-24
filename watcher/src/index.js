@@ -3,8 +3,8 @@
 // GitHub の定期実行は数時間遅れたり飛ばされたりするので使わない。記憶（KV など）は持たない。
 //
 //   */15 * * * *  ハロプロ・JPROOM は、公式のJSONの ETag（中身のハッシュ）が前回の作り直しと違えば、ハロショは、フィードの Last-Modified が直近17分以内なら、rss.yml を呼ぶ
-//   0 20 * * *    05:00 JST  rss.yml（今日の予定）と tver.yml（放送後の TVer のリンクを探す）
-//   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）と tver.yml を別々に呼ぶ
+//   0 20 * * *    05:00 JST  rss.yml（今日の予定）・tver.yml（放送後の TVer のリンクを探す）・episodes.yml（ポッドキャスト・YouTube のエピソードを結びつける）
+//   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）と tver.yml と episodes.yml を別々に呼ぶ
 //
 // 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したら、そのたびに Discord に知らせる。
 
@@ -27,8 +27,8 @@ const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";
 const WINDOW_MS = 17 * 60 * 1000; // 15分おきの実行 ＋ 少しの余裕
 const FIXED = {
-  "0 20 * * *": ["rss.yml", "tver.yml"],
-  "0 9 * * *": ["hpwatch.yml", "profiles.yml", "tver.yml"],
+  "0 20 * * *": ["rss.yml", "tver.yml", "episodes.yml"],
+  "0 9 * * *": ["hpwatch.yml", "profiles.yml", "tver.yml", "episodes.yml"],
 };
 
 // ページが最後に更新された時刻。直近 WINDOW_MS 以内なら Date、そうでなければ null

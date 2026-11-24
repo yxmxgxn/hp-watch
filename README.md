@@ -6,7 +6,27 @@
 - **選んで作る RSS**（`/custom/`）: 好きな人・グループ・カテゴリ・言葉だけのフィードを、URL で作る
 - **手で入れるページ**（`/import`・鍵つき）: 放送の情報（リンク・ゲスト・メモ）を、あとから足す
 - **TVer のリンクの自動**（`tver.py`）: 放送後に、TVer のエピソードのリンクを探して足す
+- **ポッドキャスト・YouTube のリンクの自動**（`episodes.py`）: 毎週の番組の、公開されたエピソードを探して足す
 - **時計**（`watcher/`）: Cloudflare の Cron Trigger が、公式が変わったときだけ、GitHub の作業を呼ぶ
+
+## About（このサイトについて）
+
+ハロー！プロジェクト関係の公式サイトの情報を、RSS リーダーで読めるようにした、非公式のサイトです。公式の情報の**題名とリンクだけ**を配ります（本文・画像は載せません。読むときは、公式のページへ）。
+
+**どういうフィードか**
+- **お知らせ**: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります。公式の記事にグループのタグが付いているので、それで分けています。
+- **MEDIA（出演）**: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前に載ります）。毎週・毎月の番組は含めません。ラジオには radiko のタイムフリーのリンクが付きます。
+- **今日の予定**: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて、全部です。
+- **ファンクラブ**: ファンクラブのニュースを、ニュース・イベント・コンサート・グッズなどのタブ別と、グループ別に配ります（Hello! Project オフィシャルファンクラブと、M-line club）。
+- **選んで作る RSS**（`/custom/`）: 好きな人・グループ・カテゴリ・言葉だけのフィードを、URL で作れます。ハロショの新着、アメブロ（グループ・メンバーのブログ）、YouTube（公式チャンネル）も、ここで選べます。
+
+**サイトごと**
+- **ハロー！プロジェクト**（helloproject.com）: お知らせ・MEDIA・今日の予定。グループ別あり。
+- **JPROOM**（jp-r.co.jp）・**アップフロント**（up-front-create.com）: 同じ形で、所属が個人なので、全員まとめて1本です。人ごとに見たいときは、選んで作る RSS で選びます（アップフロントは、ハロプロ関係の人だけ）。
+- **ファンクラブ**（upfc.jp）: ニュースをタブ別・グループ別に。
+- **ハロショ**（helloshop.info）: 公式の RSS をもとに、題名だけにしたものを、選んで作る RSS で。
+
+**放送のあとに付くリンク**: 放送が終わると、記事の後ろに、見られるリンク（TVer・radiko のタイムフリー・ポッドキャスト・YouTube など）が付くことがあります。毎週の番組には、放送の前から、radiko の生放送や TVer の番組のページが付きます。
 
 構成:
 
@@ -14,11 +34,12 @@
 |---|---|
 | `rss.py`・`selectable.py`・`radiko.py` | フィードと、選んで作る RSS の元データを作る（radiko のタイムフリーのリンクも） |
 | `hpwatch.py` | 公式のJSONの取得と整形（`rss.py` が使う） |
-| `tver.py`・`test_tver.py` | 放送後の TVer のリンクを探す。確かめ |
+| `tver.py`・`test_tver.py`・`test_weekly.py` | 放送後の TVer のリンクを探す（毎週の番組も）。確かめ |
+| `episodes.py`・`test_episodes.py` | ポッドキャスト・YouTube のエピソードを、毎週の番組の1回分に結びつける。確かめ |
 | `watcher/` | Worker（時計・選んで作る RSS・手で入れるページ・アメブロ・YouTube）とそのテスト |
 | `wrangler.toml` | Worker の設定（公開先・cron・`assets`） |
-| `.github/workflows/` | `rss.yml`（フィードの作成と公開）・`tver.yml`（TVer のリンク）ほか |
-| `manual/` | 手で入れた分（`import.json`）と、自動で入った分（`auto.json`） |
+| `.github/workflows/` | `rss.yml`（フィードの作成と公開）・`tver.yml`（TVer のリンク）・`episodes.yml`（ポッドキャスト・YouTube のリンク）ほか |
+| `manual/` | 手で入れた分（`import.json`）、自動で入った分（`auto.json`・`auto_episodes.json`）、番組ごとの決まった行き先（`programs.json`・`sources.json`） |
 | `state/` | 見たもの・配ったものの記録。`rss.yml` が、変わったときだけコミットする |
 | `hp_people.txt` | アップフロントの「人」の選択肢に出す人の名簿 |
 
@@ -95,17 +116,18 @@
 
 ## 動かす仕組み（Cloudflare の Cron Trigger が時計、GitHub Actions が作業）
 
-GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を `workflow_dispatch` で呼ぶ。RSS に関する作業は2つで、それぞれ独立して動く。
+GitHub Actions の定期実行は時刻を当てにできないので使わない。Cloudflare の Worker `hello-rss`（フィードを配る Worker と同じもの）の Cron Trigger が、決まった時刻に GitHub の作業を `workflow_dispatch` で呼ぶ。RSS に関する作業は3つで、それぞれ独立して動く。
 
 | 作業 | ワークフロー | 呼ぶタイミング（Cloudflare の cron は UTC） |
 |---|---|---|
 | フィードの作成と公開 | `rss.yml` | ハロプロ・JPROOM の公式の中身が変わったとき（15分おきに、公式のJSONの `ETag` を、前回の作り直しのもの（`data/watch.json`）と比べて、違えば）、ハロショの `/feed` が更新されたとき、毎朝 05:00 JST（今日の予定）、手で入れたとき・TVer のリンクが入ったとき |
 | TVer のリンク | `tver.yml` | 毎朝 05:00 と 18:00 JST |
+| ポッドキャスト・YouTube のリンク | `episodes.yml` | 毎朝 05:00 と 18:00 JST |
 
-- cron は `*/15 * * * *`（公式の更新の検知）・`0 20 * * *`（05:00 JST。`rss.yml` と `tver.yml`）・`0 9 * * *`（18:00 JST。`tver.yml` など）の3つ
+- cron は `*/15 * * * *`（公式の更新の検知）・`0 20 * * *`（05:00 JST。`rss.yml`・`tver.yml`・`episodes.yml`）・`0 9 * * *`（18:00 JST。`tver.yml`・`episodes.yml` など）の3つ
 - フィードに無いURLは、トップページ（一覧）へ302で移す（`watcher/src/index.js` の `fetch`。あるファイルは Cloudflare が直接返すので、ここには来ない）。Worker が受けるのは、`/custom.xml`（選んで作る RSS）・`/import`（手で入れるページ）と、それ以外の302
 - 時計のコードは `watcher/src/index.js`、cron の設定はルートの `wrangler.toml`。RSS の公開（`rss.yml` の `wrangler deploy`）のたびに、フィードと一緒に送り直す。時計の手順を変えたら、次の RSS の公開から効く
-- `rss.yml` と `tver.yml` は、`ref: main` で、いまの main から始める（続けて2回呼ばれたとき、後の実行が古い状態から始まって、状態のコミットが衝突するのを防ぐ）
+- `rss.yml`・`tver.yml`・`episodes.yml` は、`ref: main` で、いまの main から始める（続けて2回呼ばれたとき、後の実行が古い状態から始まって、状態のコミットが衝突するのを防ぐ）
 - Worker は記憶（KV など）を持たない。二重に呼んでも、どの作業も新しい分だけを処理するので困らない
 - 公式の更新の記録: `rss.yml` が更新のたびに `state/observe.jsonl` へ1行（版の時刻・見つけた新着の件数）。取りに行く時間帯を決めるための記録
 
@@ -115,26 +137,37 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 - **GitHub**（リポジトリの Settings → Secrets and variables → Actions）: `CLOUDFLARE_API_TOKEN`・`CLOUDFLARE_ACCOUNT_ID`
 - **Cloudflare**（hello-rss → Settings → Variables and Secrets → Secret）:
-  - `GH_TOKEN` … 時計が `rss.yml`・`tver.yml` を呼ぶための fine-grained トークン（このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなる）
+  - `GH_TOKEN` … 時計が `rss.yml`・`tver.yml`・`episodes.yml` を呼ぶための fine-grained トークン（このリポジトリだけ・Actions の実行権限だけ。期限が切れると呼べなくなる）
   - `GH_DATA_TOKEN` … 手で入れるページが `manual/import.json` を読み書きするための fine-grained トークン（このリポジトリだけ・Contents の読み書きだけ）
   - `DASHBOARD_KEY` … 手で入れるページの鍵
 
 ## 運用メモ
 
-- `rss.yml` と `tver.yml` は、`state/` と `manual/auto.json` に差分があったときだけコミットする
+- `rss.yml`・`tver.yml`・`episodes.yml` は、`state/` と `manual/` の自動の分に差分があったときだけコミットする
 - 判定方法を変えたら、`state/` の該当のファイルを消して作り直す（消さないと、前の判定が残る）
 - `state/` には、取り除いた源（田中れいな・鈴木愛理・ジャストプロ・個人の公式サイト・YU-M）の古い状態ファイル（`rss_news_reina.json`・`rss_airi.json`・`rss_justpro.json`・`rss_ogata.json`・`rss_kobayashi.json`・`rss_miyabi.json`・`rss_yume.json`）が残っている。害は無い
 - 手元の確認:
   - `python rss.py --out /tmp/rss-out --state-dir /tmp/rss-state`（全部作る。時間がかかる。`state/` を汚さないように、別の場所に）
   - `PUBLIC_DIR=<rss.py の出力先> NODE_USE_ENV_PROXY=1 node watcher/test.mjs`（Worker。公式サイトへの HEAD は本物、GitHub は偽物）
-  - `python3 test_tver.py`（TVer。ブラウザなし）
+  - `python3 test_tver.py`（TVer。ブラウザなし）・`python3 test_weekly.py`（毎週の番組の取り出しと、最初から入れておくリンク）・`python3 test_episodes.py`（ポッドキャスト・YouTube）
 
 ## 放送の情報を手で入れるページ（`/import`・鍵つき）
 
 - 管理用。入力ページは `watcher/src/import.js`（ページ自体は何も出さない。データを読むのも保存するのも、鍵（`DASHBOARD_KEY`）を入れてから）。読み書きに使うトークン（`GH_DATA_TOKEN`。このリポジトリの contents だけ）と鍵は、Worker の secret に入れる（値はチャットやリポジトリに書かない）
 - 項目は、放送日の前後の期限内のものから選ぶ。リンクは何本でも（名前とURL。https のみ）、ゲスト名とメモも入れられる。入れた中身は一覧に出る。保存すると `manual/import.json` に書かれ、`rss.yml` が呼ばれてフィードに反映される
+- **毎週・毎月の番組**（MEDIA のフィードには出さない分）も、1回分ずつの項目として出る。一覧には、放送後3日の分を「毎週」の印つきで出し、絞り込みにも「毎週」がある。**「毎週」タブ**は、番組ごとにまとめて、前後の1回分ずつに、リンクが付いているかを出す（✓ 反映済み・… 待ち（今日の放送）・✗ 未反映（放送の翌日を過ぎても無い）・○ これから）。放送の翌日に反映されているかは、ここで見る
+- 毎週の番組の、1回分の項目の元は `data/weekly.json`（`rss.py` が毎回書く）。項目の識別（guid）は MEDIA と同じ形（`{サイト}-media-{ハッシュ}`）なので、手で入れた分・自動の分を、同じ仕組みで結べる
 - 期限は放送日の3日後まで。`rss.py` の `load_manual` と、保存のときの掃除（`merge`）が、同じ日で切る。期限が切れた分は、フィードにも入力ページにも出ない
 - 本文は変えない。記事の後ろに、メモ・ゲスト・リンクを足すだけ（`rss.py` の `apply_manual`）
+
+## 毎週の番組の、最初から入れておくリンク（`manual/programs.json`）
+
+- 毎週の番組には、放送の前から、行き先のリンクを入れておく。放送後に、そのうえで、タイムフリーやエピソードのリンクを足す。`today.xml`（今日の予定）の行と、手で入れるページの「毎週」に出る
+- **ラジオ**: radiko の生放送（局ごと。`radiko.live_url`）。自動（記録は要らない）
+- **テレビ**: TVer の番組のページ（TVer にある番組だけ）。`tver.py` が、番組が TVer で見つかったときに、`manual/programs.json` に足す
+- **Spotify・ポッドキャスト・YouTube**: `manual/sources.json`（手で書く。番組ごとに `spotify`＝Spotify の番組のページ、`podcast`＝公開のRSS、`youtube`・`youtube_channel`＝チャンネル）。番組のページのリンク（Spotify・YouTube）は、放送の前から付く。**Spotify は、ポッドキャスト（RSSから取ったエピソード）とは別の欄・別のリンクの名前**にして、混ぜない（Spotify に公開のRSSが無い番組があるため。公開のRSSが無い番組は `podcast` を書かない）
+- `data/sources.json` に、この行き先の一覧を公開する（手で入れるページの「毎週」が使う）
+- 番組のキーは、`{種類}|{番組名をそろえたもの}`（`rss.py` の `program_key`。全角・半角・記号をそろえる。局名は入れない）
 
 ## 公式の更新の見つけ方（`data/watch.json`・ETag）
 
@@ -146,9 +179,20 @@ GitHub Actions の定期実行は時刻を当てにできないので使わな�
 
 ## 放送後の TVer のリンクを自動で入れる（`tver.py`・`tver.yml`）
 
-- 放送日から3日（手で入れる分と同じ期限）のテレビの予定について、番組名で TVer を検索して、**番組名と放送日が合う**エピソードのリンクを `manual/auto.json` に書く。見つからなければ何も入れず、期限まで次の実行でまた探す（局名では合わせない。局の書き方が TVer と違うため）
+- 放送日から3日（手で入れる分と同じ期限）のテレビの予定（新しく載った単発の予定と、**毎週・毎月の番組の1回分**）について、番組名で TVer を検索して、**番組名と放送日が合う**エピソードのリンクを `manual/auto.json` に書く。毎週の番組は、地方局の遅れ放送もあるので、放送日の8日前までのエピソードのうち、いちばん新しいものも使う。見つからなければ何も入れず、期限まで次の実行でまた探す（局名では合わせない。局の書き方が TVer と違うため）
 - 検索のページは JavaScript で描かれるので、GitHub Actions の中でブラウザ（Playwright の Chromium）で読む。取るのは、エピソードのURLと、結果の行の番組名・放送局・放送日だけ（説明・画像は取らない）。番組名ごとに1回、1回の実行で最大25回、間は2秒あける。TVer の `robots.txt` は、何も禁止していない（2026-11-24 に確認）
 - 動かす時刻: 毎朝 05:00 と 18:00（JST）。Cloudflare の既存の呼び出し（`0 20 * * *` と `0 9 * * *`）に `tver.yml` を足してある（cron の数は増やさない）。変わったら、コミットして `rss.yml` を呼ぶ
 - 手で入れた分（`manual/import.json`）が優先。手で入れた分にリンクが無いときだけ、自動のリンクを補う（`rss.py` の `load_manual`）。入力ページの一覧には「自動」と出て、直して保存すれば、手の分が優先される
 - 自動で見つからないもの: TVer に無い番組（NHK・CS・地方局の一部など）、まだ載っていない回。ラジオは radiko のリンクが自動で付くので、対象にしない
 - 確かめ: `python3 test_tver.py`（ブラウザなし）。本物の検索は `python3 tver.py --list`（探す項目だけ）か、`tver.py`（手元では `TVER_CHROMIUM` に Chromium のパスを入れる）
+
+## ポッドキャスト・YouTube のリンクを自動で入れる（`episodes.py`・`episodes.yml`）
+
+- 対象は、`manual/sources.json` に `podcast`（公開のRSS）か `youtube_channel`（チャンネルのID）がある、毎週の番組。放送日が今日から14日前までの1回分に、公開されたエピソードを結びつけて、`manual/auto_episodes.json` に書く（リンクは放送日から14日まで出す）
+- **ポッドキャスト**: 番組のRSSのエピソードの題名に日付があれば（「2026年11月15日放送分」「11/16」など）、放送日と合うものを選ぶ。日付が無ければ、公開日が、放送日の6日前から10日後までの、放送日にいちばん近いもの。題名に別の日付があるものは選ばない。リンクの名前は「ポッドキャスト」
+- **YouTube**: チャンネルの公式のRSS（最新15本）から、放送日（日本時間）に公開された動画のうち、題名に番組名があるもの。リンクの名前は「YouTube」
+- **Spotify**: RSSが無いので、ここでは探さない。番組のページのリンクだけを、`sources.json` から付ける
+- 番組ごとの最新のエピソード（5件）を `manual/episodes.json` に残す。手で入れるページの「毎週」が、翌日までにリンクが反映されたかを、番組ごとに確かめるのに使う
+- 動かす時刻: 毎朝 05:00 と 18:00（JST）。Cloudflare の既存の呼び出しに `episodes.yml` を足してある。結びつきが変わったら、コミットして `rss.yml` を呼ぶ
+- 手で入れた分が優先。手の分にリンクが無いときだけ、自動のリンクを補う（TVer の分と合わせて、`rss.py` の `load_manual`）
+- 確かめ: `python3 test_episodes.py`（ネットワークなし）。本物は `python3 episodes.py --list`

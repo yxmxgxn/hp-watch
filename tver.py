@@ -2,8 +2,10 @@
 
   python tver.py [--state-dir state] [--out manual/auto.json] [--max-search 25] [--list]
 
-放送日から3日（手で入れる分と同じ期限）のテレビの予定について、番組名で TVer を検索し、
-「番組名が合う」「放送日が合う（前後1日まで）」エピソードのリンクを入れる。見つからなければ何も入れない（次の実行でまた探す）。
+放送日から3日（手で入れる分と同じ期限）のテレビの予定（新しく載った単発の予定と、毎週・毎月の番組の1回分）について、番組名で TVer を検索し、
+「番組名が合う」「放送日が合う」エピソードのリンクを入れる。見つからなければ何も入れない（次の実行でまた探す）。
+放送日が合う: 前後1日まで。毎週の番組は、地方局の遅れ放送もあるので、放送日の8日前までのエピソードのうち、いちばん新しいもの。
+TVer にある番組が見つかったら、その番組の TVer の検索のページを manual/programs.json に残す（毎週の番組に、放送の前から入れておくリンク）。
 - 検索は、番組名ごとに1回（同じ番組の別の日は、まとめて1回）。1回の実行で最大 max-search 回。間は2秒あける。画像・フォントは読まない
 - 取るのは、エピソードのURLと、結果の行の番組名・放送局・放送日だけ（説明・画像・サムネイルは取らない）
 - 手で入れた分（manual/import.json）が優先。手で入れた分にリンクが無いときだけ、rss.py が自動の分を補う
@@ -17,6 +19,10 @@ import os
 import re
 import time
 import unicodedata
+import urllib.parse
+
+import hpwatch
+import rss
 
 JST = dt.timezone(dt.timedelta(hours=9))
 DAYS_AFTER = 3            # 放送日から何日まで（手で入れる分と同じ）
@@ -64,8 +70,9 @@ def nearest(air, month, day):
     return best
 
 
-def pick(rows, program, air):
-    """番組名が合い、放送日が合う（前後1日まで）エピソードの href。日が近い方を選ぶ。無ければ None"""
+def pick(rows, program, air, back=0):
+    """番組名が合い、放送日が合うエピソードの href。無ければ None。
+    放送日が前後1日までのものを、日が近い順に選ぶ。back があれば（毎週の番組。地方局の遅れ放送）、放送日の back 日前までの、いちばん新しいものも選ぶ"""
     want = norm(program)
     best = None
     for r in rows:
@@ -75,9 +82,17 @@ def pick(rows, program, air):
         if not (t == want or (len(want) >= 4 and want in t) or (len(t) >= 4 and t in want)):
             continue
         d = nearest(air, r["month"], r["day"])
-        diff = abs((d - air).days) if d else 99
-        if diff <= 1 and (best is None or diff < best[0]):
-            best = (diff, r["href"])
+        if d is None:
+            continue
+        diff = (air - d).days  # 正: エピソードのほうが前
+        if -1 <= diff <= 1:
+            rank = abs(diff)
+        elif 1 < diff <= back:
+            rank = 10 + diff
+        else:
+            continue
+        if best is None or rank < best[0]:
+            best = (rank, r["href"])
     return best[1] if best else None
 
 
@@ -116,6 +131,55 @@ def items_to_check(state_dir, today, known):
     return list(found.values())
 
 
+def weekly_tv_items(today):
+    """毎週・毎月のテレビ番組の、放送日が今日から3日前までの1回分。公式のデータを（rss.py と同じ作りで）読む"""
+    found = {}
+    for site, cfg in rss.SITES.items():
+        try:
+            version, years = hpwatch.fetch_version(cfg["base"])
+            schedules, artists = hpwatch.fetch_data(cfg["base"], version, years)
+        except Exception as e:  # 1つのサイトの失敗で、全体を止めない
+            print(f"  {site}: 公式のデータが取れない {str(e)[:60]}")
+            continue
+        profiles = artists.get("profilesById") or {}
+        for x in rss.weekly_candidates(schedules, profiles):
+            if x.get("category") != "TV":
+                continue
+            try:
+                air = dt.date.fromisoformat(x["date"])
+            except ValueError:
+                continue
+            if not (today - dt.timedelta(days=DAYS_AFTER) <= air <= today):
+                continue
+            station, prog = rss.split_station("TV", hpwatch.text_of(x.get("title")).strip())
+            if prog:
+                guid = f"{site}-media-{rss.media_keys(x)[0]}"
+                found[guid] = {"guid": guid, "air": air, "station": station, "program": prog, "weekly": True}
+    return list(found.values())
+
+
+def update_programs(path, programs_found):
+    """TVer で見つかった番組の、TVer の検索のページを残す（ほかの欄は、そのまま）。変わったら True"""
+    data = {"programs": {}}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f) or {"programs": {}}
+    progs = data.setdefault("programs", {})
+    changed = False
+    for prog in sorted(programs_found):
+        key = rss.program_key("TV", prog)
+        cur = progs.setdefault(key, {"name": prog, "cat": "TV"})
+        url = SEARCH + urllib.parse.quote(prog)
+        if cur.get("tver") != url:
+            cur["tver"] = url
+            changed = True
+    if changed:
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(json.dumps(data, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+    return changed
+
+
 def search_rows(page, program):
     """番組名で検索して、結果の行を返す（取るのは、リンクと、行の文字だけ）"""
     page.goto(SEARCH + program, wait_until="domcontentloaded", timeout=30000)
@@ -140,6 +204,7 @@ def main():
     ap.add_argument("--state-dir", default="state")
     ap.add_argument("--manual", default="manual/import.json")
     ap.add_argument("--out", default="manual/auto.json")
+    ap.add_argument("--programs", default="manual/programs.json")
     ap.add_argument("--max-search", type=int, default=25)
     ap.add_argument("--list", action="store_true", help="探す項目を出すだけ（ブラウザは使わない）")
     args = ap.parse_args()
@@ -149,6 +214,8 @@ def main():
     auto = load_entries(args.out, today)
     known = {g for g, e in {**auto, **manual}.items() if has_link(e)}
     todo = items_to_check(args.state_dir, today, known)
+    seen = {it["guid"] for it in todo}
+    todo += [it for it in weekly_tv_items(today) if it["guid"] not in known and it["guid"] not in seen]
     programs = {}
     for it in todo:
         programs.setdefault(it["program"], []).append(it)
@@ -159,6 +226,7 @@ def main():
         return
 
     found = {}
+    programs_found = set()
     if programs:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
@@ -177,8 +245,9 @@ def main():
                     print(f"  {prog}: 失敗 {str(e)[:80]}")
                     continue
                 for it in its:
-                    href = pick(rows, prog, it["air"])
+                    href = pick(rows, prog, it["air"], back=8 if it.get("weekly") else 0)
                     if href:
+                        programs_found.add(prog)
                         found[it["guid"]] = {
                             "guid": it["guid"], "air": str(it["air"]), "until": str(it["air"] + dt.timedelta(days=DAYS_AFTER)),
                             "links": [{"label": "TVer", "url": EPISODE + href}], "source": "auto", "found": today.isoformat(),
@@ -189,6 +258,8 @@ def main():
                 time.sleep(2)
             browser.close()
 
+    if programs_found and update_programs(args.programs, programs_found):
+        print(f"書いた: {args.programs}（TVer にある番組 {len(programs_found)} 本）")
     items = merge_auto(auto, found, today)
     text = json.dumps({"items": items}, ensure_ascii=False, indent=1) + "\n"
     old = open(args.out, encoding="utf-8").read() if os.path.exists(args.out) else ""

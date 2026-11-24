@@ -1,0 +1,56 @@
+name: episodes
+
+# ポッドキャスト・YouTube の、公開されたエピソードを、毎週の番組の1回分に結びつけて、manual/auto_episodes.json に入れる（episodes.py）。
+# 毎朝 05:00 と 18:00（JST）に、Cloudflare の Cron Trigger（watcher/src/index.js）から呼ばれる。GitHub の cron（schedule）は使わない。
+# 結びつきが変わったら、コミットして rss.yml を呼ぶ（フィードに反映する）。手で動かすときは workflow_dispatch
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: episodes
+  cancel-in-progress: false
+
+jobs:
+  episodes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # いまの main を取る（続けて2回呼ばれたとき、後の実行が古い状態から始まって、コミットが衝突するのを防ぐ）
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: エピソードを探す
+        run: python episodes.py --sources manual/sources.json --out manual/auto_episodes.json --episodes manual/episodes.json
+
+      - name: 変わったらコミットして、フィードを作り直す
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add manual/auto_episodes.json manual/episodes.json
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
+          # フィードに関わるのは、結びつき（auto_episodes.json）が変わったときだけ
+          FEED=0
+          git diff --cached --quiet -- manual/auto_episodes.json || FEED=1
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "episodes: ポッドキャスト・YouTube のリンクを更新 $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do
+            git pull --rebase -q && git push -q && break
+            sleep $((i * 3))
+            [ "$i" = 4 ] && exit 1
+          done
+          if [ "$FEED" = 1 ]; then
+            gh workflow run rss.yml --ref main
+          fi

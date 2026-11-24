@@ -1,0 +1,99 @@
+{
+ "programs": [
+  {
+   "name": "ザ・ギース尾関高文とOCHA NORMA広本瑠璃の年の差ラジオ",
+   "match": [
+    "年の差ラジオ"
+   ],
+   "podcast": "https://anchor.fm/s/e6acf24c/podcast/rss",
+   "spotify": "https://open.spotify.com/show/4JSCeuA3H8xkgTeBN89FTz"
+  },
+  {
+   "name": "里田まいの里田商店",
+   "match": [
+    "里田商店"
+   ],
+   "podcast": "https://anchor.fm/s/db676c8c/podcast/rss",
+   "spotify": "https://open.spotify.com/show/2BvU6aZuaf2TxGDCzTi1hM"
+  },
+  {
+   "name": "MUSIC BAR MIRAI亭",
+   "match": [
+    "MIRAI亭"
+   ],
+   "podcast": "https://anchor.fm/s/dcd63e68/podcast/rss",
+   "spotify": "https://open.spotify.com/show/1SLP7kz2Ge4b29Wu8S6Kig"
+  },
+  {
+   "name": "鞘師里保とこれからの時間",
+   "match": [
+    "これからの時間"
+   ],
+   "podcast": "https://feeds.megaphone.fm/TFM3712341196",
+   "spotify": "https://open.spotify.com/show/27UY31kGnLHeWr0IDH1qkl"
+  },
+  {
+   "name": "鞘師里保のライフアップ・チョイス",
+   "match": [
+    "ライフアップ・チョイス",
+    "ライフアップチョイス"
+   ],
+   "podcast": "https://feeds.megaphone.fm/TFM2763011783",
+   "spotify": "https://open.spotify.com/show/3uoang0Yoi6WHqy7LmHFXt"
+  },
+  {
+   "name": "小林萌花の ほのクラ。",
+   "match": [
+    "ほのクラ"
+   ],
+   "podcast": "https://feeds.megaphone.fm/JPFMN1351907079",
+   "spotify": "https://open.spotify.com/show/4KbjaivYR6HZiJ1cHMbUCW"
+  },
+  {
+   "name": "河西結心の岐阜ホッケー・チアーズ！",
+   "match": [
+    "岐阜ホッケー"
+   ],
+   "spotify": "https://open.spotify.com/show/459UOmmhAzWwP83EPhirw3"
+  },
+  {
+   "name": "小片リサの「ことばむすび」",
+   "match": [
+    "ことばむすび"
+   ],
+   "podcast": "https://feeds.megaphone.fm/FMN2810457568",
+   "spotify": "https://open.spotify.com/show/3j6zzs2Ru5GSn8LuRkzIVD"
+  },
+  {
+   "name": "BLooM LoUNGE",
+   "match": [
+    "BLooM LoUNGE"
+   ],
+   "spotify": "https://open.spotify.com/show/033oZIh3qRU3nhHISdwhhE"
+  },
+  {
+   "name": "Juice=Juice ジューシー・トーク",
+   "match": [
+    "ジューシー・トーク"
+   ],
+   "podcast": "https://www.omnycontent.com/d/playlist/67122501-9b17-4d77-84bd-a93d00dc791e/d6c3cde1-ec08-4148-8045-b4d600285823/e990537e-2f54-43ea-b367-b4d600285c1f/podcast.rss",
+   "spotify": "https://open.spotify.com/show/1w5Pw59k06Y0Nnz4MWNDsy"
+  },
+  {
+   "name": "ハロ！ステ",
+   "match": [
+    "ハロ！ステ"
+   ],
+   "youtube": "https://www.youtube.com/helloprojectstation",
+   "youtube_channel": "UCnoYhOtV0IXZ6lv2R-ZnB_Q"
+  },
+  {
+   "name": "M-line Music",
+   "match": [
+    "M-line Music"
+   ],
+   "youtube": "https://www.youtube.com/c/mlinemusic",
+   "youtube_channel": "UC3mqDg-KHFdByufd-Vg0ogg"
+  }
+ ]
+}
