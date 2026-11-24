@@ -3,6 +3,7 @@
 画像は static/ に置く（rss.py が、公開のたびに、サイトの一番上へコピーする）:
   favicon.ico（16・32・48）・icon-192.png・icon-512.png・apple-touch-icon.png（180）・og.png（1200x630）
 """
+from urllib.parse import quote
 from xml.sax.saxutils import escape, quoteattr
 
 SITE_URL = "https://hello-rss.karin-archive.com"   # rss.py が、--feed-base で上書きする
@@ -47,4 +48,35 @@ def head_tags(title, description=DESCRIPTION, path="/", site_url=None):
         f"<meta name=\"twitter:title\" content={q(title)}>"
         f"<meta name=\"twitter:description\" content={q(description)}>"
         f"<meta name=\"twitter:image\" content={q(image)}>"
+    )
+
+
+FOOTER_CSS = """
+.site-foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+.site-foot p{margin:4px 0;color:var(--mute)}
+.site-foot .share a{margin:0 4px}
+.site-foot .share button{font:inherit;font-size:.85rem;color:var(--link);background:transparent;border:1px solid var(--line);border-radius:6px;padding:1px 10px;margin-left:4px;cursor:pointer}
+.site-foot .share button:hover{border-color:var(--accent)}
+"""
+
+
+def footer_html():
+    """どのページも同じフッター（手で入れるページは除く）。一覧・選んで作る RSS・このサイトについて、への行き来と、ご連絡の入口"""
+    top = SITE_URL.rstrip("/") + "/"
+    x = "https://x.com/intent/post?text=" + quote(SITE_NAME, safe="") + "&url=" + quote(top, safe="")
+    line = "https://social-plugins.line.me/lineit/share?url=" + quote(top, safe="")
+    share = (
+        '<p class="share">このサイトを紹介する：'
+        f'<a href={quoteattr(x)} target="_blank" rel="noopener noreferrer">X</a>'
+        f'<a href={quoteattr(line)} target="_blank" rel="noopener noreferrer">LINE</a>'
+        f'<button type="button" data-url={quoteattr(top)} '
+        "onclick=\"navigator.clipboard.writeText(this.dataset.url).then(()=>{this.textContent='コピーしました'},()=>{this.textContent='コピーできませんでした'})\">URLをコピー</button></p>"
+    )
+    return (
+        '<footer class="site-foot">'
+        '<p><a href="/">一覧に戻る</a> ｜ <a href="/custom/">選んで作る RSS</a> ｜ <a href="/about/">このサイトについて</a></p>'
+        + share +
+        "<p>題名とリンクだけを配ります。本文は、公式のページでお読みください。</p>"
+        '<p>個人が作った非公式のサイトです。<a href="/about/#contact">ご連絡はこちら</a>。</p>'
+        "</footer>"
     )

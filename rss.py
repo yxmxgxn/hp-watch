@@ -1263,6 +1263,8 @@ details.sec>summary::before{content:"＋ ";color:var(--mute)}
 details.sec[open]>summary::before{content:"－ "}
 """
 
+INDEX_CSS += sitemeta.FOOTER_CSS
+
 KIND_NOTE = {
     "news": "公式のお知らせ（イベントの発表を含む）。載った日に配信。",
     "media": "テレビ・ラジオ・雑誌・WEB の新しく載った出演予定（だいたい1週間前）。毎週の番組は含みません。ラジオには radiko のタイムフリーのリンク付き。",
@@ -1315,7 +1317,68 @@ main.about ul{list-style:disc;padding-left:1.4em;margin:6px 0}
 main.about li{display:list-item;border:0;padding:3px 0;margin:0}
 main.about p{margin:8px 0}
 .back{margin:0 0 12px}
+.td label{display:block;margin:12px 0 2px;font-size:.9rem}
+.td input,.td textarea{display:block;width:100%;box-sizing:border-box;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 8px;margin-top:2px}
+.td button{margin-top:12px;font:inherit;color:#fff;background:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:6px 20px;cursor:pointer}
+.td button:disabled{opacity:.5;cursor:default}
+.td .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.note{font-size:.9rem}
+main.about ul.log{list-style:none;padding-left:0}
 """
+
+
+# 更新履歴（新しい順。更新したら、先頭に1行足す）
+CHANGELOG = [
+    ("2026/11/24", "ひな形完成"),
+]
+
+# ご連絡（何かあったときのために）。フォームは /report（watcher/src/report.js）へ送る
+CONTACT_HTML = (
+    '<h3 id="contact">運営について・ご連絡</h3>'
+    "<p>ハロー！プロジェクト・アップフロント・JPROOM などの公式サイトとは関係のない、<strong>個人が作った非公式のサイト</strong>です。"
+    "記事・動画などの著作権は、それぞれの公式サイト・書いた人・公開した人にあります。このサイトは、題名とリンクだけを配っています。</p>"
+    "<p>広告は載せておらず、お金は一切受け取っていません。サイトの運営費（Cloudflare などの利用料）は作者が払っています。</p>"
+    "<p>公式サイトの運営元・ご本人・所属事務所から連絡があれば、確認のうえ速やかに、該当のフィード・記事の配信の停止、またはサイトの公開停止をします。"
+    "そのほかの方からの「消してほしい・載せないでほしい」というご連絡にも対応します。"
+    "ご連絡は、下のフォームから送ってください。フィードのURL（または、記事の題名）だけで送れます。"
+    "返事が必要な場合は、連絡先も書いてください（返事のためだけに使います）。</p>"
+    '<form id="td" class="td" autocomplete="off">'
+    '<label>不具合があるフィード（必須）'
+    '<input name="target" required maxlength="300" placeholder="例: https://hello-rss.karin-archive.com/hp/news/all.xml"></label>'
+    '<label>連絡先（任意・メールアドレスなど）<input name="contact" maxlength="200"></label>'
+    '<label>ひとこと（任意）<textarea name="message" rows="3" maxlength="2000"></textarea></label>'
+    '<input name="website" class="hp" tabindex="-1" aria-hidden="true">'
+    '<button type="submit">送る</button>'
+    '<p id="td-msg" class="note" aria-live="polite"></p>'
+    "</form>"
+    '<p class="note">フィードの誤りや追加のご要望も、上のフォームからどうぞ。同じ作者のサイト: <a href="https://karin-archive.com/">karin-archive</a></p>'
+)
+
+FORM_JS = r"""
+(function () {
+  var f = document.getElementById("td"), msg = document.getElementById("td-msg");
+  if (!f) return;
+  f.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var b = f.querySelector("button[type=submit]");
+    b.disabled = true; msg.textContent = "送っています…";
+    var d = {}; ["target", "contact", "message", "website"].forEach(function (k) { d[k] = f.elements[k].value; });
+    fetch("/report", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        if (x.ok) { msg.textContent = "送りました。ありがとうございます。"; f.reset(); }
+        else msg.textContent = (x.j && x.j.error) || "送れませんでした。時間をおいて、もう一度お試しください";
+      })
+      .catch(function () { msg.textContent = "送れませんでした。時間をおいて、もう一度お試しください"; })
+      .then(function () { b.disabled = false; });
+  });
+})();
+"""
+
+
+def changelog_html():
+    rows = "".join(f'<li><time datetime="{d.replace("/", "-")}">{escape(d)}</time>　{escape(t)}</li>' for d, t in CHANGELOG)
+    return f'<h3 id="changes">更新履歴</h3><ul class="log">{rows}</ul>'
 
 
 def about_page(now):
@@ -1329,9 +1392,9 @@ def about_page(now):
         '<body><main class="about"><p class="back"><a href="../">← フィードの一覧へ</a></p>'
         "<h1>このサイトについて</h1>"
         f"<p>{escape(sitemeta.SITE_NAME)}</p><p>{escape(sitemeta.TAGLINE)}</p>"
-        "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>" + ABOUT_BODY +
-        '<p><a href="../custom/">好きな人・グループ・カテゴリだけの RSS を作る</a>　<a href="../all.opml">全部まとめて登録する（OPML）</a></p>'
-        f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n'
+        "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>" + ABOUT_BODY
+        + CONTACT_HTML + changelog_html() + sitemeta.footer_html() +
+        f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main><script>{FORM_JS}</script></body></html>\n'
     )
 
 
@@ -1456,6 +1519,7 @@ def index_html(feeds, now, sources=()):
                '<li><a href="https://www.helloshop.info/category/goods/feed">グッズ情報</a><code>https://www.helloshop.info/category/goods/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/photo/feed">生写真情報</a><code>https://www.helloshop.info/category/photo/feed</code></li>'
                '<li><a href="https://www.helloshop.info/category/news/feed">お知らせ</a><code>https://www.helloshop.info/category/news/feed</code></li></ul></details>')
+    out.append(sitemeta.footer_html())
     out.append(f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main><script>{FEED_JS}</script></body></html>\n')
     return "\n".join(out)
 

@@ -62,7 +62,20 @@ top = rss.index_html([], t0)
 check('<a href="about/"><b>このサイトについて</b></a>' in top and "<summary>このサイトについて</summary>" not in top, "トップページ: このサイトについて、への目立つリンク（折りたたみの中ではない）")
 check(all(h in about for h in ("どのサイトを読んでいるか", "どういう仕組みか", "どういうフィードか", "選んで作る RSS の、絞り込み", "放送のあとに付くリンク")), "このサイトについて: 読んでいるサイト・仕組み・フィード・絞り込み・放送のあとのリンク")
 check("題名にその人の名前があるか" in about and "テーマ（カテゴリ）" in about and "グループ・人のタグ" in about, "このサイトについて: アメブロは名前で絞る（テーマは使わない）・人のタグで分ける")
-check("json" not in about.lower() and "radio/" not in about, "このサイトについて: 内部のファイルの名前は出さない")
+import re
+about_text = re.sub(r"<script>.*?</script>", "", about, flags=re.S)  # 見える文面だけ（フォームのスクリプトは除く）
+check("json" not in about_text.lower() and "radio/" not in about_text and "Discord" not in about, "このサイトについて: 内部のファイルの名前・通知の仕組みは出さない")
+# ご連絡・更新履歴・フッター
+check("<strong>個人が作った非公式のサイト</strong>" in about and "Instagram" not in about and "Meta" not in about and "投稿" not in about_text, "ご連絡: インスタの文面を、このサイト用に直した（インスタ・Meta・投稿の語を出さない）")
+check('<form id="td"' in about and 'name="target" required' in about and 'class="hp"' in about and 'fetch("/report"' in about, "ご連絡: フォーム（対象は必須・見えない欄・/report へ送る）")
+check('<h3 id="changes">更新履歴</h3>' in about and '<time datetime="2026-11-24">2026/11/24</time>　ひな形完成' in about, "更新履歴: 2026/11/24 ひな形完成")
+import selectable
+sel_out = tempfile.mkdtemp(); selectable.write_options(sel_out, [])
+custom_html = open(os.path.join(sel_out, "custom/index.html"), encoding="utf-8").read()
+check(all(('<footer class="site-foot">' in h and 'href="/about/#contact"' in h and "検索に戻る" not in h and "tech" not in h.split("<footer")[1] and "更新履歴" not in h.split("<footer")[1]) for h in (about, rss.index_html([], t0), custom_html)), "フッター: 一覧・このサイトについて・選んで作る RSS のどのページも同じ（インスタ用の『仕組み』『検索に戻る』『更新履歴』のリンクは無い）")
+foots = [h.split("<footer")[1] for h in (about, rss.index_html([], t0), custom_html)]
+check(all("https://x.com/intent/post?text=" in f and "%E3%83%8F%E3%83%AD%E3%83%97%E3%83%AD" in f and "url=https%3A%2F%2Fhello-rss.karin-archive.com%2F" in f for f in foots), "フッター: X で紹介（題名と、サイトのURLだけ。宣伝の文は入れない）")
+check(all("https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fhello-rss.karin-archive.com%2F" in f and 'data-url="https://hello-rss.karin-archive.com/"' in f and "URLをコピー" in f and 'rel="noopener noreferrer"' in f for f in foots), "フッター: LINE で紹介・URLをコピー（外のページは noopener）")
 
 # トップページ: フィードごとの、コピーと確かめる（最新5件）のボタン
 import datetime as dt
