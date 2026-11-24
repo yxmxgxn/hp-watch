@@ -326,26 +326,26 @@ const PAGE = `<!doctype html>
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0080cb">
 <title>放送の情報を入れる</title>
 <style>
-:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2;--card:#f6f7f9}
-@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff;--card:#202124}}
+:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0080cb;--link:#0074bb;--card:#f6f7f9}
+@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#0080cb;--link:#55b4ee;--card:#202124}}
 body{margin:0;padding:20px 16px 56px;background:var(--bg);color:var(--fg);font:15px/1.6 "Noto Sans JP",system-ui,sans-serif}
 main{max-width:680px;margin:0 auto}h1{font-size:1.25rem;margin:0 0 6px}h2{font-size:1rem;margin:22px 0 6px}
 p,.mute{color:var(--mute);margin:4px 0}
 input,select{box-sizing:border-box;width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
 label{display:block;margin:12px 0 4px;font-weight:700}
 button{padding:8px 14px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font:inherit;cursor:pointer;margin:6px 6px 0 0}
-button.sub{background:none;color:var(--accent)}button:disabled{opacity:.5}
+button.sub{background:none;color:var(--link)}button:disabled{opacity:.5}
 .row{display:flex;gap:8px;align-items:center}.row input[type=url]{flex:1}.row input[type=text]{width:130px;flex:none}
 .list{border:1px solid var(--line);border-radius:8px;margin-top:8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chips button{margin:0;padding:5px 12px;border-radius:14px;background:none;color:var(--accent)}
+.chips button{margin:0;padding:5px 12px;border-radius:14px;background:none;color:var(--link)}
 .chips button.on{background:var(--accent);color:#fff}
 .item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-top:1px solid var(--line)}
 .item:first-child{border-top:0}.item .main{flex:1;min-width:0}.item .name{font-weight:700;word-break:break-all}
 .badge{display:inline-block;font-size:.8rem;padding:1px 8px;border-radius:10px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
-.badge.done{border-color:var(--accent);color:var(--accent)}
+.badge.done{border-color:var(--accent);color:var(--link)}
 .got{font-size:.9rem;color:var(--mute);margin-top:2px;word-break:break-all}
-.tabs{display:flex;gap:6px;margin-top:14px}.tabs button{margin:0;border-radius:6px 6px 0 0}.tabs button:not(.on){background:none;color:var(--accent)}
+.tabs{display:flex;gap:6px;margin-top:14px}.tabs button{margin:0;border-radius:6px 6px 0 0}.tabs button:not(.on){background:none;color:var(--link)}
 .card{border:1px solid var(--line);border-radius:8px;margin-top:10px;padding:8px 12px}.card .t{font-weight:700;word-break:break-all}
 .occ{display:flex;gap:8px;align-items:baseline;padding:3px 0;border-top:1px solid var(--line);font-size:.92rem;cursor:pointer}.occ:first-of-type{border-top:0}
 .occ .d{width:8.4em;flex:none;color:var(--mute)}.occ .s{flex:1;min-width:0;word-break:break-all}.occ .m{flex:none;font-weight:700}

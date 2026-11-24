@@ -153,10 +153,10 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!--HEAD_TAGS-->
 <style>
-:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0a66c2;--card:#f6f7f9}
-@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#6cb2ff;--card:#202124}}
+:root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0080cb;--link:#0074bb;--card:#f6f7f9}
+@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e8e8e8;--mute:#999;--line:#333;--accent:#0080cb;--link:#55b4ee;--card:#202124}}
 body{margin:0;padding:24px 16px 64px;background:var(--bg);color:var(--fg);font:16px/1.7 "Noto Sans JP",system-ui,sans-serif}
-main{max-width:760px;margin:0 auto}h1{font-size:1.5rem;margin:0 0 4px}a{color:var(--accent)}
+main{max-width:760px;margin:0 auto}h1{font-size:1.5rem;margin:0 0 4px}a{color:var(--link)}
 p,.mute{color:var(--mute);margin:4px 0}
 fieldset{border:1px solid var(--line);border-radius:8px;margin:16px 0;padding:8px 14px 12px}
 legend{font-weight:700;padding:0 6px}
@@ -167,7 +167,7 @@ details{margin-top:8px}summary{cursor:pointer;color:var(--mute)}
 input[type=text]{width:100%;box-sizing:border-box;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:13px/1.4 ui-monospace,monospace}
 .field{display:block;margin:8px 0 0;cursor:default}.field span{display:block}
 button,.btn{display:inline-block;margin:8px 8px 0 0;padding:8px 14px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font:inherit;cursor:pointer;text-decoration:none}
-button.sub{background:none;color:var(--accent)}
+button.sub{background:none;color:var(--link)}
 ol{padding-left:1.3em;margin:6px 0}
 </style></head><body><main>
 <h1>ハロプロ 選んで作るRSS</h1>
