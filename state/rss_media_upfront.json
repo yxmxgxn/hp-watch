@@ -2,6 +2,32 @@
 "items": [
 {
 "categories": [
+"RADIO",
+"熊井友理奈",
+"高橋愛"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-24T13:00:00+09:00",
+"general": false,
+"groups": [
+"20",
+"80"
+],
+"guid": "upfront-media-h5af0dceb0ec6c523",
+"html": "<p>出演: 熊井友理奈、高橋愛</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.mbs1179.com/yando/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/MBS/20261128220000\">radiko タイムフリー（MBSラジオ・無料で聴けるのは関西）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=MBS%E3%83%A9%E3%82%B8%E3%82%AA%E3%80%8C%E3%83%A4%E3%83%B3%E3%82%B0%E3%82%BF%E3%82%A6%E3%83%B3%E5%9C%9F%E6%9B%9C%E6%97%A5%E3%80%8D&amp;dates=20261128T220000%2F20261128T233000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.mbs1179.com/yando/",
+"name": "MBSラジオ「ヤングタウン土曜日」",
+"sort": "2026-11-28 22:00",
+"title": "[RADIO] 11/28(土) 22:00 MBSラジオ「ヤングタウン土曜日」",
+"who": [
+"yurina_kumai",
+"ai_takahashi"
+]
+},
+{
+"categories": [
 "TV",
 "牧野真莉愛"
 ],
@@ -120,6 +146,7 @@
 "h4f4cfedb96680c82": "2026-11-10",
 "h529317e2d0c5aab4": "2026-11-14",
 "h5429d048d17f277e": "2026-12-11",
+"h5af0dceb0ec6c523": "2026-11-28",
 "h5af14c65ee11e212": "2026-10-11",
 "h5c4262cfdc4abc46": "2026-10-23",
 "h5c66181e2dfe7346": "2026-10-16",
@@ -180,6 +207,7 @@
 "s2263": "2026-12-29",
 "s2264": "2026-11-23",
 "s2265": "2026-11-22",
-"s2266": "2026-12-23"
+"s2266": "2026-12-23",
+"s2309": "2026-11-28"
 }
 }

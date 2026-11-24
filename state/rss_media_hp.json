@@ -3,6 +3,40 @@
 {
 "categories": [
 "TV",
+"モーニング娘。'26"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-24T13:00:00+09:00",
+"general": false,
+"groups": [
+"3"
+],
+"guid": "hp-media-h846bfe2480ac2b57",
+"html": "<p>出演: モーニング娘。'26</p><ul><li><a href=\"https://www.tv-asahi.co.jp/music/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E3%83%86%E3%83%AC%E3%83%93%E6%9C%9D%E6%97%A5%E3%80%8CMUSIC+STATION%E3%80%8D&amp;dates=20261127T210000%2F20261127T215400&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.tv-asahi.co.jp/music/",
+"name": "テレビ朝日「MUSIC STATION」",
+"sort": "2026-11-27 21:00",
+"title": "[TV] 11/27(金) 21:00 テレビ朝日「MUSIC STATION」",
+"who": [
+"morningmusume",
+"sakura_oda",
+"miki_nonaka",
+"mei_yamazaki",
+"homare_okamura",
+"rio_sakurai",
+"haruka_inoue",
+"ako_yumigeta",
+"meisa_sugihara",
+"moa_suzuki",
+"hanano_ishikawa",
+"miyu_yasuda"
+]
+},
+{
+"categories": [
+"TV",
 "つばきファクトリー：谷本安美"
 ],
 "cats": [
@@ -1338,6 +1372,7 @@
 "h82f6ea32f9cb9b07": "2026-10-31",
 "h834406a058ffe411": "2026-09-30",
 "h838983aead9b55f9": "2026-10-03",
+"h846bfe2480ac2b57": "2026-11-27",
 "h86483726647505fb": "2026-10-05",
 "h875a7b298ef57159": "2026-09-30",
 "h87bf013e254a3de6": "2026-10-06",
@@ -1562,6 +1597,7 @@
 "s2301": "2026-11-26",
 "s2302": "2026-11-27",
 "s2303": "2026-11-27",
-"s2308": "2026-11-28"
+"s2308": "2026-11-28",
+"s2311": "2026-11-27"
 }
 }

@@ -1,6 +1,28 @@
 {
-"etag": "\"e3ff15b6beba7fd195ba8cb6f8c8199b\"",
+"etag": "\"d7cea98e85c2197b97b4dc211b5214e6\"",
 "items": [
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"Juice=Juice"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-24T12:00:56+09:00",
+"general": false,
+"guid": "shop-211201",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261124_211201.html",
+"name": "『Juice＝Juice新聞 2026年末号』",
+"sort": "2026-11-24T12:00:56+09:00",
+"title": "『Juice＝Juice新聞 2026年末号』",
+"who": [
+"juicejuice"
+]
+},
 {
 "categories": [
 "イベント",
