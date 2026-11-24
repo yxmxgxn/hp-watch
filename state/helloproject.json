@@ -604,15 +604,6 @@
 "start": "2027-01-02",
 "title": "Hello! Project 2027 Winter「Crossroads」"
 },
-"/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/": {
-"artists": [
-477
-],
-"end": "2026-11-22",
-"link": "/tsubakifactory/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
-"start": "2026-11-22",
-"title": "つばきファクトリー「カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合」出演！"
-},
 "/tsubakifactory/event/362cb7ef8c20832e8b0462115ef809bd0a763ea4508b9b0831c9b1b0d3042e70/": {
 "artists": [
 3,
@@ -1016,7 +1007,7 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
-"MBSラジオ「ヤングタウン土曜日」|http://www.mbs1179.com/yando/|毎週土曜日|22:00": {
+"MBSラジオ「ヤングタウン土曜日」※11/28はお休みとなります。|http://www.mbs1179.com/yando/|毎週土曜日|22:00": {
 "artists": [
 3
 ],
@@ -1030,7 +1021,7 @@
 "note": "",
 "start": "22:00",
 "status": null,
-"title": "MBSラジオ「ヤングタウン土曜日」"
+"title": "MBSラジオ「ヤングタウン土曜日」※11/28はお休みとなります。"
 },
 "MBSラジオ「西乃風ブラン堂ラジオ」|https://www.mbs1179.com/burandou/|毎週日曜日|16:30": {
 "artists": [
@@ -16106,6 +16097,34 @@
 "status": null,
 "title": "『MORE! MORE! EP』発売記念 ミニライブ＆お見送り会"
 },
+"h47b975057ec97e75": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-11-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/fc15c99621b65f0e6a23c0cdb43e20cd364daa1f4f44f45a2c674f4e0de36322/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "神戸ハーバーランド スペースシアター （兵庫）",
+"start": null,
+"status": null,
+"title": "7thシングル発売記念 ミニライブ＆お見送り会"
+},
 "h47bd2598f77003a8": {
 "artists": [
 36
@@ -28545,6 +28564,34 @@
 "status": null,
 "title": "bayfm「78musi-curate」"
 },
+"h8bf63a9a0a924bd8": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-11-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/f6522bdd03520acbf4ed70f3109a61021508513d121ed00cf3272392739a39b4/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "アリオ橋本 （神奈川）",
+"start": null,
+"status": null,
+"title": "7thシングル発売記念 ミニライブ＆お見送り会"
+},
 "h8c0ad83f7cdb9d69": {
 "artists": [
 477
@@ -28663,6 +28710,25 @@
 "start": "13:00",
 "status": null,
 "title": "YBCラジオ「ゲツキンラジオ ぱんぱかぱ～ん」"
+},
+"h8cbeb9311bafd9b4": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "25:29",
+"isFc": false,
+"label": null,
+"link": "https://www.mbs.jp/nishinokazebrand/",
+"members": [
+604,
+635
+],
+"note": "",
+"start": "24:59",
+"status": null,
+"title": "MBS「西乃風ブラン堂」"
 },
 "h8cd89a96f139cba6": {
 "artists": [
@@ -35612,6 +35678,25 @@
 "status": null,
 "title": "今日は川名凜（アンジュルム）の24歳の誕生日です！"
 },
+"hb36b79b10ba15f55": {
+"artists": [
+676
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "24:55",
+"isFc": false,
+"label": null,
+"link": "https://www.uhb.jp/program/tantomusik/",
+"members": [
+588,
+611
+],
+"note": "",
+"start": "24:45",
+"status": null,
+"title": "UHB北海道文化放送「TANTO MUSIK」"
+},
 "hb3eb99b940377886": {
 "artists": [
 3
@@ -41056,6 +41141,34 @@
 "status": null,
 "title": "モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
 },
+"hd010207d8731989c": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "24:30",
+"isFc": false,
+"label": null,
+"link": "https://www.tbs.co.jp/tbs-ch/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "CS TBSチャンネル1「CDTVライブ！ライブ！秋の大感謝祭2026」"
+},
 "hd017c920964e3e7b": {
 "artists": [
 3,
@@ -44598,6 +44711,33 @@
 "start": "24:59",
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
+},
+"he2b816d4cfc1de7c": {
+"artists": [
+477
+],
+"category": "EVENT",
+"date": "2026-11-22",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
+"members": [
+481,
+518,
+519,
+610,
+626,
+628,
+663,
+669,
+670,
+671
+],
+"note": "扇町公園 （大阪）",
+"start": null,
+"status": null,
+"title": "カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合"
 },
 "he2c385339a01442d": {
 "artists": [
@@ -50828,62 +50968,6 @@
 "status": null,
 "title": "IWA ROCK presented by e-Broad"
 },
-"s1684": {
-"artists": [
-585
-],
-"category": "EVENT",
-"date": "2026-11-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/f6522bdd03520acbf4ed70f3109a61021508513d121ed00cf3272392739a39b4/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "アリオ橋本 （神奈川）",
-"start": null,
-"status": null,
-"title": "7thシングル発売記念 ミニライブ＆お見送り会"
-},
-"s1685": {
-"artists": [
-585
-],
-"category": "EVENT",
-"date": "2026-11-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/fc15c99621b65f0e6a23c0cdb43e20cd364daa1f4f44f45a2c674f4e0de36322/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "神戸ハーバーランド スペースシアター （兵庫）",
-"start": null,
-"status": null,
-"title": "7thシングル発売記念 ミニライブ＆お見送り会"
-},
 "s1686": {
 "artists": [
 585
@@ -51508,33 +51592,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十九席＞～つばきファクトリー土居楓奏＆西村乙輝～トークイベント"
-},
-"s1935": {
-"artists": [
-477
-],
-"category": "EVENT",
-"date": "2026-11-22",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/25069ac56df22ff0e77dee24a86a0d43f83d51bfc95cbbe92166d6a108e21387/",
-"members": [
-481,
-518,
-519,
-610,
-626,
-628,
-663,
-669,
-670,
-671
-],
-"note": "扇町公園 （大阪）",
-"start": null,
-"status": null,
-"title": "カンテレ祭り！2026 よ～いドン！フェス 人気番組大集合"
 },
 "s1939": {
 "artists": [
@@ -52244,34 +52301,6 @@
 "status": null,
 "title": "ロージークロニクル 小野田華凜バースデーイベント2027"
 },
-"s2052": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-23",
-"end": "24:30",
-"isFc": false,
-"label": null,
-"link": "https://www.tbs.co.jp/tbs-ch/",
-"members": [
-67,
-450,
-515,
-543,
-609,
-620,
-621,
-625,
-631,
-644,
-654
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "CS TBSチャンネル1「CDTVライブ！ライブ！秋の大感謝祭2026」"
-},
 "s2053": {
 "artists": [
 36
@@ -52616,25 +52645,6 @@
 "start": "21:00",
 "status": null,
 "title": "日本テレビ「上田と女が吠える夜」"
-},
-"s2084": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-23",
-"end": "25:29",
-"isFc": false,
-"label": null,
-"link": "https://www.mbs.jp/nishinokazebrand/",
-"members": [
-604,
-635
-],
-"note": "",
-"start": "24:59",
-"status": null,
-"title": "MBS「西乃風ブラン堂」"
 },
 "s2088": {
 "artists": [
@@ -53002,25 +53012,6 @@
 "start": null,
 "status": null,
 "title": "小林萌花の「ほのクラ。」2ndファンミーティング"
-},
-"s2214": {
-"artists": [
-676
-],
-"category": "TV",
-"date": "2026-11-23",
-"end": "24:55",
-"isFc": false,
-"label": null,
-"link": "https://www.uhb.jp/program/tantomusik/",
-"members": [
-588,
-611
-],
-"note": "",
-"start": "24:45",
-"status": null,
-"title": "UHB北海道文化放送「TANTO MUSIK」"
 },
 "s2217": {
 "artists": [
@@ -54491,7 +54482,190 @@
 "start": "14:57",
 "status": null,
 "title": "関西テレビ「初恋クラシックⅡ～名門吹奏楽部の熱き青春＆オーケストラでいろいろ遊んじゃいました～」"
+},
+"s2310": {
+"artists": [
+477
+],
+"category": "TV",
+"date": "2026-12-17",
+"end": "23:00",
+"isFc": false,
+"label": null,
+"link": "https://www.nhk.jp/g/ts/G8ILDESSLH/",
+"members": [
+628
+],
+"note": "",
+"start": "22:45",
+"status": null,
+"title": "NHK総合「夜ドラ『青の花 器の森』」"
+},
+"s2311": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/music/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "テレビ朝日「MUSIC STATION」"
+},
+"s2312": {
+"artists": [
+676
+],
+"category": "EVENT",
+"date": "2027-02-24",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=B9FpxKDu2RNvjBke",
+"members": [
+612
+],
+"note": "スタァライト劇場 （東京）",
+"start": null,
+"status": null,
+"title": "ロージークロニクル 植村葉純バースデーイベント2027"
+},
+"s2314": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://jfn.co.jp/program/875/",
+"members": [
+540,
+708
+],
+"note": "※14:21頃～出演予定。",
+"start": "13:30",
+"status": null,
+"title": "JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」"
+},
+"s2320": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "27:28",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/tv/midnightshuffle",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "26:58",
+"status": null,
+"title": "IBC岩手放送「ミッドナイトシャッフル」"
+},
+"s2321": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "20:58",
+"isFc": false,
+"label": null,
+"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "20:54",
+"status": null,
+"title": "福島テレビ「MUSIC TIME」"
+},
+"s2322": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-28",
+"end": "25:10",
+"isFc": false,
+"label": null,
+"link": "https://www.fct.co.jp/program/2johan/",
+"members": [
+496,
+541,
+708
+],
+"note": "※放送予定\n※コメント",
+"start": "24:55",
+"status": null,
+"title": "福島中央テレビ「二畳半レコード」"
+},
+"s2323": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/radio/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "IBCラジオ「音楽のハコ」"
+},
+"s2324": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "16:00",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
 }
 },
-"versionDir": "2611221800-ullgXtOfvWVixvLF"
+"versionDir": "2611241800-7lPn1RNkzCU9we7D"
 }

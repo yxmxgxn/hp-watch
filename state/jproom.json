@@ -1390,6 +1390,22 @@
 "status": null,
 "title": "CBCラジオ「BOYS AND MEN 栄第七学園男組」"
 },
+"h11b0e811dcc4999b": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-23",
+"end": "20:55",
+"isFc": false,
+"label": null,
+"link": "https://bangbang771-moe-zunda.buyertakahashi.com/",
+"members": [],
+"note": "※コメント",
+"start": "20:00",
+"status": null,
+"title": "Date fm「BANG! BANG!!」"
+},
 "h1250a4cd76c9ee4b": {
 "artists": [
 11
@@ -2837,6 +2853,22 @@
 "status": null,
 "title": "HBCテレビ「キタコイ」"
 },
+"h45e51f3b85bf98ba": {
+"artists": [
+11
+],
+"category": "EVENT",
+"date": "2026-11-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/2f8698704d7c10a4dffd4c4c8f3663e5312e7ae4724e1dcf3ed562b4589a9965/",
+"members": [],
+"note": "エアポートウォーク名古屋 3F イベントステージ（愛知）",
+"start": null,
+"status": null,
+"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
+},
 "h460c82e08ecd2c2b": {
 "artists": [
 5
@@ -3122,6 +3154,22 @@
 "start": "05:45",
 "status": null,
 "title": "HBCテレビ「キタコイ」"
+},
+"h515e3eaccd676e37": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-23",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://radiko.jp/r_seasons/10015534",
+"members": [],
+"note": "※14時台～出演予定。",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジTIME」"
 },
 "h51720e2db6a64be6": {
 "artists": [
@@ -5519,6 +5567,22 @@
 "status": null,
 "title": "梅棒21st STAGE『ラヴ・オール!!』石田亜佑美出演！"
 },
+"h9bbd99ed0ba713c7": {
+"artists": [
+10
+],
+"category": "EVENT",
+"date": "2026-11-23",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/",
+"members": [],
+"note": "梅田 蔦屋書店（大阪）",
+"start": null,
+"status": null,
+"title": "『石田亜佑美カレンダー2027』発売記念イベント"
+},
 "h9d6a761210089070": {
 "artists": [
 40
@@ -5550,6 +5614,22 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
+},
+"h9ed311b4b2187616": {
+"artists": [
+10
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "10:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/sugojob/",
+"members": [],
+"note": "",
+"start": "09:50",
+"status": null,
+"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
 "h9f6228f1cfcfd626": {
 "artists": [
@@ -7142,6 +7222,22 @@
 "status": null,
 "title": "CDシングル｜「HANAKIN/シャニカマー」"
 },
+"hd95698bc64d11e62": {
+"artists": [
+5
+],
+"category": "TV",
+"date": "2026-11-23",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"members": [],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "岩手めんこいテレビ「BEATNIKS」"
+},
 "hdaad553d89e23109": {
 "artists": [
 33
@@ -8132,7 +8228,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8152,7 +8248,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/1(日) 柏PALOOZA（千葉）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8172,7 +8268,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "11/1(日) 柏PALOOZA（千葉）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8351,22 +8447,6 @@
 "start": null,
 "status": null,
 "title": "浅倉樹々2027壁掛けカレンダー発売記念オンラインイベント"
-},
-"s1747": {
-"artists": [
-11
-],
-"category": "EVENT",
-"date": "2026-11-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/2f8698704d7c10a4dffd4c4c8f3663e5312e7ae4724e1dcf3ed562b4589a9965/",
-"members": [],
-"note": "エアポートウォーク名古屋 3F イベントステージ（愛知）",
-"start": null,
-"status": null,
-"title": "3rdシングル発売記念 ミニライブ＆一言お話し会"
 },
 "s1748": {
 "artists": [
@@ -8736,22 +8816,6 @@
 "status": null,
 "title": "HARUKA KUDO LIVE 2026 REW:NEW"
 },
-"s2078": {
-"artists": [
-10
-],
-"category": "EVENT",
-"date": "2026-11-23",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/0e8609aaa816a7f4ddc4b095e2ccc3527f27f47c3671905660df4e4d79bd9199/",
-"members": [],
-"note": "梅田 蔦屋書店（大阪）",
-"start": null,
-"status": null,
-"title": "『石田亜佑美カレンダー2027』発売記念イベント"
-},
 "s2079": {
 "artists": [
 10
@@ -8767,22 +8831,6 @@
 "start": null,
 "status": null,
 "title": "『石田亜佑美カレンダー2027』発売記念イベント"
-},
-"s2089": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-23",
-"end": "20:55",
-"isFc": false,
-"label": null,
-"link": "https://bangbang771-moe-zunda.buyertakahashi.com/",
-"members": [],
-"note": "※コメント",
-"start": "20:00",
-"status": null,
-"title": "Date fm「BANG! BANG!!」"
 },
 "s2133": {
 "artists": [
@@ -9121,22 +9169,6 @@
 "status": null,
 "title": "発売日｜佐藤優樹 Live Tour 2027 (仮タイトル)"
 },
-"s2199": {
-"artists": [
-5
-],
-"category": "RADIO",
-"date": "2026-11-23",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://radiko.jp/r_seasons/10015534",
-"members": [],
-"note": "※14時台～出演予定。",
-"start": "12:00",
-"status": null,
-"title": "山口放送「お昼はZETTAIラジTIME」"
-},
 "s2200": {
 "artists": [
 5
@@ -9184,22 +9216,6 @@
 "start": "12:00",
 "status": null,
 "title": "HBCラジオ「カーナビラジオ午後一番！」"
-},
-"s2215": {
-"artists": [
-10
-],
-"category": "TV",
-"date": "2026-11-23",
-"end": "10:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/sugojob/",
-"members": [],
-"note": "",
-"start": "09:50",
-"status": null,
-"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
 "s2216": {
 "artists": [
@@ -9345,21 +9361,69 @@
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
 },
-"s2270": {
+"s2316": {
 "artists": [
 5
 ],
 "category": "TV",
-"date": "2026-11-23",
-"end": "25:15",
+"date": "2026-12-05",
+"end": "11:30",
 "isFc": false,
 "label": null,
-"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"link": "https://www.webtsc.com/program/pirisat/",
 "members": [],
-"note": "※コメント",
-"start": "24:45",
+"note": "",
+"start": "11:00",
 "status": null,
-"title": "岩手めんこいテレビ「BEATNIKS」"
+"title": "テレビせとうち「ピリッとサタデー」"
+},
+"s2317": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-28",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/",
+"members": [],
+"note": "",
+"start": "20:30",
+"status": null,
+"title": "ぎふチャン「譜久村聖のどうでもよくないラジオ」"
+},
+"s2325": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2026-12-15",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/f19c4daff76c45b0f2b2d164a280f89070a1ad3fc6d0d0dc98c252d7e8fb207d/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 リミスタ インターネットサイン会"
+},
+"s2326": {
+"artists": [
+483
+],
+"category": "EVENT",
+"date": "2027-01-12",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/f19c4daff76c45b0f2b2d164a280f89070a1ad3fc6d0d0dc98c252d7e8fb207d/",
+"members": [],
+"note": "",
+"start": null,
+"status": null,
+"title": "ソロデビューシングル発売記念 リミスタ インターネットサイン会"
 },
 "s783": {
 "artists": [
@@ -9586,5 +9650,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611231800-Tw3vtoHvEYh3wqT0"
+"versionDir": "2611241800-7lPn1RNkzCU9we7D"
 }
