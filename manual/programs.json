@@ -1,0 +1,29 @@
+{
+ "programs": {
+  "TV|hellomusiclab": {
+   "cat": "TV",
+   "name": "Hello! Music Lab。",
+   "tver": "https://tver.jp/search/Hello%21%20Music%20Lab%E3%80%82"
+  },
+  "TV|キタコイ": {
+   "cat": "TV",
+   "name": "キタコイ",
+   "tver": "https://tver.jp/search/%E3%82%AD%E3%82%BF%E3%82%B3%E3%82%A4"
+  },
+  "TV|ボウリング革命pleague": {
+   "cat": "TV",
+   "name": "ボウリング革命 P★League",
+   "tver": "https://tver.jp/search/%E3%83%9C%E3%82%A6%E3%83%AA%E3%83%B3%E3%82%B0%E9%9D%A9%E5%91%BD%20P%E2%98%85League"
+  },
+  "TV|杜の都musicspace": {
+   "cat": "TV",
+   "name": "杜の都musicSPACE",
+   "tver": "https://tver.jp/search/%E6%9D%9C%E3%81%AE%E9%83%BDmusicSPACE"
+  },
+  "TV|西乃風ブラン堂": {
+   "cat": "TV",
+   "name": "西乃風ブラン堂",
+   "tver": "https://tver.jp/search/%E8%A5%BF%E4%B9%83%E9%A2%A8%E3%83%96%E3%83%A9%E3%83%B3%E5%A0%82"
+  }
+ }
+}
