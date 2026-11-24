@@ -72,7 +72,10 @@ check('<h3 id="changes">更新履歴</h3>' in about and '<time datetime="2026-11
 import selectable
 sel_out = tempfile.mkdtemp(); selectable.write_options(sel_out, [])
 custom_html = open(os.path.join(sel_out, "custom/index.html"), encoding="utf-8").read()
-check(all(('<footer class="site-foot">' in h and 'href="/about/#contact"' in h and "検索に戻る" not in h and "tech" not in h.split("<footer")[1] and "更新履歴" not in h.split("<footer")[1]) for h in (about, rss.index_html([], t0), custom_html)), "フッター: 一覧・このサイトについて・選んで作る RSS のどのページも同じ（インスタ用の『仕組み』『X』『更新履歴』のリンクは無い）")
+check(all(('<footer class="site-foot">' in h and 'href="/about/#contact"' in h and "検索に戻る" not in h and "tech" not in h.split("<footer")[1] and "更新履歴" not in h.split("<footer")[1]) for h in (about, rss.index_html([], t0), custom_html)), "フッター: 一覧・このサイトについて・選んで作る RSS のどのページも同じ（インスタ用の『仕組み』『検索に戻る』『更新履歴』のリンクは無い）")
+foots = [h.split("<footer")[1] for h in (about, rss.index_html([], t0), custom_html)]
+check(all("https://x.com/intent/post?text=" in f and "%E3%83%8F%E3%83%AD%E3%83%97%E3%83%AD" in f and "url=https%3A%2F%2Fhello-rss.karin-archive.com%2F" in f for f in foots), "フッター: X で紹介（題名と、サイトのURLだけ。宣伝の文は入れない）")
+check(all("https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fhello-rss.karin-archive.com%2F" in f and 'data-url="https://hello-rss.karin-archive.com/"' in f and "URLをコピー" in f and 'rel="noopener noreferrer"' in f for f in foots), "フッター: LINE で紹介・URLをコピー（外のページは noopener）")
 
 # トップページ: フィードごとの、コピーと確かめる（最新5件）のボタン
 import datetime as dt
