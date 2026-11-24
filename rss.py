@@ -40,7 +40,7 @@ MEDIA（media）
   jproom/news/all.xml, jproom/media/all.xml, jproom/today.xml … JPROOM（所属が個人なので全員まとめて1本）
   upfront/news/all.xml, upfront/media/all.xml, upfront/today.xml … アップフロント（同じ作り）
   mline/…                                         … M-line club のファンクラブ
-  index.html, all.opml                            … 一覧ページとまとめて登録するファイル
+  index.html, about/index.html, all.opml          … 一覧ページ・このサイトについて・まとめて登録するファイル
 
 選んで作る RSS の元データ（out 配下）:
   data/{site}-{kind}.json, data/options.json, custom/index.html … Worker（watcher/src/custom.js）が読む（selectable.py）
@@ -1267,22 +1267,67 @@ KIND_NOTE = {
 }
 
 
-ABOUT_HTML = (
-    '<details class="sec"><summary>このサイトについて</summary>'
+ABOUT_BODY = (
     "<p>ハロー！プロジェクト関係の公式サイトの情報を、RSS リーダーで読めるようにした、非公式のサイトです。"
     "公式の情報の題名とリンクだけを配ります（本文・画像は載せません。読むときは公式のページへ）。</p>"
-    "<ul>"
-    "<li><b>お知らせ</b>: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります（公式の記事に付いているグループのタグで分けています）。</li>"
+    "<h3>どのサイトを読んでいるか</h3><ul>"
+    "<li><b>ハロー！プロジェクト</b>・<b>JPROOM</b>・<b>アップフロント</b>: お知らせとスケジュール。</li>"
+    "<li><b>ファンクラブ</b>（Hello! Project オフィシャルファンクラブ・M-line club）: ニュース。</li>"
+    "<li><b>ハロショ</b>: 新着情報。</li>"
+    "<li><b>アメブロ・YouTube</b>: 公式が出している RSS（ハロプロのブログ、公式チャンネルと、今の事務所に所属している人の個人チャンネル）。</li>"
+    "<li>放送のあとに付くリンクのために、radiko・TVer・ポッドキャスト・YouTube も見ています。</li>"
+    "</ul>"
+    "<h3>どういう仕組みか</h3><ul>"
+    "<li>公式が更新されたかを15分おきに確かめて、変わったときだけ、フィードを作り直します。「今日の予定」は、毎朝5時にも作ります。</li>"
+    "<li>公式のお知らせとスケジュールには、記事ごとに、<b>グループ・人のタグ</b>（そのグループ・人のプロフィールへの導線）が付いています。"
+    "グループ別・人別のフィードや、選んで作る RSS の「人・グループ」は、このタグで分けています。題名の文字から当てているわけではありません。</li>"
+    "<li>本文は持ちません。持つのは、題名・リンク・日時・タグ・カテゴリだけです。</li>"
+    "</ul>"
+    "<h3>どういうフィードか</h3><ul>"
+    "<li><b>お知らせ</b>: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります。</li>"
     "<li><b>MEDIA（出演）</b>: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前）。毎週・毎月の番組は含めません。ラジオには radiko のタイムフリーのリンクが付きます。</li>"
     "<li><b>今日の予定</b>: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて全部です。</li>"
-    "<li><b>ファンクラブ</b>: ニュースを、タブ別（ニュース・イベント・コンサート・グッズなど）とグループ別に配ります。</li>"
-    "<li><b>ハロー！プロジェクト</b>・<b>JPROOM</b>・<b>アップフロント</b>: 同じ形です。JPROOM・アップフロントは所属が個人なので、全員まとめて1本です。人ごとに見たいときは、選んで作る RSS で選びます。</li>"
-    "<li><b>ハロショ・アメブロ・YouTube</b>: 選んで作る RSS で、題名だけにして読めます。</li>"
+    "<li><b>ファンクラブ</b>: ニュースを、タブ別（ニュース・イベント・コンサート・グッズなど）とグループ別に配ります。"
+    "更新の印が無いので、動かすたびに「すべて」の一覧を見て、新しい記事を足します。グループ別は、そのグループのページの一覧に載っているかで決めます。</li>"
+    "<li><b>ハロショ</b>: 公式の RSS から、題名・リンク・日時・カテゴリだけにして溜めます。選んで作る RSS で読みます。</li>"
+    "<li><b>アメブロ・YouTube</b>: 溜めずに、読むたびに、公式の RSS を取りに行って、題名・リンク・日時だけにして返します。</li>"
+    "<li><b>JPROOM・アップフロント</b>は、所属が個人なので、全員まとめて1本です。人ごとに見たいときは、選んで作る RSS で選びます。</li>"
     "</ul>"
+    "<h3>選んで作る RSS の、絞り込み</h3><ul>"
+    "<li><b>人・グループ・カテゴリ</b>: 上の、公式が付けたタグで絞ります。</li>"
+    "<li><b>言葉（含む・含まない）</b>: <b>題名だけ</b>を探します（本文は持っていないので、本文の言葉は探せません）。全角・半角・大文字・小文字・異体字（﨑／崎、櫻／桜など）はそろえて探します。</li>"
+    "<li><b>アメブロのメンバー</b>: グループのブログには、複数のメンバーの記事が混ざっています。ブログのテーマ（カテゴリ）は、書き手の付け方に左右されてそろっていないので、使いません。"
+    "その代わり、<b>題名にその人の名前があるか</b>で絞っています。名前を書かない記事・ニックネームだけの記事は、漏れることがありますが、まれです。</li>"
+    "</ul>"
+    "<h3>放送のあとに付くリンク</h3>"
     "<p>放送が終わると、記事の後ろに、見られるリンク（TVer・radiko のタイムフリー・ポッドキャスト・YouTube など）が付くことがあります。"
-    "毎週の番組には、放送の前から、radiko の生放送や TVer の番組のページが付きます。</p>"
-    "</details>"
+    "毎週の番組には、放送の前から、radiko の生放送や TVer の番組のページ、Spotify・YouTube の番組のページが付きます。</p>"
 )
+
+
+ABOUT_CSS = """
+main.about h1{margin-bottom:8px}
+main.about h3{font-size:1.05rem;margin:28px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--line)}
+main.about ul{list-style:disc;padding-left:1.4em;margin:6px 0}
+main.about li{display:list-item;border:0;padding:3px 0;margin:0}
+main.about p{margin:8px 0}
+.back{margin:0 0 12px}
+"""
+
+
+def about_page(now):
+    """このサイトについて（about/index.html）。どのサイトを読んでいるか・仕組み・フィードごとの扱い・絞り込み"""
+    return (
+        '<!doctype html><html lang="ja"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<meta name="description" content="ハロプロ RSS（アンオフィシャル）が、どのサイトを読んで、どういう仕組みで、どんなフィードを作っているか。">'
+        f"<title>このサイトについて ― ハロプロ RSS（アンオフィシャル）</title><style>{INDEX_CSS}{ABOUT_CSS}</style></head>"
+        '<body><main class="about"><p class="back"><a href="../">← フィードの一覧へ</a></p>'
+        "<h1>このサイトについて</h1>" + ABOUT_BODY +
+        '<p><a href="../custom/">好きな人・グループ・カテゴリだけの RSS を作る</a>　<a href="../all.opml">全部まとめて登録する（OPML）</a></p>'
+        f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n'
+    )
+
 
 
 # 一覧の、フィード1本分。URL の下に、コピーと、確かめる（最新の5件を、その下に並べる）のボタン
@@ -1352,7 +1397,7 @@ def index_html(feeds, now, sources=()):
         "<p>公式サイトの情報を RSS にしたものです（非公式）。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
         '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
-        ABOUT_HTML,
+        '<p><a href="about/"><b>このサイトについて</b></a>（どのサイトを読んでいるか・仕組み・フィードの説明）</p>',
     ]
     for site in SITES:
         for kind in KINDS:
@@ -1456,6 +1501,7 @@ def main():
         sys.exit(1)
 
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
+    write(os.path.join(args.out, "about/index.html"), about_page(now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
     # 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）の一覧。手で入れるページの「毎週」が読む（RSS のURLなどは載せない）

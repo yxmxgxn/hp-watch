@@ -54,6 +54,16 @@ check(rss.standing_links("MAGAZINE", "B.L.T.", [mag_monthly], FakeRk(), progs) =
 rss.PROGRAMS_PATH = os.path.join(tempfile.mkdtemp(), "none.json")
 check(rss.load_programs() == {}, "manual/programs.json が無ければ、空")
 
+# このサイトについて（about/index.html）
+import datetime as dt
+t0 = dt.datetime(2026, 11, 24, 12, 0, tzinfo=rss.JST)
+about = rss.about_page(t0)
+top = rss.index_html([], t0)
+check('<a href="about/"><b>このサイトについて</b></a>' in top and "<summary>このサイトについて</summary>" not in top, "トップページ: このサイトについて、への目立つリンク（折りたたみの中ではない）")
+check(all(h in about for h in ("どのサイトを読んでいるか", "どういう仕組みか", "どういうフィードか", "選んで作る RSS の、絞り込み", "放送のあとに付くリンク")), "このサイトについて: 読んでいるサイト・仕組み・フィード・絞り込み・放送のあとのリンク")
+check("題名にその人の名前があるか" in about and "テーマ（カテゴリ）" in about and "グループ・人のタグ" in about, "このサイトについて: アメブロは名前で絞る（テーマは使わない）・人のタグで分ける")
+check("json" not in about.lower() and "radio/" not in about, "このサイトについて: 内部のファイルの名前は出さない")
+
 # トップページ: フィードごとの、コピーと確かめる（最新5件）のボタン
 import datetime as dt
 fx = [{"site": "hp", "kind": "media", "name": "全体", "url": "https://example.test/hp/media/all.xml"},
