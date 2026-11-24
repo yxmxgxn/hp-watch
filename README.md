@@ -1,4 +1,4 @@
-# hp-watch（ハロプロ RSS・アンオフィシャル）
+# hp-watch（ハロプロ RSS アンオフィシャル）
 
 ハロー！プロジェクト（ハロプロ）・JPROOM・アップフロントの公式サイトの情報を、RSS にして配る。公開先は `https://hello-rss.karin-archive.com`（Cloudflare Workers `hello-rss`）。リポジトリは公開（2026-11-24。非公開のままだと、Actions の無料の時間を使い切ったため）。
 
@@ -87,6 +87,7 @@
 - JPROOM・アップフロント（`up-front-create.com`。同じ仕組み・同じ版。会社全体のサイトで、ハロプロ以外の人も入る）は所属が個人なので、どれも全員まとめて1本。人ごとに見たいときは選択式（下）で選ぶ
 - `index.html`（一覧）・`about/index.html`（このサイトについて。どのサイトを読んでいるか・仕組み・フィードごとの扱い・絞り込み。一覧の上から目立つリンクを張る。文面は `rss.py` の `ABOUT_BODY`）と `all.opml`（まとめて登録）
   - 一覧の各フィード（お知らせ・MEDIA・今日の予定・ファンクラブ）の下に、**コピー**（URL をクリップボードへ）と**確かめる**（押すと、そのフィードの最新5件を、その下に並べる。題名・日時・リンクだけ）のボタンがある。ページの中の小さな JavaScript が、同じサイトのフィードを読んで、題名などを `textContent` で入れる（フィードの中身を HTML として入れない）。取れなければ「取得できませんでした」と出る
+- **ファビコンと、共有したときの画像（OGP）**: 画像は `static/`（`favicon.ico`・`icon-192.png`・`icon-512.png`・`apple-touch-icon.png`・`og.png`〔1200×630〕）に置く。公開のたびに、`rss.py` がサイトの一番上（`/favicon.ico`、`/og.png` など）へコピーする。`<head>` のタグ（`<title>`・説明・ファビコン・`og:*`・`twitter:*`・ブラウザの色 `#0080cb`）は `sitemeta.py` が作り、一覧・このサイトについて・選んで作る RSS のどのページも、同じ画像・同じ色にする。手で入れるページ（鍵つき・`noindex`）には、ファビコンと色だけ付ける。画像を差し替えるときは、`static/` のファイルを置き換えるだけ（SNS 側は、共有したときの画像を何日か覚えているので、すぐには変わらないことがある）
 - 手元で試す: `python rss.py --out public --state-dir /tmp/rss-state`（`state/` を汚さないように）
 
 - 公開: `.github/workflows/rss.yml` が `rss.py` を動かし、`wrangler.toml` で Cloudflare Workers（`hello-rss`）に送る。呼ばれるのは、公式が変わったとき・毎朝5時・手で入れたとき（下の「動かす仕組み」）

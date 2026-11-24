@@ -323,6 +323,7 @@ const PAGE = `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0080cb">
 <title>放送の情報を入れる</title>
 <style>
 :root{--bg:#fff;--fg:#222;--mute:#666;--line:#ddd;--accent:#0080cb;--link:#0074bb;--card:#f6f7f9}

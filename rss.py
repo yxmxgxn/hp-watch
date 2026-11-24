@@ -41,6 +41,7 @@ MEDIA（media）
   upfront/news/all.xml, upfront/media/all.xml, upfront/today.xml … アップフロント（同じ作り）
   mline/…                                         … M-line club のファンクラブ
   index.html, about/index.html, all.opml          … 一覧ページ・このサイトについて・まとめて登録するファイル
+  favicon.ico, icon-*.png, apple-touch-icon.png, og.png … ファビコンと、共有したときの画像（static/ からコピー。sitemeta.py が <head> に入れる）
 
 選んで作る RSS の元データ（out 配下）:
   data/{site}-{kind}.json, data/options.json, custom/index.html … Worker（watcher/src/custom.js）が読む（selectable.py）
@@ -55,6 +56,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import sys
 import time
 import unicodedata
@@ -69,6 +71,7 @@ from xml.sax.saxutils import escape, quoteattr
 import hpwatch
 import radiko
 import selectable
+import sitemeta
 
 JST = dt.timezone(dt.timedelta(hours=9))
 LIMIT = 50  # 1フィードに出す記事数
@@ -1320,10 +1323,13 @@ def about_page(now):
     return (
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<meta name="description" content="ハロプロ RSS（アンオフィシャル）が、どのサイトを読んで、どういう仕組みで、どんなフィードを作っているか。">'
-        f"<title>このサイトについて ― ハロプロ RSS（アンオフィシャル）</title><style>{INDEX_CSS}{ABOUT_CSS}</style></head>"
+        + sitemeta.head_tags(f"このサイトについて ― {sitemeta.SITE_NAME}",
+                             "ハロプロ RSS アンオフィシャルが、どのサイトを読んで、どういう仕組みで、どんなフィードを作っているか。", "/about/") +
+        f"<style>{INDEX_CSS}{ABOUT_CSS}</style></head>"
         '<body><main class="about"><p class="back"><a href="../">← フィードの一覧へ</a></p>'
-        "<h1>このサイトについて</h1>" + ABOUT_BODY +
+        "<h1>このサイトについて</h1>"
+        f"<p>{escape(sitemeta.SITE_NAME)}</p><p>{escape(sitemeta.TAGLINE)}</p>"
+        "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>" + ABOUT_BODY +
         '<p><a href="../custom/">好きな人・グループ・カテゴリだけの RSS を作る</a>　<a href="../all.opml">全部まとめて登録する（OPML）</a></p>'
         f'<p class="mute">更新: {now:%Y-%m-%d %H:%M} JST</p></main></body></html>\n'
     )
@@ -1390,11 +1396,11 @@ def index_html(feeds, now, sources=()):
     out = [
         '<!doctype html><html lang="ja"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
-        '<meta name="description" content="ハロー！プロジェクトのお知らせを、RSSで読むためのページです（非公式）。">',
-        "<title>ハロプロ RSS（アンオフィシャル）</title>", f"<style>{INDEX_CSS}</style></head><body><main>",
-        "<h1>ハロプロ RSS（アンオフィシャル）</h1>",
-        "<p>ハロー！プロジェクトのお知らせをRSSで読むとしよう</p>",
-        "<p>公式サイトの情報を RSS にしたものです（非公式）。リーダーにURLを登録して使います。</p>",
+        sitemeta.head_tags(sitemeta.SITE_NAME, sitemeta.DESCRIPTION, "/"),
+        f"<style>{INDEX_CSS}</style></head><body><main>",
+        f"<h1>{escape(sitemeta.SITE_NAME)}</h1>",
+        f"<p>{escape(sitemeta.TAGLINE)}</p>",
+        "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
         '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
         '<p><a href="about/"><b>このサイトについて</b></a>（どのサイトを読んでいるか・仕組み・フィードの説明）</p>',
@@ -1469,6 +1475,7 @@ def main():
     ap.add_argument("--feed-base", default="https://hello-rss.karin-archive.com")
     args = ap.parse_args()
     feed_base = args.feed_base.rstrip("/")
+    sitemeta.SITE_URL = feed_base
     now = dt.datetime.now(JST).replace(microsecond=0)
     rk = radiko.Radiko()
 
@@ -1500,6 +1507,8 @@ def main():
     if not feeds:
         sys.exit(1)
 
+    # ファビコン・共有したときの画像（static/）を、サイトの一番上へ
+    shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "static"), args.out, dirs_exist_ok=True)
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "about/index.html"), about_page(now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
