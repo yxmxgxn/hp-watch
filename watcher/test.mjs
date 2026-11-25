@@ -526,10 +526,11 @@ if (dataDir) {
     r = await hit("/import/state", { body: "{}", headers: { cookie } });
     assert(r.status === 200, "一覧: 鍵を入れなくても、ログインの Cookie で読める");
     assert((await r.clone().json()).items.find((i) => i.guid === "helloproject-media-abc123").cat === "RADIO", "一覧: 項目にメディアの種類（ラジオ）が付く（フィルタに使う）");
-    autoFile2 = { items: [{ guid: "helloproject-media-abc123", air: day, until: im2.addDays(day, 3), links: [{ label: "TVer", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day }] };
+    autoFile2 = { items: [{ guid: "helloproject-media-abc123", air: day, until: im2.addDays(day, 3), links: [{ label: "TVer（近い日の回）", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day, match: "near" }] };
     const stAuto = await (await hit("/import/state", { body: "{}", headers: { cookie } })).json();
     const aItem = stAuto.items.find((i) => i.guid === "helloproject-media-abc123");
     assert(aItem.status === "自動" && aItem.entry.source === "auto" && aItem.entry.links[0].url.endsWith("/auto"), "一覧: 自動で入ったリンクは、『自動』と出る");
+    assert(aItem.entry.match === "near" && aItem.entry.links[0].label === "TVer（近い日の回）", "一覧: 近い日の回は、match と名前が付く（直す入り口で、案内を変える）");
     r = await hit("/import/state", { body: "{}", headers: { cookie: "hr_import=" + tok.slice(0, -2) + "zz" } });
     assert(r.status === 403, "一覧: 印が違う Cookie は403");
     r = await hit("/import/state", { body: "{}" });
