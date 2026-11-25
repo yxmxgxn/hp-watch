@@ -74,6 +74,15 @@ def nearest(air, month, day):
 WEEKLY_BACK = 6  # 毎週の番組の、遅れ放送を拾う日数。前の週の同じ回は7日前なので、含めない（前の週の回は、公開期間が切れて、見られない）
 
 
+LEGACY_MAX = 6  # 1回の実行で、昔の検索のページを、番組のページに直す番組の数の上限
+
+
+def tver_title_matches(title, program):
+    """検索結果の番組名が、番組名と合うか（pick と同じ決め方）"""
+    t, want = norm(title), norm(program)
+    return bool(t and want and (t == want or (len(want) >= 4 and want in t) or (len(t) >= 4 and t in want)))
+
+
 def pick_match(rows, program, air, back=0):
     """番組名が合い、放送日が合うエピソード (href, exact)。無ければ (None, False)。
     放送日が前後1日までのものを、日が近い順に選ぶ（exact＝True）。back があれば（毎週の番組。地方局の遅れ放送）、
@@ -178,6 +187,16 @@ def has_series(path, prog):
     return str(cur.get("tver") or "").startswith(SERIES)
 
 
+def legacy_search_programs(path):
+    """programs.json で、tver が昔の検索のページのままの番組名（番組のページに差し替える対象）"""
+    try:
+        with open(path, encoding="utf-8") as f:
+            progs = (json.load(f) or {}).get("programs", {})
+    except (OSError, ValueError):
+        return []
+    return sorted(p.get("name") for p in progs.values() if p.get("name") and str(p.get("tver") or "").startswith(SEARCH))
+
+
 def update_programs(path, series_by_prog):
     """TVer にある番組の、番組のページ（series）を残す。{番組名: series の URL または None}。ほかの欄は、そのまま。変わったら True。
     番組のページは、TVer にある番組だけに付ける（検索のページは、TVer に無い番組と区別がつかないので、使わない）。
@@ -278,7 +297,8 @@ def main():
     found = {}
     series_by_prog = {}   # 番組名 → 番組のページ（取れなければ None）
     searched = set()      # 検索の結果が読めた項目（読めたうえで合わなければ、昔の分を外す）
-    if programs:
+    legacy = legacy_search_programs(args.programs)   # 昔の検索のページのままの番組（今日の探す項目に無くても、番組のページに直す）
+    if programs or legacy:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             # 手元の確認用: TVER_CHROMIUM に Chromium のパスを入れると、それを使う（Actions では、入れたものを使う）
@@ -320,10 +340,23 @@ def main():
                         print(f"  {prog}: 番組のページが取れない {str(e)[:60]}")
                     print(f"  {prog}: 番組のページ {series_by_prog[prog] or '（取れない。次の実行でまた探す）'}")
                 time.sleep(2)
+            # 昔の検索のページのままの番組: 検索して、番組名が合う最初の結果のページから、番組のページを取る（取れなければ、検索のページを外す）
+            for prog in [p for p in legacy if p not in series_by_prog][:LEGACY_MAX]:
+                series_by_prog[prog] = None
+                try:
+                    rows = search_rows(page, prog)
+                    href = next((r["href"] for r in rows if tver_title_matches(r["title"], prog)), None)
+                    if href:
+                        time.sleep(2)
+                        series_by_prog[prog] = series_of(page, href)
+                except Exception as e:
+                    print(f"  {prog}: 番組のページが取れない {str(e)[:60]}")
+                print(f"  {prog}: 番組のページ {series_by_prog[prog] or '（取れない）'}（昔の検索のページから）")
+                time.sleep(2)
             browser.close()
 
     if series_by_prog and update_programs(args.programs, series_by_prog):
-        print(f"書いた: {args.programs}（番組のページ {sum(1 for s in to_write.values() if s)} 本）")
+        print(f"書いた: {args.programs}（番組のページ {sum(1 for s in series_by_prog.values() if s)} 本）")
     drop = {g for g in recheck if g in searched and g not in found}
     if drop:
         print(f"外す: 探し直して、合う回が無かった自動の分 {len(drop)} 件（前の週の回など）")

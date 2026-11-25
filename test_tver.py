@@ -119,6 +119,15 @@ with tempfile.TemporaryDirectory() as d2:
     json.dump({"programs": {keym: {"name": "杜の都musicSPACE", "cat": "TV", "tver": "https://tver.jp/search/x", "youtube": "y"}}}, open(pp, "w", encoding="utf-8"))
     check(tver.update_programs(pp, {"新番組": None, "杜の都musicSPACE": None}) is True and "tver" not in load()[keym] and load()[keym]["youtube"] == "y" and len(load()) == 1, "番組の記録: 番組のページが取れなければ、新しい番組は足さず、昔の検索のページは外す")
 
+# 昔の検索のページのままの番組
+with tempfile.TemporaryDirectory() as d3:
+    p3 = os.path.join(d3, "programs.json")
+    json.dump({"programs": {"TV|a": {"name": "キタコイ", "cat": "TV", "tver": "https://tver.jp/search/x"},
+                            "TV|b": {"name": "杜の都musicSPACE", "cat": "TV", "tver": "https://tver.jp/series/srs4nx051o"},
+                            "TV|c": {"name": "メモだけ", "cat": "TV"}}}, open(p3, "w", encoding="utf-8"))
+    check(tver.legacy_search_programs(p3) == ["キタコイ"] and tver.legacy_search_programs(os.path.join(d3, "none.json")) == [], "昔の検索のページのままの番組だけを拾う")
+check(tver.tver_title_matches("キタコイ", "キタコイ") and tver.tver_title_matches("杜の都musicSPACE", "杜の都musicSPACE") and not tver.tver_title_matches("別の番組", "キタコイ"), "検索結果の番組名が、番組名と合うか")
+
 # 自動の分: 探し直して合わなかった分は外す
 today2 = dt.date(2026, 11, 25)
 old2 = {"g-bad": {"guid": "g-bad", "air": "2026-11-24", "until": "2026-11-27", "links": [{"label": "TVer", "url": "https://tver.jp/episodes/old"}]},
