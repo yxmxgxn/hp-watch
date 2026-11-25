@@ -75,4 +75,13 @@ m = ep.merge_entries(old, new, D(2026, 11, 24))
 check([e["guid"] for e in m] == ["g2", "g3"], "書き方: 期限の切れた分は外す")
 check([l["url"] for l in m[0]["links"]] == ["https://x/2", "https://y/2"], "書き方: 同じ項目は、リンクをまとめる（同じURLは重ねない）")
 
+# どの回か（ep）
+info = ep.ep_info({"title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）", "date": D(2026, 11, 23)})
+check(info == {"date": "2026-11-23", "kind": "pub", "title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）", "titled": "2026-11-15"}, "どの回か: 公開日・題名・題名の日付（あれば）")
+check("titled" not in ep.ep_info({"title": "#195 話", "date": D(2026, 11, 20)}), "どの回か: 題名に日付が無ければ、titled は付けない")
+old_e = [{"guid": "g1", "air": "2026-11-15", "until": "2026-12-01", "links": [{"label": "ポッドキャスト", "url": "https://x/a"}]}]
+new_e = [{"guid": "g1", "air": "2026-11-15", "until": "2026-12-01", "links": [{"label": "ポッドキャスト", "url": "https://x/a", "ep": info}, {"label": "YouTube", "url": "https://x/y"}]}]
+merged = ep.merge_entries(old_e, new_e, D(2026, 11, 24))
+check(len(merged) == 1 and merged[0]["links"][0]["ep"] == info and len(merged[0]["links"]) == 2, "昔の分にも、同じURLなら、どの回か（ep）を足す。新しいURLは足す")
+
 print(f"\nall {ok} ok")

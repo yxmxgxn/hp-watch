@@ -254,7 +254,8 @@ async function state(req, env, now) {
   for (const w of weeklyAll) {
     const r = resolve(w.guid);
     const begun = started(w.air, w.start, now); // 放送が始まるまでは、タイムフリーのリンクがあっても『これから』
-    const labels = [...(begun ? (w.radiko || []).map((l) => l[0]) : []), ...((r.entry && r.entry.links) || []).map((l) => l.label)];
+    const radikoLabels = begun ? (w.radiko || []).map((l) => l[0]) : [];
+    const labels = [...radikoLabels, ...((r.entry && r.entry.links) || []).map((l) => l.label)];
     const expected = w.cat === "MAGAZINE" ? false : true; // 雑誌・連載は、リンクを期待しない
     const hasLink = labels.length > 0 || (r.entry && (r.entry.guest || r.entry.note));
     // ポッドキャスト・YouTube が付く番組は、1週間を過ぎても、あとからリンクが付くことがある
@@ -268,7 +269,7 @@ async function state(req, env, now) {
     }
     const key = `${w.siteLabel}|${w.cat}|${w.prog}`;
     if (!groups.has(key)) groups.set(key, { key, prog: w.prog, cat: w.cat, siteLabel: w.siteLabel, label: w.label, base: w.base || [], occurrences: [] });
-    groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
+    groups.get(key).occurrences.push({ guid: w.guid, air: w.air, start: w.start, station: w.station, state: state_, labels, radikoLabels, status: r.status, entry: r.entry, site: w.siteLabel, name: weeklyName(w) });
   }
   const sources = srcKeys.map(({ src, keys }) => {
     const occ = weeklyAll.filter((w) => keys.some((k) => norm(w.prog).includes(k)));
@@ -455,6 +456,17 @@ function drawFilters() {
 
 const STATE = { ok: ["✓", "反映済み"], pending: ["…", "待ち"], missing: ["✗", "未反映"], upcoming: ["○", "これから"], none: ["－", ""] };
 const md2 = (d) => d.slice(5).replace("-", "/");
+// リンク1本の表示。どの回か（ep）があれば、その日付と、放送日（air）とのずれを付ける
+//   TVer: 「TVer 11/24放送分（同じ日）」／ポッドキャスト・YouTube: 「ポッドキャスト 11/16公開（+2日）」（題名に日付があれば、その日の回として見る）
+function fmtLink(l, air) {
+  const ep = l && l.ep;
+  if (!ep || !ep.date) return l.label;
+  const ref = ep.titled || ep.date;
+  const d = Math.round((Date.parse(ref) - Date.parse(air)) / 864e5);
+  const diff = d === 0 ? "同じ日" : d > 0 ? "+" + d + "日" : "−" + -d + "日";
+  if (ep.titled) return l.label + " " + md2(ep.titled) + "の回（" + diff + "・" + md2(ep.date) + "公開）";
+  return l.label + " " + md2(ep.date) + (ep.kind === "air" ? "放送分" : "公開") + "（" + diff + "）";
+}
 function renderWeekly() {
   const box = $("wlist");
   box.textContent = "";
@@ -474,7 +486,8 @@ function renderWeekly() {
     g.occurrences.forEach((o) => {
       const row = document.createElement("div"); row.className = "occ";
       const d = document.createElement("span"); d.className = "d"; d.textContent = md2(o.air) + " " + (o.start || "");
-      const s = document.createElement("span"); s.className = "s"; s.textContent = (o.station || "") + (o.labels.length ? "  " + o.labels.join(" / ") : "");
+      const s = document.createElement("span"); s.className = "s"; const shown = [...(o.radikoLabels || []), ...((o.entry && o.entry.links) || []).map((l) => fmtLink(l, o.air))];
+      s.textContent = (o.station || "") + (shown.length ? "  " + shown.join(" / ") : "");
       const m = document.createElement("span"); m.className = "m st-" + o.state; m.textContent = STATE[o.state][0] + " " + STATE[o.state][1];
       row.append(d, s, m);
       row.addEventListener("click", () => fill({ guid: o.guid, name: o.name, air: o.air, until: plus(o.air, 3), site: o.site, entry: o.entry }));
@@ -561,7 +574,7 @@ function renderList() {
     }
     if (it.entry) {
       const got = document.createElement("div"); got.className = "got";
-      const parts = it.entry.links.map((l) => l.label);
+      const parts = it.entry.links.map((l) => fmtLink(l, it.air));
       if (it.entry.guest) parts.push("ゲスト: " + it.entry.guest);
       if (it.entry.note) parts.push("メモ: " + it.entry.note);
       got.textContent = (it.entry.source === "auto" ? "自動で入った: " : "入っている: ") + parts.join(" / ") + (it.entry.updated ? "（" + it.entry.updated.slice(0, 16).replace("T", " ") + "）" : "");

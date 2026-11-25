@@ -47,9 +47,11 @@ def parse_program(name):
 
 
 def parse_row(href, text):
-    """検索結果の1行（リンクの文字）→ {href, title, station, month, day}。放送日の行が無ければ month=None"""
+    """検索結果の1行（リンクの文字）→ {href, title（番組名）, sub（エピソードの題名）, station, month, day}。放送日の行が無ければ month=None"""
     lines = [l.strip() for l in (text or "").split("\n") if l.strip()]
-    row = {"href": href, "title": lines[0] if lines else "", "station": "", "month": None, "day": None}
+    row = {"href": href, "title": lines[0] if lines else "", "sub": "", "station": "", "month": None, "day": None}
+    if len(lines) > 1 and not AIRED.search(lines[1]):
+        row["sub"] = lines[1]
     for l in lines[1:]:
         m = AIRED.search(l)
         if m:
@@ -74,7 +76,7 @@ def nearest(air, month, day):
 WEEKLY_BACK = 6  # 毎週の番組の、遅れ放送を拾う日数。前の週の同じ回は7日前なので、含めない（前の週の回は、公開期間が切れて、見られない）
 
 
-RULE = 2   # 選び方の版（1: 前後1日も exact。2: 同じ日だけ exact）。版が違う分は、1回、探し直す
+RULE = 3   # 選び方の版（1: 前後1日も exact。2: 同じ日だけ exact。3: リンクに、どの回か〔ep〕を持つ）。版が違う分は、1回、探し直す
 LABEL_EXACT = "TVer"
 LABEL_NEAR = "TVer（近い日の回）"   # 同じ日の回ではない（読む側にも分かる名前にする）
 LEGACY_MAX = 6  # 1回の実行で、昔の検索のページを、番組のページに直す番組の数の上限
@@ -86,13 +88,13 @@ def tver_title_matches(title, program):
     return bool(t and want and (t == want or (len(want) >= 4 and want in t) or (len(t) >= 4 and t in want)))
 
 
-def pick_match(rows, program, air, back=0):
+def pick_row(rows, program, air, back=0):
     """番組名が合い、放送日が合うエピソード (href, exact)。無ければ (None, False)。
     **同じ日**の回だけが exact（True）。前後1日の回（深夜の日付のずれ・TVer より後に放送する局）と、back があれば（毎週の番組。地方局の遅れ放送）
     放送日の back 日前までの、いちばん新しい回は、「近い日の回」（False。本当の回が上がったら、差し替える）。
     前後1日で迷ったら、TVer に先に上がっている（前の日の）回を選ぶ"""
     want = norm(program)
-    best = None
+    best = None   # (rank, row, 回の日付)
     for r in rows:
         t = norm(r["title"])
         if not t or not want or r["month"] is None:
@@ -110,8 +112,14 @@ def pick_match(rows, program, air, back=0):
         else:
             continue
         if best is None or rank < best[0]:
-            best = (rank, r["href"])
-    return (best[1], best[0][0] == 0) if best else (None, False)
+            best = (rank, r, d)
+    return (best[1], best[2], best[0][0] == 0) if best else (None, None, False)
+
+
+def pick_match(rows, program, air, back=0):
+    """pick_row の (href, exact)"""
+    row, _d, exact = pick_row(rows, program, air, back)
+    return (row["href"] if row else None, exact)
 
 
 def pick(rows, program, air, back=0):
@@ -262,11 +270,15 @@ def search_rows(page, program):
     return [parse_row(h, t) for h, t in raw]
 
 
-def make_entry(it, href, exact, today):
-    """自動の分の1件。同じ日の回は「TVer」、近い日の回は「TVer（近い日の回）」（match で、探し直す・直す入り口にも使う）"""
+def make_entry(it, href, exact, today, ep_date=None, ep_title=""):
+    """自動の分の1件。同じ日の回は「TVer」、近い日の回は「TVer（近い日の回）」（match で、探し直す・直す入り口にも使う）。
+    ep: どの回か（TVer の「◯月◯日放送分」の日付と、エピソードの題名）。手で入れるページが、放送日とのずれを見せるのに使う"""
+    link = {"label": LABEL_EXACT if exact else LABEL_NEAR, "url": EPISODE + href}
+    if ep_date:
+        link["ep"] = {"date": ep_date.isoformat(), "kind": "air", "title": (ep_title or "")[:60]}
     return {
         "guid": it["guid"], "air": str(it["air"]), "until": str(it["air"] + dt.timedelta(days=DAYS_AFTER)),
-        "links": [{"label": LABEL_EXACT if exact else LABEL_NEAR, "url": EPISODE + href}], "source": "auto", "found": today.isoformat(),
+        "links": [link], "source": "auto", "found": today.isoformat(),
         "match": "exact" if exact else "near", "rule": RULE,
     }
 
@@ -331,12 +343,13 @@ def main():
                     continue
                 first_href = None
                 for it in its:
-                    href, exact = pick_match(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
+                    row, ep_d, exact = pick_row(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
+                    href = row["href"] if row else None
                     if rows:
                         searched.add(it["guid"])
                     if href:
                         first_href = first_href or href
-                        found[it["guid"]] = make_entry(it, href, exact, today)
+                        found[it["guid"]] = make_entry(it, href, exact, today, ep_d, row.get("sub", ""))
                         print(f"  {prog} {it['air']}: {EPISODE + href}{'' if exact else '（近い日の回。本当の回が上がったら差し替える）'}")
                     else:
                         print(f"  {prog} {it['air']}: 見つからない（{len(rows)} 件の結果）")

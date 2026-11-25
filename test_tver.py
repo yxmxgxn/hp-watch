@@ -70,8 +70,16 @@ check(tver.pick_match(rows_s, "番組X", d24) == ("/episodes/same", True), "同�
 # 自動の分の書き方: 近い日の回は、名前で分ける
 it0 = {"guid": "g1", "air": d24}
 e_ex, e_ne = tver.make_entry(it0, "/episodes/a", True, d24), tver.make_entry(it0, "/episodes/b", False, d24)
-check(e_ex["rule"] == tver.RULE == 2, "自動の分: 選び方の版を残す（版が違う昔の分は、1回、探し直す）")
+check(e_ex["rule"] == tver.RULE == 3, "自動の分: 選び方の版を残す（版が違う昔の分は、1回、探し直す）")
 check(e_ex["links"][0]["label"] == "TVer" and e_ex["match"] == "exact" and e_ne["links"][0]["label"] == "TVer（近い日の回）" and e_ne["match"] == "near", "自動の分: 同じ日の回は『TVer』、近い日の回は『TVer（近い日の回）』（match も残す）")
+
+# どの回か（ep）: エピソードの題名・日付をリンクに持たせる
+r_ep = tver.parse_row("/episodes/z", "杜の都musicSPACE\nBEYOOOOONDSの魅力を石田先輩熱弁＆横山剣さん降臨！\n仙台放送 11月24日(火)放送分\n12月2日(水)0:55 終了予定")
+check(r_ep["sub"].startswith("BEYOOOOONDS") and r_ep["title"] == "杜の都musicSPACE" and tver.parse_row("/e", "番組\nA局 11月1日(日)放送分")["sub"] == "", "検索結果の行: エピソードの題名も持つ（放送日の行は、題名にしない）")
+row_p, d_p, ex_p = tver.pick_row([r_ep], "杜の都musicSPACE", dt.date(2026, 11, 25), back=6)
+check(row_p["href"] == "/episodes/z" and d_p == dt.date(2026, 11, 24) and ex_p is False, "選んだ行と、その回の日付も返す（前の日の回＝近い日）")
+e_ep = tver.make_entry({"guid": "g", "air": dt.date(2026, 11, 25)}, "/episodes/z", False, dt.date(2026, 11, 25), d_p, r_ep["sub"])
+check(e_ep["links"][0]["ep"] == {"date": "2026-11-24", "kind": "air", "title": r_ep["sub"][:60]} and "ep" not in tver.make_entry({"guid": "g", "air": dt.date(2026, 11, 25)}, "/episodes/z", True, dt.date(2026, 11, 25))["links"][0], "自動の分: リンクに、どの回か（日付・題名）を持つ（無ければ付けない）")
 
 # 番組のページ（series）: エピソードのページから取る
 check(tver.parse_series('<a href="/series/sr1ea8bikm">番組TOP</a><a href="/series/srzzzzzzzz">x</a>') == "https://tver.jp/series/sr1ea8bikm", "番組のページ: エピソードのページから、最初の series を取る")

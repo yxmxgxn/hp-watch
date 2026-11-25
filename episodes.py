@@ -130,6 +130,15 @@ def match_youtube(videos, name_words, air):
     return None
 
 
+def ep_info(e):
+    """どの回か（手で入れるページが、放送日とのずれを見せるのに使う）: 公開日・題名・題名に書かれた日付（あれば）"""
+    titled = sorted(title_dates(e["title"], e["date"]))
+    d = {"date": e["date"].isoformat(), "kind": "pub", "title": (e["title"] or "")[:60]}
+    if titled:
+        d["titled"] = titled[0].isoformat()
+    return d
+
+
 def episode_link(e):
     return e["link"] if e["link"].startswith("https://") else (e["audio"] if e["audio"].startswith("https://") else "")
 
@@ -168,8 +177,13 @@ def merge_entries(old, found, today):
     for e in found:
         cur = keep.get(e["guid"])
         if cur:
-            urls = {l["url"] for l in cur.get("links") or []}
-            cur["links"] = (cur.get("links") or []) + [l for l in e["links"] if l["url"] not in urls]
+            have_links = {l["url"]: l for l in cur.get("links") or []}
+            for l in e["links"]:
+                if l["url"] in have_links:
+                    if l.get("ep") and have_links[l["url"]].get("ep") != l["ep"]:
+                        have_links[l["url"]]["ep"] = l["ep"]   # 昔の分にも、どの回かを足す
+                else:
+                    cur["links"] = (cur.get("links") or []) + [l]
         else:
             keep[e["guid"]] = e
     return sorted(keep.values(), key=lambda e: (str(e.get("air")), e["guid"]))
@@ -216,7 +230,7 @@ def main():
                         continue
                     for o in (o for o in occ if o["air"] == air_s):
                         found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
-                                      "links": [{"label": "ポッドキャスト", "url": episode_link(e)}], "source": "podcast", "found": today.isoformat()})
+                                      "links": [{"label": "ポッドキャスト", "url": episode_link(e), "ep": ep_info(e)}], "source": "podcast", "found": today.isoformat()})
                     print(f"  {name} {air_s}: {episode_link(e)}")
             if src.get("youtube_channel"):
                 vids = parse_youtube(fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={src['youtube_channel']}"))
@@ -228,14 +242,14 @@ def main():
                         continue
                     for o in (o for o in occ if o["air"] == air_s):
                         found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
-                                      "links": [{"label": "YouTube", "url": v["link"]}], "source": "youtube", "found": today.isoformat()})
+                                      "links": [{"label": "YouTube", "url": v["link"], "ep": ep_info(v)}], "source": "youtube", "found": today.isoformat()})
                     print(f"  {name} {air_s}: {v['link']}")
         except Exception as e:  # 1つの番組の失敗で、全体を止めない
             print(f"  {name}: 失敗 {str(e)[:80]}")
 
-    found = [e for e in found if not all((e["guid"], l["url"]) in have for l in e["links"])]
-    items = merge_entries(old, found, today)
-    write_if_changed(args.out, {"items": items}, f"自動で入れた分（{len(found)} 件）")
+    fresh = [e for e in found if not all((e["guid"], l["url"]) in have for l in e["links"])]
+    items = merge_entries(old, found, today)   # 同じ項目・同じURLは、リンクをまとめて、どの回か（ep）だけ足す
+    write_if_changed(args.out, {"items": items}, f"自動で入れた分（新しく {len(fresh)} 件）")
     if latest:
         write_if_changed(args.episodes, {"updated": today.isoformat(), "programs": latest}, "番組ごとの最新のエピソード", ignore="updated")
 
