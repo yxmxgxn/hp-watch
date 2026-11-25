@@ -220,6 +220,19 @@
    ],
    "source": "youtube",
    "found": "2026-11-24"
+  },
+  {
+   "guid": "hp-media-he92797f898a426c4",
+   "air": "2026-11-25",
+   "until": "2026-12-09",
+   "links": [
+    {
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=vCXMgkZbc4k"
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-25"
   }
  ]
 }
