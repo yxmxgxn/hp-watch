@@ -1,5 +1,5 @@
 {
-"etag": "\"9a901c316a1071f9ed147a6edde70cf1\"",
+"etag": "\"32359e7f9d3a995fb32deb7b5e109e0d\"",
 "items": [
 {
 "categories": [
@@ -66,6 +66,26 @@
 "who": [
 "beyooooonds"
 ]
+},
+{
+"categories": [
+"お知らせ",
+"WebStore",
+"ショップ情報"
+],
+"cats": [
+"news",
+"shop"
+],
+"date": "2026-11-19T20:00:58+09:00",
+"general": true,
+"guid": "shop-211243",
+"html": "",
+"link": "https://www.helloshop.info/shop/20261119_211243.html",
+"name": "e-LineUP!Mall内ハロー！プロジェクト オフィシャルショップWebStore 緊急メンテナンスのお知らせ",
+"sort": "2026-11-19T20:00:58+09:00",
+"title": "e-LineUP!Mall内ハロー！プロジェクト オフィシャルショップWebStore 緊急メンテナンスのお知らせ",
+"who": []
 },
 {
 "categories": [
