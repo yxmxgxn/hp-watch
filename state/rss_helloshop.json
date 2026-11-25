@@ -1,6 +1,72 @@
 {
-"etag": "\"b96ccb93a492ab4d0171040890508d92\"",
+"etag": "\"5f685cb0289c52160fb8426dd63e2f03\"",
 "items": [
+{
+"categories": [
+"イベント",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"event",
+"shops"
+],
+"date": "2026-11-25T17:00:16+09:00",
+"general": false,
+"guid": "shop-211256",
+"html": "",
+"link": "https://www.helloshop.info/news/event/20261125_211256.html",
+"name": "12/19（土）大阪店にて『山岸理子 トークイベント』開催決定！！",
+"sort": "2026-11-25T17:00:16+09:00",
+"title": "12/19（土）大阪店にて『山岸理子 トークイベント』開催決定！！",
+"who": [
+"sotsugyo"
+]
+},
+{
+"categories": [
+"イベント",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"event",
+"shops"
+],
+"date": "2026-11-25T16:59:07+09:00",
+"general": false,
+"guid": "shop-211251",
+"html": "",
+"link": "https://www.helloshop.info/news/event/20261125_211251.html",
+"name": "12/19（土）大阪店にて『山岸理子 生写真・グッズ発売サイン会』開催決定！！",
+"sort": "2026-11-25T16:59:07+09:00",
+"title": "12/19（土）大阪店にて『山岸理子 生写真・グッズ発売サイン会』開催決定！！",
+"who": [
+"sotsugyo"
+]
+},
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-25T16:58:11+09:00",
+"general": false,
+"guid": "shop-211263",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261125_211263.html",
+"name": "大阪店にて販売『山岸理子 生写真・グッズ』",
+"sort": "2026-11-25T16:58:11+09:00",
+"title": "大阪店にて販売『山岸理子 生写真・グッズ』",
+"who": [
+"sotsugyo"
+]
+},
 {
 "categories": [
 "お知らせ",
