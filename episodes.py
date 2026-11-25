@@ -63,7 +63,7 @@ def parse_rss(text):
 
 def parse_youtube(text):
     """YouTube の RSS（Atom）→ [{title, link, published(JSTの日付)}]"""
-    ns = {"a": "http://www.w3.org/2005/Atom"}
+    ns = {"a": "http://www.w3.org/2005/Atom", "m": "http://search.yahoo.com/mrss/"}
     root = ET.fromstring(text)
     out = []
     for e in root.findall("a:entry", ns):
@@ -73,7 +73,9 @@ def parse_youtube(text):
             d = jst(dt.datetime.fromisoformat(pub))
         except ValueError:
             continue
-        out.append({"title": (e.findtext("a:title", namespaces=ns) or "").strip(), "link": (link.get("href") if link is not None else ""), "date": d})
+        desc = (e.findtext("m:group/m:description", namespaces=ns) or "").strip()
+        out.append({"title": (e.findtext("a:title", namespaces=ns) or "").strip(), "link": (link.get("href") if link is not None else ""), "date": d,
+                    "desc": desc.split("\n", 1)[0].strip()[:80]})   # 説明欄の1行目（「2026年11月17日放送 #453」「YouTube版 #94」のように、回が書いてあることがある）
     return out
 
 
@@ -115,25 +117,43 @@ def match_podcast(episodes, air):
     return min(near, key=lambda e: (abs((e["date"] - air).days), -e["date"].toordinal())) if near else None
 
 
-def match_youtube(videos, name_words, air):
+def video_dates(v):
+    """動画の題名・説明欄の1行目に書かれた日付（「2026年11月17日放送」など）"""
+    return title_dates(v["title"] + " " + (v.get("desc") or ""), v["date"])
+
+
+def match_youtube(videos, name_words, air, dedicated=False):
     """題名に番組名がある動画のうち、放送日（air）に合うもの。無ければ None。
-    題名に日付があれば（「11月22日放送回」。テレビの番組が、放送の数日後に上がる）、その日付が放送日と合うもの。
-    日付が無ければ、放送日（日本時間）に公開されたもの。題名に別の日付があるものは、公開日が放送日でも選ばない。複数あれば、最初のもの"""
+    題名・説明欄の1行目に日付があれば（「11月22日放送回」「2026年11月17日放送」。放送の数日後・翌朝に上がる）、その日付が放送日と合うもの。
+    日付が無ければ、放送日（日本時間）に公開されたもの。別の日付があるものは、公開日が放送日でも選ばない。複数あれば、最初のもの。
+    dedicated（番組専用のチャンネル）なら、題名に番組名が無くてもよい（BOOKSTAND.TV のように、題名がその回のテーマの文のとき）"""
     words = [rss.norm_name(w) for w in name_words if rss.norm_name(w)]
-    mine = sorted((v for v in videos if v["link"] and any(w in rss.norm_name(v["title"]) for w in words)), key=lambda v: v["link"])
+    mine = sorted((v for v in videos if v["link"] and (dedicated or any(w in rss.norm_name(v["title"]) for w in words))), key=lambda v: v["link"])
     for v in mine:
-        if air in title_dates(v["title"], v["date"]):
+        if air in video_dates(v):
             return v
     for v in mine:
-        if v["date"] == air and not title_dates(v["title"], v["date"]):
+        if v["date"] == air and not video_dates(v):
             return v
     return None
 
 
+def youtube_label(v):
+    """リンクの名前。説明欄が「YouTube版」なら『YouTube版』（放送ではなく、YouTube 用の回）。放送の日付が書いてあれば『YouTube（放送分）』。ほかは『YouTube』"""
+    desc = v.get("desc") or ""
+    if "YouTube版" in desc or "YouTube版" in v.get("title", ""):
+        return "YouTube版"
+    if "放送" in desc and title_dates(desc, v["date"]):
+        return "YouTube（放送分）"
+    return "YouTube"
+
+
 def ep_info(e):
     """どの回か（手で入れるページが、放送日とのずれを見せるのに使う）: 公開日・題名・題名に書かれた日付（あれば）"""
-    titled = sorted(title_dates(e["title"], e["date"]))
+    titled = sorted(title_dates(e["title"] + " " + (e.get("desc") or ""), e["date"]))
     d = {"date": e["date"].isoformat(), "kind": "pub", "title": (e["title"] or "")[:60]}
+    if e.get("desc"):
+        d["note"] = e["desc"][:60]
     if titled:
         d["titled"] = titled[0].isoformat()
     return d
@@ -236,13 +256,13 @@ def main():
                 vids = parse_youtube(fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={src['youtube_channel']}"))
                 for air_s in sorted({o["air"] for o in occ}):
                     air = dt.date.fromisoformat(air_s)
-                    v = match_youtube(vids, src.get("match") or [name], air)
+                    v = match_youtube(vids, src.get("match") or [name], air, dedicated=bool(src.get("youtube_dedicated")))
                     if not v:
                         print(f"  {name} {air_s}: 動画が無い（{len(vids)} 本）")
                         continue
                     for o in (o for o in occ if o["air"] == air_s):
                         found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
-                                      "links": [{"label": "YouTube", "url": v["link"], "ep": ep_info(v)}], "source": "youtube", "found": today.isoformat()})
+                                      "links": [{"label": youtube_label(v), "url": v["link"], "ep": ep_info(v)}], "source": "youtube", "found": today.isoformat()})
                     print(f"  {name} {air_s}: {v['link']}")
         except Exception as e:  # 1つの番組の失敗で、全体を止めない
             print(f"  {name}: 失敗 {str(e)[:80]}")
