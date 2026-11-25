@@ -6,13 +6,14 @@
    "until": "2026-11-25",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-ha05d1c9f944f00b0",
@@ -20,13 +21,14 @@
    "until": "2026-11-25",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/ep7mroqd3r"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h4ad873cee159d9f1",
@@ -34,13 +36,14 @@
    "until": "2026-11-25",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-h54c395412069e090",
@@ -54,7 +57,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "hp-media-h77d424578c035e5c",
@@ -62,13 +66,14 @@
    "until": "2026-11-26",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/ep8e2820h8"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "near"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-h9d9f3114ec696738",
@@ -82,7 +87,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "hp-media-hcf29fcd811cc8bba",
@@ -96,7 +102,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h54c395412069e090",
@@ -110,7 +117,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h9d9f3114ec696738",
@@ -124,7 +132,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "hp-media-h2bb52e6d193f7b4c",
@@ -132,13 +141,14 @@
    "until": "2026-11-27",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-h78290a0ec4f671da",
@@ -152,7 +162,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "hp-media-h7f1c8bc04a3420a8",
@@ -160,13 +171,14 @@
    "until": "2026-11-27",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h2bb52e6d193f7b4c",
@@ -174,13 +186,14 @@
    "until": "2026-11-27",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h78290a0ec4f671da",
@@ -194,7 +207,8 @@
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "exact",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h7f1c8bc04a3420a8",
@@ -202,13 +216,14 @@
    "until": "2026-11-27",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-h2ffb0f0105455a53",
@@ -216,13 +231,14 @@
    "until": "2026-11-28",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epxtrfn820"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-h78de752c9bd69100",
@@ -230,13 +246,14 @@
    "until": "2026-11-28",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/ep7mroqd3r"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "near"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "hp-media-ha2078b811d946d63",
@@ -244,13 +261,14 @@
    "until": "2026-11-28",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "near"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "jproom-media-h2ffb0f0105455a53",
@@ -258,13 +276,14 @@
    "until": "2026-11-28",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epxtrfn820"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "exact"
+   "match": "near",
+   "rule": 2
   },
   {
    "guid": "jproom-media-ha2078b811d946d63",
@@ -272,13 +291,14 @@
    "until": "2026-11-28",
    "links": [
     {
-     "label": "TVer",
+     "label": "TVer（近い日の回）",
      "url": "https://tver.jp/episodes/epi2b18vv2"
     }
    ],
    "source": "auto",
    "found": "2026-11-25",
-   "match": "near"
+   "match": "near",
+   "rule": 2
   }
  ]
 }
