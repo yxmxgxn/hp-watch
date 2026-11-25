@@ -231,7 +231,7 @@ async function state(req, env, now) {
       const own = linksOf(e);
       return { status: "入力済み", entry: { links: own.length ? own : linksOf(a), guest: e.guest || "", note: e.note || "", updated: e.updated || "", source: "manual" } };
     }
-    if (a) return { status: "自動", entry: { links: linksOf(a), guest: "", note: "", updated: a.found || "", source: "auto" } };
+    if (a) return { status: "自動", entry: { links: linksOf(a), guest: "", note: "", updated: a.found || "", source: "auto", match: a.match || "" } };
     return { status: "未入力", entry: null };
   };
 
@@ -431,7 +431,10 @@ function fill(it) {
   $("links").textContent = "";
   ((it.entry && it.entry.links) || []).forEach((l) => $("links").appendChild(linkRow(l.label, l.url)));
   if (!$("links").children.length) $("links").appendChild(linkRow("", ""));
-  msg(it.entry && it.entry.source === "auto" ? "自動で入ったリンクです。直して保存すると、手で入れた分が優先されます" : "");
+  msg(it.entry && it.entry.source === "auto"
+    ? (it.entry.match === "near" ? "近い日の回（同じ日の回ではない）が、自動で入っています。違うときは、直して保存してください（手で入れた分が優先されます。本当の回が上がれば、自動でも差し替わります）"
+                                 : "自動で入ったリンクです。直して保存すると、手で入れた分が優先されます")
+    : "");
   $("form").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 

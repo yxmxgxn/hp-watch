@@ -74,6 +74,9 @@ def nearest(air, month, day):
 WEEKLY_BACK = 6  # 毎週の番組の、遅れ放送を拾う日数。前の週の同じ回は7日前なので、含めない（前の週の回は、公開期間が切れて、見られない）
 
 
+RULE = 2   # 選び方の版（1: 前後1日も exact。2: 同じ日だけ exact）。版が違う分は、1回、探し直す
+LABEL_EXACT = "TVer"
+LABEL_NEAR = "TVer（近い日の回）"   # 同じ日の回ではない（読む側にも分かる名前にする）
 LEGACY_MAX = 6  # 1回の実行で、昔の検索のページを、番組のページに直す番組の数の上限
 
 
@@ -85,8 +88,9 @@ def tver_title_matches(title, program):
 
 def pick_match(rows, program, air, back=0):
     """番組名が合い、放送日が合うエピソード (href, exact)。無ければ (None, False)。
-    放送日が前後1日までのものを、日が近い順に選ぶ（exact＝True）。back があれば（毎週の番組。地方局の遅れ放送）、
-    放送日の back 日前までの、いちばん新しいものも選ぶ（exact＝False。本当の回が上がったら、差し替える）"""
+    **同じ日**の回だけが exact（True）。前後1日の回（深夜の日付のずれ・TVer より後に放送する局）と、back があれば（毎週の番組。地方局の遅れ放送）
+    放送日の back 日前までの、いちばん新しい回は、「近い日の回」（False。本当の回が上がったら、差し替える）。
+    前後1日で迷ったら、TVer に先に上がっている（前の日の）回を選ぶ"""
     want = norm(program)
     best = None
     for r in rows:
@@ -100,14 +104,14 @@ def pick_match(rows, program, air, back=0):
             continue
         diff = (air - d).days  # 正: エピソードのほうが前
         if -1 <= diff <= 1:
-            rank = abs(diff)
+            rank = (abs(diff), 0 if diff >= 0 else 1)   # 同じ日 → 前の日 → 次の日
         elif 1 < diff <= back:
-            rank = 10 + diff
+            rank = (10 + diff, 0)
         else:
             continue
         if best is None or rank < best[0]:
             best = (rank, r["href"])
-    return (best[1], best[0] <= 1) if best else (None, False)
+    return (best[1], best[0][0] == 0) if best else (None, False)
 
 
 def pick(rows, program, air, back=0):
@@ -258,6 +262,15 @@ def search_rows(page, program):
     return [parse_row(h, t) for h, t in raw]
 
 
+def make_entry(it, href, exact, today):
+    """自動の分の1件。同じ日の回は「TVer」、近い日の回は「TVer（近い日の回）」（match で、探し直す・直す入り口にも使う）"""
+    return {
+        "guid": it["guid"], "air": str(it["air"]), "until": str(it["air"] + dt.timedelta(days=DAYS_AFTER)),
+        "links": [{"label": LABEL_EXACT if exact else LABEL_NEAR, "url": EPISODE + href}], "source": "auto", "found": today.isoformat(),
+        "match": "exact" if exact else "near", "rule": RULE,
+    }
+
+
 def merge_auto(old, found, today, drop=()):
     """今の自動の分に、見つけた分を足す。期限の切れた分と、drop（探し直して、もう合わなかった分）は外す。戻り値: 項目のリスト（放送日順）"""
     keep = {g: e for g, e in old.items() if str(e.get("until") or "") >= today.isoformat() and g not in drop}
@@ -280,8 +293,9 @@ def main():
     auto = load_entries(args.out, today)
     # 探し終わった項目: 手で入れた分と、放送日が完全に合った自動の分。「近い日の回」（match が exact でない・昔の形で match が無い）は、
     # 本当の回が上がるまで、期限まで探し直す（前の週の回を選んでいた分も、ここで直る）
-    known = {g for g, e in manual.items() if has_link(e)} | {g for g, e in auto.items() if has_link(e) and e.get("match") == "exact"}
-    recheck = {g for g, e in auto.items() if has_link(e) and e.get("match") != "exact" and g not in manual}
+    settled = lambda e: has_link(e) and e.get("match") == "exact" and e.get("rule") == RULE
+    known = {g for g, e in manual.items() if has_link(e)} | {g for g, e in auto.items() if settled(e)}
+    recheck = {g for g, e in auto.items() if has_link(e) and not settled(e) and g not in manual}
     todo = items_to_check(args.state_dir, today, known)
     seen = {it["guid"] for it in todo}
     todo += [it for it in weekly_tv_items(today) if it["guid"] not in known and it["guid"] not in seen]
@@ -322,11 +336,7 @@ def main():
                         searched.add(it["guid"])
                     if href:
                         first_href = first_href or href
-                        found[it["guid"]] = {
-                            "guid": it["guid"], "air": str(it["air"]), "until": str(it["air"] + dt.timedelta(days=DAYS_AFTER)),
-                            "links": [{"label": "TVer", "url": EPISODE + href}], "source": "auto", "found": today.isoformat(),
-                            "match": "exact" if exact else "near",
-                        }
+                        found[it["guid"]] = make_entry(it, href, exact, today)
                         print(f"  {prog} {it['air']}: {EPISODE + href}{'' if exact else '（近い日の回。本当の回が上がったら差し替える）'}")
                     else:
                         print(f"  {prog} {it['air']}: 見つからない（{len(rows)} 件の結果）")

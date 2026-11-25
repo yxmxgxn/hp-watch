@@ -60,6 +60,19 @@ check(tver.pick_match(rows_m, "杜の都musicSPACE", dt.date(2026, 11, 24), back
 check(tver.pick_match(rows_m[:1], "杜の都musicSPACE", dt.date(2026, 11, 24), back=B) == (None, False), "その日の回がまだ無いとき、前の週の回は選ばない（昔は選んでいた）")
 check(tver.pick_match(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18), back=B) == ("/episodes/e1", False), "遅れ放送で選んだものは、exact ではない（本当の回が上がったら、差し替える）")
 
+# 前後1日は「近い日の回」（深夜の日付のずれ・TVer より後に放送する局）。同じ日の回だけが exact
+rows_d = [tver.parse_row("/episodes/prev", "番組X\nx\nA局 11月23日(月)放送分\n"), tver.parse_row("/episodes/next", "番組X\nx\nA局 11月25日(水)放送分\n")]
+d24 = dt.date(2026, 11, 24)
+check(tver.pick_match(rows_d[:1], "番組X", d24) == ("/episodes/prev", False) and tver.pick_match(rows_d[1:], "番組X", d24) == ("/episodes/next", False), "前の日・次の日の回は、選ぶが、exact ではない（近い日の回）")
+check(tver.pick_match(rows_d, "番組X", d24)[0] == "/episodes/prev" and tver.pick_match(list(reversed(rows_d)), "番組X", d24)[0] == "/episodes/prev", "前後1日で迷ったら、TVer に先に上がっている前の日の回を選ぶ（並びに関係なく）")
+rows_s = rows_d + [tver.parse_row("/episodes/same", "番組X\nx\nA局 11月24日(火)放送分\n")]
+check(tver.pick_match(rows_s, "番組X", d24) == ("/episodes/same", True), "同じ日の回があれば、それを選ぶ（exact）")
+# 自動の分の書き方: 近い日の回は、名前で分ける
+it0 = {"guid": "g1", "air": d24}
+e_ex, e_ne = tver.make_entry(it0, "/episodes/a", True, d24), tver.make_entry(it0, "/episodes/b", False, d24)
+check(e_ex["rule"] == tver.RULE == 2, "自動の分: 選び方の版を残す（版が違う昔の分は、1回、探し直す）")
+check(e_ex["links"][0]["label"] == "TVer" and e_ex["match"] == "exact" and e_ne["links"][0]["label"] == "TVer（近い日の回）" and e_ne["match"] == "near", "自動の分: 同じ日の回は『TVer』、近い日の回は『TVer（近い日の回）』（match も残す）")
+
 # 番組のページ（series）: エピソードのページから取る
 check(tver.parse_series('<a href="/series/sr1ea8bikm">番組TOP</a><a href="/series/srzzzzzzzz">x</a>') == "https://tver.jp/series/sr1ea8bikm", "番組のページ: エピソードのページから、最初の series を取る")
 check(tver.parse_series("<p>公開期間外です。</p>") is None and tver.parse_series("") is None and tver.parse_series(None) is None, "番組のページ: 公開期間外のページ（series が無い）は None")
