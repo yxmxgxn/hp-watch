@@ -105,6 +105,7 @@ soon = [tver.parse_row("/episodes/old", "西乃風ブラン堂\nx\nMBS 11月16�
 check(tver.cycle_pick(soon, "西乃風ブラン堂", ctx_n[0], ctx_n, NOW) is None, "配信がまもなく終わる回は選ばない（開いたら、見られない）")
 check(tver.air_time(D(2026, 11, 23), "24:59") == dt.datetime(2026, 11, 24, 0, 59) and tver.air_time(D(2026, 11, 23), "") is None, "放送の日時: 24:59 は翌日の0:59。開始が無ければ None")
 check(tver.same_station("MBS", "MBS") and tver.same_station("テレビ東京系", "テレビ東京") and not tver.same_station("MBS", "RCCテレビ"), "局の名前の合わせ方")
+check(not tver.same_station("テレ東", "BSテレ東") and tver.same_station("BSテレ東", "BSテレ東") and tver.same_station("BS12", "BS12 トゥエルビ"), "BS の局と、地上波の局は、別の局（テレ東とBSテレ東）")
 e_pv = tver.make_entry({"guid": "g", "air": D(2026, 11, 25)}, "/episodes/e215", False, D(2026, 11, 25), D(2026, 11, 18), "x", 7.0)
 e_pl = tver.make_entry({"guid": "g", "air": D(2026, 11, 27)}, "/episodes/e215", False, D(2026, 11, 27), D(2026, 11, 13), "x", 14.0)
 check(e_pv["links"][0]["label"] == "TVer（先週分）" and e_pv["match"] == "prev" and e_pl["links"][0]["label"] == "TVer（前の回）" and e_pl["match"] == "prev", "直前の回: 1週間前後は『TVer（先週分）』、10日以上前は『TVer（前の回）』（match: prev）")

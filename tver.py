@@ -149,8 +149,13 @@ def row_ends(row, ref):
 
 
 def same_station(a, b):
+    """同じ局か（そろえた名前が、一方がもう一方を含む）。BS の局（BSテレ東）と、地上波の局（テレ東）は、別の局"""
     x, y = norm(a), norm(b)
-    return bool(x and y and (x in y or y in x))
+    if not (x and y):
+        return False
+    if x.startswith("bs") != y.startswith("bs"):
+        return False
+    return x in y or y in x
 
 
 PREV_GAP = 6.5   # 放送が、その番組の最新の回の最初の放送から、これ以上（日）あとなら、今週の回がまだ上がっていない（最新の回は、先週分）
@@ -444,8 +449,8 @@ def main():
                     if it.get("weekly") and it.get("start"):
                         res = cycle_pick(rows, prog, it, weekly_all, now) if rows else None
                         row, ep_d, exact, gap = res if res else (None, None, False, None)
-                        if row and not exact and "毎週" in (it.get("label") or "") and gap >= PREV_GAP:
-                            prev_gap = gap   # 今週の回がまだ上がっていない。直前の回を、先週分として付ける
+                        if row and not exact and gap >= PREV_GAP:
+                            prev_gap = gap   # 今週の回がまだ上がっていない（月2回・月1回の番組も）。直前の回を、先週分・前の回として付ける
                     else:
                         row, ep_d, exact = pick_row(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
                     href = row["href"] if row else None
