@@ -43,13 +43,26 @@ check(tver.pick([tver.parse_row("/episodes/z", "キタコイ\nx\nHBC 11月21日(
 check(tver.nearest(dt.date(2027, 1, 1), 12, 31) == dt.date(2026, 12, 31), "年をまたぐ放送日（1/1 に 12/31）")
 check(tver.pick([tver.parse_row("/episodes/y", "年末番組\nx\nA局 12月31日(木)放送分\n")], "年末番組", dt.date(2027, 1, 1)) == "/episodes/y", "年をまたいでも選べる")
 
-# 毎週の番組: 地方局の遅れ放送（放送日の8日前までの、いちばん新しいエピソード）
+# 毎週の番組: 地方局の遅れ放送（放送日の WEEKLY_BACK 日前までの、いちばん新しいエピソード。前の週の同じ回は選ばない）
+B = tver.WEEKLY_BACK
 rowsw = [tver.parse_row("/episodes/e1", "Hello! Music Lab。\nx\nテレ東 11月16日(月)放送分\n"),
          tver.parse_row("/episodes/e0", "Hello! Music Lab。\nx\nテレ東 11月9日(月)放送分\n")]
+check(B == 6, "遅れ放送を拾う日数は6日（前の週の同じ回は7日前）")
 check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18)) is None, "単発は、2日以上ずれたら選ばない（水曜の遅れ放送には、選ばない）")
-check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18), back=8) == "/episodes/e1", "毎週の番組は、水曜の遅れ放送に、月曜のエピソードを選ぶ")
-check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 16), back=8) == "/episodes/e1", "毎週の番組でも、同じ日のエピソードがあれば、それを選ぶ")
-check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 25), back=8) is None, "毎週の番組でも、9日以上前のエピソードは選ばない")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18), back=B) == "/episodes/e1", "毎週の番組は、水曜の遅れ放送に、月曜のエピソードを選ぶ")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 16), back=B) == "/episodes/e1", "毎週の番組でも、同じ日のエピソードがあれば、それを選ぶ")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 23), back=B) is None, "毎週の番組は、ちょうど7日前（前の週の回）を、選ばない（公開期間が切れて、見られない）")
+check(tver.pick(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 25), back=B) is None, "毎週の番組でも、7日以上前のエピソードは選ばない")
+# 杜の都musicSPACE: 11/24（火）の回に、前の週（11/17）の回を選んでいた
+rows_m = [tver.parse_row("/episodes/old", "杜の都musicSPACE\nx\n仙台放送 11月17日(火)放送分\n"),
+          tver.parse_row("/episodes/new", "杜の都musicSPACE\nx\n仙台放送 11月24日(火)放送分\n")]
+check(tver.pick_match(rows_m, "杜の都musicSPACE", dt.date(2026, 11, 24), back=B) == ("/episodes/new", True), "その日の回があれば、それを選ぶ（完全に合った＝exact）")
+check(tver.pick_match(rows_m[:1], "杜の都musicSPACE", dt.date(2026, 11, 24), back=B) == (None, False), "その日の回がまだ無いとき、前の週の回は選ばない（昔は選んでいた）")
+check(tver.pick_match(rowsw, "Hello! Music Lab。", dt.date(2026, 11, 18), back=B) == ("/episodes/e1", False), "遅れ放送で選んだものは、exact ではない（本当の回が上がったら、差し替える）")
+
+# 番組のページ（series）: エピソードのページから取る
+check(tver.parse_series('<a href="/series/sr1ea8bikm">番組TOP</a><a href="/series/srzzzzzzzz">x</a>') == "https://tver.jp/series/sr1ea8bikm", "番組のページ: エピソードのページから、最初の series を取る")
+check(tver.parse_series("<p>公開期間外です。</p>") is None and tver.parse_series("") is None and tver.parse_series(None) is None, "番組のページ: 公開期間外のページ（series が無い）は None")
 
 # 探す項目
 with tempfile.TemporaryDirectory() as d:
@@ -84,18 +97,41 @@ with tempfile.TemporaryDirectory() as d:
     check(list(ent) == ["g-2"] and tver.has_link(ent["g-2"]), "ファイルを読む: 期限内だけ・リンクあり")
     check(tver.load_entries(os.path.join(d, "none.json"), today) == {}, "ファイルが無ければ空")
 
-# 番組の記録（manual/programs.json）: TVer の検索のページを足す。ほかの欄は、そのまま
+# 番組の記録（manual/programs.json）: TVer にある番組の、番組のページ（series）だけを残す。検索のページは使わない
+S1, S2 = "https://tver.jp/series/sr1ea8bikm", "https://tver.jp/series/srs4nx051o"
 with tempfile.TemporaryDirectory() as d2:
     pp = os.path.join(d2, "programs.json")
     key = tver.rss.program_key("TV", "Hello! Music Lab。")
-    json.dump({"programs": {key: {"name": "Hello! Music Lab。", "cat": "TV", "youtube": "https://www.youtube.com/@x"}}}, open(pp, "w", encoding="utf-8"))
-    check(tver.update_programs(pp, {"Hello! Music Lab。", "西乃風ブラン堂"}) is True, "番組の記録: TVer の検索のページを足す")
-    data = json.load(open(pp, encoding="utf-8"))["programs"]
-    check(data[key]["tver"].startswith("https://tver.jp/search/") and data[key]["youtube"].startswith("https://www.youtube.com/"), "番組の記録: ほかの欄は、そのまま")
-    check(len(data) == 2, "番組の記録: 新しい番組を足す")
-    check(tver.update_programs(pp, {"Hello! Music Lab。"}) is False, "番組の記録: 変わらなければ、書かない")
-    data[key]["tver"] = "https://tver.jp/series/srlnqjxe9p"
-    json.dump({"programs": data}, open(pp, "w", encoding="utf-8"), ensure_ascii=False)
-    check(tver.update_programs(pp, {"Hello! Music Lab。"}) is False and json.load(open(pp, encoding="utf-8"))["programs"][key]["tver"].endswith("/series/srlnqjxe9p"), "番組の記録: 手で入れた番組のページ（series）は、検索のページで置き換えない")
+    keym = tver.rss.program_key("TV", "杜の都musicSPACE")
+    keyx = tver.rss.program_key("TV", "ふるさとの未来")
+    json.dump({"programs": {
+        key: {"name": "Hello! Music Lab。", "cat": "TV", "youtube": "https://www.youtube.com/@x"},
+        keym: {"name": "杜の都musicSPACE", "cat": "TV", "tver": "https://tver.jp/search/x"},   # 昔の検索のページ
+    }}, open(pp, "w", encoding="utf-8"))
+    load = lambda: json.load(open(pp, encoding="utf-8"))["programs"]
+    check(tver.update_programs(pp, {"ふるさとの未来": S1}) is True and load()[keyx]["tver"] == S1, "番組の記録: 番組のページを足す（新しい番組）")
+    check(tver.update_programs(pp, {"杜の都musicSPACE": S2}) is True and load()[keym]["tver"] == S2, "番組の記録: 昔の検索のページは、番組のページに差し替える")
+    check(tver.update_programs(pp, {"Hello! Music Lab。": S1}) is True and load()[key]["tver"] == S1 and load()[key]["youtube"].startswith("https://www.youtube.com/"), "番組の記録: ほかの欄は、そのまま")
+    check(tver.update_programs(pp, {"ふるさとの未来": S1}) is False, "番組の記録: 変わらなければ、書かない")
+    check(tver.update_programs(pp, {"ふるさとの未来": S2}) is False and load()[keyx]["tver"] == S1, "番組の記録: すでに番組のページがあれば（手で入れたものを含む）、置き換えない")
+    check(tver.has_series(pp, "ふるさとの未来") is True and tver.has_series(pp, "知らない番組") is False, "番組の記録: 番組のページが有るか")
+    # 取れなかったとき: 新しい番組は足さない・昔の検索のページは外す（TVer にあるかどうか区別がつかないので）
+    json.dump({"programs": {keym: {"name": "杜の都musicSPACE", "cat": "TV", "tver": "https://tver.jp/search/x", "youtube": "y"}}}, open(pp, "w", encoding="utf-8"))
+    check(tver.update_programs(pp, {"新番組": None, "杜の都musicSPACE": None}) is True and "tver" not in load()[keym] and load()[keym]["youtube"] == "y" and len(load()) == 1, "番組の記録: 番組のページが取れなければ、新しい番組は足さず、昔の検索のページは外す")
+
+# 昔の検索のページのままの番組
+with tempfile.TemporaryDirectory() as d3:
+    p3 = os.path.join(d3, "programs.json")
+    json.dump({"programs": {"TV|a": {"name": "キタコイ", "cat": "TV", "tver": "https://tver.jp/search/x"},
+                            "TV|b": {"name": "杜の都musicSPACE", "cat": "TV", "tver": "https://tver.jp/series/srs4nx051o"},
+                            "TV|c": {"name": "メモだけ", "cat": "TV"}}}, open(p3, "w", encoding="utf-8"))
+    check(tver.legacy_search_programs(p3) == ["キタコイ"] and tver.legacy_search_programs(os.path.join(d3, "none.json")) == [], "昔の検索のページのままの番組だけを拾う")
+check(tver.tver_title_matches("キタコイ", "キタコイ") and tver.tver_title_matches("杜の都musicSPACE", "杜の都musicSPACE") and not tver.tver_title_matches("別の番組", "キタコイ"), "検索結果の番組名が、番組名と合うか")
+
+# 自動の分: 探し直して合わなかった分は外す
+today2 = dt.date(2026, 11, 25)
+old2 = {"g-bad": {"guid": "g-bad", "air": "2026-11-24", "until": "2026-11-27", "links": [{"label": "TVer", "url": "https://tver.jp/episodes/old"}]},
+        "g-keep": {"guid": "g-keep", "air": "2026-11-24", "until": "2026-11-27", "links": [{"label": "TVer", "url": "https://tver.jp/episodes/k"}], "match": "exact"}}
+check([e["guid"] for e in tver.merge_auto(old2, {}, today2, drop={"g-bad"})] == ["g-keep"], "自動の分: 探し直して合わなかった分（前の週の回など）は外す")
 
 print(f"\nall {ok} ok")
