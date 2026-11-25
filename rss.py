@@ -456,7 +456,8 @@ def standing_links(cat, prog, items, rk, programs, sources=()):
         out += [(f"radiko（{rk.name(sid)}・生放送）", radiko.live_url(sid)) for sid in dict.fromkeys(sids)]
     cfg = programs.get(program_key(cat, prog)) or {}
     src = source_for(prog, sources) or {}
-    for field, label in (("tver", "TVer（番組）"), ("spotify", "Spotify（番組）"), ("youtube", "YouTube（チャンネル）")):
+    for field, label in (("tver", "TVer（番組）"), ("spotify", "Spotify（全エピソード）"), ("radiko_podcast", "radikoポッドキャスト（全エピソード）"),
+                         ("youtube", "YouTube（チャンネル）")):
         u = str(cfg.get(field) or src.get(field) or "")
         if u.startswith("https://"):
             out.append((label, u))
@@ -1580,7 +1581,7 @@ def main():
     # 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）の一覧。手で入れるページの「毎週」が読む（RSS のURLなどは載せない）
     write(os.path.join(args.out, "data/sources.json"), json.dumps(
         [{"name": p.get("name"), "match": p.get("match") or [], "spotify": p.get("spotify") or "", "youtube": p.get("youtube") or "",
-          "podcast": bool(p.get("podcast"))} for p in load_sources()], ensure_ascii=False, separators=(",", ":")))
+          "podcast": bool(p.get("podcast")), "radiko_podcast": p.get("radiko_podcast") or ""} for p in load_sources()], ensure_ascii=False, separators=(",", ":")))
     # 毎週・毎月の番組の、1回分ずつ。手で入れるページの「毎週」が読む
     write(os.path.join(args.out, "data/weekly.json"), json.dumps(
         {"updated": now.isoformat(), "items": sorted(WEEKLY, key=lambda o: (o["air"], o["start"], o["guid"]))},

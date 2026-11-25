@@ -513,9 +513,10 @@ function renderSources() {
     card.appendChild(t);
     const links = document.createElement("div"); links.className = "got";
     const add = (label, url) => { if (!url) return; const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = label; links.appendChild(a); links.appendChild(document.createTextNode("  ")); };
-    add("Spotify（番組）", src.spotify);
+    add("Spotify（全エピソード）", src.spotify);
+    add("radikoポッドキャスト（全エピソード）", src.radiko_podcast);
     add("YouTube（チャンネル）", src.youtube);
-    if (!src.spotify && !src.youtube) links.textContent = "";
+    if (!src.spotify && !src.youtube && !src.radiko_podcast) links.textContent = "";
     if (links.childNodes.length) card.appendChild(links);
     const st = document.createElement("div"); st.className = "occ";
     if (src.podcast) {

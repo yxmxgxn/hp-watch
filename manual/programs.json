@@ -10,6 +10,16 @@
    "name": "ふるさとの未来",
    "tver": "https://tver.jp/series/sr1ea8bikm"
   },
+  "TV|やまなし調ベラーズてててtv": {
+   "cat": "TV",
+   "name": "やまなし調ベラーズ ててて！TV",
+   "tver": "https://tver.jp/series/srqpej94kw"
+  },
+  "TV|カナフルtv": {
+   "cat": "TV",
+   "name": "カナフルTV",
+   "no_tver": true
+  },
   "TV|キタコイ": {
    "cat": "TV",
    "name": "キタコイ",
