@@ -11,6 +11,28 @@
 },
 "items": [
 {
+"cat": "配信",
+"categories": [
+"配信"
+],
+"date": "2026-11-25T12:00:00+09:00",
+"fcgroups": [
+"angerme",
+"beyooooonds",
+"juicejuice",
+"morningmusume",
+"ochanorma",
+"rosychronicle",
+"tsubakifactory"
+],
+"guid": "fc-Y8xrg1DMXY5I5pab",
+"html": "<p>配信 ・ 2026.11.25</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Y8xrg1DMXY5I5pab\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Y8xrg1DMXY5I5pab",
+"name": "【HELLO! PROJECT STREAM】オリジナル新番組「3-Talk Room」スタート！",
+"sort": "2026-11-2599",
+"title": "2026.11.25 [配信] 【HELLO! PROJECT STREAM】オリジナル新番組「3-Talk Room」スタート！"
+},
+{
 "cat": "イベント",
 "categories": [
 "イベント"
