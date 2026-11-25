@@ -11,6 +11,22 @@
 },
 "items": [
 {
+"cat": "グッズ",
+"categories": [
+"グッズ"
+],
+"date": "2026-11-25T13:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-T9f61ExJNdPiz5PD",
+"html": "<p>グッズ ・ 2026.11.25</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=T9f61ExJNdPiz5PD\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=T9f61ExJNdPiz5PD",
+"name": "アンジュルム 為永幸音バースデーイベント2027 オリジナルグッズ公開！",
+"sort": "2026-11-2599",
+"title": "2026.11.25 [グッズ] アンジュルム 為永幸音バースデーイベント2027 オリジナルグッズ公開！"
+},
+{
 "cat": "配信",
 "categories": [
 "配信"
