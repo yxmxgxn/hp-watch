@@ -11,7 +11,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-ha05d1c9f944f00b0",
@@ -24,7 +25,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h4ad873cee159d9f1",
@@ -37,7 +39,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h54c395412069e090",
@@ -50,7 +53,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h77d424578c035e5c",
@@ -63,7 +67,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "near"
   },
   {
    "guid": "hp-media-h9d9f3114ec696738",
@@ -76,7 +81,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-hcf29fcd811cc8bba",
@@ -89,7 +95,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h54c395412069e090",
@@ -102,7 +109,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h9d9f3114ec696738",
@@ -115,7 +123,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h2bb52e6d193f7b4c",
@@ -128,7 +137,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h78290a0ec4f671da",
@@ -141,7 +151,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h7f1c8bc04a3420a8",
@@ -154,7 +165,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h2bb52e6d193f7b4c",
@@ -167,7 +179,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h78290a0ec4f671da",
@@ -176,11 +189,12 @@
    "links": [
     {
      "label": "TVer",
-     "url": "https://tver.jp/episodes/epe160hya5"
+     "url": "https://tver.jp/episodes/epxtrfn820"
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-h7f1c8bc04a3420a8",
@@ -193,7 +207,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-24"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h2ffb0f0105455a53",
@@ -206,20 +221,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
-  },
-  {
-   "guid": "hp-media-h4b6b2586fa82ed7f",
-   "air": "2026-11-25",
-   "until": "2026-11-28",
-   "links": [
-    {
-     "label": "TVer",
-     "url": "https://tver.jp/episodes/epkcoqfdly"
-    }
-   ],
-   "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "hp-media-h78de752c9bd69100",
@@ -232,7 +235,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "near"
   },
   {
    "guid": "hp-media-ha2078b811d946d63",
@@ -245,20 +249,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
-  },
-  {
-   "guid": "hp-media-hacf962b1e50eb87a",
-   "air": "2026-11-25",
-   "until": "2026-11-28",
-   "links": [
-    {
-     "label": "TVer",
-     "url": "https://tver.jp/episodes/ep8e2820h8"
-    }
-   ],
-   "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "near"
   },
   {
    "guid": "jproom-media-h2ffb0f0105455a53",
@@ -271,7 +263,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "exact"
   },
   {
    "guid": "jproom-media-ha2078b811d946d63",
@@ -284,20 +277,8 @@
     }
    ],
    "source": "auto",
-   "found": "2026-11-25"
-  },
-  {
-   "guid": "upfront-media-h4b6b2586fa82ed7f",
-   "air": "2026-11-25",
-   "until": "2026-11-28",
-   "links": [
-    {
-     "label": "TVer",
-     "url": "https://tver.jp/episodes/epkcoqfdly"
-    }
-   ],
-   "source": "auto",
-   "found": "2026-11-25"
+   "found": "2026-11-25",
+   "match": "near"
   }
  ]
 }
