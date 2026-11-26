@@ -556,7 +556,7 @@ if (dataDir) {
     assert(occ("hp-media-wk6").state === "missing", "毎週タブ: ポッドキャストが付く番組は、1週間を過ぎても『未反映』（あとから付くことがある）");
     assert(occ("hp-media-wk2").state === "ok", "毎週タブ: radiko のタイムフリーが付いていれば『反映済み』");
     // ポッドキャスト・YouTube の自動の分は、TVer の自動の分と、リンクをまとめる。毎週タブにも反映される
-    epsFile2 = { items: [{ guid: "hp-media-wk3", air: im2.addDays(day, -9), until: im2.addDays(day, 5), links: [{ label: "ポッドキャスト", url: "https://pod.example/ep" }], source: "podcast", found: day },
+    epsFile2 = { items: [{ guid: "hp-media-wk3", air: im2.addDays(day, -9), until: im2.addDays(day, 5), links: [{ label: "ポッドキャスト", url: "https://pod.example/ep", ep: { date: im2.addDays(day, -8), kind: "pub", title: "#1", titled: im2.addDays(day, -9) } }], source: "podcast", found: day },
                          { guid: "hp-media-wk2", air: im2.addDays(day, -2), until: im2.addDays(day, 12), links: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=zzz" }], source: "youtube", found: day }] };
     latestFile2 = { updated: day, programs: { "年の差ラジオ": [{ title: "#216 募金箱", link: "https://pod.example/216", date: day }], "古いポッドキャスト": [{ title: "#1", link: "", date: im2.addDays(day, -20) }] } };
     autoFile2 = { items: [{ guid: "hp-media-wk2", air: im2.addDays(day, -2), until: im2.addDays(day, 1), links: [{ label: "TVer", url: "https://tver.jp/episodes/auto" }], source: "auto", found: day }] };
@@ -565,6 +565,10 @@ if (dataDir) {
     assert(both.entry.links.map((l) => l.label).join() === "TVer,YouTube", "一覧: TVer と YouTube の自動の分は、リンクをまとめる");
     const occE = stE.weekly.flatMap((g) => g.occurrences).find((o) => o.guid === "hp-media-wk3");
     assert(occE.state === "ok" && occE.labels.includes("ポッドキャスト"), "毎週タブ: ポッドキャストの自動の分で、『反映済み』になる");
+    const podLink = occE.entry.links.find((l) => l.label === "ポッドキャスト");
+    assert(podLink.ep.kind === "pub" && podLink.ep.titled === im2.addDays(day, -9) && podLink.ep.date === im2.addDays(day, -8), "毎週タブ: どの回か（ep: 公開日・題名の日付）が、リンクに付いて届く（放送日とのずれを見せるのに使う）");
+    const occR = stE.weekly.flatMap((g) => g.occurrences).find((o) => o.guid === "hp-media-wk2");
+    assert(Array.isArray(occR.radikoLabels) && occR.radikoLabels[0].startsWith("radiko") && !occR.entry.links.some((l) => l.label.startsWith("radiko")), "毎週タブ: radiko のタイムフリーは、別の欄（radikoLabels）で届く（自動のリンクと分ける）");
     const s0 = stE.sources.find((x) => x.name === "年の差ラジオ"), s1 = stE.sources.find((x) => x.name === "BLooM LoUNGE"), s2 = stE.sources.find((x) => x.name === "古いポッドキャスト");
     assert(s0.episodes.length === 1 && s0.stale === false && s0.hasSchedule === false && s0.spotify.endsWith("/aaa"), "番組ごとの行き先: 最新のエピソード・Spotify の番組のページ・公式の予定の枠の有無");
     assert(s1.podcast === false && s1.stale === false && s1.episodes.length === 0, "番組ごとの行き先: ポッドキャストのRSSが無い番組（Spotify だけ）は、古いとは言わない");

@@ -75,4 +75,29 @@ m = ep.merge_entries(old, new, D(2026, 11, 24))
 check([e["guid"] for e in m] == ["g2", "g3"], "書き方: 期限の切れた分は外す")
 check([l["url"] for l in m[0]["links"]] == ["https://x/2", "https://y/2"], "書き方: 同じ項目は、リンクをまとめる（同じURLは重ねない）")
 
+# どの回か（ep）
+info = ep.ep_info({"title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）", "date": D(2026, 11, 23)})
+check(info == {"date": "2026-11-23", "kind": "pub", "title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）", "titled": "2026-11-15"}, "どの回か: 公開日・題名・題名の日付（あれば）")
+check("titled" not in ep.ep_info({"title": "#195 話", "date": D(2026, 11, 20)}), "どの回か: 題名に日付が無ければ、titled は付けない")
+old_e = [{"guid": "g1", "air": "2026-11-15", "until": "2026-12-01", "links": [{"label": "ポッドキャスト", "url": "https://x/a"}]}]
+new_e = [{"guid": "g1", "air": "2026-11-15", "until": "2026-12-01", "links": [{"label": "ポッドキャスト", "url": "https://x/a", "ep": info}, {"label": "YouTube", "url": "https://x/y"}]}]
+merged = ep.merge_entries(old_e, new_e, D(2026, 11, 24))
+check(len(merged) == 1 and merged[0]["links"][0]["ep"] == info and len(merged[0]["links"]) == 2, "昔の分にも、同じURLなら、どの回か（ep）を足す。新しいURLは足す")
+
+# BOOKSTAND.TV: 番組専用のチャンネル。題名はテーマの文で、説明欄の1行目に回が書いてある
+YT3 = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<entry><title>“これ『が』いい”ではなく“これ『で』いい”！</title><link rel="alternate" href="https://www.youtube.com/watch?v=v94"/><published>2026-11-24T09:08:00+00:00</published>
+<media:group><media:description>BOOKSTAND.TV YouTube版 #94
+本文…</media:description></media:group></entry>
+<entry><title>【文章の書き方に正解はあるのか？】</title><link rel="alternate" href="https://www.youtube.com/watch?v=v453"/><published>2026-11-18T01:00:00+00:00</published>
+<media:group><media:description>2026年11月17日放送 #453</media:description></media:group></entry></feed>"""
+v3 = ep.parse_youtube(YT3)
+check(v3[0]["desc"] == "BOOKSTAND.TV YouTube版 #94" and v3[1]["desc"] == "2026年11月17日放送 #453", "YouTube: 説明欄の1行目を読む")
+check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 24)) is None, "番組名が題名に無い動画は、専用のチャンネルでなければ選ばない")
+check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 24), dedicated=True)["link"].endswith("v94"), "専用のチャンネル: 11/24（再放送の夜）には、同じ日に公開された『YouTube版』を選ぶ")
+check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 17), dedicated=True)["link"].endswith("v453"), "専用のチャンネル: 11/17 の放送には、説明欄に『2026年11月17日放送』とある動画を選ぶ（公開は翌朝の11/18）")
+check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 18), dedicated=True) is None, "専用のチャンネル: 別の日付（11/17放送）と書いてある動画は、公開日の11/18には選ばない")
+check([ep.youtube_label(v) for v in v3] == ["YouTube版", "YouTube（放送分）"] and ep.youtube_label({"title": "x", "date": D(2026, 11, 1), "desc": ""}) == "YouTube", "リンクの名前: YouTube版／YouTube（放送分）／YouTube")
+check(ep.ep_info(v3[1])["note"] == "2026年11月17日放送 #453" and ep.ep_info(v3[1])["titled"] == "2026-11-17", "どの回か: 説明欄の1行目（note）と、そこに書かれた日付（titled）")
+
 print(f"\nall {ok} ok")
