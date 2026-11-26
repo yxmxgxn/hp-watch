@@ -381,6 +381,26 @@
    "rule": 4
   },
   {
+   "guid": "upfront-media-h310620f81ef2faf8",
+   "air": "2026-11-26",
+   "until": "2026-11-29",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epg19lzlkh",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "air",
+      "title": "第9回 Lynn、内山昂輝、伊東健人に突撃取材！牧野真莉愛が『ホタルの嫁入り』のアフレコ現場へ！番組初の“社長スペシャル"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
    "guid": "hp-media-hd67f2e4fcaea2350",
    "air": "2026-11-27",
    "until": "2026-11-30",
