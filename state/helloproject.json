@@ -152,6 +152,15 @@
 "start": "2027-03-03",
 "title": "billboard classics BEYOOOOOPHONIC Ⅳ"
 },
+"/beyooooonds/event/de87dd57fac7c8c4b22be57d13a09c365269b61bca329cb1934536ed7a15c1b2/": {
+"artists": [
+585
+],
+"end": "2026-12-23",
+"link": "/beyooooonds/event/de87dd57fac7c8c4b22be57d13a09c365269b61bca329cb1934536ed7a15c1b2/",
+"start": "2026-12-23",
+"title": "12/23(水)ハロショ大阪店にて『＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS西田汐里＆小島はな～』トークイベント開催決定！＆【HELLO! PROJECT STREAM】にて配信決定！"
+},
 "/helloprokenshusei/event/0d81294bdcf927defc7b3bbbd0bab0089b6c9547fa847dd6ca184e66e0fc0c08/": {
 "artists": [
 3,
@@ -330,15 +339,6 @@
 "link": "/juicejuice/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/",
 "start": "2026-11-27",
 "title": "モーニング娘。'26・Juice=Juice・OCHA NORMA「GIFT～Girls Idol Festival Tokyo～」出演！"
-},
-"/juicejuice/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/": {
-"artists": [
-36
-],
-"end": "2026-11-25",
-"link": "/juicejuice/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
-"start": "2026-09-18",
-"title": "Juice=Juice Room Tour 2026 「5ROOMS」\t"
 },
 "/juicejuice/event/ce123fb7f804fd6d77fbd0ae03385c6967acfeb8187ea2e11dc119b94387122b/": {
 "artists": [
@@ -1683,57 +1683,6 @@
 "start": "21:00",
 "status": null,
 "title": "ニッポン放送「Juice=Juice ジューシー・トーク」"
-},
-"ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「みよちゃん家の縁側」|http://helloproject-mobile.com/|隔週火曜|": {
-"artists": [
-585
-],
-"category": "WEB",
-"date": null,
-"end": null,
-"isFc": false,
-"label": "隔週火曜",
-"link": "http://helloproject-mobile.com/",
-"members": [],
-"note": "※月額会員サービスの有料コンテンツ",
-"start": null,
-"status": null,
-"title": "ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「みよちゃん家の縁側」"
-},
-"ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「ろこの部屋」|http://helloproject-mobile.com/|隔週火曜|": {
-"artists": [
-634
-],
-"category": "WEB",
-"date": null,
-"end": null,
-"isFc": false,
-"label": "隔週火曜",
-"link": "http://helloproject-mobile.com/",
-"members": [],
-"note": "※月額会員サービスの有料コンテンツ",
-"start": null,
-"status": null,
-"title": "ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「ろこの部屋」"
-},
-"ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「宣伝会議」|http://helloproject-mobile.com/|月2回木曜|": {
-"artists": [
-3,
-36,
-585,
-676
-],
-"category": "WEB",
-"date": null,
-"end": null,
-"isFc": false,
-"label": "月2回木曜",
-"link": "http://helloproject-mobile.com/",
-"members": [],
-"note": "※月額会員サービスの有料コンテンツ",
-"start": null,
-"status": null,
-"title": "ハロー！プロジェクトモバイル ハロー！ラジオオリジナル番組「宣伝会議」"
 },
 "メ～テレNEXT「ハロプロダンス学園 シーズン15」|https://www.meitelenext.com/idol/helloprojectdance15|不定期|21:00": {
 "artists": [
@@ -8799,6 +8748,26 @@
 "status": null,
 "title": "関西テレビ「よ～いドン！」"
 },
+"h1ff3c97eb8fb35ac": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "10:40",
+"isFc": false,
+"label": null,
+"link": "https://fmk.fm/pop/",
+"members": [
+496,
+541,
+708
+],
+"note": "※8時台～コメント出演予定。",
+"start": "07:30",
+"status": null,
+"title": "FM熊本「FMK poppin' breakfast」"
+},
 "h1ff9f29be484625c": {
 "artists": [
 29
@@ -13011,6 +12980,26 @@
 "start": "23:00",
 "status": null,
 "title": "NACK5「ALL The Feels」"
+},
+"h361e64b92804696b": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-25",
+"end": "26:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント\n※再放送",
+"start": "25:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
 },
 "h3633586f44203db0": {
 "artists": [
@@ -19657,6 +19646,26 @@
 "status": null,
 "title": "長崎文化放送「みゅーじっくら部」"
 },
+"h5b7256a4ff1ac70d": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://www.myufm.jp/program/asacafe/archive/",
+"members": [
+496,
+541,
+708
+],
+"note": "※9時台～コメント出演予定。",
+"start": "08:30",
+"status": null,
+"title": "μFMエフエム鹿児島「あさcafé」"
+},
 "h5b80a114f9c23cda": {
 "artists": [
 36
@@ -25178,6 +25187,26 @@
 "status": null,
 "title": "宮本佳林 5周年記念LIVE TOUR 2026"
 },
+"h788735119b91cb1d": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "09:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rnb.co.jp/radio/md-yamashita/",
+"members": [
+496,
+541,
+708
+],
+"note": "※7時台～出演予定。",
+"start": "07:00",
+"status": null,
+"title": "南海放送「山下泰則のモーニング ディライト」"
+},
 "h789bf36eba82e0c1": {
 "artists": [
 36
@@ -25347,6 +25376,26 @@
 "start": null,
 "status": null,
 "title": "77thシングル発売記念 リミスタ インターネットサイン会"
+},
+"h798f3f41d7990c9b": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "11:00",
+"isFc": false,
+"label": null,
+"link": "https://kry.co.jp/radio/asa/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "07:00",
+"status": null,
+"title": "山口放送「KRY Morning Up」"
 },
 "h79db6c90c13a890a": {
 "artists": [
@@ -25758,6 +25807,34 @@
 "start": "20:55",
 "status": null,
 "title": "FM沖縄「インフォミュージック」"
+},
+"h7c55c6c224ca57a4": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2026-11-24",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c53ad213b906c759fa570d0ad771a32b4ed313f806ca8071ee06a772f2fb6b1d/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "CLUB CITTA' （神奈川）",
+"start": null,
+"status": null,
+"title": "7thシングル発売記念 ミニライブ＆お見送り会"
 },
 "h7c5a8052525d877e": {
 "artists": [
@@ -33386,6 +33463,32 @@
 "status": null,
 "title": "Hello! Project DVD MAGAZINE Vol.86"
 },
+"ha4b61208dbbb027b": {
+"artists": [
+676
+],
+"category": "CONCERT",
+"date": "2026-11-25",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "ぴあアリーナMM （神奈川）",
+"start": null,
+"status": null,
+"title": "Juice=Juice Room Tour 2026 「5ROOMS」"
+},
 "ha5142774754202ae": {
 "artists": [
 676
@@ -35119,6 +35222,25 @@
 "status": null,
 "title": "EP｜「MORE! MORE! EP」"
 },
+"haf09da9e82502a0b": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-25",
+"end": "23:25",
+"isFc": false,
+"label": null,
+"link": "https://www.tvk-yokohama.com/appare_daibouken/",
+"members": [
+620,
+631
+],
+"note": "",
+"start": "23:00",
+"status": null,
+"title": "テレビ神奈川「Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～」"
+},
 "haf1593a3aa757cf5": {
 "artists": [
 676
@@ -36078,6 +36200,26 @@
 "status": null,
 "title": "エフエム佐賀「CHANGE」"
 },
+"hb677708ab12399ec": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://hellofive.jp/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "20:55",
+"status": null,
+"title": "FM石川「HELLO FIVE BOX」"
+},
 "hb6ae3f5c62c94aa3": {
 "artists": [
 3
@@ -36585,6 +36727,24 @@
 "status": null,
 "title": "さにこ会 vol.3 ～最強さにこ伝説「不滅」～"
 },
+"hb8b59e7e5ad9257c": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-11-25",
+"end": "22:00",
+"isFc": false,
+"label": null,
+"link": "https://www.ntv.co.jp/hoeruyoru/",
+"members": [
+67
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "日本テレビ「上田と女が吠える夜」"
+},
 "hb9360fc4964fe50a": {
 "artists": [
 36
@@ -36747,6 +36907,24 @@
 "start": "19:00",
 "status": null,
 "title": "CSフジ「『しおこうじ玉井詩織×坂崎幸之助のお台場フォーク村』第184夜『GAROデビュー55周年』大野真澄ソロデビュー50周年」"
+},
+"hbac108dfdbc799fd": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-25",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+591
+],
+"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
 },
 "hbac770cf8739b889": {
 "artists": [
@@ -41423,6 +41601,26 @@
 "status": null,
 "title": "ぎふチャン「ラジオ土曜便」"
 },
+"hd0e7840d70b531ba": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-24",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/mori-mu/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "仙台放送「杜の都musicSPACE」"
+},
 "hd1144af55c8ed135": {
 "artists": [
 29
@@ -41850,6 +42048,26 @@
 "start": "18:15",
 "status": null,
 "title": "モーニング娘。'26 コンサートツアー秋「超 Heartful 11」"
+},
+"hd393bf6104f649c4": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "12:30",
+"isFc": false,
+"label": null,
+"link": "https://jocr.jp/programsite/utakaze/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "10:00",
+"status": null,
+"title": "ラジオ関西「歌声は風にのって～ブランチ～」"
 },
 "hd396675df18e30e5": {
 "artists": [
@@ -47406,6 +47624,24 @@
 "status": null,
 "title": "AFTER GAME"
 },
+"hf08331a466bc5de5": {
+"artists": [
+477
+],
+"category": "RADIO",
+"date": "2026-11-24",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.jorf.co.jp/?program=60trybu",
+"members": [
+518
+],
+"note": "※スペシャルパーソナリティとして出演。",
+"start": "18:00",
+"status": null,
+"title": "ラジオ日本「60TRY部」"
+},
 "hf0c758e05a86de1a": {
 "artists": [
 29
@@ -50968,34 +51204,6 @@
 "status": null,
 "title": "IWA ROCK presented by e-Broad"
 },
-"s1686": {
-"artists": [
-585
-],
-"category": "EVENT",
-"date": "2026-11-24",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c53ad213b906c759fa570d0ad771a32b4ed313f806ca8071ee06a772f2fb6b1d/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "CLUB CITTA' （神奈川）",
-"start": null,
-"status": null,
-"title": "7thシングル発売記念 ミニライブ＆お見送り会"
-},
 "s1690": {
 "artists": [
 585
@@ -51236,7 +51444,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/ea17b123f8ec10b3eff76392cb11b5a1212d771fe8a7dd21b9d876abb8582a98/",
+"link": "https://eplus.jp/rosychronicle/",
 "members": [
 571,
 588,
@@ -51328,7 +51536,7 @@
 "end": null,
 "isFc": false,
 "label": null,
-"link": "/event/ce6d54103681d86dcb4cd6d349f38bed93fc8f3eeadc17757d29674c962db19c/",
+"link": "https://eplus.jp/helloprokenshusei/",
 "members": [
 571,
 588,
@@ -51666,26 +51874,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
-},
-"s1993": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://hellofive.jp/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "20:55",
-"status": null,
-"title": "FM石川「HELLO FIVE BOX」"
 },
 "s1994": {
 "artists": [
@@ -52319,25 +52507,6 @@
 "status": null,
 "title": "Juice=Juice 江端妃咲バースデーイベント2027"
 },
-"s2059": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-25",
-"end": "23:25",
-"isFc": false,
-"label": null,
-"link": "https://www.tvk-yokohama.com/appare_daibouken/",
-"members": [
-620,
-631
-],
-"note": "",
-"start": "23:00",
-"status": null,
-"title": "テレビ神奈川「Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～」"
-},
 "s2060": {
 "artists": [
 3,
@@ -52628,42 +52797,6 @@
 "status": null,
 "title": "CDジャーナル2027冬号"
 },
-"s2081": {
-"artists": [
-36
-],
-"category": "TV",
-"date": "2026-11-25",
-"end": "22:00",
-"isFc": false,
-"label": null,
-"link": "https://www.ntv.co.jp/hoeruyoru/",
-"members": [
-67
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "日本テレビ「上田と女が吠える夜」"
-},
-"s2088": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.jorf.co.jp/?program=60trybu",
-"members": [
-591
-],
-"note": "※20:30頃〜「永野シネマセッション」コーナーに出演予定。",
-"start": "18:00",
-"status": null,
-"title": "ラジオ日本「60TRY部」"
-},
 "s2096": {
 "artists": [
 477
@@ -52848,32 +52981,6 @@
 "start": null,
 "status": null,
 "title": "演劇女子部「TIME REPEAT」"
-},
-"s2129": {
-"artists": [
-676
-],
-"category": "CONCERT",
-"date": "2026-11-25",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/ac7ec0bd437f3af1f9fcdc9c579f31312e9112fe13471d9fbae91c755990d6f2/",
-"members": [
-571,
-588,
-605,
-611,
-612,
-630,
-646,
-660,
-664
-],
-"note": "ぴあアリーナMM （神奈川）",
-"start": null,
-"status": null,
-"title": "Juice=Juice Room Tour 2026 「5ROOMS」"
 },
 "s2157": {
 "artists": [
@@ -53142,64 +53249,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第五十席＞～BEYOOOOONDS西田汐里＆小島はな～トークイベント"
-},
-"s2242": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-24",
-"end": "25:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "24:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
-},
-"s2243": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-25",
-"end": "26:15",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/mori-mu/",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント\n※再放送",
-"start": "25:45",
-"status": null,
-"title": "仙台放送「杜の都musicSPACE」"
-},
-"s2244": {
-"artists": [
-477
-],
-"category": "RADIO",
-"date": "2026-11-24",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.jorf.co.jp/?program=60trybu",
-"members": [
-518
-],
-"note": "※スペシャルパーソナリティとして出演。",
-"start": "18:00",
-"status": null,
-"title": "ラジオ日本「60TRY部」"
 },
 "s2251": {
 "artists": [
@@ -54120,65 +54169,65 @@
 "status": null,
 "title": "長崎文化放送「みゅーじっくら部」"
 },
-"s2276": {
+"s2279": {
 "artists": [
 585
 ],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "10:40",
+"category": "TV",
+"date": "2026-11-29",
+"end": "25:10",
 "isFc": false,
 "label": null,
-"link": "https://fmk.fm/pop/",
+"link": "https://www.oab.co.jp/programguide/oab_soldout/",
 "members": [
 496,
 541,
 708
 ],
-"note": "※8時台～コメント出演予定。",
-"start": "07:30",
+"note": "※コメント",
+"start": "25:05",
 "status": null,
-"title": "FM熊本「FMK poppin' breakfast」"
+"title": "大分朝日放送「SOLD OUT」"
 },
-"s2277": {
+"s2280": {
 "artists": [
 585
 ],
-"category": "RADIO",
-"date": "2026-11-24",
-"end": "12:30",
+"category": "TV",
+"date": "2026-11-30",
+"end": "25:59",
 "isFc": false,
 "label": null,
-"link": "https://jocr.jp/programsite/utakaze/",
+"link": "https://www.nib.jp/air/",
 "members": [
 462,
 540,
 593
 ],
 "note": "※コメント",
-"start": "10:00",
+"start": "25:29",
 "status": null,
-"title": "ラジオ関西「歌声は風にのって～ブランチ～」"
+"title": "長崎国際テレビ「AIR」"
 },
-"s2278": {
+"s2281": {
 "artists": [
 585
 ],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "11:00",
+"category": "TV",
+"date": "2026-12-01",
+"end": "27:23",
 "isFc": false,
 "label": null,
-"link": "https://www.myufm.jp/program/asacafe/archive/",
+"link": "https://www.ktv.jp/nmb-music/",
 "members": [
-496,
-541,
-708
+462,
+540,
+593
 ],
-"note": "※9時台～コメント出演予定。",
-"start": "08:30",
+"note": "※コメント",
+"start": "26:54",
 "status": null,
-"title": "μFMエフエム鹿児島「あさcafé」"
+"title": "関西テレビ「音いたち」"
 },
 "s2282": {
 "artists": [
@@ -54207,6 +54256,24 @@
 "start": "16:00",
 "status": null,
 "title": "日本テレビ「ベストアーティスト2026」"
+},
+"s2284": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-01-18",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/9146d3f1b9cc06d95433d49caa99074a338318fa/",
+"members": [
+496
+],
+"note": "ミッドランドスクエア シネマ2 （愛知）",
+"start": null,
+"status": null,
+"title": "BEYOOOOONDS / 雨ノ森 川海 清野桃々姫バースデーイベント2027 in 名古屋"
 },
 "s2285": {
 "artists": [
@@ -54247,46 +54314,6 @@
 "start": "24:43",
 "status": null,
 "title": "RSK山陽放送「ユタンポ」"
-},
-"s2287": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "09:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rnb.co.jp/radio/md-yamashita/",
-"members": [
-496,
-541,
-708
-],
-"note": "※7時台～出演予定。",
-"start": "07:00",
-"status": null,
-"title": "南海放送「山下泰則のモーニング ディライト」"
-},
-"s2288": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-25",
-"end": "11:00",
-"isFc": false,
-"label": null,
-"link": "https://kry.co.jp/radio/asa/",
-"members": [
-462,
-540,
-593
-],
-"note": "",
-"start": "07:00",
-"status": null,
-"title": "山口放送「KRY Morning Up」"
 },
 "s2289": {
 "artists": [
@@ -54665,7 +54692,672 @@
 "start": "16:00",
 "status": null,
 "title": "FM岩手「夕刊ラジオ」"
+},
+"s2327": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-07",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2328": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-07",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2329": {
+"artists": [
+634
+],
+"category": "TICKET",
+"date": "2026-12-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/1021fd971a30baf5ddc3a93e91c976a12f1005846d9ed020c41d44e8c5df9092/",
+"members": [
+497,
+544,
+568,
+586,
+604,
+606,
+608,
+635
+],
+"note": "1/6(水) Shibuya LOVEZ（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜Hello! Project「NEW YEAR CELEBRATION 2027-OCHA NORMA-」"
+},
+"s2330": {
+"artists": [
+676
+],
+"category": "TICKET",
+"date": "2026-12-13",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/603fccb379bf2c215982dbd34c52a9b9364a1347514f761b46992b2b05eda5ae/",
+"members": [
+571,
+588,
+605,
+611,
+612,
+630,
+646,
+660,
+664
+],
+"note": "1/7(木) Shibuya LOVEZ（東京）公演",
+"start": null,
+"status": null,
+"title": "発売日｜Hello! Project「NEW YEAR CELEBRATION 2027 -ロージークロニクル-」"
+},
+"s2331": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-30",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2332": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-30",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2333": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-01",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2334": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-01",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2335": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-02",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2336": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-02",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2337": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-03",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2338": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-03",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2339": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-04",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2340": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-04",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2341": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-08",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2342": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-08",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2343": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-09",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2344": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-09",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2345": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-10",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2346": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-10",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2347": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-11",
+"end": "05:40",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "05:30",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2348": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-11",
+"end": "27:15",
+"isFc": false,
+"label": null,
+"link": "https://www.teletama.jp/v-clips/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "※MV",
+"start": "27:05",
+"status": null,
+"title": "テレビ埼玉「V-Clips」"
+},
+"s2357": {
+"artists": [
+585
+],
+"category": "EVENT",
+"date": "2027-02-25",
+"end": null,
+"isFc": true,
+"label": null,
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=g1Nbf1kpNSITAgKn",
+"members": [
+708
+],
+"note": "有楽町朝日ホール （東京）",
+"start": null,
+"status": null,
+"title": "BEYOOOOONDS/雨ノ森 川海 小島はなバースデーイベント2027"
+},
+"s2366": {
+"artists": [
+42
+],
+"category": "TICKET",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/miyamotokarin/",
+"members": [
+666,
+668,
+678,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+710
+],
+"note": "12/1(火) KT Zepp Yokohama （神奈川）公演\n※追加席販売",
+"start": "12:00",
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 }
 },
-"versionDir": "2611241800-7lPn1RNkzCU9we7D"
+"versionDir": "2611261800-IhypJQZKYH64Oco5"
 }

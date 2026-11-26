@@ -1,19 +1,6 @@
 {
  "items": [
   {
-   "guid": "hp-media-h11e1104f28bbd543",
-   "air": "2026-11-11",
-   "until": "2026-11-25",
-   "links": [
-    {
-     "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=Idl0Y_dJBrQ"
-    }
-   ],
-   "source": "youtube",
-   "found": "2026-11-24"
-  },
-  {
    "guid": "hp-media-h974a19e7906013bf",
    "air": "2026-11-12",
    "until": "2026-11-26",
@@ -209,6 +196,32 @@
    "found": "2026-11-24"
   },
   {
+   "guid": "jproom-media-h5efb40478c9c6895",
+   "air": "2026-11-22",
+   "until": "2026-12-06",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "jproom-media-ha677a7c654470bc1",
+   "air": "2026-11-22",
+   "until": "2026-12-06",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
+  },
+  {
    "guid": "upfront-media-hb0e2f058324ce8a6",
    "air": "2026-11-22",
    "until": "2026-12-06",
@@ -220,6 +233,32 @@
    ],
    "source": "youtube",
    "found": "2026-11-24"
+  },
+  {
+   "guid": "jproom-media-hbea7de92ff66439c",
+   "air": "2026-11-23",
+   "until": "2026-12-07",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "hp-media-he92797f898a426c4",
+   "air": "2026-11-25",
+   "until": "2026-12-09",
+   "links": [
+    {
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=vCXMgkZbc4k"
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-25"
   }
  ]
 }
