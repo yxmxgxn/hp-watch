@@ -1,6 +1,250 @@
 {
-"etag": "\"b96ccb93a492ab4d0171040890508d92\"",
+"etag": "\"28a11385a2973e7634e7576b4007afa5\"",
 "items": [
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"アンジュルム"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-26T18:30:51+09:00",
+"general": false,
+"guid": "shop-201364",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261126_201364.html",
+"name": "アンジュルム Blu-ray『ANGERME 2026 Spring final 陰と陽 DUALITY』",
+"sort": "2026-11-26T18:30:51+09:00",
+"title": "アンジュルム Blu-ray『ANGERME 2026 Spring final 陰と陽 DUALITY』",
+"who": [
+"angerme"
+]
+},
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"モーニング娘。'26",
+"アンジュルム",
+"Juice=Juice",
+"つばきファクトリー",
+"BEYOOOOONDS",
+"OCHA NORMA",
+"ロージークロニクル"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-26T18:10:39+09:00",
+"general": false,
+"guid": "shop-211212",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261126_211212.html",
+"name": "『スライド缶タブレット』",
+"sort": "2026-11-26T18:10:39+09:00",
+"title": "『スライド缶タブレット』",
+"who": [
+"morningmusume",
+"angerme",
+"juicejuice",
+"tsubakifactory",
+"beyooooonds",
+"ocha-norma",
+"rosychronicle"
+]
+},
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"モーニング娘。'26",
+"アンジュルム",
+"Juice=Juice",
+"つばきファクトリー",
+"BEYOOOOONDS",
+"OCHA NORMA",
+"ロージークロニクル"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-26T18:05:49+09:00",
+"general": false,
+"guid": "shop-114339",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261126_114339.html",
+"name": "『グループ缶バッジ』",
+"sort": "2026-11-26T18:05:49+09:00",
+"title": "『グループ缶バッジ』",
+"who": [
+"morningmusume",
+"angerme",
+"juicejuice",
+"tsubakifactory",
+"beyooooonds",
+"ocha-norma",
+"rosychronicle"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"モーニング娘。'26"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T18:00:32+09:00",
+"general": false,
+"guid": "shop-211319",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211319.html",
+"name": "小田さくら 生写真『“小田さくら プレイバック”パート1・パート2』",
+"sort": "2026-11-26T18:00:32+09:00",
+"title": "小田さくら 生写真『“小田さくら プレイバック”パート1・パート2』",
+"who": [
+"morningmusume"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"ロージークロニクル"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T17:59:11+09:00",
+"general": false,
+"guid": "shop-211216",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211216.html",
+"name": "橋田歩果 生写真『名古屋定期イベント記念写真』＜名古屋大須店限定＞",
+"sort": "2026-11-26T17:59:11+09:00",
+"title": "橋田歩果 生写真『名古屋定期イベント記念写真』＜名古屋大須店限定＞",
+"who": [
+"rosychronicle"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"アンジュルム"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T17:32:31+09:00",
+"general": false,
+"guid": "shop-211285",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211285.html",
+"name": "大阪店限定 『アンジュルム 橋迫鈴＆長野桃羽 大阪店来店写真』",
+"sort": "2026-11-26T17:32:31+09:00",
+"title": "大阪店限定 『アンジュルム 橋迫鈴＆長野桃羽 大阪店来店写真』",
+"who": [
+"angerme"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"OCHA NORMA"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T17:30:38+09:00",
+"general": false,
+"guid": "shop-211280",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211280.html",
+"name": "大阪店限定 『OCHA NORMA 広本瑠璃＆米村姫良々 大阪店来店写真』",
+"sort": "2026-11-26T17:30:38+09:00",
+"title": "大阪店限定 『OCHA NORMA 広本瑠璃＆米村姫良々 大阪店来店写真』",
+"who": [
+"ocha-norma"
+]
+},
+{
+"categories": [
+"イベント",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"event",
+"shops"
+],
+"date": "2026-11-25T17:00:16+09:00",
+"general": false,
+"guid": "shop-211256",
+"html": "",
+"link": "https://www.helloshop.info/news/event/20261125_211256.html",
+"name": "12/19（土）大阪店にて『山岸理子 トークイベント』開催決定！！",
+"sort": "2026-11-25T17:00:16+09:00",
+"title": "12/19（土）大阪店にて『山岸理子 トークイベント』開催決定！！",
+"who": [
+"sotsugyo"
+]
+},
+{
+"categories": [
+"イベント",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"event",
+"shops"
+],
+"date": "2026-11-25T16:59:07+09:00",
+"general": false,
+"guid": "shop-211251",
+"html": "",
+"link": "https://www.helloshop.info/news/event/20261125_211251.html",
+"name": "12/19（土）大阪店にて『山岸理子 生写真・グッズ発売サイン会』開催決定！！",
+"sort": "2026-11-25T16:59:07+09:00",
+"title": "12/19（土）大阪店にて『山岸理子 生写真・グッズ発売サイン会』開催決定！！",
+"who": [
+"sotsugyo"
+]
+},
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"ハロプロ卒業メンバー"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-25T16:58:11+09:00",
+"general": false,
+"guid": "shop-211263",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261125_211263.html",
+"name": "大阪店にて販売『山岸理子 生写真・グッズ』",
+"sort": "2026-11-25T16:58:11+09:00",
+"title": "大阪店にて販売『山岸理子 生写真・グッズ』",
+"who": [
+"sotsugyo"
+]
+},
 {
 "categories": [
 "お知らせ",

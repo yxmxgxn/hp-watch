@@ -1,5 +1,10 @@
 {
  "programs": {
+  "TV|appareかながわ大冒険みんなで目指せ横浜アリーナ": {
+   "cat": "TV",
+   "name": "Appare!かながわ大冒険～みんなで目指せ！横浜アリーナ～",
+   "tver": "https://tver.jp/series/srk2pjdc74"
+  },
   "TV|hellomusiclab": {
    "cat": "TV",
    "name": "Hello! Music Lab。",
@@ -29,6 +34,11 @@
    "cat": "TV",
    "name": "ボウリング革命 P★League",
    "tver": "https://tver.jp/series/srtn3wrljm"
+  },
+  "TV|上田と女が吠える夜": {
+   "cat": "TV",
+   "name": "上田と女が吠える夜",
+   "tver": "https://tver.jp/series/sr5czyxny0"
   },
   "TV|杜の都musicspace": {
    "cat": "TV",
