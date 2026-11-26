@@ -31,6 +31,7 @@ SERIES = "https://tver.jp/series/"
 EPISODE = "https://tver.jp"
 PROGRAM = re.compile(r"^\s*(?P<station>.*?)\s*「(?P<program>.*)」\s*$")  # 局名「番組名」
 AIRED = re.compile(r"(?P<station>\S+)\s+(?P<m>\d{1,2})月(?P<d>\d{1,2})日\([^)]*\)放送分")  # 局 11月21日(土)放送分
+ENDS = re.compile(r"(?P<m>\d{1,2})月(?P<d>\d{1,2})日\([^)]*\)\s*(?P<h>\d{1,2}):(?P<mi>\d{2})\s*終了予定")  # 12月1日(火)0:58 終了予定
 
 
 def norm(s):
@@ -52,6 +53,11 @@ def parse_row(href, text):
     row = {"href": href, "title": lines[0] if lines else "", "sub": "", "station": "", "month": None, "day": None}
     if len(lines) > 1 and not AIRED.search(lines[1]):
         row["sub"] = lines[1]
+    for l in lines[1:]:
+        m = ENDS.search(l)
+        if m:
+            row["ends"] = (int(m.group("m")), int(m.group("d")), int(m.group("h")), int(m.group("mi")))
+            break
     for l in lines[1:]:
         m = AIRED.search(l)
         if m:
@@ -76,9 +82,12 @@ def nearest(air, month, day):
 WEEKLY_BACK = 6  # 毎週の番組の、遅れ放送を拾う日数。前の週の同じ回は7日前なので、含めない（前の週の回は、公開期間が切れて、見られない）
 
 
-RULE = 3   # 選び方の版（1: 前後1日も exact。2: 同じ日だけ exact。3: リンクに、どの回か〔ep〕を持つ）。版が違う分は、1回、探し直す
+RULE = 4   # 選び方の版（1: 前後1日も exact。2: 同じ日だけ exact。3: リンクに、どの回か〔ep〕を持つ。4: 毎週の番組は、最速の局の放送の日時で回を決める・先週分）。版が違う分は、1回、探し直す
 LABEL_EXACT = "TVer"
 LABEL_NEAR = "TVer（近い日の回）"   # 同じ日の回ではない（読む側にも分かる名前にする）
+LABEL_PREV = "TVer（先週分）"       # 今週の回がまだ TVer に無い。直前の回（まだ見られる回）
+LABEL_PREV_LONG = "TVer（前の回）"  # 直前の回が、10日以上前
+PREV_LONG = 10
 LEGACY_MAX = 6  # 1回の実行で、昔の検索のページを、番組のページに直す番組の数の上限
 
 
@@ -122,6 +131,76 @@ def pick_match(rows, program, air, back=0):
     return (row["href"] if row else None, exact)
 
 
+def air_time(date, start):
+    """放送の日時（日本時間・タイムゾーン無し）。開始は "24:59" のように24時を超える（翌日の0:59）。開始が読めなければ None"""
+    m = re.match(r"^(\d{1,2}):(\d{2})", start or "")
+    if not m:
+        return None
+    return dt.datetime.combine(date, dt.time()) + dt.timedelta(hours=int(m.group(1)), minutes=int(m.group(2)))
+
+
+def row_ends(row, ref):
+    """検索結果の行の、配信の終了予定（日本時間）。無ければ None（「配信終了まで1週間以上」など）"""
+    e = row.get("ends")
+    if not e:
+        return None
+    d = nearest(ref, e[0], e[1])
+    return dt.datetime.combine(d, dt.time(e[2], e[3])) if d else None
+
+
+def same_station(a, b):
+    """同じ局か（そろえた名前が、一方がもう一方を含む）。BS の局（BSテレ東）と、地上波の局（テレ東）は、別の局"""
+    x, y = norm(a), norm(b)
+    if not (x and y):
+        return False
+    if x.startswith("bs") != y.startswith("bs"):
+        return False
+    return x in y or y in x
+
+
+PREV_GAP = 6.5   # 放送が、その番組の最新の回の最初の放送から、これ以上（日）あとなら、今週の回がまだ上がっていない（最新の回は、先週分）
+SOON = dt.timedelta(hours=12)   # 配信が、これより早く終わる回は、選ばない（開いたら、見られない）
+
+
+def cycle_pick(rows, program, occ, ctx, now):
+    """毎週の番組の1回分 occ（air・start・station）に、時刻で回を決める。戻り値: (行, 回の日付, exact, gap日) または None。
+    TVer の行の局が、その回を最初に放送する局（最速の局）。その局の放送の日時（ctx＝同じ番組の1回分の一覧の中の、同じ局・回の日付の前後1日）を、
+    その回の最初の放送とする（無ければ、回の日付の0時）。occ の放送が、その日時より前なら、1つ前の回にする（最速の局より前の放送は、前の回）。
+    後なら、いちばん新しい、始まった回。配信がまもなく終わる回は選ばない。exact は、最速の局そのもの、または、回と同じ日の放送"""
+    t = air_time(occ["air"], occ.get("start"))
+    if t is None:
+        return None
+    best = None
+    for r in rows:
+        if r["month"] is None or not tver_title_matches(r["title"], program):
+            continue
+        ends = row_ends(r, occ["air"])
+        if ends and ends < now + SOON:
+            continue
+        d = nearest(occ["air"], r["month"], r["day"])
+        if d is None:
+            continue
+        key = None
+        for o in ctx:
+            if o["program"] != occ["program"] or not same_station(o["station"], r["station"]):
+                continue
+            ot = air_time(o["air"], o.get("start"))
+            if ot is None or abs((o["air"] - d).days) > 1:
+                continue
+            if key is None or abs((o["air"] - d).days) < abs((key[0] - d).days):
+                key = (o["air"], ot)
+        first = key[1] if key else dt.datetime.combine(d, dt.time())
+        if first > t:
+            continue   # この回の最初の放送より前の放送は、この回ではない
+        if best is None or first > best[0]:
+            best = (first, r, d)
+    if not best:
+        return None
+    first, r, d = best
+    exact = same_station(occ["station"], r["station"]) and abs((occ["air"] - d).days) <= 1 or occ["air"] == d
+    return r, d, exact, (t - first).total_seconds() / 86400
+
+
 def pick(rows, program, air, back=0):
     """pick_match の href だけ"""
     return pick_match(rows, program, air, back)[0]
@@ -162,8 +241,9 @@ def items_to_check(state_dir, today, known):
     return list(found.values())
 
 
-def weekly_tv_items(today):
-    """毎週・毎月のテレビ番組の、放送日が今日から3日前までの1回分。公式のデータを（rss.py と同じ作りで）読む"""
+def weekly_tv_items(today, back=14):
+    """毎週・毎月のテレビ番組の、放送日が今日の back 日前から明日までの1回分（探すのは、そのうち3日前までの分。ほかは、最速の局の放送の日時を知るのに使う）。
+    公式のデータを（rss.py と同じ作りで）読む"""
     found = {}
     for site, cfg in rss.SITES.items():
         try:
@@ -180,13 +260,25 @@ def weekly_tv_items(today):
                 air = dt.date.fromisoformat(x["date"])
             except ValueError:
                 continue
-            if not (today - dt.timedelta(days=DAYS_AFTER) <= air <= today):
+            if not (today - dt.timedelta(days=back) <= air <= today + dt.timedelta(days=1)):
                 continue
             station, prog = rss.split_station("TV", hpwatch.text_of(x.get("title")).strip())
             if prog:
                 guid = f"{site}-media-{rss.media_keys(x)[0]}"
-                found[guid] = {"guid": guid, "air": air, "station": station, "program": prog, "weekly": True}
+                s_ = x.get("schedule") or {}
+                found[guid] = {"guid": guid, "air": air, "station": station, "program": prog, "weekly": True,
+                               "start": s_.get("start") or "", "label": s_.get("label") or ""}
     return list(found.values())
+
+
+def no_tver_programs(path):
+    """programs.json で、TVer に無い番組（no_tver）の、そろえた番組名の集まり。探さない"""
+    try:
+        with open(path, encoding="utf-8") as f:
+            progs = (json.load(f) or {}).get("programs", {})
+    except (OSError, ValueError):
+        return set()
+    return {norm(p.get("name")) for p in progs.values() if p.get("no_tver") and p.get("name")}
 
 
 def has_series(path, prog):
@@ -270,16 +362,21 @@ def search_rows(page, program):
     return [parse_row(h, t) for h, t in raw]
 
 
-def make_entry(it, href, exact, today, ep_date=None, ep_title=""):
-    """自動の分の1件。同じ日の回は「TVer」、近い日の回は「TVer（近い日の回）」（match で、探し直す・直す入り口にも使う）。
+def make_entry(it, href, exact, today, ep_date=None, ep_title="", prev_gap=None):
+    """自動の分の1件。同じ日の回は「TVer」、近い日の回は「TVer（近い日の回）」、今週の回がまだ無くて、直前の回を付けた分は「TVer（先週分）」
+    （最新の回が、10日以上前なら「TVer（前の回）」）（match で、探し直す・直す入り口にも使う）。
     ep: どの回か（TVer の「◯月◯日放送分」の日付と、エピソードの題名）。手で入れるページが、放送日とのずれを見せるのに使う"""
-    link = {"label": LABEL_EXACT if exact else LABEL_NEAR, "url": EPISODE + href}
+    if prev_gap is not None:
+        label, match = (LABEL_PREV if prev_gap < PREV_LONG else LABEL_PREV_LONG), "prev"
+    else:
+        label, match = (LABEL_EXACT if exact else LABEL_NEAR), ("exact" if exact else "near")
+    link = {"label": label, "url": EPISODE + href}
     if ep_date:
         link["ep"] = {"date": ep_date.isoformat(), "kind": "air", "title": (ep_title or "")[:60]}
     return {
         "guid": it["guid"], "air": str(it["air"]), "until": str(it["air"] + dt.timedelta(days=DAYS_AFTER)),
         "links": [link], "source": "auto", "found": today.isoformat(),
-        "match": "exact" if exact else "near", "rule": RULE,
+        "match": match, "rule": RULE,
     }
 
 
@@ -310,7 +407,12 @@ def main():
     recheck = {g for g, e in auto.items() if has_link(e) and not settled(e) and g not in manual}
     todo = items_to_check(args.state_dir, today, known)
     seen = {it["guid"] for it in todo}
-    todo += [it for it in weekly_tv_items(today) if it["guid"] not in known and it["guid"] not in seen]
+    weekly_all = weekly_tv_items(today)   # 前後14日。回の決め方（最速の局の放送の日時）に使う。探すのは、そのうち3日前までの分
+    in_window = lambda it: today - dt.timedelta(days=DAYS_AFTER) <= it["air"] <= today
+    todo += [it for it in weekly_all if in_window(it) and it["guid"] not in known and it["guid"] not in seen]
+    skip = no_tver_programs(args.programs)   # TVer に無い番組（探さない）
+    todo = [it for it in todo if norm(it["program"]) not in skip]
+    now = dt.datetime.now(JST).replace(tzinfo=None, microsecond=0)
     programs = {}
     for it in todo:
         programs.setdefault(it["program"], []).append(it)
@@ -343,14 +445,22 @@ def main():
                     continue
                 first_href = None
                 for it in its:
-                    row, ep_d, exact = pick_row(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
+                    prev_gap = None
+                    if it.get("weekly") and it.get("start"):
+                        res = cycle_pick(rows, prog, it, weekly_all, now) if rows else None
+                        row, ep_d, exact, gap = res if res else (None, None, False, None)
+                        if row and not exact and gap >= PREV_GAP:
+                            prev_gap = gap   # 今週の回がまだ上がっていない（月2回・月1回の番組も）。直前の回を、先週分・前の回として付ける
+                    else:
+                        row, ep_d, exact = pick_row(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
                     href = row["href"] if row else None
                     if rows:
                         searched.add(it["guid"])
                     if href:
                         first_href = first_href or href
-                        found[it["guid"]] = make_entry(it, href, exact, today, ep_d, row.get("sub", ""))
-                        print(f"  {prog} {it['air']}: {EPISODE + href}{'' if exact else '（近い日の回。本当の回が上がったら差し替える）'}")
+                        found[it["guid"]] = make_entry(it, href, exact, today, ep_d, row.get("sub", ""), prev_gap)
+                        note = "" if exact else "（先週分。今週の回が上がったら差し替える）" if prev_gap is not None else "（近い日の回。本当の回が上がったら差し替える）"
+                        print(f"  {prog} {it['air']}: {EPISODE + href}{note}")
                     else:
                         print(f"  {prog} {it['air']}: 見つからない（{len(rows)} 件の結果）")
                 if first_href and not has_series(args.programs, prog):

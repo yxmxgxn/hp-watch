@@ -70,7 +70,7 @@ check(tver.pick_match(rows_s, "番組X", d24) == ("/episodes/same", True), "同�
 # 自動の分の書き方: 近い日の回は、名前で分ける
 it0 = {"guid": "g1", "air": d24}
 e_ex, e_ne = tver.make_entry(it0, "/episodes/a", True, d24), tver.make_entry(it0, "/episodes/b", False, d24)
-check(e_ex["rule"] == tver.RULE == 3, "自動の分: 選び方の版を残す（版が違う昔の分は、1回、探し直す）")
+check(e_ex["rule"] == tver.RULE == 4, "自動の分: 選び方の版を残す（版が違う昔の分は、1回、探し直す）")
 check(e_ex["links"][0]["label"] == "TVer" and e_ex["match"] == "exact" and e_ne["links"][0]["label"] == "TVer（近い日の回）" and e_ne["match"] == "near", "自動の分: 同じ日の回は『TVer』、近い日の回は『TVer（近い日の回）』（match も残す）")
 
 # どの回か（ep）: エピソードの題名・日付をリンクに持たせる
@@ -80,6 +80,39 @@ row_p, d_p, ex_p = tver.pick_row([r_ep], "杜の都musicSPACE", dt.date(2026, 11
 check(row_p["href"] == "/episodes/z" and d_p == dt.date(2026, 11, 24) and ex_p is False, "選んだ行と、その回の日付も返す（前の日の回＝近い日）")
 e_ep = tver.make_entry({"guid": "g", "air": dt.date(2026, 11, 25)}, "/episodes/z", False, dt.date(2026, 11, 25), d_p, r_ep["sub"])
 check(e_ep["links"][0]["ep"] == {"date": "2026-11-24", "kind": "air", "title": r_ep["sub"][:60]} and "ep" not in tver.make_entry({"guid": "g", "air": dt.date(2026, 11, 25)}, "/episodes/z", True, dt.date(2026, 11, 25))["links"][0], "自動の分: リンクに、どの回か（日付・題名）を持つ（無ければ付けない）")
+
+# 毎週の番組を、最速の局の放送の日時で、回に決める（西乃風ブラン堂: MBS が最速。MBS より前の放送は、1つ前の回）
+D = dt.date
+rows_n = [tver.parse_row("/episodes/e215", "西乃風ブラン堂\n＃215「温泉」\nMBS 11月23日(月)放送分\n配信終了まで1週間以上"),
+          tver.parse_row("/episodes/e214", "西乃風ブラン堂\n＃214「ホテル」\nMBS 11月16日(月)放送分\n配信終了まで1週間以上"),
+          tver.parse_row("/episodes/e213", "西乃風ブラン堂\n＃213「港町」\nMBS 11月9日(月)放送分\n12月1日(火)0:58 終了予定")]
+check(rows_n[2]["ends"] == (12, 1, 0, 58) and "ends" not in rows_n[0], "検索結果の行: 配信の終了予定を読む（『1週間以上』は無し）")
+O = lambda air, st, station: {"guid": f"{station}{air}", "air": air, "start": st, "station": station, "program": "西乃風ブラン堂", "weekly": True, "label": "毎週月曜日"}
+ctx_n = [O(D(2026, 11, 23), "24:59", "MBS"), O(D(2026, 11, 16), "24:59", "MBS"), O(D(2026, 11, 23), "10:58", "RCCテレビ"),
+         O(D(2026, 11, 22), "05:45", "RSK山陽放送"), O(D(2026, 11, 24), "25:00", "テレビ山口"), O(D(2026, 11, 25), "24:26", "テレビ高知")]
+NOW = dt.datetime(2026, 11, 25, 12, 0)
+cp = lambda occ: tver.cycle_pick(rows_n, "西乃風ブラン堂", occ, ctx_n, NOW)
+r_mbs = cp(ctx_n[0])
+check(r_mbs[0]["href"] == "/episodes/e215" and r_mbs[2] is True, "最速の局（MBS）の放送そのものは、その回（exact）")
+r_rcc = cp(ctx_n[2])
+check(r_rcc[0]["href"] == "/episodes/e214" and r_rcc[2] is False, "MBS の放送（11/24 0:59）より前の放送（RCC 11/23 10:58）は、1つ前の回（#214）。同じ日付でも、時刻で分ける")
+check(cp(ctx_n[3])[0]["href"] == "/episodes/e214", "MBS より前の放送（RSK 11/22）は、1つ前の回")
+check(cp(ctx_n[4])[0]["href"] == "/episodes/e215" and cp(ctx_n[5])[0]["href"] == "/episodes/e215", "MBS より後の放送（テレビ山口・テレビ高知）は、その回（近い日の回）")
+r_next = cp(O(D(2026, 11, 30), "24:59", "MBS"))
+check(r_next[0]["href"] == "/episodes/e215" and r_next[3] >= tver.PREV_GAP, "来週の回がまだ上がっていないとき、最新の回との間隔が1週間以上になる（先週分にする）")
+check(tver.cycle_pick(rows_n, "西乃風ブラン堂", O(D(2026, 11, 2), "05:00", "RSK山陽放送"), ctx_n, NOW) is None, "どの回より前の放送には、回が無い")
+soon = [tver.parse_row("/episodes/old", "西乃風ブラン堂\nx\nMBS 11月16日(月)放送分\n11月25日(水)20:00 終了予定")]
+check(tver.cycle_pick(soon, "西乃風ブラン堂", ctx_n[0], ctx_n, NOW) is None, "配信がまもなく終わる回は選ばない（開いたら、見られない）")
+check(tver.air_time(D(2026, 11, 23), "24:59") == dt.datetime(2026, 11, 24, 0, 59) and tver.air_time(D(2026, 11, 23), "") is None, "放送の日時: 24:59 は翌日の0:59。開始が無ければ None")
+check(tver.same_station("MBS", "MBS") and tver.same_station("テレビ東京系", "テレビ東京") and not tver.same_station("MBS", "RCCテレビ"), "局の名前の合わせ方")
+check(not tver.same_station("テレ東", "BSテレ東") and tver.same_station("BSテレ東", "BSテレ東") and tver.same_station("BS12", "BS12 トゥエルビ"), "BS の局と、地上波の局は、別の局（テレ東とBSテレ東）")
+e_pv = tver.make_entry({"guid": "g", "air": D(2026, 11, 25)}, "/episodes/e215", False, D(2026, 11, 25), D(2026, 11, 18), "x", 7.0)
+e_pl = tver.make_entry({"guid": "g", "air": D(2026, 11, 27)}, "/episodes/e215", False, D(2026, 11, 27), D(2026, 11, 13), "x", 14.0)
+check(e_pv["links"][0]["label"] == "TVer（先週分）" and e_pv["match"] == "prev" and e_pl["links"][0]["label"] == "TVer（前の回）" and e_pl["match"] == "prev", "直前の回: 1週間前後は『TVer（先週分）』、10日以上前は『TVer（前の回）』（match: prev）")
+with tempfile.TemporaryDirectory() as d4:
+    p4 = os.path.join(d4, "programs.json")
+    json.dump({"programs": {"TV|a": {"name": "カナフルTV", "cat": "TV", "no_tver": True}, "TV|b": {"name": "キタコイ", "cat": "TV"}}}, open(p4, "w", encoding="utf-8"))
+    check(tver.no_tver_programs(p4) == {tver.norm("カナフルTV")} and tver.no_tver_programs(os.path.join(d4, "x.json")) == set(), "TVer に無い番組（no_tver）は、探さない")
 
 # 番組のページ（series）: エピソードのページから取る
 check(tver.parse_series('<a href="/series/sr1ea8bikm">番組TOP</a><a href="/series/srzzzzzzzz">x</a>') == "https://tver.jp/series/sr1ea8bikm", "番組のページ: エピソードのページから、最初の series を取る")

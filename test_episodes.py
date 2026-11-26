@@ -1,6 +1,8 @@
 """episodes.py の確かめ（ネットワークなし）。  python3 test_episodes.py"""
 import datetime as dt
 
+import copy
+
 import episodes as ep
 
 ok = 0
@@ -99,5 +101,36 @@ check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 17), dedicated=True)["link
 check(ep.match_youtube(v3, ["BOOKSTAND"], D(2026, 11, 18), dedicated=True) is None, "専用のチャンネル: 別の日付（11/17放送）と書いてある動画は、公開日の11/18には選ばない")
 check([ep.youtube_label(v) for v in v3] == ["YouTube版", "YouTube（放送分）"] and ep.youtube_label({"title": "x", "date": D(2026, 11, 1), "desc": ""}) == "YouTube", "リンクの名前: YouTube版／YouTube（放送分）／YouTube")
 check(ep.ep_info(v3[1])["note"] == "2026年11月17日放送 #453" and ep.ep_info(v3[1])["titled"] == "2026-11-17", "どの回か: 説明欄の1行目（note）と、そこに書かれた日付（titled）")
+
+# 今週の回がまだ無いとき: 直前の回を『先週分』として付ける（Juice=Juice: ポッドキャストは、放送の約1週間後に出る）
+J = lambda n, titled, pub: {"title": f"#0{n} Juice=Juice ジューシー・トーク（{titled.year}年{titled.month}月{titled.day}日放送分）", "link": f"https://omny.fm/{n}", "audio": "", "date": pub}
+eps_j = [J(6, D(2026, 11, 15), D(2026, 11, 23)), J(5, D(2026, 11, 8), D(2026, 11, 16)), J(4, D(2026, 11, 1), D(2026, 11, 9))]
+pv = ep.prev_podcast(eps_j, D(2026, 11, 22))
+check(pv[0]["link"].endswith("/6") and pv[1] == D(2026, 11, 15), "先週分: 11/22 の放送には、まだ出ていない今週の回の代わりに、直前の回（題名の日付が 11/15 の #06）")
+check(ep.prev_podcast(eps_j, D(2026, 11, 15))[0]["link"].endswith("/5") and ep.prev_podcast(eps_j, D(2026, 10, 1)) is None, "先週分: その放送より前の回だけ（11/15 の放送には、11/8 の回）。14日より前の回しか無ければ付けない")
+check(ep.prev_label("ポッドキャスト", 7) == "ポッドキャスト（先週分）" and ep.prev_label("ポッドキャスト", 14) == "ポッドキャスト（前の回）", "先週分: 10日までは『先週分』、それより前は『前の回』")
+check(ep.ep_info(eps_j[0], prev=True)["prev"] is True and "prev" not in ep.ep_info(eps_j[0]), "どの回か: 先週分の印（prev）")
+old_p = [{"guid": "g22", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "ポッドキャスト（先週分）", "url": "https://omny.fm/6", "ep": {"prev": True, "date": "2026-11-23"}}]}]
+real = [{"guid": "g22", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "ポッドキャスト", "url": "https://omny.fm/7", "ep": {"date": "2026-12-01"}}]}]
+m1 = ep.merge_entries(copy.deepcopy(old_p), real, D(2026, 11, 30))
+check([l["url"] for l in m1[0]["links"]] == ["https://omny.fm/7"], "本当の回が出たら、昔の『先週分』は外れる")
+newer = [{"guid": "g22", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "ポッドキャスト（先週分）", "url": "https://omny.fm/6b", "ep": {"prev": True}}]}]
+m2 = ep.merge_entries(copy.deepcopy(old_p), newer, D(2026, 11, 30))
+check([l["url"] for l in m2[0]["links"]] == ["https://omny.fm/6b"], "直前の回が変わったら、昔の『先週分』は、新しい『先週分』に替わる")
+yt_keep = [{"guid": "g22", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "YouTube", "url": "https://y/1"}, {"label": "ポッドキャスト（先週分）", "url": "https://omny.fm/6", "ep": {"prev": True}}]}]
+m3 = ep.merge_entries(copy.deepcopy(yt_keep), real, D(2026, 11, 30))
+check(sorted(l["url"] for l in m3[0]["links"]) == ["https://omny.fm/7", "https://y/1"], "ほかの種類のリンク（YouTube）は、残る")
+
+# YouTube: 今週の動画がまだ無いとき、直前の動画を付ける（月2回の番組は『前の回』）
+V = lambda link, pub, title="ええじゃないか！！# 200　11月8日放送回": {"title": title, "link": link, "date": pub, "desc": ""}
+vids_e = [V("https://y/201", D(2026, 11, 24), "ええじゃないか！！# 201　11月22日放送回"), V("https://y/200", D(2026, 11, 18)), V("https://y/199", D(2026, 10, 25), "ええじゃないか！！#199 　10月25日放送回")]
+pvv = ep.prev_video(vids_e, ["ええじゃないか"], D(2026, 11, 22))
+check(pvv[0]["link"] == "https://y/200" and pvv[1] == D(2026, 11, 8), "YouTube: 11/22 の動画がまだ無いとき、直前の動画（題名の日付が 11/8 の #200）")
+check(ep.prev_video(vids_e, ["ええじゃないか"], D(2026, 12, 13))[0]["link"] == "https://y/201" and ep.prev_video(vids_e, ["ええじゃないか"], D(2026, 12, 20)) is None, "YouTube: 21日より前の動画しか無ければ付けない")
+check(ep.prev_video([V("https://y/x", D(2026, 11, 20), "別の番組の動画")], ["ええじゃないか"], D(2026, 11, 22)) is None and ep.prev_video([V("https://y/x", D(2026, 11, 20), "別の番組の動画")], ["ええじゃないか"], D(2026, 11, 22), dedicated=True) is not None, "YouTube: 番組名が題名に無い動画は、専用のチャンネルでなければ付けない")
+check(ep.label_base("ポッドキャスト（先週分）") == "ポッドキャスト" and ep.label_base("YouTube版（前の回）") == "YouTube" and ep.label_base("YouTube（放送分）") == "YouTube" and ep.label_base("YouTube") == "YouTube", "リンクの名前の、種類の部分")
+old_y = [{"guid": "g1", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "YouTube版（前の回）", "url": "https://y/200", "ep": {"prev": True}}]}]
+new_y = [{"guid": "g1", "air": "2026-11-22", "until": "2026-12-06", "links": [{"label": "YouTube（放送分）", "url": "https://y/201", "ep": {"date": "2026-11-24"}}]}]
+check([l["url"] for l in ep.merge_entries(copy.deepcopy(old_y), new_y, D(2026, 11, 25))[0]["links"]] == ["https://y/201"], "YouTube: 本当の動画が出たら、昔の『前の回』（名前が『YouTube版』でも）は外れる")
 
 print(f"\nall {ok} ok")

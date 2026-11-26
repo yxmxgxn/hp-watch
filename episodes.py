@@ -148,7 +148,46 @@ def youtube_label(v):
     return "YouTube"
 
 
-def ep_info(e):
+PREV_LONG = 10   # 直前の回が、これより前（日）なら、『先週分』ではなく『前の回』
+
+
+def prev_podcast(eps, air):
+    """放送日（air）の回がまだ無いとき、直前の回（その放送より前の、いちばん新しい回）。(エピソード, 回の日付) または None。
+    回の日付は、題名に日付があればそれ、無ければ公開日。放送の14日前まで"""
+    best = None
+    for e in eps:
+        if not e["title"] or not (e["link"] or e["audio"]):
+            continue
+        ref = max(title_dates(e["title"], e["date"]) or {e["date"]})
+        if ref < air and (air - ref).days <= 14 and (best is None or ref > best[1]):
+            best = (e, ref)
+    return best
+
+
+def label_base(label):
+    """リンクの名前の、種類の部分（「ポッドキャスト（先週分）」→「ポッドキャスト」、「YouTube版（前の回）」→「YouTube」）"""
+    b = label.split("（")[0]
+    return b[:-1] if b.endswith("版") else b
+
+
+def prev_video(videos, name_words, air, dedicated=False):
+    """放送日（air）の動画がまだ無いとき、直前の動画（その放送より前の、いちばん新しい動画）。(動画, 回の日付) または None。放送の21日前まで"""
+    words = [rss.norm_name(w) for w in name_words if rss.norm_name(w)]
+    best = None
+    for v in videos:
+        if not v["link"] or not (dedicated or any(w in rss.norm_name(v["title"]) for w in words)):
+            continue
+        ref = max(video_dates(v) or {v["date"]})
+        if ref < air and (air - ref).days <= 21 and (best is None or ref > best[1]):
+            best = (v, ref)
+    return best
+
+
+def prev_label(base, gap_days):
+    return f"{base}（先週分）" if gap_days <= PREV_LONG else f"{base}（前の回）"
+
+
+def ep_info(e, prev=False):
     """どの回か（手で入れるページが、放送日とのずれを見せるのに使う）: 公開日・題名・題名に書かれた日付（あれば）"""
     titled = sorted(title_dates(e["title"] + " " + (e.get("desc") or ""), e["date"]))
     d = {"date": e["date"].isoformat(), "kind": "pub", "title": (e["title"] or "")[:60]}
@@ -156,6 +195,8 @@ def ep_info(e):
         d["note"] = e["desc"][:60]
     if titled:
         d["titled"] = titled[0].isoformat()
+    if prev:
+        d["prev"] = True   # 今週の回がまだ無くて、直前の回を付けた分（本当の回が出たら差し替える）
     return d
 
 
@@ -197,6 +238,11 @@ def merge_entries(old, found, today):
     for e in found:
         cur = keep.get(e["guid"])
         if cur:
+            # 本当の回が出たら（または直前の回が変わったら）、昔の『先週分』『前の回』は外す（同じ種類のリンクで、URL が違うもの）
+            for l in e["links"]:
+                base = label_base(l["label"])
+                cur["links"] = [x for x in cur.get("links") or []
+                                if not ((x.get("ep") or {}).get("prev") and label_base(x["label"]) == base and x["url"] != l["url"])]
             have_links = {l["url"]: l for l in cur.get("links") or []}
             for l in e["links"]:
                 if l["url"] in have_links:
@@ -246,7 +292,16 @@ def main():
                     air = dt.date.fromisoformat(air_s)
                     e = match_podcast(eps, air)
                     if not e:
-                        print(f"  {name} {air_s}: エピソードが無い（{len(eps)} 件）")
+                        pv = prev_podcast(eps, air) if air >= today - dt.timedelta(days=7) else None   # 今週（直近7日）の放送には、直前の回を『先週分』として付ける
+                        if pv:
+                            pe, ref = pv
+                            for o in (o for o in occ if o["air"] == air_s):
+                                found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
+                                              "links": [{"label": prev_label("ポッドキャスト", (air - ref).days), "url": episode_link(pe), "ep": ep_info(pe, prev=True)}],
+                                              "source": "podcast", "found": today.isoformat()})
+                            print(f"  {name} {air_s}: 今週の回がまだ無い。直前の回（{ref}）を付ける {episode_link(pe)}")
+                        else:
+                            print(f"  {name} {air_s}: エピソードが無い（{len(eps)} 件）")
                         continue
                     for o in (o for o in occ if o["air"] == air_s):
                         found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
@@ -258,7 +313,16 @@ def main():
                     air = dt.date.fromisoformat(air_s)
                     v = match_youtube(vids, src.get("match") or [name], air, dedicated=bool(src.get("youtube_dedicated")))
                     if not v:
-                        print(f"  {name} {air_s}: 動画が無い（{len(vids)} 本）")
+                        pv = prev_video(vids, src.get("match") or [name], air, dedicated=bool(src.get("youtube_dedicated"))) if air >= today - dt.timedelta(days=7) else None
+                        if pv:
+                            pvv, ref = pv   # 今週の動画がまだ無い。直前の動画を『先週分』『前の回』として付ける
+                            for o in (o for o in occ if o["air"] == air_s):
+                                found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
+                                              "links": [{"label": prev_label(youtube_label(pvv), (air - ref).days), "url": pvv["link"], "ep": ep_info(pvv, prev=True)}],
+                                              "source": "youtube", "found": today.isoformat()})
+                            print(f"  {name} {air_s}: 今週の動画がまだ無い。直前の動画（{ref}）を付ける {pvv['link']}")
+                        else:
+                            print(f"  {name} {air_s}: 動画が無い（{len(vids)} 本）")
                         continue
                     for o in (o for o in occ if o["air"] == air_s):
                         found.append({"guid": o["guid"], "air": air_s, "until": str(air + dt.timedelta(days=UNTIL_DAYS)),
