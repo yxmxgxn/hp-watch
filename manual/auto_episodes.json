@@ -7,7 +7,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk"
+     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
+     "ep": {
+      "date": "2026-11-12",
+      "kind": "pub",
+      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
+      "note": "00:00～ VTR① 譜久村聖「もしも」"
+     }
     }
    ],
    "source": "youtube",
@@ -20,7 +26,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk"
+     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
+     "ep": {
+      "date": "2026-11-12",
+      "kind": "pub",
+      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
+      "note": "00:00～ VTR① 譜久村聖「もしも」"
+     }
     }
    ],
    "source": "youtube",
@@ -33,7 +45,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk"
+     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
+     "ep": {
+      "date": "2026-11-12",
+      "kind": "pub",
+      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
+      "note": "00:00～ VTR① 譜久村聖「もしも」"
+     }
     }
    ],
    "source": "youtube",
@@ -46,7 +64,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=7yfsZRuGmzM"
+     "url": "https://www.youtube.com/watch?v=7yfsZRuGmzM",
+     "ep": {
+      "date": "2026-11-13",
+      "kind": "pub",
+      "title": "【小田さくら ラストMC②】  さくらのしらべFINAL密着 アンジュルム「汗かいてカルナバル」LIVE MC 小田さく",
+      "note": "00:00～ アンジュルム「汗かいてカルナバル」LIVE"
+     }
     }
    ],
    "source": "youtube",
@@ -59,7 +83,13 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://omny.fm/shows/juicytalk/06-juice-juice-2026-11-15"
+     "url": "https://omny.fm/shows/juicytalk/06-juice-juice-2026-11-15",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "pub",
+      "title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）",
+      "titled": "2026-11-15"
+     }
     }
    ],
    "source": "podcast",
@@ -72,7 +102,12 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm",
+     "ep": {
+      "date": "2026-11-15",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#190"
+     }
     }
    ],
    "source": "podcast",
@@ -85,7 +120,12 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm",
+     "ep": {
+      "date": "2026-11-15",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#190"
+     }
     }
    ],
    "source": "podcast",
@@ -98,7 +138,12 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/9diomk4hlc/episodes/ep-e3snkp4"
+     "url": "https://podcasters.spotify.com/pod/show/9diomk4hlc/episodes/ep-e3snkp4",
+     "ep": {
+      "date": "2026-11-16",
+      "kind": "pub",
+      "title": "＃２１６　募金箱は僕が持ちますよ"
+     }
     }
    ],
    "source": "podcast",
@@ -111,7 +156,13 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://jfn-pods.com/program/300011924/voice/iuuYVzC9Mp"
+     "url": "https://jfn-pods.com/program/300011924/voice/iuuYVzC9Mp",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "pub",
+      "title": "11/16 ゲストは稲垣悠一郎さん。稲垣さんが追求するクラッシック＋αとは！",
+      "titled": "2026-11-16"
+     }
     }
    ],
    "source": "podcast",
@@ -124,11 +175,36 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI190-e3sdlnm",
+     "ep": {
+      "date": "2026-11-15",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#190"
+     }
     }
    ],
    "source": "podcast",
    "found": "2026-11-24"
+  },
+  {
+   "guid": "jproom-media-hd16eaa28695b078a",
+   "air": "2026-11-17",
+   "until": "2026-12-01",
+   "links": [
+    {
+     "label": "YouTube（放送分）",
+     "url": "https://www.youtube.com/watch?v=YJhaYrSP_bU",
+     "ep": {
+      "date": "2026-11-18",
+      "kind": "pub",
+      "title": "【文章の書き方に正解はあるのか？】ライター・武田砂鉄さんが新刊『書くとは何か』を語る！さらに「AI武田砂鉄」とのまさかの",
+      "note": "2026年11月17日放送 #453",
+      "titled": "2026-11-17"
+     }
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-26"
   },
   {
    "guid": "hp-media-hfeb7eca05683b6a3",
@@ -137,7 +213,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=QFYFkPPTyk0"
+     "url": "https://www.youtube.com/watch?v=QFYFkPPTyk0",
+     "ep": {
+      "date": "2026-11-18",
+      "kind": "pub",
+      "title": "【杉山結菜 MC初登場！！①】  BEYOOOOONDS 日本武道館公演ダイジェストJuice=Juice 秋ツアー密着",
+      "note": "00:00～ 円陣"
+     }
     }
    ],
    "source": "youtube",
@@ -150,7 +232,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo"
+     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo",
+     "ep": {
+      "date": "2026-11-19",
+      "kind": "pub",
+      "title": "【M-line Music#272】タイム・マシーン XXXX「君の代わりは居やしない」／譜久村聖「もうどうでもよくなっ",
+      "note": "00:00～ VTR① 譜久村聖・小関舞・山﨑愛生・櫻井梨央・為永幸音・川名凜・西﨑美空「君の代わりは居やしない」"
+     }
     }
    ],
    "source": "youtube",
@@ -163,7 +251,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo"
+     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo",
+     "ep": {
+      "date": "2026-11-19",
+      "kind": "pub",
+      "title": "【M-line Music#272】タイム・マシーン XXXX「君の代わりは居やしない」／譜久村聖「もうどうでもよくなっ",
+      "note": "00:00～ VTR① 譜久村聖・小関舞・山﨑愛生・櫻井梨央・為永幸音・川名凜・西﨑美空「君の代わりは居やしない」"
+     }
     }
    ],
    "source": "youtube",
@@ -176,7 +270,13 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo"
+     "url": "https://www.youtube.com/watch?v=ZfT51mv2Qeo",
+     "ep": {
+      "date": "2026-11-19",
+      "kind": "pub",
+      "title": "【M-line Music#272】タイム・マシーン XXXX「君の代わりは居やしない」／譜久村聖「もうどうでもよくなっ",
+      "note": "00:00～ VTR① 譜久村聖・小関舞・山﨑愛生・櫻井梨央・為永幸音・川名凜・西﨑美空「君の代わりは居やしない」"
+     }
     }
    ],
    "source": "youtube",
@@ -190,10 +290,41 @@
     {
      "label": "YouTube",
      "url": "https://www.youtube.com/watch?v=Hao3VtrdUjM"
+    },
+    {
+     "label": "YouTube（先週分）",
+     "url": "https://www.youtube.com/watch?v=QFYFkPPTyk0",
+     "ep": {
+      "date": "2026-11-18",
+      "kind": "pub",
+      "title": "【杉山結菜 MC初登場！！①】  BEYOOOOONDS 日本武道館公演ダイジェストJuice=Juice 秋ツアー密着",
+      "note": "00:00～ 円陣",
+      "prev": true
+     }
     }
    ],
    "source": "youtube",
    "found": "2026-11-24"
+  },
+  {
+   "guid": "hp-media-h460aa602654cac6a",
+   "air": "2026-11-22",
+   "until": "2026-12-06",
+   "links": [
+    {
+     "label": "ポッドキャスト（先週分）",
+     "url": "https://omny.fm/shows/juicytalk/06-juice-juice-2026-11-15",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "pub",
+      "title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）",
+      "titled": "2026-11-15",
+      "prev": true
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
   },
   {
    "guid": "jproom-media-h5efb40478c9c6895",
@@ -202,7 +333,12 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#191"
+     }
     }
    ],
    "source": "podcast",
@@ -215,7 +351,12 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#191"
+     }
     }
    ],
    "source": "podcast",
@@ -228,11 +369,56 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=BKJRZ-raBnw"
+     "url": "https://www.youtube.com/watch?v=BKJRZ-raBnw",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "pub",
+      "title": "ええじゃないか！！# 201　11月22日放送回",
+      "note": "#ええじゃないか #201 #東京MX",
+      "titled": "2026-11-22"
+     }
     }
    ],
    "source": "youtube",
    "found": "2026-11-24"
+  },
+  {
+   "guid": "hp-media-h684ce21ebaa059aa",
+   "air": "2026-11-23",
+   "until": "2026-12-07",
+   "links": [
+    {
+     "label": "ポッドキャスト（先週分）",
+     "url": "https://jfn-pods.com/program/300011924/voice/iuuYVzC9Mp",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "pub",
+      "title": "11/16 ゲストは稲垣悠一郎さん。稲垣さんが追求するクラッシック＋αとは！",
+      "titled": "2026-11-16",
+      "prev": true
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "hp-media-hd6eaef8ffbdf86f6",
+   "air": "2026-11-23",
+   "until": "2026-12-07",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/9diomk4hlc/episodes/ep-e3strqf",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "pub",
+      "title": "＃２１７　カレーのルー"
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-26"
   },
   {
    "guid": "jproom-media-hbea7de92ff66439c",
@@ -241,10 +427,34 @@
    "links": [
     {
      "label": "ポッドキャスト",
-     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k"
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#191"
+     }
     }
    ],
    "source": "podcast",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "jproom-media-h70caf9607b75e050",
+   "air": "2026-11-24",
+   "until": "2026-12-08",
+   "links": [
+    {
+     "label": "YouTube版",
+     "url": "https://www.youtube.com/watch?v=whKvYgxgUtc",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "pub",
+      "title": "“これ『が』いい”ではなく“これ『で』いい”！ポテチ・缶コーヒー・ミスドまで、愛すべき“『で』な定番”をほっこり討論！ ",
+      "note": "BOOKSTAND.TV YouTube版 #94"
+     }
+    }
+   ],
+   "source": "youtube",
    "found": "2026-11-26"
   },
   {
@@ -254,11 +464,76 @@
    "links": [
     {
      "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=vCXMgkZbc4k"
+     "url": "https://www.youtube.com/watch?v=vCXMgkZbc4k",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "pub",
+      "title": "【OCHA NORMA秋ツアー 千秋楽】「また、あなたに恋焦がれているんだ」 BEYOOOOONDS「勝利のセンタク」ダ",
+      "note": "00:00～ OCHA NORMA「また、あなたに恋焦がれているんだ」LIVE（2026.11.21 川口総合文化センタ",
+      "titled": "2026-11-21",
+      "prev": true
+     }
     }
    ],
    "source": "youtube",
    "found": "2026-11-25"
+  },
+  {
+   "guid": "hp-media-h4df0c9cc903f0841",
+   "air": "2026-11-26",
+   "until": "2026-12-10",
+   "links": [
+    {
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=dDV5v7le8Mg",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "【M-line Music#273】宮本佳林 5周年LIVE「HANAMICHI」／「もしも」MV撮影の裏側／エムハロキ",
+      "note": "00:00～ VTR① 宮本佳林「HANAMICHI」"
+     }
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "jproom-media-h4df0c9cc903f0841",
+   "air": "2026-11-26",
+   "until": "2026-12-10",
+   "links": [
+    {
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=dDV5v7le8Mg",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "【M-line Music#273】宮本佳林 5周年LIVE「HANAMICHI」／「もしも」MV撮影の裏側／エムハロキ",
+      "note": "00:00～ VTR① 宮本佳林「HANAMICHI」"
+     }
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-26"
+  },
+  {
+   "guid": "upfront-media-h4df0c9cc903f0841",
+   "air": "2026-11-26",
+   "until": "2026-12-10",
+   "links": [
+    {
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=dDV5v7le8Mg",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "【M-line Music#273】宮本佳林 5周年LIVE「HANAMICHI」／「もしも」MV撮影の裏側／エムハロキ",
+      "note": "00:00～ VTR① 宮本佳林「HANAMICHI」"
+     }
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-26"
   }
  ]
 }
