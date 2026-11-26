@@ -1,6 +1,72 @@
 {
-"etag": "\"c9f665ae843adbdb5e90136cf8d53cc3\"",
+"etag": "\"5fb0ba9293fa12acd19369710377d628\"",
 "items": [
+{
+"categories": [
+"グッズ情報",
+"店舗",
+"アンジュルム"
+],
+"cats": [
+"goods",
+"shops"
+],
+"date": "2026-11-26T18:30:51+09:00",
+"general": false,
+"guid": "shop-201364",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/goods/20261126_201364.html",
+"name": "アンジュルム Blu-ray『ANGERME 2026 Spring final 陰と陽 DUALITY』",
+"sort": "2026-11-26T18:30:51+09:00",
+"title": "アンジュルム Blu-ray『ANGERME 2026 Spring final 陰と陽 DUALITY』",
+"who": [
+"angerme"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"アンジュルム"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T17:32:31+09:00",
+"general": false,
+"guid": "shop-211285",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211285.html",
+"name": "大阪店限定 『アンジュルム 橋迫鈴＆長野桃羽 大阪店来店写真』",
+"sort": "2026-11-26T17:32:31+09:00",
+"title": "大阪店限定 『アンジュルム 橋迫鈴＆長野桃羽 大阪店来店写真』",
+"who": [
+"angerme"
+]
+},
+{
+"categories": [
+"生写真情報",
+"店舗",
+"OCHA NORMA"
+],
+"cats": [
+"photo",
+"shops"
+],
+"date": "2026-11-26T17:30:38+09:00",
+"general": false,
+"guid": "shop-211280",
+"html": "",
+"link": "https://www.helloshop.info/goods-all/photo/20261126_211280.html",
+"name": "大阪店限定 『OCHA NORMA 広本瑠璃＆米村姫良々 大阪店来店写真』",
+"sort": "2026-11-26T17:30:38+09:00",
+"title": "大阪店限定 『OCHA NORMA 広本瑠璃＆米村姫良々 大阪店来店写真』",
+"who": [
+"ocha-norma"
+]
+},
 {
 "categories": [
 "イベント",
