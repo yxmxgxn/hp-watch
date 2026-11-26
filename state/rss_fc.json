@@ -11,6 +11,22 @@
 },
 "items": [
 {
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-26T20:00:00+09:00",
+"fcgroups": [
+"helloprokenshusei"
+],
+"guid": "fc-h3a71135f9a3b",
+"html": "<p>ニュース ・ 2026.11.26</p><p><a href=\"https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&amp;@tbl=contents&amp;@uid=KENSYUSEI\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/artist/trcontents_list.php?@pg=1&@tbl=contents&@uid=KENSYUSEI",
+"name": "Hello! Project 研修生リハーサル日記を更新しました。",
+"sort": "2026-11-2699",
+"title": "2026.11.26 [ニュース] Hello! Project 研修生リハーサル日記を更新しました。"
+},
+{
 "cat": "イベント",
 "categories": [
 "イベント"
