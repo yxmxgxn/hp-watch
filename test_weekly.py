@@ -113,4 +113,21 @@ with open(os.path.join(st, "og.png"), "rb") as f:
 check(hdr[:8] == b"\x89PNG\r\n\x1a\n" and struct.unpack(">II", hdr[16:24]) == (1200, 630), "static/og.png: 1200x630 の PNG")
 check(all(os.path.getsize(os.path.join(st, n)) > 100 for n in ("favicon.ico", "icon-192.png", "icon-512.png", "apple-touch-icon.png")), "static/: ファビコンのファイルがある")
 
+# 今日の予定のページ（/today/）: 今日・これから7日先まで・これまで3日前まで
+def mk(date, title, station="TBS", cat="TV", start="24:58", who="出演者"):
+    return {"date": date, "category": cat, "title": {"content": f"{station}「{title}」"}, "schedule": {"start": start}, "artists": [], "status": "", "link": ""}
+now_t = dt.datetime(2026, 11, 26, 12, 0, tzinfo=rss.JST)
+sched_t = [mk("2026-11-22", "四日前"), mk("2026-11-23", "三日前"), mk("2026-11-26", "今日の番組"), mk("2026-11-27", "明日の番組"), mk("2026-12-03", "七日後"), mk("2026-12-04", "八日後")]
+days_t = rss.today_days("hp", "https://example.test", sched_t, now_t, None)
+check([d["date"] for d in days_t] == ["2026-11-23", "2026-11-26", "2026-11-27", "2026-12-03"], "今日の予定のページ: 3日前から7日後まで（4日前・8日後は載せない）")
+rss.TODAY_PAGES["hp"] = days_t
+page_t = rss.today_page("hp", now_t)
+check('<details class="day" id="d-2026-11-26" open>' in page_t and 'id="d-2026-11-27">' in page_t and 'id="d-2026-11-23">' in page_t and "四日前" not in page_t and "八日後" not in page_t, "今日の予定のページ: 今日は開いている。これから・これまでは折りたたみ。範囲の外は載せない")
+check(page_t.index("今日 11/26") < page_t.index("これから（明日") < page_t.index("これまで（昨日"), "今日の予定のページ: 今日 → これから → これまで の順")
+check('href="/today/jproom/"' in page_t and 'class="on">ハロプロ' in page_t and 'href="/today/upfront/"' in page_t, "今日の予定のページ: サイトの切り替え（ハロプロ・JPROOM・アップフロント）")
+check('<link rel="canonical" href="https://hello-rss.karin-archive.com/today/">' in page_t and "og:image" in page_t and 'class="site-foot"' in page_t, "今日の予定のページ: 共有の画像・フッターも、ほかのページと同じ")
+check(rss.today_page_url("hp", "2026-11-25").endswith("/today/#d-2026-11-25") and rss.today_page_url("jproom").endswith("/today/jproom/"), "今日の予定のページの URL")
+rss.TODAY_PAGES.clear()
+check('href="today/"' in rss.index_html([], now_t) and 'href="/today/"' in rss.footer_html() if hasattr(rss, "footer_html") else 'href="/today/"' in sitemeta.footer_html(), "トップ・フッターから、今日の予定のページへ")
+
 print(f"\nall {ok} ok")

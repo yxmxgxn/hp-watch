@@ -477,7 +477,7 @@ def radiko_link_list(items, rk):
     return list(dict.fromkeys(out))
 
 
-def today_row_html(r, base, rk, site="", ctx=None):
+def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
     x = r["items"][0]
     link = abs_link(base, hpwatch.link_of(x))
     prog = r["prog"]
@@ -492,7 +492,7 @@ def today_row_html(r, base, rk, site="", ctx=None):
     lines = [head]
     if r["who"]:
         lines.append(f"出演: {escape(r['who'])}")
-    if r["cat"] == "RADIO" and r["start"] and not r["status"]:
+    if timefree and r["cat"] == "RADIO" and r["start"] and not r["status"]:
         rl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in radiko_link_list(r["items"], rk)]
         if rl:
             lines.append(" ".join(rl))
@@ -517,6 +517,37 @@ def today_row_html(r, base, rk, site="", ctx=None):
     return "<li>" + "<br>".join(lines) + "</li>"
 
 
+TODAY_PAGES = {}   # サイト → 今日の予定のページの、日ごとの中身（build_site が足す）
+PAGE_BACK = 3      # 今日の予定のページ: 何日前から
+PAGE_AHEAD = 7     # 今日の予定のページ: 何日先まで
+
+
+def today_page_url(site, day=None):
+    """今日の予定のページ（ハロプロは /today/、ほかは /today/{サイト}/）の URL。day があれば、その日の位置へ"""
+    path = "/today/" if site == "hp" else f"/today/{site}/"
+    return sitemeta.SITE_URL.rstrip("/") + path + (f"#d-{day}" if day else "")
+
+
+def today_days(site, base, schedules, now, rk, ctx=None, back=PAGE_BACK, ahead=PAGE_AHEAD):
+    """今日の予定のページの、日ごとの中身（今日の back 日前から ahead 日先まで。古い順）。予定が無い日は入れない。
+    これからの日（今日より先）は、まだ放送していないので、radiko のタイムフリーは出さない（生放送・番組のリンクだけ）"""
+    by_date = {}
+    for x in schedules:
+        if x.get("date"):
+            by_date.setdefault(x["date"], []).append(x)
+    out = []
+    today = now.date()
+    for i in range(-back, ahead + 1):
+        day = today + dt.timedelta(days=i)
+        d = day.isoformat()
+        rows = today_rows(by_date.get(d) or [])
+        if not rows:
+            continue
+        out.append({"date": d, "offset": i, "title": f"{md(d)}の予定（{len(rows)}件）",
+                    "html": "<ul>" + "".join(today_row_html(r, base, rk, site, ctx, timefree=i <= 0) for r in rows) + "</ul>"})
+    return out
+
+
 def today_items(site, base, schedules, now, rk, ctx=None):
     """直近 TODAY_DAYS 日の「今日の予定」。JSON から毎回作り直す（過去の日の予定もJSONに残っている）"""
     by_date = {}
@@ -530,7 +561,8 @@ def today_items(site, base, schedules, now, rk, ctx=None):
         rows = today_rows(by_date.get(d) or [])
         if not rows:
             continue
-        html = ("<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
+        html = (f"<p><a href={quoteattr(today_page_url(site, d))}>最新の内容を見る</a>（リーダーの記事は、あとから付くリンクが、反映されないことがあります）</p>"
+                "<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
                 "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）。放送中は radiko の生放送で聴けます。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
@@ -730,6 +762,7 @@ def build_site(site, cfg, out, state_dir, feed_base, now, rk):
         f"{cfg['label']} 今日の予定", f"{base} のスケジュールから、その日の予定を毎朝1本にまとめたもの・非公式",
         base + cfg.get("schedule_path", "/schedule/"), url, newest(today_items(site, base, schedules, now, rk, ctx))))
     feeds.append({"site": site, "kind": "today", "name": name, "url": url})
+    TODAY_PAGES[site] = today_days(site, base, schedules, now, rk, ctx)
 
     # 選択式フィードの元データ（人・グループは、プロフィールの順。種別: group・unit はグループ、member・solo は人）
     who_info = list(pm.values())
@@ -1292,7 +1325,7 @@ ABOUT_BODY = (
     "<h3>どういうフィードか</h3><ul>"
     "<li><b>お知らせ</b>: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります。</li>"
     "<li><b>MEDIA（出演）</b>: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前）。毎週・毎月の番組は含めません。ラジオには radiko のタイムフリーのリンクが付きます。</li>"
-    "<li><b>今日の予定</b>: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて全部です。</li>"
+    "<li><b>今日の予定</b>: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて全部です。サイトの<a href=\"/today/\">今日の予定のページ</a>では、3日前から7日後まで、リンクがいつでも最新で見られます（リーダーの記事は、あとから付くリンクが反映されないことがあるので）。</li>"
     "<li><b>ファンクラブ</b>: ニュースを、タブ別（ニュース・イベント・コンサート・グッズなど）とグループ別に配ります。"
     "更新の印が無いので、動かすたびに「すべて」の一覧を見て、新しい記事を足します。グループ別は、そのグループのページの一覧に載っているかで決めます。</li>"
     "<li><b>ハロショ</b>: 公式の RSS から、題名・リンク・日時・カテゴリだけにして溜めます。選んで作る RSS で読みます。</li>"
@@ -1382,6 +1415,71 @@ def changelog_html():
     return f'<h3 id="changes">更新履歴</h3><ul class="log">{rows}</ul>'
 
 
+TODAY_CSS = """
+main.today h1{margin-bottom:6px}
+main.today .tabs{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 16px}
+main.today .tabs a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}
+main.today .tabs a.on{font-weight:700;border-bottom-color:var(--accent)}
+main.today h2{font-size:1.1rem;margin:22px 0 6px}
+main.today ul{list-style:none;padding:0;margin:4px 0}
+main.today li{display:block;padding:8px 0;border-bottom:1px solid var(--line)}
+main.today details.day{margin:6px 0}
+main.today details.day>summary,main.today details.grp>summary{cursor:pointer;font-weight:700;padding:4px 0}
+main.today details.grp>summary{font-size:1.05rem;margin-top:14px}
+main.today details.grp>.inner{margin-left:8px}
+"""
+
+TODAY_JS = r"""
+(function () {
+  var h = decodeURIComponent(location.hash.slice(1));
+  if (!h) return;
+  var el = document.getElementById(h), t = el;
+  while (el) { if (el.tagName === "DETAILS") el.open = true; el = el.parentElement; }
+  if (t) t.scrollIntoView();
+})();
+"""
+
+
+def _day_block(d, open_=False):
+    return f'<details class="day" id="d-{d["date"]}"{" open" if open_ else ""}><summary>{escape(d["title"])}</summary>{d["html"]}</details>'
+
+
+def today_page(site, now):
+    """今日の予定のページ（今日・これから7日先まで・これまで3日前まで）。サイトを作り直すたびに、最新になる。
+    ハロプロは /today/、ほかは /today/{サイト}/。フィードのリーダーの記事が古いときに、ここで最新を見る"""
+    days = TODAY_PAGES.get(site) or []
+    today = [d for d in days if d["offset"] == 0]
+    ahead = sorted((d for d in days if d["offset"] > 0), key=lambda d: d["date"])
+    past = sorted((d for d in days if d["offset"] < 0), key=lambda d: d["date"], reverse=True)
+    label = SITES[site]["label"]
+    tabs = ""
+    for k in SITES:
+        href = today_page_url(k)[len(sitemeta.SITE_URL.rstrip("/")):]
+        tabs += f"<a href={quoteattr(href)}" + (' class="on"' if k == site else "") + f">{escape(SITES[k]['label'])}</a>"
+    body = [
+        f"<h1>今日の予定（{escape(label)}）</h1>",
+        f'<p class="mute">今日の前後の予定です。TVer・radiko・ポッドキャスト・YouTube のリンクは、見つかったら付きます（このページは、サイトを作り直すたびに、最新になります。更新: {now:%Y-%m-%d %H:%M} JST）。</p>',
+        f'<nav class="tabs">{tabs}</nav>',
+        f'<h2>今日 {escape(md(now.date().isoformat()))}</h2>',
+        _day_block(today[0], open_=True) if today else "<p>今日の予定は、ありません。</p>",
+        f'<details class="grp"><summary>これから（明日〜{PAGE_AHEAD}日後）</summary><div class="inner">'
+        + ("".join(_day_block(d) for d in ahead) or "<p>予定は、まだ載っていません。</p>") + "</div></details>",
+        f'<details class="grp"><summary>これまで（昨日〜{PAGE_BACK}日前）</summary><div class="inner">'
+        + ("".join(_day_block(d) for d in past) or "<p>予定は、ありません。</p>") + "</div></details>",
+        "<p class=\"mute\">それより前の日と、{0}日より先の日は、載せません。</p>".format(PAGE_AHEAD),
+    ]
+    return (
+        '<!doctype html><html lang="ja"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        + sitemeta.head_tags(f"今日の予定（{label}） ― {sitemeta.SITE_NAME}",
+                             f"{label}の、今日の前後（{PAGE_BACK}日前から{PAGE_AHEAD}日後まで）の予定。TVer・radiko・ポッドキャスト・YouTube のリンクつき。",
+                             "/today/" if site == "hp" else f"/today/{site}/")
+        + f"<style>{INDEX_CSS}{TODAY_CSS}</style></head>"
+        '<body><main class="today">' + "".join(body) + sitemeta.footer_html()
+        + f"</main><script>{TODAY_JS}</script></body></html>\n"
+    )
+
+
 def about_page(now):
     """このサイトについて（about/index.html）。どのサイトを読んでいるか・仕組み・フィードごとの扱い・絞り込み"""
     return (
@@ -1467,6 +1565,7 @@ def index_html(feeds, now, sources=()):
         "<p>公式サイトの情報を RSS にしたものです。リーダーにURLを登録して使います。</p>",
         '<p><a href="all.opml">全部まとめて登録する（OPML）</a></p>',
         '<p><a href="custom/">好きな人・グループ・カテゴリだけの RSS を作る</a></p>',
+        '<p><a href="today/"><b>今日の予定</b></a>（3日前から7日後まで。リンクは、いつでも最新です）</p>',
         '<p><a href="about/"><b>このサイトについて</b></a>（どのサイトを読んでいるか・仕組み・フィードの説明）</p>',
     ]
     for site in SITES:
@@ -1576,6 +1675,9 @@ def main():
     shutil.copytree(os.path.join(os.path.dirname(os.path.abspath(__file__)), "static"), args.out, dirs_exist_ok=True)
     write(os.path.join(args.out, "index.html"), index_html(feeds, now, sources))
     write(os.path.join(args.out, "about/index.html"), about_page(now))
+    for site in SITES:   # 今日の予定のページ（ハロプロは /today/、ほかは /today/{サイト}/）
+        if site in TODAY_PAGES:
+            write(os.path.join(args.out, "today/index.html" if site == "hp" else f"today/{site}/index.html"), today_page(site, now))
     write(os.path.join(args.out, "all.opml"), opml(feeds))
     selectable.write_options(args.out, sources)
     # 番組ごとの行き先（Spotify・ポッドキャスト・YouTube）の一覧。手で入れるページの「毎週」が読む（RSS のURLなどは載せない）
