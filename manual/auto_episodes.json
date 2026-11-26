@@ -1,63 +1,6 @@
 {
  "items": [
   {
-   "guid": "hp-media-h974a19e7906013bf",
-   "air": "2026-11-12",
-   "until": "2026-11-26",
-   "links": [
-    {
-     "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
-     "ep": {
-      "date": "2026-11-12",
-      "kind": "pub",
-      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
-      "note": "00:00～ VTR① 譜久村聖「もしも」"
-     }
-    }
-   ],
-   "source": "youtube",
-   "found": "2026-11-24"
-  },
-  {
-   "guid": "jproom-media-h974a19e7906013bf",
-   "air": "2026-11-12",
-   "until": "2026-11-26",
-   "links": [
-    {
-     "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
-     "ep": {
-      "date": "2026-11-12",
-      "kind": "pub",
-      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
-      "note": "00:00～ VTR① 譜久村聖「もしも」"
-     }
-    }
-   ],
-   "source": "youtube",
-   "found": "2026-11-24"
-  },
-  {
-   "guid": "upfront-media-h974a19e7906013bf",
-   "air": "2026-11-12",
-   "until": "2026-11-26",
-   "links": [
-    {
-     "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=xq9_EzHk6Vk",
-     "ep": {
-      "date": "2026-11-12",
-      "kind": "pub",
-      "title": "【M-line Music#271】M-line Sp 譜久村聖「もしも」／エムハロ12「Power Flower～今こ",
-      "note": "00:00～ VTR① 譜久村聖「もしも」"
-     }
-    }
-   ],
-   "source": "youtube",
-   "found": "2026-11-24"
-  },
-  {
    "guid": "hp-media-h5ffd6296d881fdde",
    "air": "2026-11-13",
    "until": "2026-11-27",
@@ -534,6 +477,27 @@
    ],
    "source": "youtube",
    "found": "2026-11-26"
+  },
+  {
+   "guid": "hp-media-h368ee2214c411d4e",
+   "air": "2026-11-27",
+   "until": "2026-12-11",
+   "links": [
+    {
+     "label": "YouTube（先週分）",
+     "url": "https://www.youtube.com/watch?v=vCXMgkZbc4k",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "pub",
+      "title": "【OCHA NORMA秋ツアー 千秋楽】「また、あなたに恋焦がれているんだ」 BEYOOOOONDS「勝利のセンタク」ダ",
+      "note": "00:00～ OCHA NORMA「また、あなたに恋焦がれているんだ」LIVE（2026.11.21 川口総合文化センタ",
+      "titled": "2026-11-21",
+      "prev": true
+     }
+    }
+   ],
+   "source": "youtube",
+   "found": "2026-11-27"
   }
  ]
 }
