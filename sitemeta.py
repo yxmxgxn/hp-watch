@@ -74,7 +74,7 @@ def footer_html():
     )
     return (
         '<footer class="site-foot">'
-        '<p><a href="/">一覧に戻る</a> ｜ <a href="/custom/">選んで作る RSS</a> ｜ <a href="/about/">このサイトについて</a></p>'
+        '<p><a href="/">一覧に戻る</a> ｜ <a href="/today/">今日の予定</a> ｜ <a href="/custom/">選んで作る RSS</a> ｜ <a href="/about/">このサイトについて</a></p>'
         + share +
         "<p>題名とリンクだけを配ります。本文は、公式のページでお読みください。</p>"
         '<p>個人が作った非公式のサイトです。<a href="/about/#contact">ご連絡はこちら</a>。</p>'
