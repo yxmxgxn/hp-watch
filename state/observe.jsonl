@@ -1548,3 +1548,6 @@
 {"site": "hp", "version": "2611261430-q7yt1c4NriUuBqeb", "versionTime": "2026-11-26T14:30:00+09:00", "runAt": "2026-11-26T14:30:47+09:00", "news": 0, "media": 0}
 {"site": "jproom", "version": "2611261430-q7yt1c4NriUuBqeb", "versionTime": "2026-11-26T14:30:00+09:00", "runAt": "2026-11-26T14:30:47+09:00", "news": 0, "media": 0}
 {"site": "upfront", "version": "2611261430-q7yt1c4NriUuBqeb", "versionTime": "2026-11-26T14:30:00+09:00", "runAt": "2026-11-26T14:30:47+09:00", "news": 0, "media": 1}
+{"site": "hp", "version": "2611261630-IanPGow4I3X3I1gj", "versionTime": "2026-11-26T16:30:00+09:00", "runAt": "2026-11-26T16:30:44+09:00", "news": 0, "media": 0}
+{"site": "jproom", "version": "2611261630-IanPGow4I3X3I1gj", "versionTime": "2026-11-26T16:30:00+09:00", "runAt": "2026-11-26T16:30:44+09:00", "news": 0, "media": 0}
+{"site": "upfront", "version": "2611261630-IanPGow4I3X3I1gj", "versionTime": "2026-11-26T16:30:00+09:00", "runAt": "2026-11-26T16:30:44+09:00", "news": 1, "media": 0}

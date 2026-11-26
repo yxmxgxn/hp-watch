@@ -32,6 +32,38 @@
 },
 "items": [
 {
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-26T16:00:00+09:00",
+"fcgroups": [
+"ishikawarika"
+],
+"guid": "mline-h0fdb832aae2b",
+"html": "<p>FCイベント ・ 2026.11.26</p><p><a href=\"https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp9000\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp9000",
+"name": "スペシャル会員ポイントプレゼント【チケット9000】情報更新！",
+"sort": "2026-11-2699",
+"title": "2026.11.26 [FCイベント] スペシャル会員ポイントプレゼント【チケット9000】情報更新！"
+},
+{
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-26T16:00:00+09:00",
+"fcgroups": [
+"ishikawarika"
+],
+"guid": "mline-zGmJ9V2RqJWsJmeT",
+"html": "<p>FCイベント ・ 2026.11.26</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=zGmJ9V2RqJWsJmeT\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=zGmJ9V2RqJWsJmeT",
+"name": "★ファンクラブ会員限定イベント★『石川梨華バースデーイベント～Happy Birthday ふぉーてぃーとぅー！！～』開催決定！",
+"sort": "2026-11-2698",
+"title": "2026.11.26 [FCイベント] ★ファンクラブ会員限定イベント★『石川梨華バースデーイベント～Happy Birthday ふぉーてぃーとぅー！！～』開催決定！"
+},
+{
 "cat": "コンテンツ",
 "categories": [
 "コンテンツ"
@@ -4639,36 +4671,6 @@
 "link": "https://www.upfc.jp/m-line/news_detail.php?@uid=G9bUEMJ4UzwAEGF7",
 "sort": "2025-01-0942",
 "title": "2025.01.09 [グッズ] 「宮崎由加・植村あかりファンクラブツアー in つま恋『はいはい、今日もゆかあーりー』」オリジナルトレーナー先行通信販売決定！"
-},
-{
-"cat": "FCイベント",
-"categories": [
-"FCイベント"
-],
-"date": "2024-12-20T12:00:00+09:00",
-"fcgroups": [
-"miyazakiyuka"
-],
-"guid": "mline-2xsjq8I28TzQGs9T",
-"html": "<p>FCイベント ・ 2024.12.20</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=2xsjq8I28TzQGs9T\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=2xsjq8I28TzQGs9T",
-"sort": "2024-12-2041",
-"title": "2024.12.20 [FCイベント] 「稲場愛香ファンクラブツアー ～伊豆へおいでよ♡なかまなかん！～」 開催決定！"
-},
-{
-"cat": "コンテンツ",
-"categories": [
-"コンテンツ"
-],
-"date": "2024-12-02T12:00:00+09:00",
-"fcgroups": [
-"miyazakiyuka"
-],
-"guid": "mline-h63568ef7c972",
-"html": "<p>コンテンツ ・ 2024.12.02</p><p><a href=\"https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=ZdbdpeWtAq9VxkpS&amp;ccid=24&amp;gid=35&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=ZdbdpeWtAq9VxkpS&ccid=24&gid=35&@rst=all",
-"sort": "2024-12-0240",
-"title": "2024.12.02 [コンテンツ] #ミヤザキ日記を更新しました。"
 }
 ],
 "people": [
