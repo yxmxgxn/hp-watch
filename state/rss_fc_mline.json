@@ -32,6 +32,38 @@
 },
 "items": [
 {
+"cat": "チケット",
+"categories": [
+"チケット"
+],
+"date": "2026-11-26T18:00:00+09:00",
+"fcgroups": [
+"suzukiairi"
+],
+"guid": "mline-mhDT2jFQTn9UunRB",
+"html": "<p>チケット ・ 2026.11.26</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=mhDT2jFQTn9UunRB\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=mhDT2jFQTn9UunRB",
+"name": "鈴木愛理ゲスト出演 Sora Kazuki concert 『unveil』FC先行受付のお知らせ",
+"sort": "2026-11-2699",
+"title": "2026.11.26 [チケット] 鈴木愛理ゲスト出演 Sora Kazuki concert 『unveil』FC先行受付のお知らせ"
+},
+{
+"cat": "チケット",
+"categories": [
+"チケット"
+],
+"date": "2026-11-26T18:00:00+09:00",
+"fcgroups": [
+"satomasaki"
+],
+"guid": "mline-Nz7FryW4Dqen8tEp",
+"html": "<p>チケット ・ 2026.11.26</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=Nz7FryW4Dqen8tEp\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=Nz7FryW4Dqen8tEp",
+"name": "『佐藤優樹 Live Tour 2027 (仮タイトル)』 FC2次受付のお知らせ",
+"sort": "2026-11-2698",
+"title": "2026.11.26 [チケット] 『佐藤優樹 Live Tour 2027 (仮タイトル)』 FC2次受付のお知らせ"
+},
+{
 "cat": "コンテンツ",
 "categories": [
 "コンテンツ"
@@ -4642,36 +4674,6 @@
 "link": "https://www.upfc.jp/m-line/news_detail.php?@uid=9ekQFne8ZiQWb9Rb",
 "sort": "2025-02-2044",
 "title": "2025.02.20 [グッズ] 『宮崎由加・植村あかりファンクラブツアー in つま恋「はいはい、今日もゆかあーりー」』オリジナルグッズ公開！"
-},
-{
-"cat": "コンテンツ",
-"categories": [
-"コンテンツ"
-],
-"date": "2025-02-07T12:00:00+09:00",
-"fcgroups": [
-"miyazakiyuka"
-],
-"guid": "mline-hcb7103918437",
-"html": "<p>コンテンツ ・ 2025.02.07</p><p><a href=\"https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=aGVz7bg7rHyD3ddB&amp;ccid=24&amp;gid=35&amp;@rst=all\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/artist/contents_detail.php?@uid=aGVz7bg7rHyD3ddB&ccid=24&gid=35&@rst=all",
-"sort": "2025-02-0743",
-"title": "2025.02.07 [コンテンツ] #ミヤザキ日記を更新しました。"
-},
-{
-"cat": "ニュース",
-"categories": [
-"ニュース"
-],
-"date": "2025-01-17T12:00:00+09:00",
-"fcgroups": [
-"tsujinozomi"
-],
-"guid": "mline-ZtP8vjs8FUZ3Ii4y",
-"html": "<p>ニュース ・ 2025.01.17</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=ZtP8vjs8FUZ3Ii4y\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=ZtP8vjs8FUZ3Ii4y",
-"sort": "2025-01-1735",
-"title": "2025.01.17 [ニュース] 『エグゼクティブパス2025』お申し込み開始のお知らせ"
 }
 ],
 "people": [
