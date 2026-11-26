@@ -1,3 +1,424 @@
 {
- "items": []
+ "items": [
+  {
+   "guid": "hp-media-h2bb52e6d193f7b4c",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h78290a0ec4f671da",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epxtrfn820",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "air",
+      "title": "BEYOOOOONDSの魅力を石田先輩熱弁＆横山剣さん降臨！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h7f1c8bc04a3420a8",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "jproom-media-h2bb52e6d193f7b4c",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "jproom-media-h78290a0ec4f671da",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epxtrfn820",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "air",
+      "title": "BEYOOOOONDSの魅力を石田先輩熱弁＆横山剣さん降臨！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "jproom-media-h7f1c8bc04a3420a8",
+   "air": "2026-11-24",
+   "until": "2026-11-27",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h2ffb0f0105455a53",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epxtrfn820",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "air",
+      "title": "BEYOOOOONDSの魅力を石田先輩熱弁＆横山剣さん降臨！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h4b6b2586fa82ed7f",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epru140q2j",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "ネスレ日本株式会社が次の100年へ向けて取り組む「意外な」事業とは？"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h5c7f6e85fd23f778",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epwoxfsoj6",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "「名もなき家事」が面倒だ 誰にも感謝されない…今夜は不満大爆発"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h78de752c9bd69100",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/ep7mroqd3r",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "浅倉樹々が登場「まだ水曜日」を深掘り！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-ha2078b811d946d63",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-hacf962b1e50eb87a",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epo53fw4sw",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "シリーズ２０２６　第３戦　準決勝第２試合"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-hf8aacb0d3bf76e90",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epouw84q0m",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "#13 鈴廣かまぼこの里を大冒険！後編"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "jproom-media-h2ffb0f0105455a53",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epxtrfn820",
+     "ep": {
+      "date": "2026-11-24",
+      "kind": "air",
+      "title": "BEYOOOOONDSの魅力を石田先輩熱弁＆横山剣さん降臨！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "jproom-media-ha2078b811d946d63",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epi2b18vv2",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "＃215「温泉の“とあるグルメ”が進化して話題!?新名物で世界中を惹きつける秘密を大調査」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "upfront-media-h4b6b2586fa82ed7f",
+   "air": "2026-11-25",
+   "until": "2026-11-28",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epru140q2j",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "ネスレ日本株式会社が次の100年へ向けて取り組む「意外な」事業とは？"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-h829489b053e5899e",
+   "air": "2026-11-26",
+   "until": "2026-11-29",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epo53fw4sw",
+     "ep": {
+      "date": "2026-11-25",
+      "kind": "air",
+      "title": "シリーズ２０２６　第３戦　準決勝第２試合"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-hd926ec7a21e535cc",
+   "air": "2026-11-26",
+   "until": "2026-11-29",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/ep7mroqd3r",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "air",
+      "title": "浅倉樹々が登場「まだ水曜日」を深掘り！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  },
+  {
+   "guid": "upfront-media-h185e4f830b117db2",
+   "air": "2026-11-26",
+   "until": "2026-11-29",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/ep08sf2lmu",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "air",
+      "title": "沖縄は汁の楽園！？大阪居酒屋で「座敷あるやん」"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "exact",
+   "rule": 4
+  },
+  {
+   "guid": "hp-media-hd67f2e4fcaea2350",
+   "air": "2026-11-27",
+   "until": "2026-11-30",
+   "links": [
+    {
+     "label": "TVer（先週分）",
+     "url": "https://tver.jp/episodes/epnnlepv0i",
+     "ep": {
+      "date": "2026-11-20",
+      "kind": "air",
+      "title": "週末探検！NEW甲府に大こうふんSP"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "prev",
+   "rule": 4
+  },
+  {
+   "guid": "upfront-media-h96ec9b5abe279d1b",
+   "air": "2026-11-27",
+   "until": "2026-11-30",
+   "links": [
+    {
+     "label": "TVer（近い日の回）",
+     "url": "https://tver.jp/episodes/epbkgh373n",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "air",
+      "title": "総勢80人が参戦！スポーツ＆音楽＆クイズ＆ビリビリの祭典！！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-27",
+   "match": "near",
+   "rule": 4
+  }
+ ]
 }
