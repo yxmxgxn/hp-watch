@@ -32,6 +32,11 @@ EPISODE = "https://tver.jp"
 PROGRAM = re.compile(r"^\s*(?P<station>.*?)\s*「(?P<program>.*)」\s*$")  # 局名「番組名」
 AIRED = re.compile(r"(?P<station>\S+)\s+(?P<m>\d{1,2})月(?P<d>\d{1,2})日\([^)]*\)放送分")  # 局 11月21日(土)放送分
 ENDS = re.compile(r"(?P<m>\d{1,2})月(?P<d>\d{1,2})日\([^)]*\)\s*(?P<h>\d{1,2}):(?P<mi>\d{2})\s*終了予定")  # 12月1日(火)0:58 終了予定
+# 2026年11月から、TVer の検索結果の書式が変わった（1行目に「21分」・放送日は「11/25(水)放送 TBS」・終了は「12/3(木)0:57 終了」「終了間近」「終了まで1週間以上」）。古い書式も読む
+DURATION = re.compile(r"^(?:\d+時間)?(?:\d+分)?$")
+AIRED_NEW = re.compile(r"^(?P<m>\d{1,2})/(?P<d>\d{1,2})\([^)]*\)(?:放送\s+|\s+\d{1,2}:\d{2}\s+)(?P<station>\S.*)$")   # 11/25(水)放送 TBS ・ 11/23(月) 20:09 山形放送
+ENDS_NEW = re.compile(r"^(?P<m>\d{1,2})/(?P<d>\d{1,2})\([^)]*\)\s*(?P<h>\d{1,2}):(?P<mi>\d{2})\s*終了$")   # 12/3(木)0:57 終了
+ENDS_IN = re.compile(r"^終了まで(?P<n>\d+)時間")   # 終了まで3時間（「終了まで1週間以上」「終了まで3日」は、まだ先）
 
 
 def norm(s):
@@ -48,19 +53,33 @@ def parse_program(name):
 
 
 def parse_row(href, text):
-    """検索結果の1行（リンクの文字）→ {href, title（番組名）, sub（エピソードの題名）, station, month, day}。放送日の行が無ければ month=None"""
+    """検索結果の1行（リンクの文字）→ {href, title（番組名）, sub（エピソードの題名）, station, month, day, ends?, ends_soon?}。放送日の行が無ければ month=None"""
     lines = [l.strip() for l in (text or "").split("\n") if l.strip()]
+    if len(lines) > 1 and DURATION.match(lines[0]):
+        lines = lines[1:]   # 1行目の「21分」（長さ）
     row = {"href": href, "title": lines[0] if lines else "", "sub": "", "station": "", "month": None, "day": None}
-    if len(lines) > 1 and not AIRED.search(lines[1]):
+
+    def is_meta(l):
+        return bool(AIRED.search(l) or AIRED_NEW.match(l) or ENDS_NEW.match(l) or l.startswith("終了"))
+
+    if len(lines) > 1 and not is_meta(lines[1]):
         row["sub"] = lines[1]
     for l in lines[1:]:
-        m = ENDS.search(l)
+        m = ENDS.search(l) or ENDS_NEW.match(l)
         if m:
             row["ends"] = (int(m.group("m")), int(m.group("d")), int(m.group("h")), int(m.group("mi")))
             break
-    for l in lines[1:]:
-        m = AIRED.search(l)
+        if l.startswith("終了間近"):
+            row["ends_soon"] = True
+            break
+        m = ENDS_IN.match(l)
         if m:
+            if int(m.group("n")) < SOON_HOURS:
+                row["ends_soon"] = True
+            break
+    for l in lines[1:]:
+        m = AIRED.search(l) or AIRED_NEW.match(l)
+        if m and m.group("station") != "終了":
             row.update(station=m.group("station"), month=int(m.group("m")), day=int(m.group("d")))
             break
     return row
@@ -159,7 +178,8 @@ def same_station(a, b):
 
 
 PREV_GAP = 6.5   # 放送が、その番組の最新の回の最初の放送から、これ以上（日）あとなら、今週の回がまだ上がっていない（最新の回は、先週分）
-SOON = dt.timedelta(hours=12)   # 配信が、これより早く終わる回は、選ばない（開いたら、見られない）
+SOON_HOURS = 12
+SOON = dt.timedelta(hours=SOON_HOURS)   # 配信が、これより早く終わる回は、選ばない（開いたら、見られない）
 
 
 def cycle_pick(rows, program, occ, ctx, now):
@@ -175,7 +195,7 @@ def cycle_pick(rows, program, occ, ctx, now):
         if r["month"] is None or not tver_title_matches(r["title"], program):
             continue
         ends = row_ends(r, occ["air"])
-        if ends and ends < now + SOON:
+        if r.get("ends_soon") or (ends and ends < now + SOON):
             continue
         d = nearest(occ["air"], r["month"], r["day"])
         if d is None:
@@ -444,6 +464,8 @@ def main():
                     print(f"  {prog}: 失敗 {str(e)[:80]}")
                     continue
                 first_href = None
+                if rows and not any(r["month"] is not None for r in rows):
+                    print(f"  {prog}: 結果は {len(rows)} 件あるのに、放送日が1行も読めない（TVer の書式が変わったかも）。昔の分は外さない")
                 for it in its:
                     prev_gap = None
                     if it.get("weekly") and it.get("start"):
@@ -454,8 +476,8 @@ def main():
                     else:
                         row, ep_d, exact = pick_row(rows, prog, it["air"], back=WEEKLY_BACK if it.get("weekly") else 0)
                     href = row["href"] if row else None
-                    if rows:
-                        searched.add(it["guid"])
+                    if rows and any(r["month"] is not None for r in rows):
+                        searched.add(it["guid"])   # 放送日が1行も読めないときは、TVer の書式が変わったとみて、昔の分を外さない
                     if href:
                         first_href = first_href or href
                         found[it["guid"]] = make_entry(it, href, exact, today, ep_d, row.get("sub", ""), prev_gap)

@@ -83,6 +83,24 @@ check(e_ep["links"][0]["ep"] == {"date": "2026-11-24", "kind": "air", "title": r
 
 # 毎週の番組を、最速の局の放送の日時で、回に決める（西乃風ブラン堂: MBS が最速。MBS より前の放送は、1つ前の回）
 D = dt.date
+# 2026年11月からの、TVer の検索結果の書式（1行目に「21分」・放送日は「11/25(水)放送 TBS」・終了は「12/3(木)0:57 終了」「終了間近」「終了まで1週間以上」）
+n1 = tver.parse_row("/episodes/epru140q2j", "21分\nふるさとの未来\nネスレ日本株式会社が次の100年へ向けて取り組む「意外な」事業とは？\n11/25(水)放送 TBS\n終了まで1週間以上")
+check(n1["title"] == "ふるさとの未来" and n1["sub"].startswith("ネスレ日本") and n1["station"] == "TBS" and (n1["month"], n1["day"]) == (11, 25) and "ends" not in n1 and not n1.get("ends_soon"), "新しい書式: 長さの行を除き、番組名・題名・局・放送日を読む")
+n2 = tver.parse_row("/episodes/eppppa6jxa", "21分\nふるさとの未来\nホテルニューアカオ\n11/4(水)放送 TBS\n12/3(木)0:57 終了")
+check(n2["ends"] == (12, 3, 0, 57) and (n2["month"], n2["day"], n2["station"]) == (11, 4, "TBS"), "新しい書式: 終了の日時（12/3(木)0:57 終了）を読む。終了を局名と取り違えない")
+n3 = tver.parse_row("/episodes/x", "ボウリング革命\n第5戦\n11/25(水)放送 BS日テレ\n終了間近")
+check(n3.get("ends_soon") is True and n3["station"] == "BS日テレ" and n3["sub"] == "第5戦", "新しい書式: 終了間近は、まもなく終わる印にする")
+n4 = tver.parse_row("/episodes/y", "30分\n西乃風ブラン堂\n11/23(月)放送 MBS")
+check(n4["sub"] == "" and n4["station"] == "MBS" and n4["title"] == "西乃風ブラン堂", "新しい書式: 題名が無い行も読む")
+n5 = tver.parse_row("/episodes/z", "ももち浜ストア\n11/23(月) 20:09 山形放送")
+check(n5["station"] == "山形放送" and (n5["month"], n5["day"]) == (11, 23), "新しい書式: 時刻つきの放送の行も読む")
+n6 = tver.parse_row("/episodes/w", "ある番組\n2002年放送 テレビ朝日")
+check(n6["month"] is None, "新しい書式: 年だけの放送（昔の番組）は、日付なし")
+check(tver.parse_row("/episodes/v", "1時間5分\n番組\n題\n11/25(水)放送 TBS\n終了まで3時間").get("ends_soon") is True and not tver.parse_row("/episodes/v", "番組\n題\n11/25(水)放送 TBS\n終了まで3日").get("ends_soon"), "新しい書式: 終了まで◯時間（12時間未満）は、まもなく終わる印。◯日は、まだ先")
+r_new = [tver.parse_row("/episodes/a", "21分\nふるさとの未来\n新しい回\n11/25(水)放送 TBS\n終了まで1週間以上"), tver.parse_row("/episodes/b", "21分\nふるさとの未来\n前の回\n11/18(水)放送 TBS\n終了まで1週間以上")]
+row_new, _d_new, ex_new = tver.pick_row(r_new, "ふるさとの未来", D(2026, 11, 25))
+check(row_new["href"] == "/episodes/a" and ex_new is True, "新しい書式でも、番組名と放送日で回を選べる")
+
 rows_n = [tver.parse_row("/episodes/e215", "西乃風ブラン堂\n＃215「温泉」\nMBS 11月23日(月)放送分\n配信終了まで1週間以上"),
           tver.parse_row("/episodes/e214", "西乃風ブラン堂\n＃214「ホテル」\nMBS 11月16日(月)放送分\n配信終了まで1週間以上"),
           tver.parse_row("/episodes/e213", "西乃風ブラン堂\n＃213「港町」\nMBS 11月9日(月)放送分\n12月1日(火)0:58 終了予定")]
