@@ -51,6 +51,38 @@ ALIAS = {
     "岐阜放送": "GBS",
     "HBC北海道放送": "HBC",
     "NHK-FM": "JOAK-FM",  # NHK は地域ごとに別の局。FM は全国同じ番組なので、東京
+    # 公式の局名の書き方が、同じ局でも、いくつかある（「FM石川」と「エフエム石川」など）・radiko の名前と違う局。2026年11月の公式の予定から
+    "FM石川": "HELLOFIVE",
+    "FM大分": "FM_OITA",
+    "FM香川": "FMKAGAWA",
+    "FM新潟": "FMNIIGATA",
+    "FM-NIIGATA": "FMNIIGATA",
+    "FM佐賀": "FMS",
+    "FM山陰": "FM-SANIN",
+    "FM山口": "FMY",
+    "FM青森": "AFB",
+    "FM宮崎": "JOYFM",
+    "FM熊本": "FMK",
+    "FM福岡": "FMFUKUOKA",
+    "エフエム福岡": "FMFUKUOKA",
+    "エフエム岐阜": "FMGIFU",
+    "ラブエフエム": "LOVEFM",
+    "AIR-G’": "AIR-G",
+    "IBC岩手放送": "IBC",
+    "秋田放送": "ABS",
+    "信越放送": "SBC",
+    "大分放送": "OBS",
+    "北日本放送": "KNB",
+    "MRTラジオ": "MRT",
+    "長崎放送": "NBC",
+    "RKK 熊本放送": "RKK",
+    "琉球放送": "RBC",
+    "RBC琉球放送": "RBC",
+    "山陽放送": "RSK",
+    "KBS京都放送": "KBS",
+    "福井放送": "FBC",
+    "tbc東北放送": "TBC",
+    "NHK広島": "JOFK",  # NHK AM(広島)
 }
 
 
