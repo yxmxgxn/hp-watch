@@ -45,6 +45,8 @@ progs = {rss.program_key("TV", "Hello! Music Lab。"): {"name": "Hello! Music La
          rss.program_key("RADIO", "Music Palette♪"): {"name": "Music Palette♪", "spotify": "https://open.spotify.com/show/abc"}}
 sl = rss.standing_links("RADIO", "Music Palette♪", [radio], FakeRk(), progs)
 check(sl[0][1] == "https://radiko.jp/#!/live/TBS" and "生放送" in sl[0][0], "ラジオは、radiko の生放送を、最初から入れる")
+import radiko as _radiko
+check(_radiko.timefree_url("IBC", "20261126163000") == "https://radiko.jp/share/?sid=IBC&t=20261126163000", "radiko のタイムフリーは、シェア用の URL（スマホでも、その番組のページに着く）")
 check(("Spotify（全エピソード）", "https://open.spotify.com/show/abc") in sl, "Spotify の番組は、ポッドキャストとは別の欄で、最初から入れる")
 check(rss.standing_links("TV", "Hello! Music Lab。", [tv_weekly], FakeRk(), progs) == [("TVer（番組）", "https://tver.jp/search/x")], "テレビは、TVer にある番組だけ、番組のページを入れる")
 check(rss.standing_links("TV", "NHKの番組", [tv_weekly], FakeRk(), progs) == [], "TVer に無い番組には、何も入れない")

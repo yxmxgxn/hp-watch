@@ -170,7 +170,9 @@ class Radiko:
 
 
 def timefree_url(sid, ft):
-    return f"https://radiko.jp/#!/ts/{sid}/{ft}"
+    """タイムフリーのリンク。radiko の「シェア」用の URL（PC のブラウザでは再生ページ、スマホでは、その番組のページが開く）。
+    昔の形（#!/ts/局/日時）は、スマホだと、スマホ版のトップに飛ばされた"""
+    return f"https://radiko.jp/share/?sid={sid}&t={ft}"
 
 
 def live_url(sid):
