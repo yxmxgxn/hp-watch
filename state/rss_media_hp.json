@@ -2,6 +2,32 @@
 "items": [
 {
 "categories": [
+"WEB",
+"掲載済",
+"BEYOOOOONDS：里吉うたの・小島はな"
+],
+"cats": [
+"WEB"
+],
+"date": "2026-11-27T18:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-hfa4b052726841c21",
+"html": "<p>出演: BEYOOOOONDS：里吉うたの・小島はな</p><ul><li><a href=\"https://strmweb.jp/archives/23433/\">番組ページ</a></li></ul>",
+"link": "https://strmweb.jp/archives/23433/",
+"name": "STREAM",
+"sort": "2026-11-25 ",
+"title": "[WEB] 11/25(水) STREAM [掲載済]",
+"who": [
+"beyooooonds",
+"utano_satoyoshi",
+"hana_kojima"
+]
+},
+{
+"categories": [
 "TV",
 "BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな"
 ],
@@ -2756,6 +2782,7 @@
 "hf8aacb0d3bf76e90": "2026-11-25",
 "hf8f91af5d16130eb": "2026-11-10",
 "hf983c010a75d526a": "2026-10-17",
+"hfa4b052726841c21": "2026-11-25",
 "hfb8f3e286ccdd14c": "2026-11-24",
 "hfbe6bcca2dc56cee": "2026-11-06",
 "hfc0819ded5206ea8": "2026-10-30",
