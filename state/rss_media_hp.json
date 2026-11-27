@@ -2,6 +2,84 @@
 "items": [
 {
 "categories": [
+"RADIO",
+"BEYOOOOONDS：前田こころ・岡村美波・里吉うたの"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-27T15:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-hca1dae3d8f9a78ef",
+"html": "<p>出演: BEYOOOOONDS：前田こころ・岡村美波・里吉うたの</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.air-g.co.jp/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/AIR-G/20261202005500\">radiko タイムフリー（AIR-G'(FM北海道)・無料で聴けるのは北海道）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=AIR-G%27%E3%80%8C%E3%82%A2%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9%E3%83%88%E3%83%95%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%80%8D&amp;dates=20261202T005500%2F20261202T010000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.air-g.co.jp/",
+"name": "AIR-G'「アーティストフラッシュ」",
+"sort": "2026-12-01 24:55",
+"title": "[RADIO] 12/1(火) 24:55 AIR-G'「アーティストフラッシュ」",
+"who": [
+"beyooooonds",
+"kokoro_maeda",
+"minami_okamura",
+"utano_satoyoshi"
+]
+},
+{
+"categories": [
+"RADIO",
+"BEYOOOOONDS：前田こころ・岡村美波・里吉うたの"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-27T15:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-h0346732007463252",
+"html": "<p>出演: BEYOOOOONDS：前田こころ・岡村美波・里吉うたの</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.air-g.co.jp/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/AIR-G/20261201005500\">radiko タイムフリー（AIR-G'(FM北海道)・無料で聴けるのは北海道）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=AIR-G%27%E3%80%8C%E3%82%A2%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B9%E3%83%88%E3%83%95%E3%83%A9%E3%83%83%E3%82%B7%E3%83%A5%E3%80%8D&amp;dates=20261201T005500%2F20261201T010000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.air-g.co.jp/",
+"name": "AIR-G'「アーティストフラッシュ」",
+"sort": "2026-11-30 24:55",
+"title": "[RADIO] 11/30(月) 24:55 AIR-G'「アーティストフラッシュ」",
+"who": [
+"beyooooonds",
+"kokoro_maeda",
+"minami_okamura",
+"utano_satoyoshi"
+]
+},
+{
+"categories": [
+"TV",
+"BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-27T15:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-hd9b0584be66d76a8",
+"html": "<p>出演: BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな</p><p>※コメント</p><ul><li><a href=\"https://www.htb.co.jp/ichimoni/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=HTB%E3%80%8C%E3%82%A4%E3%83%81%E3%83%A2%E3%83%8B%EF%BC%81%E3%80%8D&amp;dates=20261128T063000%2F20261128T080000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.htb.co.jp/ichimoni/",
+"name": "HTB「イチモニ！」",
+"sort": "2026-11-28 06:30",
+"title": "[TV] 11/28(土) 06:30 HTB「イチモニ！」",
+"who": [
+"beyooooonds",
+"momohime_kiyono",
+"saya_eguchi",
+"hana_kojima"
+]
+},
+{
+"categories": [
 "TV",
 "BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな"
 ],
@@ -2281,6 +2359,7 @@
 "h013eb64d2e22125d": "2026-11-10",
 "h03295f66cba02f6e": "2026-11-21",
 "h0329efa52273fd4e": "2026-09-30",
+"h0346732007463252": "2026-11-30",
 "h0360cbe3e30c1081": "2026-10-03",
 "h049fe7f74b47957f": "2026-11-25",
 "h06b3a9bd13036fbe": "2026-11-26",
@@ -2540,6 +2619,7 @@
 "hc72caf99fb4a0325": "2026-10-01",
 "hc7f06cefc7f5efd0": "2026-11-29",
 "hc87dd69debf1875c": "2026-10-08",
+"hca1dae3d8f9a78ef": "2026-12-01",
 "hca28865f9b758c3d": "2026-11-16",
 "hca38e3e58632ff82": "2026-11-21",
 "hcaafb9fbf51b10fe": "2026-12-03",
@@ -2573,6 +2653,7 @@
 "hd757a515a837116b": "2026-10-08",
 "hd79eff5dbe1c735a": "2026-11-05",
 "hd80ad202dfdb0df1": "2026-10-22",
+"hd9b0584be66d76a8": "2026-11-28",
 "hd9f6429da3ff3e93": "2026-09-30",
 "hda05f0457868e566": "2026-11-02",
 "hdb815d5255444f4e": "2026-12-03",
@@ -2721,6 +2802,9 @@
 "s2345": "2026-12-10",
 "s2346": "2026-12-10",
 "s2347": "2026-12-11",
-"s2348": "2026-12-11"
+"s2348": "2026-12-11",
+"s2375": "2026-11-28",
+"s2376": "2026-11-30",
+"s2377": "2026-12-01"
 }
 }
