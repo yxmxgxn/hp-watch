@@ -426,18 +426,18 @@
    "until": "2026-11-30",
    "links": [
     {
-     "label": "TVer（近い日の回）",
-     "url": "https://tver.jp/episodes/epbkgh373n",
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/ep0i8dzie8",
      "ep": {
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "kind": "air",
-      "title": "総勢80人が参戦！スポーツ＆音楽＆クイズ＆ビリビリの祭典！！"
+      "title": "【11/27 後半】昭和世代VS平成世代で新企画！カラオケ歌詞ドボン"
      }
     }
    ],
    "source": "auto",
    "found": "2026-11-27",
-   "match": "near",
+   "match": "exact",
    "rule": 4
   }
  ]
