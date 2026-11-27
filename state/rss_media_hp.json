@@ -2,6 +2,32 @@
 "items": [
 {
 "categories": [
+"TV",
+"BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-27T10:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-h3593a489af176c20",
+"html": "<p>出演: BEYOOOOONDS：江口紗耶・清野桃々姫・小島はな</p><p>※コメント</p><ul><li><a href=\"http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=tbc%E6%9D%B1%E5%8C%97%E6%94%BE%E9%80%81%E3%80%8C%E3%81%B2%E3%82%8B%E3%81%BE%E3%81%A7%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81%E3%83%B3%EF%BC%81%E3%80%8D&amp;dates=20261204T102400%2F20261204T112000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
+"name": "tbc東北放送「ひるまでウォッチン！」",
+"sort": "2026-12-04 10:24",
+"title": "[TV] 12/4(金) 10:24 tbc東北放送「ひるまでウォッチン！」",
+"who": [
+"beyooooonds",
+"momohime_kiyono",
+"saya_eguchi",
+"hana_kojima"
+]
+},
+{
+"categories": [
 "RADIO",
 "BEYOOOOONDS：西田汐里・平井美葉・杉山結菜"
 ],
@@ -2327,6 +2353,7 @@
 "h339ff7f5c5550189": "2026-09-29",
 "h34fff845e2f554c8": "2026-10-15",
 "h3515c74437a17216": "2026-10-07",
+"h3593a489af176c20": "2026-12-04",
 "h360fc95584d157bf": "2026-10-09",
 "h36d3441a291084af": "2026-10-24",
 "h392a038d6f09ead9": "2026-11-25",
@@ -2668,6 +2695,7 @@
 "s2308": "2026-11-28",
 "s2310": "2026-12-17",
 "s2311": "2026-11-27",
+"s2313": "2026-12-04",
 "s2314": "2026-11-27",
 "s2320": "2026-11-26",
 "s2321": "2026-11-27",
