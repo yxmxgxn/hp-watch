@@ -2,6 +2,84 @@
 "items": [
 {
 "categories": [
+"RADIO",
+"BEYOOOOONDS：西田汐里・平井美葉・杉山結菜"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-27T19:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-h2470e17148e9b2b0",
+"html": "<p>出演: BEYOOOOONDS：西田汐里・平井美葉・杉山結菜</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.fmnorth.co.jp/radiogroove/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/NORTHWAVE/20261215190000\">radiko タイムフリー（FM NORTH WAVE・無料で聴けるのは北海道）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=FM+NORTH+WAVE%E3%80%8CRADIO+GROOVE%E3%80%8D&amp;dates=20261215T190000%2F20261215T210000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.fmnorth.co.jp/radiogroove/",
+"name": "FM NORTH WAVE「RADIO GROOVE」",
+"sort": "2026-12-15 19:00",
+"title": "[RADIO] 12/15(火) 19:00 FM NORTH WAVE「RADIO GROOVE」",
+"who": [
+"beyooooonds",
+"shiori_nishida",
+"miyo_hirai",
+"yuna_sugiyama"
+]
+},
+{
+"categories": [
+"RADIO",
+"BEYOOOOONDS：西田汐里・平井美葉・杉山結菜"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-27T19:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-h557dc27647c3cfc7",
+"html": "<p>出演: BEYOOOOONDS：西田汐里・平井美葉・杉山結菜</p><p>radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://www.hbc.co.jp/radio/carnavi/\">番組ページ</a></li><li><a href=\"https://radiko.jp/#!/ts/HBC/20261215120000\">radiko タイムフリー（HBCラジオ・無料で聴けるのは北海道）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=HBC%E3%83%A9%E3%82%B8%E3%82%AA%E3%80%8C%E3%82%AB%E3%83%BC%E3%83%8A%E3%83%93%E3%83%A9%E3%82%B8%E3%82%AA%E5%8D%88%E5%BE%8C%E4%B8%80%E7%95%AA%EF%BC%81%E3%80%8D&amp;dates=20261215T120000%2F20261215T150000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.hbc.co.jp/radio/carnavi/",
+"name": "HBCラジオ「カーナビラジオ午後一番！」",
+"sort": "2026-12-15 12:00",
+"title": "[RADIO] 12/15(火) 12:00 HBCラジオ「カーナビラジオ午後一番！」",
+"who": [
+"beyooooonds",
+"shiori_nishida",
+"miyo_hirai",
+"yuna_sugiyama"
+]
+},
+{
+"categories": [
+"TV",
+"BEYOOOOONDS：平井美葉・小林萌花・大坪茉乃"
+],
+"cats": [
+"TV"
+],
+"date": "2026-11-27T19:00:00+09:00",
+"general": false,
+"groups": [
+"585"
+],
+"guid": "hp-media-hc09dcff428b96b13",
+"html": "<p>出演: BEYOOOOONDS：平井美葉・小林萌花・大坪茉乃</p><p>※放送時間が変更になる可能性があります。</p><ul><li><a href=\"https://www.hbc.co.jp/\">番組ページ</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=HBC%E3%83%86%E3%83%AC%E3%83%93%E3%80%8C%E3%82%82%E3%82%93%E3%81%99%E3%81%91%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A9%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%80%8D&amp;dates=20261210T002900%2F20261210T004400&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://www.hbc.co.jp/",
+"name": "HBCテレビ「もんすけインフォメーション」",
+"sort": "2026-12-09 24:29",
+"title": "[TV] 12/9(水) 24:29 HBCテレビ「もんすけインフォメーション」",
+"who": [
+"beyooooonds",
+"miyo_hirai",
+"honoka_kobayashi",
+"mano_otsubo"
+]
+},
+{
+"categories": [
 "WEB",
 "掲載済",
 "BEYOOOOONDS：里吉うたの・小島はな"
@@ -2488,6 +2566,7 @@
 "h2350df1c6733500d": "2026-11-28",
 "h2408d1006bcaa200": "2026-11-27",
 "h2416580f7f0c43b0": "2026-11-05",
+"h2470e17148e9b2b0": "2026-12-15",
 "h25e43da7cd6fbbf3": "2026-10-13",
 "h2601edcd225a8324": "2026-10-15",
 "h266e0576a0910bb3": "2026-10-08",
@@ -2551,6 +2630,7 @@
 "h50ca24c3f166c936": "2026-10-28",
 "h5487f4ca322921bf": "2026-10-01",
 "h54a67cc8fd6d99db": "2026-10-27",
+"h557dc27647c3cfc7": "2026-12-15",
 "h55be6befacec265a": "2026-11-05",
 "h55f43cd08a4fce7a": "2026-10-17",
 "h562749d3ffac8b2e": "2026-12-03",
@@ -2689,6 +2769,7 @@
 "hbf3b051a3350cdb8": "2026-10-24",
 "hc037721b7f45efc6": "2026-10-21",
 "hc057b6a3a730501a": "2026-12-18",
+"hc09dcff428b96b13": "2026-12-09",
 "hc0d3a1b60da034db": "2026-12-20",
 "hc0d84efc1ff08773": "2026-10-29",
 "hc2ad21ccaa88fac2": "2026-11-07",
@@ -2889,6 +2970,9 @@
 "s2376": "2026-11-30",
 "s2377": "2026-12-01",
 "s2378": "2026-11-29",
-"s2379": "2026-11-30"
+"s2379": "2026-11-30",
+"s2381": "2026-12-09",
+"s2382": "2026-12-15",
+"s2383": "2026-12-15"
 }
 }
