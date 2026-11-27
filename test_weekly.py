@@ -93,6 +93,10 @@ import radiko
 rk0 = radiko.Radiko()
 rk0._stations = {"CRT": {"name": "CRT栃木放送"}, "MRO": {"name": "MROラジオ"}, "JOAK-FM": {"name": "NHK FM(東京)"}, "CRK": {"name": "ラジオ関西"}}
 rk0._by_name = {radiko.norm(v["name"]): k for k, v in rk0._stations.items()}
+# 公式の局名の書き方が違う局（「FM石川」と「エフエム石川」。2026年11月に、FM石川に radiko のリンクが付かなかった）
+for official, sid in (("FM石川", "HELLOFIVE"), ("エフエム石川", "HELLOFIVE"), ("FM山陰", "FM-SANIN"), ("秋田放送", "ABS"), ("信越放送", "SBC"), ("IBC岩手放送", "IBC"), ("AIR-G’", "AIR-G"), ("tbc東北放送", "TBC")):
+    check(rk0.station_ids(f"{official}「番組」") == [sid], f"radiko の局: 公式の「{official}」→ {sid}")
+check(rk0.station_ids("JFN「番組」") == [] and rk0.station_ids("ラジオななお/ラジオかなざわ「番組」") == [], "radiko に無い局（JFN のネット・コミュニティ FM）は、リンクを付けない")
 ids = lambda head: rk0.station_ids(head + "「番組」")
 check(ids("\u200b栃木放送") == ["CRT"], "局名に、見えない文字（ゼロ幅スペース）が混ざっていても合う")
 check(ids("北陸放送") == ["MRO"] and ids("NHK-FM") == ["JOAK-FM"], "略称で出ている局（北陸放送→MRO）・NHK-FM")
