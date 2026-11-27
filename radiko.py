@@ -18,6 +18,7 @@ import xml.etree.ElementTree as ET
 UA = "Mozilla/5.0 (hp-watch; personal schedule rss)"
 # 番組のページ（/r_seasons/…）の URL は、スマホ向けのエピソードのページ（/mobile/events/番組表のID）の中にある。PC 向けの UA だと入っていない
 MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
+TIMEFREE_MARGIN = dt.timedelta(minutes=30)   # 番組の終了から、この時間がたてば、確実にタイムフリーで聴ける、とみなす（今日の予定のページが、それまで、タイムフリーを隠す）
 SEASON_RETRY_DAYS = 7     # 番組のページが無かった番組を、探し直すまでの日数
 SEASON_MAX_FETCH = 200    # 1回の作り直しで、エピソードのページを取りに行く数の上限（新しい番組のぶんだけ取るので、ふだんは数件）
 PART = re.compile(r"\s*[(（]\d+[)）]\s*$")   # 長時間の番組の「題名 (1)」「題名 (2)」
@@ -258,8 +259,16 @@ class Radiko:
             return {"ft": ft, "unchecked": True}
         for p in progs:
             if p["ft"] <= ft < p["to"]:
-                return {"ft": p["ft"], "title": p["title"], "id": p["id"], "ts_ng": p["ts_ng"], "corner": p["ft"] != ft}
+                return {"ft": p["ft"], "to": p["to"], "title": p["title"], "id": p["id"], "ts_ng": p["ts_ng"], "corner": p["ft"] != ft}
         return None
+
+
+def ready_at(p, ft):
+    """タイムフリーで確実に聴けるようになる時刻（日本時間の ISO）。番組の終了 ＋ TIMEFREE_MARGIN。
+    番組表の外で終了が分からないときは、開始の1時間後を終了とみなす"""
+    end = (p or {}).get("to")
+    t = dt.datetime.strptime(end or ft, "%Y%m%d%H%M%S") + (dt.timedelta() if end else dt.timedelta(hours=1)) + TIMEFREE_MARGIN
+    return t.strftime("%Y-%m-%dT%H:%M:%S+09:00")
 
 
 def season_page(season_id):

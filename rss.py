@@ -467,11 +467,12 @@ def standing_links(cat, prog, items, rk, programs, sources=()):
     return list(dict.fromkeys(out))
 
 
-def radiko_link_list(items, rk, timefree=True):
+def radiko_link_list(items, rk, timefree=True, ready=None):
     """ラジオの予定の radiko のリンク [(名前, URL)]。タイムフリーに出来るものだけ。
     「radiko（番組ページ）」（最新回・過去の放送回の一覧。引けた番組だけ。同じ番組は1つにまとめる。ページが2つ以上あるときだけ局名を付ける）と、
     「radiko（局名）」（その局のその回のタイムフリー。地方局の遅れ放送でも、その局の放送そのものに行ける）。
-    timefree=False（まだ放送していない日）は、番組のページだけ"""
+    timefree=False（まだ放送していない日）は、番組のページだけ。
+    ready（dict）を渡すと、タイムフリーの URL → 確実に聴けるようになる時刻（ISO・日本時間）を入れる"""
     x = items[0]
     ft = radiko.ft_of(x["date"], (x.get("schedule") or {}).get("start") or "")
     pages, frees = {}, {}
@@ -483,13 +484,15 @@ def radiko_link_list(items, rk, timefree=True):
                 if season:
                     pages.setdefault(season, sid)
                 frees.setdefault(radiko.timefree_url(sid, p["ft"]), sid)
+                if ready is not None:
+                    ready[radiko.timefree_url(sid, p["ft"])] = radiko.ready_at(p, p["ft"])
     out = [("radiko（番組ページ）" if len(pages) == 1 else f"radiko（番組ページ・{rk.name(sid)}）", url) for url, sid in pages.items()]
     if timefree:
         out += [(f"radiko（{rk.name(sid)}）", url) for url, sid in frees.items()]
     return out
 
 
-def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
+def today_row_html(r, base, rk, site="", ctx=None, timefree=True, gate=False):
     x = r["items"][0]
     link = abs_link(base, hpwatch.link_of(x))
     prog = r["prog"]
@@ -505,9 +508,12 @@ def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
     if r["who"]:
         lines.append(f"出演: {escape(r['who'])}")
     if r["cat"] == "RADIO" and r["start"] and not r["status"]:   # まだ放送していない日（timefree=False）は、番組のページだけ
-        rl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in radiko_link_list(r["items"], rk, timefree=timefree)]
+        ready = {}
+        rl = [f"<a href={quoteattr(u)}" + (f" data-from={quoteattr(ready[u])}" if gate and u in ready else "") + f">{escape(n)}</a>"
+              for n, u in radiko_link_list(r["items"], rk, timefree=timefree, ready=ready)]
         if rl:
-            lines.append(" ".join(rl))
+            # gate（今日の予定のページ）: タイムフリーは、確実に聴ける時刻（data-from）まで、ブラウザが隠す（JS が無ければ、そのまま出る）
+            lines.append(('<span class="rk">' + " ".join(rl) + "</span>") if gate else " ".join(rl))
     ctx = ctx or {}
     # 毎週の番組は、放送の前から入れておくリンク（TVer の番組・Spotify・YouTube など）も出す
     if ctx.get("programs") is not None and _is_weekly(r["items"][0], ctx.get("regulars") or set()):
@@ -556,7 +562,7 @@ def today_days(site, base, schedules, now, rk, ctx=None, back=PAGE_BACK, ahead=P
         if not rows:
             continue
         out.append({"date": d, "offset": i, "title": f"{md(d)}の予定（{len(rows)}件）",
-                    "html": "<ul>" + "".join(today_row_html(r, base, rk, site, ctx, timefree=i <= 0) for r in rows) + "</ul>"})
+                    "html": "<ul>" + "".join(today_row_html(r, base, rk, site, ctx, timefree=i <= 0, gate=True) for r in rows) + "</ul>"})
     return out
 
 
@@ -575,7 +581,7 @@ def today_items(site, base, schedules, now, rk, ctx=None):
             continue
         html = (f"<p><a href={quoteattr(today_page_url(site, d))}>最新の内容を見る</a>（リーダーの記事は、あとから付くリンクが、反映されないことがあります）</p>"
                 "<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
-                "<p>ラジオの radiko のリンクは、番組のページ（最新回・過去の放送回の一覧）と、その局のその回のタイムフリー（放送後1週間）です。明日以降は、番組のページだけです。放送回があるかは、番組のページで、ご確認ください。</p>")
+                "<p>ラジオの radiko のリンクは、番組のページ（最新回・過去の放送回の一覧）と、その局のその回のタイムフリー（放送後1週間。放送が終わって、しばらくたつまでは、まだ聴けないことがあります）です。放送回があるかは、番組のページで、ご確認ください。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
             "guid": f"{site}-today-{d}",
@@ -1439,6 +1445,7 @@ main.today details.day{margin:6px 0}
 main.today details.day>summary,main.today details.grp>summary{cursor:pointer;font-weight:700;padding:4px 0}
 main.today details.grp>summary{font-size:1.05rem;margin-top:14px}
 main.today details.grp>.inner{margin-left:8px}
+main.today [hidden]{display:none!important}
 """
 
 TODAY_JS = r"""
@@ -1448,6 +1455,22 @@ TODAY_JS = r"""
   var el = document.getElementById(h), t = el;
   while (el) { if (el.tagName === "DETAILS") el.open = true; el = el.parentElement; }
   if (t) t.scrollIntoView();
+})();
+// radiko のタイムフリーは、確実に聴けるようになる時刻（data-from。番組の終了の30分後）まで隠す（JS が無ければ、そのまま出る）
+(function () {
+  function show() {
+    var now = Date.now();
+    document.querySelectorAll("a[data-from]").forEach(function (a) { a.hidden = Date.parse(a.getAttribute("data-from")) > now; });
+    document.querySelectorAll("span.rk").forEach(function (s) {
+      var any = false;
+      s.querySelectorAll("a").forEach(function (a) { if (!a.hidden) any = true; });
+      s.hidden = !any;
+      var b = s.previousElementSibling;
+      if (b && b.tagName === "BR") b.hidden = !any;
+    });
+  }
+  show();
+  setInterval(show, 300000);
 })();
 """
 
@@ -1470,7 +1493,7 @@ def today_page(site, now):
         tabs += f"<a href={quoteattr(href)}" + (' class="on"' if k == site else "") + f">{escape(SITES[k]['label'])}</a>"
     body = [
         f"<h1>今日の予定（{escape(label)}）</h1>",
-        f'<p class="mute">今日の前後の予定です。TVer・radiko・ポッドキャスト・YouTube のリンクは、見つかったら付きます（このページは、サイトを作り直すたびに、最新になります。更新: {now:%Y-%m-%d %H:%M} JST）。</p>',
+        f'<p class="mute">今日の前後の予定です。TVer・radiko・ポッドキャスト・YouTube のリンクは、見つかったら付きます。ラジオの radiko のタイムフリーは、放送が終わって、しばらくたってから出ます（このページは、サイトを作り直すたびに、最新になります。更新: {now:%Y-%m-%d %H:%M} JST）。</p>',
         f'<nav class="tabs">{tabs}</nav>',
         f'<h2>今日 {escape(md(now.date().isoformat()))}</h2>',
         _day_block(today[0], open_=True) if today else "<p>今日の予定は、ありません。</p>",
