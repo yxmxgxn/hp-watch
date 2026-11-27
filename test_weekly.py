@@ -44,7 +44,7 @@ radio = item("TBSラジオ「Music Palette♪」", "RADIO", "2026-11-22", "毎�
 progs = {rss.program_key("TV", "Hello! Music Lab。"): {"name": "Hello! Music Lab。", "tver": "https://tver.jp/search/x"},
          rss.program_key("RADIO", "Music Palette♪"): {"name": "Music Palette♪", "spotify": "https://open.spotify.com/show/abc"}}
 sl = rss.standing_links("RADIO", "Music Palette♪", [radio], FakeRk(), progs)
-check(sl[0][1] == "https://radiko.jp/#!/live/TBS" and "生放送" in sl[0][0], "ラジオは、radiko の生放送を、最初から入れる")
+check(not any("生放送" in n or "#!/live" in u for n, u in sl), "生放送（テレビ・ラジオ）のリンクは、付けない")
 import radiko as _radiko
 check(_radiko.timefree_url("IBC", "20261126163000") == "https://radiko.jp/share/?sid=IBC&t=20261126163000", "radiko のタイムフリーは、シェア用の URL（スマホでも、その番組のページに着く）")
 check(("Spotify（全エピソード）", "https://open.spotify.com/show/abc") in sl, "Spotify の番組は、ポッドキャストとは別の欄で、最初から入れる")
