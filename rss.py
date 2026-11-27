@@ -10,7 +10,7 @@
 MEDIA（media）
   スケジュールの TV / RADIO / MAGAZINE / WEB で、前回なかった予定を配信する（テレビ・ラジオはだいたい1週間前に載る）。
   毎週の番組は出さない。放送日を過ぎてから載った予定は出さない（WEB・雑誌は「掲載済」を付けて出す）。
-  ラジオには radiko のタイムフリーのリンクを付ける（radiko.py）。
+  ラジオには radiko のリンク（番組のページ。無い番組は、その回のタイムフリー）を付ける（radiko.py）。
   状態ファイル state/rss_media_{site}.json に「見た予定」と「配信した記事」を持つ。
   初回は今日から1週間分の予定を入れて始める。
 
@@ -237,7 +237,8 @@ def md(date):
 
 
 def radiko_links(x, title, start, rk):
-    """ラジオのタイムフリーのリンク [(文字, URL)] と、注意書き"""
+    """ラジオの radiko のリンク [(文字, URL)] と、注意書き。番組のページ（最新回・過去の放送回の一覧）が引ければ、それ。
+    引けない番組は、その回のタイムフリー"""
     links, notes = [], []
     ft = radiko.ft_of(x["date"], start)
     for sid in rk.station_ids(title):
@@ -246,12 +247,15 @@ def radiko_links(x, title, start, rk):
         if p is None or p.get("ts_ng"):
             notes.append(f"{name}: radiko のタイムフリーの対象外です")
             continue
-        text = f"radiko タイムフリー（{name}{'・無料で聴けるのは' + area if area else ''}）"
+        season = rk.season_url(sid, p)
+        text = f"radiko {'番組ページ' if season else 'タイムフリー'}（{name}{'・無料で聴けるのは' + area if area else ''}）"
         if p.get("corner"):
             text += f" ※番組の途中、{start}ごろから"
-        links.append((text, radiko.timefree_url(sid, p["ft"])))
+        url = season or radiko.timefree_url(sid, p["ft"])
+        if url not in [u for _, u in links]:
+            links.append((text, url))
     if links:
-        notes.append("radiko のタイムフリーは放送後1週間、無料で聴けます（地域の外はエリアフリー（有料）が必要）")
+        notes.append("radiko で聴けるのは放送後1週間です（地域の外はエリアフリー（有料）が必要）")
     return links, notes
 
 
@@ -461,16 +465,27 @@ def standing_links(cat, prog, items, rk, programs, sources=()):
 
 
 def radiko_link_list(items, rk):
-    """ラジオの予定の radiko のタイムフリーのリンク [(名前, URL)]。タイムフリーに出来るものだけ"""
+    """ラジオの予定の radiko のリンク [(名前, URL)]。タイムフリーに出来るものだけ。
+    番組のページ（最新回・過去の放送回の一覧。スマホでも開く）が引ければ「radiko（番組ページ）」、引けない番組は、その回のタイムフリー「radiko（局名）」。
+    同じ番組のページは1つにまとめる（別の局でも同じページなら）。ページが2つ以上あるときだけ、局名を付ける"""
     x = items[0]
     ft = radiko.ft_of(x["date"], (x.get("schedule") or {}).get("start") or "")
-    out = []
+    found = []   # (局, URL, 番組のページか)
     for it in items:
         for sid in rk.station_ids(hpwatch.text_of(it.get("title")).strip()):
             p = rk.lookup(sid, ft)
             if p and not p.get("ts_ng"):
-                out.append((f"radiko（{rk.name(sid)}）", radiko.timefree_url(sid, p["ft"])))
-    return list(dict.fromkeys(out))
+                season = rk.season_url(sid, p)
+                found.append((sid, season or radiko.timefree_url(sid, p["ft"]), bool(season)))
+    pages = {u for _, u, s in found if s}
+    out, seen = [], set()
+    for sid, url, is_page in found:
+        if url in seen:
+            continue
+        seen.add(url)
+        label = ("radiko（番組ページ）" if len(pages) == 1 else f"radiko（番組ページ・{rk.name(sid)}）") if is_page else f"radiko（{rk.name(sid)}）"
+        out.append((label, url))
+    return out
 
 
 def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
@@ -559,7 +574,7 @@ def today_items(site, base, schedules, now, rk, ctx=None):
             continue
         html = (f"<p><a href={quoteattr(today_page_url(site, d))}>最新の内容を見る</a>（リーダーの記事は、あとから付くリンクが、反映されないことがあります）</p>"
                 "<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
-                "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）です。</p>")
+                "<p>ラジオの radiko のリンクは、番組のページです（放送後1週間の回が、一覧に出ます）。番組のページが無い番組は、その回のタイムフリーです。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
             "guid": f"{site}-today-{d}",
@@ -701,7 +716,7 @@ WEEKLY_AHEAD = 10  # 今日から何日先まで
 
 def weekly_occurrences(site, label, schedules, profiles, now, rk, programs, sources=()):
     """毎週・毎月などの番組の、今日の前後の1回分ずつ。guid は MEDIA と同じ形（{site}-media-{ハッシュ}）なので、手で入れた分・自動の分と、
-    同じ仕組みで結べる。ラジオは、タイムフリーに出来る radiko のリンクも付ける（放送後1週間まで）"""
+    同じ仕組みで結べる。ラジオは、聴ける radiko のリンク（番組のページ。放送後1週間まで）も付ける"""
     today = now.date()
     lo, hi = today - dt.timedelta(days=WEEKLY_BACK), today + dt.timedelta(days=WEEKLY_AHEAD)
     out = []
@@ -1297,7 +1312,7 @@ INDEX_CSS += sitemeta.FOOTER_CSS
 
 KIND_NOTE = {
     "news": "公式のお知らせ（イベントの発表を含む）。載った日に配信。",
-    "media": "テレビ・ラジオ・雑誌・WEB の新しく載った出演予定（だいたい1週間前）。毎週の番組は含みません。ラジオには radiko のタイムフリーのリンク付き。",
+    "media": "テレビ・ラジオ・雑誌・WEB の新しく載った出演予定（だいたい1週間前）。毎週の番組は含みません。ラジオには radiko のリンク付き。",
     "today": "その日の予定を毎朝1本にまとめたもの。毎週の番組も含めて全部。",
 }
 
@@ -1320,7 +1335,7 @@ ABOUT_BODY = (
     "</ul>"
     "<h3>どういうフィードか</h3><ul>"
     "<li><b>お知らせ</b>: 公式のお知らせが載った日に、1回だけ配ります。グループ別と全体があります。</li>"
-    "<li><b>MEDIA（出演）</b>: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前）。毎週・毎月の番組は含めません。ラジオには radiko のタイムフリーのリンクが付きます。</li>"
+    "<li><b>MEDIA（出演）</b>: テレビ・ラジオ・雑誌・WEB に、新しく載った出演の予定です（だいたい1週間前）。毎週・毎月の番組は含めません。ラジオには radiko のリンクが付きます。</li>"
     "<li><b>今日の予定</b>: その日の予定を、毎朝1本にまとめます。毎週の番組も含めて全部です。サイトの<a href=\"/today/\">今日の予定のページ</a>では、7日前から3日後まで、リンクがいつでも最新で見られます（リーダーの記事は、あとから付くリンクが反映されないことがあるので）。</li>"
     "<li><b>ファンクラブ</b>: ニュースを、タブ別（ニュース・イベント・コンサート・グッズなど）とグループ別に配ります。"
     "更新の印が無いので、動かすたびに「すべて」の一覧を見て、新しい記事を足します。グループ別は、そのグループのページの一覧に載っているかで決めます。</li>"
@@ -1335,7 +1350,7 @@ ABOUT_BODY = (
     "その代わり、<b>題名にその人の名前があるか</b>で絞っています。名前を書かない記事・ニックネームだけの記事は、漏れることがありますが、まれです。</li>"
     "</ul>"
     "<h3>放送のあとに付くリンク</h3>"
-    "<p>放送が終わると、記事の後ろに、見られるリンク（TVer・radiko のタイムフリー・ポッドキャスト・YouTube など）が付くことがあります。"
+    "<p>放送が終わると、記事の後ろに、見られるリンク（TVer・radiko・ポッドキャスト・YouTube など）が付くことがあります。"
     "毎週の番組には、放送の前から、TVer の番組のページ、Spotify・YouTube の番組のページが付きます。</p>"
 )
 
@@ -1637,7 +1652,7 @@ def main():
     feed_base = args.feed_base.rstrip("/")
     sitemeta.SITE_URL = feed_base
     now = dt.datetime.now(JST).replace(microsecond=0)
-    rk = radiko.Radiko()
+    rk = radiko.Radiko(os.path.join(args.state_dir, "radiko_seasons.json"))
 
     feeds, failed, records, sources = [], [], [], []
     for site, cfg in SITES.items():
@@ -1687,6 +1702,7 @@ def main():
     # 公式のJSONの ETag（今回の作り直しで使ったもの）。Worker が、公式の今の ETag と比べて、変わったときだけ rss.yml を呼ぶ
     write(os.path.join(args.out, "data/watch.json"), json.dumps(hpwatch.ETAGS, ensure_ascii=False, separators=(",", ":"), sort_keys=True))
     write(os.path.join(args.out, "_headers"), headers_file())
+    rk.save_seasons()   # radiko の番組のページの記憶（新しく引いた番組があれば）
     log_versions(os.path.join(args.state_dir, "observe.jsonl"), records, now)
     print(f"feeds: {len(feeds)}" + (f" (失敗: {', '.join(failed)})" if failed else ""))
     if failed:

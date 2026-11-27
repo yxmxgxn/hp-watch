@@ -6,13 +6,21 @@
   番組表の範囲外（1週間より先）は、公式の時刻でそのままリンクを作る（公式の時刻は番組の開始と一致していた）
 """
 import datetime as dt
+import json
+import os
 import re
 import sys
+import time
 import unicodedata
 import urllib.request
 import xml.etree.ElementTree as ET
 
 UA = "Mozilla/5.0 (hp-watch; personal schedule rss)"
+# 番組のページ（/r_seasons/…）の URL は、スマホ向けのエピソードのページ（/mobile/events/番組表のID）の中にある。PC 向けの UA だと入っていない
+MOBILE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
+SEASON_RETRY_DAYS = 7     # 番組のページが無かった番組を、探し直すまでの日数
+SEASON_MAX_FETCH = 200    # 1回の作り直しで、エピソードのページを取りに行く数の上限（新しい番組のぶんだけ取るので、ふだんは数件）
+PART = re.compile(r"\s*[(（]\d+[)）]\s*$")   # 長時間の番組の「題名 (1)」「題名 (2)」
 
 PREFS = ("北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 "
          "静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 "
@@ -86,8 +94,8 @@ ALIAS = {
 }
 
 
-def _get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+def _get(url, ua=UA):
+    req = urllib.request.Request(url, headers={"User-Agent": ua})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read()
 
@@ -107,7 +115,17 @@ def ft_of(date, start):
 
 
 class Radiko:
-    def __init__(self):
+    def __init__(self, season_cache=None):
+        self._season_path = season_cache   # 番組のページの記憶（state/radiko_seasons.json）。無ければ、記憶しない
+        self._seasons = {}                 # 「局|番組名」→ {"id": 番組のページの番号（無ければ ""）, "at": 調べた日}
+        self._seasons_dirty = False
+        self._season_fetches = 0
+        if season_cache and os.path.exists(season_cache):
+            try:
+                with open(season_cache, encoding="utf-8") as f:
+                    self._seasons = json.load(f)
+            except Exception as e:
+                print(f"warn: radiko の番組のページの記憶が読めない: {e}", file=sys.stderr)
         self._stations = None  # id -> {"name"}
         self._by_name = None
         self._weekly = {}
@@ -178,7 +196,7 @@ class Radiko:
             try:
                 root = ET.fromstring(_get(f"https://api.radiko.jp/program/v3/weekly/{sid}.xml"))
                 self._weekly[sid] = [{
-                    "ft": p.get("ft"), "to": p.get("to"), "title": p.findtext("title") or "",
+                    "ft": p.get("ft"), "to": p.get("to"), "title": p.findtext("title") or "", "id": p.get("id"),
                     "ts_ng": p.findtext("ts_in_ng") == "1",
                 } for p in root.iter("prog")]
                 self._weekly[sid].sort(key=lambda p: p["ft"])
@@ -186,6 +204,49 @@ class Radiko:
                 print(f"warn: radiko の番組表 {sid}: {e}", file=sys.stderr)
                 self._weekly[sid] = []
         return self._weekly[sid]
+
+    def season_url(self, sid, p, today=None):
+        """番組のページ（最新回を再生・過去の放送回の一覧。スマホでも PC でも、そのまま開く）の URL。無ければ None。
+        p は lookup の結果。番組表の放送ごとの ID から、スマホ向けのエピソードのページを開き、中の /r_seasons/番号 を読む。
+        「局＋番組名（(1)(2) の番号を除く）」ごとに記憶して、新しい番組のぶんだけ取りに行く。無かった番組は、SEASON_RETRY_DAYS 日あとに探し直す。
+        取れなかった（通信の失敗）ときは、記憶せず、None（次の作り直しで、またやる）"""
+        pid, title = (p or {}).get("id"), (p or {}).get("title")
+        if not pid or not title:
+            return None
+        key = f"{sid}|{norm(PART.sub('', title))}"
+        today = today or dt.date.today()
+        e = self._seasons.get(key)
+        if e:
+            if e.get("id"):
+                return season_page(e["id"])
+            try:
+                if (today - dt.date.fromisoformat(e.get("at") or "")).days < SEASON_RETRY_DAYS:
+                    return None
+            except ValueError:
+                pass
+        if self._season_fetches >= SEASON_MAX_FETCH:
+            return None
+        self._season_fetches += 1
+        try:
+            html = _get(f"https://radiko.jp/mobile/events/{pid}", MOBILE_UA).decode("utf-8", "replace")
+        except Exception as ex:
+            print(f"warn: radiko のエピソードのページ {pid}: {ex}", file=sys.stderr)
+            return None
+        time.sleep(0.1)
+        m = re.search(r"/r_seasons/(\d+)", html)
+        self._seasons[key] = {"id": m.group(1) if m else "", "at": today.isoformat()}
+        self._seasons_dirty = True
+        return season_page(m.group(1)) if m else None
+
+    def save_seasons(self):
+        """番組のページの記憶を書く（変わったときだけ）"""
+        if not self._season_path or not self._seasons_dirty:
+            return False
+        os.makedirs(os.path.dirname(self._season_path) or ".", exist_ok=True)
+        with open(self._season_path, "w", encoding="utf-8") as f:
+            f.write(json.dumps(self._seasons, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+        self._seasons_dirty = False
+        return True
 
     def lookup(self, sid, ft):
         """その時刻の番組を番組表で探す。
@@ -197,8 +258,12 @@ class Radiko:
             return {"ft": ft, "unchecked": True}
         for p in progs:
             if p["ft"] <= ft < p["to"]:
-                return {"ft": p["ft"], "title": p["title"], "ts_ng": p["ts_ng"], "corner": p["ft"] != ft}
+                return {"ft": p["ft"], "title": p["title"], "id": p["id"], "ts_ng": p["ts_ng"], "corner": p["ft"] != ft}
         return None
+
+
+def season_page(season_id):
+    return f"https://radiko.jp/r_seasons/{season_id}"
 
 
 def timefree_url(sid, ft):
