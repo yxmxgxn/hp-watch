@@ -158,6 +158,20 @@ check([l[0] for l in lk] == ["radiko 番組ページ", "radiko タイムフリ�
 lk2, _ = rss.radiko_links(x_crk, "ラジオ関西「番組」", "13:30", rk_s)
 check(len(lk2) == 1 and lk2[0][0].startswith("radiko タイムフリー（ラジオ関西") and "share/?sid=CRK" in lk2[0][1], "記事: 番組のページが引けなければ、タイムフリーだけ")
 
+# 今日の予定のページ: タイムフリーは、確実に聴けるようになる時刻（番組の終了の30分後）まで、ブラウザが隠す。フィードは、隠さない
+class GateRk(SeasonRk):
+    def lookup(self, sid, ft):
+        return {"ft": ft, "to": "20261127140000", "title": "番組", "id": "1", "ts_ng": False, "corner": False}
+check(radiko.ready_at({"to": "20261127140000"}, "20261127133000") == "2026-11-27T14:30:00+09:00", "タイムフリーが確実に聴ける時刻: 番組の終了の30分後")
+check(radiko.ready_at({"ft": "x"}, "20261127133000") == "2026-11-27T15:00:00+09:00", "番組表の外で終了が分からないときは、開始の1時間後を終了とみなす")
+rg = {"items": [x_tbs], "start": "13:30", "prog": "番組", "cat": "RADIO", "stations": ["TBSラジオ"], "who": "", "fc": False, "status": None}
+html_gate = rss.today_row_html(rg, "https://helloproject.com", GateRk(), gate=True)
+html_feed = rss.today_row_html(rg, "https://helloproject.com", GateRk())
+check('<span class="rk">' in html_gate and 'data-from="2026-11-27T14:30:00+09:00"' in html_gate and html_gate.count("data-from") == 1, "今日の予定のページ: タイムフリーのリンクにだけ、聴ける時刻（data-from）を付ける（番組ページには付けない）")
+check("data-from" not in html_feed and 'class="rk"' not in html_feed, "フィード: 隠さない（時刻の印も付けない）")
+page_js = rss.TODAY_JS
+check("data-from" in page_js and "hidden" in page_js and "[hidden]{display:none!important}" in rss.TODAY_CSS, "今日の予定のページ: 時刻まで隠す JS と CSS")
+
 # 公式の局名の書き方が違う局（「FM石川」と「エフエム石川」。2026年11月に、FM石川に radiko のリンクが付かなかった）
 for official, sid in (("FM石川", "HELLOFIVE"), ("エフエム石川", "HELLOFIVE"), ("FM山陰", "FM-SANIN"), ("秋田放送", "ABS"), ("信越放送", "SBC"), ("IBC岩手放送", "IBC"), ("AIR-G’", "AIR-G"), ("tbc東北放送", "TBC")):
     check(rk0.station_ids(f"{official}「番組」") == [sid], f"radiko の局: 公式の「{official}」→ {sid}")
