@@ -1,25 +1,6 @@
 {
  "items": [
   {
-   "guid": "hp-media-h5ffd6296d881fdde",
-   "air": "2026-11-13",
-   "until": "2026-11-27",
-   "links": [
-    {
-     "label": "YouTube",
-     "url": "https://www.youtube.com/watch?v=7yfsZRuGmzM",
-     "ep": {
-      "date": "2026-11-13",
-      "kind": "pub",
-      "title": "【小田さくら ラストMC②】  さくらのしらべFINAL密着 アンジュルム「汗かいてカルナバル」LIVE MC 小田さく",
-      "note": "00:00～ アンジュルム「汗かいてカルナバル」LIVE"
-     }
-    }
-   ],
-   "source": "youtube",
-   "found": "2026-11-24"
-  },
-  {
    "guid": "hp-media-hdbd87788bd1ca44e",
    "air": "2026-11-15",
    "until": "2026-11-29",
