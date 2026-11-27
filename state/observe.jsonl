@@ -1599,3 +1599,6 @@
 {"site": "hp", "version": "2611271110-uFEEtLee5SRRb9yy", "versionTime": "2026-11-27T11:10:00+09:00", "runAt": "2026-11-27T11:15:45+09:00", "news": 0, "media": 0}
 {"site": "jproom", "version": "2611271110-uFEEtLee5SRRb9yy", "versionTime": "2026-11-27T11:10:00+09:00", "runAt": "2026-11-27T11:15:45+09:00", "news": 0, "media": 0}
 {"site": "upfront", "version": "2611271110-uFEEtLee5SRRb9yy", "versionTime": "2026-11-27T11:10:00+09:00", "runAt": "2026-11-27T11:15:45+09:00", "news": 0, "media": 0}
+{"site": "hp", "version": "2611271200-oQbrdt7vRCdxgX31", "versionTime": "2026-11-27T12:00:00+09:00", "runAt": "2026-11-27T12:00:51+09:00", "news": 2, "media": 0}
+{"site": "jproom", "version": "2611271200-oQbrdt7vRCdxgX31", "versionTime": "2026-11-27T12:00:00+09:00", "runAt": "2026-11-27T12:00:51+09:00", "news": 0, "media": 0}
+{"site": "upfront", "version": "2611271200-oQbrdt7vRCdxgX31", "versionTime": "2026-11-27T12:00:00+09:00", "runAt": "2026-11-27T12:00:51+09:00", "news": 0, "media": 1}
