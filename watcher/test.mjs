@@ -75,6 +75,21 @@ assert(JSON.stringify(gh()) === '["hpwatch.yml","profiles.yml","tver.yml","episo
 calls = []; await run("0 20 * * *", env, at(90));
 assert(JSON.stringify(gh()) === '["rss.yml","tver.yml","episodes.yml"]', "05:00 JST は rss.yml・tver.yml・episodes.yml");
 
+// 12:00 と 23:30（JST）は、15分おきの実行の中で、tver.yml・episodes.yml も呼ぶ（5:00・18:00 と合わせて、1日4回）
+{
+  const jst = (hm) => new Date(`2026-11-19T${hm}:00+09:00`);
+  for (const hm of ["12:00", "23:30"]) {
+    calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s1"')), jst(hm));
+    assert(JSON.stringify(gh()) === '["tver.yml","episodes.yml"]', `${hm} JST の更新の検知の回は、tver.yml・episodes.yml も呼ぶ（公式が変わっていなければ、その2つだけ）`);
+  }
+  for (const hm of ["12:15", "11:45", "23:45", "00:00"]) {
+    calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s1"')), jst(hm));
+    assert(gh().length === 0, `${hm} JST は、tver.yml・episodes.yml を呼ばない`);
+  }
+  calls = []; await run("*/15 * * * *", kenvOf(watched('"n1"', '"s0"')), jst("12:00"));
+  assert(JSON.stringify(gh().sort()) === '["episodes.yml","rss.yml","tver.yml"]', "12:00 に公式も変わっていれば、rss.yml も呼ぶ");
+}
+
 calls = []; await run("0 3 * * *", env, at(5));
 assert(calls.length === 0, "知らない時刻の cron は何もしない");
 

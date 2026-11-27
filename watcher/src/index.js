@@ -5,6 +5,8 @@
 //   */15 * * * *  ハロプロ・JPROOM は、公式のJSONの ETag（中身のハッシュ）が前回の作り直しと違えば、ハロショは、フィードの Last-Modified が直近17分以内なら、rss.yml を呼ぶ
 //   0 20 * * *    05:00 JST  rss.yml（今日の予定）・tver.yml（放送後の TVer のリンクを探す）・episodes.yml（ポッドキャスト・YouTube のエピソードを結びつける）
 //   0 9 * * *     18:00 JST  hpwatch.yml（スケジュールの Discord 通知）と profiles.yml（プロフィール）と tver.yml と episodes.yml を別々に呼ぶ
+//   12:00 と 23:30 JST  tver.yml と episodes.yml だけ（上の15分おきの実行の中で、時刻を見て呼ぶ。cron の数は増やさない）。
+//                     TVer・ポッドキャスト・YouTube は、5:00・12:00・18:00・23:30 の1日4回（最大の待ち時間が6時間半ほど）
 //
 // 呼ぶ側が二重に呼ばれても困らない（どの作業も、新しい分だけを処理する）。呼び出しに失敗したら、そのたびに Discord に知らせる。
 
@@ -27,6 +29,9 @@ const OFFICIAL = {
 const UA = "Mozilla/5.0 (hp-watch; cloudflare cron)";
 const DETECT = "*/15 * * * *";
 const WINDOW_MS = 17 * 60 * 1000; // 15分おきの実行 ＋ 少しの余裕
+// 5:00 と 18:00 のほかに、TVer・ポッドキャスト・YouTube を探す時刻（日本時間。15分おきの実行の時刻と合う分だけ）
+const EXTRA_JST = ["12:00", "23:30"];
+const EXTRA_JOBS = ["tver.yml", "episodes.yml"];
 const FIXED = {
   "0 20 * * *": ["rss.yml", "tver.yml", "episodes.yml"],
   "0 9 * * *": ["hpwatch.yml", "profiles.yml", "tver.yml", "episodes.yml"],
@@ -96,7 +101,7 @@ export async function dispatch(env, workflow, ref = "main") {
 }
 
 async function notifyFailure(env, text) {
-  // 失敗したら毎回知らせる。呼び出しは1日に十数回（更新の検知と、5:00・18:00）しか無いので、続いても数が限られる。
+  // 失敗したら毎回知らせる。呼び出しは1日に十数回（更新の検知と、5:00・12:00・18:00・23:30）しか無いので、続いても数が限られる。
   // 時刻で間引くと、間引かれた回の失敗が誰にも知られない
   if (!env.DISCORD_WEBHOOK_URL) return;
   await fetch(env.DISCORD_WEBHOOK_URL, {
@@ -111,6 +116,9 @@ export async function run(cron, env, now) {
   for (const w of FIXED[cron] || []) jobs.set(w, cron);
   const errors = [];
   if (cron === DETECT) {
+    const jst = new Date(now.getTime() + 9 * 3600e3);
+    const hm = `${String(jst.getUTCHours()).padStart(2, "0")}:${String(jst.getUTCMinutes()).padStart(2, "0")}`;
+    if (EXTRA_JST.includes(hm)) for (const w of EXTRA_JOBS) jobs.set(w, `${hm} JST`);
     for (const [site, base] of Object.entries(OFFICIAL)) {
       try {
         const why = await officialChanged(env, base, now);
