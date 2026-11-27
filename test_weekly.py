@@ -93,6 +93,69 @@ import radiko
 rk0 = radiko.Radiko()
 rk0._stations = {"CRT": {"name": "CRT栃木放送"}, "MRO": {"name": "MROラジオ"}, "JOAK-FM": {"name": "NHK FM(東京)"}, "CRK": {"name": "ラジオ関西"}}
 rk0._by_name = {radiko.norm(v["name"]): k for k, v in rk0._stations.items()}
+# radiko の番組のページ（/r_seasons/番号）。番組表の放送の ID から、スマホ向けのエピソードのページを開いて読む
+import tempfile as _tf
+_calls = []
+_pages = {"/mobile/events/111": '<a href="/r_seasons/10000236">番組</a>', "/mobile/events/222": "<html>番組のページが無い</html>"}
+def _fake_get(url, ua=radiko.UA):
+    _calls.append((url, ua))
+    path = url.replace("https://radiko.jp", "")
+    if path not in _pages:
+        raise OSError("通信に失敗")
+    return _pages[path].encode()
+_orig_get, radiko._get = radiko._get, _fake_get
+_orig_sleep, radiko.time.sleep = radiko.time.sleep, lambda s: None
+_cache = os.path.join(_tf.mkdtemp(), "radiko_seasons.json")
+rks = radiko.Radiko(_cache)
+D0 = dt.date(2026, 11, 27)
+pa = {"id": "111", "title": "Memories＆Discoveries (1)", "ft": "20261127050000", "ts_ng": False}
+check(rks.season_url("HELLOFIVE", pa, D0) == "https://radiko.jp/r_seasons/10000236" and _calls[0][1] == radiko.MOBILE_UA, "radiko の番組のページ: エピソードのページ（スマホ向け）から、/r_seasons/番号 を読む")
+n0 = len(_calls)
+check(rks.season_url("HELLOFIVE", dict(pa, id="999", title="Memories＆Discoveries (2)"), D0) == "https://radiko.jp/r_seasons/10000236" and len(_calls) == n0, "同じ局・同じ番組は、(1)(2) の番号が違っても、記憶から返す（取りに行かない）")
+pb = {"id": "222", "title": "歌声は風にのって (1)", "ft": "x", "ts_ng": False}
+check(rks.season_url("CRK", pb, D0) is None and rks._seasons["CRK|歌声は風にのって"]["id"] == "", "番組のページが無い番組は、None（無かったことを記憶する）")
+n1 = len(_calls)
+check(rks.season_url("CRK", pb, D0 + dt.timedelta(days=3)) is None and len(_calls) == n1, "無かった番組は、7日たつまで、探し直さない")
+check(rks.season_url("CRK", pb, D0 + dt.timedelta(days=8)) is None and len(_calls) == n1 + 1, "無かった番組は、7日あとに、探し直す")
+pc = {"id": "333", "title": "通信が失敗する番組", "ft": "x", "ts_ng": False}
+check(rks.season_url("TBS", pc, D0) is None and "TBS|通信が失敗する番組" not in rks._seasons, "通信の失敗は、記憶しない（次の作り直しで、またやる）")
+check(rks.season_url("TBS", {"id": "", "title": "x"}, D0) is None and rks.season_url("TBS", None, D0) is None, "番組表に無い（ID が無い）ときは、None")
+check(rks.save_seasons() is True and rks.save_seasons() is False and json.load(open(_cache, encoding="utf-8"))["HELLOFIVE|MEMORIES&DISCOVERIES"]["id"] == "10000236", "記憶をファイルに書く（変わったときだけ）")
+rks2 = radiko.Radiko(_cache); n2 = len(_calls)
+check(rks2.season_url("HELLOFIVE", pa, D0) == "https://radiko.jp/r_seasons/10000236" and len(_calls) == n2, "次の作り直しでは、記憶から返す")
+radiko.SEASON_MAX_FETCH, _mf = 1, radiko.SEASON_MAX_FETCH
+rks3 = radiko.Radiko(); _pages["/mobile/events/444"] = '/r_seasons/5'; _pages["/mobile/events/555"] = '/r_seasons/6'
+r1 = rks3.season_url("A", {"id": "444", "title": "a"}, D0); r2 = rks3.season_url("B", {"id": "555", "title": "b"}, D0)
+check(r1 and r2 is None, "1回の作り直しで取りに行く数には、上限がある")
+radiko.SEASON_MAX_FETCH = _mf
+radiko._get, radiko.time.sleep = _orig_get, _orig_sleep
+
+# ラジオの行・記事のリンク: 番組のページ。引けない番組は、その回のタイムフリー
+class SeasonRk(FakeRk):
+    def lookup(self, sid, ft):
+        return {"ft": ft, "title": "番組", "id": "1", "ts_ng": False, "corner": False}
+    def season_url(self, sid, p):
+        return {"TBS": "https://radiko.jp/r_seasons/1", "CRK": None, "FMT": "https://radiko.jp/r_seasons/1"}.get(sid)
+    def station_ids(self, title):
+        return [s for s, k in (("TBS", "TBS"), ("CRK", "関西"), ("FMT", "FM東京")) if k in title]
+    def name(self, sid):
+        return {"TBS": "TBSラジオ", "CRK": "ラジオ関西", "FMT": "TOKYO FM"}[sid]
+    def free_area(self, sid):
+        return "関東"
+rk_s = SeasonRk()
+x_tbs = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ「番組」"}
+check(rss.radiko_link_list([x_tbs], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1")], "ラジオの行: 番組のページがあれば「radiko（番組ページ）」（局名は付けない）")
+x_crk = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "ラジオ関西「番組」"}
+check(rss.radiko_link_list([x_crk], rk_s) == [("radiko（ラジオ関西）", "https://radiko.jp/#!/ts/CRK/20261127133000".replace("https://radiko.jp/#!/ts/CRK/", "https://radiko.jp/share/?sid=CRK&t="))], "ラジオの行: 番組のページが引けない番組は、その回のタイムフリー（局名つき）")
+x_two = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ/FM東京「番組」"}
+check(rss.radiko_link_list([x_two], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1")], "ラジオの行: 別の局でも、同じ番組のページは、1つにまとめる")
+x_mix = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ/ラジオ関西「番組」"}
+check(len(rss.radiko_link_list([x_mix], rk_s)) == 2, "ラジオの行: 番組のページと、タイムフリーが混ざるときは、両方出す")
+lk, nt = rss.radiko_links(x_tbs, "TBSラジオ「番組」", "13:30", rk_s)
+check(len(lk) == 1 and lk[0][0].startswith("radiko 番組ページ（TBSラジオ・無料で聴けるのは関東）") and lk[0][1] == "https://radiko.jp/r_seasons/1" and any("放送後1週間" in n for n in nt), "記事: 番組のページのリンク（局名・無料で聴ける範囲つき）")
+lk2, _ = rss.radiko_links(x_crk, "ラジオ関西「番組」", "13:30", rk_s)
+check(lk2[0][0].startswith("radiko タイムフリー（ラジオ関西") and "share/?sid=CRK" in lk2[0][1], "記事: 番組のページが引けなければ、タイムフリー")
+
 # 公式の局名の書き方が違う局（「FM石川」と「エフエム石川」。2026年11月に、FM石川に radiko のリンクが付かなかった）
 for official, sid in (("FM石川", "HELLOFIVE"), ("エフエム石川", "HELLOFIVE"), ("FM山陰", "FM-SANIN"), ("秋田放送", "ABS"), ("信越放送", "SBC"), ("IBC岩手放送", "IBC"), ("AIR-G’", "AIR-G"), ("tbc東北放送", "TBC")):
     check(rk0.station_ids(f"{official}「番組」") == [sid], f"radiko の局: 公式の「{official}」→ {sid}")
