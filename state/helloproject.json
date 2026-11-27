@@ -4634,6 +4634,34 @@
 "status": null,
 "title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
 },
+"h0cbfafe1f741b563": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "27:05",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/barabara/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "26:45",
+"status": null,
+"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
+},
 "h0cc4d57c8a2fa7d7": {
 "artists": [
 634
@@ -16991,6 +17019,26 @@
 "status": null,
 "title": "南海放送「山下泰則のモーニング ディライト」"
 },
+"h4c12304c6dd78699": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/radio/kyun/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "RSK山陽放送「キューン！MUSIC」"
+},
 "h4c3aa8692dfc401c": {
 "artists": [
 477
@@ -25888,6 +25936,26 @@
 "status": null,
 "title": "ロージークロニクル4th Single Free Live Circuit ～だって未来は最強じゃん☆☆☆～"
 },
+"h7cd4dc109a83cd18": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "13:55",
+"isFc": false,
+"label": null,
+"link": "https://www.zf-web.com/radio/regular/musictune/post.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "10:00",
+"status": null,
+"title": "ぎふチャン「Music Tune」"
+},
 "h7ce4980fbb5db02e": {
 "artists": [
 36
@@ -31483,6 +31551,26 @@
 "status": null,
 "title": "STVラジオ「クラップリスト」"
 },
+"h9ad6408f154634c0": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fm-okayama.co.jp/passage/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "16:00",
+"status": null,
+"title": "FM岡山「PASSAGE」"
+},
 "h9b267d5e6b2c7a36": {
 "artists": [
 3
@@ -33263,6 +33351,25 @@
 "start": "15:00",
 "status": null,
 "title": "Hello! Project 2027 Winter「Crossroads」"
+},
+"ha3fc726247f36a43": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://www.radionikkei.jp/toraken/",
+"members": [
+588,
+612
+],
+"note": "",
+"start": "18:00",
+"status": null,
+"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
 },
 "ha42aaa815a6d723c": {
 "artists": [
@@ -37246,6 +37353,26 @@
 "status": null,
 "title": "Juice=Juice Concert 2025 Queen of Hearts Special Flush"
 },
+"hbc6aba4b3836c32d": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://hellofive.jp/",
+"members": [
+611,
+612,
+646
+],
+"note": "",
+"start": "20:55",
+"status": null,
+"title": "FM石川「HELLO FIVE BOX」"
+},
 "hbc71cda66625cd5f": {
 "artists": [
 477
@@ -37636,6 +37763,26 @@
 "start": "05:25",
 "status": null,
 "title": "関西テレビ「ピーチケパーチケ」"
+},
+"hbddec18afe3b1893": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "16:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/radio/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "16:30",
+"status": null,
+"title": "IBCラジオ「音楽のハコ」"
 },
 "hbde682c6ab06ed38": {
 "artists": [
@@ -39455,6 +39602,54 @@
 "start": "18:00",
 "status": null,
 "title": "Hulu「Juice=Juice Summer Camp in Korea Episode2」"
+},
+"hc74b7f6db3d6cf2b": {
+"artists": [
+585
+],
+"category": "CONCERT",
+"date": "2026-11-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
+"members": [
+462,
+496,
+524,
+540,
+541,
+591,
+592,
+593,
+665,
+708,
+709
+],
+"note": "府中の森芸術劇場 どりーむホール（東京）",
+"start": null,
+"status": null,
+"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
+},
+"hc75d35a08761707a": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "27:28",
+"isFc": false,
+"label": null,
+"link": "https://www.ibc.co.jp/tv/midnightshuffle",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "26:58",
+"status": null,
+"title": "IBC岩手放送「ミッドナイトシャッフル」"
 },
 "hc75f596088471d14": {
 "artists": [
@@ -46320,6 +46515,26 @@
 "status": null,
 "title": "和歌山放送「すみたにの全開！水曜日」"
 },
+"he9c37ca4bfa9b35a": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "18:30",
+"isFc": false,
+"label": null,
+"link": "https://fm807.jp/program/tj/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "18:20",
+"status": null,
+"title": "FM徳島「T-Joint」"
+},
 "hea005c085f7e293f": {
 "artists": [
 29
@@ -47558,6 +47773,26 @@
 "start": null,
 "status": null,
 "title": "今日は山﨑愛生（モーニング娘。'26）の21歳の誕生日です！"
+},
+"hefedd3a50cf45b85": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-26",
+"end": "17:00",
+"isFc": false,
+"label": null,
+"link": "https://fma.co.jp/f/prg/afternooncolors/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "14:30",
+"status": null,
+"title": "FM AICHI「AFTERNOON COLORS」"
 },
 "hf00b56bdeb7eb874": {
 "artists": [
@@ -51038,34 +51273,6 @@
 "status": null,
 "title": "4thシングル発売記念 forTUNE musicイベント"
 },
-"s1464": {
-"artists": [
-585
-],
-"category": "CONCERT",
-"date": "2026-11-26",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/6466c46f8d951657d36204f08ecf05dad910ffa642607b4de3dff6e13fc1837d/",
-"members": [
-462,
-496,
-524,
-540,
-541,
-591,
-592,
-593,
-665,
-708,
-709
-],
-"note": "府中の森芸術劇場 どりーむホール（東京）",
-"start": null,
-"status": null,
-"title": "BEYOOOOONDS CONCERT 2026 [IT'S SHOOOOOWTIME ENCOOOOORE！]"
-},
 "s1465": {
 "artists": [
 585
@@ -51725,6 +51932,25 @@
 "status": null,
 "title": "COUNTDOWN JAPAN 26/27"
 },
+"s1885": {
+"artists": [
+676
+],
+"category": "RADIO",
+"date": "2026-12-03",
+"end": "20:30",
+"isFc": false,
+"label": null,
+"link": "https://www.fmosaka.net/_ct/17377401",
+"members": [
+605,
+612
+],
+"note": "",
+"start": "20:00",
+"status": null,
+"title": "FM大阪「SND garden～STOP! NAGARA DRIVING PROJECT」"
+},
 "s1909": {
 "artists": [
 36
@@ -51742,26 +51968,6 @@
 "start": null,
 "status": null,
 "title": "Juice=Juice 川嶋美楓バースデーイベント2027"
-},
-"s1928": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://www.rsk.co.jp/radio/kyun/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "RSK山陽放送「キューン！MUSIC」"
 },
 "s1931": {
 "artists": [
@@ -51874,26 +52080,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
-},
-"s1994": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "21:00",
-"isFc": false,
-"label": null,
-"link": "https://hellofive.jp/",
-"members": [
-611,
-612,
-646
-],
-"note": "",
-"start": "20:55",
-"status": null,
-"title": "FM石川「HELLO FIVE BOX」"
 },
 "s1996": {
 "artists": [
@@ -52340,34 +52526,6 @@
 "start": null,
 "status": null,
 "title": "BEYOOOOONDS DVD MAGAZINE Vol.17～島倉りか卒業メモリアル～"
-},
-"s2025": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-26",
-"end": "27:05",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/barabara/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "",
-"start": "26:45",
-"status": null,
-"title": "テレビ朝日「バラバラマンスリー『モーニング娘。'26のちょっと大人になったので確かめに行きます。』」"
 },
 "s2042": {
 "artists": [
@@ -53082,25 +53240,6 @@
 "start": null,
 "status": null,
 "title": "アンジュルム 伊勢鈴蘭・川名凜バースデーイベント in 大阪"
-},
-"s2189": {
-"artists": [
-676
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "18:30",
-"isFc": false,
-"label": null,
-"link": "https://www.radionikkei.jp/toraken/",
-"members": [
-588,
-612
-],
-"note": "",
-"start": "18:00",
-"status": null,
-"title": "ラジオNIKKEI「虎ノ門 トレンド経済研究所」"
 },
 "s2213": {
 "artists": [
@@ -54315,46 +54454,6 @@
 "status": null,
 "title": "RSK山陽放送「ユタンポ」"
 },
-"s2289": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fm-okayama.co.jp/passage/",
-"members": [
-462,
-540,
-593
-],
-"note": "",
-"start": "16:00",
-"status": null,
-"title": "FM岡山「PASSAGE」"
-},
-"s2290": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "18:30",
-"isFc": false,
-"label": null,
-"link": "https://fm807.jp/program/tj/",
-"members": [
-462,
-540,
-593
-],
-"note": "",
-"start": "18:20",
-"status": null,
-"title": "FM徳島「T-Joint」"
-},
 "s2291": {
 "artists": [
 585
@@ -54414,45 +54513,26 @@
 "status": null,
 "title": "エフエム山陰「髙田りおんのGO-!EVENING!」"
 },
-"s2300": {
+"s2299": {
 "artists": [
 585
 ],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "13:55",
+"category": "TV",
+"date": "2026-12-03",
+"end": "26:00",
 "isFc": false,
 "label": null,
-"link": "https://www.zf-web.com/radio/regular/musictune/post.html",
+"link": "http://www.bbt.co.jp/bms/index.html",
 "members": [
-496,
-541,
-708
+591,
+592,
+665,
+709
 ],
 "note": "※コメント",
-"start": "10:00",
+"start": "25:20",
 "status": null,
-"title": "ぎふチャン「Music Tune」"
-},
-"s2301": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "17:00",
-"isFc": false,
-"label": null,
-"link": "https://fma.co.jp/f/prg/afternooncolors/",
-"members": [
-496,
-541,
-708
-],
-"note": "※コメント",
-"start": "14:30",
-"status": null,
-"title": "FM AICHI「AFTERNOON COLORS」"
+"title": "富山テレビ放送「bms BBT MUSIC SELECTION」"
 },
 "s2302": {
 "artists": [
@@ -54491,6 +54571,46 @@
 "start": "13:30",
 "status": null,
 "title": "FM石川「Flyin'Pop」"
+},
+"s2304": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-03",
+"end": "23:30",
+"isFc": false,
+"label": null,
+"link": "https://hicbc.com/radio/oshimashi/",
+"members": [
+524,
+591,
+709
+],
+"note": "※コメント",
+"start": "22:00",
+"status": null,
+"title": "CBCラジオ「推しマシ」"
+},
+"s2305": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-03",
+"end": "27:00",
+"isFc": false,
+"label": null,
+"link": "https://www.tokairadio.co.jp/program/submarine/",
+"members": [
+524,
+591,
+709
+],
+"note": "※コメント",
+"start": "26:00",
+"status": null,
+"title": "東海ラジオ「Music Submarine」"
 },
 "s2308": {
 "artists": [
@@ -54574,6 +54694,26 @@
 "status": null,
 "title": "ロージークロニクル 植村葉純バースデーイベント2027"
 },
+"s2313": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-04",
+"end": "11:20",
+"isFc": false,
+"label": null,
+"link": "http://www.tbc-sendai.co.jp/03tv/watchin/hirumade.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "10:24",
+"status": null,
+"title": "tbc東北放送「ひるまでウォッチン！」"
+},
 "s2314": {
 "artists": [
 585
@@ -54592,26 +54732,6 @@
 "start": "13:30",
 "status": null,
 "title": "JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」"
-},
-"s2320": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-26",
-"end": "27:28",
-"isFc": false,
-"label": null,
-"link": "https://www.ibc.co.jp/tv/midnightshuffle",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "26:58",
-"status": null,
-"title": "IBC岩手放送「ミッドナイトシャッフル」"
 },
 "s2321": {
 "artists": [
@@ -54652,26 +54772,6 @@
 "start": "24:55",
 "status": null,
 "title": "福島中央テレビ「二畳半レコード」"
-},
-"s2323": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-26",
-"end": "16:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ibc.co.jp/radio/",
-"members": [
-496,
-541,
-708
-],
-"note": "※コメント",
-"start": "16:30",
-"status": null,
-"title": "IBCラジオ「音楽のハコ」"
 },
 "s2324": {
 "artists": [
@@ -55357,7 +55457,108 @@
 "start": "12:00",
 "status": null,
 "title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+},
+"s2375": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-28",
+"end": "08:00",
+"isFc": false,
+"label": null,
+"link": "https://www.htb.co.jp/ichimoni/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "06:30",
+"status": null,
+"title": "HTB「イチモニ！」"
+},
+"s2376": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-30",
+"end": "25:00",
+"isFc": false,
+"label": null,
+"link": "https://www.air-g.co.jp/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "24:55",
+"status": null,
+"title": "AIR-G'「アーティストフラッシュ」"
+},
+"s2377": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-01",
+"end": "25:00",
+"isFc": false,
+"label": null,
+"link": "https://www.air-g.co.jp/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "24:55",
+"status": null,
+"title": "AIR-G'「アーティストフラッシュ」"
+},
+"s2378": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-29",
+"end": "11:50",
+"isFc": false,
+"label": null,
+"link": "https://www.akita-abs.co.jp/tvprogram/zip-sunday/",
+"members": [
+591,
+592,
+665,
+709
+],
+"note": "※コメント",
+"start": "11:40",
+"status": null,
+"title": "ABS秋田放送「ZIP！SUNDAY」"
+},
+"s2379": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-30",
+"end": "25:15",
+"isFc": false,
+"label": null,
+"link": "https://www.menkoi-tv.co.jp/mms/top.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "24:45",
+"status": null,
+"title": "岩手めんこいテレビ「BEATNIKS」"
 }
 },
-"versionDir": "2611261800-IhypJQZKYH64Oco5"
+"versionDir": "2611271800-Dbmiv9xM3c7jAl0P"
 }
