@@ -446,14 +446,10 @@ def source_for(prog, sources):
 
 
 def standing_links(cat, prog, items, rk, programs, sources=()):
-    """毎週の番組に、放送の前から入れておくリンク [(名前, URL)]。ラジオは radiko の生放送、テレビは TVer の番組のページ（TVer にある番組だけ）、
-    決まった行き先があれば、Spotify の番組・YouTube のチャンネルも。放送のあとの分（タイムフリー・エピソード）は、別に足す"""
+    """毎週の番組に、放送の前から入れておくリンク [(名前, URL)]。テレビは TVer の番組のページ（TVer にある番組だけ）、
+    決まった行き先があれば、Spotify の番組・YouTube のチャンネルも。生放送（テレビ・ラジオ）のリンクは付けない。
+    放送のあとの分（タイムフリー・エピソード）は、別に足す"""
     out = []
-    if cat == "RADIO":
-        sids = []
-        for it in items:
-            sids += rk.station_ids(hpwatch.text_of(it.get("title")).strip())
-        out += [(f"radiko（{rk.name(sid)}・生放送）", radiko.live_url(sid)) for sid in dict.fromkeys(sids)]
     cfg = programs.get(program_key(cat, prog)) or {}
     src = source_for(prog, sources) or {}
     for field, label in (("tver", "TVer（番組）"), ("spotify", "Spotify（全エピソード）"), ("radiko_podcast", "radikoポッドキャスト（全エピソード）"),
@@ -497,7 +493,7 @@ def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
         if rl:
             lines.append(" ".join(rl))
     ctx = ctx or {}
-    # 毎週の番組は、放送の前から入れておくリンク（radiko の生放送・TVer の番組・Spotify・YouTube）も出す
+    # 毎週の番組は、放送の前から入れておくリンク（TVer の番組・Spotify・YouTube など）も出す
     if ctx.get("programs") is not None and _is_weekly(r["items"][0], ctx.get("regulars") or set()):
         sl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in standing_links(r["cat"], r["prog"], r["items"], rk, ctx["programs"], ctx.get("sources") or ())]
         if sl:
@@ -530,7 +526,7 @@ def today_page_url(site, day=None):
 
 def today_days(site, base, schedules, now, rk, ctx=None, back=PAGE_BACK, ahead=PAGE_AHEAD):
     """今日の予定のページの、日ごとの中身（今日の back 日前から ahead 日先まで。古い順）。予定が無い日は入れない。
-    これからの日（今日より先）は、まだ放送していないので、radiko のタイムフリーは出さない（生放送・番組のリンクだけ）"""
+    これからの日（今日より先）は、まだ放送していないので、radiko のタイムフリーは出さない（番組のリンクだけ）"""
     by_date = {}
     for x in schedules:
         if x.get("date"):
@@ -563,7 +559,7 @@ def today_items(site, base, schedules, now, rk, ctx=None):
             continue
         html = (f"<p><a href={quoteattr(today_page_url(site, d))}>最新の内容を見る</a>（リーダーの記事は、あとから付くリンクが、反映されないことがあります）</p>"
                 "<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
-                "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）。放送中は radiko の生放送で聴けます。</p>")
+                "<p>ラジオの radiko のリンクはタイムフリー（放送後1週間）です。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
             "guid": f"{site}-today-{d}",
@@ -1340,7 +1336,7 @@ ABOUT_BODY = (
     "</ul>"
     "<h3>放送のあとに付くリンク</h3>"
     "<p>放送が終わると、記事の後ろに、見られるリンク（TVer・radiko のタイムフリー・ポッドキャスト・YouTube など）が付くことがあります。"
-    "毎週の番組には、放送の前から、radiko の生放送や TVer の番組のページ、Spotify・YouTube の番組のページが付きます。</p>"
+    "毎週の番組には、放送の前から、TVer の番組のページ、Spotify・YouTube の番組のページが付きます。</p>"
 )
 
 
