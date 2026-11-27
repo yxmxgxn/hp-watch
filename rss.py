@@ -10,7 +10,7 @@
 MEDIA（media）
   スケジュールの TV / RADIO / MAGAZINE / WEB で、前回なかった予定を配信する（テレビ・ラジオはだいたい1週間前に載る）。
   毎週の番組は出さない。放送日を過ぎてから載った予定は出さない（WEB・雑誌は「掲載済」を付けて出す）。
-  ラジオには radiko のリンク（番組のページ。無い番組は、その回のタイムフリー）を付ける（radiko.py）。
+  ラジオには radiko のリンク（番組のページと、その回のタイムフリー）を付ける（radiko.py）。
   状態ファイル state/rss_media_{site}.json に「見た予定」と「配信した記事」を持つ。
   初回は今日から1週間分の予定を入れて始める。
 
@@ -237,9 +237,9 @@ def md(date):
 
 
 def radiko_links(x, title, start, rk):
-    """ラジオの radiko のリンク [(文字, URL)] と、注意書き。番組のページ（最新回・過去の放送回の一覧）が引ければ、それ。
-    引けない番組は、その回のタイムフリー"""
-    links, notes = [], []
+    """ラジオの radiko のリンク [(文字, URL)] と、注意書き。番組のページ（最新回・過去の放送回の一覧。引けた番組だけ）と、その局のその回のタイムフリーの両方。
+    地方局の遅れ放送は、番組のページの「最新」と回が違うことがあるので、その局のその回に直接行けるタイムフリーも付ける"""
+    pages, frees, notes = [], [], []
     ft = radiko.ft_of(x["date"], start)
     for sid in rk.station_ids(title):
         name, area = rk.name(sid), rk.free_area(sid)
@@ -248,12 +248,15 @@ def radiko_links(x, title, start, rk):
             notes.append(f"{name}: radiko のタイムフリーの対象外です")
             continue
         season = rk.season_url(sid, p)
-        text = f"radiko {'番組ページ' if season else 'タイムフリー'}（{name}{'・無料で聴けるのは' + area if area else ''}）"
+        if season and season not in [u for _, u in pages]:
+            pages.append(("radiko 番組ページ", season))
+        text = f"radiko タイムフリー（{name}{'・無料で聴けるのは' + area if area else ''}）"
         if p.get("corner"):
             text += f" ※番組の途中、{start}ごろから"
-        url = season or radiko.timefree_url(sid, p["ft"])
-        if url not in [u for _, u in links]:
-            links.append((text, url))
+        url = radiko.timefree_url(sid, p["ft"])
+        if url not in [u for _, u in frees]:
+            frees.append((text, url))
+    links = pages + frees
     if links:
         notes.append("radiko で聴けるのは放送後1週間です（地域の外はエリアフリー（有料）が必要）")
     return links, notes
@@ -464,27 +467,25 @@ def standing_links(cat, prog, items, rk, programs, sources=()):
     return list(dict.fromkeys(out))
 
 
-def radiko_link_list(items, rk):
+def radiko_link_list(items, rk, timefree=True):
     """ラジオの予定の radiko のリンク [(名前, URL)]。タイムフリーに出来るものだけ。
-    番組のページ（最新回・過去の放送回の一覧。スマホでも開く）が引ければ「radiko（番組ページ）」、引けない番組は、その回のタイムフリー「radiko（局名）」。
-    同じ番組のページは1つにまとめる（別の局でも同じページなら）。ページが2つ以上あるときだけ、局名を付ける"""
+    「radiko（番組ページ）」（最新回・過去の放送回の一覧。引けた番組だけ。同じ番組は1つにまとめる。ページが2つ以上あるときだけ局名を付ける）と、
+    「radiko（局名）」（その局のその回のタイムフリー。地方局の遅れ放送でも、その局の放送そのものに行ける）。
+    timefree=False（まだ放送していない日）は、番組のページだけ"""
     x = items[0]
     ft = radiko.ft_of(x["date"], (x.get("schedule") or {}).get("start") or "")
-    found = []   # (局, URL, 番組のページか)
+    pages, frees = {}, {}
     for it in items:
         for sid in rk.station_ids(hpwatch.text_of(it.get("title")).strip()):
             p = rk.lookup(sid, ft)
             if p and not p.get("ts_ng"):
                 season = rk.season_url(sid, p)
-                found.append((sid, season or radiko.timefree_url(sid, p["ft"]), bool(season)))
-    pages = {u for _, u, s in found if s}
-    out, seen = [], set()
-    for sid, url, is_page in found:
-        if url in seen:
-            continue
-        seen.add(url)
-        label = ("radiko（番組ページ）" if len(pages) == 1 else f"radiko（番組ページ・{rk.name(sid)}）") if is_page else f"radiko（{rk.name(sid)}）"
-        out.append((label, url))
+                if season:
+                    pages.setdefault(season, sid)
+                frees.setdefault(radiko.timefree_url(sid, p["ft"]), sid)
+    out = [("radiko（番組ページ）" if len(pages) == 1 else f"radiko（番組ページ・{rk.name(sid)}）", url) for url, sid in pages.items()]
+    if timefree:
+        out += [(f"radiko（{rk.name(sid)}）", url) for url, sid in frees.items()]
     return out
 
 
@@ -503,8 +504,8 @@ def today_row_html(r, base, rk, site="", ctx=None, timefree=True):
     lines = [head]
     if r["who"]:
         lines.append(f"出演: {escape(r['who'])}")
-    if timefree and r["cat"] == "RADIO" and r["start"] and not r["status"]:
-        rl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in radiko_link_list(r["items"], rk)]
+    if r["cat"] == "RADIO" and r["start"] and not r["status"]:   # まだ放送していない日（timefree=False）は、番組のページだけ
+        rl = [f"<a href={quoteattr(u)}>{escape(n)}</a>" for n, u in radiko_link_list(r["items"], rk, timefree=timefree)]
         if rl:
             lines.append(" ".join(rl))
     ctx = ctx or {}
@@ -574,7 +575,7 @@ def today_items(site, base, schedules, now, rk, ctx=None):
             continue
         html = (f"<p><a href={quoteattr(today_page_url(site, d))}>最新の内容を見る</a>（リーダーの記事は、あとから付くリンクが、反映されないことがあります）</p>"
                 "<ul>" + "".join(today_row_html(r, base, rk, site, ctx) for r in rows) + "</ul>"
-                "<p>ラジオの radiko のリンクは、番組のページです（放送後1週間の回が、一覧に出ます）。番組のページが無い番組は、その回のタイムフリーです。</p>")
+                "<p>ラジオの radiko のリンクは、番組のページ（最新回・過去の放送回の一覧）と、その局のその回のタイムフリー（放送後1週間）です。明日以降は、番組のページだけです。放送回があるかは、番組のページで、ご確認ください。</p>")
         cats = sorted({r["cat"] for r in rows if r["cat"]})
         out.append({
             "guid": f"{site}-today-{d}",
@@ -716,7 +717,7 @@ WEEKLY_AHEAD = 10  # 今日から何日先まで
 
 def weekly_occurrences(site, label, schedules, profiles, now, rk, programs, sources=()):
     """毎週・毎月などの番組の、今日の前後の1回分ずつ。guid は MEDIA と同じ形（{site}-media-{ハッシュ}）なので、手で入れた分・自動の分と、
-    同じ仕組みで結べる。ラジオは、聴ける radiko のリンク（番組のページ。放送後1週間まで）も付ける"""
+    同じ仕組みで結べる。ラジオは、聴ける radiko のリンク（番組のページ・その回のタイムフリー。放送後1週間まで）も付ける"""
     today = now.date()
     lo, hi = today - dt.timedelta(days=WEEKLY_BACK), today + dt.timedelta(days=WEEKLY_AHEAD)
     out = []
