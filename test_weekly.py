@@ -143,18 +143,20 @@ class SeasonRk(FakeRk):
     def free_area(self, sid):
         return "関東"
 rk_s = SeasonRk()
+TF = lambda sid: f"https://radiko.jp/share/?sid={sid}&t=20261127133000"
 x_tbs = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ「番組」"}
-check(rss.radiko_link_list([x_tbs], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1")], "ラジオの行: 番組のページがあれば「radiko（番組ページ）」（局名は付けない）")
+check(rss.radiko_link_list([x_tbs], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1"), ("radiko（TBSラジオ）", TF("TBS"))], "ラジオの行: 番組のページ（局名なし）と、その局のその回のタイムフリーの両方")
+check(rss.radiko_link_list([x_tbs], rk_s, timefree=False) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1")], "ラジオの行: まだ放送していない日は、番組のページだけ")
 x_crk = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "ラジオ関西「番組」"}
-check(rss.radiko_link_list([x_crk], rk_s) == [("radiko（ラジオ関西）", "https://radiko.jp/#!/ts/CRK/20261127133000".replace("https://radiko.jp/#!/ts/CRK/", "https://radiko.jp/share/?sid=CRK&t="))], "ラジオの行: 番組のページが引けない番組は、その回のタイムフリー（局名つき）")
+check(rss.radiko_link_list([x_crk], rk_s) == [("radiko（ラジオ関西）", TF("CRK"))] and rss.radiko_link_list([x_crk], rk_s, timefree=False) == [], "ラジオの行: 番組のページが引けない番組は、タイムフリーだけ（放送前は、何も出さない）")
 x_two = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ/FM東京「番組」"}
-check(rss.radiko_link_list([x_two], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1")], "ラジオの行: 別の局でも、同じ番組のページは、1つにまとめる")
+check(rss.radiko_link_list([x_two], rk_s) == [("radiko（番組ページ）", "https://radiko.jp/r_seasons/1"), ("radiko（TBSラジオ）", TF("TBS")), ("radiko（TOKYO FM）", TF("FMT"))], "ラジオの行: 別の局でも、同じ番組のページは1つにまとめる。タイムフリーは局ごと")
 x_mix = {"date": "2026-11-27", "schedule": {"start": "13:30"}, "title": "TBSラジオ/ラジオ関西「番組」"}
-check(len(rss.radiko_link_list([x_mix], rk_s)) == 2, "ラジオの行: 番組のページと、タイムフリーが混ざるときは、両方出す")
+check(len(rss.radiko_link_list([x_mix], rk_s)) == 3, "ラジオの行: 番組のページが引ける局と、引けない局が混ざるときは、番組のページ1つ ＋ タイムフリー2つ")
 lk, nt = rss.radiko_links(x_tbs, "TBSラジオ「番組」", "13:30", rk_s)
-check(len(lk) == 1 and lk[0][0].startswith("radiko 番組ページ（TBSラジオ・無料で聴けるのは関東）") and lk[0][1] == "https://radiko.jp/r_seasons/1" and any("放送後1週間" in n for n in nt), "記事: 番組のページのリンク（局名・無料で聴ける範囲つき）")
+check([l[0] for l in lk] == ["radiko 番組ページ", "radiko タイムフリー（TBSラジオ・無料で聴けるのは関東）"] and lk[0][1] == "https://radiko.jp/r_seasons/1" and lk[1][1] == TF("TBS") and any("放送後1週間" in n for n in nt), "記事: 番組のページと、タイムフリー（局名・無料で聴ける範囲つき）の両方")
 lk2, _ = rss.radiko_links(x_crk, "ラジオ関西「番組」", "13:30", rk_s)
-check(lk2[0][0].startswith("radiko タイムフリー（ラジオ関西") and "share/?sid=CRK" in lk2[0][1], "記事: 番組のページが引けなければ、タイムフリー")
+check(len(lk2) == 1 and lk2[0][0].startswith("radiko タイムフリー（ラジオ関西") and "share/?sid=CRK" in lk2[0][1], "記事: 番組のページが引けなければ、タイムフリーだけ")
 
 # 公式の局名の書き方が違う局（「FM石川」と「エフエム石川」。2026年11月に、FM石川に radiko のリンクが付かなかった）
 for official, sid in (("FM石川", "HELLOFIVE"), ("エフエム石川", "HELLOFIVE"), ("FM山陰", "FM-SANIN"), ("秋田放送", "ABS"), ("信越放送", "SBC"), ("IBC岩手放送", "IBC"), ("AIR-G’", "AIR-G"), ("tbc東北放送", "TBC")):
