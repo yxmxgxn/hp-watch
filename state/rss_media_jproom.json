@@ -3,6 +3,29 @@
 {
 "categories": [
 "RADIO",
+"譜久村聖"
+],
+"cats": [
+"RADIO"
+],
+"date": "2026-11-27T23:00:00+09:00",
+"general": false,
+"groups": [
+"5"
+],
+"guid": "jproom-media-h47a94b3907d5edc6",
+"html": "<p>出演: 譜久村聖</p><p>radiko で聴けるのは放送後1週間です（地域の外はエリアフリー（有料）が必要）</p><ul><li><a href=\"https://hfm.jp/program/music-voice/\">番組ページ</a></li><li><a href=\"https://radiko.jp/share/?sid=HFM&amp;t=20261204225500\">radiko タイムフリー（広島FM・無料で聴けるのは広島）</a></li><li><a href=\"https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E5%BA%83%E5%B3%B6FM%E3%80%8CMUSIC+VOICE%E3%80%8D&amp;dates=20261204T225500%2F20261204T230000&amp;details=%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E4%B8%8A%E3%81%AE%E6%99%82%E9%96%93%E3%81%AF%E5%AE%9F%E9%9A%9B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E7%95%B0%E3%81%AA%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82%E8%A9%B3%E7%B4%B0%E3%81%AF%E5%85%AC%E5%BC%8F%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%9F%E3%81%AF%E5%85%AC%E5%BC%8F%E6%83%85%E5%A0%B1%E3%82%92%E3%81%94%E7%A2%BA%E8%AA%8D%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82&amp;ctz=Asia%2FTokyo\">Googleカレンダーに追加</a></li></ul>",
+"link": "https://hfm.jp/program/music-voice/",
+"name": "広島FM「MUSIC VOICE」",
+"sort": "2026-12-04 22:55",
+"title": "[RADIO] 12/4(金) 22:55 広島FM「MUSIC VOICE」",
+"who": [
+"mizuki_fukumura"
+]
+},
+{
+"categories": [
+"RADIO",
 "佐藤優樹"
 ],
 "cats": [
@@ -941,6 +964,7 @@
 "h360fc95584d157bf": "2026-10-09",
 "h40586fa8ec635f7f": "2026-11-20",
 "h40b5247166e68dab": "2026-10-31",
+"h47a94b3907d5edc6": "2026-12-04",
 "h48843461093f8f3c": "2026-11-13",
 "h49c06f2aecdf42f6": "2026-12-19",
 "h4e81ab5d09bbbc8c": "2026-11-23",
@@ -1027,6 +1051,7 @@
 "s2198": "2026-11-21",
 "s2199": "2026-11-23",
 "s2200": "2026-11-27",
+"s2201": "2026-12-04",
 "s2203": "2026-11-20",
 "s2204": "2026-11-20",
 "s2205": "2026-11-25",
