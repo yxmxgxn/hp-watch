@@ -11,6 +11,55 @@
 },
 "items": [
 {
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-27T17:00:00+09:00",
+"fcgroups": [
+"morningmusume"
+],
+"guid": "fc-SHDjZtH5fk5YxrVw",
+"html": "<p>イベント ・ 2026.11.27</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=SHDjZtH5fk5YxrVw\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=SHDjZtH5fk5YxrVw",
+"name": "「モーニング娘。'26 FCイベント ～娘。×FAN×Fun！×クリスマス～」当日券予約販売のお知らせ",
+"sort": "2026-11-2799",
+"title": "2026.11.27 [イベント] 「モーニング娘。'26 FCイベント ～娘。×FAN×Fun！×クリスマス～」当日券予約販売のお知らせ"
+},
+{
+"cat": "イベント",
+"categories": [
+"イベント"
+],
+"date": "2026-11-27T17:00:00+09:00",
+"fcgroups": [
+"angerme"
+],
+"guid": "fc-j8AYgFVEir8yVKVj",
+"html": "<p>イベント ・ 2026.11.27</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=j8AYgFVEir8yVKVj\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=j8AYgFVEir8yVKVj",
+"name": "「アンジュルムFCイベント2026 ～Angermerry Xmas～」当日券予約販売のお知らせ",
+"sort": "2026-11-2798",
+"title": "2026.11.27 [イベント] 「アンジュルムFCイベント2026 ～Angermerry Xmas～」当日券予約販売のお知らせ"
+},
+{
+"cat": "ニュース",
+"categories": [
+"ニュース"
+],
+"date": "2026-11-27T17:00:00+09:00",
+"fcgroups": [
+"morningmusume",
+"ochanorma"
+],
+"guid": "fc-Ai9sjpBRQQjAw4eV",
+"html": "<p>ニュース ・ 2026.11.27</p><p><a href=\"https://www.upfc.jp/helloproject/news_detail.php?@uid=Ai9sjpBRQQjAw4eV\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/helloproject/news_detail.php?@uid=Ai9sjpBRQQjAw4eV",
+"name": "「Hello! Projectデジタルコレクション」に新トレカが追加されました！",
+"sort": "2026-11-2797",
+"title": "2026.11.27 [ニュース] 「Hello! Projectデジタルコレクション」に新トレカが追加されました！"
+},
+{
 "cat": "ニュース",
 "categories": [
 "ニュース"

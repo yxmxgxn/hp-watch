@@ -32,6 +32,38 @@
 },
 "items": [
 {
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-27T17:00:00+09:00",
+"fcgroups": [
+"ishidaayumi"
+],
+"guid": "mline-hc5031c202b6c",
+"html": "<p>FCイベント ・ 2026.11.27</p><p><a href=\"https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp10000\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/event/event_sp_list.php?@wc=sp10000",
+"name": "スペシャル会員ポイントプレゼント【チケット10000】情報更新！",
+"sort": "2026-11-2799",
+"title": "2026.11.27 [FCイベント] スペシャル会員ポイントプレゼント【チケット10000】情報更新！"
+},
+{
+"cat": "FCイベント",
+"categories": [
+"FCイベント"
+],
+"date": "2026-11-27T17:00:00+09:00",
+"fcgroups": [
+"ishidaayumi"
+],
+"guid": "mline-Q2mkzr2sJsZRrkmG",
+"html": "<p>FCイベント ・ 2026.11.27</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=Q2mkzr2sJsZRrkmG\">ファンクラブサイトで読む</a></p>",
+"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=Q2mkzr2sJsZRrkmG",
+"name": "★ファンクラブ会員限定イベント★『石田亜佑美バースデーイベント2027～AYUFES'30～』開催決定！",
+"sort": "2026-11-2798",
+"title": "2026.11.27 [FCイベント] ★ファンクラブ会員限定イベント★『石田亜佑美バースデーイベント2027～AYUFES'30～』開催決定！"
+},
+{
 "cat": "コンテンツ",
 "categories": [
 "コンテンツ"
@@ -4645,36 +4677,6 @@
 "link": "https://www.upfc.jp/m-line/fan/fan_gd_pola_info.php",
 "sort": "2025-04-2138",
 "title": "2025.04.21 [コンテンツ] スペシャルゴールド会員ポイントプレゼント【30000pt　ポラロイド撮影】情報更新！"
-},
-{
-"cat": "コンテンツ",
-"categories": [
-"コンテンツ"
-],
-"date": "2025-04-21T12:00:00+09:00",
-"fcgroups": [
-"tsujinozomi"
-],
-"guid": "mline-h4118bacfb489",
-"html": "<p>コンテンツ ・ 2025.04.21</p><p><a href=\"https://www.upfc.jp/m-line/fan/fan_gd_talk_info.php\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/fan/fan_gd_talk_info.php",
-"sort": "2025-04-2137",
-"title": "2025.04.21 [コンテンツ] スペシャルゴールド会員ポイントプレゼント【50000pt　2ショットトーク＆写真撮影】情報更新！"
-},
-{
-"cat": "FCイベント",
-"categories": [
-"FCイベント"
-],
-"date": "2025-04-11T12:00:00+09:00",
-"fcgroups": [
-"tsujinozomi"
-],
-"guid": "mline-rhkiApqPzkpzEeeH",
-"html": "<p>FCイベント ・ 2025.04.11</p><p><a href=\"https://www.upfc.jp/m-line/news_detail.php?@uid=rhkiApqPzkpzEeeH\">ファンクラブサイトで読む</a></p>",
-"link": "https://www.upfc.jp/m-line/news_detail.php?@uid=rhkiApqPzkpzEeeH",
-"sort": "2025-04-1136",
-"title": "2025.04.11 [FCイベント] ★ファンクラブ会員限定イベント★「石川梨華・辻希美ファンクラブイベント2025～I LOVE 4期～」開催決定！"
 }
 ],
 "people": [
