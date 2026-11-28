@@ -2182,6 +2182,22 @@
 "status": null,
 "title": "2ndシングル発売記念 WithLIVEオンライン個別お話し会"
 },
+"h2ee6a53a91932e3b": {
+"artists": [
+10
+],
+"category": "STAGE",
+"date": "2026-11-26",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
+"members": [],
+"note": "梅田芸術劇場シアター・ドラマシティ（大阪）",
+"start": null,
+"status": null,
+"title": "タクフェス第14弾「北の島から」"
+},
 "h2fc99904755facbd": {
 "artists": [
 5,
@@ -2265,6 +2281,22 @@
 "start": "05:50",
 "status": null,
 "title": "KBS京都放送「新・流行音楽堂」"
+},
+"h31ad04736533c6cb": {
+"artists": [
+40
+],
+"category": "TICKET",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/miyamotokarin/",
+"members": [],
+"note": "12/1(火) KT Zepp Yokohama （神奈川）公演\n※追加席販売",
+"start": "12:00",
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
 },
 "h325809c9853bcae6": {
 "artists": [
@@ -3330,6 +3362,22 @@
 "start": null,
 "status": null,
 "title": "竹内朱莉が描く日本酒ラベル「雪月風花」限定発売記念イベント"
+},
+"h53c69f53805bed36": {
+"artists": [
+40
+],
+"category": "STREAM",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [],
+"note": "※配信開始",
+"start": null,
+"status": null,
+"title": "＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント"
 },
 "h53e4979cba9afd81": {
 "artists": [
@@ -4609,6 +4657,22 @@
 "start": "16:30",
 "status": null,
 "title": "IBCラジオ「音楽のハコ」"
+},
+"h7c16018c99673172": {
+"artists": [
+5
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://www.joeufm.co.jp/grc/",
+"members": [],
+"note": "",
+"start": "13:41",
+"status": null,
+"title": "FM愛媛「Groovy Radio Caravan」"
 },
 "h7c6f994dff0fe3ce": {
 "artists": [
@@ -5953,6 +6017,22 @@
 "start": "26:00",
 "status": null,
 "title": "bayfm「78musi-curate」"
+},
+"ha6741117aeb6e105": {
+"artists": [
+10
+],
+"category": "TV",
+"date": "2026-11-26",
+"end": "25:50",
+"isFc": false,
+"label": null,
+"link": "https://www.ox-tv.co.jp/sugojob/",
+"members": [],
+"note": "※再放送",
+"start": "25:40",
+"status": null,
+"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
 "ha689e60d4366534e": {
 "artists": [
@@ -8156,6 +8236,22 @@
 "status": null,
 "title": "HBCテレビ「キタコイ」"
 },
+"hf4e4429f0b8e6140": {
+"artists": [
+10
+],
+"category": "STAGE",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
+"members": [],
+"note": "梅田芸術劇場シアター・ドラマシティ（大阪）",
+"start": null,
+"status": null,
+"title": "タクフェス第14弾「北の島から」"
+},
 "hf55fe2afad99c111": {
 "artists": [
 40
@@ -8324,7 +8420,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
+"note": "11/3(火) 仙台darwin（宮城）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8344,7 +8440,7 @@
 "label": null,
 "link": "/event/b2113bf9b75dae14e07ca78681654538ff0899f2ab0b9ea3014aaa603b46342b/",
 "members": [],
-"note": "11/3(火) 仙台darwin（宮城）公演",
+"note": "10/31(土) 札幌ペニーレーン24（北海道）公演",
 "start": null,
 "status": null,
 "title": "発売日｜M-line Special 2026 Autumn 〜NOCTURNE〜"
@@ -8607,22 +8703,6 @@
 "start": null,
 "status": null,
 "title": "＜ハロショ大阪独演会 第十八席＞～佐々木莉佳子～トークイベント"
-},
-"s1785": {
-"artists": [
-40
-],
-"category": "STREAM",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [],
-"note": "※配信開始",
-"start": null,
-"status": null,
-"title": "＜ハロショ大阪独演会 第十九席＞～宮本佳林～』トークイベント"
 },
 "s1786": {
 "artists": [
@@ -9249,21 +9329,21 @@
 "status": null,
 "title": "発売日｜佐藤優樹 Live Tour 2027 (仮タイトル)"
 },
-"s2200": {
+"s2201": {
 "artists": [
 5
 ],
 "category": "RADIO",
-"date": "2026-11-27",
-"end": "15:55",
+"date": "2026-12-04",
+"end": "23:00",
 "isFc": false,
 "label": null,
-"link": "https://www.joeufm.co.jp/grc/",
+"link": "https://hfm.jp/program/music-voice/",
 "members": [],
 "note": "",
-"start": "13:41",
+"start": "22:55",
 "status": null,
-"title": "FM愛媛「Groovy Radio Caravan」"
+"title": "広島FM「MUSIC VOICE」"
 },
 "s2208": {
 "artists": [
@@ -9280,22 +9360,6 @@
 "start": "12:00",
 "status": null,
 "title": "HBCラジオ「カーナビラジオ午後一番！」"
-},
-"s2216": {
-"artists": [
-10
-],
-"category": "TV",
-"date": "2026-11-26",
-"end": "25:50",
-"isFc": false,
-"label": null,
-"link": "https://www.ox-tv.co.jp/sugojob/",
-"members": [],
-"note": "※再放送",
-"start": "25:40",
-"status": null,
-"title": "仙台放送 「みやぎお仕事バラエティ スゴ！ジョブ！」"
 },
 "s2222": {
 "artists": [
@@ -9488,54 +9552,6 @@
 "start": "19:00",
 "status": null,
 "title": "FM NORTH WAVE「RADIO GROOVE」"
-},
-"s2366": {
-"artists": [
-40
-],
-"category": "TICKET",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/miyamotokarin/",
-"members": [],
-"note": "12/1(火) KT Zepp Yokohama （神奈川）公演\n※追加席販売",
-"start": "12:00",
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
-},
-"s783": {
-"artists": [
-10
-],
-"category": "STAGE",
-"date": "2026-11-26",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
-"members": [],
-"note": "梅田芸術劇場シアター・ドラマシティ（大阪）",
-"start": null,
-"status": null,
-"title": "タクフェス第14弾「北の島から」"
-},
-"s784": {
-"artists": [
-10
-],
-"category": "STAGE",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/c004218e9cbeb0e89f9c1524dbb7a2e1eb194d7eb82ff3a768e1d2942b531d20/",
-"members": [],
-"note": "梅田芸術劇場シアター・ドラマシティ（大阪）",
-"start": null,
-"status": null,
-"title": "タクフェス第14弾「北の島から」"
 },
 "s785": {
 "artists": [
@@ -9730,5 +9746,5 @@
 "title": "タクフェス第14弾「北の島から」"
 }
 },
-"versionDir": "2611261800-IhypJQZKYH64Oco5"
+"versionDir": "2611281800-SbJkHwhNq0ijR5So"
 }

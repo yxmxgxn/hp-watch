@@ -3959,6 +3959,34 @@
 "status": null,
 "title": "TBS「ハマダ歌謡祭★オオカミ少年」"
 },
+"h08dd200ec3cbfd73": {
+"artists": [
+3
+],
+"category": "EVENT",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "SGCホール有明 （東京）",
+"start": null,
+"status": null,
+"title": "GIFT～Girls Idol Festival Tokyo～"
+},
 "h092ae79f39edb675": {
 "artists": [
 676
@@ -4633,6 +4661,25 @@
 "start": null,
 "status": null,
 "title": "サントリー ノンアルコール アイドルパーティー Vol.1 Produced by @ JAM"
+},
+"h0cb8752fa1aad820": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://jfn.co.jp/program/875/",
+"members": [
+540,
+708
+],
+"note": "※14:21頃～出演予定。",
+"start": "13:30",
+"status": null,
+"title": "JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」"
 },
 "h0cbfafe1f741b563": {
 "artists": [
@@ -7698,6 +7745,26 @@
 "start": "19:00",
 "status": null,
 "title": "Juice=Juice Room Tour 2026 「5ROOMS」"
+},
+"h1b49dad74c5ec94f": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "20:58",
+"isFc": false,
+"label": null,
+"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "20:54",
+"status": null,
+"title": "福島テレビ「MUSIC TIME」"
 },
 "h1b4f44a4267fc130": {
 "artists": [
@@ -18510,6 +18577,34 @@
 "status": null,
 "title": "今日は相馬優芽（ロージークロニクル）の17歳の誕生日です！"
 },
+"h55102e7467e7e0ad": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "21:54",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/music/",
+"members": [
+13,
+300,
+516,
+601,
+643,
+655,
+656,
+667,
+679,
+681,
+711
+],
+"note": "",
+"start": "21:00",
+"status": null,
+"title": "テレビ朝日「MUSIC STATION」"
+},
 "h554d158c6d90fa3a": {
 "artists": [
 477
@@ -26074,6 +26169,26 @@
 "status": null,
 "title": "今日は小林萌花（BEYOOOOONDS）の27歳の誕生日です！"
 },
+"h7d674ad90d6f6914": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "25:45",
+"isFc": false,
+"label": null,
+"link": "https://www.ncctv.co.jp/5ch/musiclove/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "25:25",
+"status": null,
+"title": "長崎文化放送「みゅーじっくら部」"
+},
 "h7d6c4aa234b9a590": {
 "artists": [
 676
@@ -27001,6 +27116,25 @@
 "start": "18:15",
 "status": null,
 "title": "OCHA NORMA LIVE TOUR 2026 AUTUMN ～Original CHAracter～"
+},
+"h81bb76b22a46a024": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "12:00",
+"isFc": false,
+"label": null,
+"link": "https://www.knb.ne.jp/bangumi/asanama/",
+"members": [
+592,
+665
+],
+"note": "※コメント",
+"start": "08:30",
+"status": null,
+"title": "北日本放送「とれたてワイド朝生！」"
 },
 "h81d608e7b5771b1d": {
 "artists": [
@@ -30058,6 +30192,42 @@
 "status": null,
 "title": "鹿児島テレビ「Kagoshima見っどナイト」"
 },
+"h9290feec132932be": {
+"artists": [
+42
+],
+"category": "TICKET",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://eplus.jp/miyamotokarin/",
+"members": [
+666,
+668,
+678,
+682,
+683,
+684,
+685,
+686,
+687,
+696,
+697,
+698,
+699,
+700,
+701,
+702,
+703,
+704,
+710
+],
+"note": "12/1(火) KT Zepp Yokohama （神奈川）公演\n※追加席販売",
+"start": "12:00",
+"status": null,
+"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
+},
 "h92a512d528bcebdd": {
 "artists": [
 36
@@ -31022,6 +31192,25 @@
 "start": "19:00",
 "status": null,
 "title": "TBS「ハマダ歌謡祭★オオカミ少年」"
+},
+"h9780dcb130e9446e": {
+"artists": [
+36
+],
+"category": "STREAM",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://helloproject-stream.com/",
+"members": [
+450,
+543
+],
+"note": "※配信開始",
+"start": "18:00",
+"status": null,
+"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
 },
 "h97a0d2fa6ee0dea3": {
 "artists": [
@@ -34250,6 +34439,26 @@
 "status": null,
 "title": "FM徳島「T-Joint」"
 },
+"ha875ab215aba890b": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "25:13",
+"isFc": false,
+"label": null,
+"link": "https://www.rsk.co.jp/tv/yutanpo/",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "24:43",
+"status": null,
+"title": "RSK山陽放送「ユタンポ」"
+},
 "ha89ab179a2b6c1b1": {
 "artists": [
 3
@@ -35661,6 +35870,26 @@
 "start": null,
 "status": null,
 "title": "14thシングル発売記念forTUNE musicイベント"
+},
+"hb0b06e2732a5e7ca": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "16:00",
+"isFc": false,
+"label": null,
+"link": "https://radiko.jp/r_seasons/10015534",
+"members": [
+462,
+540,
+593
+],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "山口放送「お昼はZETTAIラジTIME」"
 },
 "hb142014de753a3be": {
 "artists": [
@@ -38291,6 +38520,25 @@
 "status": null,
 "title": "Hello! Project 研修生発表会 2026 9月 ～新風～"
 },
+"hc02588add7f388f5": {
+"artists": [
+585
+],
+"category": "WEB",
+"date": "2026-11-25",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://strmweb.jp/archives/23433/",
+"members": [
+593,
+708
+],
+"note": "",
+"start": null,
+"status": null,
+"title": "STREAM"
+},
 "hc02a04fb314bcfd4": {
 "artists": [
 29
@@ -38957,6 +39205,25 @@
 "start": "09:00",
 "status": null,
 "title": "フジテレビ「ノンストップ！」"
+},
+"hc3c0f5afda124fd8": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "15:55",
+"isFc": false,
+"label": null,
+"link": "https://hellofive.jp/program/flyin-pop/",
+"members": [
+592,
+665
+],
+"note": "※コメント",
+"start": "13:30",
+"status": null,
+"title": "FM石川「Flyin'Pop」"
 },
 "hc3c2b3dd5664bc88": {
 "artists": [
@@ -41373,6 +41640,26 @@
 "status": null,
 "title": "今日は江端妃咲（Juice=Juice）の21歳の誕生日です！"
 },
+"hcfa981a15764e07f": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-11-27",
+"end": "18:55",
+"isFc": false,
+"label": null,
+"link": "https://www.fmii.co.jp/youcanradio/",
+"members": [
+462,
+540,
+593
+],
+"note": "※コメント",
+"start": "16:00",
+"status": null,
+"title": "FM岩手「夕刊ラジオ」"
+},
 "hcff6905b2f86bdec": {
 "artists": [
 3,
@@ -43460,6 +43747,24 @@
 "start": "18:00",
 "status": null,
 "title": "Juice=Juice Concert 2026 UP TO 11 MORE！ / MORE！ MORE！"
+},
+"hd9ec7f4d7b9b22ae": {
+"artists": [
+3
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": null,
+"isFc": false,
+"label": null,
+"link": "https://s.mxtv.jp/variety/aikatsu_challenge/",
+"members": [
+516
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "TOKYO MX「バンマニ!リアルアイカツ！チャレンジ 〜現役アイドルがアイカツ！ゲームバトル〜」"
 },
 "hd9fd4d73149767df": {
 "artists": [
@@ -46514,6 +46819,25 @@
 "start": "13:00",
 "status": null,
 "title": "和歌山放送「すみたにの全開！水曜日」"
+},
+"he9bc2d73fe836e9b": {
+"artists": [
+634
+],
+"category": "TV",
+"date": "2026-11-27",
+"end": "26:35",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/",
+"members": [
+544,
+568
+],
+"note": "",
+"start": "26:30",
+"status": null,
+"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃158」"
 },
 "he9c37ca4bfa9b35a": {
 "artists": [
@@ -50916,34 +51240,6 @@
 "status": null,
 "title": "MBS「西乃風ブラン堂」"
 },
-"s1314": {
-"artists": [
-3
-],
-"category": "EVENT",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "/event/956052fc64951fb2463a0065ae4a1020f3c8a191102db8c25af513eb5bf988ed/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "SGCホール有明 （東京）",
-"start": null,
-"status": null,
-"title": "GIFT～Girls Idol Festival Tokyo～"
-},
 "s1315": {
 "artists": [
 3,
@@ -52043,25 +52339,6 @@
 "status": null,
 "title": "Juice=Juice 有澤一華バースデーイベント2027"
 },
-"s1961": {
-"artists": [
-36
-],
-"category": "STREAM",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://helloproject-stream.com/",
-"members": [
-450,
-543
-],
-"note": "※配信開始",
-"start": "18:00",
-"status": null,
-"title": "＜ハロショ大阪二人会 第四十八席＞～Juice=Juice井上玲音＆松永里愛～トークイベント"
-},
 "s1962": {
 "artists": [
 36
@@ -53073,25 +53350,6 @@
 "status": null,
 "title": "ロージークロニクル 相馬優芽バースデーイベント2027"
 },
-"s2118": {
-"artists": [
-634
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": "26:35",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/",
-"members": [
-544,
-568
-],
-"note": "",
-"start": "26:30",
-"status": null,
-"title": "テレビ朝日「イベレコ EVENT RECOMMEND ＃158」"
-},
 "s2124": {
 "artists": [
 3,
@@ -53313,24 +53571,6 @@
 "start": null,
 "status": null,
 "title": "小田さくら 卒業記念スペシャル配信"
-},
-"s2231": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://s.mxtv.jp/variety/aikatsu_challenge/",
-"members": [
-516
-],
-"note": "",
-"start": "19:00",
-"status": null,
-"title": "TOKYO MX「バンマニ!リアルアイカツ！チャレンジ 〜現役アイドルがアイカツ！ゲームバトル〜」"
 },
 "s2239": {
 "artists": [
@@ -54288,26 +54528,6 @@
 "status": null,
 "title": "SPARK 2026 年末SPECIAL"
 },
-"s2273": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": "25:45",
-"isFc": false,
-"label": null,
-"link": "https://www.ncctv.co.jp/5ch/musiclove/",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "25:25",
-"status": null,
-"title": "長崎文化放送「みゅーじっくら部」"
-},
 "s2279": {
 "artists": [
 585
@@ -54396,6 +54616,34 @@
 "status": null,
 "title": "日本テレビ「ベストアーティスト2026」"
 },
+"s2283": {
+"artists": [
+36
+],
+"category": "TV",
+"date": "2026-12-25",
+"end": "23:10",
+"isFc": false,
+"label": null,
+"link": "https://www.tv-asahi.co.jp/music/",
+"members": [
+67,
+450,
+515,
+543,
+609,
+620,
+621,
+625,
+631,
+644,
+654
+],
+"note": "",
+"start": "16:30",
+"status": null,
+"title": "テレビ朝日「ミュージックステーション SUPERLIVE 2026」"
+},
 "s2284": {
 "artists": [
 585
@@ -54433,46 +54681,6 @@
 "start": "11:00",
 "status": null,
 "title": "FM長野「SATURDAY D」"
-},
-"s2286": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": "25:13",
-"isFc": false,
-"label": null,
-"link": "https://www.rsk.co.jp/tv/yutanpo/",
-"members": [
-462,
-540,
-593
-],
-"note": "",
-"start": "24:43",
-"status": null,
-"title": "RSK山陽放送「ユタンポ」"
-},
-"s2291": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-27",
-"end": "16:00",
-"isFc": false,
-"label": null,
-"link": "https://radiko.jp/r_seasons/10015534",
-"members": [
-462,
-540,
-593
-],
-"note": "",
-"start": "12:00",
-"status": null,
-"title": "山口放送「お昼はZETTAIラジTIME」"
 },
 "s2292": {
 "artists": [
@@ -54533,44 +54741,6 @@
 "start": "25:20",
 "status": null,
 "title": "富山テレビ放送「bms BBT MUSIC SELECTION」"
-},
-"s2302": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-27",
-"end": "12:00",
-"isFc": false,
-"label": null,
-"link": "https://www.knb.ne.jp/bangumi/asanama/",
-"members": [
-592,
-665
-],
-"note": "※コメント",
-"start": "08:30",
-"status": null,
-"title": "北日本放送「とれたてワイド朝生！」"
-},
-"s2303": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-27",
-"end": "15:55",
-"isFc": false,
-"label": null,
-"link": "https://hellofive.jp/program/flyin-pop/",
-"members": [
-592,
-665
-],
-"note": "※コメント",
-"start": "13:30",
-"status": null,
-"title": "FM石川「Flyin'Pop」"
 },
 "s2304": {
 "artists": [
@@ -54648,34 +54818,6 @@
 "status": null,
 "title": "NHK総合「夜ドラ『青の花 器の森』」"
 },
-"s2311": {
-"artists": [
-3
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": "21:54",
-"isFc": false,
-"label": null,
-"link": "https://www.tv-asahi.co.jp/music/",
-"members": [
-13,
-300,
-516,
-601,
-643,
-655,
-656,
-667,
-679,
-681,
-711
-],
-"note": "",
-"start": "21:00",
-"status": null,
-"title": "テレビ朝日「MUSIC STATION」"
-},
 "s2312": {
 "artists": [
 676
@@ -54714,45 +54856,6 @@
 "status": null,
 "title": "tbc東北放送「ひるまでウォッチン！」"
 },
-"s2314": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-27",
-"end": "15:55",
-"isFc": false,
-"label": null,
-"link": "https://jfn.co.jp/program/875/",
-"members": [
-540,
-708
-],
-"note": "※14:21頃～出演予定。",
-"start": "13:30",
-"status": null,
-"title": "JFN「FRIDAY GOES ON〜あっ、それいただきっ！〜」"
-},
-"s2321": {
-"artists": [
-585
-],
-"category": "TV",
-"date": "2026-11-27",
-"end": "20:58",
-"isFc": false,
-"label": null,
-"link": "https://www.fukushima-tv.co.jp/program/musictime.html",
-"members": [
-496,
-541,
-708
-],
-"note": "※コメント",
-"start": "20:54",
-"status": null,
-"title": "福島テレビ「MUSIC TIME」"
-},
 "s2322": {
 "artists": [
 585
@@ -54772,26 +54875,6 @@
 "start": "24:55",
 "status": null,
 "title": "福島中央テレビ「二畳半レコード」"
-},
-"s2324": {
-"artists": [
-585
-],
-"category": "RADIO",
-"date": "2026-11-27",
-"end": "18:55",
-"isFc": false,
-"label": null,
-"link": "https://www.fmii.co.jp/youcanradio/",
-"members": [
-462,
-540,
-593
-],
-"note": "※コメント",
-"start": "16:00",
-"status": null,
-"title": "FM岩手「夕刊ラジオ」"
 },
 "s2327": {
 "artists": [
@@ -55422,42 +55505,6 @@
 "status": null,
 "title": "BEYOOOOONDS/雨ノ森 川海 小島はなバースデーイベント2027"
 },
-"s2366": {
-"artists": [
-42
-],
-"category": "TICKET",
-"date": "2026-11-27",
-"end": null,
-"isFc": false,
-"label": null,
-"link": "https://eplus.jp/miyamotokarin/",
-"members": [
-666,
-668,
-678,
-682,
-683,
-684,
-685,
-686,
-687,
-696,
-697,
-698,
-699,
-700,
-701,
-702,
-703,
-704,
-710
-],
-"note": "12/1(火) KT Zepp Yokohama （神奈川）公演\n※追加席販売",
-"start": "12:00",
-"status": null,
-"title": "発売日｜宮本佳林 5周年記念LIVE TOUR 2026 〜ぼくのかんがえたさいきょうの「宮本佳林MAX」〜"
-},
 "s2375": {
 "artists": [
 585
@@ -55558,7 +55605,87 @@
 "start": "24:45",
 "status": null,
 "title": "岩手めんこいテレビ「BEATNIKS」"
+},
+"s2381": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-09",
+"end": "24:44",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/",
+"members": [
+591,
+592,
+665
+],
+"note": "※放送時間が変更になる可能性があります。",
+"start": "24:29",
+"status": null,
+"title": "HBCテレビ「もんすけインフォメーション」"
+},
+"s2382": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-15",
+"end": "15:00",
+"isFc": false,
+"label": null,
+"link": "https://www.hbc.co.jp/radio/carnavi/",
+"members": [
+524,
+591,
+709
+],
+"note": "",
+"start": "12:00",
+"status": null,
+"title": "HBCラジオ「カーナビラジオ午後一番！」"
+},
+"s2383": {
+"artists": [
+585
+],
+"category": "RADIO",
+"date": "2026-12-15",
+"end": "21:00",
+"isFc": false,
+"label": null,
+"link": "https://www.fmnorth.co.jp/radiogroove/",
+"members": [
+524,
+591,
+709
+],
+"note": "",
+"start": "19:00",
+"status": null,
+"title": "FM NORTH WAVE「RADIO GROOVE」"
+},
+"s2385": {
+"artists": [
+585
+],
+"category": "TV",
+"date": "2026-12-03",
+"end": "14:48",
+"isFc": false,
+"label": null,
+"link": "https://www.htb.co.jp/ichimori/",
+"members": [
+496,
+541,
+708
+],
+"note": "※コメント",
+"start": "14:20",
+"status": null,
+"title": "HTB「イチ盛り！」"
 }
 },
-"versionDir": "2611271800-Dbmiv9xM3c7jAl0P"
+"versionDir": "2611281800-SbJkHwhNq0ijR5So"
 }
