@@ -361,6 +361,26 @@
    "rule": 4
   },
   {
+   "guid": "hp-media-hcd022677b2949ce2",
+   "air": "2026-11-28",
+   "until": "2026-12-01",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/epkxm4sbre",
+     "ep": {
+      "date": "2026-11-28",
+      "kind": "air",
+      "title": "ウエンツが指揮に挑戦！こっちのけんと&くっきー！異色コラボ&有澤一華ヴァイオリン生演奏！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-28",
+   "match": "exact",
+   "rule": 4
+  },
+  {
    "guid": "jproom-media-h9405411399a4977d",
    "air": "2026-11-28",
    "until": "2026-12-01",
