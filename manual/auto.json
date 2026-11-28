@@ -361,6 +361,26 @@
    "rule": 4
   },
   {
+   "guid": "hp-media-hbf1fdb7963af005f",
+   "air": "2026-11-28",
+   "until": "2026-12-01",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/ep2piwgeo4",
+     "ep": {
+      "date": "2026-11-28",
+      "kind": "air",
+      "title": "【PART3】19時45分～20時30分頃"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-28",
+   "match": "exact",
+   "rule": 4
+  },
+  {
    "guid": "hp-media-hcd022677b2949ce2",
    "air": "2026-11-28",
    "until": "2026-12-01",
@@ -418,6 +438,26 @@
    "source": "auto",
    "found": "2026-11-28",
    "match": "prev",
+   "rule": 4
+  },
+  {
+   "guid": "upfront-media-hc769127472bcd603",
+   "air": "2026-11-28",
+   "until": "2026-12-01",
+   "links": [
+    {
+     "label": "TVer",
+     "url": "https://tver.jp/episodes/ep49bpz0et",
+     "ep": {
+      "date": "2026-11-28",
+      "kind": "air",
+      "title": "和・洋・中の人気ファミレス一斉ジャッジ！"
+     }
+    }
+   ],
+   "source": "auto",
+   "found": "2026-11-28",
+   "match": "exact",
    "rule": 4
   },
   {
