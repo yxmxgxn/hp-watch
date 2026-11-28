@@ -479,6 +479,62 @@
    ],
    "source": "youtube",
    "found": "2026-11-27"
+  },
+  {
+   "guid": "hp-media-h640afb69224ae318",
+   "air": "2026-11-29",
+   "until": "2026-12-13",
+   "links": [
+    {
+     "label": "ポッドキャスト（前の回）",
+     "url": "https://omny.fm/shows/juicytalk/06-juice-juice-2026-11-15",
+     "ep": {
+      "date": "2026-11-23",
+      "kind": "pub",
+      "title": "#06 Juice=Juice ジューシー・トーク（2026年11月15日放送分）",
+      "titled": "2026-11-15",
+      "prev": true
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-29"
+  },
+  {
+   "guid": "jproom-media-hb7d54f8910a81443",
+   "air": "2026-11-29",
+   "until": "2026-12-13",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#191"
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-29"
+  },
+  {
+   "guid": "jproom-media-hcf631cba59a32a4f",
+   "air": "2026-11-29",
+   "until": "2026-12-13",
+   "links": [
+    {
+     "label": "ポッドキャスト",
+     "url": "https://podcasters.spotify.com/pod/show/3uvdntoe1ao/episodes/MUSIC-BAR-MIRAI191-e3t0t7k",
+     "ep": {
+      "date": "2026-11-26",
+      "kind": "pub",
+      "title": "MUSIC BAR MIRAI亭#191"
+     }
+    }
+   ],
+   "source": "podcast",
+   "found": "2026-11-29"
   }
  ]
 }
